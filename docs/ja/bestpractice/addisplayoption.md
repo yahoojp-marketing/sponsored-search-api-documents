@@ -1,0 +1,955 @@
+# 広告表示オプション
+## 広告表示オプションとは
+広告表示オプションとは、スポンサードサーチの広告に別ページへのリンクや電話番号といった付加情報をつけて配信する機能です。  
+  
+広告表示オプションには、以下の2つがあります：  
+* “QuickLink” （広告の下部に別ページへのリンクを表示）
+* “CallExtension”（電話番号を表示）  
+  
+広告表示オプションのメリットは以下の2点です。  
+1. 広告スペースが広がるため、視認性が高まる。 → クリック率向上
+2. ユーザーが求めているページに、すぐにアクセスできる。 → 利便性の向上
+
+## スポンサードサーチ APIでの実施方法
+スポンサードサーチAPIでは広告表示オプションを表示するために、以下の3つの Serviceを使用します。  
+##### 1.	FeedItemService 
+FeedItemServiceでは、FeedItem情報の取得および追加・更新・削除が実施できます。  
+FeedItem情報とは、広告表示オプションとして表示するテキスト、リンクURL 、電話番号などのコンポーネントのことです。
+  
+##### 2.	CampaignFeedService  
+CampaignFeedServiceでは、追加したFeedItem情報のキャンペーンへの設定やキャンペーンに設定されているFeedItem情報の取得が実施できます。
+  
+##### 3.	AdGroupFeedService
+AdGroupFeedServiceでは、追加したFeedItem情報の広告グループへの設定や広告グループに設定されているFeedItem情報の取得が実施できます。  
+  
+## シナリオ
+A社は、販促施策の一環として、スポンサードサーチAPIを使い以下の広告表示オプションの追加を行います。
+  
+##### QuickLink
+No                | LINK_TEXT             | LINK_URL                                 
+----------------- | --------------------- | -----------------------------------------
+1 | セール | www.example.jp/sale
+2 | 店舗一覧 | www.example.jp/store
+3 | ランキング | www.example.jp/ranking
+4 | 問い合わせ | www.example.jp/support
+5 | クーポン | www.example.jp/coupon
+6 | 特別セール | www.example.jp/specialsale
+7 | ポイント | www.example.jp/point
+   
+##### CallExtension
+No                | CALL_PHONE_NUMBER                                 
+----------------- | ---------------------
+1 | 0120-45-6789
+
+#### 1.	FeedItemの登録
+はじめに、FeedItemServiceを使い、スポンサードサーチのアカウントにFeedItem情報を登録します。  
+ここではA社のスポンサードサーチのアカウント（ID:100000001）に、先述の広告表示オプションをそれぞれ登録します。  
+##### ＜リクエストサンプル＞ [QUICKLINK用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>ADD</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>セール</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/sale</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>店舗一覧</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/store</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>ランキング</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/ranking</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>問合せ</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/support</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>クーポン</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/coupon</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>特別セール</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/specialsale</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                  <ns1:feedAttributeValue>ポイント</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                  <ns1:feedAttributeValue>http://www.example.jp/point</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+```
+##### ＜レスポンスサンプル＞ [QUICKLINK用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>FeedItemService</ns1:service>
+         <ns1:remainingQuota>9995</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>20.1486</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>ADD</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>1</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>セール</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/sale</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>2</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>店舗一覧</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/store</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>3</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>ランキング</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/ranking</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>4</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>問合せ</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/support</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>5</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>クーポン</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/coupon</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>6</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>特別セール</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/specialsale</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>
+           <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>7</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
+                     <ns1:feedAttributeValue>ポイント</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>LINK_URL</ns1:placeholderField>
+                     <ns1:feedAttributeValue>http://www.example.jp/point</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               </ns1:feedItem>
+            </ns1:values>                            
+         </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜リクエストサンプル＞ [CALLEXTENSION用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:apiAccountPassword>takami</ns1:apiAccountPassword>
+       </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutate>
+            <ns1:operations>
+                <ns1:operator>ADD</ns1:operator>
+                <ns1:accountId>1000000161</ns1:accountId>
+                <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                <ns1:operand>
+                    <ns1:accountId>1000000161</ns1:accountId>
+                    <ns1:feedItemAttribute>
+                        <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
+                        <ns1:feedAttributeValue>0120-45-6789</ns1:feedAttributeValue>
+                    </ns1:feedItemAttribute>
+                    <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                </ns1:operand>
+           </ns1:operations>
+        </ns1:mutate>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞ [CALLEXTENSION用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>FeedItemService</ns1:service>
+         <ns1:remainingQuota>9992</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.907</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>ADD</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:feedItem>
+                  <ns1:accountId>100000001</ns1:accountId>
+                  <ns1:feedItemId>1</ns1:feedItemId>
+                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                  <ns1:feedItemAttribute>
+                     <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
+                     <ns1:feedAttributeValue>0120-45-6789</ns1:feedAttributeValue>
+                  </ns1:feedItemAttribute>
+                  <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                  <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
+               </ns1:feedItem>
+            </ns1:values>
+         </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+#### 2.	キャンペーンへの登録
+次にCampaignFeedServiceを使い、登録したFeedItem情報をキャンペーンに設定します。  
+ここではQuickLink[No1-4]とCallExtension[No1]をキャンペーンに設定します。  
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>1000000001</ns1:accountId>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>1</ns1:feedItemId>
+               </ns1:campaignFeed>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>2</ns1:feedItemId>
+               </ns1:campaignFeed>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>3</ns1:feedItemId>
+               </ns1:campaignFeed>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>4</ns1:feedItemId>
+               </ns1:campaignFeed>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>1</ns1:feedItemId>
+               </ns1:campaignFeed>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>CampaignFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>CampaignFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>1</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>2</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>3</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                          <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>4</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                    </ns1:campaignFeedList>
+               </ns1:values>
+               <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                   <ns1:campaignFeedList>
+                       <ns1:accountId>100000001</ns1:accountId>
+                       <ns1:campaignId>100000003</ns1:campaignId>
+                       <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       <ns1:campaignFeed>
+                           <ns1:accountId>100000001</ns1:accountId>
+                           <ns1:campaignId>100000003</ns1:campaignId>
+                           <ns1:feedItemId>1</ns1:feedItemId>
+                           <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       </ns1:campaignFeed>
+                   </ns1:campaignFeedList>
+                </ns1:values>
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+#### 3.	広告グループへの登録
+続いてAdGroupFeedServiceを使い、登録したFeedItem情報を広告グループに設定します。  
+ここではQuickLink[No5]を広告グループに設定します。  
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>1000000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:adGroupId>100000113</ns1:adGroupId>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+               <ns1:adGroupFeed>
+                  <ns1:feeditemId>5</ns1:feeditemId>
+               </ns1:adGroupFeed>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:adGroupId>100000113</ns1:adGroupId>
+               <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+               <ns1:adGroupFeed>
+                  <ns1:feeditemId>1</ns1:feeditemId>
+               </ns1:adGroupFeed>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>AdGroupFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>AdGroupFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:adGroupId>100000113</ns1:adGroupId>
+                        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        <ns1:adGroupFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:adGroupId>100000113</ns1:adGroupId>
+                            <ns1:feedItemId>5</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                       </ns1:adGroupFeed>
+                    </ns1:adGroupFeedList>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:adGroupId>100000113</ns1:adGroupId>
+                        <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                        <ns1:adGroupFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:adGroupId>100000113</ns1:adGroupId>
+                            <ns1:feedItemId>1</ns1:feedItemId>
+                            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       </ns1:adGroupFeed>
+                    </ns1:adGroupFeedList>
+                </ns1:values>                
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+#### 4.	キャンペーンのFeedItem変更
+特別セールの開催が決まったため、キャンペーンに設定しているQuickLinkを変更します。  
+今回は、キャンペーンに設定しているQuickLink[No1]を削除し、新たにQuickLink[No6]を設定します。  
+##### ＜リクエストサンプル＞ [QUICKLINK用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>1000000001</ns1:accountId>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+              <ns1:campaignFeed>
+                  <ns1:feedItemId>2</ns1:feedItemId>
+               </ns1:campaignFeed>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>3</ns1:feedItemId>
+               </ns1:campaignFeed>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>4</ns1:feedItemId>
+               </ns1:campaignFeed>
+              <ns1:campaignFeed>
+                  <ns1:feedItemId>6</ns1:feedItemId>
+               </ns1:campaignFeed>               
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+               <ns1:campaignFeed>
+                  <ns1:feedItemId>1</ns1:feedItemId>
+               </ns1:campaignFeed>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞ [QUICKLINK用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>CampaignFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>CampaignFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>2</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>3</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>4</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                       <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>6</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>     
+                    </ns1:campaignFeedList>
+               </ns1:values>
+               <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                   <ns1:campaignFeedList>
+                       <ns1:accountId>100000001</ns1:accountId>
+                       <ns1:campaignId>100000003</ns1:campaignId>
+                       <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       <ns1:campaignFeed>
+                           <ns1:accountId>100000001</ns1:accountId>
+                           <ns1:campaignId>100000003</ns1:campaignId>
+                           <ns1:feedItemId>1</ns1:feedItemId>
+                           <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       </ns1:campaignFeed>
+                   </ns1:campaignFeedList>
+                </ns1:values>
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜リクエストサンプル＞ [CALLEXTENSION用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>CampaignFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>CampaignFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>2</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>3</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                         <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>4</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>
+                       <ns1:campaignFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:feedItemId>6</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        </ns1:campaignFeed>     
+                    </ns1:campaignFeedList>
+               </ns1:values>
+               <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                   <ns1:campaignFeedList>
+                       <ns1:accountId>100000001</ns1:accountId>
+                       <ns1:campaignId>100000003</ns1:campaignId>
+                       <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       <ns1:campaignFeed>
+                           <ns1:accountId>100000001</ns1:accountId>
+                           <ns1:campaignId>100000003</ns1:campaignId>
+                           <ns1:feedItemId>1</ns1:feedItemId>
+                           <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       </ns1:campaignFeed>
+                   </ns1:campaignFeedList>
+                </ns1:values>
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞ [CALLEXTENSION用]
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>CampaignFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>CampaignFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+              <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                   <ns1:campaignFeedList>
+                       <ns1:accountId>100000001</ns1:accountId>
+                       <ns1:campaignId>100000003</ns1:campaignId>
+                       <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                       <ns1:campaignFeed></ns1:campaignFeed>
+                   </ns1:campaignFeedList>
+                </ns1:values>
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+#### 5.	広告グループのFeedItem変更
+クーポンの提供期間が終了したため、ポイントキャンペーンへの誘導ページに変更します。  
+今回は、広告グループに設定しているQuickLink[No5]を削除し、新たにQuickLink[No7]を設定します。 
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+            <ns1:accountId>1000000001</ns1:accountId>
+            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+            <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutate>
+            <ns1:operations>
+                <ns1:operator>SET</ns1:operator>
+                <ns1:accountId>100000001</ns1:accountId>
+                <ns1:operand>
+                    <ns1:accountId>100000001</ns1:accountId>
+                    <ns1:campaignId>100000003</ns1:campaignId>
+                    <ns1:adGroupId>100000113</ns1:adGroupId>
+                    <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                    <ns1:adGroupFeed>
+                        <ns1:feeditemId>7</ns1:feeditemId>
+                    </ns1:adGroupFeed>
+               </ns1:operand>
+          </ns1:operations>
+        </ns1:mutate>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>AdGroupFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>AdGroupFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:adGroupId>100000113</ns1:adGroupId>
+                        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                        <ns1:adGroupFeed>
+                            <ns1:accountId>100000001</ns1:accountId>
+                            <ns1:campaignId>100000003</ns1:campaignId>
+                            <ns1:adGroupId>100000113</ns1:adGroupId>
+                            <ns1:feedItemId>7</ns1:feedItemId>
+                            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
+                       </ns1:adGroupFeed>
+                    </ns1:adGroupFeedList>
+                </ns1:values>
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### 6.	CallExtensionの解除
+電話窓口が廃止になったため、広告グループに設定されているCallExtensionを解除します。
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>1000000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+           <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>100000003</ns1:campaignId>
+               <ns1:adGroupId>100000113</ns1:adGroupId>
+               <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+               <ns1:adGroupFeed></ns1:adGroupFeed>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>AdGroupFeedService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>AdGroupFeedReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupFeedList>
+                        <ns1:accountId>100000001</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:adGroupId>100000113</ns1:adGroupId>
+                        <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
+                        <ns1:adGroupFeed></ns1:adGroupFeed>
+                    </ns1:adGroupFeedList>
+                </ns1:values>                
+           </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+targetNamespace="http://ss.yahooapis.jp/V5"
+xmlns:tns="http://ss.yahooapis.jp/V5"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified"
+    targetNamespace="http://ss.yahooapis.jp/V5"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://ss.yahooapis.jp/V5">
+      <annotation>
+        <appinfo>
+          <version>5.2.0</version>
+        </appinfo>
+      </annotation>
+      <complexType name="SoapHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SoapResponseHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="DisapprovalReasonSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
+        </sequence>
+      </complexType>
+      <complexType name="GeographicLocationSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
+        </sequence>
+      </complexType>
+      <complexType name="DisapprovalReasonPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:DisapprovalReasonValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="DisapprovalReasonValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="disapprovalReason" type="tns:DisapprovalReason"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="DisapprovalReason">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="disapprovalReasonCode" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="lang" type="tns:DictionaryLang"/>
+          <element maxOccurs="1" minOccurs="0" name="title" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="recommendation" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="GeographicLocationPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:GeographicLocationValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GeographicLocationValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="geographicLocation" type="tns:GeographicLocation"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GeographicLocation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="parent" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="name" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="fullName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="order" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="tns:GeographicLocationStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="child" type="tns:GeographicLocation"/>
+        </sequence>
+      </complexType>
+      <simpleType name="DictionaryLang">
+        <restriction base="xsd:string">
+          <enumeration value="JA"/>
+          <enumeration value="EN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="GeographicLocationStatus">
+        <restriction base="xsd:string">
+            <enumeration value="ACTIVE"/>
+            <enumeration value="OBSOLETE"/>
+            <enumeration value="PHASING_OUT"/>
+        </restriction>
+      </simpleType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getDisapprovalReason">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:DisapprovalReasonSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getDisapprovalReasonResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:DisapprovalReasonPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getGeographicLocation">
+         <complexType>
+           <sequence>
+              <element maxOccurs="1" minOccurs="1" name="selector" type="tns:GeographicLocationSelector"/>
+           </sequence>
+         </complexType>
+      </element>
+      <element name="getGeographicLocationResponse">
+         <complexType>
+           <sequence>
+              <element maxOccurs="1" minOccurs="0" name="rval" type="tns:GeographicLocationPage"/>
+              <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+           </sequence>
+         </complexType>
+      </element>
+      <element name="RequestHeader" type="tns:SoapHeader"/>
+      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="RequestHeader">
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ResponseHeader">
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+  </wsdl:message>
+  <wsdl:message name="getDisapprovalReasonRequest">
+    <wsdl:part element="tns:getDisapprovalReason" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDisapprovalReasonResponse">
+    <wsdl:part element="tns:getDisapprovalReasonResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGeographicLocationRequest">
+     <wsdl:part element="tns:getGeographicLocation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGeographicLocationResponse">
+     <wsdl:part element="tns:getGeographicLocationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApiException">
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+  </wsdl:message>
+  <wsdl:portType name="DictionaryServiceInterface">
+    <wsdl:operation name="getDisapprovalReason">
+      <wsdl:input message="tns:getDisapprovalReasonRequest" name="getDisapprovalReasonRequest"/>
+      <wsdl:output message="tns:getDisapprovalReasonResponse" name="getDisapprovalReasonResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getGeographicLocation">
+      <wsdl:input message="tns:getGeographicLocationRequest" name="getGeographicLocationRequest"/>
+      <wsdl:output message="tns:getGeographicLocationResponse" name="getGeographicLocationResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DictionaryServiceSoapBinding" type="tns:DictionaryServiceInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDisapprovalReason">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDisapprovalReasonRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDisapprovalReasonResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGeographicLocation">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getGeographicLocationRequest">
+        <wsdlsoap:header use="literal" part="RequestHeader" message="tns:RequestHeader"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGeographicLocationResponse">
+        <wsdlsoap:header use="literal" part="ResponseHeader" message="tns:ResponseHeader"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DictionaryService">
+    <wsdl:port binding="tns:DictionaryServiceSoapBinding" name="DictionaryService">
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/DictionaryService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
