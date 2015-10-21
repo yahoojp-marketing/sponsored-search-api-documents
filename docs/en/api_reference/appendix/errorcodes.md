@@ -1,7 +1,7 @@
 # SOAP faults
 List of SOAP error code and message when the error or problem occurs.  
 ### Overview
-If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response.If an error occurs during the processing of your SOAP request, the Sponsored Search API will return an error code and message. See [Error](/docs/en/api_reference/data/Error.md), [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md)
+If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response.If an error occurs during the processing of your SOAP request, the Sponsored Search API will return an error code and message. See [Error](/docs/en/api_reference/data/Error.md) or [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Body>
@@ -157,6 +157,7 @@ Code  | Message  | Description
 120018 | DUPLICATE VALUE | The same Ad Group ID in the array.  
 120022 | DEACTIVATED | Data does not exist.  
 120027 | OVER LIST SIZE | Array is two or more.  
+210605 | App ad does not support Data Auto Insertion. | Data Auto Insertion has been selected for App ad support.
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
@@ -174,6 +175,8 @@ Code                     | Message  | Description
 210308 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210309 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
 210310 | Select the correct bid type.  | Bid type does not match.
+210403 | Not enough conversions or invalid setting. |Conversion is not enough.<br>Conversion related bidding strategy has been set in Mobile app download campaign for iOS.
+
 
 ##### Service
 [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)  
@@ -183,7 +186,7 @@ Code   | Message  | Description
 210400 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.  
 210401 | Setting the disabled Auto bidding.  | Designating the Auto bidding that in updating or deleted mode.
 210402 | Invalid conversion tracking.  | Conversion tracking is not valid.
-210403 | Not enough conversions.  | Conversion performance is not enough.
+210403 | Not enough conversions or invalid setting. |Conversion is not enough.<br>Conversion related bidding strategy has been set in Mobile app download campaign for iOS.
 210404 | Auto bidding is already set.  | Setting the Auto Bidding of "Target CPC" or "Maximize conversions" to campaign, when Bid settings are made to keywords.
 210405 | Budget has exceeded.  | Please change the budget to avoid exceeding the limit.
 210406 | Cannot use conversion optimizer.  | Conversion optimizer is not available.
@@ -323,3 +326,72 @@ Code    | Message        | Description
 210108 | LOWER NUMBER | Number is too small.
 210109 | OVER NUMBER | Number is too big.
 210110 | INVALID TARGET | Targeting is invalid.
+210111 | Same value has already been registered | Please select different value to register.
+210112 | can not delete a PlatformTarget | Were not able to delete the targeting.
+210103 | can not modify a bidMultiplier | Were not able to change the bid multiplier.
+210126 | Mobile app download cannot connect to Data Auto Insertion. |Connection to Data Auto Insertion has been attempted for Mobile app download.
+
+##### Service
+[CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)
+
+ Code    | Message        | Description   
+------------------------ | ----------- | -------------------------------------------------------
+20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
+120002 | INVALID VALUE| Value is invalid.
+120018 | DUPLICATE VALUE| Value is overlapped. Please use different value.
+120022 | DEACTIVATED| Invalid ID has been specified.
+120024 | INVALID RELATION| Relation is invalid.
+210103 | UNMATCH PLACEHOLDER TYPE| Inappropriate combination of placeholderType and feedItemId.
+210127 | Mobile app download cannot connect to Feed item.|Connection to Feed item has been attempted for Mobile app download.
+
+##### Service
+[AdGroupFeedService](/docs/ja/api_reference/services/AdGroupFeedService.md)
+
+ Code    | Message        | Description   
+------------------------ | ----------- | -------------------------------------------------------
+20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
+120002 | INVALID VALUE| Value is invalid.
+120018 | DUPLICATE VALUE| Value is overlapped. Please use different value.
+120022 | DEACTIVATED| Invalid ID has been specified.
+120024 | INVALID RELATION| Relation is invalid.
+210103 | UNMATCH PLACEHOLDER TYPE| Inappropriate combination of placeholderType and feedItemId.
+210127 | Mobile app download cannot connect to Feed item.|Connection to Feed item has been attempted for Mobile app download.
+
+#### Retargeting Error
+##### Service
+[RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+
+ Code    | Message        | Description   
+------------------------ | ----------- | -------------------------------------------------------
+210800 | Earlier than available date.| The date has been set earlier than the available date range
+210801 | Later than available date.| The date has been set later than the available date range
+210802 | Adult account selected.| Adult account cannot be selected.
+210803 | Retargeting unavailable.| Account that retargeting been stopped from review.
+210804 | Registered default list.| Cannot set the new default list to the account that has already set the default list.
+210805 | Already used name.| Target list name is already registered.
+210806 | Requires default list.| Cannot set condition list or combination list to the account that do not have default list registered.
+210807 | Selecting Close default list.| ”CLOSE” has been selected to the selected default list.
+210808 | Invalid rule operator.| Selecting the operator that cannot be selected.
+210809 | Not logical target list.| Selecting combination target list to combination list.
+210815 | Selecting only one target list.| Please select multiple target lists for combination list.
+210816 | Selecting only Not condition.| Cannot select “NOT” condition only in combination list setting.
+
+
+##### Service
+[NegativeCampaignRetargetingListService](/docs/ja/api_reference/services/NegativeCampaignRetargetingListService.md)
+
+ Code    | Message        | Description   
+------------------------ | ----------- | -------------------------------------------------------
+210810 | Status not approved.| Review is not approved for the selected target list.
+
+
+##### Service
+[AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
+
+ Code    | Message        | Description   
+------------------------ | ----------- | -------------------------------------------------------
+210810 | Status not approved.| Review is not approved for the selected target list.
+210811 | Target list not found.| Selected target list does not exist.
+210812 | Already existing target list.| Selected target list is already registered.
+210813 | Cannot bid the negative criterion.| Bidding setting been requested to the campaign or ad group that made exclude setting.
+210814 | List already registered.| Combination of target or exclude list to the selected ad group ID is already registered.

@@ -3,8 +3,8 @@ Use this service to get, add, update, or delete adgroup.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/AdGroupService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/AdGroupService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

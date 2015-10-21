@@ -3,8 +3,8 @@ CampaignCriterionService is to get, add, or delete negative criteria in campaign
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/CampaignCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/CampaignCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/CampaignCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CampaignCriterionService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

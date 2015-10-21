@@ -3,8 +3,8 @@ CampaignFeedService is to get and update the FeedItem information of campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/CampaignFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/CampaignFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/CampaignFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CampaignFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

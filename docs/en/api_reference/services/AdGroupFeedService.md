@@ -3,8 +3,8 @@ AdGroupFeedService is to get, add, update or delete the FeedItem information fro
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/AdGroupFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/AdGroupFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

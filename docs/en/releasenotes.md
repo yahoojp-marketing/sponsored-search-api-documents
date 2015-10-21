@@ -1,265 +1,83 @@
 # Release Notes
-Sponsored Search API ver.5.2
+Sponsored Search API ver.5.3
+
 ## Release version
-5.2 (WSDL Version: 5.2.0)
+5.3 (WSDL Version: 5.3.0)
+
 ## Types of Version update
 Minor version up  
 ※Refer to the URL below for the type of version upgrade.
 ## Main contents of this release
 
-#### 1. Added Data Auto Insertion function
-Function of submitting the data of product information to the ads has been added.  
-In addition, function of displaying the remaining time (countdown) has been added.  
-  
-##### To submit ads, the setting can be done as follows.
-* Data Insertion function  
+#### 1. Added Site Retargeting function
+Site retargeting function has been added. Details are listed below.<br>
+・Each type of create, update, get function for target list are added. Type of target lists is as below:<br>
+　-	Default list (Can issue the tag of retargeting)<br>
+　-	Condition list<br>
+　-	Combination list<br>
+・Can target and/or exclude setting the target list to campaign or ad group<br>
+ *Can only make exclude setting to campaign<br>
+・Added retargeting to report type<br>
+・Can retrieve operation history of target list<br>
 
-> Title: **{=vacuum.model}** 販売  
-> Display URL: www.example.com  
-> Description 1: **{=vacuum.price}** からご用意！  
-> Description 2: 日本全国どこでも配送料無料  
-
-* Countdown function  
-
-> Title: 掃除機セール中  
-> Display URL: www.example.com  
-> Description 1: 半年に一回のチャンス！  
-> Description 2: セール終了まであと**{=COUNTDOWN(vacuum.sales ends,"ja",5)}**  
-
-*Specify the list on the first parameter, and specify the number of days before to start the countdown on the third parameter (It will be "5" days before on the example).  
-  
-*For Countdown, it is possible to submit the date and time directly.  
-  
-> Title: 掃除機セール中  
-> Display URL: www.example.com  
-> Description 1: 半年に一回のチャンス！  
-> Description 2: セール終了まであと**{=COUNTDOWN(2015/01/15 09:00:00,"ja",5)}**  
-
-##### If the first row of the data is chosen to display as ad, the submitted data insertion and countdown ads will be displayed as follows.  
-
-* Setting example of the list for data insertion and countdown  
-<table class="standard">
-<tbody><tr>
-<th rowspan="2" valign="top">
-  <p>List name</p>
-</th>
-<th colspan="3" valign="top">
-  <p>Column name</p>
-</th>
-<th rowspan="2" valign="top">
-  <p>Target campaign</p>
-</th>
-<th rowspan="2" valign="top">
-  <p>Target ad group</p>
-</th>
-</tr>
-<tr>
-<th valign="top">
-  <p>model</p>
-</th>
-<th valign="top">
-  <p>price</p>
-</th>
-<th valign="top">
-  <p>sales ends</p>
-</th>
-</tr>
-<tr>
-<td rowspan="3" valign="middle">
-  <p></p><center>vaccum</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>ルンバ630</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>32,000円</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>2015/01/15</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>掃除機_海外</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>ロボット掃除機</center><p></p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p></p><center>ダイソンDC61</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>29,000円</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>2015/01/20</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>掃除機_海外</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>ハンディ掃除機</center><p></p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p></p><center>トルネオVC-RV1</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>59,800円</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>2015/02/23</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>掃除機_国内</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>ロボット掃除機</center><p></p>
-</td>
-</tr>
-</tbody></table>
-
-
-* Data Insertion function
-
-> **ルンバ630** 販売  
-> www.example.com  
-> **32,000円** からご用意！日本全国どこでも配送料無料  
-
-* Countdown function
-
-（If the ads are shown in 2015/01/13）  
-
-> 掃除機セール中  
-> www.example.com  
-> 半年に一回のチャンス！セール終了まであと**2日**  
-  
-##### Specifying the target depends on the purpose in where to set. The table of the setting is as follows.
-
-<table class="standard">
-<tbody><tr>
-<th valign="top">
-  <p>Purpose</p>
-</th>
-<th valign="top">
-  <p>Target campaign</p>
-</th>
-<th valign="top">
-  <p>Target ad group</p>
-</th>
-<th valign="top">
-  <p>Target keyword</p>
-</th>
-<th valign="top">
-  <p>Match type</p>
-</th>
-</tr>
-<tr>
-<td valign="top">
-  <p>Specific campaign</p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>Specific ad group</p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>Specific keyword under specific campaign</p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p> </p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>Specific keyword under specific ad group</p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-<td valign="top">
-  <p></p><center>Req</center><p></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-*There is no restriction in setting the target entities on each list data.<br>
-*The entites from the sample signifies as follows:<br>
-　・List name：feedFolder<br>
-　・Column name：feedAttribute<br>
-　・Target campaign：targetCampaign<br>
-　・Target ad group：targetAdGroup<br>
-<br>
 * Target Web Service  
- * [AdGroupFeedService](/docs/en/api_reference/services/AdGroupFeedService.md)
- * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
- * [FeedFolderService](/docs/en/api_reference/services/FeedFolderService.md)
+ * [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
+ * [NegativeCampaignRetargetingListService](/docs/en/api_reference/services/NegativeCampaignRetargetingListService.md)
+ * [AdGroupRetargetingListService](/docs/en/api_reference/services/AdGroupRetargetingListService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
  * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
-  
+ * [CutomerSyncService](/docs/en/api_reference/services/CutomerSyncService.md)
+
 * Target Data Object  
- * Please confirm from the Entities document of each Services attached to the document folder
+ * Please confirm from the Entities document of each Services attached to the document folder.
   
 * Target Enumerations  
  * Please confirm from the Enumerations document of each Services attached to the document folder.
   
-#### 2. Function improvement from Auto bidding release
-Submitting by intersecting the ad group is available.  
-Ad types are added to the selector of ad group.  
-The maximum number of request has been changed.  
+#### 2. Added Mobile app download function
+Mobile app download campaign function has been added. Details are listed below.<br>
+・Can create campaign for Mobile app download.<br>
+　・Added conversion tracking features for mobile app.<br>
+　　- App first open conversion<br>
+　　- In-app action conversion<br>
+　・Added campaign type item in campaign report. Also, there will be a restriction in report creation as below:<br>
+  　- Cannot create Destination URL report<br>
+  　- Destination URL will return blank in Search query report.<br>
+*Current campaign has renamed to “Standard campaign”.<br>
+*Mobile app ads created from Standard campaign will not be displayed from mid-December 2015. Please move the ads that apply to this condition to Mobile app download campaign.
   
 * Target Web Service
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
-  
+ * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
+ * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
+
 * Target Data Object  
- * Please confirm from the Entities document of each Services attached to the document folder
+ * Please confirm from the Entities document of each Services attached to the document folder.
   
 * Target Enumerations  
  * Please confirm from the Enumerations document of each Services attached to the document folder.
 
-#### 3. Impact on each Version from the change of Services
+#### 3. Added function upgrade
+Partial function has been improved. Details are as follows.<br>
+・Operation history for Data auto insertion has been added.<br>
+・Can operate multiple ad groups in 1 request<br>
+・Changed the maximum operation per request for several entities.<br>
+
+* Target Web Service
+ * [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+
+* Target Data Object  
+ * Please confirm from the Entities document of each Services attached to the document folder.
+  
+* Target Enumerations  
+ * Please confirm from the Enumerations document of each Services attached to the document folder.
+
+#### 4. Impact on each Version from the change of Services
 
 <table class="standard">
 <tbody>
@@ -268,62 +86,59 @@ The maximum number of request has been changed.
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Ver.5.1 or before</p>
+  <p>Ver.5.2 or before</p>
 </th>
 <th valign="top">
-  <p>Ver.5.2</p>
+  <p>Ver.5.3</p>
 </th>
 </tr>
 <tr>
 <td valign="top">
-  <p>AdGroupAdService</p>
-</td>
-<td valign="top">
-  <p>- No change in APIIF</p>
-</td>
-<td valign="top">
-  <p>- APIIF changed<br>
-・adTypes is added to AdGroupAdSelector<br>
-・Maximum number of response per request has been changed in some fields.<br>
-・Added feedFolderId to AdGroupAd.<br>
-・Added displayUrl to Ad.<br>
-<br>
-■Error messages<br>
-・"210122：Non existing feed has been set." will return if non-existing feed is set.<br>
-・"210601：Multiple feeds are set in one ad." will return if multiple feeds are set in one ad.<br>
-・"210602：Insertion is over the limit." will return if the insert method is not valid or over the maximum limit.<br>
-　* This will be the change of "20701：INVALID_STRING_FORMAT" up to Ver.5.1.</p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>FeedItemService</p>
-</td>
-<td valign="top">
-  <p>- No change in APIIF<br>
-・Cannot make Data auto insertion setting.</p>
-</td>
-<td valign="top">
-  <p>- APIIF changed<br>
-・targetingCampaign, targeting AdGroup, and targetingKeyword are added for Data auto insertion<br>
-<br>
-■Error messages<br>
-・"210122：Non existing feed has been set." will return if non-existing feed is set.</p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>FeedFolderService</p>
+  <p>RetargetingListService</p>
 </td>
 <td valign="top">
   <p>- Not supported</p>
 </td>
 <td valign="top">
-  <p>- New Service<br>
-・FeedFolder and FeedAttribute are added to operate the List for Data auto insertion.<br>
-<br>
-■Error messages<br>
-・"210122：Non existing feed has been set." will return if non-existing feed is set.</p>
+  <p>- New service
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>NegativeCampaign<br>RetargetingListService</p>
+</td>
+<td valign="top">
+  <p>- Not supported</p>
+</td>
+<td valign="top">
+  <p>- New service
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>AdGroupRetargeting<br>ListService</p>
+</td>
+<td valign="top">
+  <p>- Not supported</p>
+</td>
+<td valign="top">
+  <p>- New service
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>AdGroupService</p>
+</td>
+<td valign="top">
+  <p>- Cannot select bidding strategy of conversion (TARGET_CPA、TARGET_ ROAS) for Mobile app campaign of iOS.<br>
+  -Cannot get, update, delete the added field of target setting.</p>
+</td>
+<td valign="top">
+  <p>- Added field to set target (settings) on ad group (AdGroup).<br>
+- Added target type (Settings), target setting (TargetingSetting) entity.<br>
+- Added criterion type (Criterion Type), narrow target setting (TargetAll).<br>
+- Changed the maximum update and get operation.<br>
+- Cannot select bidding strategy of conversion (TARGET_CPA、TARGET_ ROAS) for Mobile app campaign of iOS.</p>
 </td>
 </tr>
 <tr>
@@ -331,23 +146,126 @@ The maximum number of request has been changed.
   <p>ReportDefinitionService</p>
 </td>
 <td valign="top">
-  <p>- No change in APIIF</p>
+  <p>- Cannot set target list to report definition.<br>
+- Cannot set target list to report type.</p>
 </td>
 <td valign="top">
-  <p>- APIIF changed<br>
-・feedFolderIds is added to ReportDefinition for the performance report for Data auto insertion.</p>
+  <p>- Added field to set target list ID (targetListIds) in report definition (ReportDefinition).<br>
+- Added target list to report type (ReportType).</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>CustomerSyncService</p>
+</td>
+<td valign="top">
+  <p>- Cannot select target list and data auto insertion in entity type.<br>
+- Cannot retrieve target list and data auto insertion.</p>
+</td>
+<td valign="top">
+  <p>- Added retargeting (targetListId) and data auto insertion (feedFolderId) field for operation history (Auditlog).<br>
+- Added target list and data auto insertion value to entity type (EntityType).</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>CampaignService</p>
+</td>
+<td valign="top">
+  <p>- Cannot create Mobile app download.
+*Cannot retrieve the item added in Ver.5.3.
+- Cannot select bidding strategy of conversion (TARGET_CPA、TARGET_ ROAS) for Mobile app campaign of iOS.</p>
+</td>
+<td valign="top">
+  <p>- Added item of Mobile app download campaign (campaignType, appStore, appId) to campaign (Campaign).<br>
+- Added campaign type (Campaign Type) and app store type (App Store) type.<br>
+- Changed the maximum update and get operation.<br>
+- Cannot select bidding strategy of conversion (TARGET_CPA、TARGET_ ROAS) for Mobile app campaign of iOS.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>AdGroupAdService</p>
+</td>
+<td valign="top">
+  <p>- Cannot create mobile app download ads to standard campaign.<br>
+- Cannot create text ads to Mobile app download campaign.</p>
+</td>
+<td valign="top">
+  <p>- Cannot create mobile app download to standard campaign.<br>
+- Cannot create text ads to Mobile app download campaign.<br>
+- App store and app ID will automatically set for Mobile app download campaign.<br>
+- For Android in mobile app campaign, setting of destination URL will be ignored.<br>
+- Changed the maximum get operation.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>ConversionTrackerService</p>
+</td>
+<td valign="top">
+  <p>- Setting of communication protocol (httpProtocol) in web conversion (webConversion) became unnecessary.</p>
+</td>
+<td valign="top">
+  <p>- Setting of communication protocol (httpProtocol) in web conversion (webConversion) became unnecessary.<br>
+- Added conversion info (snippetId. snippetLabel, appPostbackUrl) on app conversion tracker (AppConversion).<br>
+- Added new app conversion function to app conversion type (AppConversionType).<br>
+- Added flag of app post back URL (AppPostBackUrl)</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>AdGroupCriterionService</p>
+</td>
+<td valign="top">
+  <p>- For Android in mobile app campaign, setting of destination URL will be ignored.</p>
+</td>
+<td valign="top">
+  <p>- For Android in mobile app campaign, setting of destination URL will be ignored.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>FeedItemService</p>
+</td>
+<td valign="top">
+  <p>- Cannot connect to Data Auto Insertion for Mobile app download.<br>
+*For Ver.5.2 only.</p>
+</td>
+<td valign="top">
+  <p>- Cannot connect to Data Auto Insertion for Mobile app download.<br>
+*There are no change in APIIF.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>CampaignFeedService</p>
+</td>
+<td valign="top">
+  <p>- Cannot connect to Feed item for Mobile app download.</p>
+</td>
+<td valign="top">
+  <p>- Cannot connect to Feed item for Mobile app download.<br>
+*There are no change in APIIF.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>AdGroupFeedService</p>
+</td>
+<td valign="top">
+  <p>- NCannot connect to Feed item for Mobile app download.</p>
+</td>
+<td valign="top">
+  <p>- Cannot connect to Feed item for Mobile app download.<br>
+*There are no change in APIIF.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
-## Technical reference
-This release information is written in Sponsored Search API Ver.5.2.  
-
-## Regarding the older version of Sponsored Search API  
-You still can use older version (Ver.5.1 and below) of Sponsored Search API.  
-
 ## Older Version Sunset Date  
-Sponsored Search API Ver.5.0 will sunset after September 2015.  
-* We will inform once again, when the date is fixed.
+Sponsored Search API Ver.5.0 will sunset in October 30, 2015(JST).  
+Sponsored Search API Ver.5.1 is scheduled to sunset in March 2016 or later*.  
+*We will inform once again, when the date is fixed.
 

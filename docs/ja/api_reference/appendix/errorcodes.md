@@ -1,6 +1,6 @@
 # SOAPエラーコード
 ### エラー処理概要
-SOAPリクエストが成功した場合、スポンサードサーチ APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。 SOAPリクエストの処理中にエラーが発生した場合、スポンサードサーチAPIはエラーコードが含まれるメッセージを返します。詳しくは[Error](/docs/ja/api_reference/data/Error.md), [ErrorDetail](/docs/ja/api_reference/data/ErrorDetail.md)を確認してください。
+SOAPリクエストが成功した場合、スポンサードサーチ APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、スポンサードサーチAPIはエラーコードが含まれるメッセージを返します。<br>詳しくは[Error](/docs/ja/api_reference/data/Error.md), [ErrorDetail](/docs/ja/api_reference/data/ErrorDetail.md)を確認してください。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Body>
@@ -64,7 +64,9 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 0099 | Out of service.  | メンテナンス中です。APIは利用できません。
 
 #### アカウント管理に関連するエラー
-##### [AccountService](/docs/ja/api_reference/services/AccountService.md)
+##### Service
+[AccountService](/docs/ja/api_reference/services/AccountService.md)
+
 コード                     | メッセージ              | 説明   
 -------------------------- | ----------------------- | -----------------------------------------------------------
 20110005 | INVALID VALUE | 無効なアカウントIDです。
@@ -96,7 +98,8 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 
 #### 請求に関連するエラー
 ##### Service
-##### [BalanceService](/docs/ja/api_reference/services/BalanceService.md)  
+[BalanceService](/docs/ja/api_reference/services/BalanceService.md)  
+ 
  コード  | メッセージ | 説明              
 -------- | ---------- | ------------------------  
 20410003 | INPUT REQUIRED | アカウントIDは必須です。  
@@ -107,7 +110,8 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 20410009 | GET BALANCE FAILED | アカウント残高の取得に失敗しました。  
 
 #### キャンペーン管理に関連するエラー
-##### [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),  [BulkService](/docs/ja/api_reference/services/BulkService.md), [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),  [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md), [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md), [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
+##### Service
+[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),  [BulkService](/docs/ja/api_reference/services/BulkService.md), [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),  [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md), [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md), [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
 
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
@@ -150,6 +154,10 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 120018 | DUPLICATE VALUE | 配列内に同一広告グループIDです。
 120022 | DEACTIVATED | データが存在しません。
 120027 | OVER LIST SIZE | 配列が2以上です。
+210111 | Same value has already been registered | 同じ値がすでに登録されています。
+210112 | can not delete a PlatformTarget | ターゲティングは削除できませんでした。
+210113 | can not modify a bidMultiplier | 入札価格調整率を変更することができませんでした。
+210605 | App ad does not support Data Auto Insertion. | アプリ広告にデータ自動挿入を指定しています。
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
@@ -167,6 +175,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210308 | Set campaign active.	| キャンペーンがACTIVEでないため、入札設定が利用できません。
 210309 | Set campaign to Manual CPC.  | キャンペーンが「MANUAL_CPC」でないため、入札設定が利用できません。
 210310 | Select the correct bid type.  | 入札最適化タイプと一致しません。
+210403 | Not enough conversions or invalid setting. | コンバージョン数が不十分です。または、iOSのアプリダウンロードキャンペーンでコンバージョン系の入札戦略を指定しています。
 
 ##### Service
 [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)  
@@ -176,7 +185,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210400 | Double setting in Auto bidding.	| 入札タイプと自動入札IDの両方を指定しています。
 210401 | Setting the disabled Auto bidding.  | 編集中（削除含む）の自動入札を指定しています。
 210402 | Invalid conversion tracking.  | コンバージョントラッキングが無効です。
-210403 | Not enough conversions.  | コンバージョン数が不十分です。
+210403 | Not enough conversions or invalid setting. | コンバージョン数が不十分です。または、iOSのアプリダウンロードキャンペーンでコンバージョン系の入札戦略を指定しています。
 210404 | Auto bidding is already set.  | キーワードに個別の入札価格や入札設定が指定されている状態で、キャンペーンに「コンバージョン数の最大化」、または「コンバージョン単価の目標値」の自動入札を設定しています。
 210405 | Budget has exceeded.  | 予算額を超過しています。
 210406 | Cannot use conversion optimizer.  | コンバージョンオプティマイザーが利用できません。
@@ -314,6 +323,69 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210108 | LOWER NUMBER | 数値が小さすぎます。
 210109 | OVER NUMBER | 数値が大きすぎます。
 210110 | INVALID TARGET | 無効なターゲティングです。
-210111 | Same value has already been registered | 同じ値がすでに登録されています。
-210112 | can not delete a PlatformTarget | ターゲティングは削除できませんでした。
-210103 | can not modify a bidMultiplier | 入札価格調整率を変更することができませんでした。
+210126 | Mobile app download cannot connect to Data Auto Insertion. | アプリダウンロードキャンペーンにデータ自動挿入を紐付けしようとしています。
+
+##### Service
+[CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)
+
+コード                   | メッセージ  | 説明 
+------------------------ | ----------- | -------------------------------------------------------
+20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
+120002 | INVALID VALUE| 値が無効です。
+120018 | DUPLICATE VALUE| 値が重複しています。
+120022 | DEACTIVATED| 無効なIDを指定しています。
+120024 | INVALID RELATION| 関係が無効です。
+210103 | UNMATCH PLACEHOLDER TYPE| placeholderTypeとfeedItemIdの組み合わせが正しくありません。
+210127 | Mobile app download cannot connect to Feed item.| アプリダウンロードキャンペーンにクイックリンクオプション、または電話番号オプションを紐付けしようとしています。
+
+
+##### Service
+[AdGroupFeedService](/docs/ja/api_reference/services/AdGroupFeedService.md)
+
+コード                   | メッセージ  | 説明 
+------------------------ | ----------- | -------------------------------------------------------
+20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
+120002 | INVALID VALUE| 値が無効です。
+120018 | DUPLICATE VALUE| 値が重複しています。
+120022 | DEACTIVATED| 無効なIDを指定しています。
+120024 | INVALID RELATION| 関係が無効です。
+210103 | UNMATCH PLACEHOLDER TYPE| placeholderTypeとfeedItemIdの組み合わせが正しくありません。
+210127 | Mobile app download cannot connect to Feed item.| アプリダウンロードキャンペーンにクイックリンクオプション、または電話番号オプションを紐付けしようとしています。
+
+#### リターゲティングに関するエラー
+##### Service
+[RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+
+コード                   | メッセージ  | 説明 
+------------------------ | ----------- | -------------------------------------------------------
+210800 | Earlier than available date.| 指定可能な日付より過去日を指定しています。
+210801 | Later than available date.| 指定可能な日付より未来日を指定しています。
+210802 | Adult account selected.| アダルトアカウントを指定しています。
+210803 | Retargeting unavailable.| 審査状態により、リターゲティングが強制停止されているアカウントです。
+210804 | Registered default list.| デフォルトリストが登録済みのアカウントに対して再度デフォルトリストを登録しています。
+210805 | Already used name.| 同一のターゲットリスト名が既に登録されています。
+210806 | Requires default list.| デフォルトリストが登録されていないアカウントに対して条件リストまたは組み合わせリストを登録しています。
+210807 | Selecting Close default list.| 対象のデフォルトリストに「CLOSE」を指定しています。
+210808 | Invalid rule operator.| 指定できないオペレーターを指定しています。
+210809 | Not logical target list.| 組合せリストに組合せのターゲットリストを指定しています。
+210815 | Selecting only one target list.| 組合せリストにターゲットリストをひとつだけ指定しています。
+210816 | Selecting only Not condition.| 組合せリストでNOT条件のみを指定しています。
+
+##### Service
+[NegativeCampaignRetargetingListService](/docs/ja/api_reference/services/NegativeCampaignRetargetingListService.md)
+
+コード                   | メッセージ  | 説明 
+------------------------ | ----------- | -------------------------------------------------------
+210810 | Status not approved.| 指定したターゲットリストの審査が承認されていません。
+
+##### Service
+[AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
+
+コード                   | メッセージ  | 説明 
+------------------------ | ----------- | -------------------------------------------------------
+210810 | Status not approved.| 指定したターゲットリストの審査が承認されていません。
+210811 | Target list not found.| リクエストで指定されたターゲットリストが登録されていません。
+210812 | Already existing target list.| リクエストで指定されたターゲットリストが既に登録されています。
+210813 | Cannot bid the negative criterion.| 除外設定にも関わらず入札が指定されています。
+210814 | List already registered.| 対象広告グループIDに対して有効・除外ユーザリストの組み合わせが既に登録されています。
+

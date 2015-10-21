@@ -18,7 +18,11 @@ AppConversionオブジェクトは、アプリコンバージョン測定タグ�
 | conversionTrackerType| enum <a href="./ConversionTrackerType.md">ConversionTrackerType</a>| コンバージョントラッカーのタイプです。| Req| Req |
 | userRevenueValue| xsd:string| このコンバージョントラッカーに対するユーザー指定の収益値です。1コンバージョンあたりの売上金額が固定値の場合、その金額を設定することで、売上金額をレポートなどで確認できます。アプリコンバージョンは、値の設定はできずダウンロード料金でコンバージョン値が計算されます。| Req(WebConversion)<br>- (AppConversion)| Opt(WebConversion)<br>- (AppConversion) |
 | AppConversion|||||
-| appId| xsd:long| アプリケーションIDです。| Req| Opt |
-| appPlatform| enum <a href="./AppPlatform.md">AppPlatform</a>| アプリコンバージョンのプラットフォームです。| Req| Opt |
-| appConversionType| enum <a href="./AppConversionType.md">AppConversionType</a>| アプリケーションコンバージョンタイプです。| Req| Opt |
+| appId| xsd:long| アプリケーションIDです。| Opt| Opt |
+| appPlatform| enum <a href="./AppPlatform.md">AppPlatform</a>| アプリコンバージョンのプラットフォームです。| Req| - |
+| appConversionType| enum <a href="./AppConversionType.md">AppConversionType</a>| アプリケーションコンバージョンタイプです。| Req| - |
+| snippetId| xsd:long| コンバージョンIDです。| -| - |
+| snippetLabel| xsd:string| コンバージョントラッカーラベルです。| -| - |
+| appPostbackUrl| <a href="./AppPostBackUrl.md">AppPostBackUrl</a>| ポストバックURLです。| Opt| Opt |
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

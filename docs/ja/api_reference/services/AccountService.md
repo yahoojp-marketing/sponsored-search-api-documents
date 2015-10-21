@@ -3,8 +3,8 @@ AccountServiceでは、アカウントに関する情報の取得および更新
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/AccountService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/AccountService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/AccountService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AccountService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要

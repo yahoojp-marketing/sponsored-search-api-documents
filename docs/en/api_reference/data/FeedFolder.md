@@ -6,7 +6,7 @@ FeedFolder is the elements of list of Data auto insertion.
 | Field | Data Type | maxOccurs | minOccurs | response | add | set | remove | Description | 
 |---|---|---|---|---|---|---|---|---|
 | accountId| long| 1| 1| yes| Ignore| Ignore| Ignore| Account ID |
-| feedFolderId| long| 1| 0| yes| Ignore| IgnoreNot updatable| IgnoreNot updatable| Feed Folder ID |
+| feedFolderId| long| 1| 0| yes| Ignore| Requirement<br>Not updatable| Requirement<br>Not updatable| Feed Folder ID |
 | feedFolderName| string| 1| 0| yes| Requirement| Ignore| Ignore| Data auto insertion name |
 | feedAttribute[]| <a href="./FeedAttribute.md">FeedAttribute</a>| 20| 0| yes| Requirement| Requirement| Ignore| Feed attribute |
 | placeholderType| enum <a href="./PlaceholderType_FeedFolder.md">PlaceholderType</a>| 1| 1| yes| Ignore| Ignore| Ignore| Type of Data auto insertion information |

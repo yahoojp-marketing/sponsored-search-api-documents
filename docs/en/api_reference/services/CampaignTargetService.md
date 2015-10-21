@@ -4,8 +4,8 @@ CampaignTargetService is to get or update target setting information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/CampaignTargetService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/CampaignTargetService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

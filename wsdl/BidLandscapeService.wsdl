@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -197,7 +197,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="BidLandscapeService">
     <wsdl:port binding="tns:BidLandscapeServiceSoapBinding" name="BidLandscapeService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/BidLandscapeService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/BidLandscapeService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

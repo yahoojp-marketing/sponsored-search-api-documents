@@ -3,8 +3,8 @@ FeedItemService is to get, add, upgrade, or delete the FeedItem information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/FeedItemService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/FeedItemService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/FeedItemService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/FeedItemService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

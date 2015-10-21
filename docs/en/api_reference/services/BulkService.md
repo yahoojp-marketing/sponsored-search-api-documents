@@ -3,8 +3,8 @@ BulkService is for bulk downloading/uploading by using bulk sheet.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/BulkService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/BulkService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/BulkService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BulkService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

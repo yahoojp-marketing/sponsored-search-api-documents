@@ -12,7 +12,7 @@
             xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -65,14 +65,14 @@
           <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="budget" type="tns:Budget"/>
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason"
-                   type="tns:BiddingStrategyFailedReason"/>
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason"/>
           <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy"/>
-          <element maxOccurs="1" minOccurs="0" name="conversionOptimizerEligibility"
-                   type="tns:ConversionOptimizerEligibility"/>
-          <element maxOccurs="1" minOccurs="0" name="adServingOptimizationStatus"
-                   type="tns:AdServingOptimizationStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionOptimizerEligibility" type="tns:ConversionOptimizerEligibility"/>
+          <element maxOccurs="1" minOccurs="0" name="adServingOptimizationStatus" type="tns:AdServingOptimizationStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="settings" type="tns:Settings"/>
+          <element maxOccurs="1" minOccurs="0" name="campaignType" type="tns:CampaignType"/>
+          <element maxOccurs="1" minOccurs="0" name="appStore" type="tns:AppStore"/>
+          <element maxOccurs="1" minOccurs="0" name="appId" type="xsd:string"/>
         </sequence>
       </complexType>
       <simpleType name="CampaignServingStatus">
@@ -291,6 +291,18 @@
           <enumeration value="ROTATE_INDEFINITELY"/>
         </restriction>
       </simpleType>
+      <simpleType name="CampaignType">
+        <restriction base="xsd:string">
+          <enumeration value="STANDARD"/>
+          <enumeration value="MOBILE_APP"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="AppStore">
+        <restriction base="xsd:string">
+          <enumeration value="IOS"/>
+          <enumeration value="ANDROID"/>
+        </restriction>
+      </simpleType>
       <complexType name="CampaignPage">
         <complexContent>
           <extension base="tns:Page">
@@ -472,7 +484,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignService">
     <wsdl:port binding="tns:CampaignServiceSoapBinding" name="CampaignService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/CampaignService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/CampaignService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -3,8 +3,8 @@ AdGroupCriterionServiceでは、広告グループに関するターゲット条
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/AdGroupCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/AdGroupCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupCriterionService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要
@@ -130,7 +130,7 @@ AdGroupCriterionServiceで提供される操作を説明します。
                 <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                 <ns1:adGroupId>xxxxxxxx</ns1:adGroupId>
                 <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
-                <ns1:operand xsi:type="ns1:NegativeAdGroupCriterion">
+                <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
                     <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
                     <ns1:criterion xsi:type="ns1:Keyword">
                         <ns1:type>KEYWORD</ns1:type>
@@ -138,7 +138,7 @@ AdGroupCriterionServiceで提供される操作を説明します。
                         <ns1:matchType>EXACT</ns1:matchType>
                     </ns1:criterion>
                 </ns1:operand>
-                <ns1:operand xsi:type="ns1:NegativeAdGroupCriterion">
+                <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
                     <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
                     <ns1:criterion xsi:type="ns1:Keyword">
                         <ns1:type>KEYWORD</ns1:type>

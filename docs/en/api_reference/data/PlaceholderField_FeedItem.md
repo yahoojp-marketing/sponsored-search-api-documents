@@ -1,4 +1,4 @@
-# PlaceholderField [FeedItemService] (enum)
+# PlaceholderField_FeedItemService (enum)
 PlaceholderField choose the element of FeedItem information. (This is for FeedItemService)
 ### Service
 + [FeedItemService](../services/FeedItemService.md)

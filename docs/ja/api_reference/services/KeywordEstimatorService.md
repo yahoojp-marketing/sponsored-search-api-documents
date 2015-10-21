@@ -3,8 +3,8 @@ KeywordEstimatorServiceは、既存のキャンペーンの登録内容（デバ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/KeywordEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/KeywordEstimatorService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/KeywordEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/KeywordEstimatorService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要

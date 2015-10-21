@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-targetNamespace="http://ss.yahooapis.jp/V5"
-xmlns:tns="http://ss.yahooapis.jp/V5"
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  targetNamespace="http://ss.yahooapis.jp/V5"
+  xmlns:tns="http://ss.yahooapis.jp/V5"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
-    <schema elementFormDefault="qualified"
-    targetNamespace="http://ss.yahooapis.jp/V5"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://ss.yahooapis.jp/V5">
+    <schema
+      elementFormDefault="qualified"
+      targetNamespace="http://ss.yahooapis.jp/V5"
+      xmlns="http://www.w3.org/2001/XMLSchema"
+      xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string" />
         </sequence>
       </complexType>
       <complexType name="SoapResponseHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string" />
         </sequence>
       </complexType>
       <complexType name="AdGroupSelector">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="biddingStrategyIds" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
+          <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long" />
+          <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long" />
+          <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus" />
+          <element maxOccurs="unbounded" minOccurs="0" name="biddingStrategyIds" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging" />
         </sequence>
       </complexType>
       <simpleType name="UserStatus">
         <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="PAUSED"/>
+          <enumeration value="ACTIVE" />
+          <enumeration value="PAUSED" />
         </restriction>
       </simpleType>
       <complexType name="Paging">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int" />
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int" />
         </sequence>
       </complexType>
       <complexType name="AdGroupPage">
         <complexContent>
           <extension base="tns:Page">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupValues"/>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupValues" />
             </sequence>
           </extension>
         </complexContent>
@@ -68,135 +69,133 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <complexContent>
           <extension base="tns:ReturnValue">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="adGroup" type="tns:AdGroup"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroup" type="tns:AdGroup" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="AdGroup">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason"
-                   type="tns:BiddingStrategyFailedReason"/>
-          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy"/>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason" />
+          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="settings" type="tns:Settings" />
         </sequence>
       </complexType>
       <simpleType name="BiddingStrategyFailedReason">
         <restriction base="xsd:string">
-          <enumeration value="FAILURE"/>
-          <enumeration value="CONVERSION_TRACKING_NOT_ENABLED"/>
-          <enumeration value="NOT_ENOUGH_CONVERSIONS"/>
-          <enumeration value="CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER"/>
-          <enumeration value="BIDDING_STRATEGY_CANNOT_BE_OVERRIDDEN"/>
-          <enumeration value="NOT_CPC_CAMPAIGN"/>
+          <enumeration value="FAILURE" />
+          <enumeration value="CONVERSION_TRACKING_NOT_ENABLED" />
+          <enumeration value="NOT_ENOUGH_CONVERSIONS" />
+          <enumeration value="CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER" />
+          <enumeration value="BIDDING_STRATEGY_CANNOT_BE_OVERRIDDEN" />
+          <enumeration value="NOT_CPC_CAMPAIGN" />
         </restriction>
       </simpleType>
       <complexType name="BiddingStrategy">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategySource" type="tns:BiddingStrategySource"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingScheme" type="tns:BiddingScheme"/>
-          <element maxOccurs="1" minOccurs="0" name="initialBid" type="tns:Bid"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="parentBiddingStrategyConfigurations" type="tns:BiddingStrategy"/>
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategySource" type="tns:BiddingStrategySource" />
+          <element maxOccurs="1" minOccurs="0" name="biddingScheme" type="tns:BiddingScheme" />
+          <element maxOccurs="1" minOccurs="0" name="initialBid" type="tns:Bid" />
+          <element maxOccurs="unbounded" minOccurs="0" name="parentBiddingStrategyConfigurations" type="tns:BiddingStrategy" />
         </sequence>
       </complexType>
       <simpleType name="BiddingStrategyType">
         <restriction base="xsd:string">
-          <enumeration value="MANUAL_CPC"/>
-          <enumeration value="BUDGET_OPTIMIZER"/>
-          <enumeration value="PAGE_ONE_PROMOTED"/>
-          <enumeration value="TARGET_ROAS"/>
-          <enumeration value="TARGET_SPEND"/>
-          <enumeration value="ENHANCED_CPC"/>
-          <enumeration value="TARGET_CPA"/>
-          <enumeration value="NONE"/>
+          <enumeration value="MANUAL_CPC" />
+          <enumeration value="BUDGET_OPTIMIZER" />
+          <enumeration value="PAGE_ONE_PROMOTED" />
+          <enumeration value="TARGET_ROAS" />
+          <enumeration value="TARGET_SPEND" />
+          <enumeration value="ENHANCED_CPC" />
+          <enumeration value="TARGET_CPA" />
+          <enumeration value="NONE" />
         </restriction>
       </simpleType>
       <simpleType name="BiddingStrategySource">
         <restriction base="xsd:string">
-          <enumeration value="CAMPAIGN"/>
-          <enumeration value="ADGROUP"/>
+          <enumeration value="CAMPAIGN" />
+          <enumeration value="ADGROUP" />
         </restriction>
       </simpleType>
       <complexType abstract="true" name="BiddingScheme">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType"/>
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType" />
         </sequence>
       </complexType>
       <complexType name="ManualCpcBiddingScheme">
         <complexContent>
-          <extension base="tns:BiddingScheme"/>
+          <extension base="tns:BiddingScheme" />
         </complexContent>
       </complexType>
       <complexType name="BudgetOptimizerBiddingScheme">
         <complexContent>
           <extension base="tns:BiddingScheme">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="EnhancedCpcBiddingScheme">
         <complexContent>
-          <extension base="tns:BiddingScheme"/>
+          <extension base="tns:BiddingScheme" />
         </complexContent>
       </complexType>
       <complexType name="PageOnePromotedBiddingScheme">
         <complexContent>
           <extension base="tns:BiddingScheme">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetPositionType" type="tns:TargetPositionType"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double"/>
-              <element maxOccurs="1" minOccurs="0" name="bidChangesForRaisesOnly" type="tns:BidChangesForRaisesOnly"/>
-              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenBudgetConstrained"
-                       type="tns:RaiseBidWhenBudgetConstrained"/>
-              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenLowQualityScore"
-                       type="tns:RaiseBidWhenLowQualityScore"/>
+              <element maxOccurs="1" minOccurs="0" name="targetPositionType" type="tns:TargetPositionType" />
+              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double" />
+              <element maxOccurs="1" minOccurs="0" name="bidChangesForRaisesOnly" type="tns:BidChangesForRaisesOnly" />
+              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenBudgetConstrained" type="tns:RaiseBidWhenBudgetConstrained" />
+              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenLowQualityScore" type="tns:RaiseBidWhenLowQualityScore" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <simpleType name="TargetPositionType">
         <restriction base="xsd:string">
-          <enumeration value="PAGE_ONE"/>
-          <enumeration value="PAGE_ONE_PROMOTED"/>
+          <enumeration value="PAGE_ONE" />
+          <enumeration value="PAGE_ONE_PROMOTED" />
         </restriction>
       </simpleType>
       <simpleType name="BidChangesForRaisesOnly">
         <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
+          <enumeration value="ACTIVE" />
+          <enumeration value="DEACTIVE" />
         </restriction>
       </simpleType>
       <simpleType name="RaiseBidWhenBudgetConstrained">
         <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
+          <enumeration value="ACTIVE" />
+          <enumeration value="DEACTIVE" />
         </restriction>
       </simpleType>
       <simpleType name="RaiseBidWhenLowQualityScore">
         <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
+          <enumeration value="ACTIVE" />
+          <enumeration value="DEACTIVE" />
         </restriction>
       </simpleType>
       <complexType name="TargetCpaBiddingScheme">
         <complexContent>
           <extension base="tns:BiddingScheme">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetCpa" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="targetCpa" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long" />
             </sequence>
           </extension>
         </complexContent>
@@ -205,7 +204,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <complexContent>
           <extension base="tns:BiddingScheme">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
             </sequence>
           </extension>
         </complexContent>
@@ -214,189 +213,213 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <complexContent>
           <extension base="tns:BiddingScheme">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetRoas" type="xsd:double"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="targetRoas" type="xsd:double" />
+              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="Bid">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="maxCpc" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="bidSource" type="tns:BidSource"/>
+          <element maxOccurs="1" minOccurs="0" name="maxCpc" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="bidSource" type="tns:BidSource" />
         </sequence>
       </complexType>
       <simpleType name="BidSource">
         <restriction base="xsd:string">
-          <enumeration value="ADGROUP"/>
+          <enumeration value="ADGROUP" />
         </restriction>
       </simpleType>
       <complexType name="AdGroupOperation">
         <complexContent>
           <extension base="tns:Operation">
             <sequence>
-              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
-              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:AdGroup"/>
+              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:AdGroup" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
+      <complexType name="Settings">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="criterionType" type="tns:CriterionType" />
+        </sequence>
+      </complexType>
+      <simpleType name="CriterionType">
+        <restriction base="xsd:string">
+          <enumeration value="TARGET_LIST" />
+        </restriction>
+      </simpleType>
+      <complexType name="TargetingSetting">
+        <complexContent>
+          <extension base="tns:Settings">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="targetAll" type="tns:TargetAll" />
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <simpleType name="TargetAll">
+        <restriction base="xsd:string">
+          <enumeration value="ACTIVE" />
+          <enumeration value="DEACTIVE" />
+        </restriction>
+      </simpleType>
       <complexType name="AdGroupReturnValue">
         <complexContent>
           <extension base="tns:ListReturnValue">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupValues"/>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupValues" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType abstract="true" name="ReturnValue">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean" />
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
         </sequence>
       </complexType>
       <complexType name="Error">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string" />
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail" />
         </sequence>
       </complexType>
       <complexType name="ErrorDetail">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string" />
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string" />
         </sequence>
       </complexType>
       <complexType abstract="true" name="Page">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int" />
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string" />
         </sequence>
       </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator" />
         </sequence>
       </complexType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
-          <enumeration value="ADD"/>
-          <enumeration value="SET"/>
-          <enumeration value="REMOVE"/>
+          <enumeration value="ADD" />
+          <enumeration value="SET" />
+          <enumeration value="REMOVE" />
         </restriction>
       </simpleType>
       <complexType abstract="true" name="ListReturnValue">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string" />
         </sequence>
       </complexType>
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:AdGroupSelector"/>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:AdGroupSelector" />
           </sequence>
         </complexType>
       </element>
       <element name="getResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupPage" />
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
           </sequence>
         </complexType>
       </element>
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:AdGroupOperation"/>
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:AdGroupOperation" />
           </sequence>
         </complexType>
       </element>
       <element name="mutateResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupReturnValue"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupReturnValue" />
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader"/>
-      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
-      <element name="ApiExceptionFault" type="xsd:string"/>
+      <element name="RequestHeader" type="tns:SoapHeader" />
+      <element name="ResponseHeader" type="tns:SoapResponseHeader" />
+      <element name="ApiExceptionFault" type="xsd:string" />
     </schema>
   </wsdl:types>
   <wsdl:message name="RequestHeader">
-    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader" />
   </wsdl:message>
   <wsdl:message name="ResponseHeader">
-    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader" />
   </wsdl:message>
   <wsdl:message name="getRequest">
-    <wsdl:part element="tns:get" name="parameters"/>
+    <wsdl:part element="tns:get" name="parameters" />
   </wsdl:message>
   <wsdl:message name="getResponse">
-    <wsdl:part element="tns:getResponse" name="parameters"/>
+    <wsdl:part element="tns:getResponse" name="parameters" />
   </wsdl:message>
   <wsdl:message name="mutateRequest">
-    <wsdl:part element="tns:mutate" name="parameters"/>
+    <wsdl:part element="tns:mutate" name="parameters" />
   </wsdl:message>
   <wsdl:message name="mutateResponse">
-    <wsdl:part element="tns:mutateResponse" name="parameters"/>
+    <wsdl:part element="tns:mutateResponse" name="parameters" />
   </wsdl:message>
   <wsdl:message name="ApiException">
-    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException" />
   </wsdl:message>
   <wsdl:portType name="AdGroupServiceInterface">
     <wsdl:operation name="get">
-      <wsdl:input message="tns:getRequest" name="getRequest"/>
-      <wsdl:output message="tns:getResponse" name="getResponse"/>
-      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+      <wsdl:input message="tns:getRequest" name="getRequest" />
+      <wsdl:output message="tns:getResponse" name="getResponse" />
+      <wsdl:fault message="tns:ApiException" name="ApiException" />
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdl:input message="tns:mutateRequest" name="mutateRequest"/>
-      <wsdl:output message="tns:mutateResponse" name="mutateResponse"/>
-      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+      <wsdl:input message="tns:mutateRequest" name="mutateRequest" />
+      <wsdl:output message="tns:mutateResponse" name="mutateResponse" />
+      <wsdl:fault message="tns:ApiException" name="ApiException" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AdGroupServiceSoapBinding" type="tns:AdGroupServiceInterface">
-    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="get">
-      <wsdlsoap:operation soapAction=""/>
+      <wsdlsoap:operation soapAction="" />
       <wsdl:input name="getRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
+        <wsdlsoap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="getResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
+        <wsdlsoap:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal"/>
+        <wsdlsoap:fault name="ApiException" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdlsoap:operation soapAction=""/>
+      <wsdlsoap:operation soapAction="" />
       <wsdl:input name="mutateRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
+        <wsdlsoap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="mutateResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
+        <wsdlsoap:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal"/>
+        <wsdlsoap:fault name="ApiException" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AdGroupService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/AdGroupService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/AdGroupService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

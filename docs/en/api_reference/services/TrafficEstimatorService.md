@@ -3,8 +3,8 @@ TrafficEstimatorService estimate the traffic which can be gained on the specifie
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/TrafficEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/TrafficEstimatorService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

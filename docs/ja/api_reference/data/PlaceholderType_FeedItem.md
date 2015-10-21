@@ -1,4 +1,4 @@
-# PlaceholderType [FeedItemService] (enum)
+# PlaceholderType_FeedItemService (enum)
 PlaceholderTypeは、FeedItem情報の種類を選択します。
 （FeedItemService用のオブジェクトです。）
 ### Service

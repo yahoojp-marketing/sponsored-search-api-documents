@@ -6,7 +6,7 @@ FeedFolderオブジェクトは、自動データ挿入のリストを格納し�
 | フィールド | データ型 | maxOccurs | minOccurs | response | add | set | remove | 説明 | 
 |---|---|---|---|---|---|---|---|---|
 | accountId| long| 1| 1| ○| Ignore| Ignore| Ignore| アカウントIDです。<br>※入稿の仕様変更により不要になりました。 |
-| feedFolderId| long| 1| 0| ○| Ignore| RequirementNot updatable| RequirementNot updatable| FeedフォルダIDです。 |
+| feedFolderId| long| 1| 0| ○| Ignore| Requirement<br>Not updatable| Requirement<br>Not updatable| FeedフォルダIDです。 |
 | feedFolderName| string| 1| 0| ○| Requirement| Ignore| Ignore| Feedフォルダのリスト名です。 |
 | feedAttribute[]| <a href="./FeedAttribute.md">FeedAttribute</a>| 20| 0| ○| Requirement| Requirement| Ignore| Feedの属性（カラム）情報です。 |
 | placeholderType| enum <a href="./PlaceholderType_FeedFolder.md">PlaceholderType</a>| 1| 1| ○| Ignore| Ignore| Ignore| FeedItemの種類です。 |

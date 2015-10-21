@@ -3,8 +3,8 @@ TargetingIdeaServiceは、指定された情報を元に新しいキーワード
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/TargetingIdeaService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/TargetingIdeaService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/TargetingIdeaService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/TargetingIdeaService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要
