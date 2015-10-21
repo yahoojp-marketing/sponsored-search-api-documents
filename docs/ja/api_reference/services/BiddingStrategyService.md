@@ -3,8 +3,8 @@ BiddingStrategyServiceでは、自動入札設定の取得および追加・更�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/BiddingStrategyService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/BiddingStrategyService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/BiddingStrategyService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BiddingStrategyService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要

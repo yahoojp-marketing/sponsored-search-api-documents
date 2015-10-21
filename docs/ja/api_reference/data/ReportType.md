@@ -19,4 +19,5 @@ ReportTypeは、レポートの種類を表します。
 | DEVICE_TARGET| string| デバイスターゲティングレポートです。 |
 | BID_STRATEGY| string| 自動入札レポートです。 |
 | AD_CUSTOMIZERS| string| データ自動挿入レポートです。 |
+| TARGET_LIST| string| ターゲットリスト設定レポートです。 |
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

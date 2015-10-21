@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -91,9 +91,18 @@
               <element maxOccurs="1" minOccurs="0" name="appId" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="appPlatform" type="tns:AppPlatform"/>
               <element maxOccurs="1" minOccurs="0" name="appConversionType" type="tns:AppConversionType"/>
+              <element maxOccurs="1" minOccurs="0" name="snippetId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="snippetLabel" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="appPostbackUrl" type="tns:AppPostbackUrl"/>
             </sequence>
           </extension>
         </complexContent>
+      </complexType>
+      <complexType name="AppPostbackUrl">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="url" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="clearFlag" type="tns:AppPostbackUrlClearFlag"/>
+        </sequence>
       </complexType>
       <simpleType name="ConversionTrackerStatus">
         <restriction base="xsd:string">
@@ -145,12 +154,26 @@
       <simpleType name="AppConversionType">
         <restriction base="xsd:string">
           <enumeration value="DOWNLOAD"/>
+          <enumeration value="IN_APP_PURCHASE"/>
+          <enumeration value="FIRST_OPEN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="AppPostbackUrlClearFlag">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="CountingType">
+        <restriction base="xsd:string">
+          <enumeration value="ONE_PER_CLICK"/>
+          <enumeration value="MANY_PER_CLICK"/>
         </restriction>
       </simpleType>
       <complexType name="ConversionTrackerPage">
         <complexContent>
           <extension base="tns:Page">
             <sequence>
+              <element maxOccurs="1" minOccurs="0" name="totalNumConvertedClicks" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="totalNumConversionEvents" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="totalConversionValue" type="xsd:long"/>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ConversionTrackerValues"/>
@@ -329,7 +352,7 @@
   </wsdl:binding>
   <wsdl:service name="ConversionTrackerService">
     <wsdl:port binding="tns:ConversionTrackerServiceSoapBinding" name="ConversionTrackerService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/ConversionTrackerService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/ConversionTrackerService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

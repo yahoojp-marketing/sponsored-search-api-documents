@@ -3,8 +3,8 @@ AccountService provides functions for creating and managing accounts.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/AccountService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/AccountService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/AccountService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AccountService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

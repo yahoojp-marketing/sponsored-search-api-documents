@@ -1,4 +1,4 @@
-# PlaceholderType [FeedFolderService] (enum)
+# PlaceholderType_FeedFolderService (enum)
 PlaceholderType choose the type of FeedItem information. (This is for FeedFolderService)
 ### Service
 + [FeedFolderService](../services/FeedFolderService.md)

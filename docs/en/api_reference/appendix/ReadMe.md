@@ -10,3 +10,5 @@ Referrence for parameter values and constraints.
 Referrence for error codes.  
 ### [Editorial Reason Text](/docs/en/api_reference/appendix/ed_reasons.md)
 Referrence for editorial reason codes and texts.
+### [Tracking Parameters](/docs/en/api_reference/appendix/tracking.md)
+Reference for tracking parameters.

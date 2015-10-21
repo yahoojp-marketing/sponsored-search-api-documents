@@ -3,8 +3,8 @@ FeedItemServiceでは、FeedItem情報の取得および追加・更新・削除
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/FeedItemService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/FeedItemService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/FeedItemService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/FeedItemService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要

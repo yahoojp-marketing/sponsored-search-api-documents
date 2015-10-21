@@ -14,6 +14,7 @@ ReportDefinition object displays the report definition.
 | feedItemIds[]| xsd:long| Feed Item IDs.| Opt| -| - |
 | feedFolderIds[]| xsd:long| Data auto insertion IDs.| Opt| -| - |
 | biddingStrategyIds[]| xsd:long| Auto bidding IDs.| Opt| -| - |
+| targetListIds[]| xsd:long| Target list IDs.| Opt| -| - |
 | reportName| xsd:string| Name of report definition.| Req| Opt| - |
 | reportType| enum <a href="./ReportType.md">ReportType</a>| Type of the report.| Req| -| - |
 | dateRangeType| enum <a href="./ReportDateRangeType.md">ReportDateRangeType</a>| Report range for running report.| Req| -| - |
@@ -29,4 +30,5 @@ ReportDefinition object displays the report definition.
 | frequency| enum <a href="./ReportFrequency.md">ReportFrequency</a>| Schedule of report creation.| Opt| -| - |
 | specifyDay| xsd:int| Specifying the date of the report. <br>It is required when ReportFrequency is appointed as SPECIFYDAY.| Opt| Opt| - |
 | addTemplate| enum <a href="./ReportAddTemplate.md">ReportAddTemplate</a>| Set the definition for a report template. <br>The maximum number of template is 30 by the total of standard and on-behalf of authorization. <br>It cannot be shared between standard and on behalf.| Req| -| - |
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

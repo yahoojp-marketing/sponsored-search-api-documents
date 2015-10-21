@@ -6,7 +6,7 @@ Adオブジェクトは、広告に関する情報を表します。
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | type| enum <a href="../data/AdType.md">AdType</a>| 広告タイプです。 |
-| url| xsd:string| リンク先URLです。 |
+| url| xsd:string| リンク先URLです。<br>※Androidのアプリキャンペーンでは、URLは自動で生成されます。 |
 | displayUrl| xsd:string| 表示URLです。 |
 | headline| xsd:string| タイトル文です。 |
 | description| xsd:string| 説明文です。 |

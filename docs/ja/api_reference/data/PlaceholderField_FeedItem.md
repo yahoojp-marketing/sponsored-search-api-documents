@@ -1,4 +1,4 @@
-# PlaceholderField [FeedItemService] (enum)
+# PlaceholderField_FeedItemService (enum)
 PlaceholderFieldは、FeedItem情報の内容を選択します。
 （FeedItemService用のオブジェクトです。）
 ### Service

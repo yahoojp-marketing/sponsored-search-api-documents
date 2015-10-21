@@ -7,8 +7,8 @@ Conversion tag will be shared both in Campaign Management Tool and API.<br>
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/ConversionTrackerService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/ConversionTrackerService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/ConversionTrackerService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/ConversionTrackerService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview
@@ -39,15 +39,15 @@ Describes the operation which provide at ConversionTrackerService
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+      <ns1:license>9999-9999-9999-9999</ns1:license>
+      <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
       <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
     </ns1:RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
     <ns1:get>
       <ns1:selector>
-        <ns1:accountId>00000001</ns1:accountId>
+        <ns1:accountId>2000003390</ns1:accountId>
         <ns1:conversionTrackerIds>11</ns1:conversionTrackerIds>
         <ns1:conversionTrackerIds>13</ns1:conversionTrackerIds>
         <ns1:statuses>ENABLED</ns1:statuses>
@@ -57,6 +57,7 @@ Describes the operation which provide at ConversionTrackerService
         <ns1:categories>PURCHASE</ns1:categories>
         <ns1:categories>SIGNUP</ns1:categories>
         <ns1:categories>LEAD</ns1:categories>
+        <ns1:categories>DOWNLOAD</ns1:categories>
         <ns1:conversionTrackerTypes>WEB_CONVERSION</ns1:conversionTrackerTypes>
         <ns1:conversionTrackerTypes>APP_CONVERSION</ns1:conversionTrackerTypes>
         <ns1:trackingCodeTypes>WEBPAGE</ns1:trackingCodeTypes>
@@ -224,54 +225,71 @@ Add ConversionTracker informations.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>PAGE_VIEW</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-               <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>DISABLED</ns1:status>
-               <ns1:category>DEFAULT</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>200</ns1:userRevenueValue>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-               <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:AppConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerName>APP_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>DOWNLOAD</ns1:category>
-               <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:appId>abc_1234</ns1:appId>
-               <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-               <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <ns1:RequestHeader>
+      <ns1:license>9999-9999-9999-9999</ns1:license>
+      <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
+      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+    </ns1:RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:mutate>
+      <ns1:operations>
+        <ns1:operator>ADD</ns1:operator>
+        <ns1:accountId>2000003390</ns1:accountId>
+        <ns1:operand xsi:type="ns1:WebConversion">
+          <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>PAGE_VIEW</ns1:category>
+          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:markupLanguage>HTML</ns1:markupLanguage>
+          <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:WebConversion">
+          <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
+          <ns1:status>DISABLED</ns1:status>
+          <ns1:category>DEFAULT</ns1:category>
+          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>200</ns1:userRevenueValue>
+          <ns1:markupLanguage>HTML</ns1:markupLanguage>
+          <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>DOWNLOAD</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:appId>abc_1234</ns1:appId>
+          <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+          <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>DOWNLOAD</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:appId>abc_1234</ns1:appId>
+          <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+          <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
+          <ns1:appPostbackUrl>
+            <ns1:url>http://yahoo.co.jp?advertising_id={adid}&amp;lat={lat}</ns1:url>
+          </ns1:appPostbackUrl>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>DEFAULT</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+          <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
+        </ns1:operand>
+      </ns1:operations>
+    </ns1:mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -289,9 +307,9 @@ Response Fields
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>ConversionTrackerService</ns1:service>
-      <ns1:remainingQuota>4967</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.1225</ns1:timeTakenMillis>
+      <ns1:remainingQuota>6547</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>2.4381</ns1:timeTakenMillis>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -303,27 +321,12 @@ Response Fields
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:WebConversion">
             <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1000002</ns1:conversionTrackerId>
+            <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
             <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
             <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PURCHASE</ns1:category>
+            <ns1:category>PAGE_VIEW</ns1:category>
             <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-             <ns1:userRevenueValue>1500</ns1:userRevenueValue>
-            <ns1:snippet>&lt;!-- Yahoo Code for your Conversion Page --&gt;
-&lt;script type="text/javascript"&gt;
-/* &lt;![CDATA[ */
-var yahoo_conversion_id = 1000661;
-var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-var yahoo_conversion_value = 100;
-/* ]]&gt; */
-&lt;/script&gt;
-&lt;script type="text/javascript" src="http://XXXXXXXXX/XXXXXX/XXXXXXX/XXXX/XX/conversion.js"&gt;
-&lt;/script&gt;
-&lt;noscript&gt;
-&lt;div style="display:inline;"&gt;
-&lt;img height="1" width="1" style="border-style:none;" alt="" src="http://XXXXXXXXXXXXXXX/pagead/conversion/1000661/?value=100&amp;label=XXXXXXXXXXXXXXXXXX&amp;guid=ON&amp;script=0&amp;disvt=true"/&gt;
-&lt;/div&gt;
-&lt;/noscript&gt;</ns1:snippet>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
             <ns1:markupLanguage>HTML</ns1:markupLanguage>
             <ns1:httpProtocol>HTTP</ns1:httpProtocol>
             <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
@@ -332,48 +335,13 @@ var yahoo_conversion_value = 100;
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:conversionTrackerId>00000002</ns1:conversionTrackerId>
+            <ns1:accountId>20741</ns1:accountId>
+            <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
             <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PURCHASE</ns1:category>
+            <ns1:status>DISABLED</ns1:status>
+            <ns1:category>DEFAULT</ns1:category>
             <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>1500</ns1:userRevenueValue>
-            <ns1:snippet>
-&lt;!-- Yahoo Code for your Conversion Page
-In your html page, add the snippet and call
-yahoo_report_conversion when someone clicks on the
-phone number link or button. --&gt;
-&lt;script type="text/javascript"&gt;
-  /* &lt;![CDATA[ */
-  yahoo_snippet_vars = function() {
-    var w = window;
-    w.yahoo_conversion_id = 1000661;
-    w.yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    w.yahoo_conversion_value = 100;
-    w.yahoo_remarketing_only = false;
-  }
-  // IF YOU CHANGE THE CODE BELOW, THIS CONVERSION TAG MAY NOT WORK.
-  yahoo_report_conversion = function(url) {
-    yahoo_snippet_vars();
-    window.yahoo_conversion_format = "3";
-    window.yahoo_is_call = true;
-    var opt = new Object();
-    opt.onload_callback = function() {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    }
-    var conv_handler = window['yahoo_trackConversion'];
-    if (typeof(conv_handler) == 'function') {
-      conv_handler(opt);
-    }
-  }
-/* ]]&gt; */
-&lt;/script&gt;
-&lt;script type="text/javascript"
-  src="http://XXXXXXXXX/XXXXXX/XXXXXXX/XXXX/XX/conversion_async.js"&gt;
-&lt;/script&gt;</ns1:snippet>
+            <ns1:userRevenueValue>200</ns1:userRevenueValue>
             <ns1:markupLanguage>HTML</ns1:markupLanguage>
             <ns1:httpProtocol>HTTP</ns1:httpProtocol>
             <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
@@ -382,9 +350,9 @@ phone number link or button. --&gt;
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:conversionTrackerId>00000005</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_コンバージョントラッカー</ns1:conversionTrackerName>
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</ns1:conversionTrackerName>
             <ns1:status>ENABLED</ns1:status>
             <ns1:category>DOWNLOAD</ns1:category>
             <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
@@ -392,6 +360,40 @@ phone number link or button. --&gt;
             <ns1:appId>abc_1234</ns1:appId>
             <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
             <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
+            <ns1:appPostbackUrl />
+          </ns1:conversionTracker>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:conversionTracker xsi:type="ns1:AppConversion">
+            <ns1:accountId>20741</ns1:accountId>
+            <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</ns1:conversionTrackerName>
+            <ns1:status>ENABLED</ns1:status>
+            <ns1:category>DOWNLOAD</ns1:category>
+            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
+            <ns1:appId>abc_1234</ns1:appId>
+            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+            <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
+            <ns1:appPostbackUrl>
+              <ns1:url>http://yahoo.co.jp?advertising_id={adid}&amp;lat={lat}</ns1:url>
+            </ns1:appPostbackUrl>
+          </ns1:conversionTracker>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:conversionTracker xsi:type="ns1:AppConversion">
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</ns1:conversionTrackerName>
+            <ns1:status>ENABLED</ns1:status>
+            <ns1:category>DEFAULT</ns1:category>
+            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
+            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+            <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
+            <ns1:appPostbackUrl />
           </ns1:conversionTracker>
         </ns1:values>
       </ns1:rval>
@@ -412,57 +414,70 @@ Update ConversionTracker informations.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerId>00000003</ns1:conversionTrackerId>
-               <ns1:conversionTrackerName>WEB_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>PAGE_VIEW</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-               <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerId>00000003</ns1:conversionTrackerId>
-               <ns1:conversionTrackerName>CALL_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-               <ns1:status>DISABLED</ns1:status>
-               <ns1:category>DEFAULT</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>200</ns1:userRevenueValue>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-               <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:AppConversion">
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:conversionTrackerId>00000005</ns1:conversionTrackerId>
-               <ns1:conversionTrackerName>APP_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>DOWNLOAD</ns1:category>
-               <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>200</ns1:userRevenueValue>
-               <ns1:appId>abc_1234</ns1:appId>
-               <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-               <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <ns1:RequestHeader>
+      <ns1:license>9999-9999-9999-9999</ns1:license>
+      <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
+      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+    </ns1:RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:mutate>
+      <ns1:operations>
+        <ns1:operator>SET</ns1:operator>
+        <ns1:accountId>2000003390</ns1:accountId>
+        <ns1:operand xsi:type="ns1:WebConversion">
+          <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
+          <ns1:conversionTrackerName>WEB_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>PAGE_VIEW</ns1:category>
+          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:markupLanguage>HTML</ns1:markupLanguage>
+          <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:WebConversion">
+          <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
+          <ns1:conversionTrackerName>CALL_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+          <ns1:status>DISABLED</ns1:status>
+          <ns1:category>DEFAULT</ns1:category>
+          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>200</ns1:userRevenueValue>
+          <ns1:markupLanguage>HTML</ns1:markupLanguage>
+          <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
+          <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>DOWNLOAD</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:appId>abc_1234</ns1:appId>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
+          <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>DOWNLOAD</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+          <ns1:appId>abc_1234</ns1:appId>
+          <ns1:appPostbackUrl>
+            <ns1:clearFlag>TRUE</ns1:clearFlag>
+          </ns1:appPostbackUrl>
+        </ns1:operand>
+        <ns1:operand xsi:type="ns1:AppConversion">
+          <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
+          <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+          <ns1:status>ENABLED</ns1:status>
+          <ns1:category>PURCHASE</ns1:category>
+          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+          <ns1:userRevenueValue>100</ns1:userRevenueValue>
+        </ns1:operand>
+      </ns1:operations>
+    </ns1:mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 ### Response
@@ -475,14 +490,13 @@ Response Fields
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>ConversionTrackerService</ns1:service>
-      <ns1:remainingQuota>4967</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.1225</ns1:timeTakenMillis>
+      <ns1:remainingQuota>6529</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>3.4503</ns1:timeTakenMillis>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -493,30 +507,30 @@ Response Fields
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:conversionTrackerId>00000003</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>WEB_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
             <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PURCHASE</ns1:category>
+            <ns1:category>PAGE_VIEW</ns1:category>
             <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:snippet>&lt;!-- Yahoo Code for your Conversion Page --&gt;
-&lt;script type="text/javascript"&gt;
-/* &lt;![CDATA[ */
-var yahoo_conversion_id = 1000661;
-var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-var yahoo_conversion_value = 100;
-/* ]]&gt; */
-&lt;/script&gt;
-&lt;script type="text/javascript" src="http://XXXXXXXXX/XXXXXX/XXXXXXX/XXXX/XX/conversion.js"&gt;
-&lt;/script&gt;
-&lt;noscript&gt;
-&lt;div style="display:inline;"&gt;
-&lt;img height="1" width="1" style="border-style:none;" alt="" src="http://XXXXXXXXXXXXXXX/pagead/conversion/1000661/?value=100&amp;label=XXXXXXXXXXXXXXXXXX&amp;guid=ON&amp;script=0&amp;disvt=true"/&gt;
-&lt;/div&gt;
-&lt;/noscript&gt;</ns1:snippet>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
+            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    /* &amp;lt;![CDATA[ */
+    var yahoo_conversion_id = 1000661;
+    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
+    var yahoo_conversion_value = 100;
+    /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+    &amp;lt;div style="display:inline;"&amp;gt;
+        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/noscript&amp;gt;</ns1:snippet>
             <ns1:markupLanguage>HTML</ns1:markupLanguage>
             <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-            <ns1:userRevenueValue>1500</ns1:userRevenueValue>
             <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
           </ns1:conversionTracker>
         </ns1:values>
@@ -524,65 +538,98 @@ var yahoo_conversion_value = 100;
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:WebConversion">
             <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1000003</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PURCHASE</ns1:category>
+            <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>CALL_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+            <ns1:status>DISABLED</ns1:status>
+            <ns1:category>DEFAULT</ns1:category>
             <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:snippet>
-&lt;!-- Yahoo Code for your Conversion Page
-In your html page, add the snippet and call
-yahoo_report_conversion when someone clicks on the
-phone number link or button. --&gt;
-&lt;script type="text/javascript"&gt;
-  /* &lt;![CDATA[ */
-  yahoo_snippet_vars = function() {
-    var w = window;
-    w.yahoo_conversion_id = 1000661;
-    w.yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    w.yahoo_conversion_value = 100;
-    w.yahoo_remarketing_only = false;
-  }
-  // IF YOU CHANGE THE CODE BELOW, THIS CONVERSION TAG MAY NOT WORK.
-  yahoo_report_conversion = function(url) {
-    yahoo_snippet_vars();
-    window.yahoo_conversion_format = "3";
-    window.yahoo_is_call = true;
-    var opt = new Object();
-    opt.onload_callback = function() {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
+            <ns1:userRevenueValue>200</ns1:userRevenueValue>
+            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page In your html page, add the snippet and call
+yahoo_report_conversion when someone clicks on the phone number link or button. --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    /* &amp;lt;![CDATA[ */
+    yahoo_snippet_vars = function() {
+        var w = window;
+        w.yahoo_conversion_id = 1000661;
+        w.yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
+        w.yahoo_conversion_value = 200;
+        w.yahoo_remarketing_only = false;
     }
-    var conv_handler = window['yahoo_trackConversion'];
-    if (typeof(conv_handler) == 'function') {
-      conv_handler(opt);
+    // IF YOU CHANGE THE CODE BELOW, THIS CONVERSION TAG MAY NOT WORK.
+    yahoo_report_conversion = function(url) {
+        yahoo_snippet_vars();
+        window.yahoo_conversion_format = "3";
+        window.yahoo_is_call = true;
+        var opt = new Object();
+        opt.onload_callback = function() {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        }
+        var conv_handler = window['yahoo_trackConversion'];
+        if (typeof(conv_handler) == 'function') {
+            conv_handler(opt);
+        }
     }
-  }
-/* ]]&gt; */
-&lt;/script&gt;
-&lt;script type="text/javascript"
-  src="http://XXXXXXXXX/XXXXXX/XXXXXXX/XXXX/XX/conversion_async.js"&gt;
-&lt;/script&gt;</ns1:snippet>
+    /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript"
+        src="//s.yimg.jp/images/listing/tool/cv/conversion_async.js"&amp;gt;
+&amp;lt;/script&amp;gt;</ns1:snippet>
             <ns1:markupLanguage>HTML</ns1:markupLanguage>
             <ns1:httpProtocol>HTTP</ns1:httpProtocol>
-            <ns1:userRevenueValue>1500</ns1:userRevenueValue>
             <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
           </ns1:conversionTracker>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:conversionTrackerId>00000005</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_コンバージョントラッカー</ns1:conversionTrackerName>
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
             <ns1:status>ENABLED</ns1:status>
-            <ns1:userRevenueValue>200</ns1:userRevenueValue>
-            <ns1:category>DEFAULT</ns1:category>
+            <ns1:category>DOWNLOAD</ns1:category>
             <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
             <ns1:appId>abc_1234</ns1:appId>
             <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
             <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
+            <ns1:appPostbackUrl />
+          </ns1:conversionTracker>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:conversionTracker xsi:type="ns1:AppConversion">
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+            <ns1:status>ENABLED</ns1:status>
+            <ns1:category>DOWNLOAD</ns1:category>
+            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
+            <ns1:appId>abc_1234</ns1:appId>
+            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+            <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
+            <ns1:snippetId>1000661</ns1:snippetId>
+            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
+            <ns1:appPostbackUrl />
+          </ns1:conversionTracker>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:conversionTracker xsi:type="ns1:AppConversion">
+            <ns1:accountId>2000003390</ns1:accountId>
+            <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
+            <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
+            <ns1:status>ENABLED</ns1:status>
+            <ns1:category>PURCHASE</ns1:category>
+            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
+            <ns1:userRevenueValue>100</ns1:userRevenueValue>
+            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
+            <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
+            <ns1:snippetId>1000661</ns1:snippetId>
+            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
+            <ns1:appPostbackUrl />
           </ns1:conversionTracker>
         </ns1:values>
       </ns1:rval>

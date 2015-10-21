@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -65,7 +65,7 @@
       </complexType>
       <complexType name="AdGroupAd">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="1" name="adGroupId" type="xsd:long"/>
@@ -340,7 +340,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

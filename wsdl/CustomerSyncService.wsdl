@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.2.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -107,6 +107,8 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <element maxOccurs="1" minOccurs="0" name="adId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="feedItemId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long"/>
         </sequence>
       </complexType>
       <complexType abstract="true" name="ReturnValue">
@@ -195,7 +197,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="CustomerSyncService">
     <wsdl:port binding="tns:CustomerSyncServiceSoapBinding" name="CustomerSyncService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/CustomerSyncService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/CustomerSyncService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

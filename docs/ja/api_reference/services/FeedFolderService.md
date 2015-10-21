@@ -3,8 +3,8 @@ FeedFolderServiceでは、自動データ挿入のリスト情報の取得およ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/FeedFolderService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/FeedFolderService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/FeedFolderService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/FeedFolderService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### サービス概要

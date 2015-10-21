@@ -3,8 +3,8 @@ Use this service to retrieve the URL prefix for the colocation your account is a
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/LocationService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/LocationService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/LocationService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/LocationService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

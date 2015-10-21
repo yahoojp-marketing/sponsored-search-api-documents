@@ -3,8 +3,8 @@ BidLandscapeService estimates the change of an impression and a click when a bid
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.2/BidLandscapeService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.2/BidLandscapeService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V5.3/BidLandscapeService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BidLandscapeService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V5
 #### Overview

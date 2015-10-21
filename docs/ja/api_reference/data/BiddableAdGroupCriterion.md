@@ -19,7 +19,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
 | userStatus(updatable)| enum <a href="./UserStatus.md">UserStatus</a>| ユーザーにより設定される広告の掲載状況です。指定しない場合は、フィルタ条件にすべての掲載状況が含まれます。| Req| Opt| ─ |
 | approvalStatus| enum <a href="./ApprovalStatus.md">ApprovalStatus</a>| 審査状況です。| ─| ─| ─ |
 | disapprovalReasonCodes| xsd:string| 審査否認コードです。<br>各コードのその内容は、<a href="../appendix/ed_reasons.md"><span>Editorial Reason Text</span></a>をご確認ください。| ─| ─| ─ |
-| destinationUrl(updatable)| xsd:string| リンク先URLです。| Opt| Opt| ─ |
+| destinationUrl(updatable)| xsd:string| リンク先URLです。|Opt<br>※Androidのアプリダウンロード<br>キャンペーン：Ignore| Opt| ─ |
 | biddingStrategyConfiguration| <a href="../data/BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a>| 入札設定です。<br>※現在有効な入札設定がレスポンスされます。<br>※親エンティティの有効な入札設定が適用されます。| Req| Opt<br>                    (updatable)| ─ |
 | biddingStrategyFailedReason| enum <a href="../data/BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a>| 自動入札設定に失敗した理由です。<br>※失敗時のみレスポンスされます。| ─| ─| ─ |
 | failedBiddingStrategyConfiguration| <a href="../data/BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a>| 登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスされます。| ─| ─| ─ |

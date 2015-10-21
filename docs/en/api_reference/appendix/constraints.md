@@ -25,8 +25,8 @@ Description                                  | 19 characters - 19 characters
 Display URL                                  | 29 characters                                                
 Destination URL                              | 1024 characters                                              
 Destination URL at keyword level(Custom URL) | 1024 characters                                              
-Keyword                                      | 80 characters*                                               
-Negative Keyword                             | 80 characters*                                               
+Keyword                                      | 80 characters* 10 words                                         
+Negative Keyword                             | 80 characters* 10 words                                                  
 Campaign Budget                              | 100 to 12,500,000 JPY (in 100 JPY increments)                
 Bid limit for automatic bidding              | 1 to 9,999 JPY (in 1 JPY increments)                         
 Ad Group bid                                 | 1 to 50,000 JPY (in 1 JPY increments)                        
