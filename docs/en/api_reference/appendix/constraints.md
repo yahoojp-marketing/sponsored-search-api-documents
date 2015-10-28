@@ -48,6 +48,19 @@ Double-byte alpha character | Single-byte alpha character | ＡＢＣＤ → ABC
 Multi space | 1 single-byte space | 「あい　　うえお」→「あい うえお」
 Leading and trailing space | Removed | 「　あいうえお　」→「あいうえお」
 
+### Limitation of number of ID
+
+ID | Scheduled report (Add Template: YES)| ONETIME report (Add Template: NO)           
+----------- | ----------- |----------- 
+Report ID　　　　| 30            　　　　| No limits.       
+Report Job ID   | No limits.             | 50
+
+*Once you hit the upper limit, you are no longer able to create a new ID.<br>
+&nbsp;Please delete IDs by mutate Remove, if necessary.<br>
+*Scheduled report IDs (AddTemplate YES) can be repeatedly used. <br>
+&nbsp;ONETIME report IDs and Report Job IDs are deleted automatically in a week.<br>
+*Maximum number of IDs set via API is a total number created by "on-behalf of" and "standard" authentication access.
+
 ### Maximum amount per request to be retrieved per service  
 Web Service                  | Operation             | No. of Usable Elements | Max. Responses | Paging
 ---------------------------- | --------------------- | ---------------------- | -------------- | ------

@@ -67,7 +67,9 @@ Code | Message | Description
 
 
 #### Account Management error
-##### [AccountService](/docs/en/api_reference/services/AccountService.md)
+##### Service
+[AccountService](/docs/en/api_reference/services/AccountService.md)
+
 Code  | Message  | Description 
 ----- | -------- | ---------------------------------
 20110005 | INVALID VALUE | You have submitted invalid account IDs.  
@@ -101,7 +103,8 @@ Code  | Message  | Description
 
 #### Billing error
 ##### Service
-##### [BalanceService](/docs/en/api_reference/services/BalanceService.md)  
+[BalanceService](/docs/en/api_reference/services/BalanceService.md)  
+
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 20410003 | INPUT REQUIRED | Account ID is required.
@@ -114,7 +117,8 @@ Code  | Message  | Description
 
 
 #### Campaign Management error
-##### [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md),  [BulkService](/docs/en/api_reference/services/BulkService.md), [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md),  [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
+##### Service
+[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md),  [BulkService](/docs/en/api_reference/services/BulkService.md), [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md),  [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
@@ -213,6 +217,7 @@ Code   | Message  | Description
 210511 | Cannot use conversion optimizer.  | Conversion optimizer is not available.
 210512 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210513 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
+210517 | Exceeds maximum word limit. | Cannot set more than 10 keywords.
 
 ##### Service
 [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md) 
