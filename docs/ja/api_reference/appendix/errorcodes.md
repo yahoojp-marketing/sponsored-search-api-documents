@@ -212,6 +212,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210511 | Cannot use conversion optimizer.  | コンバージョンオプティマイザーが利用できません。
 210512 | Set campaign active.	| キャンペーンがACTIVEでないため、入札設定が利用できません。
 210513 | Set campaign to Manual CPC.  | キャンペーンが「MANUAL_CPC」でないため、入札設定が利用できません。
+210517 | Exceeds maximum word limit. | キーワードは最大10個までしか指定できません。
 
 ##### Service
 [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md) 
