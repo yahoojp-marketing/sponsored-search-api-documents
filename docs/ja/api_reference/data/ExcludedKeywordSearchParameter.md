@@ -1,5 +1,7 @@
 # ExcludedKeywordSearchParameter
-ExcludedKeywordSearchParameterオブジェクトは、除外キーワードを格納するコンテナです。
+ExcludedKeywordSearchParameterオブジェクトは、除外キーワードを格納するコンテナです。<br>
+※ExcludedKeywordSearchParameterは、2015/11/2をもって提供を終了いたしました。
+
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
 
