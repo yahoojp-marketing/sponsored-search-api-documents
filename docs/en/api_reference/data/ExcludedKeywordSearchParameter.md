@@ -1,5 +1,7 @@
 # ExcludedKeywordSearchParameter
-Container for excluded keywords.
+Container for excluded keywords.<br>
+*ExcludedKeywordSearchParameter support has ended in November 2, 2015.
+
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
 
