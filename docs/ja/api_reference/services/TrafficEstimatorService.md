@@ -3,10 +3,10 @@ TrafficEstimatorServiceは、ターゲットやキーワードなど、指定し
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/TrafficEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/TrafficEstimatorService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 ターゲットやキーワードなど、指定した条件で獲得できるトラフィックを見積ります。
 #### 操作
@@ -19,12 +19,13 @@ TrafficEstimatorServiceで提供される操作を説明します。
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
 | selector | ○ | [TrafficEstimatorSelector](../data/TrafficEstimatorSelector.md) | トラフィックを見積る条件を指定します。 | 
-＜リクエストサンプル＞
+
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -81,18 +82,20 @@ TrafficEstimatorServiceで提供される操作を説明します。
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | rval | [TrafficEstimatorPage](../data/TrafficEstimatorPage.md) | 取得される見積もりに関するエントリーです。 | 
-＜レスポンスサンプル＞
+
+##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>TrafficEstimatorService</ns1:service>
@@ -201,4 +204,5 @@ TrafficEstimatorServiceで提供される操作を説明します。
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

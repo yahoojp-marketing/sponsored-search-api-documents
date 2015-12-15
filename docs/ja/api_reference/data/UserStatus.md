@@ -1,13 +1,13 @@
 # UserStatus (enum)
 UserStatusは、ユーザーにより広告配信の有無を調整できる設定です。
+
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
 + [AdGroupAdService](../services/AdGroupAdService.md)
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
-+ [BulkService](../services/BulkService.md)
 + [CampaignService](../services/CampaignService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | ACTIVE| string| 広告は配信されている状態です。 |
 | PAUSED| string| 広告は一時停止の状態のため、配信されていません。 |

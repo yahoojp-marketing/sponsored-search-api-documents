@@ -4,11 +4,11 @@ NegativeCampaignRetargetingListServiceでは、キャンペーンレベルでの
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/NegativeCampaignRetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/NegativeCampaignRetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/NegativeCampaignRetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/NegativeCampaignRetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 
 #### サービス概要
 キャンペーンレベルでのターゲットリスト除外対象設定に関する情報の取得および追加・削除を行います。
@@ -26,7 +26,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 
 ##### ＜リクエストサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -64,7 +64,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>NegativeCampaignRetargetingListService</ns1:service>
@@ -106,7 +106,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 
 ##### ＜リクエストサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -142,7 +142,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>NegativeCampaignRetargetingListService</ns1:service>
@@ -185,7 +185,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 
 ##### ＜リクエストサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -221,7 +221,7 @@ NegativeCampaignRetargetingListServiceで提供される操作を説明します
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>NegativeCampaignRetargetingListService</ns1:service>

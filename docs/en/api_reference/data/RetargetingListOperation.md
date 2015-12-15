@@ -4,12 +4,49 @@ RetargetingListOperation is an object that holds target retargeting in mutate me
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)
 
-| field | type | max<br>Occurs | min<br>Occurs | resp<br>onse | add | set | remove | description | 
-|---|---|---|---|---|---|---|---|---|
-| Operation(inherited)|||||||||
-| operator| enum <a href="./Operator.md">Operator</a>||||||| Operator that displays process. |
-| RetargetingListOperation|||||||
-| accountId| long| 1| 1| ○| Req| Req| Req| Account ID. |
-| Operand[]| <a href="./TargetingList.md">TargetingList</a><br>inherited <a href="./DefaultTargetList.md">DefaultTargetList</a><br>inherited <a href="./RuleBaseTargetList.md">RuleBaseTargetList</a><br>inherited <a href="./LogicalTargetList.md">LogicalTargetList</a>| unbounded| 1| ○| Req| Req| Req| Target list of operation object. |
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td colspan="8"><a href="./Operation.md">Operation</a>(inherited)</td>
+ </tr>
+ <tr>
+  <td>operator</td>
+  <td>enum <a href="./Operator.md">Operator</a></td>
+  <td>Operator that displays process. </td>
+  <td colspan="5"></td>
+ </tr>
+ <tr>
+  <td colspan="8">RetargetingListOperation</td>
+ </tr>
+ <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>Account ID.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>operand[1...200]</td>
+  <td><a href="./TargetingList.md">TargetingList</a><br>inherited <a href="./DefaultTargetList.md">DefaultTargetList</a><br>inherited <a href="./RuleBaseTargetList.md">RuleBaseTargetList</a><br>inherited <a href="./LogicalTargetList.md">LogicalTargetList</a></td>
+  <td>Target list of operation object.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+</table>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

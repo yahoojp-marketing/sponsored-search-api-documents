@@ -1,17 +1,120 @@
 # AdGroupCriterionSelector
 AdGroupCriterionSelector object displays which ad groups criteria to return.
+
 ### Service
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 
-| Field | Data Type | Description | 
-|---|---|---|
-| accountId| xsd: long| Account ID |
-| campaignIds[]| xsd: long| Campaign ID |
-| adGroupIds[]| xsd: long| AdGroup ID |
-| criterionIds[]| xsd: long| Criterion ID If you omit criterionIds field, return all of criterionIds under the adGroup. |
-| criterionUse| enum <a href="../data/CriterionUse.md">CriterionUse</a>| Selects the criteria to return by the way they are used. e.g. biddable, negative. This field must contain distinct elements. This field must not contain null elements. |
-| userStatuses[]| enum <a href="../data/UserStatus.md">UserStatus</a>| Biddable criteria's user status must be one of UserStatus. This field must contain distinct elements. This field must not contain null elements. |
-| biddingStrategyIds[]| xsd:long| Auto bidding ID |
-| approvalStatuses[]| enum <a href="../data/ApprovalStatus.md">ApprovalStatus</a>| Editorial review status. |
-| paging| <a href="../data/Paging.md">Paging</a>| The page that is returned as a page. |
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>Search condition: Account ID.</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>campaignIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Campaign ID.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>adGroupIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Ad group ID.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>criterionIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Criterion ID.<br>* All criteria under the Ad group ID will return if theres is no designation.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>criterionUse</td>
+  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
+  <td>Search condition: Criterion type.<br>It can select to set as bid or negative keyword.</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>userStatuses[0...2]</td>
+  <td>enum <a href="./UserStatus.md">UserStatus</a></td>
+  <td>Search condition: Status of ad that been set.<br>* If there is no designation, all ads in all condition will return.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>biddingStrategyIds[0...500]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Auto bidding ID.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>approvalStatuses[0...5]</td>
+  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>Search condition: Editorial review status.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>advanced</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
+  <td>Search condition: Flag of Advanced URL.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>paging</td>
+  <td><a href="./Paging.md">Paging</a></td>
+  <td>Search condition: Page of returned results.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+</table>
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

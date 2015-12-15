@@ -4,7 +4,7 @@ ReachStorageStatus is the flag status to store Cookie reach.
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| Enumeration value | Data type | Description | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | OPEN| string| Valid status.<br>Reach will be stored.  |
 | CLOSED| string| Invalid status.<br>Reach will not be stored. |

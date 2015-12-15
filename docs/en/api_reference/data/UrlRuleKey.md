@@ -4,7 +4,7 @@ UrlRuleKey is the evaluation to set URL rules.
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| Enumeration value | Data type | Description | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | URL| string| URL. |
 | REFFER_URL| string| Refer URL.|

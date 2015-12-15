@@ -3,10 +3,10 @@ BalanceServiceでは、選択したアカウントのアカウント残高の情
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/BalanceService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BalanceService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/BalanceService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BalanceService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 アカウントの残高の情報を取得するWebサービスです。取得したアカウント残高の情報は入札戦略などに活用できます。
 #### 操作
@@ -25,7 +25,7 @@ BalanceServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -53,7 +53,7 @@ BalanceServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -88,7 +88,7 @@ BalanceServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:ns1="http://ss.yahooapis.jp/V5">
+    xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>BalanceService</ns1:service>

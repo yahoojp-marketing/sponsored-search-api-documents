@@ -4,7 +4,7 @@ RuleType is the rule type of target list.
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| Enumeration value | Data type | Description | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | URL_RULE| string| URL rules. |
 

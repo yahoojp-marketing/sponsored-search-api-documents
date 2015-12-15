@@ -3,10 +3,10 @@ CustomerSyncServceでは、指定した期間でのキャンペーンデータ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/CustomerSyncService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CustomerSyncService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/CustomerSyncService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CustomerSyncService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 指定した期間でのキャンペーンデータの操作履歴を取得します。
 #### 操作
@@ -21,7 +21,7 @@ CustomerSyncServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>9999-9999-9999-9999</ns1:license>
@@ -62,7 +62,7 @@ CustomerSyncServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CustomerSyncService</ns1:service>

@@ -4,9 +4,9 @@ RuleOperator is the evaluation type to set evaluation condition of rules.
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| Enumeration value | Data type | Description | 
+| Enumeration | Type | Description | 
 |---|---|---|
-| UNKNOWN| string| Unknown, not been set.<br>Cannot set for read only. |
+| UNKNOWN| string| Unknown, or not been set.<br>*Cannot set for read only. |
 | EQUALS| string| Equals or match.|
 | NOT_EQUAL| string| Do not equal nor match. |
 | CONTAINS| string| Contains or include (the specified string). |

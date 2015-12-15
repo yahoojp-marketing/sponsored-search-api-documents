@@ -3,10 +3,10 @@ Use this service to get or update bid multiplier information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupBidMultiplierService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupBidMultiplierService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupBidMultiplierService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupBidMultiplierService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### Overview
 Use this service to get, update adgroup bid multiplier.
 #### Operation
@@ -22,7 +22,7 @@ Gets bid multiplier of adgroup
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -51,7 +51,7 @@ Gets bid multiplier of adgroup
 ##### Request Sample (On-Behalf-Of account)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -90,7 +90,7 @@ Gets bid multiplier of adgroup
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -155,7 +155,7 @@ Updates adgroup bid multiplier.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
-  xmlns:ns1="http://ss.yahooapis.jp/V5" 
+  xmlns:ns1="http://ss.yahooapis.jp/V6" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -203,7 +203,7 @@ Updates adgroup bid multiplier.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
-  xmlns:ns1="http://ss.yahooapis.jp/V5" 
+  xmlns:ns1="http://ss.yahooapis.jp/V6" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -259,7 +259,7 @@ Updates adgroup bid multiplier.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>

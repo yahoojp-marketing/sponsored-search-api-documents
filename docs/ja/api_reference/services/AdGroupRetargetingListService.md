@@ -4,11 +4,11 @@ AdGroupRetargetingListServiceでは、広告グループレベルでのターゲ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupRetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupRetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupRetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupRetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 
 #### サービス概要
 広告グループレベルでのターゲットリスト設定に関する情報の取得および追加・更新・削除を行います。
@@ -26,7 +26,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 
 ##### ＜リクエストサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -58,7 +58,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AdGroupRetargetingListService</ns1:service>
@@ -122,7 +122,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -168,7 +168,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AdGroupRetargetingListService</ns1:service>
@@ -233,7 +233,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -279,7 +279,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AdGroupRetargetingListService</ns1:service>
@@ -344,7 +344,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -390,7 +390,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AdGroupRetargetingListService</ns1:service>

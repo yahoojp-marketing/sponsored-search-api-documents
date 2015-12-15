@@ -4,11 +4,11 @@ RetargetingListServiceでは、ターゲットリストに関する情報の取�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 
 #### サービス概要
 ターゲットリストに関する情報の取得および追加・更新を行います。
@@ -26,7 +26,7 @@ RetargetingListServiceで提供される操作を説明します。
 
 ##### ＜リクエストサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -64,7 +64,7 @@ RetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -92,9 +92,8 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:tag>
               <ns1:snippet>&lt;!-- Yahoo Code for your Target List --&gt;
                 &lt;script type="text/javascript"&gt;
@@ -130,9 +129,8 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>ルールベースターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
                 <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -191,6 +189,7 @@ RetargetingListServiceで提供される操作を説明します。
                 <ns1:urlKey>REFFER_URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20150701</ns1:startDate>
             <ns1:endDate>20151231</ns1:endDate>
@@ -210,9 +209,8 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>ロジカルターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:logicalGroup>
               <ns1:condition>AND</ns1:condition>
               <ns1:logicalOperand>
@@ -262,7 +260,7 @@ RetargetingListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -283,8 +281,6 @@ RetargetingListServiceで提供される操作を説明します。
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:RuleBaseTargetList">
           <ns1:accountId>100000001</ns1:accountId>
@@ -293,8 +289,6 @@ RetargetingListServiceで提供される操作を説明します。
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
           <ns1:rules>
             <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
               <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -317,6 +311,7 @@ RetargetingListServiceで提供される操作を説明します。
               <ns1:urlKey>URL</ns1:urlKey>
             </ns1:ruleItems>
           </ns1:rules>
+          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
           <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
           <ns1:startDate>20150701</ns1:startDate>
           <ns1:endDate>20151231</ns1:endDate>
@@ -328,8 +323,6 @@ RetargetingListServiceで提供される操作を説明します。
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
           <ns1:logicalGroup>
             <ns1:condition>AND</ns1:condition>
             <ns1:logicalOperand>
@@ -371,7 +364,7 @@ RetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -396,8 +389,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:tag />
           </ns1:targetList>
         </ns1:values>
@@ -415,8 +406,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
@@ -440,6 +429,7 @@ RetargetingListServiceで提供される操作を説明します。
                 <ns1:urlKey>URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20150701</ns1:startDate>
             <ns1:endDate>20151231</ns1:endDate>
@@ -459,8 +449,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:logicalGroup>
               <ns1:condition>AND</ns1:condition>
@@ -506,7 +494,7 @@ RetargetingListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -522,16 +510,17 @@ RetargetingListServiceで提供される操作を説明します。
         <ns1:accountId>100000001</ns1:accountId>
         <ns1:operand xsi:type="ns1:DefaultTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>DEFAULT</ns1:targetListType>
           <ns1:targetListId>200000001</ns1:targetListId>
+          <ns1:targetListType>DEFAULT</ns1:targetListType>
+          <ns1:targetListName>デフォルトターゲットリスト</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:RuleBaseTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>RULE</ns1:targetListType>
           <ns1:targetListId>200000002</ns1:targetListId>
+          <ns1:targetListType>RULE</ns1:targetListType>
           <ns1:targetListName>ルールベースターゲットリスト(更新)</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
@@ -544,13 +533,14 @@ RetargetingListServiceで提供される操作を説明します。
               <ns1:urlKey>REFFER_URL</ns1:urlKey>
             </ns1:ruleItems>
           </ns1:rules>
+          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
           <ns1:startDate>20160701</ns1:startDate>
           <ns1:endDate>20161231</ns1:endDate>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:LogicalTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>LOGICAL</ns1:targetListType>
           <ns1:targetListId>200000003</ns1:targetListId>
+          <ns1:targetListType>LOGICAL</ns1:targetListType>
           <ns1:targetListName>ロジカルターゲットリスト(更新)</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
@@ -577,7 +567,7 @@ RetargetingListServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -605,8 +595,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:tag />
           </ns1:targetList>
@@ -625,9 +613,8 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
                 <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -636,6 +623,7 @@ RetargetingListServiceで提供される操作を説明します。
                 <ns1:urlKey>REFFER_URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20160701</ns1:startDate>
             <ns1:endDate>20161231</ns1:endDate>
@@ -655,9 +643,8 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:logicalGroup>
               <ns1:condition>OR</ns1:condition>
               <ns1:logicalOperand>

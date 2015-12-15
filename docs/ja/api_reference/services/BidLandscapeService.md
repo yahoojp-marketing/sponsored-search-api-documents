@@ -3,10 +3,10 @@ BidLandscapeServiceは、入札単価を変更したときのインプレッシ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/BidLandscapeService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BidLandscapeService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/BidLandscapeService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BidLandscapeService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 入札単価を変更したときのインプレッションやクリックの変化を予測します。
 #### 操作
@@ -25,7 +25,7 @@ BidLandscapeServiceで提供される操作を説明します。
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -60,7 +60,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>BidLandscapeService</ns1:service>

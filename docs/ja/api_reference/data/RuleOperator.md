@@ -4,9 +4,9 @@ RuleOperatorは、ルールの評価条件で設定する評価式の種別で�
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
-| UNKNOWN| string| 未指定。<br>読み取り専用で設定はできなくなります。 |
+| UNKNOWN| string| 未指定です。<br>※読み取り専用で設定はできなくなります。 |
 | EQUALS| string| 一致します。 |
 | NOT_EQUAL| string| 一致しません。 |
 | CONTAINS| string| （指定した文字列を）含みます。 |

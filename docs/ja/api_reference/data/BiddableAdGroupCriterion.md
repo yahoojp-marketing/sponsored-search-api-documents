@@ -1,26 +1,277 @@
 # BiddableAdGroupCriterion
 BiddableAdGroupCriterionオブジェクトは、広告グループの単価設定可能（包含）クライテリアです。
-### ServiceInheritance
-+ [AdGroupCriterionService](../services/AdGroupCriterionService.md)
-+ [BiddableAdGroupCriterion](../services/BiddableAdGroupCriterion.md)
-+ [AdGroupCriterion](../services/AdGroupCriterion.md)
 
-| フィールド | データ型 | 説明 | ADD | SET | REMOVE | 
-|---|---|---|---|---|---|
-| AdGroupCriterion(inherited)||||||
-| accountId(notupdatable)| xsd:long| アカウントIDです。| Req| Req| Req |
-| campaignId(notupdatable)| xsd:long| キャンペーンIDです。| Req| Req| Req |
-| campaignName(notupdatable)| xsd:string| キャンペーン名です。| ─| ─| ─ |
-| adGroupId(notupdatable)| xsd:long| 広告グループIDです。| Req| Req| Req |
-| adGroupName(notupdatable)| xsd:string| 広告グループ名です。| ─| ─| ─ |
-| criterionUse| enum <a href="./CriterionUse.md">CriterionUse</a>| クライテリアを単価設定可能にするか除外にするかを選択します。| Req| ─| ─ |
-| criterion(updatable)| <a href="./Criterion.md">Criterion</a>inherited <a href="./Keyword.md">Keyword</a>| クライテリアです。| Req| Req| Req |
-| BiddableAdGroupCriterion||||||
-| userStatus(updatable)| enum <a href="./UserStatus.md">UserStatus</a>| ユーザーにより設定される広告の掲載状況です。指定しない場合は、フィルタ条件にすべての掲載状況が含まれます。| Req| Opt| ─ |
-| approvalStatus| enum <a href="./ApprovalStatus.md">ApprovalStatus</a>| 審査状況です。| ─| ─| ─ |
-| disapprovalReasonCodes| xsd:string| 審査否認コードです。<br>各コードのその内容は、<a href="../appendix/ed_reasons.md"><span>Editorial Reason Text</span></a>をご確認ください。| ─| ─| ─ |
-| destinationUrl(updatable)| xsd:string| リンク先URLです。|Opt<br>※Androidのアプリダウンロード<br>キャンペーン：Ignore| Opt| ─ |
-| biddingStrategyConfiguration| <a href="../data/BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a>| 入札設定です。<br>※現在有効な入札設定がレスポンスされます。<br>※親エンティティの有効な入札設定が適用されます。| Req| Opt<br>                    (updatable)| ─ |
-| biddingStrategyFailedReason| enum <a href="../data/BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a>| 自動入札設定に失敗した理由です。<br>※失敗時のみレスポンスされます。| ─| ─| ─ |
-| failedBiddingStrategyConfiguration| <a href="../data/BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a>| 登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスされます。| ─| ─| ─ |
+### Service
++ [AdGroupCriterionService](../services/AdGroupCriterionService.md)
+
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td colspan="8"><a href="./AdGroupCriterion.md">AdGroupCriterion</a>(inherited)</td>
+ </tr>
+ <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>アカウントIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>campaignId</td>
+  <td>xsd:long</td>
+  <td>キャンペーンIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+ </tr>
+ <tr>
+  <td>campaignTrackId</td>
+  <td>xsd:long</td>
+  <td>トラッキング用キャンペーンIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>campaignName</td>
+  <td>xsd:string</td>
+  <td>キャンペーン名です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>adGroupId</td>
+  <td>xsd:long</td>
+  <td>広告グループIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+ </tr>
+ <tr>
+  <td>adGroupTrackId</td>
+  <td>xsd:long</td>
+  <td>トラッキング用広告グループIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>adGroupName</td>
+  <td>xsd:string</td>
+  <td>広告グループ名です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>criterionUse</td>
+  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
+  <td>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>criterion</td>
+  <td><a href="./Criterion_AdGroupCriterion.md">Criterion</a><br>inherited <a href="./Keyword_AdGroupCriterion.md">Keyword</a></td>
+  <td>広告グループのクライテリアです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+  <td>Requirement<br><i>NotUpdatable</i></td>
+ </tr>
+ <tr>
+  <td colspan="8">BiddableAdGroupCriterion</td>
+ </tr>
+ <tr>
+  <td>userStatus</td>
+  <td>enum <a href="./UserStatus.md">UserStatus</a></td>
+  <td>ユーザーにより設定される広告の掲載状況です。<br>※指定しない場合は、フィルタ条件にすべての 掲載状況が含まれます。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Optional<br><i>Updatable</i></td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>approvalStatus</td>
+  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>審査ステータスです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>disapprovalReasonCodes</td>
+  <td>xsd:string</td>
+  <td>審査否認コードです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>destinationUrl</td>
+  <td>xsd:string</td>
+  <td>移行前のカスタムURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional<br><i>Updatable</i></td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>reviewDestinationUrl</td>
+  <td>xsd:string</td>
+  <td>移行前の配信審査中のカスタムURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>biddingStrategyConfiguration</td>
+  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
+  <td>入札設定です。<br>※現在有効な入札設定がレスポンスされます。<br>※親エンティティの有効な入札設定が 適用されます。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional<br><i>Updatable</i></td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>biddingStrategyFailedReason</td>
+  <td>enum <a href="../data/BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
+  <td>自動入札設定に失敗した理由です。<br>※失敗時のみレスポンスとして表示されます。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>failedBiddingStrategyConfiguration</td>
+  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
+  <td>登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスとして表示されます。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <td>advancedUrl</td>
+  <td>xsd:string</td>
+  <td>移行後のカスタムURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※移行してtracking Urlを指定している場合、Requirement<br>※移行しない（advanced=FALSE）場合、Ignore</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+ <td>reviewAdvancedUrl</td>
+  <td>xsd:string</td>
+  <td>移行後の配信審査中のカスタムURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <td>advancedMobileUrl</td>
+  <td>xsd:string</td>
+  <td>カスタムURL（スマートフォン）です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※移行しない（advanced=FALSE）場合、Ignore</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+ <td>reviewAdvancedMobileUrl</td>
+  <td>xsd:string</td>
+  <td>配信審査中のカスタムURL（スマートフォン）です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <td>trackingUrl</td>
+  <td>xsd:string</td>
+  <td>トラッキングURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+ <td>reviewTrackingUrl</td>
+  <td>xsd:string</td>
+  <td>配信審査中のトラッキングURLです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <td>customParameters</td>
+  <td>xsd:string</td>
+  <td>カスタムパラメータです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※移行しない（advanced=FALSE）場合、Ignore</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+ <td>reviewCustomParameters</td>
+  <td>xsd:string</td>
+  <td>配信審査中のカスタムパラメータです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <td>advanced</td>
+  <td>xsd:string</td>
+  <td>アドバンスドURL対応のフラグです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+</table>
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
