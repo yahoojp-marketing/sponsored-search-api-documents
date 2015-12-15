@@ -25,16 +25,16 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 　 - Code of disapproval reason<br>
 　 - In review and/or disapproved Tracking URL <br>
 * Retrieving the Tracking ID below will be available.<br>
-　・RetargetingListID<br>
 　・CampaignID<br>
 　・AdGroupID<br>
 　・AdGroupCriterionID<br>
 　・FeedItemID<br>
+　・RetargetingListID<br>
 * Setting of Custom Parameters will be available for services below.<br>
-　・CampaignServiceService<br>
-　・AdGroupService<br>
+　・CampaignService<br>
 　・AdGroupAdService<br>
 　・AdGroupCriterionService<br>
+　・AdGroupService<br>
 　・FeedItemService<br>
 * Destination URL will become Landing Page URL for services below.*<br>
 　・AdGroupAdService<br>
@@ -71,7 +71,6 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 * URL setting will change.<br>
 　・Japanese word domain will be available to use.<br>
 　・All TLD will be available to use.<br>
-* BulkService will end the support.
 <br><br>
 
 ##### Target Web Service 
@@ -84,7 +83,6 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
  * [ReportService](/docs/ja/api_reference/services/ReportService.md)
  * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
- * BulkService (End support)
 <br><br>
 
 ##### Target Data Object and Enumeration 
@@ -210,17 +208,6 @@ Partial function has been improved. Details are as follows.<br>
 　・Tracking URL<br>
 　・Custom Parameter<br>
 - Can retrieve Tracking ID.</p>
-</td>
-</tr>
-<tr>
-<td valign="top">
-  <p>BulkService</p>
-</td>
-<td valign="top">
-  <p>- No change.</p>
-</td>
-<td valign="top">
-  <p>- Service will end support.</p>
 </td>
 </tr>
 <tr>
