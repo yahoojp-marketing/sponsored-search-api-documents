@@ -38,7 +38,7 @@ AccountTrackingUrl object describes account tracking information.
  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>Setting of adjusting the ad display by user.</td>
+  <td>Tracking URL.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

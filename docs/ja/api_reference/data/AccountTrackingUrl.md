@@ -38,7 +38,7 @@ AccountTrackingUrlオブジェクトは、アカウントトラッキングの�
  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>ユーザーにより広告配信の有無を 調整できる設定です。</td>
+  <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
