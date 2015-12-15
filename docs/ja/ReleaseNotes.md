@@ -23,16 +23,16 @@
 　・AdGroupCriterionService<br>
 　・FeedItemService<br>
 * 以下のトラッキング用IDの取得が可能になります。<br>
-　・RetargetingListID<br>
 　・CampaignID<br>
 　・AdGroupID<br>
 　・AdGroupCriterionID<br>
 　・FeedItemID<br>
+　・RetargetingListID<br>
 * 以下のServiceにカスタムパラメータの設定が可能になります。<br>
-　・CampaignServiceService<br>
-　・AdGroupService<br>
+　・CampaignService<br>
 　・AdGroupAdService<br>
 　・AdGroupCriterionService<br>
+　・AdGroupService<br>
 　・FeedItemService<br>
 * 以下のServiceは、リンク先URLが最終リンク先URLとなります。<br>
 ※移行期間中は、既存のリンク先URL（アドバンスURL移行前）の設定が可能です。<br>
@@ -69,7 +69,6 @@
 * URLの設定が変更されます。<br>
 　・日本語ドメインの利用が可能になります。<br>
 　・すべてのTLDの利用が可能になります。<br>
-* BulkServiceが廃止されます。
 <br><br>
 
 ##### 対象ウェブサービス  
@@ -82,7 +81,6 @@
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
  * [ReportService](/docs/ja/api_reference/services/ReportService.md)
  * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
- * BulkService（廃止）
 <br><br>
 
 ##### 対象データオブジェクトとEnumeration 
@@ -215,17 +213,6 @@
 </tr>
 <tr>
 <td valign="top">
-  <p>BulkService</p>
-</td>
-<td valign="top">
-  <p>・変更ありません。</p>
-</td>
-<td valign="top">
-  <p>・Serviceが廃止されます。</p>
-</td>
-</tr>
-<tr>
-<td valign="top">
   <p>CampaignService</p>
 </td>
 <td valign="top">
@@ -236,7 +223,7 @@
 ・アドバンスドURLの移行後は、キャペーン （Campaign）の取得はできません。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除は できません。<br>
+  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
 ・トラッキング用IDの取得が可能になります。<br>
