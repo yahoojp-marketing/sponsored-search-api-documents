@@ -4,11 +4,11 @@ RetargetingListService is to get, add, update, or delete information of target l
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 
 #### Overview
 RetargetingListService provides operation of target list.
@@ -26,7 +26,7 @@ Retrieves the target list information.
 
 ##### Request Sample
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -63,7 +63,7 @@ Retrieves the target list information.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -91,9 +91,8 @@ Retrieves the target list information.
             <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:tag>
               <ns1:snippet>&lt;!-- Yahoo Code for your Target List --&gt;
                 &lt;script type="text/javascript"&gt;
@@ -129,9 +128,8 @@ Retrieves the target list information.
             <ns1:targetListDescription>ルールベースターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
                 <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -190,6 +188,7 @@ Retrieves the target list information.
                 <ns1:urlKey>REFFER_URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20150701</ns1:startDate>
             <ns1:endDate>20151231</ns1:endDate>
@@ -209,9 +208,8 @@ Retrieves the target list information.
             <ns1:targetListDescription>ロジカルターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:logicalGroup>
               <ns1:condition>AND</ns1:condition>
               <ns1:logicalOperand>
@@ -261,7 +259,7 @@ Creates the target list.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -282,8 +280,6 @@ Creates the target list.
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:RuleBaseTargetList">
           <ns1:accountId>100000001</ns1:accountId>
@@ -292,8 +288,6 @@ Creates the target list.
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
           <ns1:rules>
             <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
               <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -316,6 +310,7 @@ Creates the target list.
               <ns1:urlKey>URL</ns1:urlKey>
             </ns1:ruleItems>
           </ns1:rules>
+          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
           <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
           <ns1:startDate>20150701</ns1:startDate>
           <ns1:endDate>20151231</ns1:endDate>
@@ -327,8 +322,6 @@ Creates the target list.
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-          <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
           <ns1:logicalGroup>
             <ns1:condition>AND</ns1:condition>
             <ns1:logicalOperand>
@@ -369,7 +362,7 @@ Creates the target list.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -394,8 +387,6 @@ Creates the target list.
             <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:tag />
           </ns1:targetList>
         </ns1:values>
@@ -413,8 +404,6 @@ Creates the target list.
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
@@ -438,6 +427,7 @@ Creates the target list.
                 <ns1:urlKey>URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20150701</ns1:startDate>
             <ns1:endDate>20151231</ns1:endDate>
@@ -457,8 +447,6 @@ Creates the target list.
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:logicalGroup>
               <ns1:condition>AND</ns1:condition>
@@ -504,7 +492,7 @@ Updates the target list.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -520,16 +508,17 @@ Updates the target list.
         <ns1:accountId>100000001</ns1:accountId>
         <ns1:operand xsi:type="ns1:DefaultTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>DEFAULT</ns1:targetListType>
           <ns1:targetListId>200000001</ns1:targetListId>
+          <ns1:targetListType>DEFAULT</ns1:targetListType>
+          <ns1:targetListName>デフォルトターゲットリスト</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
           <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:RuleBaseTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>RULE</ns1:targetListType>
           <ns1:targetListId>200000002</ns1:targetListId>
+          <ns1:targetListType>RULE</ns1:targetListType>
           <ns1:targetListName>ルールベースターゲットリスト(更新)</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
@@ -542,13 +531,14 @@ Updates the target list.
               <ns1:urlKey>REFFER_URL</ns1:urlKey>
             </ns1:ruleItems>
           </ns1:rules>
+          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
           <ns1:startDate>20160701</ns1:startDate>
           <ns1:endDate>20161231</ns1:endDate>
         </ns1:operand>
         <ns1:operand xsi:type="ns1:LogicalTargetList">
           <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>LOGICAL</ns1:targetListType>
           <ns1:targetListId>200000003</ns1:targetListId>
+          <ns1:targetListType>LOGICAL</ns1:targetListType>
           <ns1:targetListName>ロジカルターゲットリスト(更新)</ns1:targetListName>
           <ns1:targetListDescription>sample description</ns1:targetListDescription>
           <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
@@ -574,7 +564,7 @@ Updates the target list.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>RetargetingListService</ns1:service>
@@ -602,8 +592,6 @@ Updates the target list.
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
             <ns1:tag />
           </ns1:targetList>
@@ -622,9 +610,8 @@ Updates the target list.
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:rules>
               <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
                 <ns1:ruleType>URL_RULE</ns1:ruleType>
@@ -633,6 +620,7 @@ Updates the target list.
                 <ns1:urlKey>REFFER_URL</ns1:urlKey>
               </ns1:ruleItems>
             </ns1:rules>
+            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
             <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
             <ns1:startDate>20160701</ns1:startDate>
             <ns1:endDate>20161231</ns1:endDate>
@@ -652,9 +640,8 @@ Updates the target list.
             <ns1:targetListDescription>sample description</ns1:targetListDescription>
             <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
             <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:targetListOwnerStatus>OWNER</ns1:targetListOwnerStatus>
-            <ns1:targetListSharedStatus>PAUSED</ns1:targetListSharedStatus>
             <ns1:reach>0</ns1:reach>
+            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
             <ns1:logicalGroup>
               <ns1:condition>OR</ns1:condition>
               <ns1:logicalOperand>

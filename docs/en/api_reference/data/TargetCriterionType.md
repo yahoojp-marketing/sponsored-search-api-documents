@@ -2,7 +2,7 @@
 TargetCriterionType is the type of criterion.
 
 ### Service
-+ [AdGroupService](./services/AdGroupService.md)
++ [AdGroupService](../services/AdGroupService.md)
 
 | Enumeration value | Data type | Description | 
 |---|---|---|

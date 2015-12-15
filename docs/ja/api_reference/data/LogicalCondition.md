@@ -4,7 +4,7 @@ LogicalConditionは、組合せターゲットリストの連結条件です。
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | AND| string| AND条件の組合せです。|
 | OR| string| OR条件の組合せです。 |

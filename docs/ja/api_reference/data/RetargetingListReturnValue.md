@@ -4,13 +4,47 @@ RetargetingListReturnValueは、ターゲットリストのmutateメソッドの
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)
 
-| フィールド | データ型 | max<br>Occurs | min<br>Occurs | resp<br>onse | add | set | remove | 説明 | 
-|---|---|---|---|---|---|---|---|---|
-| ListReturnValue(inherited)|||||||
-| ListReturnValue.Type| xsd:string|||||||このインスタンスの ListReturnValue のサブタイプを示します。 |
-| Operation.Type| xsd:string||||||| mutate処理の内容です。 |
-| RetargetingListReturnValue|||||||
-| values[]| <a href="./RetargetingListValues.md">RetargetingListValues</a>| unbounded| 0| ○| -| -| -| mutateメソッドの実行結果です。 |
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td colspan="8"><a href="./ListReturnValue.md">ListReturnValue</a>(inherited)</td>
+ </tr>
+ <tr>
+  <td>ListReturnValue.Type</td>
+  <td>xsd:string</td>
+  <td>このインスタンスの ListReturnValue のサブタイプを示します。</td>
+  <td colspan="5"></td>
+ </tr>
+ <tr>
+  <td>Operation.Type</td>
+  <td>xsd:string</td>
+  <td>mutate処理の内容です。 </td>
+  <td colspan="5"></td>
+ </tr>
+ <tr>
+  <td colspan="8">RetargetingListReturnValue</td>
+ </tr>
+ <tr>
+  <td>values[0...200]</td>
+  <td><a href="./RetargetingListValues.md">RetargetingListValues</a></td>
+  <td>mutateメソッドの実行結果です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+</table>
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
 

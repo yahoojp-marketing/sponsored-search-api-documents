@@ -3,10 +3,10 @@ BiddingStrategyServiceでは、自動入札設定の取得および追加・更�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/BiddingStrategyService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/BiddingStrategyService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/BiddingStrategyService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BiddingStrategyService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 自動入札設定の取得および追加・更新・削除を行います。
 #### 操作
@@ -21,7 +21,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
      <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -63,7 +63,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
@@ -175,7 +175,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -256,7 +256,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>  
 <soapenv:Envelope 
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5" 
+ xmlns:ns1="http://ss.yahooapis.jp/V6" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
@@ -359,7 +359,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -443,7 +443,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
  <soapenv:Envelope 
   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-  xmlns:ns1="http://ss.yahooapis.jp/V5" 
+  xmlns:ns1="http://ss.yahooapis.jp/V6" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
@@ -545,7 +545,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -594,7 +594,7 @@ BiddingStrategyServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
 <soapenv:Envelope 
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>

@@ -3,10 +3,10 @@ TrafficEstimatorService estimate the traffic which can be gained on the specifie
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/TrafficEstimatorService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/TrafficEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/TrafficEstimatorService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### Overview
 Estimate the traffic which can be gained on the specified conditions, such as target, keyword, etc.
 #### Operation
@@ -23,7 +23,7 @@ Gets information related ad.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -93,7 +93,7 @@ Response Fields
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>TrafficEstimatorService</ns1:service>

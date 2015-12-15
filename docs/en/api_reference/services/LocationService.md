@@ -3,10 +3,10 @@ Use this service to retrieve the URL prefix for the colocation your account is a
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/LocationService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/LocationService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/LocationService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/LocationService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### Overview
 LocationService provides an operation that returns the URL prefix for the colocation your account is assigned to. <br>
 Before using, please make sure to understand how to send the request to LocationService.
@@ -29,7 +29,7 @@ In addition, there is no specific rule on the effective period of the location i
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -50,7 +50,7 @@ In addition, there is no specific rule on the effective period of the location i
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -76,7 +76,7 @@ In addition, there is no specific rule on the effective period of the location i
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>LocationService</ns1:service>

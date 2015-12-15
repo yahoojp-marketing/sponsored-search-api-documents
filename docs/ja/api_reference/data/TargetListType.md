@@ -4,7 +4,7 @@ TargetListTypeは、ターゲットリストの種別です。
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | DEFAULT| string| デフォルトリストです。 |
 | RULE| string| URL条件リストです。 |

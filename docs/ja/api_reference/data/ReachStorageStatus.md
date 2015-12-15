@@ -4,7 +4,7 @@ ReachStorageStatusは、ターゲットリストの種別です。
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | OPEN| string| 有効です。<br>リーチを蓄積します。|
 | CLOSED| string| 無効です。<br>リーチを蓄積しません。|

@@ -1,6 +1,8 @@
 ## その他
-#### [レポートタイプ](/docs/ja/api_reference/appendix/reports.md)
-レポートタイプです。
+#### [レポートフィールド](/docs/ja/api_reference/appendix/reportfields.md)
+レポートフィールドの詳細です。
+#### [レポートタイプ別フィールド指定表](/docs/ja/api_reference/appendix/reportfields_types.md)
+レポートタイプ別でのフィールド指定の詳細です。
 #### [地域コード](/docs/ja/api_reference/appendix/geocodes.md)
 地域コードです。
 #### [値の制限](/docs/ja/api_reference/appendix/constraints.md)

@@ -4,10 +4,10 @@ CampaignTargetService is to get or update target setting information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/CampaignTargetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignTargetService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### Overview
 Get, add, update or delete campaign informations related to targeting setting.<br>
 * Bid Adjustment (bidmultiplier) is only modifiable for each targeting.<br>
@@ -34,7 +34,7 @@ Gets campaign informations related to targeting setting.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -76,7 +76,7 @@ Response Field
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -168,7 +168,7 @@ Adds campaign informations related to targeting setting.
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V5" 
+xmlns:ns1="http://ss.yahooapis.jp/V6" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -238,7 +238,7 @@ Response Fields
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -322,7 +322,7 @@ Update campaign informations related to targeting setting.
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V5" 
+xmlns:ns1="http://ss.yahooapis.jp/V6" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -380,7 +380,7 @@ Response Fields
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -463,7 +463,7 @@ Delete campaign informations related to targeting setting.
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V5" 
+xmlns:ns1="http://ss.yahooapis.jp/V6" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -517,7 +517,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>

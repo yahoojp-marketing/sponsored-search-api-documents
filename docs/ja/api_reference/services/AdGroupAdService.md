@@ -1,18 +1,22 @@
 # AdGroupAdService
 AdGroupAdServiceでは、広告に関する情報の取得および追加・更新・削除を行います。
+
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupAdService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
+
 #### サービス概要
 広告に関する情報の取得および追加・更新・削除を行います。　
+
 #### 操作
 AdGroupAdServiceで提供される操作を説明します。
 <br>
+
 ## get
 広告に関する情報を取得します。
 
@@ -20,12 +24,13 @@ AdGroupAdServiceで提供される操作を説明します。
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
 | selector | ○ | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | 操作の対象とする広告に関する情報です。 | 
+
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -64,19 +69,21 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 #### レスポンス
 正常時のレスポンスフィールド
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | 取得される広告に関するエントリーです。 | 
+
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns1="http://ss.yahooapis.jp/V6"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>AdGroupAdService</ns1:service>
@@ -95,22 +102,41 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000001</ns1:adGroupId>
+                        <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
                         <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
                         <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>333333</ns1:adTrackId>
                         <ns1:adName>テキスト広告2</ns1:adName>
                         <ns1:userStatus>ACTIVE</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:TextAd2">
                             <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:advancedUrl>http://aaaa.jp</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
                             <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>PC広告タイトル</ns1:headline>
-                            <ns1:description>PC広告の説明文1</ns1:description>
-                            <ns1:description2>PC広告の説明文2</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>カウントダウン</ns1:description>
+                            <ns1:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns1:description2>
                         </ns1:ad>
                         <ns1:feedFolderId>100000001</ns1:feedFolderId>
                     </ns1:adGroupAd>
@@ -120,16 +146,19 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000002</ns1:adGroupId>
+                        <ns1:adGroupTrackId>333333</ns1:adGroupTrackId>
                         <ns1:adGroupName>モバイル広告グループ</ns1:adGroupName>
                         <ns1:adId>100000003</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>444444</ns1:adTrackId>
                         <ns1:adName>モバイル広告</ns1:adName>
                         <ns1:userStatus>ACTIVE</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:MobileAd">
                             <ns1:type>MOBILE_AD</ns1:type>
+                            <ns1:advanced>FALSE</ns1:advanced>
                             <ns1:url>http://www.yahoo.co.jp</ns1:url>
                             <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
                             <ns1:headline>モバイル広告タイトル</ns1:headline>
@@ -148,17 +177,37 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000003</ns1:adGroupId>
+                        <ns1:adGroupTrackId>444444</ns1:adGroupTrackId>
                         <ns1:adGroupName>アプリ広告グループ</ns1:adGroupName>
                         <ns1:adId>100000004</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>555555</ns1:adTrackId>
                         <ns1:adName>アプリ広告</ns1:adName>
                         <ns1:userStatus>ACTIVE</ns1:userStatus>
                         <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:AppAd">
                             <ns1:type>APP_AD</ns1:type>
-                            <ns1:url>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:url>
+                            <ns1:advancedUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
                             <ns1:headline>アプリ広告タイトル</ns1:headline>
                             <ns1:description>アプリ広告の説明文1</ns1:description>
                             <ns1:description2>アプリ広告の説明文2</ns1:description2>
@@ -173,7 +222,7 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-<br>
+
 ## mutate(ADD)
 広告に関する情報を追加します。
 
@@ -185,10 +234,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -205,67 +251,35 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns1:operator>ADD</ns1:operator>
             <ns1:accountId>100000001</ns1:accountId>
             <ns1:operand>
-               <ns1:accountId>100000001</ns1:accountId>
                <ns1:campaignId>100000001</ns1:campaignId>
                <ns1:adGroupId>100000001</ns1:adGroupId>
-               <ns1:adName>カウントダウンオプション広告1</ns1:adName>
+               <ns1:adName>テキスト広告</ns1:adName>
                <ns1:userStatus>ACTIVE</ns1:userStatus>
                <ns1:ad xsi:type="ns1:TextAd2">
                   <ns1:type>TEXT_AD2</ns1:type>
-                  <ns1:url>http: //www.yahoo.co.jp</ns1:url>
+                  <ns1:advancedUrl>http://aaaa.jp</ns1:advancedUrl>
+                  <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
+                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                  <ns1:customParameters>
+                    <ns1:isRemove>FALSE</ns1:isRemove>
+                    <ns1:parameters>
+                      <ns1:key>site</ns1:key>
+                      <ns1:value>yahoo</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id1</ns1:key>
+                      <ns1:value>1234</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id2</ns1:key>
+                      <ns1:value>a7h59A98yu</ns1:value>
+                    </ns1:parameters>
+                  </ns1:customParameters>
+                  <ns1:advanced>TRUE</ns1:advanced>
                   <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
                   <ns1:headline>タイトル</ns1:headline>
                   <ns1:description>カウントダウン</ns1:description>
                   <ns1:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns1:description2>
-                  <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-               </ns1:ad>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>100000001</ns1:accountId>
-               <ns1:campaignId>100000001</ns1:campaignId>
-               <ns1:adGroupId>100000001</ns1:adGroupId>
-               <ns1:adName>カウントダウンオプション広告2</ns1:adName>
-               <ns1:userStatus>ACTIVE</ns1:userStatus>
-               <ns1:ad xsi:type="ns1:TextAd2">
-                  <ns1:type>TEXT_AD2</ns1:type>
-                  <ns1:url>http: //www.yahoo.co.jp</ns1:url>
-                  <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                  <ns1:headline>タイトル</ns1:headline>
-                  <ns1:description>カウントダウン2</ns1:description>
-                  <ns1:description2>{=COUNTDOWN(feedFolderName.feedAttributeName,"ja")}</ns1:description2>
-                  <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-               </ns1:ad>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>100000001</ns1:accountId>
-               <ns1:campaignId>100000001</ns1:campaignId>
-               <ns1:adGroupId>100000001</ns1:adGroupId>
-               <ns1:adName>データ自動挿入機能広告1</ns1:adName>
-               <ns1:userStatus>ACTIVE</ns1:userStatus>
-               <ns1:ad xsi:type="ns1:TextAd2">
-                  <ns1:type>TEXT_AD2</ns1:type>
-                  <ns1:url>http: //www.yahoo.co.jp</ns1:url>
-                  <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                  <ns1:headline>タイトル</ns1:headline>
-                  <ns1:description>データ自動挿入</ns1:description>
-                  <ns1:description2>{=feedFolderName.feedAttributeName}</ns1:description2>
-                  <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-               </ns1:ad>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>100000001</ns1:accountId>
-               <ns1:campaignId>100000001</ns1:campaignId>
-               <ns1:adGroupId>100000001</ns1:adGroupId>
-               <ns1:adName>テキスト広告2</ns1:adName>
-               <ns1:userStatus>ACTIVE</ns1:userStatus>
-               <ns1:ad xsi:type="ns1:TextAd2">
-                  <ns1:type>TEXT_AD2</ns1:type>
-                  <ns1:url>http: //www.yahoo.co.jp</ns1:url>
-                  <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                  <ns1:headline>テキスト広告タイトル2</ns1:headline>
-                  <ns1:description>テキスト広告の説明文1</ns1:description>
-                  <ns1:description2>テキスト広告の説明文2</ns1:description2>
-                  <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
                </ns1:ad>
             </ns1:operand>
             <ns1:operand>
@@ -276,7 +290,25 @@ AdGroupAdServiceで提供される操作を説明します。
                <ns1:userStatus>ACTIVE</ns1:userStatus>
                <ns1:ad xsi:type="ns1:AppAd">
                   <ns1:type>APP_AD</ns1:type>
-                  <ns1:url>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:url>
+                  <ns1:advancedUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedUrl>
+                  <ns1:advancedMobileUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedMobileUrl>
+                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                  <ns1:customParameters>
+                    <ns1:isRemove>FALSE</ns1:isRemove>
+                    <ns1:parameters>
+                      <ns1:key>site</ns1:key>
+                      <ns1:value>yahoo</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id1</ns1:key>
+                      <ns1:value>1234</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id2</ns1:key>
+                      <ns1:value>a7h59A98yu</ns1:value>
+                    </ns1:parameters>
+                  </ns1:customParameters>
+                  <ns1:advanced>TRUE</ns1:advanced>
                   <ns1:headline>アプリ広告タイトル</ns1:headline>
                   <ns1:description>アプリ広告の説明文1</ns1:description>
                   <ns1:description2>アプリ広告の説明文2</ns1:description2>
@@ -290,6 +322,7 @@ AdGroupAdServiceで提供される操作を説明します。
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 | フィールド | データ型 | 説明 | 
 |---|---|---|
@@ -298,10 +331,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>AdGroupAdService</ns1:service>
@@ -320,24 +350,42 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000001</ns1:adGroupId>
+                        <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
                         <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
+                        <ns1:adId>100000000</ns1:adId>
+                        <ns1:adTrackId>333333</ns1:adTrackId>
                         <ns1:adName>カウントダウンオプション広告1</ns1:adName>
                         <ns1:userStatus>ACTIVE</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:TextAd2">
                             <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:advancedUrl>http://aaaa.jp</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
                             <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
                             <ns1:headline>タイトル</ns1:headline>
                             <ns1:description>カウントダウン</ns1:description>
                             <ns1:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
                         </ns1:ad>
-                        <ns1:feedFolderId>100000001</ns1:feedFolderId>
                     </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
@@ -345,95 +393,40 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000001</ns1:adGroupId>
+                        <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
                         <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>カウントダウンオプション広告2</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:ad xsi:type="ns1:TextAd2">
-                            <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>カウントダウン</ns1:description>
-                            <ns1:description2>{=COUNTDOWN(feedFolderName.feedAttributeName,"ja")}</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-                        </ns1:ad>
-                        <ns1:feedFolderId>100000001</ns1:feedFolderId>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>100000001</ns1:accountId>
-                        <ns1:campaignId>100000001</ns1:campaignId>
-                        <ns1:campaignName>キャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>100000001</ns1:adGroupId>
-                        <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>データ自動挿入機能広告1</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:ad xsi:type="ns1:TextAd2">
-                            <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>データ自動挿入</ns1:description>
-                            <ns1:description2>{=feedFolderName.feedAttributeName}</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-                        </ns1:ad>
-                        <ns1:feedFolderId>100000001</ns1:feedFolderId>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>100000001</ns1:accountId>
-                        <ns1:campaignId>100000001</ns1:campaignId>
-                        <ns1:campaignName>キャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>100000001</ns1:adGroupId>
-                        <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>テキスト広告2</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:ad xsi:type="ns1:TextAd2">
-                            <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>テキスト広告タイトル2</ns1:headline>
-                            <ns1:description>テキスト広告の説明文です</ns1:description>
-                            <ns1:description2>テキスト広告の説明文その２です</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
-                        </ns1:ad>
-                        <ns1:feedFolderId>100000001</ns1:feedFolderId>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>100000001</ns1:accountId>
-                        <ns1:campaignId>100000001</ns1:campaignId>
-                        <ns1:campaignName>キャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>100000003</ns1:adGroupId>
-                        <ns1:adGroupName>アプリ広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000004</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
+                        <ns1:adId>100000001</ns1:adId>
+                        <ns1:adTrackId>444444</ns1:adTrackId>
                         <ns1:adName>アプリ広告</ns1:adName>
                         <ns1:userStatus>ACTIVE</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:AppAd">
                             <ns1:type>APP_AD</ns1:type>
-                            <ns1:url>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:url>
+                            <ns1:advancedUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
                             <ns1:headline>アプリ広告タイトル</ns1:headline>
-                            <ns1:description>アプリ広告の説明文1です</ns1:description>
-                            <ns1:description2>アプリ広告の説明文2です</ns1:description2>
+                            <ns1:description>アプリ広告の説明文1</ns1:description>
+                            <ns1:description2>アプリ広告の説明文2</ns1:description2>
                             <ns1:appStore>IOS</ns1:appStore>
                             <ns1:appId>appid1234567890</ns1:appId>
                             <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
@@ -445,6 +438,7 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## mutate(SET)
 広告に関する情報を更新します。
 
@@ -452,13 +446,14 @@ AdGroupAdServiceで提供される操作を説明します。
 | パラメータ | 必須 | 値 | 説明 | 
 |---|---|---|---|
 | operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | 操作の対象となる広告と処理の内容です。 | 
+
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -475,7 +470,6 @@ AdGroupAdServiceで提供される操作を説明します。
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>100000001</ns1:accountId>
                 <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000001</ns1:campaignId>
                     <ns1:adGroupId>100000001</ns1:adGroupId>
                     <ns1:adId>100000002</ns1:adId>
@@ -483,7 +477,6 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:userStatus>PAUSED</ns1:userStatus>
                 </ns1:operand>
                 <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000001</ns1:campaignId>
                     <ns1:adGroupId>100000002</ns1:adGroupId>
                     <ns1:adId>100000003</ns1:adId>
@@ -491,7 +484,6 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:userStatus>PAUSED</ns1:userStatus>
                 </ns1:operand>
                 <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000001</ns1:campaignId>
                     <ns1:adGroupId>100000003</ns1:adGroupId>
                     <ns1:adId>100000003</ns1:adId>
@@ -503,19 +495,21 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | 操作結果を含む広告に関する情報のコンテナです。 | 
+
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns1="http://ss.yahooapis.jp/V6"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>AdGroupAdService</ns1:service>
@@ -527,29 +521,48 @@ AdGroupAdServiceで提供される操作を説明します。
     <SOAP-ENV:Body>
         <ns1:mutateResponse>
             <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturn　Value.Type>
+                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturnValue.Type>
                 <ns1:Operation.Type>SET</ns1:Operation.Type>
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000001</ns1:adGroupId>
+                        <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
                         <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
                         <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>333333</ns1:adTrackId>
                         <ns1:adName>テキスト広告2更新</ns1:adName>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:TextAd2">
                             <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:advancedUrl>http://aaaa.jp</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
                             <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトルテスト2</ns1:headline>
-                            <ns1:description>テスト説明文</ns1:description>
-                            <ns1:description2>テスト説明文2</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:device　Preference>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>カウントダウン</ns1:description>
+                            <ns1:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns1:description2>
                         </ns1:ad>
                         <ns1:feedFolderId>100000001</ns1:feedFolderId>
                     </ns1:adGroupAd>
@@ -559,23 +572,26 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000002</ns1:adGroupId>
+                        <ns1:adGroupTrackId>333333</ns1:adGroupTrackId>
                         <ns1:adGroupName>モバイル広告グループ</ns1:adGroupName>
                         <ns1:adId>100000003</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>444444</ns1:adTrackId>
                         <ns1:adName>モバイル広告更新</ns1:adName>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:MobileAd">
                             <ns1:type>MOBILE_AD</ns1:type>
+                            <ns1:advanced>FALSE</ns1:advanced>
                             <ns1:url>http://www.yahoo.co.jp</ns1:url>
                             <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
                             <ns1:headline>タイトルテスト</ns1:headline>
                             <ns1:description>テスト説明文</ns1:description>
-                            <ns1:markupLanguages>HTML</ns1:markup　Languages>
-                            <ns1:markupLanguages>CHTML</ns1:markup　Languages>
-                            <ns1:markupLanguages>XHTML</ns1:markup　Languages>
+                            <ns1:markupLanguages>HTML</ns1:markupLanguages>
+                            <ns1:markupLanguages>CHTML</ns1:markupLanguages>
+                            <ns1:markupLanguages>XHTML</ns1:markupLanguages>
                             <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
                             <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
                             <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
@@ -587,23 +603,43 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000003</ns1:adGroupId>
+                        <ns1:adGroupTrackId>444444</ns1:adGroupTrackId>
                         <ns1:adGroupName>アプリ広告グループ</ns1:adGroupName>
                         <ns1:adId>1000000004</ns1:adId>
-                        <ns1:adTrackId>1234567890</ns1:adTrackId>
+                        <ns1:adTrackId>555555</ns1:adTrackId>
                         <ns1:adName>アプリ広告更新</ns1:adName>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:AppAd">
                             <ns1:type>APP_AD</ns1:type>
-                            <ns1:url>http://www.apple.com/jp/itunes/app/appname/　appid1234567890</ns1:url>
-                            <ns1:headline>タイトルテスト</ns1:headline>
-                            <ns1:description>テスト説明文1</ns1:description>
-                            <ns1:description2>テスト説明文2</ns1:description2>
+                            <ns1:advancedUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
+                            <ns1:headline>アプリ広告タイトル</ns1:headline>
+                            <ns1:description>アプリ広告の説明文1</ns1:description>
+                            <ns1:description2>アプリ広告の説明文2</ns1:description2>
                             <ns1:appStore>IOS</ns1:appStore>
                             <ns1:appId>appid1234567890</ns1:appId>
-                            <ns1:devicePreference>SMART_PHONE</ns1:device　Preference>
+                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
                         </ns1:ad>
                     </ns1:adGroupAd>
                 </ns1:values>
@@ -612,6 +648,7 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## mutate(REMOVE)
 広告に関する情報を削除します。
 
@@ -619,12 +656,11 @@ AdGroupAdServiceで提供される操作を説明します。
 | パラメータ | 必須 | 値 | 説明 | 
 |---|---|---|---|
 | operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | 操作の対象となる広告と処理の内容です。 | 
+
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -663,19 +699,18 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | 操作結果を含む広告に関する情報のコンテナです。 | 
+
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>AdGroupAdService</ns1:service>
@@ -687,30 +722,50 @@ AdGroupAdServiceで提供される操作を説明します。
     <SOAP-ENV:Body>
         <ns1:mutateResponse>
             <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturn　Value.Type>
+                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturnValue.Type>
                 <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000001</ns1:adGroupId>
+                        <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
                         <ns1:adGroupName>テキスト広告グループ</ns1:adGroupName>
                         <ns1:adId>100000002</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>テキスト広告2</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:adTrackId>333333</ns1:adTrackId>
+                        <ns1:adName>テキスト広告2更新</ns1:adName>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:TextAd2">
                             <ns1:type>TEXT_AD2</ns1:type>
-                            <ns1:url>http://www.sample.co.jp</ns1:url>
-                            <ns1:displayUrl>www.sample.co.jp</ns1:displayUrl>
-                            <ns1:headline>sampleTitle</ns1:headline>
-                            <ns1:description>sampleDescription</ns1:description>
-                            <ns1:description2>sampleDescription2　</ns1:description2>
-                            <ns1:devicePreference>SMART_PHONE</ns1:device　Preference>
+                            <ns1:advancedUrl>http://aaaa.jp</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>カウントダウン</ns1:description>
+                            <ns1:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns1:description2>
                         </ns1:ad>
+                        <ns1:feedFolderId>100000001</ns1:feedFolderId>
                     </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
@@ -718,22 +773,29 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000002</ns1:adGroupId>
+                        <ns1:adGroupTrackId>333333</ns1:adGroupTrackId>
                         <ns1:adGroupName>モバイル広告グループ</ns1:adGroupName>
                         <ns1:adId>100000003</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>モバイル広告</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
+                        <ns1:adTrackId>444444</ns1:adTrackId>
+                        <ns1:adName>モバイル広告更新</ns1:adName>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
                         <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:MobileAd">
                             <ns1:type>MOBILE_AD</ns1:type>
+                            <ns1:advanced>FALSE</ns1:advanced>
                             <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>sampleTitle</ns1:headline>
-                            <ns1:description>sampleDescription</ns1:description>
-                            <ns1:markupLanguages>ALL</ns1:markupLanguages>
-                            <ns1:mobileCarriers>ALL</ns1:mobileCarriers>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:headline>タイトルテスト</ns1:headline>
+                            <ns1:description>テスト説明文</ns1:description>
+                            <ns1:markupLanguages>HTML</ns1:markupLanguages>
+                            <ns1:markupLanguages>CHTML</ns1:markupLanguages>
+                            <ns1:markupLanguages>XHTML</ns1:markupLanguages>
+                            <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
+                            <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
+                            <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
                         </ns1:ad>
                     </ns1:adGroupAd>
                 </ns1:values>
@@ -742,23 +804,43 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupAd>
                         <ns1:accountId>100000001</ns1:accountId>
                         <ns1:campaignId>100000001</ns1:campaignId>
+                        <ns1:campaignTrackId>111111</ns1:campaignTrackId>
                         <ns1:campaignName>キャンペーン</ns1:campaignName>
                         <ns1:adGroupId>100000003</ns1:adGroupId>
+                        <ns1:adGroupTrackId>444444</ns1:adGroupTrackId>
                         <ns1:adGroupName>アプリ広告グループ</ns1:adGroupName>
-                        <ns1:adId>100000004</ns1:adId>
-                        <ns1:adTrackId>0</ns1:adTrackId>
-                        <ns1:adName>アプリ広告</ns1:adName>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:adId>1000000004</ns1:adId>
+                        <ns1:adTrackId>555555</ns1:adTrackId>
+                        <ns1:adName>アプリ広告更新</ns1:adName>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
                         <ns1:ad xsi:type="ns1:AppAd">
                             <ns1:type>APP_AD</ns1:type>
-                            <ns1:url>http://www.apple.com/jp/itunes/app/appname/　appid1234567890</ns1:url>
-                            <ns1:headline>sampleTitle</ns1:headline>
-                            <ns1:description>sampleDescription</ns1:description>
-                            <ns1:description2>sampleDescription2　</ns1:description2>
+                            <ns1:advancedUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedUrl>
+                            <ns1:advancedMobileUrl>http://www.apple.com/jp/itunes/app/appname/appid1234567890</ns1:advancedMobileUrl>
+                            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                            <ns1:customParameters>
+                              <ns1:isRemove>FALSE</ns1:isRemove>
+                              <ns1:parameters>
+                                <ns1:key>site</ns1:key>
+                                <ns1:value>yahoo</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id1</ns1:key>
+                                <ns1:value>1234</ns1:value>
+                              </ns1:parameters>
+                              <ns1:parameters>
+                                <ns1:key>id2</ns1:key>
+                                <ns1:value>a7h59A98yu</ns1:value>
+                              </ns1:parameters>
+                            </ns1:customParameters>
+                            <ns1:advanced>TRUE</ns1:advanced>
+                            <ns1:headline>アプリ広告タイトル</ns1:headline>
+                            <ns1:description>アプリ広告の説明文1</ns1:description>
+                            <ns1:description2>アプリ広告の説明文2</ns1:description2>
                             <ns1:appStore>IOS</ns1:appStore>
                             <ns1:appId>appid1234567890</ns1:appId>
-                            <ns1:devicePreference>SMART_PHONE</ns1:device　Preference>
+                            <ns1:devicePreference>SMART_PHONE</ns1:devicePreference>
                         </ns1:ad>
                     </ns1:adGroupAd>
                 </ns1:values>

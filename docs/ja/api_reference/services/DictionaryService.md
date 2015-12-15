@@ -3,10 +3,10 @@ DictionaryServiceは、審査否認理由と地域情報の一覧を提供しま
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/DictionaryService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/DictionaryService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/DictionaryService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/DictionaryService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
 #### サービス概要
 EditorialReasonの一覧を提供します。
 #### 操作
@@ -24,7 +24,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -47,7 +47,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -77,7 +77,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>DictionaryService</ns1:service>
@@ -139,7 +139,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -162,7 +162,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope 
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -192,7 +192,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>

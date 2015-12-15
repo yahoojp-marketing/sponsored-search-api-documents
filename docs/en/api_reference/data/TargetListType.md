@@ -4,7 +4,7 @@ TargetListType is the type of target list.
 ### Service
 + [RetargetingListService](./services/RetargetingListService.md)
 
-| Enumeration value | Data type | Description | 
+| Enumeration | Type | Description | 
 |---|---|---|
 | DEFAULT| string| Default list |
 | RULE| string| URL Condition list |

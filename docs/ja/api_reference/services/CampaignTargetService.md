@@ -3,10 +3,12 @@ CampaignTargetServiceでは、キャンペーンのターゲティング設定�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V5.3/CampaignTargetService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V6.0/CampaignTargetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignTargetService?wsdl|
+
 #### Namespace
-http://ss.yahooapis.jp/V5
+http://ss.yahooapis.jp/V6
+
 #### サービス概要
 キャンペーンのターゲティング設定に関する情報の取得および更新を行います。<br>
 ※各種ターゲティングは入札調整率（bidmultiplier）のみ変更可能です。<br>
@@ -36,7 +38,7 @@ CampaignTargetServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5" 
+ xmlns:ns1="http://ss.yahooapis.jp/V6" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -79,7 +81,7 @@ CampaignTargetServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -170,7 +172,7 @@ CampaignTargetServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V5" 
+xmlns:ns1="http://ss.yahooapis.jp/V6" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -240,7 +242,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -324,7 +326,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5" 
+ xmlns:ns1="http://ss.yahooapis.jp/V6" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -381,7 +383,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -463,7 +465,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope 
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V5" 
+ xmlns:ns1="http://ss.yahooapis.jp/V6" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
@@ -517,7 +519,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
