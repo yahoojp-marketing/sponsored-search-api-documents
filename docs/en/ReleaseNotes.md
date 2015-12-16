@@ -70,7 +70,9 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 　　・Link text<br>
 * URL setting will change.<br>
 　・Japanese word domain will be available to use.<br>
-　・All TLD will be available to use.<br>
+　・All Top Level Domain (TLD) will be available to use.<br>
+　*All domain will go to review.<br>
+* BulkService will end support.
 <br><br>
 
 ##### Target Web Service 
@@ -83,6 +85,7 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
  * [ReportService](/docs/ja/api_reference/services/ReportService.md)
  * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * BulkService (End support)
 <br><br>
 
 ##### Target Data Object and Enumeration 
@@ -208,6 +211,17 @@ Partial function has been improved. Details are as follows.<br>
 　・Tracking URL<br>
 　・Custom Parameter<br>
 - Can retrieve Tracking ID.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>BulkService</p>
+</td>
+<td valign="top">
+  <p>- No change.</p>
+</td>
+<td valign="top">
+  <p>- Service will end support.</p>
 </td>
 </tr>
 <tr>
