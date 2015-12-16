@@ -68,7 +68,9 @@
 　　・リンクテキスト<br>
 * URLの設定が変更されます。<br>
 　・日本語ドメインの利用が可能になります。<br>
-　・すべてのTLDの利用が可能になります。<br>
+　・すべてのトップレベルドメイン（TLD）の利用が可能になります。<br>
+　※ただし、すべてのドメインが審査対象となります。<br>
+* BulkServiceを停止します。
 <br><br>
 
 ##### 対象ウェブサービス  
@@ -81,6 +83,7 @@
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
  * [ReportService](/docs/ja/api_reference/services/ReportService.md)
  * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * BulkService（廃止）
 <br><br>
 
 ##### 対象データオブジェクトとEnumeration 
@@ -209,6 +212,17 @@
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
 ・トラッキング用IDの取得が可能になります。<br>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>BulkService</p>
+</td>
+<td valign="top">
+  <p>・変更はありません。</p>
+</td>
+<td valign="top">
+  <p>・Serviceが廃止されます。</p>
 </td>
 </tr>
 <tr>
