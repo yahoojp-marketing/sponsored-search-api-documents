@@ -1,4 +1,6 @@
 # Report Fields
+List of available report fields.
+
 * [Field List](#fieldlist)
 * [Available Field per Report Type](#availablefield)
 
@@ -18,6 +20,7 @@ DESCRIPTION		|説明文1	|Description 1	|description1	|string
 DISPLAY_URL		|表示URL	|Display URL	|displayURL	|string
 SEARCH_QUERY_DESTINATION_URL	|クリックされたURL	|Search Query Destination URL	|searchQueryDestinationURL	|string
 CUSTOM_URL		|カスタムURL	|Custom URL	|customURL	|string
+DESTINATION_URL		|リンク先URL	| Destination URL	|destinationURL	|string
 AD_TYPE			|広告タイプ	|Ad Type	|adType		|enum
 KEYWORD			|キーワード	|Keyword	|keyword	|string
 CAMPAIGN_DISTRIBUTION_SETTINGS	|キャンペーン配信設定	|Distribution Settings	|campaignDistributionSettings	|enum
@@ -68,8 +71,8 @@ PHONE_NUMBER		|電話番号	|Phone Number		|phoneNumber		|string
 DEVICE_PREFERENCE	|優先デバイス	|Focus Device		|focusDevice		|enum
 FEED_ID			|フィードID	|Feed ID		|feedID			|long
 FEED_ITEM_ID		|広告表示オプションID	|Ad Display Option ID	|adDisplayOptionID	|long
-SITE_LINK_TEXT		|クイックリンクテキスト	|QuickLink Text	|quickLinkText		|string
-SITE_LINK_URL		|クイックリンクURL	|QuickLink URL	|quickLinkURL		|string
+QUICK_LINK_TEXT		|クイックリンクテキスト	|QuickLink Text	|quickLinkText		|string
+QUICK_LINK_URL		|クイックリンクURL	|QuickLink URL	|quickLinkURL		|string
 PLACEHOLDER_TYPE	|広告表示オプションの種類	|Ad Display Option Type	|adDisplayOptionType	|enum
 FEED_ITEM_START_DATE	|開始日		|Start Date	|adDisplayOptionStartDate	|string
 FEED_ITEM_END_DATE	|終了日		|End Date	|adDisplayOptionEndDate		|string
