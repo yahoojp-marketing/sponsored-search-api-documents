@@ -111,8 +111,8 @@ MONTH	|○		|○	|○	|○
 MONTH_OF_YEAR		|○	|○	|○	|○
 WEEK	|○		|○	|○	|○
 HOUR_OF_DAY		|-	|○	|○	|○
-OBJECT_OF_CONVERSION_TRACKING		|○		|○	|○
-CONVERSION_NAME	|○		|○		|○
+OBJECT_OF_CONVERSION_TRACKING		|○	|-	|○	|○
+CONVERSION_NAME	|○		|○	|-	|○
 <br>
 
 <hr>
