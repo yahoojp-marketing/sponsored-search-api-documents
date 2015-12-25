@@ -111,8 +111,8 @@ MONTH	|yes		|yes	|yes	|yes
 MONTH_OF_YEAR		|yes	|yes	|yes	|yes
 WEEK	|yes		|yes	|yes	|yes
 HOUR_OF_DAY		|-	|yes	|yes	|yes
-OBJECT_OF_CONVERSION_TRACKING		|yes		|yes	|yes
-CONVERSION_NAME	|yes		|yes		|yes
+OBJECT_OF_CONVERSION_TRACKING		|yes	|-	|yes	|yes
+CONVERSION_NAME	|yes		|yes	|-	|yes
 <br>
 
 <hr>
