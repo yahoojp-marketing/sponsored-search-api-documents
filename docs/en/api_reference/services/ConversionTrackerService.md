@@ -15,7 +15,7 @@ http://ss.yahooapis.jp/V5
 Get, add, update ConversionTracker informations.
 #### Notes
 ConversionTrackerService has following restrictions.<br>
-・You can acquire up to 1000 conversion tags in three kinds such as Web Page , Click to Call , App Download.<br>
+・You can acquire up to 200 conversion tags in three kinds such as Web Page , Click to Call , App Download.<br>
 ・Conversion Tag will not be removed. Please use it by updating the created Conversion Tag. <br>
 ・Conversion is measured based on cookie.<br>
 ・Conversion is counted within 30 days after Ad is clicked.<br>
