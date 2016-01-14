@@ -1,5 +1,8 @@
 # Report Fields
-The table below describes available report fields you can include in each kind of report type.
+The table below describes available report fields you can include in each kind of report type.<br>
+All of these fields are available in the latest versions, so some fields may not be available on older versions.<br>
+*From Ver.6.0, defining report differs, so Ver.5.3 will be the latest for Ver.5.X.<br>
+*Due to the release of Advanced URL, "Destination URL Report" has closed from January 13, 2016.<br>
 
 ### Account Report
 Field Name                 | Display Name(ja)   | Display Name(en)             | XML Attribut               | Data Type 
@@ -183,33 +186,6 @@ REVENUEUNIQUECONVERSIONS  | 売上/ユニークコンバージョン数  | Reven
 SEARCHQUERY               | 検索クエリー           | Search Query                 | searchQuery               | string
 SEARCHQUERYDESTINATIONURL | クリックされたURL       | Search Query Destination URL | searchQueryDestinationURL | string
 SEARCHQUERYMATCHTYPE      | 検索クエリーのマッチタイプ    | searchQueryMatch Type        | searchQueryMatch Type     | enum  
-TOTALCONVERSIONRATE       | 総コンバージョン率        | Total Conversion Rate        | totalConversionRate       | double
-TOTALCONVERSIONS          | 総コンバージョン数        | Total Conversions            | totalConversions          | long  
-TOTALREVENUE              | 合計売上金額           | Total Revenue                | totalRevenue              | long  
-UNIQUECONVERSIONRATE      | ユニークコンバージョン率     | Unique Conversion Rate       | uniqueConversionRate      | double
-UNIQUECONVERSIONS         | ユニークコンバージョン      | Unique Conversions           | uniqueConversions         | long  
-
-### Destination URL Report
-Field Name                 | Display Name(ja)   | Display Name(en)             | XML Attribut               | Data Type 
--------------------------- | ------------------ | ---------------------------- | -------------------------- | ------
-ADGROUPID                | 広告グループID         | Ad Group ID                  | adgroupID                | long   
-ADGROUPNAME              | 広告グループ名          | Ad Group Name                | adgroupName              | string 
-AVERAGECPC               | 平均CPC            | Avg. CPC                     | averageCPC               | long   
-AVERAGECPM               | 平均CPM            | Avg. CPM                     | averageCpm               | long   
-AVERAGEPOSITION          | 平均掲載順位           | Avg. Position                | averagePosition          | double 
-CAMPAIGNID               | キャンペーンID         | CampaignID                   | campaignID               | long   
-CAMPAIGNNAME             | キャンペーン名          | Campaign Name                | campaignName             | string 
-CLICKS                   | クリック数            | Clicks                       | clicks                   | long   
-COST                     | コスト              | Cost                         | cost                     | long   
-COSTTOTALCONVERSIONS     | コスト/総コンバージョン数    | Cost / Total Conversions     | costTotalConversions     | long   
-COSTUNIQUECONVERSIONS    | コスト/ユニークコンバージョン数 | Cost / Unique Conversions    | costUniqueConversions    | long 
-CREATIVEDESTINATIONURL   | リンク先URL          | CreativeDestination URL      | creativeDestinationURL   | string 
-CTR                      | クリック率            | CTR                          | ctr                      | double 
-CUSTOMURL                | カスタムURL          | Custom URL                   | customURL                | string 
-IMPRESSIONS              | インプレッション数        | Impressions                  | impressions              | long   
-NEGATIVEKEYWORDS         | 対象外キーワード         | Negative Keywords            | negativeKeywords         | Boolean
-REVENUETOTALCONVERSIONS  | 売上/総コンバージョン数     | Revenue / Total Conversions  | revenueTotalConversions  | double 
-REVENUEUNIQUECONVERSIONS | 売上/ユニークコンバージョン数  | Revenue / Unique Conversions | revenueUniqueConversions | double 
 TOTALCONVERSIONRATE       | 総コンバージョン率        | Total Conversion Rate        | totalConversionRate       | double
 TOTALCONVERSIONS          | 総コンバージョン数        | Total Conversions            | totalConversions          | long  
 TOTALREVENUE              | 合計売上金額           | Total Revenue                | totalRevenue              | long  

@@ -1,8 +1,8 @@
 # レポートタイプ
-レポートタイプごとのフィールド集です。<br>
-以下のフィールドは、最新バージョンよりご利用可能です。<br>
+レポートタイプごとのフィールド集です。以下のフィールドは、最新バージョンよりご利用可能です。<br>
 旧バージョンでは、一部利用できないフィールドがございます。その際は、バージョンアップを実施ください。<br>
 ※Ver.6.0からはレポートの取得方法が異なるため、Ver.5.Xでは、Ver.5.3が最新になります。<br>
+※アドバンスドURLの提供により、2016年1月13日から「リンク先URLレポート」の提供を廃止しております。<br>
 
 ### アカウントレポート
 フィールド名                     | 表示名(日本語)           | 表示名（英語）                      | xml 属性                     | 型/単位  
@@ -186,33 +186,6 @@ REVENUEUNIQUECONVERSIONS  | 売上/ユニークコンバージョン数  | Reven
 SEARCHQUERY               | 検索クエリー           | Search Query                 | searchQuery               | string
 SEARCHQUERYDESTINATIONURL | クリックされたURL       | Search Query Destination URL | searchQueryDestinationURL | string
 SEARCHQUERYMATCHTYPE      | 検索クエリーのマッチタイプ    | searchQueryMatch Type        | searchQueryMatch Type     | enum  
-TOTALCONVERSIONRATE       | 総コンバージョン率        | Total Conversion Rate        | totalConversionRate       | double
-TOTALCONVERSIONS          | 総コンバージョン数        | Total Conversions            | totalConversions          | long  
-TOTALREVENUE              | 合計売上金額           | Total Revenue                | totalRevenue              | long  
-UNIQUECONVERSIONRATE      | ユニークコンバージョン率     | Unique Conversion Rate       | uniqueConversionRate      | double
-UNIQUECONVERSIONS         | ユニークコンバージョン      | Unique Conversions           | uniqueConversions         | long  
-
-### リンク先URLレポート
-フィールド名                   | 表示名(日本語)         | 表示名（英語）                      | xml 属性                   | 型/単位   
------------------------- | ---------------- | ---------------------------- | ------------------------ | -------
-ADGROUPID                | 広告グループID         | Ad Group ID                  | adgroupID                | long   
-ADGROUPNAME              | 広告グループ名          | Ad Group Name                | adgroupName              | string 
-AVERAGECPC               | 平均CPC            | Avg. CPC                     | averageCPC               | long   
-AVERAGECPM               | 平均CPM            | Avg. CPM                     | averageCpm               | long   
-AVERAGEPOSITION          | 平均掲載順位           | Avg. Position                | averagePosition          | double 
-CAMPAIGNID               | キャンペーンID         | CampaignID                   | campaignID               | long   
-CAMPAIGNNAME             | キャンペーン名          | Campaign Name                | campaignName             | string 
-CLICKS                   | クリック数            | Clicks                       | clicks                   | long   
-COST                     | コスト              | Cost                         | cost                     | long   
-COSTTOTALCONVERSIONS     | コスト/総コンバージョン数    | Cost / Total Conversions     | costTotalConversions     | long   
-COSTUNIQUECONVERSIONS    | コスト/ユニークコンバージョン数 | Cost / Unique Conversions    | costUniqueConversions    | long 
-CREATIVEDESTINATIONURL   | リンク先URL          | CreativeDestination URL      | creativeDestinationURL   | string 
-CTR                      | クリック率            | CTR                          | ctr                      | double 
-CUSTOMURL                | カスタムURL          | Custom URL                   | customURL                | string 
-IMPRESSIONS              | インプレッション数        | Impressions                  | impressions              | long   
-NEGATIVEKEYWORDS         | 対象外キーワード         | Negative Keywords            | negativeKeywords         | Boolean
-REVENUETOTALCONVERSIONS  | 売上/総コンバージョン数     | Revenue / Total Conversions  | revenueTotalConversions  | double 
-REVENUEUNIQUECONVERSIONS | 売上/ユニークコンバージョン数  | Revenue / Unique Conversions | revenueUniqueConversions | double 
 TOTALCONVERSIONRATE       | 総コンバージョン率        | Total Conversion Rate        | totalConversionRate       | double
 TOTALCONVERSIONS          | 総コンバージョン数        | Total Conversions            | totalConversions          | long  
 TOTALREVENUE              | 合計売上金額           | Total Revenue                | totalRevenue              | long  
