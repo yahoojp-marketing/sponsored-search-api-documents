@@ -16,7 +16,7 @@ Keywordオブジェクトは、キーワードに関する情報を表します�
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./Criterion.md">Criterion</a>(inherited)</td>
+  <td colspan="8"><a href="./Criterion_AdGroupCriterion.md">Criterion</a>(inherited)</td>
  </tr>
  <tr>
   <td>criterionId</td>

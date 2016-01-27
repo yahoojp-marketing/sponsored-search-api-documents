@@ -16,6 +16,5 @@ creative |Displays Ad ID (adTrackID).<br>* adTrackID is the unique ID given to e
 keyword | Displays bidding keyword.| http://www.example.com/?keyword={keyword} 
 matchtype | Displays match type.<br> Details are below.<br> - e: Exact Match<br> - p: Phrase Match<br> - b：Broad Match|http://www.example.com/?matchtype={matchtype} 
 device | Displays the device clicked from. <br>Details are below.<br> - m: Smartphone and WAP phone (feature phone)<br> - t: Tablet<br> - c: PC | http://www.example.com/?device={device}<br>
-copy | The URL will dynamically include the actual parameter name.<br>Value the indicated in the keyword level URL that corresponds to the keyword that triggered the ad.<br>* Available for Ad Display Option.| http://www.example.com/?copy={copy:[name]}
 ifmobile | Value will return when ads are clicked from Smartphone or WAP mobile.<br>* Can set only through custom URL.<br>* Also available for QuickLink of Ad Display Option.| http://www.example.com/?ifmobile={ifmobile:[value]}
 ifnotmobile| Value will return when ads are clicked from Tablet or PC.<br>* Can set only through custom URL.<br>* Also available for QuickLink of Ad Display Option.|http://www.example.com/?ifnotmobile={ifnotmobile:[value]}

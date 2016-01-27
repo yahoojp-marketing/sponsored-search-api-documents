@@ -16,7 +16,7 @@ Keyword object displays keyword information.
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./Criterion.md">Criterion</a>(inherited)</td>
+  <td colspan="8"><a href="./Criterion_CampaignCriterion.md">Criterion</a>(inherited)</td>
  </tr>
  <tr>
   <td>criterionId</td>

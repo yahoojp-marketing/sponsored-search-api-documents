@@ -68,7 +68,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>userStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>検索条件：ユーザーにより設定される広告の掲載状況です。<br>※指定しない場合は、フィルタ条件にすべての掲載状況が含まれます。</td>
+  <td>検索条件：ユーザーにより設定される広告の掲載状況です。<br>※指定しない 場合は、フィルタ条件にすべての掲載状況が含まれます。</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
