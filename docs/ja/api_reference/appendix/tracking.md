@@ -16,7 +16,6 @@ creative | 広告ID（adTrackID）です。<br>※adTrackIDとは各広告にユ
 keyword | 入札キーワードです。| http://www.example.com/?keyword={keyword} 
 matchtype | マッチタイプです。表示内容は以下の通りです。<br>・e：完全一致<br>・p：フレーズ一致<br>・b：部分一致<br>|http://www.example.com/?matchtype={matchtype} 
 device | クリックされたデバイスの種類です。表示内容は以下の通りです。<br>・m：スマートフォンとモバイル<br>・t：タブレット<br>・c：PC | http://www.example.com/?device={device}
-copy | キーワード単位のURLに指定する実際のパラメータ名と値が動的に挿入されます。<br>※広告を表示したキーワードに対応します。<br>※広告表示オプションで利用可能です。 | http://www.example.com/?copy={copy:[name]}
 ifmobile | スマートフォンやモバイルからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定頂けます。<br>※広告表示オプションのQuickLinkでも利用可能です。 | http://www.example.com/?ifmobile={ifmobile:[value]}
 ifnotmobile|タブレットやPCからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定頂けます。<br>※広告表示オプションのQuickLinkでも利用可能です。|http://www.example.com/?ifnotmobile={ifnotmobile:[value]}
 
