@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://ss.yahooapis.jp/V5"
-  xmlns:tns="http://ss.yahooapis.jp/V5"
+  targetNamespace="http://ss.yahooapis.jp/V6"
+  xmlns:tns="http://ss.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V5"
+      targetNamespace="http://ss.yahooapis.jp/V6"
       xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V5">
+      xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.3.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -42,6 +42,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adTypes" type="tns:AdType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -67,8 +68,10 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="campaignTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="1" name="adGroupId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="adGroupTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="adId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adTrackId" type="xsd:long"/>
@@ -83,12 +86,41 @@
       <complexType name="Ad">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="type" type="tns:AdType"/>
+          <element maxOccurs="1" minOccurs="0" name="advancedUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="advancedMobileUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
+          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
           <element maxOccurs="1" minOccurs="0" name="url" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="displayUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="headline" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType name="CustomParameters">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="isRemove" type="tns:IsRemove"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="parameters" type="tns:CustomParameter"/>
+        </sequence>
+      </complexType>
+      <complexType name="CustomParameter">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="key" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="value" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Advanced">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="IsRemove">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
       <simpleType name="AdType">
         <restriction base="xsd:string">
           <enumeration value="TEXT_AD2"/>
@@ -340,7 +372,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
