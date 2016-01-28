@@ -1,97 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://ss.yahooapis.jp/V6"
-  xmlns:tns="http://ss.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions
+targetNamespace="http://ss.yahooapis.jp/V5"
+xmlns:tns="http://ss.yahooapis.jp/V5"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V6">
+    targetNamespace="http://ss.yahooapis.jp/V5"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="SoapResponseHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="ReportSelector">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-          <element maxOccurs="unbounded" minOccurs="0" name="reportIds" type="xsd:long" />
-          <element maxOccurs="unbounded" minOccurs="0" name="reportJobIds" type="xsd:long" />
-          <element maxOccurs="unbounded" minOccurs="0" name="reportTypes" type="tns:ReportType" />
-          <element maxOccurs="unbounded" minOccurs="0" name="reportJobStatuses" type="tns:ReportJobStatus" />
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging" />
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="reportIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="reportJobIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="reportJobStatuses" type="tns:ReportJobStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
-      <simpleType name="ReportType">
-        <restriction base="xsd:string">
-          <enumeration value="ACCOUNT" />
-          <enumeration value="CAMPAIGN" />
-          <enumeration value="ADGROUP" />
-          <enumeration value="AD" />
-          <enumeration value="KEYWORDS" />
-          <enumeration value="SEARCH_QUERY" />
-          <enumeration value="GEO" />
-          <enumeration value="FEED_ITEM" />
-          <enumeration value="GEO_TARGET" />
-          <enumeration value="SCHEDULE_TARGET" />
-          <enumeration value="DEVICE_TARGET" />
-          <enumeration value="BID_STRATEGY" />
-          <enumeration value="AD_CUSTOMIZERS" />
-          <enumeration value="TARGET_LIST" />
-          <enumeration value="LANDING_PAGE_URL" />
-        </restriction>
-      </simpleType>
-      <simpleType name="ReportJobStatus">
-        <restriction base="xsd:string">
-          <enumeration value="WAIT" />
-          <enumeration value="COMPLETED" />
-          <enumeration value="IN_PROGRESS" />
-          <enumeration value="FAILED" />
-        </restriction>
-      </simpleType>
+      <complexType name="ReportDownloadUrlSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="1" name="reportJobIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+        </sequence>
+      </complexType>
       <complexType name="Paging">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int" />
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int" />
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
         </sequence>
       </complexType>
+      <simpleType name="ReportJobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="COMPLETED"/>
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="FAILED"/>
+        </restriction>
+      </simpleType>
       <complexType name="ReportRecord">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="reportId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="reportJobId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="reportJobStatus" type="tns:ReportJobStatus" />
-          <element maxOccurs="1" minOccurs="0" name="reportJobErrorDetail" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="completeTime" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="reportDownloadURL" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reportJobId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reportId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reportName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="completeTime" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="dateRangeType" type="tns:ReportDateRangeType"/>
+          <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ReportDateRange"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="tns:ReportJobStatus"/>
+        </sequence>
+      </complexType>
+      <simpleType name="ReportDateRangeType">
+        <restriction base="xsd:string">
+          <enumeration value="TODAY"/>
+          <enumeration value="YESTERDAY"/>
+          <enumeration value="LAST_7_DAYS"/>
+          <enumeration value="LAST_WEEK"/>
+          <enumeration value="LAST_14_DAYS"/>
+          <enumeration value="LAST_30_DAYS"/>
+          <enumeration value="LAST_BUSINESS_WEEK"/>
+          <enumeration value="THIS_MONTH"/>
+          <enumeration value="LAST_MONTH"/>
+          <enumeration value="ALL_TIME"/>
+          <enumeration value="CUSTOM_DATE"/>
+        </restriction>
+      </simpleType>
+      <complexType name="ReportDateRange">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="ReportPage">
         <complexContent>
           <extension base="tns:Page">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDownloadUrlPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDownloadUrlValues"/>
             </sequence>
           </extension>
         </complexContent>
@@ -100,174 +118,233 @@
         <complexContent>
           <extension base="tns:ReturnValue">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="reportRecord" type="tns:ReportRecord" />
+              <element maxOccurs="1" minOccurs="0" name="reportRecord" type="tns:ReportRecord"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDownloadUrlValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="reportDownloadUrl" type="tns:ReportDownloadUrl"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDownloadUrl">
+        <complexContent>
+          <extension base="tns:ReportRecord">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType abstract="true" name="ReturnValue">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean" />
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
         </sequence>
       </complexType>
       <complexType name="Error">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string" />
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail" />
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
         </sequence>
       </complexType>
       <complexType name="ErrorDetail">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string" />
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType abstract="true" name="Page">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int" />
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="ReportOperation">
         <complexContent>
           <extension base="tns:Operation">
             <sequence>
-              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:ReportRecord" />
+              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:ReportRecord"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator" />
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
         </sequence>
       </complexType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
-          <enumeration value="ADD" />
-          <enumeration value="REMOVE" />
+          <enumeration value="ADD"/>
+          <enumeration value="SET"/>
+          <enumeration value="REMOVE"/>
         </restriction>
       </simpleType>
       <complexType name="ReportReturnValue">
         <complexContent>
           <extension base="tns:ListReturnValue">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportValues"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType abstract="true" name="ListReturnValue">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
         </sequence>
       </complexType>
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ReportSelector" />
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ReportSelector"/>
           </sequence>
         </complexType>
       </element>
       <element name="getResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportPage" />
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getDownloadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ReportDownloadUrlSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getDownloadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportDownloadUrlPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
           </sequence>
         </complexType>
       </element>
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:ReportOperation" />
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:ReportOperation"/>
           </sequence>
         </complexType>
       </element>
       <element name="mutateResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportReturnValue" />
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportReturnValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader" />
-      <element name="ResponseHeader" type="tns:SoapResponseHeader" />
-      <element name="ApiExceptionFault" type="xsd:string" />
+      <element name="RequestHeader" type="tns:SoapHeader"/>
+      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
   <wsdl:message name="RequestHeader">
-    <wsdl:part element="tns:RequestHeader" name="RequestHeader" />
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
   </wsdl:message>
   <wsdl:message name="ResponseHeader">
-    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader" />
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
   </wsdl:message>
   <wsdl:message name="getRequest">
-    <wsdl:part element="tns:get" name="parameters" />
+    <wsdl:part element="tns:get" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getResponse">
-    <wsdl:part element="tns:getResponse" name="parameters" />
+    <wsdl:part element="tns:getResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDownloadUrlRequest">
+    <wsdl:part element="tns:getDownloadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDownloadUrlResponse">
+    <wsdl:part element="tns:getDownloadUrlResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="mutateRequest">
-    <wsdl:part element="tns:mutate" name="parameters" />
+    <wsdl:part element="tns:mutate" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="mutateResponse">
-    <wsdl:part element="tns:mutateResponse" name="parameters" />
+    <wsdl:part element="tns:mutateResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="ApiException">
-    <wsdl:part element="tns:ApiExceptionFault" name="ApiException" />
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
   <wsdl:portType name="ReportServiceInterface">
     <wsdl:operation name="get">
-      <wsdl:input message="tns:getRequest" name="getRequest" />
-      <wsdl:output message="tns:getResponse" name="getResponse" />
-      <wsdl:fault message="tns:ApiException" name="ApiException" />
+      <wsdl:input message="tns:getRequest" name="getRequest"/>
+      <wsdl:output message="tns:getResponse" name="getResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDownloadUrl">
+      <wsdl:input message="tns:getDownloadUrlRequest" name="getDownloadUrlRequest"/>
+      <wsdl:output message="tns:getDownloadUrlResponse" name="getDownloadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdl:input message="tns:mutateRequest" name="mutateRequest" />
-      <wsdl:output message="tns:mutateResponse" name="mutateResponse" />
-      <wsdl:fault message="tns:ApiException" name="ApiException" />
+      <wsdl:input message="tns:mutateRequest" name="mutateRequest"/>
+      <wsdl:output message="tns:mutateResponse" name="mutateResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ReportServiceSoapBinding" type="tns:ReportServiceInterface">
-    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="get">
-      <wsdlsoap:operation soapAction="" />
+      <wsdlsoap:operation soapAction=""/>
       <wsdl:input name="getRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal" />
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDownloadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDownloadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDownloadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdlsoap:operation soapAction="" />
+      <wsdlsoap:operation soapAction=""/>
       <wsdl:input name="mutateRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="mutateResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal" />
+        <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ReportService">
     <wsdl:port binding="tns:ReportServiceSoapBinding" name="ReportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/ReportService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/ReportService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

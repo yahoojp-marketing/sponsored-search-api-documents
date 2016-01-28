@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://ss.yahooapis.jp/V6"
-  xmlns:tns="http://ss.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+targetNamespace="http://ss.yahooapis.jp/V5"
+xmlns:tns="http://ss.yahooapis.jp/V5"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V6">
+    targetNamespace="http://ss.yahooapis.jp/V5"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -43,7 +43,6 @@
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="biddingStrategyIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -96,10 +95,8 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="campaignTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="adGroupTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="criterionUse" type="tns:CriterionUse"/>
           <element maxOccurs="1" minOccurs="0" name="criterion" type="tns:Criterion"/>
@@ -113,7 +110,6 @@
       <complexType name="Criterion">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="criterionId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="criterionTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="type" type="tns:CriterionType"/>
         </sequence>
       </complexType>
@@ -147,48 +143,14 @@
               <element maxOccurs="1" minOccurs="0" name="approvalStatus" type="tns:ApprovalStatus"/>
               <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="destinationUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="reviewDestinationUrl" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy"/>
               <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason"
                        type="tns:BiddingStrategyFailedReason"/>
               <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy"/>
-              <element maxOccurs="1" minOccurs="0" name="advancedUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="reviewAdvancedUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="advancedMobileUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="reviewAdvancedMobileUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="reviewTrackingUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
-              <element maxOccurs="1" minOccurs="0" name="reviewCustomParameters" type="tns:CustomParameters"/>
-              <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="CustomParameters">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="isRemove" type="tns:IsRemove"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="parameters" type="tns:CustomParameter"/>
-        </sequence>
-      </complexType>
-      <complexType name="CustomParameter">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="key" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="value" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <simpleType name="Advanced">
-        <restriction base="xsd:string">
-          <enumeration value="TRUE"/>
-          <enumeration value="FALSE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="IsRemove">
-        <restriction base="xsd:string">
-          <enumeration value="TRUE"/>
-          <enumeration value="FALSE"/>
-        </restriction>
-      </simpleType>
       <simpleType name="BiddingStrategyFailedReason">
         <restriction base="xsd:string">
           <enumeration value="FAILURE"/>
@@ -343,6 +305,9 @@
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="1" name="adGroupId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="1" name="criterionUse" type="tns:CriterionUse"/>
               <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:AdGroupCriterion"/>
             </sequence>
           </extension>
@@ -501,7 +466,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupCriterionService">
     <wsdl:port binding="tns:AdGroupCriterionServiceSoapBinding" name="AdGroupCriterionService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupCriterionService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/AdGroupCriterionService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

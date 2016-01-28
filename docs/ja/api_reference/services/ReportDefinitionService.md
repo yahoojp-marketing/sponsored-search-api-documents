@@ -1,5 +1,5 @@
 # ReportDefinitionService
-ReportDefinitionServiceでは、レポート定義の取得および追加・更新・削除を行います。<br>
+ReportDefinitionServiceでは、レポート定義の取得および追加・削除を行います。<br>
 レポート定義では、レポート形式、期間およびフィールドを指定します。<br>
 また特定のレポート形式に対して使用可能なレポートフィールドを取得する操作が提供されます。
 
@@ -13,7 +13,7 @@ ReportDefinitionServiceでは、レポート定義の取得および追加・更
 http://ss.yahooapis.jp/V6
 
 #### サービス概要
-レポート定義の取得および追加・更新・削除を行います。<br>
+レポート定義の取得および追加・削除を行います。<br>
 レポート定義は、テンプレートとして登録する場合最大30まで追加することが可能です。<br>
 テンプレートとして登録しない場合、上限値はありません。<br>
 <br>
@@ -565,153 +565,6 @@ ReportDefinitionServiceで提供される操作を説明します。
       <ns1:rval>
         <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
         <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportDefinition>
-            <ns1:reportId>100000001</ns1:reportId>
-            <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-            <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-            <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-            <ns1:dateRange>
-              <ns1:startDate>20160101</ns1:startDate>
-              <ns1:endDate>20161231</ns1:endDate>
-            </ns1:dateRange>
-            <ns1:fields>CAMPAIGN_ID</ns1:fields>
-            <ns1:fields>ADGROUP_ID</ns1:fields>
-            <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-            <ns1:fields>ADGROUP_NAME</ns1:fields>
-            <ns1:fields>COST</ns1:fields>
-            <ns1:fields>IMPS</ns1:fields>
-            <ns1:fields>CLICKS</ns1:fields>
-            <ns1:fields>CLICK_RATE</ns1:fields>
-            <ns1:fields>AVG_CPM</ns1:fields>
-            <ns1:fields>AVG_CPC</ns1:fields>
-            <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-            <ns1:fields>REVENUE</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-            <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>TRACKING_URL</ns1:fields>
-            <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-            <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-            <ns1:fields>NETWORK</ns1:fields>
-            <ns1:fields>DEVICE</ns1:fields>
-            <ns1:fields>DAY</ns1:fields>
-            <ns1:fields>DAY_OF_WEEK</ns1:fields>
-            <ns1:fields>QUARTER</ns1:fields>
-            <ns1:fields>YEAR</ns1:fields>
-            <ns1:fields>MONTH</ns1:fields>
-            <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-            <ns1:fields>WEEK</ns1:fields>
-            <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-            <ns1:fields>CONVERSION_NAME</ns1:fields>
-            <ns1:sortFields>
-              <ns1:type>ASC</ns1:type>
-              <ns1:field>CLICKS</ns1:field>
-            </ns1:sortFields>
-            <ns1:filters>
-              <ns1:field>TRACKING_URL</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>http://yahoo.co.jp</ns1:value>
-              <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-              <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>IMPS</ns1:field>
-              <ns1:operator>GREATER_THAN</ns1:operator>
-              <ns1:value>0</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>CAMPAIGN_ID</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>200000001</ns1:value>
-              <ns1:value>200000002</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000004</ns1:value>
-              <ns1:value>200000005</ns1:value>
-            </ns1:filters>
-            <ns1:isTemplate>FALSE</ns1:isTemplate>
-            <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-            <ns1:specifyDay>28</ns1:specifyDay>
-            <ns1:format>CSV</ns1:format>
-            <ns1:encode>UTF-8</ns1:encode>
-            <ns1:language>EN</ns1:language>
-            <ns1:compress>OFF</ns1:compress>
-          </ns1:reportDefinition>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-## mutate(SET)
-レポート定義を更新します。
-
-### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
-|---|---|---|---|
-| operation | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | 操作の対象となるレポート定義および操作の内容を表します。 | 
-
-##### ＜リクエストサンプル＞
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <soapenv:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
-  </soapenv:Header>
-  <soapenv:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:reportId>100000001</ns1:reportId>
-          <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-          <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-          <ns1:specifyDay>28</ns1:specifyDay>
-          <ns1:format>CSV</ns1:format>
-          <ns1:encode>UTF-8</ns1:encode>
-          <ns1:language>EN</ns1:language>
-          <ns1:compress>OFF</ns1:compress>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
-  </soapenv:Body>
-</soapenv:Envelope>
-```
-
-### レスポンス
-正常時のレスポンスフィールド
-
-| フィールド | データ型 | 説明 | 
-|---|---|---|
-| rval | [ReportDefinitionReturnValue](../data/ReportDefinitionReturnValue.md) | 操作結果を含むレポート定義のコンテナです。 | 
-##### ＜レスポンスサンプル＞
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportDefinitionService</ns1:service>
-      <ns1:remainingQuota>993</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.7982</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:reportDefinition>

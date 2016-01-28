@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-targetNamespace="http://ss.yahooapis.jp/V6"
-xmlns:tns="http://ss.yahooapis.jp/V6"
+targetNamespace="http://ss.yahooapis.jp/V5"
+xmlns:tns="http://ss.yahooapis.jp/V5"
 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-    targetNamespace="http://ss.yahooapis.jp/V6"
+    targetNamespace="http://ss.yahooapis.jp/V5"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://ss.yahooapis.jp/V6">
+    xmlns:tns="http://ss.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>5.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -258,7 +258,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="TrafficEstimatorService">
     <wsdl:port binding="tns:TrafficEstimatorServiceSoapBinding" name="TrafficEstimatorService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/TrafficEstimatorService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/TrafficEstimatorService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
