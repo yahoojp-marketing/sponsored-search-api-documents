@@ -40,6 +40,7 @@ ReportDefinitionFieldValueオブジェクトは、取得される使用可能な
   <td>-</td>
   <td>-</td>
   <td>-</td>
+  <td>-</td>
  </tr>
 </table>
 
