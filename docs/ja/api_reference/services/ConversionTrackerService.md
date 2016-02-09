@@ -22,7 +22,8 @@ ConversionTrackerServiceには以下の注意事項があります。<br>
 　「オンクリックイベントタグ」の設置方法は、Yahoo!プロモーション広告のヘルプページをご確認ください。<br>
 <br>
 その他、コンバージョン測定については、Yahoo!プロモーション広告のヘルプを参照してください。<br>
-http://help.marketing.yahoo.co.jp/ja/?p=1161<br>
+https://help.marketing.yahoo.co.jp/ja/?p=1161<br>
+
 ## get
 ConversionTrackerServiceで提供される操作を説明します。
 
