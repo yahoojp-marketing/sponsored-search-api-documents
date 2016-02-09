@@ -23,7 +23,7 @@ ConversionTrackerService has following restrictions.<br>
 　The installation method of "on-click event tag", please check the help pages of Yahoo! promotional advertising.<br>
 <br>
 Please refer “help” page in Yahoo! JAPAN Promotional Ads for Conversion Analytics:<br>
-http://help.marketing.yahoo.co.jp/en/?p=367
+https://help.marketing.yahoo.co.jp/en/?p=355
 
 ## get
 ### Request
