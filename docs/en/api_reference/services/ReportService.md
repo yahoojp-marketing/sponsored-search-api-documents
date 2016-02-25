@@ -56,7 +56,7 @@ Response Fields
 
 | Parameter | Data Type | Description | 
 |---|---|---|
-| rval | [reportPage](../data/reportPage.md) | A list of report where each entry in the list is the result of applying the operation in the input list with the same index. | 
+| rval | [ReportPage](../data/ReportPage.md) | A list of report where each entry in the list is the result of applying the operation in the input list with the same index. | 
 
 ##### Response Sample
 ```xml
