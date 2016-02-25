@@ -56,7 +56,7 @@ ReportServiceで提供される操作を説明します。
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
-| rval | [reportPage](../data/reportPage.md) | 取得されるレポートのエントリーです。 | 
+| rval | [ReportPage](../data/ReportPage.md) | 取得されるレポートのエントリーです。 | 
 ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
