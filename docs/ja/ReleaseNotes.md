@@ -39,10 +39,12 @@
 　・AdGroupAdService<br>
 　・AdGroupCriterionService<br>
 　・FeedItemService<br>
+* 以下のトラッキングパラメータが追加されます。<br>
+　・lpurl：最終リンク先URLを取得できます。トラッキングURLのみ有効です。<br>
 
 ##### レポートの提供と変更
 * 最終リンク先URLレポートが提供されます。<br>
-* リンク先URLレポートが削除されます。（2016年1月13日（水）予定）<br>
+* リンク先URLレポートが廃止されます。（2016年1月13日（水）に廃止）<br>
 * 最終リンク先URLが以下のレポートフィールドとして追加されます。<br>
 　・広告レポート<br>
 　・キーワードレポート<br>
@@ -70,7 +72,7 @@
 　・日本語ドメインの利用が可能になります。<br>
 　・すべてのトップレベルドメイン（TLD）の利用が可能になります。<br>
 　※ただし、すべてのドメインが審査対象となります。<br>
-* BulkServiceを停止します。
+* BulkServiceを廃止します。
 <br><br>
 
 ##### 対象ウェブサービス  
@@ -112,11 +114,15 @@
 #### 3.	保守改善の追加
 一部機能の保守改善を行います。<br>
 改善内容は以下のとおりです：<br>
-・キーワード提案サービスに除外キーワードによる設定機能が廃止されます。
+* キーワード提案サービスに除外キーワードによる設定機能が廃止されます。<br>
+* エクスポート機能が提供されます。（※）<br>
+　キャンペーン、広告グループ、キーワード、広告に関する情報の取得を一括で行えます。<br>
+　※4月13日以降にリリース予定です。
 <br><br>
 
 ##### 対象ウェブサービス
  * [TargetingIdeaService](/docs/ja/api_reference/services/TargetingIdeaService.md)
+ * [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md)
 <br><br>
 
 ##### 対象データオブジェクトとEnumeration 
@@ -136,8 +142,11 @@
 <th valign="top">
   <p>Ver.6.0</p>
 </th>
- </tr>
- <tr>
+</tr>
+<tr>
+  <td colspan="3"><b>アドバンスドURLの提供</b></td>
+</tr>
+<tr>
  <td valign="top">
   <p>AccountTrackingUrlService</p>
 </td>
@@ -163,7 +172,7 @@
 ・URL設定が変更されます（Ver.5.2、Ver.5.3のみ）。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
+  <p>・以下の取得/追加/変更/削除が可能に なります。<br>
 　・最終リンク先URL<br>
 　・最終リンク先URL （スマートフォン）<br>
 　・トラッキングURL<br>
@@ -187,7 +196,7 @@
 ・URL設定が変更されます（Ver.5.2、Ver.5.3のみ）。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
+  <p>・以下の取得/追加/変更/削除が可能に なります。<br>
 　・最終リンク先URL<br>
 　・最終リンク先URL （スマートフォン）<br>
 　・トラッキングURL<br>
@@ -208,7 +217,7 @@
 ・アドバンスドURLの移行後は、広告グループ （AdGroup）の取得は できません。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
+  <p>・以下の取得/追加/変更/削除が可能に なります。<br>
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
 ・トラッキング用IDの取得が可能になります。<br>
@@ -234,13 +243,14 @@
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
 ・トラッキング用IDの取得はできません。<br>
-・アドバンスドURLの移行後は、キャペーン （Campaign）の取得はできません。</p>
+・アドバンスドURLの移行後は、キャン ペーン（Campaign）の取得はできません。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
+  <p>・以下の取得/追加/変更/削除が可能に なります。<br>
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
 ・トラッキング用IDの取得が可能になります。<br>
+・類似キーワードマッチング設定機能（KeywordMatchSetting）が廃止されます。
 </td>
 </tr>
 <tr>
@@ -249,7 +259,7 @@
 </td>
 <td valign="top">
   <p>・以下の取得/追加/変更/削除は できません。<br>
-  ・最終リンク先URL<br>
+　・最終リンク先URL<br>
 　・最終リンク先URL （スマートフォン）<br>
 　・トラッキングURL<br>
 　・カスタムパラメータ<br>
@@ -259,7 +269,7 @@
 ・URL設定が変更されます（Ver.5.2、Ver.5.3のみ）。</p>
 </td>
 <td valign="top">
-  <p>・以下の取得/追加/変更/削除が 可能になります。<br>
+  <p>・以下の取得/追加/変更/削除が可能に なります。<br>
 　・最終リンク先URL<br>
 　・最終リンク先URL （スマートフォン）<br>
 　・トラッキングURL<br>
@@ -271,17 +281,32 @@
 </tr>
 <tr>
 <td valign="top">
+  <p>RetargetingListService</p>
+</td>
+<td valign="top">
+  <p>・トラッキング用IDの取得はできません。</p>
+</td>
+<td valign="top">
+  <p>・トラッキング用IDの取得が可能になります。</p>
+</td>
+</tr>
+<tr>
+  <td colspan="3"><b>レポート機能の改善</b></td>
+</tr>
+<tr>
+<td valign="top">
   <p>ReportDefinitionService</p>
 </td>
 <td valign="top">
   <p>・変更はありません。<br>
-・リンク先URLレポートが 削除されます。</p>
+・リンク先URLレポートが 廃止されます。</p>
 </td>
 <td valign="top">
-  <p>・セグメント選択が廃止されます。<br>
+  <p>・変更（set）操作が廃止されます。<br>
+・セグメント選択が廃止されます。<br>
 ・新規のレポートタイプを追加します。<br>
 ・既存レポートで指定できるフィールドを 追加します。<br>
-・リンク先URLレポートが削除されます。</p>
+・リンク先URLレポートが廃止されます。</p>
 </td>
 </tr>
 <tr>
@@ -297,15 +322,7 @@
 </td>
 </tr>
 <tr>
-<td valign="top">
-  <p>RetargetingListService</p>
-</td>
-<td valign="top">
-  <p>・トラッキング用IDの取得はできません。</p>
-</td>
-<td valign="top">
-  <p>・トラッキング用IDの取得が可能になります。</p>
-</td>
+  <td colspan="3"><b>保守改善の追加</b></td>
 </tr>
 <tr>
 <td valign="top">
@@ -315,14 +332,25 @@
   <p>・変更はありません。</p>
 </td>
 <td valign="top">
-  <p>・除外キーワードの設定機能 （ExcludedKeywordSearchParameter）が削除されます。</p>
+  <p>・除外キーワードの設定機能 （ExcludedKeywordSearchParameter）が廃止されます。</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>CampaignExportService</p>
+</td>
+<td valign="top">
+  <p>・機能提供はありません。</p>
+</td>
+<td valign="top">
+  <p>・新規公開です。</p>
 </td>
 </tr>
 </tbody>
 </table>
 
 ## スポンサードサーチAPI 過去バージョンのサポート終了予定日
-* 以下のバージョンは、アドバンスドURLへの移行終了時（2016年9月頃）にサポート終了予定です。<br>
+* 以下のバージョンは、アドバンスドURLへの移行終了時（2016年10月頃）にサポート終了予定です。<br>
 　・スポンサードサーチAPI Ver.5.1<br>
 　・スポンサードサーチAPI Ver.5.2<br>
 　・スポンサードサーチAPI Ver.5.3<br>
