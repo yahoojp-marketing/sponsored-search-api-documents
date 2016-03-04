@@ -41,10 +41,12 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 　・AdGroupCriterionService<br>
 　・FeedItemService<br>
  *During the upgrade period, update of current Destination URL (before the upgrade to Landing Page URL) is possible.<br>
+* Tracking parameter below will be available.<br>
+　・lpurl: Can obtain Landing Page URL. Available for Tracking URL only. 
 
 ##### Upgrade in report
 * Landing Page URL Report will be created.<br>
-* Destination URL Report will be deleted (January 13th, 2016 (Wed) (JST)).<br>
+* Destination URL Report will end support (January 13th, 2016 (Wed) JST).<br>
 * "Landing Page URL" will be added as new report field for reports below.<br>
 　・Ad Report<br>
 　・Keyword Report<br>
@@ -76,15 +78,15 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 <br><br>
 
 ##### Target Web Service 
- * [AccountTrackingUrlService](/docs/ja/api_reference/services/AccountTrackingUrlService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
- * [ReportService](/docs/ja/api_reference/services/ReportService.md)
- * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * [AccountTrackingUrlService](/docs/en/api_reference/services/AccountTrackingUrlService.md)
+ * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+ * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
+ * [ReportService](/docs/en/api_reference/services/ReportService.md)
+ * [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
  * BulkService (End support)
 <br><br>
 
@@ -102,21 +104,25 @@ Additonal and change in report functions. Details are as follows.<br>
 <br><br>
 
 ##### Target Web Service 
- * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
- * [ReportService](/docs/ja/api_reference/services/ReportService.md)
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
+ * [ReportService](/docs/en/api_reference/services/ReportService.md)
 <br><br>
 
 ##### Target Data Object and Enumeration 
  * Please confirm from data directory under API reference directory.
 <br><br>
 
-#### 3. Addional upgrade
+#### 3. Addional upgrades
 Partial function has been improved. Details are as follows.<br>
-・Negative keyword setting function from keyword suggestion service will end support.
+* Negative keyword setting function from keyword suggestion service will end support.<br>
+* Export function will be available.<br>
+　Can collectively obtain the campaign, ad group, keyword, and ad information.<br>
+　*Schedued to release after April 13th (JST).
 <br><br>
 
 ##### Target Web Service
- * [TargetingIdeaService](/docs/ja/api_reference/services/TargetingIdeaService.md)
+ * [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md)
+ * [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md)
 <br><br>
 
 ##### Target Data Object and Enumeration 
@@ -135,9 +141,12 @@ Partial function has been improved. Details are as follows.<br>
 <th valign="top">
   <p>Ver.6.0</p>
 </th>
- </tr>
- <tr>
- <td valign="top">
+</tr>
+<tr>
+ <td colspan="3"><b>Sponsored Search system enhancement "Advanced URL"</b></td>
+</tr>
+<tr>
+<td valign="top">
   <p>AccountTrackingUrlService</p>
 </td>
 <td valign="top">
@@ -240,6 +249,7 @@ Partial function has been improved. Details are as follows.<br>
 　・Tracking URL<br>
 　・Custom Parameter<br>
 - Can retrieve Tracking ID.<br>
+- Similar keyword matching function (KeywordMatchSetting) will end support.</p>
 </td>
 </tr>
 <tr>
@@ -270,14 +280,29 @@ Partial function has been improved. Details are as follows.<br>
 </tr>
 <tr>
 <td valign="top">
+  <p>RetargetingListService</p>
+</td>
+<td valign="top">
+  <p>- Cannot retrieve Tracking ID.</p>
+</td>
+<td valign="top">
+  <p>- Can retrieve Tracking ID.</p>
+</td>
+</tr>
+<tr>
+ <td colspan="3"><b>Enhancement of Report Functions</b></td>
+</tr>
+<tr>
+<td valign="top">
   <p>ReportDefinitionService</p>
 </td>
 <td valign="top">
   <p>- No change.<br>
-- Destination URL will be deleted.</p>
+- Destination URL will end support.</p>
 </td>
 <td valign="top">
-  <p>- Segment selection will end support.<br>
+  <p>- set operation will end support.<br>
+- Segment selection will end support.<br>
 - New report type will be added.<br>
 - New report field will be added to several current report type.<br>
 - Destination URL Report will end support.</p>
@@ -296,15 +321,7 @@ Partial function has been improved. Details are as follows.<br>
 </td>
 </tr>
 <tr>
-<td valign="top">
-  <p>RetargetingListService</p>
-</td>
-<td valign="top">
-  <p>- Cannot retrieve Tracking ID.</p>
-</td>
-<td valign="top">
-  <p>- Can retrieve Tracking ID.</p>
-</td>
+ <td colspan="3"><b>Addional upgrades</b></td>
 </tr>
 <tr>
 <td valign="top">
@@ -314,14 +331,25 @@ Partial function has been improved. Details are as follows.<br>
   <p>- No change.</p>
 </td>
 <td valign="top">
-  <p>- Setting of Negative keyword (ExcludedKeywordSearchParameter) will be deleted.</p>
+  <p>- Setting of Negative keyword (ExcludedKeywordSearchParameter) will end support.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <p>CampaignExportService</p>
+</td>
+<td valign="top">
+  <p>- Not supported.</p>
+</td>
+<td valign="top">
+  <p>- New service.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
 ## Sunset Date of Older Version of Sponsored Search API
-* Following versions will end support after the Advanced URL upgrade period (September 2016 or later).<br>
+* Following versions will end support after the Advanced URL upgrade period (October 2016 or later).<br>
 ・Sponsored Search API Ver.5.1<br>
 ・Sponsored Search API Ver.5.2<br>
 ・Sponsored Search API Ver.5.3<br>
