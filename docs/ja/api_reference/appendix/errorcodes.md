@@ -28,7 +28,6 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 0002 | An internal error has occurred.  | 内部エラーが発生しました。再度操作を実行してください。もし、問題が解決しない場合は、Yahoo!プロモーション広告APIチームにご連絡ください。お問合せの際は、 必ずXML形式のSOAPリクエスト/レスポンスをご連絡ください。
 0003 | Frequency limit exceeded. Please try your request again later | アクセス頻度が上限値に達しました。時間をおいて再度実行してください。
 0004 | Invalid location.  | このlocationでは、アカウントにアクセスできません。LocationServiceでアカウントに設定されているコロケーションのURL　prefixを取得してください。
-0005 | Quota exceeded. service = %s , Quota = %s | ご利用のWebServiceに設定された1日分のクォータを超過しました。1日分のクォータは日本時間の深夜にリセットされます。
 0006 | required | SOAPリクエストヘッダが不正です。
 0007 | invalid number format | 数値の指定の仕方が不正です。
 0008 | invalid string format | 文字列の指定の仕方が不正です。
