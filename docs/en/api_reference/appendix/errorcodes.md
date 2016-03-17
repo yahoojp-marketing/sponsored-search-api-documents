@@ -30,7 +30,6 @@ Code | Message | Description
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. If the problem persists please contact Yahoo! Japan API team for assistance. Be sure to include your SOAP Request and Response with your report.  
 0003 | Frequency limit exceeded. Please try your request again later | Frequency limit exceeded. Please try your request again later.  
 0004 | Invalid location.  | Account cannot be accessed at this location.  Please use the LocationService to retrieve the URL prefix for the colocation the account is assigned to.  
-0005 | Quota exceeded. service = %s , Quota = %s | You have exceeded the daily operation quota for this web service. The daily quota is reset at midnight in JST.  
 0006 | required | The soap header is missing required parameter.  
 0007 | invalid number format | The number value is incorrect for this parameter.  
 0008 | invalid string format | The string value is incorrect for this parameter.  
