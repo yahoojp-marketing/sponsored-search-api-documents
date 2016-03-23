@@ -4,6 +4,7 @@ Advanced is a flag of Advanced URL upgrade.
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 + [FeedItemService](../services/FeedItemService.md)
 
 | Enumeration | Type | Description | 

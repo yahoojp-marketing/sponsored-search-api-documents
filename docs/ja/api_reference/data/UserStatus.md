@@ -6,6 +6,7 @@ UserStatusは、ユーザーにより広告配信の有無を調整できる設�
 + [AdGroupAdService](../services/AdGroupAdService.md)
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 + [CampaignService](../services/CampaignService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 
 | Enumeration | Type | Description | 
 |---|---|---|

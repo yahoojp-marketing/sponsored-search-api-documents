@@ -46,7 +46,7 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 
 ##### Upgrade in report
 * Landing Page URL Report will be created.<br>
-* Destination URL Report will end support (January 13th, 2016 (Wed) JST).<br>
+* Destination URL Report will be deleted (January 13th, 2016 (Wed) JST).<br>
 * "Landing Page URL" will be added as new report field for reports below.<br>
 　・Ad Report<br>
 　・Keyword Report<br>
@@ -100,7 +100,8 @@ Additonal and change in report functions. Details are as follows.<br>
  *This function will not be available for older versions. (Ver.5.X)<br>
 * Code designated from filter will designate the item to display report.<br>
 * Download URL retrieval (getDownloadUrl of ReportService) operation of report will end support.<br>
- *From this version, Download URL can be retrieved from get operation of ReportService.
+ *From this version, Download URL can be retrieved from get operation of ReportService.<br>
+* Type of "Total Conversions" field will change from long to double.
 <br><br>
 
 ##### Target Web Service 
@@ -249,7 +250,7 @@ Partial function has been improved. Details are as follows.<br>
 　・Tracking URL<br>
 　・Custom Parameter<br>
 - Can retrieve Tracking ID.<br>
-- Similar keyword matching function (KeywordMatchSetting) will end support.</p>
+- Similar keyword matching will end support.<br>
 </td>
 </tr>
 <tr>
@@ -298,7 +299,7 @@ Partial function has been improved. Details are as follows.<br>
 </td>
 <td valign="top">
   <p>- No change.<br>
-- Destination URL will end support.</p>
+- Destination URL will be deleted.</p>
 </td>
 <td valign="top">
   <p>- set operation will end support.<br>
@@ -331,7 +332,7 @@ Partial function has been improved. Details are as follows.<br>
   <p>- No change.</p>
 </td>
 <td valign="top">
-  <p>- Setting of Negative keyword (ExcludedKeywordSearchParameter) will end support.</p>
+  <p>- Setting of Negative keyword (ExcludedKeywordSearchParameter) will be deleted.</p>
 </td>
 </tr>
 <tr>
