@@ -30,7 +30,7 @@ JobSelector object describes the condition to search registered job settings.
   <td>xsd:long</td>
   <td>Search condition: Job ID.</td>
   <td>-</td>
-  <td>Requirement</td>
+  <td>Optional</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
