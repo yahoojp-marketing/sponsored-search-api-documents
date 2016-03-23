@@ -448,7 +448,7 @@ Updates ad group.
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>xxxxxxxx</ns1:accountId>
-                <!--ManualCPCへ変更-->
+                <!--ManualCPC-->
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
                     <ns1:campaignId>xxxxxxxx</ns1:campaignId>
@@ -462,7 +462,7 @@ Updates ad group.
                        </ns1:initialBid>
                     </ns1:biddingStrategyConfiguration>
                 </ns1:operand>
-                <!--EnhancedCpcBiddingへ変更-->
+                <!--EnhancedCpcBidding-->
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
                     <ns1:campaignId>xxxxxxxx</ns1:campaignId>
