@@ -16,9 +16,9 @@ AdGroupServiceで提供される操作を説明します。
 広告グループに関する情報を取得します。
 
 #### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [AdGroupSelector](../data/AdGroupSelector.md) | 操作の対象とする広告グループです。 | 
+| selector | ○ | [AdGroupSelector](../data/AdGroupSelector.md) | 操作の対象とする広告グループです。 |
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -54,9 +54,9 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupPage](../data/AdGroupPage.md) | 取得される広告グループのエントリーです。 | 
+| rval | [AdGroupPage](../data/AdGroupPage.md) | 取得される広告グループのエントリーです。 |
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,9 +233,9 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを追加します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 | 
+| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -258,7 +258,6 @@ AdGroupServiceで提供される操作を説明します。
             <ns1:operations>
                <ns1:operator>ADD</ns1:operator>
                <ns1:accountId>xxxxxxxx</ns1:accountId>
-               <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                <!--ManualCPC-->
                <ns1:operand>
                   <ns1:accountId>xxxxxxxx</ns1:accountId>
@@ -305,9 +304,9 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -420,9 +419,9 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを更新します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 | 
+| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -445,7 +444,6 @@ AdGroupServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>xxxxxxxx</ns1:accountId>
-                <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                 <!--ManualCPCへ変更-->
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
@@ -490,9 +488,9 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -598,9 +596,9 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを削除します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 | 
+| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -622,7 +620,6 @@ xmlns:ns1="http://ss.yahooapis.jp/V5">
             <ns1:operations>
                 <ns1:operator>REMOVE</ns1:operator>
                 <ns1:accountId>xxxxxxxx</ns1:accountId>
-                <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
                     <ns1:campaignId>xxxxxxxx</ns1:campaignId>
@@ -641,9 +638,9 @@ xmlns:ns1="http://ss.yahooapis.jp/V5">
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

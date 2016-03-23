@@ -15,9 +15,9 @@ Explains the operation which provides at AdGroupService.
 ### Request
 Gets adgroup information.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [AdGroupSelector](../data/AdGroupSelector.md) | Ad Group Selector. | 
+| selector | Req | [AdGroupSelector](../data/AdGroupSelector.md) | Ad Group Selector. |
 
 ##### Request Sample
 ```xml
@@ -54,9 +54,9 @@ Gets adgroup information.
 ### Response
 Response Fields
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupPage](../data/AdGroupPage.md) | List of adgroups identified by the AdGroupSelector. | 
+| rval | [AdGroupPage](../data/AdGroupPage.md) | List of adgroups identified by the AdGroupSelector. |
 
 ##### Response Sample
 ```xml
@@ -235,9 +235,9 @@ Response Fields
 ### Request
 Adds ad group.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. |
 
 ##### Request Sample
 ```xml
@@ -261,7 +261,6 @@ Adds ad group.
             <ns1:operations>
                <ns1:operator>ADD</ns1:operator>
                <ns1:accountId>xxxxxxxx</ns1:accountId>
-               <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                <!--ManualCPC-->
                <ns1:operand>
                   <ns1:accountId>xxxxxxxx</ns1:accountId>
@@ -308,9 +307,9 @@ Adds ad group.
 ### Response
 Response Field
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. |
 
 ##### Response Sample
 ```xml
@@ -423,9 +422,9 @@ Response Field
 ### Request
 Updates ad group.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. |
 
 ##### Request Sample
 ```xml
@@ -449,7 +448,6 @@ Updates ad group.
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>xxxxxxxx</ns1:accountId>
-                <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                 <!--ManualCPCへ変更-->
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
@@ -494,9 +492,9 @@ Updates ad group.
 ### Response
 Response Field
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. |
 
 ##### Response Sample
 ```xml
@@ -603,9 +601,9 @@ Response Field
 ### Request
 Removes ad group.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same ad group cannot be specified in more than one operation. |
 
 ##### Request Sample
 ```xml
@@ -628,7 +626,6 @@ xmlns:ns1="http://ss.yahooapis.jp/V5">
             <ns1:operations>
                 <ns1:operator>REMOVE</ns1:operator>
                 <ns1:accountId>xxxxxxxx</ns1:accountId>
-                <ns1:campaignId>xxxxxxxx</ns1:campaignId>
                 <ns1:operand>
                     <ns1:accountId>xxxxxxxx</ns1:accountId>
                     <ns1:campaignId>xxxxxxxx</ns1:campaignId>
@@ -647,9 +644,9 @@ xmlns:ns1="http://ss.yahooapis.jp/V5">
 ### Response
 Response Fields
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated ad groups. |
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
