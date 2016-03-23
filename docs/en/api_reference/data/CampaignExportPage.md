@@ -34,7 +34,7 @@ CampaignExportPage object describes the export (download) URL with get results.
   <td colspan="8">CampaignExportPage</td>
  </tr>
  <tr>
-  <td>values[]</td>
+  <td>values[0...500]</td>
   <td><a href="./CampaignExportValues.md">CampaignExportValues</a></td>
   <td>List of export (download) URL.<br>Each list includes export (download) URL with result of get process.</td>
   <td>yes</td>
