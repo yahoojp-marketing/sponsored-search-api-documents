@@ -1,7 +1,8 @@
-# ReportDefinitionFieldValue
-ReportDefinitionFieldValueオブジェクトは、取得される使用可能なレポートのエントリーを表します。
+# CampaignExportPage
+CampaignExportPageオブジェクトは、エクポートのURL情報に関するgetメソッドの実行結果を表します。
+
 ### Service
-+ [ReportDefinitionService](../services/ReportDefinitionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 
 <table>
  <tr>
@@ -15,27 +16,27 @@ ReportDefinitionFieldValueオブジェクトは、取得される使用可能な
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./ReturnValue.md">ReturnValue</a>(inherited)</td>
+  <td colspan="8"><a href="./Page.md">Page</a>(inherited)</td>
  </tr>
  <tr>
-  <td>operationSucceeded</td>
-  <td>xsd:boolean</td>
-  <td>処理結果です。</td>
+  <td>totalNumEntries</td>
+  <td>xsd:int</td>
+  <td>取得される項目の総件数です。</td>
   <td colspan="5"></td>
  </tr>
  <tr>
-  <td>error[0...n]</td>
-  <td><a href="./Error.md">Error</a></td>
-  <td>mutate処理の内容です。 </td>
+  <td>Page.Type</td>
+  <td>xsd:string</td>
+  <td>このインスタンスのPageのサブタイプです。 </td>
   <td colspan="5"></td>
  </tr>
  <tr>
-  <td colspan="8">ReportDefinitionFieldValue</td>
+  <td colspan="8">CampaignExportPage</td>
  </tr>
  <tr>
-  <td>fields[0...n]</td>
-  <td><a href="./ReportFieldAttribute.md">ReportFieldAttribute</a></td>
-  <td>getReportFields処理の 実行結果です。</td>
+  <td>values[0...500]</td>
+  <td><a href="./CampaignExportValues.md">CampaignExportValues</a></td>
+  <td>エクポートのURL情報の配列です。<br>各配列には、get処理の実行結果および エクポートのURL情報が含まれます。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

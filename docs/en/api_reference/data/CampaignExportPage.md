@@ -1,7 +1,8 @@
-# ReportDefinitionFieldValue
-ReportDefinitionFieldValueオブジェクトは、取得される使用可能なレポートのエントリーを表します。
+# CampaignExportPage
+CampaignExportPage object describes the export (download) URL with get results.
+
 ### Service
-+ [ReportDefinitionService](../services/ReportDefinitionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 
 <table>
  <tr>
@@ -15,27 +16,27 @@ ReportDefinitionFieldValueオブジェクトは、取得される使用可能な
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./ReturnValue.md">ReturnValue</a>(inherited)</td>
+  <td colspan="8"><a href="./Page.md">Page</a>(inherited)</td>
  </tr>
  <tr>
-  <td>operationSucceeded</td>
-  <td>xsd:boolean</td>
-  <td>処理結果です。</td>
+  <td>totalNumEntries</td>
+  <td>xsd:int</td>
+  <td>Total number of entries in the result.</td>
   <td colspan="5"></td>
  </tr>
  <tr>
-  <td>error[0...n]</td>
-  <td><a href="./Error.md">Error</a></td>
-  <td>mutate処理の内容です。 </td>
+  <td>Page.Type</td>
+  <td>xsd:string</td>
+  <td>Subtype of Page of this instance.</td>
   <td colspan="5"></td>
  </tr>
  <tr>
-  <td colspan="8">ReportDefinitionFieldValue</td>
+  <td colspan="8">CampaignExportPage</td>
  </tr>
  <tr>
-  <td>fields[0...n]</td>
-  <td><a href="./ReportFieldAttribute.md">ReportFieldAttribute</a></td>
-  <td>getReportFields処理の 実行結果です。</td>
+  <td>values[0...500]</td>
+  <td><a href="./CampaignExportValues.md">CampaignExportValues</a></td>
+  <td>List of export (download) URL.<br>Each list includes export (download) URL with result of get process.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

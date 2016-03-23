@@ -1,7 +1,8 @@
-# ReportDefinitionFieldValue
-ReportDefinitionFieldValueオブジェクトは、取得される使用可能なレポートのエントリーを表します。
+# CampaignExportValues
+CampaignExportValuesオブジェクトは、addJob/get操作の実行結果（1 Entity）を含むジョブ情報を表します。
+
 ### Service
-+ [ReportDefinitionService](../services/ReportDefinitionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 
 <table>
  <tr>
@@ -20,22 +21,22 @@ ReportDefinitionFieldValueオブジェクトは、取得される使用可能な
  <tr>
   <td>operationSucceeded</td>
   <td>xsd:boolean</td>
-  <td>処理結果です。</td>
+  <td>処理結果を表示します。</td>
   <td colspan="5"></td>
  </tr>
  <tr>
   <td>error[0...n]</td>
   <td><a href="./Error.md">Error</a></td>
-  <td>mutate処理の内容です。 </td>
-  <td colspan="5"></td>
+  <td>エラーの内容です。</td>
+  <td colspan="7"></td>
  </tr>
  <tr>
-  <td colspan="8">ReportDefinitionFieldValue</td>
+  <td colspan="8">CampaignExportValues</td>
  </tr>
  <tr>
-  <td>fields[0...n]</td>
-  <td><a href="./ReportFieldAttribute.md">ReportFieldAttribute</a></td>
-  <td>getReportFields処理の 実行結果です。</td>
+  <td>job</td>
+  <td><a href="./Job.md">Job</a></td>
+  <td>1ジョブのaddJob/get 操作の実行結果です。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

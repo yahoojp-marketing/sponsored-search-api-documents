@@ -56,7 +56,7 @@ UNIQUE_CONVERSION	|ユニークコンバージョン数	|Unique Conversions	|uni
 UNIQUE_CONVERSION_RATE	|ユニークコンバージョン率	|Unique Conversion Rate	|uniqueConversionRate	|double
 REVENUE_UNIQUE_CONVERSION	|売上/ユニークコンバージョン数	|Revenue / Unique Conversions	|revenueUniqueConversions	|double
 REVENUE_CONVERSION	|売上/総コンバージョン数	|Revenue / Total Conversions	|revenueTotalConversions		|double
-CONVERSION		|総コンバージョン数		|Total Conversions	|totalConversions	|long
+CONVERSION		|総コンバージョン数		|Total Conversions	|totalConversions	|double
 CONVERSION_RATE		|総コンバージョン率		|Total Conversion Rate	|totalConversionRate	|double
 COST_UNIQUE_CONVERSION	|コスト/ユニークコンバージョン数	|Cost / Unique Conversions	|costUniqueConversions	|double
 CPA			|コスト/総コンバージョン数	|Cost / Total Conversions	|costTotalConversions	|double

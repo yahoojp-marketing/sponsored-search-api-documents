@@ -1,7 +1,8 @@
-# ReportDefinitionFieldValue
-ReportDefinitionFieldValueオブジェクトは、取得される使用可能なレポートのエントリーを表します。
+# CampaignExportReturnValue
+CampaignExportReturnValue オブジェクトは、addJob操作の実行結果を表します。
+
 ### Service
-+ [ReportDefinitionService](../services/ReportDefinitionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 
 <table>
  <tr>
@@ -14,28 +15,28 @@ ReportDefinitionFieldValueオブジェクトは、取得される使用可能な
   <th>set</th>
   <th>remove</th>
  </tr>
- <tr>
-  <td colspan="8"><a href="./ReturnValue.md">ReturnValue</a>(inherited)</td>
+  <tr>
+  <td colspan="8"><a href="./ListReturnValue.md">ListReturnValue</a>(inherited)</td>
  </tr>
  <tr>
-  <td>operationSucceeded</td>
-  <td>xsd:boolean</td>
-  <td>処理結果です。</td>
-  <td colspan="5"></td>
+  <td>ListReturnValue.Type</td>
+  <td>xsd:string</td>
+  <td>このインスタンスのListReturnValue のサブタイプを示します。</td>
+  <td colspan="7"></td>
  </tr>
  <tr>
-  <td>error[0...n]</td>
-  <td><a href="./Error.md">Error</a></td>
+  <td>Operation.Type</td>
+  <td>xsd:string</td>
   <td>mutate処理の内容です。 </td>
   <td colspan="5"></td>
  </tr>
  <tr>
-  <td colspan="8">ReportDefinitionFieldValue</td>
+  <td colspan="8">CampaignExportReturnValue</td>
  </tr>
  <tr>
-  <td>fields[0...n]</td>
-  <td><a href="./ReportFieldAttribute.md">ReportFieldAttribute</a></td>
-  <td>getReportFields処理の 実行結果です。</td>
+  <td>values[0...500]</td>
+  <td><a href="./CampaignExportValues.md">CampaignExportValues</a></td>
+  <td>addJob操作の実行結果です。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

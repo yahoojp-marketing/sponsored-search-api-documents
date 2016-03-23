@@ -4,6 +4,7 @@ ApprovalStatusは、審査状況を表します。
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
++ [CampaignExportService](../services/CampaignExportService.md)
 + [FeedItemService](../services/FeedItemService.md)
 
 | Enumeration | Type | Description | 
