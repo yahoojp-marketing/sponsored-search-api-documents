@@ -26,7 +26,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>campaignIds</td>
+  <td>campaignIds[0...500]</td>
   <td>xsd:long</td>
   <td>Campaign ID of export objective.</td>
   <td>-</td>
@@ -36,7 +36,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>campaignCriterionIds</td>
+  <td>campaignCriterionIds[0...500]</td>
   <td>xsd:long</td>
   <td>Campaign criteria ID.</td>
   <td>-</td>
@@ -46,7 +46,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupIds</td>
+  <td>adGroupIds[0...500]</td>
   <td>xsd:long</td>
   <td>Ad group ID of export objective.</td>
   <td>-</td>
@@ -56,7 +56,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adIds</td>
+  <td>adIds[0...500]</td>
   <td>xsd:long</td>
   <td>Ad ID of export objective.</td>
   <td>-</td>
@@ -66,8 +66,8 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupCriterionIds[0..2]</td>
-  <td>enum <a href="./UserStatus.md">UserStatus</a></td>
+  <td>adGroupCriterionIds[0...500]</td>
+  <td>xsd:long</td>
   <td>Ad group criteria ID.</td>
   <td>-</td>
   <td>-</td>
@@ -76,7 +76,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>campaignUserStatuses[0..2]</td>
+  <td>campaignUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
   <td>Distribution status in campaign of export objective.</td>
   <td>-</td>
@@ -86,7 +86,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupUserStatuses[0..2]</td>
+  <td>adGroupUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
   <td>Distribution status in ad group of export objective.</td>
   <td>-</td>
@@ -96,7 +96,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupAdUserStatuses[0..2]</td>
+  <td>adGroupAdUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
   <td>Distribution status in ad of export objective.</td>
   <td>-</td>
@@ -106,8 +106,8 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupCriterionUserStatuses[0..2]</td>
-  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>adGroupCriterionUserStatuses[0...2]</td>
+  <td>enum <a href="./UserStatus.md">UserStatus</a></td>
   <td>Distribution status in ad group criteria of export objective.</td>
   <td>-</td>
   <td>-</td>
@@ -116,7 +116,7 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>adGroupAdApprovalStatuses[]</td>
+  <td>adGroupAdApprovalStatuses[0...5]</td>
   <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
   <td>Status in ad approval of export objective.</td>
   <td>-</td>
@@ -125,8 +125,18 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
   <td>-</td>
  </tr>
+  <tr>
+  <td>adGroupCriterionApprovalStatuses[0...5]</td>
+  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>Status in keyword approval of export objective.</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
  <tr>
-  <td>entityTypes</td>
+  <td>entityTypes[0...7]</td>
   <td>enum <a href="./EntityType_CampaignExport.md">EntityType</a></td>
   <td>Entity type to download.</td>
   <td>-</td>
@@ -136,8 +146,8 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>job</td>
-  <td><a href="./Job.md">Job</a></td>
+  <td>jobName</td>
+  <td>xsd:string</td>
   <td>Job information for export.<br>*Default: NULL</td>
   <td>-</td>
   <td>-</td>
