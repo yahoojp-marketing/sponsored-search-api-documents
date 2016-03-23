@@ -16,7 +16,25 @@ CampaignExportReturnValue object describes the result of addJob operation.
   <th>remove</th>
  </tr>
  <tr>
-  <td>values[]</td>
+  <td colspan="8"><a href="./ListReturnValue.md">ListReturnValue</a>(inherited)</td>
+ </tr>
+ <tr>
+  <td>ListReturnValue.Type</td>
+  <td>xsd:string</td>
+  <td>Sub type of ListReturnValue of this instance.</td>
+  <td colspan="7"></td>
+ </tr>
+ <tr>
+  <td>Operation.Type</td>
+  <td>xsd:string</td>
+  <td>Details of mutate process. </td>
+  <td colspan="5"></td>
+ </tr>
+ <tr>
+  <td colspan="8">CampaignExportReturnValue</td>
+ </tr>
+ <tr>
+  <td>values[0...500]</td>
   <td><a href="./CampaignExportValues.md">CampaignExportValues</a></td>
   <td>Result of addJob operation.</td>
   <td>yes</td>
