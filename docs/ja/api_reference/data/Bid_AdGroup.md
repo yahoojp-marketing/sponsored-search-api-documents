@@ -19,7 +19,7 @@ Bidオブジェクトは、入札価格を表示します。<br>
  <tr>
   <td>maxCpc</td>
   <td>xsd:long</td>
-  <td>キーワード入札価格です。<br>※制限値：0 ～ 50000<br>※maxCpcが「0」の場合は、設定なしと同様です。</td>
+  <td>キーワード入札価格です。<br>※制限値：1～ 50000</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※Default: 1</td>
