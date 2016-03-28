@@ -19,7 +19,7 @@ Bid object displays the bid values. <br>
  <tr>
   <td>maxCpc</td>
   <td>xsd:long</td>
-  <td>Keyword bid (CPC).<br>* Value limit:0 - 50000<br>* Determined as ”No setting” if maximum CPC is set as "0"</td>
+  <td>Keyword bid (CPC).<br>* Value limit:1 - 50000</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>* Default: 1</td>
