@@ -246,7 +246,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>customParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>Custom paramters.</td>
   <td>yes</td>
   <td>-</td>
@@ -255,7 +255,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>reviewCustomParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>Custom paramters, in review.</td>
   <td>yes</td>
   <td>-</td>
@@ -264,7 +264,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>advanced</td>
-  <td>xsd:string</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
   <td>Flag of Advanced URL.</td>
   <td>yes</td>
   <td>-</td>
