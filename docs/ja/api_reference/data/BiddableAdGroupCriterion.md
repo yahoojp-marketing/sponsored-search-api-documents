@@ -246,7 +246,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
  </tr>
  <td>customParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
@@ -255,7 +255,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
  </tr>
  <td>reviewCustomParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>配信審査中のカスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
@@ -264,7 +264,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
  </tr>
  <td>advanced</td>
-  <td>xsd:string</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
   <td>アドバンスドURL対応のフラグです。</td>
   <td>yes</td>
   <td>-</td>
