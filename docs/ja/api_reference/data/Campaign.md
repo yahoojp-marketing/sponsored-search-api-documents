@@ -78,7 +78,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>キャンペーンの開始日です。<br>過去の日付は指定 できません。</td>
+  <td>キャンペーンの開始日です。<br>過去の日付は指定 できません。<br>※配信開始済みのキャンペーンは日程の 変更はできません。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※Default: 当日日付</td>
