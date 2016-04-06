@@ -29,7 +29,7 @@ AccountTrackingUrlOperationオブジェクトは、mutate処理の対象とな�
  </tr>
  <tr>
   <td>operand[1...200]</td>
-  <td><a href="./AccountTrackingUrlValues.md">AccountTrackingUrlValues</a></td>
+  <td><a href="./AccountTrackingUrl.md">AccountTrackingUrl</a></td>
   <td>アカウントトラッキングの配列です。<br>各配列にはmutate処理の対象となる アカウントトラッキング情報が含まれます。</td>
   <td>-</td>
   <td>-</td>
