@@ -31,7 +31,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Requirement。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -41,7 +41,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URL（スマート フォン）です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -51,7 +51,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -61,7 +61,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -81,7 +81,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>移行前のリンク先 URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Ignore。<br>※URLを移行しない（advanced=FALSE）場合、Requirement。</td>
   <td>-</td>
   <td>-</td>
  </tr>

@@ -34,7 +34,7 @@ ReportDefinitionOperation object displays the target report definitions by mutat
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
  <tr>
@@ -44,7 +44,7 @@ ReportDefinitionOperation object displays the target report definitions by mutat
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
 </table>

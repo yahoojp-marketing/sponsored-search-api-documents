@@ -10,7 +10,7 @@
 Android 向けアプリケーションのダウンロードは、広告が Google Play Store に直接リンクしている場合のみトラッキングできます。<br>
 <br>
 
-パラメータ | 概要 | URLフォーマット   
+パラメータ | 概要 | URLフォーマット例
 ----------- | ----------------- | ---------------- 
 creative | 広告ID（adTrackID）です。<br>※adTrackIDとは各広告にユニークに付与されるIDです。広告IDとは異なります。 | http://www.example.com/?creative={creative} 
 keyword | 入札キーワードです。| http://www.example.com/?keyword={keyword} 
@@ -18,4 +18,5 @@ matchtype | マッチタイプです。表示内容は以下の通りです。<b
 device | クリックされたデバイスの種類です。表示内容は以下の通りです。<br>・m：スマートフォンとモバイル<br>・t：タブレット<br>・c：PC | http://www.example.com/?device={device}
 ifmobile | スマートフォンやモバイルからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定頂けます。<br>※広告表示オプションのQuickLinkでも利用可能です。 | http://www.example.com/?ifmobile={ifmobile:[value]}
 ifnotmobile|タブレットやPCからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定頂けます。<br>※広告表示オプションのQuickLinkでも利用可能です。|http://www.example.com/?ifnotmobile={ifnotmobile:[value]}
+lpurl | 最終リンク先URLです。トラッキングURLへの設定の際にご利用いただけます。<br>※アドバンスドURL対応されたエンティティのみご利用 可能です。|・最終リンク先URL：http://example.com<br>・トラッキングURL設定：{lpurl}?creative=XXXXXXXX<br>・配信時URL：<br>http://www.example.com/?creative=XXXXXXXX
 

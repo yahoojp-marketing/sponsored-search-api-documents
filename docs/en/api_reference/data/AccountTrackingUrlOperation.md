@@ -29,7 +29,7 @@ AccountTrackingUrlOperation object describes the account tracking infromation wi
  </tr>
  <tr>
   <td>operand[1...200]</td>
-  <td><a href="./AccountTrackingUrlValues.md">AccountTrackingUrlValues</a></td>
+  <td><a href="./AccountTrackingUrl.md">AccountTrackingUrl</a></td>
   <td>List of account tracking.<br>Each list includes account tracking details with mutate results.</td>
   <td>-</td>
   <td>-</td>

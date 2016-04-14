@@ -35,8 +35,8 @@ CustomParameterは、カスタムパラメータの内容を表します。
   <td>値です。<br>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br>※AdGroupAdService の場合、Ignore。</td>
+  <td>Optional</td>
+  <td>Optional<br>※AdGroupAdService の場合、Ignore。</td>
   <td>-</td>
  </tr>
 </table>

@@ -21,8 +21,8 @@ FeedItemAttribute contains the value of Feed Item information.
   <td>Type of Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>* Ignore for Data Auto Insertion</td>
-  <td>Requirement<br>* Ignore for Data Auto Insertion</td>
+  <td>Requirement<br>*Ignore for Data Auto Insertion</td>
+  <td>Requirement<br>*Ignore for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>
@@ -31,14 +31,15 @@ FeedItemAttribute contains the value of Feed Item information.
   <td>Feed attribute ID.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Require- ment for Data Auto Insertion</td>
-  <td>-<br>* Require- ment for Data Auto Insertion</td>
+  <td>-<br>*Require- ment for Data Auto Insertion</td>
+  <td>-<br>*Require- ment for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>
   <td>feedAttributeValue</td>
   <td>xsd:string</td>
-  <td>Value of Feed Item.<br>* When using for Data Auto Insertion, insert the value below for each attributes:<br>・AD_CUSTOMIZER_INTEGER<br>ex) 99999999<br>・AD_CUSTOMIZER_PRICE<br>ex) 19800 or 19,800<br>・AD_CUSTOMIZER_DATE<br>ex) 20151231 235959<br>・AD_CUSTOMIZER_STRING<br>ex) home</td>
+  <td>Value of Feed Item.<br>*When using for Data Auto Insertion, insert the value below for each attributes:<br>・AD_CUSTOMIZER _INTEGER<br>ex) 99999999<br>・AD_CUSTOMIZER _PRICE<br>ex) 19800 or 19,800<br>・AD_CUSTOMIZER _DATE<br>ex) 20151231 235959<br>・AD_CUSTOMIZER _STRING<br>ex) home<br>
+*When tag is set blank, existing value of Feed Item will be deleted, if meets the condiiton below:<br> - PlaceholderType = QUICKLINK<br> - Advanced = TRUE<br> - PlaceholderField = ADV ANCED_MOBILE_URL or TRACKING_URL</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -47,8 +48,8 @@ FeedItemAttribute contains the value of Feed Item information.
  </tr>
  <tr>
   <td>reviewFeedAttributeValue</td>
-  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>Review staus of Feed Item.<br>*This field will show only during review.<br>* This will not show for Data Auto Insertion but it will show on feedAttributeValue field (During review or when rejected, the ad display will stop automatically).</td>
+  <td>xsd:string</a></td>
+  <td>Review staus of Feed Item.<br>*This field will show only during review.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

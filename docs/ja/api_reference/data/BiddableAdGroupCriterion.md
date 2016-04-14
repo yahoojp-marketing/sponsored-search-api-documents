@@ -144,7 +144,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  <tr>
   <td>destinationUrl</td>
   <td>xsd:string</td>
-  <td>移行前のカスタムURLです。</td>
+  <td>移行前のカスタムURLです。<br>※空で設定すると、既存の移行前の カスタムURLは削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -193,7 +193,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <td>advancedUrl</td>
   <td>xsd:string</td>
-  <td>移行後のカスタムURLです。</td>
+  <td>移行後のカスタムURLです。<br>※空で設定すると、既存の移行後の カスタムURLは削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※移行してtracking Urlを指定している場合、Requirement<br>※移行しない（advanced=FALSE）場合、Ignore</td>
@@ -211,7 +211,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <td>advancedMobileUrl</td>
   <td>xsd:string</td>
-  <td>カスタムURL（スマートフォン）です。</td>
+  <td>カスタムURL（スマートフォン）です。<br>※空で設定すると、既存のカスタムURL （スマートフォン）は削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※移行しない（advanced=FALSE）場合、Ignore</td>
@@ -229,7 +229,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>トラッキングURLです。</td>
+  <td>トラッキングURLです。<br>※空で設定すると、既存のトラッキングURLは 削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

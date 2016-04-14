@@ -37,7 +37,7 @@ ReportDefinitionSelector object displays requested report information and filter
  </tr>
  <tr>
   <td>paging</td>
-  <td>enum <a href="./Paging.md">Paging</a></td>
+  <td><a href="./Paging.md">Paging</a></td>
   <td>Search condition: Page of results.</td>
   <td>-</td>
   <td>Optional</td>

@@ -19,7 +19,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td colspan="8"><a href="./Ad.md">Ad</a>(inherited)</td>
  </tr>
  </tr>
-  <tr>
+ <tr>
   <td>type</td>
   <td>enum <a href="./AdType.md">AdType</a></td>
   <td>広告の種類です。</td>
@@ -35,7 +35,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Requirement。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -45,7 +45,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td>最終リンク先URL（スマート フォン）です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -55,7 +55,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -65,7 +65,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -85,7 +85,7 @@ TextAd2オブジェクトは、スポンサードサーチのPCおよびスマ�
   <td>移行前のリンク先 URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Ignore。<br>※URLを移行しない（advanced=FALSE）場合、Requirement。</td>
   <td>-</td>
   <td>-</td>
  </tr>

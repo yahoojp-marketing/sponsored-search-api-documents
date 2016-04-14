@@ -3,6 +3,7 @@ DateRange object displays the conditions and period to get Operation History.
 
 ### Service
 + [CustomerSyncService](../services/CustomerSyncService.md)
++ [ReportDefinitionService](../services/ReportDefinitionService.md)
 
 <table>
  <tr>
@@ -18,7 +19,7 @@ DateRange object displays the conditions and period to get Operation History.
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>Start date of target date. <br>It will specified as 0:00:00, if there is no setting in time. <br>*It can be specified on the second bit). </td>
+  <td>Start date of target date.<br>*Please set in YYYYMMDD format. <br>*Can set between 19700101 - 20371231.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -28,7 +29,7 @@ DateRange object displays the conditions and period to get Operation History.
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>End date of target date. <br>It will specified as 0:00:00, if there is no setting in time. <br>*It can be specified on the second bit. </td>
+  <td>End date of target date.<br>*Please set in YYYYMMDD format. <br>*Can set between 19700101 - 20371231.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

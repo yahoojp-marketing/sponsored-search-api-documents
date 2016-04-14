@@ -56,7 +56,7 @@ TargetCpaBiddingSchemeオブジェクトは、コンバージョン単価の目�
  </tr>
  <tr>
   <td>bidFloor</td>
-  <td>xsd:double</td>
+  <td>xsd:long</td>
   <td>入札価格の下限です。<br>※ 設定を解除する場合は「0」を指定します。</td>
   <td>yes</td>
   <td>-</td>

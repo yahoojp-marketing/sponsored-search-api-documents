@@ -32,7 +32,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>-</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
  <tr>
@@ -42,7 +42,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -122,7 +122,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -132,7 +132,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -142,7 +142,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -152,7 +152,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -162,7 +162,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -172,7 +172,7 @@ ReportDefinition object displays the report definition.
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
 </table>

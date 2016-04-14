@@ -78,7 +78,7 @@ Campaign object describes Campaign information.
   <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>Start date of Campaign.<br>* Cannot set the past date.</td>
+  <td>Start date of Campaign.<br>* Cannot set the past date.<br>*Cannot change the date to the campaign that is already active.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>* Default: Current date.</td>

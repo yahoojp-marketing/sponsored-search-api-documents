@@ -32,20 +32,20 @@ MobileAdオブジェクトは、スマートフォン以外の携帯電話向け
  <tr>
   <td>advancedUrl</td>
   <td>xsd:string</td>
-  <td>リンク先URLです。</td>
+  <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Requirement。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>advancedMobileUrl</td>
   <td>xsd:string</td>
-  <td>リンク先URL（スマート フォン）です。</td>
+  <td>最終リンク先URL（スマート フォン）です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -55,7 +55,7 @@ MobileAdオブジェクトは、スマートフォン以外の携帯電話向け
   <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -65,7 +65,7 @@ MobileAdオブジェクトは、スマートフォン以外の携帯電話向け
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -85,7 +85,7 @@ MobileAdオブジェクトは、スマートフォン以外の携帯電話向け
   <td>移行前のリンク先 URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Ignore。<br>※URLを移行しない（advanced=FALSE）場合、Requirement。</td>
   <td>-</td>
   <td>-</td>
  </tr>

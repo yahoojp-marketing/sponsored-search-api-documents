@@ -35,8 +35,8 @@ CustomParameter displays the element of custom parameters.
   <td>Value of parameter.<br>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br>* Ignore for AdGroupAdService.</td>
+  <td>Optional</td>
+  <td>Optional<br>* Ignore for AdGroupAdService.</td>
   <td>-</td>
  </tr>
 </table>

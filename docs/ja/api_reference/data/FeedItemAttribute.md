@@ -38,17 +38,18 @@ FeedItemAttributeオブジェクトは、フィードアイテムの属性情報
  <tr>
   <td>feedAttributeValue</td>
   <td>xsd:string</td>
-  <td>フィードアイテム情報の値です。<br>※データ自動挿入をご利用の 場合は、各属性については以下 のように入力 してください：<br>・AD_CUSTOMIZER_INTEGER<br>ex) 99999999<br>・AD_CUSTOMIZER_PRICE<br>ex) 19800 or 19,800<br>・AD_CUSTOMIZER_DATE<br>ex) 20151231 235959<br>・AD_CUSTOMIZER_STRING<br>ex) home</td>
+  <td>フィードアイテム情報の値です。<br>※データ自動挿入をご利用の 場合は、各属性については以下 のように入力 してください：<br>・AD_CUSTOMIZER_INTEGER<br>ex) 99999999<br>・AD_CUSTOMIZER_PRICE<br>ex) 19800 or 19,800<br>・AD_CUSTOMIZER_DATE<br>ex) 20151231 235959<br>・AD_CUSTOMIZER_STRING<br>ex) home<br>※空で設定すると、既存のフィード アイテム情報は削除されます。 ただし、以下の条件を満たす 場合のみ：<br>・PlaceholderType = QUICKLINK<br>・Advanced = TRUE<br>・PlaceholderField = ADVANCED_MOBILE_URL もしくは TRACKING_URL</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
+</td>
   <td>-</td>
  </tr>
  <tr>
   <td>reviewFeedAttributeValue</td>
-  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>フィードアイテム情報が審査 ステータスです。<br>※審査中のときのみレスポンス 時に 表示されます。<br>※データ自動挿入のみreview FeedAttributeValueを利用されず、 feedAttributeValueで表示が そのまま置き換わります（審査中 及び掲載不可の場合は配信が 自動的に停止されます）。</td>
+  <td>xsd:string</td>
+  <td>審査中のフィードアイテム情報です。<br>※審査中のときのみレスポンス 時に 表示されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

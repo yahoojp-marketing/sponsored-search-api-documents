@@ -98,6 +98,7 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 Additonal and change in report functions. Details are as follows.<br>
 * Report segment will be determined automatically and created from the combination of Report field.<br>
  *This function will not be available for older versions. (Ver.5.X)<br>
+ *You will not be able to transfer the registered report definition and/or report job to this enhanced report function when migrating.<br>
 * Code designated from filter will designate the item to display report.<br>
 * Download URL retrieval (getDownloadUrl of ReportService) operation of report will end support.<br>
  *From this version, Download URL can be retrieved from get operation of ReportService.<br>

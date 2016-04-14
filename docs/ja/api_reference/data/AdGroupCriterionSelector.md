@@ -58,7 +58,7 @@ AdGroupCriterionSelectorオブジェクトは、操作の対象となる広告�
  <tr>
   <td>criterionUse</td>
   <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>検索条件：ターゲットリストIDです。<br>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
+  <td>検索条件：クライテリアの種類です。<br>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
