@@ -98,11 +98,40 @@ To improve the operation of Destination URL and Custom URL, we will release Spon
 Additonal and change in report functions. Details are as follows.<br>
 * Report segment will be determined automatically and created from the combination of Report field.<br>
  *This function will not be available for older versions. (Ver.5.X)<br>
+ *You will not be able to transfer the registered report definition and/or report job to this enhanced report function when migrating.<br>
 * Code designated from filter will designate the item to display report.<br>
 * Download URL retrieval (getDownloadUrl of ReportService) operation of report will end support.<br>
  *From this version, Download URL can be retrieved from get operation of ReportService.<br>
-* Type of "Total Conversions" field will change from long to double.
-<br><br>
+* Type of "Total Conversions" field will change from long to double.<br>
+<br>
+
+From this enhancement, Performance Report has changed the followings:<br>
+* Date has been unified in 'YYYY-MM-DD' (hyphenated) format.<br>
+* "--" (double hyphens) shown on the vacant data column.<br>
+* Following information items on the fixed 5 lines on the top of report file have been removed.<br>
+　・account name (ID)<br>
+　・report name (type)<br>
+　・period<br>
+　・display by<br>
+　・filter<br>
+* For a number with a decimal point, "0" is represented as "0.000" on the following field values.<br>
+　・AVG_CPC<br>
+　・AVG_CPM<br>
+　・BUDGET_LOST_IMPRESSION_SHARE<br>
+　・CLICK_RATE<br>
+　・CONVERSION<br>
+　・CONVERSION_RATE<br>
+　・COST_UNIQUE_CONVERSION<br>
+　・CPA<br>
+　・EXACT_MATCH_IMPRESSION_SHARE<br>
+　・INVALID_CLICK_RATE<br>
+　・IMPRESSION_SHARE<br>
+　・QUALITY_LOST_IMPRESSION_SHARE<br>
+　・REVENUE_CONVERSION<br>
+　・REVENUE_UNIQUE_CONVERSION<br>
+　・REVENUE<br>
+　・UNIQUE_CONVERSION_RATE<br>
+<br>
 
 ##### Target Web Service 
  * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)

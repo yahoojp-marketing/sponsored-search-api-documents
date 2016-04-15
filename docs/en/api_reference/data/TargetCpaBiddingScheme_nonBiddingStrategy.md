@@ -56,7 +56,7 @@ TargetCpaBiddingScheme object displays Auto Bidding setting for Target CPA. <br>
  </tr>
  <tr>
   <td>bidFloor</td>
-  <td>xsd:double</td>
+  <td>xsd:long</td>
   <td>Minimum CPC.<br>*Set "0" to deactivate.</td>
   <td>yes</td>
   <td>-</td>

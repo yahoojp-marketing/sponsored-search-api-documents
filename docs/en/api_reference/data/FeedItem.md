@@ -48,7 +48,7 @@ FeedItem is a container of Feed Item information.
  <tr>
   <td>feedItemTrackId</td>
   <td>xsd:long</td>
-  <td>Feed Item ID for tracking.<br>* "0" will return in Sandbox.</td>
+  <td>Feed Item ID for tracking.<br>*"0" will return in Sandbox.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -98,17 +98,17 @@ FeedItem is a container of Feed Item information.
  <tr>
   <td>devicePreference</td>
   <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
-  <td>Appoint the high priority device in delivering ads.</td>
+  <td>Appoint the high priority device in delivering ads.<br>*When tag is set blank, existing device appoint setting will be deleted (exclude Call Extension).</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>* Optional for Call Extension<br>* Default: SMART_PHONE</td>
-  <td>Optional<br>* Ignore for Call Extension.</td>
+  <td>Optional<br>*Optional for Call Extension<br>*Default: SMART_PHONE</td>
+  <td>Optional<br>*Ignore for Call Extension.</td>
   <td>-</td>
  </tr>
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>Start date of ad display.<br>* To deactivate, set it blank.</td>
+  <td>Start date of ad display.<br>*When tag is set blank, existing start date setting will be deleted</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -118,7 +118,7 @@ FeedItem is a container of Feed Item information.
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>End date of ad display.<br>* To deactivate, set it blank.</td>
+  <td>End date of ad display.<br>*When tag is set blank, existing end date setting will be deleted</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -128,7 +128,7 @@ FeedItem is a container of Feed Item information.
  <tr>
   <td>scheduling</td>
   <td><a href="./FeedItemScheduling.md">FeedItemScheduling</a></td>
-  <td>Ad display schedule.<br>* To deactivate, set it blank.</td>
+  <td>Ad display schedule.<br>*When tag is set blank, existing schedule setting will be deleted</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -141,8 +141,8 @@ FeedItem is a container of Feed Item information.
   <td>Campaign used for Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Requirement for Data Auto Insertion</td>
-  <td>-<br>* Requirement for Data Auto Insertion</td>
+  <td>-<br>*Requirement for Data Auto Insertion</td>
+  <td>-<br>*Requirement for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>
@@ -151,8 +151,8 @@ FeedItem is a container of Feed Item information.
   <td>Ad group used for Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Optional for Data Auto Insertion</td>
-  <td>-<br>* Optional for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>
@@ -161,8 +161,8 @@ FeedItem is a container of Feed Item information.
   <td>Keyword used for Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Optional for Data Auto Insertion</td>
-  <td>-<br>* Optional for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>
@@ -171,8 +171,8 @@ FeedItem is a container of Feed Item information.
   <td>Custom parameters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Optional for Quick Link</td>
-  <td>-<br>* Optional for Quick Link</td>
+  <td>-<br>*Optional for Quick Link</td>
+  <td>-<br>*Optional for Quick Link</td>
   <td>-</td>
  </tr>
  <tr>
@@ -191,8 +191,8 @@ FeedItem is a container of Feed Item information.
   <td>Keyword used for Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Optional for Quick Link<br>* Default: TRUE</td>
-  <td>-<br>* Optional for Quick Link<br>* Default: TRUE</td>
+  <td>-<br>*Optional for Quick Link<br>*Default: TRUE</td>
+  <td>-</td>
   <td>-</td>
  </tr>
 </table>

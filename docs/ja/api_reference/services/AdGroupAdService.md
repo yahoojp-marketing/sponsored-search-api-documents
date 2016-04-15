@@ -261,7 +261,6 @@ AdGroupAdServiceで提供される操作を説明します。
                   <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
                   <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
                   <ns1:customParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
                     <ns1:parameters>
                       <ns1:key>site</ns1:key>
                       <ns1:value>yahoo</ns1:value>

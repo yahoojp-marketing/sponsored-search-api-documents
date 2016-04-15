@@ -144,7 +144,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  <tr>
   <td>destinationUrl</td>
   <td>xsd:string</td>
-  <td>Custom URL of before upgrading.</td>
+  <td>Custom URL of before upgrading.<br>*When tag is set blank, existing Custom URL before upgrade will be deleted.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -193,7 +193,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <td>advancedUrl</td>
   <td>xsd:string</td>
-  <td>Upgraded Custom URL.</td>
+  <td>Upgraded Custom URL.<br>*When tag is set blank, existing upgraded Custom URL will be deleted.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>* Require- ment when designating tracking URL after the upgrade.<br>* Ignore when not updating (advanced =FALSE).</td>
@@ -211,7 +211,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <td>advancedMobileUrl</td>
   <td>xsd:string</td>
-  <td>Upgraded Custom URL (Smartphone).</td>
+  <td>Upgraded Custom URL (Smartphone).<br>*When tag is set blank, existing upgraded Custom URL (Smartphone) will be deleted.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>* Ignore when not updating (advanced =FALSE).</td>
@@ -229,7 +229,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>Tracking URL.</td>
+  <td>Tracking URL.<br>*When tag is set blank, existing Tracking URL will be deleted.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -246,7 +246,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>customParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>Custom paramters.</td>
   <td>yes</td>
   <td>-</td>
@@ -255,7 +255,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>reviewCustomParameters</td>
-  <td>xsd:string</td>
+  <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>Custom paramters, in review.</td>
   <td>yes</td>
   <td>-</td>
@@ -264,7 +264,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <td>advanced</td>
-  <td>xsd:string</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
   <td>Flag of Advanced URL.</td>
   <td>yes</td>
   <td>-</td>

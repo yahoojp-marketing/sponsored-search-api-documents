@@ -97,11 +97,40 @@
 変更内容は以下のとおりです：
 * レポート項目（フィールド）の組み合わせにより、セグメントを自動判別して作成するように変更されます。<br>
 ※前バージョンまで提供していた機能は、本バージョンからご利用いただけません。<br>
+※本バージョンのレポートへ移行する際、前バージョンで登録されているレポート定義やレポートジョブは引き継がれません。
 * フィルターで指定するコード値は、レポートで表示される項目を指定するようになります。<br>
 * レポートのダウンロードURL取得（ReportServiceのgetDownloadUrl）操作を廃止いたします。<br>
 ※本バージョンから、ダウンロードURLは取得（ReportServiceのget）操作より取得が可能になります。<br>
-* 「総コンバージョン数」フィールドの型がlongからdoubleに変更されます。
-<br><br>
+* 「総コンバージョン数」フィールドの型がlongからdoubleに変更されます。<br>
+<br>
+
+また、本変更に伴い、以下の点を変更いたしました。<br>
+* 日付表記をYYYY-MM-DD（-区切り）に統一しました。<br>
+* データが空の項目についての表示を「--」（ハイフン2個連続表示）に変更しました。<br>
+* レポートファイルの1行目から5行目に固定で表示されていた以下の情報を削除しました。<br>
+　・アカウント名（アカウントID）<br>
+　・レポート名（レポートの種類）<br>
+　・集計期間<br>
+　・表示切替<br>
+　・フィルター設定<br>
+* 以下のフィールド値について、0の場合の表記を0.000に変更しました。<br>
+　・AVG_CPC<br>
+　・AVG_CPM<br>
+　・BUDGET_LOST_IMPRESSION_SHARE<br>
+　・CLICK_RATE<br>
+　・CONVERSION<br>
+　・CONVERSION_RATE<br>
+　・COST_UNIQUE_CONVERSION<br>
+　・CPA<br>
+　・EXACT_MATCH_IMPRESSION_SHARE<br>
+　・INVALID_CLICK_RATE<br>
+　・IMPRESSION_SHARE<br>
+　・QUALITY_LOST_IMPRESSION_SHARE<br>
+　・REVENUE_CONVERSION<br>
+　・REVENUE_UNIQUE_CONVERSION<br>
+　・REVENUE<br>
+　・UNIQUE_CONVERSION_RATE<br>
+<br>
 
 ##### 対象ウェブサービス
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)

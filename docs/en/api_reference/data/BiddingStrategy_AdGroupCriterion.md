@@ -68,7 +68,7 @@ Bidding strategy object displays the type of strategy for Auto Bidding.<br>
  </tr>
  <tr>
   <td>bid</td>
-  <td>enum <a href="./Bid_AdGroupCriterion.md">Bid</a></td>
+  <td><a href="./Bid_AdGroupCriterion.md">Bid</a></td>
   <td>Bids.</td>
   <td>yes</td>
   <td>-</td>

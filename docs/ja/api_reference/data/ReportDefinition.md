@@ -31,7 +31,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>-</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
  <tr>
@@ -41,7 +41,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -121,7 +121,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -131,7 +131,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -141,7 +141,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -151,7 +151,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -161,7 +161,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -171,7 +171,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
  </tr>
 </table>

@@ -38,7 +38,7 @@ AccountTrackingUrl object describes account tracking information.
  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>Tracking URL.<br>*When tag is set blank, existing tag will be deleted.</td>
+  <td>Tracking URL.<br>*When tag is set blank, existing Tracking URL will be deleted</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

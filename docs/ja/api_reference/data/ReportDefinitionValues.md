@@ -41,6 +41,7 @@ ReportDefinitionValuesオブジェクトは、操作結果を含むレポート�
   <td>-</td>
   <td>-</td>
   <td>-</td>
+  <td>-</td>
  </tr>
 </table>
 

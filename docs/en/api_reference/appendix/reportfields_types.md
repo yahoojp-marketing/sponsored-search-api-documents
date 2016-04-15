@@ -429,6 +429,7 @@ CLICK_RATE	|no	|no	|no	|no
 AVG_CPM		|no	|no	|no	|no
 AVG_CPC		|no	|no	|no	|no
 AVG_DELIVER_RANK	|no	|no	|no	|no
+REVENUE	|no	|no	|no	|no
 UNIQUE_CONVERSION	|no	|no	|no	|no
 UNIQUE_CONVERSION_RATE	|no	|no	|no	|no
 REVENUE_UNIQUE_CONVERSION	|no	|no	|no	|no
@@ -441,7 +442,6 @@ BID_MULTIPLIER	|no	|no	|no	|no
 TARGET_LOCATION_ID	|no	|no	|no	|no
 TARGET_LOCATION_NAME	|no	|no	|no	|no
 DAY	|no	|no	|no	|no
-DAY_OF_WEEK	|no	|no	|no	|no
 QUARTER	|no	|no	|no	|no
 YEAR	|no	|no	|no	|no
 MONTH	|no	|no	|no	|no
@@ -463,6 +463,7 @@ CLICK_RATE	|no	|no	|no	|no
 AVG_CPM		|no	|no	|no	|no
 AVG_CPC		|no	|no	|no	|no
 AVG_DELIVER_RANK	|no	|no	|no	|no
+REVENUE	|no	|no	|no	|no
 UNIQUE_CONVERSION	|no	|no	|no	|no
 UNIQUE_CONVERSION_RATE	|no	|no	|no	|no
 REVENUE_UNIQUE_CONVERSION	|no	|no	|no	|no
@@ -475,7 +476,6 @@ BID_MULTIPLIER	|no	|no	|no	|no
 TARGET_SCHEDULE_ID	|no	|no	|no	|no
 TARGET_SCHEDULE	|no	|no	|no	|no
 DAY		|no	|no	|no	|no
-DAY_OF_WEEK	|no	|no	|no	|no
 QUARTER		|no	|no	|no	|no
 YEAR		|no	|no	|no	|no
 MONTH		|no	|no	|no	|no
@@ -497,6 +497,7 @@ CLICK_RATE	|no	|no	|no	|no
 AVG_CPM	|no	|no	|no	|no
 AVG_CPC	|no	|no	|no	|no
 AVG_DELIVER_RANK	|no	|no	|no	|no
+REVENUE	|no	|no	|no	|no
 UNIQUE_CONVERSION	|no	|no	|no	|no
 UNIQUE_CONVERSION_RATE	|no	|no	|no	|no
 REVENUE_UNIQUE_CONVERSION	|no	|no	|no	|no
@@ -509,7 +510,6 @@ BID_MULTIPLIER	|no	|no	|no	|no
 TARGET_DEVICE_ID	|no	|no	|no	|no
 TARGET_DEVICE	|no	|no	|no	|no
 DAY		|no	|no	|no	|no
-DAY_OF_WEEK	|no	|no	|no	|no
 QUARTER	|no	|no	|no	|no
 YEAR	|no	|no	|no	|no
 MONTH	|no	|no	|no	|no
@@ -672,9 +672,9 @@ AVG_CPM		|no	|no	|no	|no
 AVG_CPC		|no	|no	|no	|no
 AVG_DELIVER_RANK	|no	|no	|no	|no
 REVENUE		|no	|yes	|yes	|no
-UNIQUE_CONVERSION	|no	|yes	|yes	|no
-UNIQUE_CONVERSION_RATE	|no	|yes	|yes	|no
-REVENUE_UNIQUE_CONVERSION	|no	|yes	|yes	|no
+UNIQUE_CONVERSION	|no	|no	|no	|no
+UNIQUE_CONVERSION_RATE	|no	|no	|no	|no
+REVENUE_UNIQUE_CONVERSION	|no	|no	|no	|no
 REVENUE_CONVERSION	|no	|yes	|yes	|no
 CONVERSION	|no	|yes	|yes	|no
 CONVERSION_RATE	|no	|no	|no	|no

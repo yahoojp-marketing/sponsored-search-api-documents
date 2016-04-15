@@ -98,7 +98,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>devicePreference</td>
   <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
-  <td>優先デバイス設定です。</td>
+  <td>優先デバイス設定です。<br>※空で設定すると、既存の優先 デバイス設定は削除されます（電話番号以外のみ）。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※電話番号 の場合、Optional<br>※Default: SMART_PHONE</td>
@@ -108,7 +108,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>配信開始日です。<br>※変更の場合、空タグ指定で 設定解除されます。</td>
+  <td>配信開始日です。<br>※空で設定すると、既存の配信 開始日は削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -118,7 +118,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>配信終了日です。<br>※変更の場合、空タグ指定で 設定解除されます。</td>
+  <td>配信終了日です。<br>※空で設定すると、既存の配信 終了日は削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -128,7 +128,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>scheduling</td>
   <td><a href="./FeedItemScheduling.md">FeedItemScheduling</a></td>
-  <td>配信スケジュールです。<br>※変更の場合、空タグ指定で 設定解除されます。</td>
+  <td>配信スケジュールです。<br>※空で設定すると、既存の配信 スケジュールは削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -192,15 +192,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>yes</td>
   <td>-</td>
   <td>-<br>※クイック リンクの場合、Optional<br>※Default: TRUE</td>
-  <td>-<br>※クイック リンクの場合、Optional<br>※Default: TRUE</td>
+  <td>-</td>
   <td>-</td>
  </tr>
 </table>
-<br>
- 【devicePreferenceに関する注意事項】<br>
-1. FeedItem情報がCALLEXTENSIONの場合は、devicePreferenceは自動的にSMART_PHONEに設定されます。<br>
-2. FeedItem情報がQUICKLINKの場合は、devicePreferenceはオプションです。<br>
-3. FeedItem情報がQUICKLINKの場合は、devicePreferenceの値をSMART_PHONEから解除できます。<br>
-　　解除するときは、SOAPリクエストにdevicePreferenceに空の値を挿入してください。<br>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

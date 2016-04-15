@@ -68,7 +68,7 @@ BiddingStrategyオブジェクトは、入札方法を表します。<br>
  </tr>
  <tr>
   <td>bid</td>
-  <td>enum <a href="./Bid_AdGroupCriterion.md">Bid</a></td>
+  <td><a href="./Bid_AdGroupCriterion.md">Bid</a></td>
   <td>入札価格です。</td>
   <td>yes</td>
   <td>-</td>

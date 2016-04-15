@@ -18,7 +18,7 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <td colspan="8"><a href="./Ad.md">Ad</a>(inherited)</td>
  </tr>
  </tr>
-  <tr>
+ <tr>
   <td>type</td>
   <td>enum <a href="./AdType.md">AdType</a></td>
   <td>広告の種類です。</td>
@@ -31,20 +31,20 @@ AppAdオブジェクトは、アプリ向けの広告です。
  <tr>
   <td>advancedUrl</td>
   <td>xsd:string</td>
-  <td>リンク先URLです。</td>
+  <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Requirement。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>advancedMobileUrl</td>
   <td>xsd:string</td>
-  <td>リンク先URL（スマート フォン）です。</td>
+  <td>最終リンク先URL（スマート フォン）です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -54,7 +54,7 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -64,7 +64,7 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -84,7 +84,7 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <td>移行前のリンク先 URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Ignore。<br>※URLを移行しない（advanced=FALSE）場合、Requirement。</td>
   <td>-</td>
   <td>-</td>
  </tr>

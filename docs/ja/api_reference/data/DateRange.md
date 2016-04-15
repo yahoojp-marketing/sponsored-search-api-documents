@@ -19,7 +19,7 @@ DateRangeオブジェクトは操作履歴を取得する条件、期間を示�
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>対象期間の開始日時です。<br>※時間の指定がない場合、0:00:00として指定されます。<br>※秒単位まで指定が可能です。</td>
+  <td>対象期間の開始日です。<br>※日付の指定はYYYYMMDD 形式です。<br>※19700101～20371231まで設定 可能です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -29,7 +29,7 @@ DateRangeオブジェクトは操作履歴を取得する条件、期間を示�
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>対象期間の終了日時です。<br>※時間の指定がない場合、0:00:00として指定されます。<br>※秒単位まで指定が可能です。</td>
+  <td>対象期間の終了日です。<br>※日付の指定はYYYYMMDD 形式です。<br>※19700101～20371231まで設定 可能です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

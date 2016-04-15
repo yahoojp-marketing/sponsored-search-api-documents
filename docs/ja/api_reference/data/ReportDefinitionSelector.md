@@ -37,7 +37,7 @@ ReportDefinitionSelectorオブジェクトは、操作の対象とするレポ�
  </tr>
  <tr>
   <td>paging</td>
-  <td>enum <a href="./Paging.md">Paging</a></td>
+  <td><a href="./Paging.md">Paging</a></td>
   <td>検索条件：取得範囲です。</td>
   <td>-</td>
   <td>Optional</td>

@@ -41,6 +41,7 @@ ReportDefinitionValues object displays report definition and its operation resul
   <td>-</td>
   <td>-</td>
   <td>-</td>
+  <td>-</td>
  </tr>
 </table>
 

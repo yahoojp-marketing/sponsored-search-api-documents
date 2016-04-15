@@ -34,7 +34,7 @@ ReportDefinitionOperationオブジェクトは、操作の対象となるレポ�
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
  <tr>
@@ -44,7 +44,7 @@ ReportDefinitionOperationオブジェクトは、操作の対象となるレポ�
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Requirement</td>
+  <td>-</td>
   <td>Requirement</td>
  </tr>
 </table>

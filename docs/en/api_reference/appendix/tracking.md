@@ -18,3 +18,5 @@ matchtype | Displays match type.<br> Details are below.<br> - e: Exact Match<br>
 device | Displays the device clicked from. <br>Details are below.<br> - m: Smartphone and WAP phone (feature phone)<br> - t: Tablet<br> - c: PC | http://www.example.com/?device={device}<br>
 ifmobile | Value will return when ads are clicked from Smartphone or WAP mobile.<br>* Can set only through custom URL.<br>* Also available for QuickLink of Ad Display Option.| http://www.example.com/?ifmobile={ifmobile:[value]}
 ifnotmobile| Value will return when ads are clicked from Tablet or PC.<br>* Can set only through custom URL.<br>* Also available for QuickLink of Ad Display Option.|http://www.example.com/?ifnotmobile={ifnotmobile:[value]}
+lpurl | The Landing Page URL. Can use for setting to Tracking URL.<br>*Available only for entity that been set for Advanced URL. | - Landing Page URL: http://example.com<br>- Tracking URL setting: {lpurl}?creative=XXXXXXXX<br>- Delivered URL: http://example.com?creative=XXXXXXXX
+
