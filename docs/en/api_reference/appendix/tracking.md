@@ -12,7 +12,7 @@ The number of Download of application for Android can be measured, when you set 
 
 Parameter | Description | URL Format
 ---------- | ------------------- | ----------------------
-creative |Displays Ad Tracking ID (adTrackID).<br>* An unique ID given to each ad. It differs from Ad ID (adId).| http://www.example.com/?creative={creative} 
+creative |Displays Ad Tracking ID (adTrackId).<br>* An unique ID given to each ad. It differs from Ad ID (adId).| http://www.example.com/?creative={creative} 
 keyword | Displays bidding keyword.| http://www.example.com/?keyword={keyword} 
 matchtype | Displays match type.<br> Details are below.<br> - e: Exact Match<br> - p: Phrase Match<br> - b：Broad Match|http://www.example.com/?matchtype={matchtype} 
 device | Displays the device clicked from. <br>Details are below.<br> - m: Smartphone and WAP phone (feature phone)<br> - t: Tablet<br> - c: PC | http://www.example.com/?device={device}<br>
