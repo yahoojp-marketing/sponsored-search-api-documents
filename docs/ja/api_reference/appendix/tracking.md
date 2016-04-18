@@ -12,7 +12,7 @@ Android 向けアプリケーションのダウンロードは、広告が Googl
 
 パラメータ | 概要 | URLフォーマット例
 ----------- | ----------------- | ---------------- 
-creative | 広告ID（adTrackID）です。<br>※adTrackIDとは各広告にユニークに付与されるIDです。広告IDとは異なります。 | http://www.example.com/?creative={creative} 
+creative | 広告トラッキングID（adTrackId）です。<br>※各広告にユニークに付与されるIDです。広告ID（adId）とは異なります。| http://www.example.com/?creative={creative} 
 keyword | 入札キーワードです。| http://www.example.com/?keyword={keyword} 
 matchtype | マッチタイプです。表示内容は以下の通りです。<br>・e：完全一致<br>・p：フレーズ一致<br>・b：部分一致<br>|http://www.example.com/?matchtype={matchtype} 
 device | クリックされたデバイスの種類です。表示内容は以下の通りです。<br>・m：スマートフォンとモバイル<br>・t：タブレット<br>・c：PC | http://www.example.com/?device={device}
