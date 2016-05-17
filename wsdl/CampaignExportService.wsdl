@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+  targetNamespace="http://ss.yahooapis.jp/V6"
+  xmlns:tns="http://ss.yahooapis.jp/V6"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified"
+      targetNamespace="http://ss.yahooapis.jp/V6"
+      xmlns="http://www.w3.org/2001/XMLSchema"
+      xmlns:tns="http://ss.yahooapis.jp/V6">
+      <annotation>
+        <appinfo>
+          <version>6.0.0</version>
+        </appinfo>
+      </annotation>
+      <complexType name="SoapHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SoapResponseHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="UserStatus">
+        <restriction base="xsd:string">
+          <enumeration value="ACTIVE"/>
+          <enumeration value="PAUSED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ApprovalStatus">
+        <restriction base="xsd:string">
+          <enumeration value="APPROVED"/>
+          <enumeration value="APPROVED_WITH_REVIEW"/>
+          <enumeration value="REVIEW"/>
+          <enumeration value="PRE_DISAPPROVED"/>
+          <enumeration value="POST_DISAPPROVED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="EntityType">
+        <restriction base="xsd:string">
+          <enumeration value="CAMPAIGN"/>
+          <enumeration value="NEGATIVE_CAMPAIGN_CRITERION"/>
+          <enumeration value="AD_GROUP"/>
+          <enumeration value="BIDDABLE_AD_GROUP_CRITERION"/>
+          <enumeration value="NEGATIVE_AD_GROUP_CRITERION"/>
+          <enumeration value="AD"/>
+          <enumeration value="ALL"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Lang">
+        <restriction base="xsd:string">
+          <enumeration value="JA"/>
+          <enumeration value="EN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Output">
+        <restriction base="xsd:string">
+          <enumeration value="CSV"/>
+          <enumeration value="ZIPPED_CSV"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Encoding">
+        <restriction base="xsd:string">
+          <enumeration value="UTF-8"/>
+          <enumeration value="SJIS"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="JobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="TIMEOUT"/>
+          <enumeration value="SYSTEM_ERROR"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Advanced">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
+      <complexType name="CampaignExportPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignExportValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="CampaignExportReturnValue">
+        <complexContent>
+          <extension base="tns:ListReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignExportValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="CampaignExportValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="job" type="tns:Job"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="Job">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="jobId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="jobName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="userName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="status" type="tns:JobStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="progress" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ExportSetting">
+        <sequence>
+           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="campaignCriterionIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupCriterionIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="campaignUserStatuses" type="tns:UserStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupUserStatuses" type="tns:UserStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupAdUserStatuses" type="tns:UserStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupCriterionUserStatuses" type="tns:UserStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupAdApprovalStatuses" type="tns:ApprovalStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="adGroupCriterionApprovalStatuses" type="tns:ApprovalStatus"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="entityTypes" type="tns:EntityType"/>
+           <element maxOccurs="1" minOccurs="0" name="jobName" type="xsd:string"/>
+           <element maxOccurs="1" minOccurs="0" name="lang" type="tns:Lang"/>
+           <element maxOccurs="1" minOccurs="0" name="output" type="tns:Output"/>
+           <element maxOccurs="1" minOccurs="0" name="encoding" type="tns:Encoding"/>
+           <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
+        </sequence>
+      </complexType>
+      <complexType name="JobSelector">
+        <sequence>
+           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="jobIds" type="xsd:long"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="statuses" type="tns:JobStatus"/>
+           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+        </sequence>
+      </complexType>
+      <element name="get">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:JobSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignExportPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addJob">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="setting" type="tns:ExportSetting"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addJobResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignExportReturnValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHeader" type="tns:SoapHeader"/>
+      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="RequestHeader">
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ResponseHeader">
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+  </wsdl:message>
+  <wsdl:message name="getRequest">
+    <wsdl:part element="tns:get" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getResponse">
+    <wsdl:part element="tns:getResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="addJobRequest">
+    <wsdl:part element="tns:addJob" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addJobResponse">
+    <wsdl:part element="tns:addJobResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApiException">
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+  </wsdl:message>
+  <wsdl:portType name="CampaignExportServiceInterface">
+    <wsdl:operation name="get">
+      <wsdl:input message="tns:getRequest" name="getRequest"/>
+      <wsdl:output message="tns:getResponse" name="getResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="addJob">
+      <wsdl:input message="tns:addJobRequest" name="addJobRequest"/>
+      <wsdl:output message="tns:addJobResponse" name="addJobResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CampaignExportServiceSoapBinding" type="tns:CampaignExportServiceInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="get">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addJob">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addJobRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addJobResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CampaignExportService">
+    <wsdl:port binding="tns:CampaignExportServiceSoapBinding" name="CampaignExportService">
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/CampaignExportService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

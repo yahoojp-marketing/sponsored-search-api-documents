@@ -123,11 +123,13 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 
 #### キャンペーン管理に関連するエラー
 ##### Service
-[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),<br>  [BulkService](/docs/ja/api_reference/services/BulkService.md),<br> [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),<br> [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md),<br> [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md),<br> [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
+[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),<br>  [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md),<br> [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),<br> [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md),<br> [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md),<br> [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
 
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
 0018 | The data size you requested is too large. Please try your request again with a smaller date range or reduce the size of your request.  | 生成されるデータのサイズが大きいため取得に失敗しました。<br>集計期間やパラメーターを調整し、再度リクエストを実施してください。 
+1003 | invalid download request. | ダウンロードURLの取得ホストと実行ホストが異なります。
+1004 | download URL has expired. | ダウンロードURLの有効期限が切れました。<br />ダウンロードURLが改ざんされています。
 10100 | DEACTIVATED | 削除済みとして登録されました。<br>アカウントステータスがアクティブでない、またはアカウントが存在しない場合にもこのエラーが発生する可能性があります。
 10200 | INVALID_STATUS | カスタムURLを更新するためには、キーワードが"承認済み"になっている必要があります。
 10300 | OVER_LIMIT | 上限値を超えています。リクエストのサイズを調整して、再度実行してください。

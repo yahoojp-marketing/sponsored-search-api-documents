@@ -96,6 +96,16 @@ Job オブジェクトは、ジョブの情報を表します。
   <td>-</td>
  </tr>
  <tr>
+  <td>advanced</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
+  <td>アドバンスドURL対応のフラグです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>downloadUrl</td>
   <td>xsd:string</td>
   <td>エクスポート結果の取得URLです。</td>

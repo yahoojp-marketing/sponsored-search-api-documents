@@ -136,9 +136,9 @@ ExportSetting object describes the condition for exports.
   <td>-</td>
  </tr>
  <tr>
-  <td>entityTypes[0...7]</td>
+  <td>entityTypes[0...6]</td>
   <td>enum <a href="./EntityType_CampaignExport.md">EntityType</a></td>
-  <td>Entity type to download.</td>
+  <td>Entity type to download.<br>*Default: ALL</td>
   <td>-</td>
   <td>-</td>
   <td>Optional</td>
@@ -168,7 +168,7 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>output</td>
   <td>enum <a href="./Output.md">Output</a></td>
-  <td>Output format for export.</td>
+  <td>Output format for export.<br>*Default: CSV</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>
@@ -178,7 +178,7 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>encoding</td>
   <td>enum <a href="./Encoding.md">Encoding</a></td>
-  <td>Encoding setting of export.</td>
+  <td>Encoding setting of export.<br>*Default: UTF-8</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>

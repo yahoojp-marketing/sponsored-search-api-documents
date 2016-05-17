@@ -64,66 +64,485 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
 　その他、ONETIMEレポートのレポートID、レポートジョブIDは、作成後1週間程度で自動削除されます。<br>
 ※APIで登録された各IDの登録可能数は、代行アクセスで作成したID数と通常アクセスで作成したID数の合計値となります。<br>
 
-### 各サービスの1リクエストあたりの最大指定（取得）数
-Web Service                  | Operation             | 操作可能エレメント数 | レスポンス最大数                       | Paging
----------------------------- | --------------------- | ---------- | ------------------------------ | ------
-LocationService              | get                   | -          | 1                              | -     
-AccountService               | get                   | -          | 200                            | ○     
-AccountService               | mutate(SET)           | 200        | -                              | -     
-BalanceService               | get                   | -          | 100                            | ○     
-CampaignService              | get                   | -          | 500                            | ○     
-CampaignService              | mutate(ADD)           | 200        | -                              | -     
-CampaignService              | mutate(SET)           | 200        | -                              | -     
-CampaignService              | mutate(REMOVE)        | 200        | -                              | -     
-CampaignTargetService        | get                   | -          | 500                            | ○     
-CampaignTargetService        | mutate(ADD)           | 200        | -                              | -     
-CampaignTargetService        | mutate(SET)           | 200        | -                              | -     
-CampaignTargetService        | mutate(REMOVE)        | 200        | -                              | -     
-CampaignCriterionService     | get                   | -          | 500                            | ○     
-CampaignCriterionService     | mutate(ADD)           | 200        | -                              | -     
-CampaignCriterionService     | mutate(REMOVE)        | 200        | -                              | -     
-AdGroupService               | get                   | -          | 500                            | ○     
-AdGroupService               | mutate(ADD)           | 200        | -                              | -     
-AdGroupService               | mutate(SET)           | 200        | -                              | -     
-AdGroupService               | mutate(REMOVE)        | 200        | -                              | -     
-AdGroupCriterionService      | get                   | -          | 500                            | ○     
-AdGroupCriterionService      | mutate(ADD)           | 200        | -                              | -     
-AdGroupCriterionService      | mutate(SET)           | 200        | -                              | -     
-AdGroupCriterionService      | mutate(REMOVE)        | 200        | -                              | -     
-AdGroupAdService             | get                   | -          | 500                            | ○     
-AdGroupAdService             | mutate(ADD)           | 200        | -                              | -     
-AdGroupAdService             | mutate(SET)           | 200        | -                              | -     
-AdGroupAdService             | mutate(REMOVE)        | 200        | -                              | -     
-FeedItemServices             | get                   | -          | 500                            | ○     
-FeedItemServices             | mutate(ADD)           | 200        | -                              | -     
-FeedItemServices             | mutate(SET)           | 200        | -                              | -     
-FeedItemServices             | mutate(REMOVE)        | 200        | -                              | -     
-CampaignFeedServices         | get                   | -          | 500                            | ○     
-CampaignFeedServices         | mutate(SET)           | 200        | -                              | -     
-AdGroupFeedServices          | get                   | -          | 500                            | ○     
-AdGroupFeedServices          | mutate(SET)           | 200        | -                              | -     
-AdGroupBidMultiplierServices | get                   | -          | 500                            | ○     
-AdGroupBidMultiplierServices | mutate(SET)           | 200        | -                              | -     
-BulkServices(download)       | getBulkDownload       | -          | 1                              | -     
-BulkServices(download)       | getBulkDownloadStatus | -          | 500                            | -     
-BulkServices(upload)         | getUploadUrl          | -          | 1                              | -     
-BulkServices(upload)         | getBulkUploadStatus   | -          | 500                            | -     
-ReportDefinitionService      | get                   | -          |                         <  500 | ○     
-ReportDefinitionService      | getReportFields       | 1          | 1                              | -     
-ReportDefinitionService      | mutate(ADD)           | 1          | -                              | -     
-ReportDefinitionService      | mutate(SET)           | 1          | -                              | -     
-ReportDefinitionService      | mutate(REMOVE)        | 1          | -                              | -     
-ReportService                | get                   | -          | 500                            | ○     
-ReportService                | mutate(ADD)           | 20/アカウント   | -                              | -     
-ReportService                | mutate(REMOVE)        | 20/アカウント   | -                              | -     
-ReportService                | getDownloadUrl       |  20/アカウント   | -                              | -     
-TargetingIdeaService         | get                   | -          | 500                            | ○     
-TrafficEstimatorService      | get                   | -          | 100                            | -     
-BidLandsacpeService          | get                   | -          | 100                            | -     
-DictionaryService            | getDisapprovalReason  | -          | 全件取得可能                         | -     
-DictionaryService            | getGeographicLocation | -          | 全件取得可能                         | -     
-KeywordEstimatorService      | get                   | 500        | 500                            | -     
-BiddingStrategyService       | get                   | -          | 500      | ○     
-BiddingStrategyService       | mutate(ADD)           | 200        | -        | -     
-BiddingStrategyService       | mutate(SET)           | 200        | -        | -     
-BiddingStrategyService       | mutate(REMOVE)        | 200        | -        | -     
+### 1リクエストあたりの最大指定/取得数
+<table>
+ <tr>
+  <th>Web Service</th>
+  <th>Operation</th>
+  <th>Max. Elements</th>
+  <th>Max. Responses</th>
+  <th>Paging</th>
+ </tr>
+ <tr>
+  <td rowspan="2">AccountService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>200</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="2">AccountTrackingUrlService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">AdGroupAdService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>2000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="2">AdGroupBidMultiplierService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td rowspan="4">AdGroupCriterionService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>2000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="2">AdGroupFeedService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">AdGroupRetargetingListService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">AdGroupService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>2000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>BalanceService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>100</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>BidLandscapeService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>100</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">BiddingStrategyService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="3">CampaignCriterionService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="2">CampaignFeedService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">CampaignService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>2000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">CampaignTargetService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="3">ConversionTrackerService</td>
+  <td>get</td>
+  <td>500</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>100</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>100</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>CustomerSyncService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="2">DictionaryService</td>
+  <td>getDisapprovalReason</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>getGeographicLocation</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">FeedFolderService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>50</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>50</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>50</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>50</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">FeedItemService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>2000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>KeywordEstimatorService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>100</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>LocationService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="3">NegativeCampaignRetargetingListService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">ReportDefinitionService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>getReportFields</td>
+  <td>-</td>
+  <td>1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>30</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>30</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="3">ReportService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="3">RetargetingListService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>TargetingIdeaService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>TrafficEstimatorService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>100</td>
+  <td>-</td>
+ </tr>
+</table>
