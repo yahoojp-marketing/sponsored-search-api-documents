@@ -27,10 +27,10 @@ CampaignExportServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
+ <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
          <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
@@ -80,10 +80,10 @@ CampaignExportServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
+ <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
       <ns1:remainingQuota>-1</ns1:remainingQuota>
@@ -104,6 +104,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:startDate>2011-09-07T22:55:37+09:00</ns1:startDate>
             <ns1:status>IN_PROGRESS</ns1:status>
             <ns1:progress>0</ns1:progress>
+            <ns1:advanced>FALSE</ns1:advanced>
           </ns1:job>
         </ns1:values>
       </ns1:rval>
@@ -165,7 +166,7 @@ CampaignExportServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
+ <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
       <ns1:remainingQuota>-1</ns1:remainingQuota>
@@ -188,6 +189,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>COMPLETED</ns1:status>
             <ns1:progress>100</ns1:progress>
+            <ns1:advanced>TRUE</ns1:advanced>
             <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--</ns1:downloadUrl>
           </ns1:job>
         </ns1:values>
@@ -201,6 +203,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>COMPLETED</ns1:status>
             <ns1:progress>100</ns1:progress>
+            <ns1:advanced>FALSE</ns1:advanced>
             <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--</ns1:downloadUrl>
           </ns1:job>
         </ns1:values>
@@ -214,7 +217,8 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>IN_PROGRESS</ns1:status>
             <ns1:progress>50</ns1:progress>
-         </ns1:job>
+            <ns1:advanced>FALSE</ns1:advanced>
+          </ns1:job>
         </ns1:values>
       </ns1:rval>
     </ns1:getResponse>

@@ -128,11 +128,13 @@ All services.
 
 #### Campaign Management error
 ##### Service
-[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br> [BulkService](/docs/en/api_reference/services/BulkService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br> [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
+[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br> [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br> [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0018 | The data size you requested is too large. <br>Please try your request again with a smaller date range or reduce the size of your request.  | Failed operations due to data size excess.
+1003 | invalid download request. | Host of creating and host of obtaining the Download URL differs.
+1004 | download URL has expired. | Passed the retainment period of Download URL (10 minutes after report creation)<br />Download URL may have falsified.
 10100 | DEACTIVATED | The entity is having status as deleted. <br>This error may also result if account status is not active or the entity does not exist.
 10200 | INVALID_STATUS | To update destinationUrl at keyword BiddableAdGroupCriterion, approbalStatus of the keyword must be "APPROVED"
 10300 | OVER_LIMIT | Number of entities exceed maximum allowed. <br>Please reduce the size of your request and submit it again.

@@ -96,6 +96,16 @@ Job object describes the information of job settings.
   <td>-</td>
  </tr>
  <tr>
+  <td>advanced</td>
+  <td>enum <a href="./Advanced.md">Advanced</a></td>
+  <td>Flag of Advanced URL.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>downloadUrl</td>
   <td>xsd:string</td>
   <td>Export result of export (download) URL.</td>

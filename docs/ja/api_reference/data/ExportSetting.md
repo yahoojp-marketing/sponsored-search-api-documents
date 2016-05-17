@@ -136,9 +136,9 @@ ExportSetting オブジェクトは、エクスポートする条件を表しま
   <td>-</td>
  </tr>
  <tr>
-  <td>entityTypes[0...7]</td>
+  <td>entityTypes[0...6]</td>
   <td>enum <a href="./EntityType_CampaignExport.md">EntityType</a></td>
-  <td>ダウンロードするエンティティの単位です。</td>
+  <td>ダウンロードするエンティティの単位です。<br>※Default：ALL</td>
   <td>-</td>
   <td>-</td>
   <td>Optional</td>
@@ -168,7 +168,7 @@ ExportSetting オブジェクトは、エクスポートする条件を表しま
  <tr>
   <td>output</td>
   <td>enum <a href="./Output.md">Output</a></td>
-  <td>ダウンロードする情報の出力形式 設定です。</td>
+  <td>ダウンロードする情報の出力形式 設定です。<br>※Default：CSV</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>
@@ -178,7 +178,7 @@ ExportSetting オブジェクトは、エクスポートする条件を表しま
  <tr>
   <td>encoding</td>
   <td>enum <a href="./Encoding.md">Encoding</a></td>
-  <td>ダウンロードする情報の文字エンコード 設定です。</td>
+  <td>ダウンロードする情報の文字エンコード 設定です。<br>※Default：UTF-8</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>
