@@ -75,7 +75,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>200</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -88,7 +88,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -101,7 +101,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -126,7 +126,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -139,7 +139,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -164,7 +164,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -177,7 +177,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -202,7 +202,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -227,21 +227,21 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>BidLandscapeService</td>
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td rowspan="4">BiddingStrategyService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -266,7 +266,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -281,11 +281,24 @@ Report Job ID   | No limits.             | 50
   <td>-</td>
  </tr>
  <tr>
+  <td rowspan="2">CampaignExportService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>addJob</td>
+  <td>500</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td rowspan="2">CampaignFeedService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -298,7 +311,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -323,7 +336,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -346,9 +359,9 @@ Report Job ID   | No limits.             | 50
  <tr>
   <td rowspan="3">ConversionTrackerService</td>
   <td>get</td>
+  <td>-</td>
   <td>500</td>
-  <td>-</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -387,7 +400,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>50</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -412,7 +425,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -451,7 +464,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -470,7 +483,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>getReportFields</td>
@@ -495,7 +508,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -514,7 +527,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -533,7 +546,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>TrafficEstimatorService</td>

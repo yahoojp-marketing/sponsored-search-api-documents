@@ -78,7 +78,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>200</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -91,7 +91,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -104,7 +104,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -129,7 +129,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -142,7 +142,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -167,7 +167,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -180,7 +180,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -205,7 +205,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -230,21 +230,21 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>BidLandscapeService</td>
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td rowspan="4">BiddingStrategyService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -269,7 +269,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -284,11 +284,24 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
+  <td rowspan="2">CampaignExportService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>addJob</td>
+  <td>500</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td rowspan="2">CampaignFeedService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -301,7 +314,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -326,7 +339,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -349,9 +362,9 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
  <tr>
   <td rowspan="3">ConversionTrackerService</td>
   <td>get</td>
+  <td>-</td>
   <td>500</td>
-  <td>-</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -390,7 +403,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>50</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -415,7 +428,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -454,7 +467,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -473,7 +486,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>getReportFields</td>
@@ -498,7 +511,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -517,7 +530,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -536,7 +549,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>TrafficEstimatorService</td>
