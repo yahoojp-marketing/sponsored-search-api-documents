@@ -19,7 +19,7 @@ WebConversion describes ConversionTracker information such as ConversionTag and 
 | userRevenueValue| xsd:string| Revenue value for ConversionTracker.<br>If fixed value is set for a conversion by user, total revenue is appeared in the report.<br>App conversion value is not assignable, download sales will be calculated as conversion value.| Req(WebConversion)<br>-(AppConversion)| Opt(WebConversion)<br>-(AppConversion) |
 | WebConversionTracker|||||
 | snippet| xsd:string| Snippet| —| — |
-| markupLanguage| enum <a href="./MarkupLanguage.md">MarkupLanguage</a>| Markup language<br>* In the case of Call conversion, HTML is only pecifiable.| Req| Opt |
+| markupLanguage| enum <a href="./MarkupLanguage.md">MarkupLanguage</a>| Markup language| Req| Opt |
 | httpProtocol| enum <a href="./HttpProtocol.md">HttpProtocol</a>| http protocol| -| Opt |
 | trackingCodeType| enum <a href="./TrackingCodeType.md">TrackingCodeType</a>| Tracking code type| Req| Opt |
 
