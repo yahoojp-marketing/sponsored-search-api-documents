@@ -29,7 +29,7 @@ ADGROUP_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|adGroupDistr
 AD_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|adDistributionSettings	|enum
 AD_EDITORIAL_STATUS		|審査状況	|Editorial Status	|editorialStatus	|enum
 KEYWORD_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|keywordDistributionSettings	|enum
-KW_EDITIORIAL_STATUS		|審査状況	|Editorial Status	|kwEditorialStatus	|enum
+KEYWORD_EDITORIAL_STATUS		|審査状況	|Editorial Status	|kwEditorialStatus	|enum
 ADGROUP_BID		|広告グループの入札価格	|Ad Group Bid	|adGroupBid	|long
 BID			|入札価格	|Bid (JPY)	|bid			|long
 DAILY_SPENDING_LIMIT	|1日の予算	|Daily Spending Limit	|dailySpendingLimit	|long
@@ -64,7 +64,7 @@ IMPRESSION_SHARE	|インプレッションシェア		|Impression Share		|impress
 EXACT_MATCH_IMPRESSION_SHARE	|完全一致のインプレッションシェア	|Exact Match Impression Share	|exactMatchImpressionShare	|double
 BUDGET_LOST_IMPRESSION_SHARE	|インプレッション損失率（予算）	|Budget Lost Impression Share	|budgetLostImpressionShare		|double
 QUALITY_LOST_IMPRESSION_SHARE	|インプレッション損失率（掲載順位）	|Quality Lost Impression Share	|qualityLostImpressionShare	|double
-EDITIONAL_STATUS	|審査状況	|Editorial Status	|editorialStatus	|enum
+EDITORIAL_STATUS	|審査状況	|Editorial Status	|editorialStatus	|enum
 TOP_OF_PAGE_BID_ESTIMATE	|1ページ目上部掲載に必要な入札価格	|Top of Page Bid Estimate	|topOfPageBidEstimate	|long
 DESCRIPTION2		|説明文2	|Description 2		|description2		|string
 PHONE_NUMBER		|電話番号	|Phone Number		|phoneNumber		|string
