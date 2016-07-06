@@ -1,14 +1,17 @@
 # Value Constraints
-The following table contains parameter values and constraints.  
+The following table contains parameter values and constraints.
+
 ### Entity Limits 
-Entity                           | Constraints                         
----------------------------- | --------------------------- | -----
-Account                        | Campaign per account 100  <br> Keywords per account 50,000                     
-Campaign                       | Ad Groups per campaign 2,000
-Ad Group                       | Keywords per ad group 2,000 <br>Ads per Ad Group 50                         
-Negative Keyword                     | Negative keywords can be set  <br>5,000 at Campaign level<br>2,000 at Ad Group level  
-Day of week/Hour targeting                 | Number of HourlyTargetings that can be Set per Day <br>6 (in intervals of 15 minutes)   
-Report                         | Combinations of Filter Criteria 5 <br>Number of Filters Saved (not including filters that had been saved) 10<br>Templates List can be saved 30                         
+Entity                       | Constraints                         
+---------------------------- | ---------------------------
+Account                      | Campaigns per account: 100<br />Keywords per account: 50,000<br />*Default maximum value
+Campaign                     | Ad Groups per campaign: 2,000
+Ad Group                     | Keywords per ad group: 2,000<br />*Includes negative keywords<br />Ads per ad group: 50
+Negative Keyword             | At campaign level: 5,000<br />At ad group level: 2,000<br />*Total of bidding keywords
+Day of week/Hour targeting   | Maximum of setting per day: 6<br />*With 15 minutes intervals   
+Report                       | Filter creation: 5 
+Filters                      | Can save up to: 10
+Templates                    | Can save up to: 30
 
 ### Charcter Lengths
 *Regardless of whether one-byte or two-byte
