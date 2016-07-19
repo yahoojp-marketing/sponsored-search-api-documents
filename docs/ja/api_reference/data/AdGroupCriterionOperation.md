@@ -38,36 +38,6 @@ AdGroupCriterionOperationオブジェクトは、操作の対象となる広告�
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
  <tr>
-  <td>campaignId</td>
-  <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
-  <td>adGroupId</td>
-  <td>xsd:long</td>
-  <td>広告グループIDです。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
-  <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
   <td>operand[1...2000]</td>
   <td><a href="./AdGroupCriterion.md">AdGroupCriterion</a><br>inherited <a href="./NegativeAdGroupCriterion.md">NegativeAdGroupCriterion</a><br>inherited <a href="./BiddableAdGroupCriterion.md">BiddableAdGroupCriterion</a></td>
   <td>広告関係のクライテリアの配列です。<br>各配列には処理の対象となるクライテリア 情報が含まれます。</td>
