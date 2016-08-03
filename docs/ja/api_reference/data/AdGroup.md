@@ -97,7 +97,7 @@ AdGroup オブジェクトは、広告グループを表します。
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroup.md">BiddingStrategy</a></td>
+  <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
   <td>入札設定です。<br>※現在有効な入札設定がレスポンス されます。<br>※BudgetOptimizerの登録、更新は 行えません。（照会のみ可能）<br>※広告グループ単位で入札設定を 行わない場合は、biddingStrategyTypeに「NONE」を登録します。<br>※入札設定を行わない場合は、デフォルトで親エンティティの入札設定が適用されます。<br>※アプリキャンペーンでiOS を指定した場合、TARGET_CPA/ TARGET_ROASは設定できません。</td>
   <td>yes</td>
   <td>-</td>
@@ -117,7 +117,7 @@ AdGroup オブジェクトは、広告グループを表します。
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroup.md">BiddingStrategy</a></td>
+  <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
   <td>登録に失敗した自動入札設定内容です。<br>※失敗時のみレスポンス時に表示 されます。</td>
   <td>yes</td>
   <td>-</td>
@@ -127,7 +127,7 @@ AdGroup オブジェクトは、広告グループを表します。
  </tr>
  <tr>
   <td>settings[0...1]</td>
-  <td><a href="./Settings_AdGroup.md">Settings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
+  <td><a href="./AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
   <td>ターゲット設定です。</td>
   <td>yes</td>
   <td>-</td>

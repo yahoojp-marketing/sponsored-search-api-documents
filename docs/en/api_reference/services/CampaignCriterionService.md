@@ -1,21 +1,21 @@
 # CampaignCriterionService
-CampaignCriterionService is to get, add, or delete negative criteria in campaign-level.
+CampaignCriterionService is to get, add, or remove negative criteria in campaign-level.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/CampaignCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/CampaignCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignCriterionService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
-Get, add, or delete negative criteria in campaign-level.
+Get, add, or remove negative criteria in campaign-level.
 #### Operation
 Explains the operation which provides at CampaignCriterionService.
 ## get
-### Request
 Gets negative criteria in campaign-level.
+### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | selector | Req | [CampaignCriterionSelector](../data/CampaignCriterionSelector.md) | Filters the campaign criteria to apply. | 
 
@@ -53,7 +53,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignCriterionPage](../data/CampaignCriterionPage.md) | Campaign criteria | 
+| rval | [CampaignCriterionPage](../data/CampaignCriterionPage.md) | Entry of acquired Campaign criteria. | 
 
 ##### Response Sample
 ```xml
@@ -105,12 +105,12 @@ Response Fields
 </SOAP-ENV:Envelope>
 ```
 ## mutate (ADD)
-### Request
 Add negative criteria in campaign-level.
+### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operation | Req | [CampaignCriterionOperation](../data/CampaignCriterionOperation.md) | Campaign criteria and the job process of target. | 
+| operation | Req | [CampaignCriterionOperation](../data/CampaignCriterionOperation.md) | The Campaign criteria selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -167,7 +167,7 @@ Reponse Field
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignCriterionReturnValue](../data/CampaignCriterionReturnValue.md) | Container for campaign criteria including operation results. | 
+| rval | [CampaignCriterionReturnValue](../data/CampaignCriterionReturnValue.md) | This object is a container for Campaign criteria includes operation results.| 
 
 ##### Response Sample
 ```xml
@@ -218,12 +218,12 @@ Reponse Field
 </SOAP-ENV:Envelope>
 ```
 ## mutate (REMOVE)
-### Request
 Removed negative criteria in campaign-level.
+### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operation | Req | [CampaignCriterionOperation](../data/CampaignCriterionOperation.md) | Campaign criteria and the job process of target. | 
+| operation | Req | [CampaignCriterionOperation](../data/CampaignCriterionOperation.md) | The Campaign criteria selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -277,7 +277,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignCriterionReturnValue](../data/CampaignCriterionReturnValue.md) | Container for campaign criteria including operation results. | 
+| rval | [CampaignCriterionReturnValue](../data/CampaignCriterionReturnValue.md) | This object is a container for Campaign criteria includes operation results. | 
 
 ##### Response Sample
 ```xml

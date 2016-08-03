@@ -1,23 +1,23 @@
 # FeedFolderService
-FeedFolderService is to get, add, upgrade, or delete the FeedFolder (Data auto insertion) information.
+FeedFolderService is to get, add, update, or remove the FeedFolder (Data auto insertion) information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/FeedFolderService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/FeedFolderService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/FeedFolderService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/FeedFolderService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
-Get, add, upgrade, or delete the FeedFolder (Data auto insertion) information
+Use this service to get, add, upgrade, or remove the FeedFolder (Data auto insertion) information.
 #### Operation
-Describes operation provided by FeedFolderService.
+Describes the operation which provides by FeedFolderService.
 ## get
+Returns Feed Folder information.
 ### Request
-Get Feed Folder information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | Req | [FeedFolderSelector](../data/FeedFolderSelector.md) | Feed Folder information relate to the operations to apply. | 
+| selector | Req | [FeedFolderSelector](../data/FeedFolderSelector.md) | The list information of FeedFolder (Data auto insertion) information. | 
 
 ##### Request Sample
 ```xml
@@ -80,9 +80,10 @@ Get Feed Folder information.
 ```
 
 ### Response
+Response Fields
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [FeedFolderPage](../data/FeedFolderPage.md) | Feed Folder information relate to the operations to apply. | 
+| rval | [FeedFolderPage](../data/FeedFolderPage.md) | Entry of acquired list information related to FeedFolder (Data auto insertion) information. | 
 
 ##### Response Sample
 ```xml
@@ -130,12 +131,12 @@ Get Feed Folder information.
 ```
 
 ## mutate(ADD)
-### Request
 Add the information related to Feed Folder.
+### Request
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | Operation elements for Feed Folder information. | 
+| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | The list information of FeedFolder (Data auto insertion) information for operations and list of operations. | 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -210,9 +211,10 @@ Add the information related to Feed Folder.
 ```
 
 ### Response
+Response Fields
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | Container for Feed Folder information including operation results. | 
+| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | This object is a container for FeedFolder (Data auto insertion) information which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -260,12 +262,12 @@ Add the information related to Feed Folder.
 ```
 
 ## mutate(SET)
-### Request
 Updates Feed Folder information.
+### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | Operation elements for Feed Folder information. | 
+| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | The list information of FeedFolder (Data auto insertion) information for operations and and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -339,9 +341,10 @@ Updates Feed Folder information.
 ```
 
 ### Response
+Response Fields
 | Field | Data type | Description | 
 |---|---|---|
-| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | Container for Feed Folder information including operation results. | 
+| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | This object is a container for FeedFolder (Data auto insertion) information which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -389,12 +392,12 @@ Updates Feed Folder information.
 ```
 
 ## mutate(REMOVE)
+Removes Feed Folder information.
 ### Request
-Deletes Feed Folder information.
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | Operation elements for Feed Folder information. | 
+| operations | Req | [FeedFolderOperation](../data/FeedFolderOperation.md) | FeedFolder (Data auto insertion) information for operations. | 
 
 ##### Request Sample
 ```xml
@@ -453,9 +456,10 @@ Deletes Feed Folder information.
 ```
 
 ### Response
+Response Fields
 | Field | Data type | Description | 
 |---|---|---|
-| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | Operation elements for FeedItem information. | 
+| rval | [FeedFolderReturnValue](../data/FeedFolderReturnValue.md) | This object is a container for list information of FeedFolder (Data auto insertion) information which includes operation results. | 
 
 ##### Response Sample
 ```xml

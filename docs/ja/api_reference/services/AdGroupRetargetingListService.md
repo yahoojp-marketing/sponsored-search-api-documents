@@ -4,8 +4,8 @@ AdGroupRetargetingListServiceでは、広告グループレベルでのターゲ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupRetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupRetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupRetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupRetargetingListService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

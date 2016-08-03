@@ -1,162 +1,121 @@
-# Release Notes
-Sponsored Search API Ver.6.0
+# Release Note
+Sponsored Search API Ver.6.1<br>
+*System release of this version is scheduled in late August.
 
 ## Release version
-6.0 (WSDL Version: 6.0.0)
+6.1(WSDL version : 6.1.0)
 
-## Types of Version update
-Major version up
+## Type of version up
+Minor version up  
 
-## Main contents of this release
+## Main features enhancement on the release
 
-#### 1. Sponsored Search system enhancement "Advanced URL"
-To improve the operation of Destination URL and Custom URL, we will release Sponsored Search system enhancement “Advanced URL”. Details are as follows.<br>
-
-##### URL Settings
-* Tracking URL setting will be avaialble for services below.*<br>
-　・AccountTrackingUrlService<br>
-　・CampaignService<br>
-　・AdGroupService<br>
-　・AdGroupAdService<br>
-　・AdGroupCriterionService<br>
-　・FeedItemService<br>
- *Tracking URL will go on review, so retieving the elements below will be possible:<br>
-　 - Review status<br>
-　 - Code of disapproval reason<br>
-　 - In review and/or disapproved Tracking URL <br>
-* Retrieving the Tracking ID below will be available.<br>
-　・CampaignID<br>
-　・AdGroupID<br>
-　・AdGroupCriterionID<br>
-　・FeedItemID<br>
-　・RetargetingListID<br>
-* Setting of Custom Parameters will be available for services below.<br>
-　・CampaignService<br>
-　・AdGroupAdService<br>
-　・AdGroupCriterionService<br>
-　・AdGroupService<br>
-　・FeedItemService<br>
-* Destination URL will become Landing Page URL for services below.*<br>
-　・AdGroupAdService<br>
-　・AdGroupCriterionService<br>
-　・FeedItemService<br>
- *During the upgrade period, update of current Destination URL (before the upgrade to Landing Page URL) is possible.<br>
-* Tracking parameter below will be available.<br>
-　・lpurl: Can obtain Landing Page URL. Available for Tracking URL only. 
-
-##### Upgrade in report
-* Landing Page URL Report will be created.<br>
-* Destination URL Report will be deleted (January 13th, 2016 (Wed) JST).<br>
-* "Landing Page URL" will be added as new report field for reports below.<br>
-　・Ad Report<br>
-　・Keyword Report<br>
-　・Ad Display Option Report<br>
-* "Tracking URL" and "Custom Parameter" will be added as new report field for report below.<br>
-　・Account Report* <br>
-　・Campaign Report<br>
-　・Ad Group Report<br>
-　・Ad Report<br>
-　・Keyword Report<br>
-　・Ad Display Option Report<br>
-　*Only "Tracking URL" field will be added.<br>
-
-##### Others
-* Calculation method of character/word will change.<br>
-　Below objectives will be reflected.<br>
-　・Ad<br>
-　　・Headline<br>
-　　・Description<br>
-　　・Description 2<br>
-　　・Display URL<br>
-　・FeedItem<br>
-　　・Link text<br>
-* URL setting will change.<br>
-　・Japanese word domain will be available to use.<br>
-　・All Top Level Domain (TLD) will be available to use.<br>
-　*All domain will go to review.<br>
-* BulkService will end support.
-<br><br>
+#### 1. Add "Negative Keyword List" sharing function
+Negative keywords can be managed by single list which is shared with each component within an account.<br><br>
 
 ##### Target Web Service 
- * [AccountTrackingUrlService](/docs/en/api_reference/services/AccountTrackingUrlService.md)
- * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+ * [AccountSharedService](/docs/en/api_reference/services/AccountSharedService.md)
+ * [SharedCriterionService](/docs/en/api_reference/services/SharedCriterionService.md)
+ * [CampaignSharedSetService](/docs/en/api_reference/services/CampaignSharedSetService.md)
+<br><br>
+
+##### Target Data Object and Enumeration 
+ * Please confirm from data directory under API reference directory.
+<br><br>
+
+#### 2.	Function improvement on Auto Bidding setting
+Target Cost is available on creating auto bidding setting of "Maximize Clicks".<br>
+<br>
+
+##### Target Web Service 
  * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
- * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
  * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
- * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
- * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
- * [ReportService](/docs/en/api_reference/services/ReportService.md)
- * [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
- * BulkService (End support)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+ * [BiddingStrategyService](/docs/en/api_reference/services/BiddingStrategyService.md)
 <br><br>
 
 ##### Target Data Object and Enumeration 
  * Please confirm from data directory under API reference directory.
 <br><br>
 
-#### 2. Enhancement of Report Functions
-Additonal and change in report functions. Details are as follows.<br>
-* Report segment will be determined automatically and created from the combination of Report field.<br>
- *This function will not be available for older versions. (Ver.5.X)<br>
- *You will not be able to transfer the registered report definition and/or report job to this enhanced report function when migrating.<br>
-* Code designated from filter will designate the item to display report.<br>
-* Download URL retrieval (getDownloadUrl of ReportService) operation of report will end support.<br>
- *From this version, Download URL can be retrieved from get operation of ReportService.<br>
-* Type of "Total Conversions" field will change from long to double.<br>
-<br>
-
-From this enhancement, Performance Report has changed the followings:<br>
-* Date has been unified in 'YYYY-MM-DD' (hyphenated) format.<br>
-* "--" (double hyphens) shown on the vacant data column.<br>
-* Following information items on the fixed 5 lines on the top of report file have been removed.<br>
-　・account name (ID)<br>
-　・report name (type)<br>
-　・period<br>
-　・display by<br>
-　・filter<br>
-* For a number with a decimal point, "0" is represented as "0.000" on the following field values.<br>
-　・AVG_CPC<br>
-　・AVG_CPM<br>
-　・BUDGET_LOST_IMPRESSION_SHARE<br>
-　・CLICK_RATE<br>
-　・CONVERSION<br>
-　・CONVERSION_RATE<br>
-　・COST_UNIQUE_CONVERSION<br>
-　・CPA<br>
-　・EXACT_MATCH_IMPRESSION_SHARE<br>
-　・INVALID_CLICK_RATE<br>
-　・IMPRESSION_SHARE<br>
-　・QUALITY_LOST_IMPRESSION_SHARE<br>
-　・REVENUE_CONVERSION<br>
-　・REVENUE_UNIQUE_CONVERSION<br>
-　・REVENUE<br>
-　・UNIQUE_CONVERSION_RATE<br>
-<br>
+#### 3.	Add a selectable item on Ad Rotation (Optimization)
+"Maximize conversions" is available on the setting "Ad Rotation" (Optimization) for campaign creation<br><br>
 
 ##### Target Web Service 
- * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
- * [ReportService](/docs/en/api_reference/services/ReportService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
 <br><br>
 
 ##### Target Data Object and Enumeration 
  * Please confirm from data directory under API reference directory.
 <br><br>
 
-#### 3. Addional upgrades
-Partial function has been improved. Details are as follows.<br>
-* Negative keyword setting function from keyword suggestion service will end support.<br>
-* Export function will be available.<br>
-　Can collectively obtain the campaign, ad group, keyword, and ad information.<br>
-　*Schedued to release after April 13th (JST).
+#### 4.	Expand available number of Landing Page URL
+10 Landing Page URLs are available for each of ad, keyword and QuickLinks. It makes available to deal with Landing Page Optimization (LPO) such as A/B testing.<br><br>
+
+##### Target Web Service 
+ * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+ * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
+
+##### Target Data Object and Enumeration 
+ * Please confirm from data directory under API reference directory.
 <br><br>
 
-##### Target Web Service
- * [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md)
- * [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md)
+#### 5.	Function improvement on Ad Display Option
+"Callout option" is added as optional description on QuickLinks of Ad Display Option.<br><br>
+
+##### Target Web Service 
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+ * [CampaignFeedService](/docs/en/api_reference/services/CampaignFeedService.md)
+ * [AdGroupFeedService](/docs/en/api_reference/services/AdGroupFeedService.md)
 <br><br>
 
 ##### Target Data Object and Enumeration 
  * Please confirm from data directory under API reference directory.
+<br><br>
+
+#### 6.	Added function upgrade
+Partial function has been improved. Details are as follows:<br>
+
+* Changes on WSDL namespace<br>
+Following field names are changed.
+<table>
+<tr><th>Before</th><th>After</th></tr>
+<tr><td rowspan="2">PlaceholderField</td><td>FeedItemPlaceholderField</td></tr>
+<tr><td>FeedFolderPlaceholderField</td></tr>
+<tr><td rowspan="4">PlaceholderType</td><td>FeedFolderPlaceholderType</td></tr>
+<tr><td>FeedItemPlaceholderType</td></tr>
+<tr><td>CampaignFeedPlaceholderType</td></tr>
+<tr><td>AdGroupFeedPlaceholderType</td></tr>
+<tr><td rowspan="4">BiddingStrategy</td><td>BiddingStrategy</td></tr>
+<tr><td>CampaignBiddingStrategy</td></tr>
+<tr><td>AdGroupBiddingStrategy</td></tr>
+<tr><td>AdGroupCriterionBiddingStrategy</td></tr>
+<tr><td rowspan="2">CriterionUse</td><td>CampaignCriterionUse</td></tr>
+<tr><td>AdGroupCriterionUse</td></tr>
+<tr><td rowspan="2">Settings</td><td>CampaignSettings</td></tr>
+<tr><td>AdGroupSettings</td></tr>
+</table>
+
+* TrafficEstimatorService will sunset, because functions are similar to KeywordEstimatorService.
+<br><br>
+
+
+##### Target Web Service 
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+ * [CampaignFeedService](/docs/en/api_reference/services/CampaignFeedService.md)
+ * [AdGroupFeedService](/docs/en/api_reference/services/AdGroupFeedService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+ * [FeedFolderService](/docs/en/api_reference/services/FeedFolderService.md)
+ * [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md)
+ * TrafficEstimatorService
+
+<br><br>
+
+##### Target Data Object and Enumeration 
+ * Please confirm from data directory under API reference directory.
+<br><br>
 
 ## Impact on each Version from the change of Services
 <table class="standard">
@@ -166,216 +125,97 @@ Partial function has been improved. Details are as follows.<br>
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Ver.5.3 or before</p>
+  <p>Before Ver.6.0</p>
 </th>
 <th valign="top">
-  <p>Ver.6.0</p>
+  <p>Ver.6.1</p>
 </th>
 </tr>
 <tr>
- <td colspan="3"><b>Sponsored Search system enhancement "Advanced URL"</b></td>
+  <td colspan="3"><b>Sharing Negative Keywords</b></td>
 </tr>
 <tr>
-<td valign="top">
-  <p>AccountTrackingUrlService</p>
-</td>
-<td valign="top">
-  <p>- Not supported.</p>
-</td>
-<td valign="top">
-  <p>- New service.</p>
-</td>
-</tr>
- <tr>
- <td valign="top">
-  <p>AdGroupAdService</p>
-</td>
-<td valign="top">
-  <p>- Following cannot get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Ad cannot be retrieved after Advanced URL upgrade.<br>
-- Calculation method of character/word will change (for Ver.5.2, Ver.5.3 only).<br>
-- URL setting will change (for Ver.5.2, Ver.5.3 only).</p>
-</td>
-<td valign="top">
-  <p>- Following can get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Calculation method of character/word will change.<br>
-- URL setting will change.</p>
-</td>
-</tr>
- <tr>
- <td valign="top">
-  <p>AdGroupCriterionService</p>
-</td>
-<td valign="top">
-  <p>- Following cannot get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Cannot retrieve Tracking ID.<br>
-- Keyword cannot be retrieved after Advanced URL upgrade.<br>
-- URL setting will change (for Ver.5.2, Ver.5.3 only).</p>
-</td>
-<td valign="top">
-  <p>- Following can get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Can retrieve Tracking ID.<br>
-- URL setting will change.</p>
-</td>
+ <td valign="top">AccountSharedService</td><td valign="top">Not supported</td><td valign="top">
+New service</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>AdGroupService</p>
-</td>
-<td valign="top">
-  <p>- Following cannot get/add/set/remove.<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Cannot retrieve Tracking ID.
-- Ad group cannot be retrieved after Advanced URL upgrade.</p>
-</td>
-<td valign="top">
-  <p>- Following can get/add/set/remove.<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Can retrieve Tracking ID.</p>
-</td>
+<td valign="top">SharedCriterionService</td><td valign="top">Not supported</td><td valign="top">
+New service</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>BulkService</p>
-</td>
-<td valign="top">
-  <p>- No change.</p>
-</td>
-<td valign="top">
-  <p>- Service will end support.</p>
-</td>
+<td valign="top">CampaignSharedSetService</td><td valign="top">Not supported</td><td valign="top">
+New service</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>CampaignService</p>
-</td>
-<td valign="top">
-  <p>- Following cannot get/add/set/remove.<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Cannot retrieve Tracking ID.<br>
-- Campaign cannot be retrieved after Advanced URL upgrade.</p>
-</td>
-<td valign="top">
-  <p>- Following can get/add/set/remove.<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Can retrieve Tracking ID.<br>
-- Similar keyword matching will end support.<br>
-</td>
+  <td colspan="3"><b>Expand Auto bidding setting</b></td>
 </tr>
 <tr>
-<td valign="top">
-  <p>FeedItemService</p>
-</td>
-<td valign="top">
-  <p>- Following cannot get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Cannot retrieve Tracking ID.<br>
-- Feed item cannot be retrieved after Advanced URL upgrade.<br>
-- Calculation method of character/word will change (for Ver.5.2, Ver.5.3 only).<br>
-- URL setting will change (for Ver.5.2, Ver.5.3 only).</p>
-</td>
-<td valign="top">
-  <p>- Following can get/add/set/remove.<br>
-　・Landing Page URL<br>
-　・Landing Page URL (Smartphone)<br>
-　・Tracking URL<br>
-　・Custom Parameter<br>
-- Can retrieve Tracking ID.<br>
-- Calculation method of character/word will change.<br>
-- URL setting will change.</p>
-</td>
+ <td valign="top">BiddingStrategyService</td><td valign="top">TargetSpend (Maximize clicks) supports click bid only</td><td valign="top">
+TargetSpend (Maximize clicks) supports spendTarget (Target cost)</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>RetargetingListService</p>
-</td>
-<td valign="top">
-  <p>- Cannot retrieve Tracking ID.</p>
-</td>
-<td valign="top">
-  <p>- Can retrieve Tracking ID.</p>
-</td>
+  <td colspan="3"><b>Expand options of Optimization</b></td>
 </tr>
 <tr>
- <td colspan="3"><b>Enhancement of Report Functions</b></td>
+ <td valign="top">CampaignService</td><td valign="top">CONVERSION_OPTIMIZE is not available</td><td valign="top">
+CONVERSION_OPTIMIZE is supported</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>ReportDefinitionService</p>
-</td>
-<td valign="top">
-  <p>- No change.<br>
-- Destination URL will end support.</p>
-</td>
-<td valign="top">
-  <p>- set operation will end support.<br>
-- Segment selection will end support.<br>
-- New report type will be added.<br>
-- New report field will be added to several current report type.<br>
-- Destination URL Report will end support.</p>
-</td>
+  <td colspan="3"><b>Expand available Landing Page URLs</b></td>
 </tr>
 <tr>
-<td valign="top">
-  <p>ReportService</p>
-</td>
-<td valign="top">
-  <p>- No change.</p>
-</td>
-<td valign="top">
-  <p>- getDownloadUrl operation will end support.*<br>
-  *Download URL retrieval will be available from get operation.</p>
-</td>
+ <td valign="top">AdGroupAdService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
+Add/edit/delete/browse LPO</td>
 </tr>
 <tr>
- <td colspan="3"><b>Addional upgrades</b></td>
+ <td valign="top">FeedItemService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
+Add/edit/delete/browse LPO</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>TargetingIdeaService</p>
-</td>
-<td valign="top">
-  <p>- No change.</p>
-</td>
-<td valign="top">
-  <p>- Setting of Negative keyword (ExcludedKeywordSearchParameter) will be deleted.</p>
-</td>
+ <td valign="top">AdGroupCriterionService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
+Add/edit/delete/browse LPO</td>
 </tr>
 <tr>
-<td valign="top">
-  <p>CampaignExportService</p>
-</td>
-<td valign="top">
-  <p>- Not supported.</p>
-</td>
-<td valign="top">
-  <p>- New service.</p>
-</td>
+  <td colspan="3"><b>Improve Ad Display option</b></td>
 </tr>
-</tbody>
+<tr>
+ <td valign="top">FeedItemService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
+</tr>
+<tr>
+ <td valign="top">CampaignFeedService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupFeedService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
+</tr>
+
+<tr>
+  <td colspan="3"><b>Function upgrade</b></td>
+</tr>
+<tr>
+ <td valign="top">FeedItemService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupCriterionService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+</tr>
+<tr>
+ <td valign="top">CampaignFeedService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupFeedService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupService</td><td valign="top">No impact</td><td valign="top">Enum / Entity name change</td>
+</tr>
+<tr>
+ <td valign="top">CampaignCriterionService</td><td valign="top">No impact</td><td valign="top">Enum name change, Entity configuration change</td>
+</tr>
+<tr>
+ <td valign="top">FeedFolderService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+</tr>
+<tr>
+ <td valign="top">TrafficEstimatorService</td><td valign="top">No impact</td><td valign="top">Deleted</td>
+</tr>
+
 </table>
 
 ## Sunset Date of Older Version of Sponsored Search API

@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -64,12 +64,12 @@
           <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="budget" type="tns:Budget" />
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:CampaignBiddingStrategy" />
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason" />
-          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:CampaignBiddingStrategy" />
           <element maxOccurs="1" minOccurs="0" name="conversionOptimizerEligibility" type="tns:ConversionOptimizerEligibility" />
           <element maxOccurs="1" minOccurs="0" name="adServingOptimizationStatus" type="tns:AdServingOptimizationStatus" />
-          <element maxOccurs="unbounded" minOccurs="0" name="settings" type="tns:Settings" />
+          <element maxOccurs="unbounded" minOccurs="0" name="settings" type="tns:CampaignSettings" />
           <element maxOccurs="1" minOccurs="0" name="campaignType" type="tns:CampaignType" />
           <element maxOccurs="1" minOccurs="0" name="appStore" type="tns:AppStore" />
           <element maxOccurs="1" minOccurs="0" name="appId" type="xsd:string" />
@@ -114,7 +114,7 @@
           <enumeration value="NOT_CPC_CAMPAIGN" />
         </restriction>
       </simpleType>
-      <complexType abstract="true" name="Settings">
+      <complexType abstract="true" name="CampaignSettings">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="type" type="tns:SettingType" />
         </sequence>
@@ -126,7 +126,7 @@
       </simpleType>
       <complexType name="GeoTargetTypeSetting">
         <complexContent>
-          <extension base="tns:Settings">
+          <extension base="tns:CampaignSettings">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="positiveGeoTargetType" type="tns:GeoTargetType" />
               <element maxOccurs="1" minOccurs="0" name="negativeGeoTargetType" type="tns:GeoTargetType" />
@@ -141,7 +141,7 @@
           <enumeration value="LOCATION_OF_PRESENCE" />
         </restriction>
       </simpleType>
-      <complexType name="BiddingStrategy">
+      <complexType name="CampaignBiddingStrategy">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyName" type="xsd:string" />
@@ -244,6 +244,7 @@
           <extension base="tns:BiddingScheme">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="spendTarget" type="xsd:long"/>
             </sequence>
           </extension>
         </complexContent>
@@ -274,6 +275,7 @@
           <enumeration value="OPTIMIZE" />
           <enumeration value="ROTATE" />
           <enumeration value="ROTATE_INDEFINITELY" />
+          <enumeration value="CONVERSION_OPTIMIZE"/>
         </restriction>
       </simpleType>
       <simpleType name="CampaignType">
@@ -510,7 +512,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignService">
     <wsdl:port binding="tns:CampaignServiceSoapBinding" name="CampaignService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/CampaignService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/CampaignService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

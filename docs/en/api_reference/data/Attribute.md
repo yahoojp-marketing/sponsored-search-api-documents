@@ -2,7 +2,6 @@
 Attribute for estimated results.
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 <table>
  <tr>

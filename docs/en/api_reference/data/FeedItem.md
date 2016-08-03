@@ -68,7 +68,7 @@ FeedItem is a container of Feed Item information.
  <tr>
   <td>disapprovalReasonCodes[0...n]</td>
   <td>xsd:string</td>
-  <td>Code of Disapproval reason.</td>
+  <td>Reject reason on editorial review.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -77,7 +77,9 @@ FeedItem is a container of Feed Item information.
  </tr>
  <tr>
   <td>feedItemAttribute[0...20]</td>
-  <td><a href="./FeedItemAttribute.md">FeedItemAttribute</a></td>
+  <td><a href="./FeedItemAttribute.md">FeedItemAttribute</a> inherited 
+  <a href="./SimpleFeeditemAttribute.md">SimpleFeeditemAttribute</a>
+  <a href="./MultipleFeedItemAttribute.md">MultipleFeedItemAttribute</a></td>
   <td>Attribute of Feed Item.</td>
   <td>yes</td>
   <td>-</td>
@@ -87,7 +89,7 @@ FeedItem is a container of Feed Item information.
  </tr>
  <tr>
   <td>placeholderType</td>
-  <td>enum <a href="./PlaceholderType_FeedItem.md">PlaceholderType</a></td>
+  <td>enum <a href="./FeedItemPlaceholderType.md">FeedItemPlaceholderType</a></td>
   <td>Type of Feed Item.</td>
   <td>yes</td>
   <td>-</td>

@@ -3,7 +3,6 @@ PlatformTypeは、デバイスのプラットフォームです。
 ### Service
 + [AdGroupBidMultiplierService](../services/AdGroupBidMultiplierService.md)
 + [CampaignTargetService](../services/CampaignTargetService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 | 値 | データ型 | 説明 | 
 |---|---|---|

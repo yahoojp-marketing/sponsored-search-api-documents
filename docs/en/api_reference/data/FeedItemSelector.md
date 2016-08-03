@@ -37,7 +37,7 @@ FeedItemSelector describes the Feed item information.
  </tr>
  <tr>
   <td>placeholderTypes[0...3]</td>
-  <td>enum <a href="./PlaceholderType_FeedItem.md">PlaceholderType</a></td>
+  <td>enum <a href="./FeedItemPlaceholderType.md">FeedItemPlaceholderType</a></td>
   <td>Search condition: Type of Feed Item.</td>
   <td>-</td>
   <td>Optional</td>
@@ -68,7 +68,7 @@ FeedItemSelector describes the Feed item information.
  <tr>
   <td>paging</td>
   <td><a href="./Paging.md">Paging</a></td>
-  <td>Search condition: Page of results.</td>
+  <td>Search condition: Paging scope.</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

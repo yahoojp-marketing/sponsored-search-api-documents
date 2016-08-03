@@ -1,10 +1,11 @@
 # BiddingStrategyService
 Use this service to get, add, update, or delete auto bidding information.
+
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/BiddingStrategyService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BiddingStrategyService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/BiddingStrategyService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BiddingStrategyService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
@@ -12,13 +13,12 @@ Use this service to create, update and remove auto bidding information.
 #### Operation
 Describe the operation which provides at BiddingStrategyService.
 ## get
-### Request
 Returns auto bidding information.
 
+### Request
 | Field | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | selector | Req | [BiddingStrategySelector](../data/BiddingStrategySelector.md) | This object is a container for auto bidding information. | 
-
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -27,18 +27,18 @@ Returns auto bidding information.
      <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
          <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:get>
          <ns1:selector>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:biddingStrategyIds>2222222222</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>3333333333</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>4444444444</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>5555555555</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>6666666666</ns1:biddingStrategyIds>
+            <ns1:accountId>00000001</ns1:accountId>
+            <ns1:biddingStrategyIds>00000002</ns1:biddingStrategyIds>
+            <ns1:biddingStrategyIds>00000003</ns1:biddingStrategyIds>
+            <ns1:biddingStrategyIds>00000004</ns1:biddingStrategyIds>
+            <ns1:biddingStrategyIds>00000005</ns1:biddingStrategyIds>
+            <ns1:biddingStrategyIds>00000006</ns1:biddingStrategyIds>
             <ns1:biddingStrategyTypes>PAGE_ONE_PROMOTED</ns1:biddingStrategyTypes>
             <ns1:biddingStrategyTypes>ENHANCED_CPC</ns1:biddingStrategyTypes>
             <ns1:biddingStrategyTypes>TARGET_CPA</ns1:biddingStrategyTypes>
@@ -58,8 +58,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [BiddingStrategyPage](../data/BiddingStrategyPage.md) | Container includes the information of Auto bidding. | 
-
+| rval | [BiddingStrategyPage](../data/BiddingStrategyPage.md) | Entry of acquired ad group. | 
 ###### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -167,15 +166,13 @@ Response Fields
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
 ## mutate (ADD)
-### Request
 Creates the Auto bidding.
 
+### Request
 | Field | Req | Data Type | Description | 
 |---|---|---|---|
 | operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | Create the auto bidding settings. | 
-
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -184,17 +181,17 @@ Creates the Auto bidding.
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
          <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>1111111111</ns1:accountId>
+            <ns1:accountId>00000001</ns1:accountId>
             <!-- EnhancedCpcBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
+               <ns1:accountId>00000001</ns1:accountId>
                <ns1:biddingStrategyName>ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
                   <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
@@ -202,7 +199,7 @@ Creates the Auto bidding.
             </ns1:operand>
             <!-- PageOnePromotedBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
+               <ns1:accountId>00000001</ns1:accountId>
                <ns1:biddingStrategyName>PAGE_ONE_PROMOTED_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
                   <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
@@ -216,7 +213,7 @@ Creates the Auto bidding.
             </ns1:operand>
             <!-- TargetCpaBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
+               <ns1:accountId>00000001</ns1:accountId>
                <ns1:biddingStrategyName>TARGET_CPA_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
@@ -226,7 +223,7 @@ Creates the Auto bidding.
             </ns1:operand>
             <!-- TargetSpendBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
+               <ns1:accountId>00000001</ns1:accountId>
                <ns1:biddingStrategyName>TARGET_SPEND_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
@@ -235,7 +232,7 @@ Creates the Auto bidding.
             </ns1:operand>
             <!-- TargetRoasBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
+               <ns1:accountId>00000001</ns1:accountId>
                <ns1:biddingStrategyName>TARGET_ROAS_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
@@ -250,16 +247,19 @@ Creates the Auto bidding.
 </soapenv:Envelope>
 ```
 ### Response
-Reponse Fields
+Response Field
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | Container including operation results. | 
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | This object is a container for Auto bidding which includes operation results. | 
 
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope 
+ xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+ xmlns:ns1="http://ss.yahooapis.jp/V6" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>BiddingStrategyService</ns1:service>
@@ -351,15 +351,13 @@ Reponse Fields
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-
 ## mutate (SET)
-### Request
 Updates an auto bidding.
 
+### Request
 | Field | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | operations | Req | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | Updates auto bidding information | 
-
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -368,18 +366,18 @@ Updates an auto bidding.
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
          <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>1111111111</ns1:accountId>
+            <ns1:accountId>00000001</ns1:accountId>
             <!-- EnhancedCpcBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>2222222222</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
                <ns1:biddingStrategyName>MODIFY_ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
                <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
                   <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
@@ -387,8 +385,8 @@ Updates an auto bidding.
             </ns1:operand>
             <!-- PageOnePromotedBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>3333333333</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
                <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
                   <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
                   <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
@@ -401,8 +399,8 @@ Updates an auto bidding.
             </ns1:operand>
             <!-- TargetCpaBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>4444444444</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
                <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
                   <ns1:targetCpa>250</ns1:targetCpa>
@@ -412,8 +410,8 @@ Updates an auto bidding.
             </ns1:operand>
             <!-- TargetSpendBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>5555555555</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
                <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
                   <ns1:bidCeiling>3500</ns1:bidCeiling>
@@ -421,13 +419,13 @@ Updates an auto bidding.
             </ns1:operand>
             <!-- TargetRoasBidding -->
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>6666666666</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
                <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
                   <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
                   <ns1:targetRoas>0.15</ns1:targetRoas>
                   <ns1:bidCeiling>1000</ns1:bidCeiling>
-                  <!--設定済みのbidFloorを解除する。-->
+                  <!-- Release bidFloor already set -->
                   <ns1:bidFloor>0</ns1:bidFloor>
                </ns1:biddingScheme>
             </ns1:operand>
@@ -441,12 +439,14 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | Container including operation results. | 
-
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | Container includes the information of Auto bidding with operation results.| 
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
- <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <soapenv:Envelope 
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:ns1="http://ss.yahooapis.jp/V6" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>BiddingStrategyService</ns1:service>
@@ -537,14 +537,13 @@ Response Fields
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-
 ## mutate (REMOVE)
-### Request
-Delete the Auto bidding setting.
+Remove the auto bidding setting.
 
+### Request
 | Fieled | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | Deletes the Auto bidding information. | 
+| operations | Req | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | Removes the auto bidding information. | 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
@@ -553,33 +552,33 @@ Delete the Auto bidding setting.
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
          <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>REMOVE</ns1:operator>
-            <ns1:accountId>1111111111</ns1:accountId>
+            <ns1:accountId>00000001</ns1:accountId>
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>2222222222</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
            </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>3333333333</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>4444444444</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>5555555555</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>1111111111</ns1:accountId>
-               <ns1:biddingStrategyId>6666666666</ns1:biddingStrategyId>
+               <ns1:accountId>00000001</ns1:accountId>
+               <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
             </ns1:operand>
          </ns1:operations>
       </ns1:mutate>
@@ -591,12 +590,14 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | Container including operation results. | 
-
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | Container includes the information of Auto bidding with operation results. | 
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope 
+ xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>BiddingStrategyService</ns1:service>

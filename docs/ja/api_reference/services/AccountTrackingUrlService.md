@@ -4,8 +4,8 @@ AccountTrackingUrlServiceでは、アカウントトラッキングに関する�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AccountTrackingUrlService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AccountTrackingUrlService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AccountTrackingUrlService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AccountTrackingUrlService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

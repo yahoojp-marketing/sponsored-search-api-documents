@@ -57,8 +57,8 @@ AdGroupCriterionSelector object displays which ad groups criteria to return.
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>Search condition: Criterion type.<br>It can select to set as bid or negative keyword.</td>
+  <td>enum <a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
+  <td>Search condition: Criterion type.<br>Criteria selector which can select to set as single bid or excluded. </td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>

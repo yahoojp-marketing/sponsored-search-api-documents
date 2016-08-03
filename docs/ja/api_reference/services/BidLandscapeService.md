@@ -3,8 +3,8 @@ BidLandscapeServiceは、入札単価を変更したときのインプレッシ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/BidLandscapeService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BidLandscapeService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/BidLandscapeService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BidLandscapeService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

@@ -108,7 +108,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>isTemplate</td>
   <td>enum <a href="./ReportIsTemplate.md">ReportIsTemplate</a></td>
-  <td>Select to create as template.</td>
+  <td>Select to create as template.<br>*Default: FALSE</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -118,7 +118,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>intervalType</td>
   <td>enum <a href="./ReportIntervalType.md">ReportIntervalType</a></td>
-  <td>Settiing of creation timing of scheduled report.</td>
+  <td>Settiing of creation timing of scheduled report.<br>*Default: ONETIME</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -138,7 +138,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>format</td>
   <td>enum <a href="./ReportDownloadFormat.md">ReportDownloadFormat</a></td>
-  <td>File format of the report.</td>
+  <td>File format of the report.<br>*Default: CSV</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -148,7 +148,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>encode</td>
   <td>enum <a href="./ReportDownloadEncode.md">ReportDownloadEncode</a></td>
-  <td>Character encode setting of report.</td>
+  <td>Character encode setting of report.<br>*Default: UTF-8</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -158,7 +158,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>language</td>
   <td>enum <a href="./ReportLanguage.md">ReportLanguage</a></td>
-  <td>Language setting of report definition.</td>
+  <td>Language setting of report definition.<br>*Default: JA</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -168,7 +168,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>compress</td>
   <td>enum <a href="./ReportCompressType.md">ReportCompressType</a></td>
-  <td>Select the compress type of report definition.</td>
+  <td>Select the compress type of report definition.<br>*Default: NONE</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

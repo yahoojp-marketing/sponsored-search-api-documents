@@ -34,7 +34,7 @@ FeedItemReturnオブジェクトは、フィードアイテムの情報を格納
   <td colspan="8">FeedItemReturnValue</td>
  </tr>
  <tr>
-  <td>values[0...1000]</td>
+  <td>values[0...2000]</td>
   <td><a href="./FeedItemValues.md">FeedItemValues</a></td>
   <td>フィードアイテムに関する 情報です。</td>
   <td>yes</td>

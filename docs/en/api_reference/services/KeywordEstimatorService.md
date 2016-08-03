@@ -3,8 +3,8 @@ KeywordEstimatorService is to request traffic estimates based on exsisting campa
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/KeywordEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/KeywordEstimatorService?wsdl |
+| production  | https://ss.yahooapis.jp/services/Vx.x/KeywordEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/KeywordEstimatorService?wsdl |
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview

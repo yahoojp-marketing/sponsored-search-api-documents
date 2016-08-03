@@ -16,7 +16,7 @@ TargetingSettingは、ターゲット設定を保持するオブジェクトで�
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./Settings_AdGroup.md">Setting</a>(inherited)</td>
+  <td colspan="8"><a href="./AdGroupSettings.md">AdGroupSettings</a>(inherited)</td>
  </tr>
  <tr>
   <td>criterionType</td>

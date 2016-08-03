@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -82,10 +82,10 @@
           <element maxOccurs="1" minOccurs="0" name="adGroupTrackId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus" />
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:BiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:AdGroupBiddingStrategy" />
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason" />
-          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:BiddingStrategy" />
-          <element maxOccurs="1" minOccurs="0" name="settings" type="tns:Settings" />
+          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:AdGroupBiddingStrategy" />
+          <element maxOccurs="1" minOccurs="0" name="settings" type="tns:AdGroupSettings" />
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters" />
           <element maxOccurs="1" minOccurs="0" name="urlReviewData" type="tns:UrlReviewData" />
@@ -101,7 +101,7 @@
           <enumeration value="NOT_CPC_CAMPAIGN" />
         </restriction>
       </simpleType>
-      <complexType name="BiddingStrategy">
+      <complexType name="AdGroupBiddingStrategy">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyName" type="xsd:string" />
@@ -109,7 +109,7 @@
           <element maxOccurs="1" minOccurs="0" name="biddingStrategySource" type="tns:BiddingStrategySource" />
           <element maxOccurs="1" minOccurs="0" name="biddingScheme" type="tns:BiddingScheme" />
           <element maxOccurs="1" minOccurs="0" name="initialBid" type="tns:Bid" />
-          <element maxOccurs="unbounded" minOccurs="0" name="parentBiddingStrategyConfigurations" type="tns:BiddingStrategy" />
+          <element maxOccurs="unbounded" minOccurs="0" name="parentBiddingStrategyConfigurations" type="tns:AdGroupBiddingStrategy" />
         </sequence>
       </complexType>
       <simpleType name="BiddingStrategyType">
@@ -208,6 +208,7 @@
           <extension base="tns:BiddingScheme">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="spendTarget" type="xsd:long"/>
             </sequence>
           </extension>
         </complexContent>
@@ -244,7 +245,7 @@
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="Settings">
+      <complexType name="AdGroupSettings">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="criterionType" type="tns:CriterionType" />
         </sequence>
@@ -256,7 +257,7 @@
       </simpleType>
       <complexType name="TargetingSetting">
         <complexContent>
-          <extension base="tns:Settings">
+          <extension base="tns:AdGroupSettings">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="targetAll" type="tns:TargetAll" />
             </sequence>
@@ -463,7 +464,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/AdGroupService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

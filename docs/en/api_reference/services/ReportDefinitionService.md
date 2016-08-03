@@ -6,8 +6,8 @@ It also provides operation to get available report fields for specific report ty
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/ReportDefinitionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/ReportDefinitionService?wsdl |
+| production  | https://ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
 
 #### Namespace
 http://ss.yahooapis.jp/V6

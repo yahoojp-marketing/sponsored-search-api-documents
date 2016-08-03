@@ -27,6 +27,16 @@ Criterionオブジェクトは、クライテリアを表します。<br>
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
  <tr>
+  <td>criterionTrackId</td>
+  <td>xsd:long</td>
+  <td>クライテリオントラックIDです。<br>対象外キーワードでは返却されません。</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>type</td>
   <td>enum <a href="./CriterionType.md">CriterionType</a></td>
   <td>このインスタンスのクライテリアの サブタイプです。</td>

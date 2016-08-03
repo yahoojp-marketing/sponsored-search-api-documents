@@ -1,5 +1,5 @@
 # Ad
-Ad information.
+Ad object describes ad information.
 
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
@@ -31,27 +31,47 @@ Ad information.
   <td>Landing Page URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Requirement if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Requirement if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
- <tr>
+<tr>
+  <td>additionalAdvancedUrls[0..9]</td>
+  <td><a href="./AdGroupAdAdditionalAdvancedUrls.md">AdGroupAdAdditionalAdvancedUrls</a></td>
+  <td>Landing Page URL.<br>Enter the 2nd and later of landing page URLs.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>*Optional if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading (Advanced=FALSE).</td>
+  <td>-</td>
+  <td>-</td>
+ </tr> 
+  <tr>
   <td>advancedMobileUrl</td>
   <td>xsd:string</td>
   <td>Landing Page URL (Smartphone).</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
- <tr>
+  <tr>
+  <td>additionalAdvancedMobileUrls[0..9]</td>
+  <td><a href="./AdGroupAdAdditionalAdvancedMobileUrls.md">AdGroupAdAdditionalAdvancedMobileUrls</a></td>
+  <td>Landing page URL (Smartphone).<br>Enter the 2nd and later of landing page URLs (Smartphone).</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>*Optional if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
   <td>Tracking URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -61,7 +81,7 @@ Ad information.
   <td>Custome parameters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -81,7 +101,7 @@ Ad information.
   <td>Destination URL before upgrading.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Ignore if not upgrading URL (advanced=TRUE).<br>*Requirement if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Ignore if upgrading URL (advanced=TRUE).<br>*Requirement if not upgrading URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>

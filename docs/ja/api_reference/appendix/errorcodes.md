@@ -123,7 +123,12 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 
 #### キャンペーン管理に関連するエラー
 ##### Service
-[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),<br>  [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md),<br> [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),<br> [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md),<br> [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md),<br> [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
+[AccountSharedService](/docs/ja/api_reference/services/AccountSharedService.md),<br>
+[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),<br>
+[AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md),<br>
+[CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md),<br> [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md),<br>
+[CampaignSharedSetService](/docs/ja/api_reference/services/CampaignSharedSetService.md),<br>
+[CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md),<br> [CustomerSyncService](/docs/ja/api_reference/services/CustomerSyncService.md),<br> [SharedCriterionService](/docs/ja/api_reference/services/SharedCriterionService.md),<br>
 
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
@@ -171,6 +176,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 211001 | Cannot set AdvancedMobileURL. | アプリダウンロードキャンペーンでは、advancedMobileUrlの設定はできません。
 211003 | Domain does not match with DisplayURL.  | 	表示URLと最終リンク先URL（モバイル含む）のドメインが一致していません。
 211004 | Cannot set under AndroidCampaign.  | 	Androidのアプリキャンペーンでは、以下の設定ができません：<br>・キャンペーン、広告グループ、広告、キーワードにTrackingUrlや CustomParameterを設定
+211005| SharedList is used. | 削除しようとしている対象外キーワードリストは、キャンペーンに設定済みです。<br>（キャンペーンに設定されている対象外キーワードリストは削除できません）
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
@@ -305,7 +311,6 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 #### 提案機能・予測に関連するエラー
 ##### Service
 [BidLandscapeService](/docs/ja/api_reference/services/BidLandscapeService.md),<br> [TargetingIdeaService](/docs/ja/api_reference/services/TargetingIdeaService.md),<br>
-[TrafficEstimatorService](/docs/ja/api_reference/services/TrafficEstimatorService.md),<br>
 [KeywordEstimatorService](/docs/ja/api_reference/services/KeywordEstimatorService.md)
 
 コード                   | メッセージ  | 説明 

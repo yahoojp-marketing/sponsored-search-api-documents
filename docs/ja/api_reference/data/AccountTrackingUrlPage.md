@@ -34,7 +34,7 @@ AccountTrackingUrlPageオブジェクトは、アカウントトラッキング�
   <td colspan="8">AccountTrackingUrlPage</td>
  </tr>
  <tr>
-  <td>values[0...200]</td>
+  <td>values[0...1000]</td>
   <td><a href="./AccountTrackingUrlValues.md">AccountTrackingUrlValues</a></td>
   <td>アカウントトラッキング情報の配列です。<br>各配列には、get処理の実行結果および アカウントトラッキング情報が含まれます。</td>
   <td>yes</td>

@@ -4,8 +4,8 @@ TargetingIdeaService is a service that suggests new related keywords based on th
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/TargetingIdeaService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/TargetingIdeaService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/TargetingIdeaService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/TargetingIdeaService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

@@ -16,11 +16,11 @@ AccountTrackingUrlSelectorオブジェクトは、アカウントトラッキン
   <th>remove</th>
  </tr>
  <tr>
-  <td>accountIds[0...200]</td>
+  <td>accountIds[0...1000]</td>
   <td>xsd:long</td>
   <td>検索条件：アカウントIDです。</td>
   <td>-</td>
-  <td>Requirement</td>
+  <td>Optional</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

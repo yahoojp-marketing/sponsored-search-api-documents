@@ -3,8 +3,8 @@ LocationServiceでは、アカウントのロケーション情報を取得し�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/LocationService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/LocationService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/LocationService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/LocationService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

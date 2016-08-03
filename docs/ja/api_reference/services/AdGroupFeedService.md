@@ -3,8 +3,8 @@ AdGroupFeedServiceでは、広告グループに関するFeedItem情報の取得
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

@@ -3,8 +3,8 @@ DictionaryServiceは、審査否認理由と地域情報の一覧を提供しま
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/DictionaryService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/DictionaryService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/DictionaryService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/DictionaryService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

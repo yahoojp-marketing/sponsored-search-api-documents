@@ -39,7 +39,7 @@ FeedItemOperationオブジェクトは、フィードアイテムの情報を格
  </tr>
  <tr>
   <td>placeholderType</td>
-  <td>enum <a href="./PlaceholderType_FeedItem.md">PlaceholderType</a></td>
+  <td>enum <a href="./FeedItemPlaceholderType.md">FeedItemPlaceholderType</a></td>
   <td>フィードアイテムの種類です。</td>
   <td>-</td>
   <td>-</td>

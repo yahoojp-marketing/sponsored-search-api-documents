@@ -37,8 +37,8 @@ FeedItemSelectorオブジェクトは、フィードアイテムの情報を指�
  </tr>
  <tr>
   <td>placeholderTypes[0...3]</td>
-  <td>enum <a href="./PlaceholderType_FeedItem.md">PlaceholderType</a></td>
-  <td>検索条件：Feedアイテムのタイプです。 </td>
+  <td>enum <a href="./FeedItemPlaceholderType.md">FeedItemPlaceholderType</a></td>
+  <td>検索条件：フィードアイテムのタイプです。 </td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -47,7 +47,7 @@ FeedItemSelectorオブジェクトは、フィードアイテムの情報を指�
  </tr>
  <tr>
   <td>approvalStatuses[0...5]</td>
-  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>enum <br><a href="./ApprovalStatus.md">ApprovalStatus</a></td>
   <td>検索条件：審査ステータスです。</td>
   <td>-</td>
   <td>Optional</td>
@@ -57,7 +57,7 @@ FeedItemSelectorオブジェクトは、フィードアイテムの情報を指�
  </tr>
  <tr>
   <td>advanced</td>
-  <td>enum <a href="./Advanced.md">Advanced</a></td>
+  <td>enum <br><a href="./Advanced.md">Advanced</a></td>
   <td>検索条件：アドバンスドURL対応のフラグです。<br>※Default:：TRUE</td>
   <td>-</td>
   <td>Optional</td>

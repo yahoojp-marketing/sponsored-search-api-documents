@@ -7,8 +7,8 @@ Conversion tag will be shared both in Campaign Management Tool and API.<br>
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/ConversionTrackerService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/ConversionTrackerService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/ConversionTrackerService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ConversionTrackerService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
@@ -23,7 +23,7 @@ ConversionTrackerService has following restrictions.<br>
 　The installation method of "on-click event tag", please check the help pages of Yahoo! promotional advertising.<br>
 <br>
 Please refer “help” page in Yahoo! JAPAN Promotional Ads for Conversion Analytics:<br>
-https://help.marketing.yahoo.co.jp/en/?p=355
+http://help.marketing.yahoo.co.jp/en/?p=367
 
 ## get
 ### Request

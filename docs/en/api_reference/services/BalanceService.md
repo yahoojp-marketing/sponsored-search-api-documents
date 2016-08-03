@@ -3,8 +3,8 @@ Use this service to retrieve account balance.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/BalanceService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/BalanceService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/BalanceService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BalanceService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview

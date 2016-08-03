@@ -3,7 +3,6 @@ A container for the result of suggestions.
 
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 <table>
  <tr>

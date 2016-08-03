@@ -107,7 +107,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_Campaign.md">BiddingStrategy</a></td>
+  <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
   <td>入札設定です。<br>※BudgetOptimizerの登録、更新は行えません。（照会のみ可能です）<br>※アプリキャンペーンでiOSを指定した場合、 TARGET_CPA/TARGET_ROASは 設定できません。</td>
   <td>yes</td>
   <td>-</td>
@@ -127,7 +127,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_Campaign.md">BiddingStrategy</a></td>
+  <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
   <td>登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスとして表示されます。</td>
   <td>yes</td>
   <td>-</td>
@@ -156,7 +156,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  </tr>
   <tr>
   <td>settings</td>
-  <td><a href="./Settings_Campaign.md">Settings</a><br>inherited <a href="./GeoTargetTypeSetting.md">GeoTargetTypeSetting</a></td>
+  <td><a href="./CampaignSettings.md">CampaignSettings</a><br>inherited <a href="./GeoTargetTypeSetting.md">GeoTargetTypeSetting</a></td>
   <td>ターゲット及びマッチング設定です。</td>
   <td>yes</td>
   <td>-</td>

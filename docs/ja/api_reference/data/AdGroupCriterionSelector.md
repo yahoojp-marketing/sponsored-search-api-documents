@@ -57,8 +57,8 @@ AdGroupCriterionSelectorオブジェクトは、操作の対象となる広告�
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>検索条件：クライテリアの種類です。<br>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
+  <td>enum <a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
+  <td>検索条件：キーワードの種類です。<br>入札キーワードか、検索対象外キーワードかを選択します。</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
@@ -68,7 +68,7 @@ AdGroupCriterionSelectorオブジェクトは、操作の対象となる広告�
  <tr>
   <td>userStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>検索条件：ユーザーにより設定される広告の 掲載状況です。<br>指定しない場合は、フィルタ条件に すべての掲載状況が含まれます。</td>
+  <td>検索条件：ユーザーにより設定される広告の掲載状況です。<br>指定しない場合は、フィルタ条件に すべての掲載状況が含まれます。</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

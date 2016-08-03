@@ -6,8 +6,8 @@ ReportDefinitionServiceでは、レポート定義の取得および追加・削
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/ReportDefinitionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/ReportDefinitionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

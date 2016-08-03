@@ -6,6 +6,7 @@ IsRemoveは、カスタムパラメータの削除フラグです。
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 + [AdGroupService](../services/AdGroupService.md)
 + [CampaignService](../services/CampaignService.md)
++ [FeedItemService](../services/FeedItemService.md)
 
 | Enumeration | Type | Description | 
 |---|---|---|

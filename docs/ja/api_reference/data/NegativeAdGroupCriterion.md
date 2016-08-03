@@ -90,7 +90,7 @@ NegativeAdGroupCriterionオブジェクトは、広告グループの除外ク�
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
+  <td>enum <a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
   <td>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
   <td>yes</td>
   <td>-</td>

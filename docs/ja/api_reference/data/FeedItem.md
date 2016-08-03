@@ -77,7 +77,11 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  </tr>
  <tr>
   <td>feedItemAttribute[0...20]</td>
-  <td><a href="./FeedItemAttribute.md">FeedItemAttribute</a></td>
+  <td><a href="./FeedItemAttribute.md">FeedItemAttribute</a><br>
+  inherited<br>
+  <a href="./SimpleFeedItemAttribute.md">SimpleFeedItemAttribute</a><br>
+  <a href="./MultipleFeedItemAttribute.md">MultipleFeedItemAttribute	</a><br>
+  </td>
   <td>フィードアイテムの属性情報です。</td>
   <td>yes</td>
   <td>-</td>
@@ -87,7 +91,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  </tr>
  <tr>
   <td>placeholderType</td>
-  <td>enum <a href="./PlaceholderType_FeedItem.md">PlaceholderType</a></td>
+  <td>enum <a href="./FeedItemPlaceholderType.md">FeedItemPlaceholderType</a></td>
   <td>フィードアイテムの種類です。</td>
   <td>yes</td>
   <td>-</td>

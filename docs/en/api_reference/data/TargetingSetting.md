@@ -1,5 +1,5 @@
 # TargetingSetting
-TargetingSetting is an object that holds target setting.
+TargetingSetting is object that holds target setting.
 
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
@@ -16,7 +16,7 @@ TargetingSetting is an object that holds target setting.
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./Settings_AdGroup.md">Setting</a>(inherited)</td>
+  <td colspan="8"><a href="./AdGroupSettings.md">AdGroupSettings</a>(inherited)</td>
  </tr>
  <tr>
   <td>criterionType</td>
@@ -34,7 +34,7 @@ TargetingSetting is an object that holds target setting.
  <tr>
   <td>targetAll</td>
   <td>enum <a href="./TargetAll.md">TargetAll</a></td>
-  <td>Flag of bid setting for designated target type.</td>
+  <td>Flag of setting for designated target type.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
