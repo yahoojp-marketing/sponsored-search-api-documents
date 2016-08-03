@@ -90,7 +90,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
+  <td>enum <a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
   <td>Criterion type.<br>It can select to set as bid or negative keyword.</td>
   <td>yes</td>
   <td>-</td>
@@ -114,7 +114,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  <tr>
   <td>userStatus</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Status of ad that been set.<br>* If there is no designation, all ads in all condition will return./td>
+  <td>Ad distribution status which is set by user.<br>* If there is no designation, all ad distribution statuses are included in filtering condition.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -163,8 +163,8 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
-  <td>Bid setting.<br>* Currently available bid setting will respond.<br>* Apply the bid setting that is available on parent entity.</td>
+  <td><a href="../data/AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
+  <td>Bid setting.<br>* Currently available bid setting will be responded.<br>* Apply the bid setting that is available on parent entity.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -183,7 +183,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
+  <td><a href="./AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
   <td>Auto bidding that failed to register.<br>* It will respond only when failed.</td>
   <td>yes</td>
   <td>-</td>
@@ -193,7 +193,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <td>advancedUrl</td>
   <td>xsd:string</td>
-  <td>Upgraded Custom URL.<br>*When tag is set blank, existing upgraded Custom URL will be deleted.</td>
+  <td>Upgraded Custom URL.<br>*When this is set blank, existing upgraded Custom URL will be deleted.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>* Require- ment when designating tracking URL after the upgrade.<br>* Ignore when not updating (advanced =FALSE).</td>
@@ -208,6 +208,16 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
   <td>-</td>
   <td>-</td>
+ </tr>
+ <tr>
+  <td>additionalAdvancedUrls</td>
+  <td><a href="./AdGroupCriterionAdditionalAdvancedUrls.md">AdGroupCriterionAdditionalAdvancedUrls</a></td>
+  <td>Additional setting of Landing Page URL.<br>Setting of 'advancedUrl' is required to make this additional setting.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <td>advancedMobileUrl</td>
   <td>xsd:string</td>
@@ -227,6 +237,17 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td>additionalAdvancedMobileUrls</td>
+  <td><a href="./AdGroupCriterionAdditionalAdvancedMobileUrls.md">AdGroupCriterionAdditionalAdvancedMobileUrls</a></td>
+  <td>Additional setting of Smartphone Landing Page URL. <br>Setting of 'AdvancedMobileUrls' is required for this additional setting.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
  <td>trackingUrl</td>
   <td>xsd:string</td>
   <td>Tracking URL.<br>*When tag is set blank, existing Tracking URL will be deleted.</td>
@@ -250,7 +271,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>Custom paramters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>* Ignore when not updating (advanced =FALSE).</td>
+  <td>Optional<br>* Ignore when not to be updated (advanced =FALSE).</td>
   <td>Optional</td>
   <td>-</td>
  </tr>

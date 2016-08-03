@@ -5,7 +5,6 @@ CriterionType displays the type of criteria.
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 + [CampaignCriterionService](../services/CampaignCriterionService.md)
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 + [FeedItemService](../services/FeedItemService.md)
 
 | Enumeration | Type | Description | 

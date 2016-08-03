@@ -34,7 +34,7 @@ FeedItemReturn contains the Feed Item information.
   <td colspan="8">FeedItemReturnValue</td>
  </tr>
  <tr>
-  <td>values[0...1000]</td>
+  <td>values[0...2000]</td>
   <td><a href="./FeedItemValues.md">FeedItemValues</a></td>
   <td>Information detail regarding Feed Item.</td>
   <td>yes</td>

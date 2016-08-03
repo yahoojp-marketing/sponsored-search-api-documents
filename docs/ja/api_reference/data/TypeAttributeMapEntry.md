@@ -3,7 +3,6 @@ TypeAttributeMapEntryオブジェクトは、提案の結果を格納するコ�
 
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 <table>
  <tr>

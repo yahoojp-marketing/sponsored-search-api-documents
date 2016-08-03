@@ -87,8 +87,8 @@ AdGroupCriterion object describes ad group criteria information.
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>Criterion type.<br>It can select to set as bid or negative keyword.</td>
+  <td>enum <a href="./AdgroupCriterionUse.md">AdgroupCriterionUse</a></td>
+  <td>Criterion type.<br>Criteria selector which can select to set as single bid or excluded.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>

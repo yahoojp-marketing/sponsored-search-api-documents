@@ -3,8 +3,8 @@ CustomerSyncServceでは、指定した期間でのキャンペーンデータ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/CustomerSyncService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CustomerSyncService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/CustomerSyncService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CustomerSyncService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

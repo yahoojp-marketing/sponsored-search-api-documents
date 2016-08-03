@@ -1,23 +1,23 @@
 # AdGroupFeedService
-AdGroupFeedService is to get, add, update or delete the FeedItem information from ad groups.
+AdGroupFeedService is to get, add, update or remove the FeedItem information of ad groups.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
-Get, add, update or delete the FeedItem information from ad groups.
+Use this service to get, add, update or remove the FeedItem information of ad groups.
 #### Operation
-Explains operations provided by AdGroupFeedService.
+Describes the operation which provides by AdGroupFeedService.
 ## get
+Returns FeedItem information of ad groups.
 ### Request
-Retrieves FeedItem information from ad groups.
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| selector | Req | [AdGroupFeedSelector](../data/AdGroupFeedSelector.md) | FeedItem information relate to the operations to apply. | 
+| selector | Req | [AdGroupFeedSelector](../data/AdGroupFeedSelector.md) | The FeedItem selector for operaions. | 
 
 ##### Request Sample
 ```xml
@@ -96,7 +96,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ### Response
 | Filed | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupFeedPage](../data/AdGroupFeedPage.md) | The container of FeedItem information. Cannot retrieve the ad group without FeedItem information. | 
+| rval | [AdGroupFeedPage](../data/AdGroupFeedPage.md) | This object is a container for selected FeedItem information.<br>Cannot retrieve the ad group without FeedItem information. | 
 
 ##### Response Sample
 ```xml
@@ -162,17 +162,18 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 </SOAP-ENV:Envelope>
 ```
 ## mutate(SET)
-### Request
-Add, update or delete FeedItem information in ad group. <br>
-Update will overwrite the old information, so have to include the additional information for any updates. <br>
-To delete FeedItem information, update blank data.<br>
-It is possible to set FeedItem information to ad groups in different campaigns by request.<br>
+Add, update or release(remove) FeedItem information of ad group. <br>
+Update will overwrite the old information, so have to include the additional information on every updates. <br>
+To release FeedItem information, update with blank data.<br>
+It is possible to set FeedItem information to ad groups in different campaigns by single request.<br>
 FeedItem information that can be set for a single ad group is up to 20 for each QUICKLINKS, CALLEXTENSION.<br>
-* As for CALLEXTENSION, We recommend setting only one phone number per ad group.
+*As for CALLEXTENSION, We recommend setting only one phone number per ad group.<br>
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupFeedOperation](../data/AdGroupFeedOperation.md) | Operation elements for FeedItem information of ad group. FeedItem setting will be overwritten. For delete, update the data by leaving blank. | 
+| operations | Req | [AdGroupFeedOperation](../data/AdGroupFeedOperation.md) | Operation elements for FeedItem information of ad group.<br>FeedItem setting will be overwritten.<br>To release FeedItem information, update with blank data. | 
 
 ##### Request Sample
 ```xml
@@ -351,7 +352,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ### Response
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupFeedReturnValue](../data/AdGroupFeedReturnValue.md) | The container of FeedItem information set from ad group including the operation results. | 
+| rval | [AdGroupFeedReturnValue](../data/AdGroupFeedReturnValue.md) | This object is a container for FeeItem information set on ad group which includes operation results. | 
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

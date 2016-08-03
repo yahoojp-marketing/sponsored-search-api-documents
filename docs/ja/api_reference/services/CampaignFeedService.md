@@ -3,8 +3,8 @@ CampaignFeedServiceでは、キャンペーンのFeedItem情報の取得およ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/CampaignFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/CampaignFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### サービス概要

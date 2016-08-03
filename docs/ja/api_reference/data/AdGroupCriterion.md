@@ -87,8 +87,8 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
+  <td>enum <a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
+  <td>キーワードの種類です。入札キーワードか、検索対象外キーワードかを選択します。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>

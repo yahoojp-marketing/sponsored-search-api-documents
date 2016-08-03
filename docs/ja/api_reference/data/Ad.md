@@ -36,9 +36,29 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>-</td>
  </tr>
  <tr>
+  <td>additionalAdvancedUrls[0..9]</td>
+  <td><a href="./AdGroupAdAdditionalAdvancedUrls.md">AdGroupAdAdditionalAdvancedUrls</a></td>
+  <td>最終リンク先URLです。<br>2件目以降の最終リンク先URLを設定します。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>advancedMobileUrl</td>
   <td>xsd:string</td>
   <td>最終リンク先URL（スマート フォン）です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>additionalAdvancedMobileUrls[0..9]</td>
+  <td><a href="./AdGroupAdAdditionalAdvancedMobileUrls.md">AdGroupAdAdditionalAdvancedMobileUrls</a></td>
+  <td>最終リンク先URL（スマート フォン）です。<br>2件目以降の最終リンク先URL（スマート フォン）<br>を設定します。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>

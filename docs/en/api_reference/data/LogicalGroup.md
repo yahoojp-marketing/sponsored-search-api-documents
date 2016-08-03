@@ -26,7 +26,7 @@ LogicalGroup is an object that holds combination group information.
   <td>-</td>
  </tr>
  <tr>
-  <td>logicalOperand[0...20]</td>
+  <td>logicalOperand[1...20]</td>
   <td><a href="./LogicalRuleOperand.md">LogicalRuleOperand</a></td>
   <td>Target list of combination. </td>
   <td>yes</td>

@@ -34,7 +34,7 @@ AccountTrackingUrlPage object describes the account tracking information with ge
   <td colspan="8">AccountTrackingUrlPage</td>
  </tr>
  <tr>
-  <td>values[0...200]</td>
+  <td>values[0...1000]</td>
   <td><a href="./AccountTrackingUrlValues.md">AccountTrackingUrlValues</a></td>
   <td>List of Account tracking details.<br>Each list includes account tracking details with result of get process.</td>
   <td>yes</td>

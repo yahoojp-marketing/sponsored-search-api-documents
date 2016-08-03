@@ -3,21 +3,21 @@ CampaignFeedService is to get and update the FeedItem information of campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/CampaignFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/CampaignFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignFeedService?wsdl|
 #### Namespace
 http://ss.yahooapis.jp/V6
 #### Overview
-Get the FeedItem information and add, update, or delete the FeedItem information.
+Use this service to get, add, update or remove the FeedItem information of campaign.
 #### Operation
-Describe operation provided by CampaignFeedService.
+Describes the operation which provides by CampaignFeedService.
 ## get
-### Request
 Get FeedItem information of campaign.
+### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| selector | Req | [CampaignFeedSelector](../data/CampaignFeedSelector.md) | FeedItem information relate to the operations to apply. | 
+| selector | Req | [CampaignFeedSelector](../data/CampaignFeedSelector.md) | The FeedItem selector for operaions. | 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -90,7 +90,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ### Response
 | Filed | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignFeedPage](../data/CampaignFeedPage.md) | Entry related to retrieved FeedItem information. | 
+| rval | [CampaignFeedPage](../data/CampaignFeedPage.md) | This object is a container for selected FeedItem information. | 
 
 ##### Response Sample
 ```xml
@@ -151,15 +151,15 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ```
 
 ## mutate(SET)
-Add, update, unconnect(delete) the FeedItem information from campaign. <br>
-To stop connection of FeedItem information, update the information blank. <br>
+Add, update or release(remove) FeedItem information of campaign. <br>
+To release FeedItem information, update with blank data. <br>
 FeedItem information that can be set for a single campaign is up to 20 for each QUICKLINKS, CALLEXTENSION.<br>
 *For CALLEXTENSION, we recommend setting only one phone number per campaign.
 
 ### Request
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [CampaignFeedOperation](../data/CampaignFeedOperation.md) | Operation elements for FeedItem information of campaign. <br>FeedItem setting will be overwritten. For delete, update the data by leaving blank. | 
+| operations | Req | [CampaignFeedOperation](../data/CampaignFeedOperation.md) | Operation elements for FeedItem information of campaign. <br>FeedItem setting will be overwritten. To release FeedItem information, update the blank data. | 
 
 ##### Request Sample
 ```xml
@@ -345,7 +345,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
 ### Response
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignFeedReturnValue](../data/CampaignFeedReturnValue.md) | Container of FeedItem information for campaign including the operation results. | 
+| rval | [CampaignFeedReturnValue](../data/CampaignFeedReturnValue.md) | This object is a container for FeeItem information set on campaign which includes operation results. | 
 
 ##### Response Sample
 ```xml

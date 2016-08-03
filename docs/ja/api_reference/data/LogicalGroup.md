@@ -26,7 +26,7 @@ LogicalGroupは、組合せグループの情報を保持するオブジェク�
   <td>-</td>
  </tr>
  <tr>
-  <td>logicalOperand[0...20]</td>
+  <td>logicalOperand[1...20]</td>
   <td><a href="./LogicalRuleOperand.md">LogicalRuleOperand</a></td>
   <td>ターゲットタイプです。 </td>
   <td>yes</td>

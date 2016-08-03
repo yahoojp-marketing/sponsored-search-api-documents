@@ -3,7 +3,6 @@ CarrierNameは、モバイルキャリアを表します。
 
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 | Enumeration | Type | Description | 
 |---|---|---|

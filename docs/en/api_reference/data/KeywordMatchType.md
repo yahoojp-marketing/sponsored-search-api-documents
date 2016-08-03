@@ -1,13 +1,13 @@
 # KeywordMatchType (enum)
-KeywordMatchType displays a match type of a keyword.
+KeywordMatchType describes keyword match type.
 
 ### Service
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 + [CampaignCriterionService](../services/CampaignCriterionService.md)
-+ [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
-+ [KeywordEstimatorService](../services/KeywordEstimatorService.md)
 + [FeedItemService](../services/FeedItemService.md)
++ [KeywordEstimatorService](../services/KeywordEstimatorService.md)
++ [SharedCriterionService](../services/SharedCriterionService.md)
++ [TargetingIdeaService](../services/TargetingIdeaService.md)
 
 | Enumeration | Type | Description | 
 |---|---|---|

@@ -1,5 +1,5 @@
 # AdGroup
-AdGroup object displays ad group information.
+AdGroup object describes ad group information.
 
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
@@ -97,8 +97,8 @@ AdGroup object displays ad group information.
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroup.md">BiddingStrategy</a></td>
-  <td>Bid setting.<br>* Cannot create or update the BudgetOptimizer (Only referring is available)<br>* Input "NONE" in Auto bidding type if there will be no bid setting on Ad group level.<br>* If there is no bid setting, bid setting of parent entity will set automatically<br>* If iOS is selected for App Campaign, cannot set "TARGET_CPA" or "TARGET_ROAS"</td>
+  <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
+  <td>Bidding setting.<br>*Bidding setting which is currently valid is responded.<br>*Cannot create or update the BudgetOptimizer (Only referring is available)<br>*Input "NONE" in biddingStrategyType if no bidding setting on each Ad group level.<br>*If no bidding setting, the bidding setting on parent entity will be applied as default.<br>*If iOS is selected for App Campaign, "TARGET_CPA" and "TARGET_ROAS" are not to be set.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -108,7 +108,7 @@ AdGroup object displays ad group information.
  <tr>
   <td>biddingStrategyFailedReason</td>
   <td>enum <a href="./BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-  <td>Reason of Auto Bidding set has failed.<br>* This field shows when setting has actually failed.</td>
+  <td>Reason of failed Auto Bidding settgin.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -117,8 +117,8 @@ AdGroup object displays ad group information.
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroup.md">BiddingStrategy</a></td>
-  <td>Reason of Auto Bidding creation has failed.<br>* This field shows when setting has actually failed.</td>
+  <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
+  <td>Settings in detail on the failed Auto Bidding creation.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -127,7 +127,7 @@ AdGroup object displays ad group information.
  </tr>
  <tr>
   <td>settings[0...1]</td>
-  <td><a href="./Settings_AdGroup.md">Settings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
+  <td><a href="./AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
   <td>Target setting.</td>
   <td>yes</td>
   <td>-</td>

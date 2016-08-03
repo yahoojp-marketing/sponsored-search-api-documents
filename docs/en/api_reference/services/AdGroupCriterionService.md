@@ -1,29 +1,28 @@
 # AdGroupCriterionService
-Use this service to get, add, update, or delete Ad group criteria (such as keyword). <br>
-A criterion explains the conditions that determine if an ad should display.
+Use this service to get, add, update, or remove targeting conditions (criteria) of ad group. 
 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupCriterionService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6
 
 #### Overview
-Use this service to get, add, update, or delete Ad group criteria.
+Use this service to get, add, update, or remove targeting conditions (criteria) of ad group. 
 
 #### Operation
 Explains the operation which provides at AdGroupCriterionService.
 
 ## get
-### Request
-Gets criteria of Ad group.
+Get criteria of Ad group.
 
+### Request
 | Field | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| selector | Req | [AdGroupCriterionSelector](../data/AdGroupCriterionSelector.md) | Filters the adgroup criteria to be returned. |
+| selector | Req | [AdGroupCriterionSelector](../data/AdGroupCriterionSelector.md) | Selector the adgroup criteria for operation. |
 
 ##### Request Sample
 ```xml
@@ -50,11 +49,9 @@ Gets criteria of Ad group.
 ```
 
 ### Response
-Response Field
-
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupCriterionPage](../data/AdGroupCriterionPage.md) | A page (subset) view of the criteria selected. | 
+| rval | [AdGroupCriterionPage](../data/AdGroupCriterionPage.md) | Entry of ad group criteria to get. | 
 
 ##### Response Sample
 ```xml
@@ -66,8 +63,8 @@ Response Field
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>AdGroupCriterionService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
+         <ns1:remainingQuota>-1</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
          <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
       </ns1:ResponseHeader>
    </SOAP-ENV:Header>
@@ -76,7 +73,6 @@ Response Field
          <ns1:rval>
             <ns1:totalNumEntries>3</ns1:totalNumEntries>
             <ns1:Page.Type>AdGroupCriterionPage</ns1:Page.Type>
-            <!-- Keyword before the Advanced URL upgrade -->
             <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
@@ -93,11 +89,10 @@ Response Field
                      <ns1:matchType>EXACT</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
-                  <ns1:approvalStatus>APPROVED_WITH_REVIEW</ns1:approvalStatus>
+                  <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
                   <ns1:disapprovalReasonCodes>sumstatus</ns1:disapprovalReasonCodes>
                   <ns1:destinationUrl>http://wwww.yahoo.co.jp</ns1:destinationUrl>
-                  <ns1:reviewDestinationUrl>http://wwww.test.co.jp</ns1:reviewDestinationUrl>
-                  <ns1:biddingStrategyConfiguration>
+                 <ns1:biddingStrategyConfiguration>
                      <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                      <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
                      <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -120,8 +115,7 @@ Response Field
                   <ns1:advanced>FALSE</ns1:advanced>
                </ns1:adGroupCriterion>
             </ns1:values>
-            <!-- Keyword after the Advanced URL upgrade -->
-            <ns1:values>
+           <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
                   <ns1:accountId>1000000001</ns1:accountId>
@@ -136,14 +130,14 @@ Response Field
                      <ns1:criterionId>1000000002</ns1:criterionId>
                      <ns1:criterionTrackId>333333</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>キーワード</ns1:text>
+                     <ns1:text>Keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
                   <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                   <ns1:biddingStrategyConfiguration>
                      <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>自動入札名1</ns1:biddingStrategyName>
+                     <ns1:biddingStrategyName>AutoBiddingName1</ns1:biddingStrategyName>
                      <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                      <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
                      <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -157,7 +151,7 @@ Response Field
                      </ns1:bid>
                      <ns1:parentBiddingStrategyConfigurations>
                         <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
-                        <ns1:biddingStrategyName>自動入札名2</ns1:biddingStrategyName>
+                        <ns1:biddingStrategyName>AutoBiddingName2</ns1:biddingStrategyName>
                         <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                         <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
                         <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -168,8 +162,7 @@ Response Field
                   <ns1:reviewAdvancedUrl>http://www.yahoo.co.jp</ns1:reviewAdvancedUrl>
                   <ns1:reviewTrackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:reviewTrackingUrl>
                   <ns1:reviewCustomParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
-                    <ns1:parameters>
+                   <ns1:parameters>
                       <ns1:key>site</ns1:key>
                       <ns1:value>yahoo</ns1:value>
                     </ns1:parameters>
@@ -185,6 +178,93 @@ Response Field
                   <ns1:advanced>TRUE</ns1:advanced>
                </ns1:adGroupCriterion>
             </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>1000000001</ns1:campaignId>
+                  <ns1:campaignTrackId>111111</ns1:campaignTrackId>
+                  <ns1:campaignName>campaign name</ns1:campaignName>
+                  <ns1:adGroupId>1000000001</ns1:adGroupId>
+                  <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
+                  <ns1:adGroupName>ad group name</ns1:adGroupName>
+                  <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
+                  <ns1:criterion xsi:type="ns1:Keyword">
+                     <ns1:criterionId>1000000002</ns1:criterionId>
+                     <ns1:criterionTrackId>333333</ns1:criterionTrackId>
+                     <ns1:type>KEYWORD</ns1:type>
+                     <ns1:text>Keyword</ns1:text>
+                     <ns1:matchType>PHRASE</ns1:matchType>
+                  </ns1:criterion>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:approvalStatus>POST_DISAPPROVED</ns1:approvalStatus>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
+                     <ns1:biddingStrategyName>AutoBiddingName1</ns1:biddingStrategyName>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                     <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
+                     <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
+                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                     </ns1:biddingScheme>
+                     <ns1:bid>
+                        <ns1:maxCpc>120</ns1:maxCpc>
+                        <ns1:bidSource>CRITERION</ns1:bidSource>
+                        <ns1:adGroupMaxCpc>120</ns1:adGroupMaxCpc>
+                        <ns1:keywordMaxCpc>120</ns1:keywordMaxCpc>
+                     </ns1:bid>
+                     <ns1:parentBiddingStrategyConfigurations>
+                        <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
+                        <ns1:biddingStrategyName>AutoBiddingName2</ns1:biddingStrategyName>
+                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                        <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
+                        <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
+                           <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                        </ns1:biddingScheme>
+                     </ns1:parentBiddingStrategyConfigurations>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:reviewAdvancedUrl>http://www.yahoo.co.jp</ns1:reviewAdvancedUrl>
+                  <ns1:additionalAdvancedUrls>
+                     <ns1:additionalAdvancedUrl>
+                            <ns1:reviewUrl>http://www.yahoo.co.jp/url1</ns1:reviewUrl>
+                     </ns1:additionalAdvancedUrl>
+                      <ns1:additionalAdvancedUrl>
+                            <ns1:reviewUrl>http://www.yahoo.co.jp/url2</ns1:reviewUrl>
+                            <ns1:disapprovalReasonCodes>1000</ns1:disapprovalReasonCodes>
+                     </ns1:additionalAdvancedUrl>
+                     <ns1:additionalAdvancedUrl>
+                            <ns1:reviewUrl>http://www.yahoo.co.jp/url3</ns1:reviewUrl>
+                            <ns1:disapprovalReasonCodes>1000</ns1:disapprovalReasonCodes>
+                            <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
+                     </ns1:additionalAdvancedUrl>                    
+                  </ns1:additionalAdvancedUrls>
+                 <ns1:advancedMobileUrl>http://www.mobile.yahoo.co.jp</ns1:advancedMobileUrl>
+                  <ns1:additionalAdvancedMobileUrls>
+                     <ns1:additionalAdvancedMobileUrl>
+                             <ns1:reviewUrl>http://www.mobile.yahoo.co.jp/url1</ns1:reviewUrl>
+                     </ns1:additionalAdvancedMobileUrl>
+                      <ns1:additionalAdvancedMobileUrl>
+                             <ns1:reviewUrl>http://www.mobile.yahoo.co.jp/url2</ns1:reviewUrl>
+                             <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
+                     </ns1:additionalAdvancedMobileUrl>
+                 </ns1:additionalAdvancedMobileUrls>
+                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                  <ns1:customParameters>
+                    <ns1:parameters>
+                      <ns1:key>site</ns1:key>
+                      <ns1:value>yahoo</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id1</ns1:key>
+                      <ns1:value>1234</ns1:value>
+                    </ns1:parameters>
+                    <ns1:parameters>
+                      <ns1:key>id2</ns1:key>
+                      <ns1:value>a7h59A98yu</ns1:value>
+                    </ns1:parameters>
+                  </ns1:customParameters>
+                  <ns1:advanced>TRUE</ns1:advanced>
+               </ns1:adGroupCriterion>
+            </ns1:values>
          </ns1:rval>
       </ns1:getResponse>
    </SOAP-ENV:Body>
@@ -192,16 +272,15 @@ Response Field
 ```
 
 ## mutate (ADD)
+Add Ad group criteria.
+
 ### Request
-Create Ad group criteria.
-
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Operations to do during checks on keywords to be added. | 
+| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Criteria of ad group for operation and process details.| 
 
-##### Request Sample [Biddable settings]
+##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
@@ -218,14 +297,13 @@ Create Ad group criteria.
          <ns1:operations>
             <ns1:operator>ADD</ns1:operator>
             <ns1:accountId>100000001</ns1:accountId>
-<!-- BiddableAdGroupCriterion -->
             <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
                <ns1:campaignId>1000000001</ns1:campaignId>
                <ns1:adGroupId>1000000001</ns1:adGroupId>
                <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
                <ns1:criterion xsi:type="ns1:Keyword">
                   <ns1:type>KEYWORD</ns1:type>
-                  <ns1:text>キーワード</ns1:text>
+                  <ns1:text>Keyword</ns1:text>
                   <ns1:matchType>PHRASE</ns1:matchType>
                </ns1:criterion>
                <ns1:userStatus>ACTIVE</ns1:userStatus>
@@ -236,33 +314,86 @@ Create Ad group criteria.
                </ns1:biddingStrategyConfiguration>
                <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
                <ns1:advancedMobileUrl>http://aaaa.jp/mb</ns1:advancedMobileUrl>
-               <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+               <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
                <ns1:customParameters>
-                 <ns1:isRemove>FALSE</ns1:isRemove>
-                 <ns1:parameters>
-                   <ns1:key>site</ns1:key>
-                   <ns1:value>yahoo</ns1:value>
-                 </ns1:parameters>
-                 <ns1:parameters>
-                   <ns1:key>id1</ns1:key>
-                   <ns1:value>1234</ns1:value>
-                 </ns1:parameters>
-                 <ns1:parameters>
-                   <ns1:key>id2</ns1:key>
-                   <ns1:value>a7h59A98yu</ns1:value>
-                 </ns1:parameters>
+                  <ns1:isRemove>FALSE</ns1:isRemove>
+                  <ns1:parameters>
+                     <ns1:key>site</ns1:key>
+                     <ns1:value>yahoo</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id1</ns1:key>
+                     <ns1:value>1234</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id2</ns1:key>
+                     <ns1:value>a7h59A98yu</ns1:value>
+                  </ns1:parameters>
                </ns1:customParameters>
                <ns1:advanced>TRUE</ns1:advanced>
             </ns1:operand>
-<!-- NegativeAdGroupCriterion -->
+            <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
+               <ns1:campaignId>1000000001</ns1:campaignId>
+               <ns1:adGroupId>1000000001</ns1:adGroupId>
+               <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
+               <ns1:criterion xsi:type="ns1:Keyword">
+                  <ns1:type>KEYWORD</ns1:type>
+                  <ns1:text>Keyword</ns1:text>
+                  <ns1:matchType>PHRASE</ns1:matchType>
+               </ns1:criterion>
+               <ns1:userStatus>ACTIVE</ns1:userStatus>
+               <ns1:biddingStrategyConfiguration>
+                  <ns1:bid>
+                     <ns1:maxCpc>120</ns1:maxCpc>
+                  </ns1:bid>
+               </ns1:biddingStrategyConfiguration>
+               <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
+               <ns1:additionalAdvancedUrls>
+                  <ns1:additionalAdvancedUrl>
+                     <ns1:url>http://www.yahoo.co.jp/url1</ns1:url>
+                  </ns1:additionalAdvancedUrl>
+                  <ns1:additionalAdvancedUrl>
+                     <ns1:url>http://www.yahoo.co.jp/url2</ns1:url>
+                  </ns1:additionalAdvancedUrl>
+                  <ns1:additionalAdvancedUrl>
+                     <ns1:url>http://www.yahoo.co.jp/url3</ns1:url>
+                  </ns1:additionalAdvancedUrl>
+               </ns1:additionalAdvancedUrls>
+               <ns1:advancedMobileUrl>http://mobile.yahoo.co.jp</ns1:advancedMobileUrl>
+               <ns1:additionalAdvancedMobileUrls>
+                  <ns1:additionalAdvancedMobileUrl>
+                     <ns1:url>http://mobile.yahoo.co.jp/url1</ns1:url>
+                  </ns1:additionalAdvancedMobileUrl>
+                  <ns1:additionalAdvancedMobileUrl>
+                     <ns1:url>http://mobile.yahoo.co.jp/url2</ns1:url>
+                  </ns1:additionalAdvancedMobileUrl>
+               </ns1:additionalAdvancedMobileUrls>
+               <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+               <ns1:customParameters>
+                  <ns1:isRemove>FALSE</ns1:isRemove>
+                  <ns1:parameters>
+                     <ns1:key>site</ns1:key>
+                     <ns1:value>yahoo</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id1</ns1:key>
+                     <ns1:value>1234</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id2</ns1:key>
+                     <ns1:value>a7h59A98yu</ns1:value>
+                  </ns1:parameters>
+               </ns1:customParameters>
+               <ns1:advanced>TRUE</ns1:advanced>
+            </ns1:operand>
             <ns1:operand xsi:type="ns1:NegativeAdGroupCriterion">
                <ns1:campaignId>1000000001</ns1:campaignId>
                <ns1:adGroupId>1000000001</ns1:adGroupId>
                <ns1:criterionUse>NEGATIVE</ns1:criterionUse>
                <ns1:criterion xsi:type="ns1:Keyword">
-                   <ns1:type>KEYWORD</ns1:type>
-                   <ns1:text>対象外キーワード</ns1:text>
-                   <ns1:matchType>EXACT</ns1:matchType>
+                  <ns1:type>KEYWORD</ns1:type>
+                  <ns1:text>NegativeKeyword</ns1:text>
+                  <ns1:matchType>EXACT</ns1:matchType>
                </ns1:criterion>
             </ns1:operand>
          </ns1:operations>
@@ -274,7 +405,7 @@ Create Ad group criteria.
 ### Response
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupCriterionReturnValue](../data/AdGroupCriterionReturnValue.md) | Ad group criteria. | 
+| rval | [AdGroupCriterionReturnValue](../data/AdGroupCriterionReturnValue.md) | Container of ad group criteria information including operation results. | 
 
 ##### Response Sample [Biddable settings]
 ```xml
@@ -283,8 +414,8 @@ Create Ad group criteria.
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>AdGroupCriterionService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
+         <ns1:remainingQuota>-1</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
          <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
       </ns1:ResponseHeader>
    </SOAP-ENV:Header>
@@ -293,8 +424,7 @@ Create Ad group criteria.
          <ns1:rval>
             <ns1:ListReturnValue.Type>AdGroupCriterionReturnValue</ns1:ListReturnValue.Type>
             <ns1:Operation.Type>ADD</ns1:Operation.Type>
-<!-- BiddableAdGroupCriterion -->
-            <ns1:values>
+           <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
                   <ns1:accountId>1000000001</ns1:accountId>
@@ -309,14 +439,14 @@ Create Ad group criteria.
                      <ns1:criterionId>1000000001</ns1:criterionId>
                      <ns1:criterionTrackId>333333</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>キーワード</ns1:text>
+                     <ns1:text>Keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
                   <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                   <ns1:biddingStrategyConfiguration>
                      <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>自動入札名1</ns1:biddingStrategyName>
+                     <ns1:biddingStrategyName>AutoBiddingName1</ns1:biddingStrategyName>
                      <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                      <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
                      <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -330,7 +460,7 @@ Create Ad group criteria.
                      </ns1:bid>
                      <ns1:parentBiddingStrategyConfigurations>
                         <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
-                        <ns1:biddingStrategyName>自動入札名2</ns1:biddingStrategyName>
+                        <ns1:biddingStrategyName>AutoBiddingName2</ns1:biddingStrategyName>
                         <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                         <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
                         <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -359,8 +489,65 @@ Create Ad group criteria.
                   <ns1:advanced>TRUE</ns1:advanced>
                </ns1:adGroupCriterion>
             </ns1:values>
-<!-- NegativeAdGroupCriterion -->
-            <ns1:values>
+           <ns1:values>
+              <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
+              <ns1:campaignId>1000000001</ns1:campaignId>
+               <ns1:adGroupId>1000000001</ns1:adGroupId>
+               <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
+              <ns1:criterion xsi:type="ns1:Keyword">
+                  <ns1:criterionId>1000000002</ns1:criterionId>
+                  <ns1:criterionTrackId>22222</ns1:criterionTrackId>
+                  <ns1:type>KEYWORD</ns1:type>
+                  <ns1:text>Keyword</ns1:text>
+                  <ns1:matchType>PHRASE</ns1:matchType>
+               </ns1:criterion>
+               <ns1:userStatus>ACTIVE</ns1:userStatus>
+              <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+               <ns1:biddingStrategyConfiguration>
+                  <ns1:bid>
+                     <ns1:maxCpc>120</ns1:maxCpc>
+                  </ns1:bid>
+               </ns1:biddingStrategyConfiguration>
+               <ns1:reviewAdvancedUrl>http://www.yahoo.co.jp</ns1:reviewAdvancedUrl>
+               <ns1:additionalAdvancedUrls>
+                   <ns1:additionalAdvancedUrl>
+                       <ns1:reviewUrl>http://www.yahoo.co.jp/url1</ns1:reviewUrl>
+                   </ns1:additionalAdvancedUrl>
+                   <ns1:additionalAdvancedUrl>
+                       <ns1:reviewUrl>http://www.yahoo.co.jp/url2</ns1:reviewUrl>
+                   </ns1:additionalAdvancedUrl>
+                   <ns1:additionalAdvancedUrl>
+                       <ns1:reviewUrl>http://www.yahoo.co.jp/url3</ns1:reviewUrl>
+                   </ns1:additionalAdvancedUrl>
+               </ns1:additionalAdvancedUrls>
+              <ns1:reviewAdvancedMobileUrl>http://mobile.yahoo.co.jp</ns1:reviewAdvancedMobileUrl>
+               <ns1:additionalAdvancedMobileUrls>
+                   <ns1:additionalAdvancedMobileUrl>
+                       <ns1:reviewUrl>http://mobile.yahoo.co.jp/url1</ns1:reviewUrl>
+                   </ns1:additionalAdvancedMobileUrl>
+                    <ns1:additionalAdvancedMobileUrl>
+                       <ns1:reviewUrl>http://mobile.yahoo.co.jp/url2</ns1:reviewUrl>
+                   </ns1:additionalAdvancedMobileUrl>               
+               </ns1:additionalAdvancedMobileUrls>
+               <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+               <ns1:customParameters>
+                <ns1:parameters>
+                   <ns1:key>site</ns1:key>
+                   <ns1:value>yahoo</ns1:value>
+                 </ns1:parameters>
+                 <ns1:parameters>
+                   <ns1:key>id1</ns1:key>
+                   <ns1:value>1234</ns1:value>
+                 </ns1:parameters>
+                 <ns1:parameters>
+                   <ns1:key>id2</ns1:key>
+                   <ns1:value>a7h59A98yu</ns1:value>
+                 </ns1:parameters>
+               </ns1:customParameters>
+               <ns1:advanced>TRUE</ns1:advanced>
+              </ns1:adGroupCriterion>
+           </ns1:values>          
+           <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:NegativeAdGroupCriterion">
                   <ns1:accountId>1000000001</ns1:accountId>
@@ -375,7 +562,7 @@ Create Ad group criteria.
                      <ns1:criterionId>1000000002</ns1:criterionId>
                      <ns1:criterionTrackId>444444</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>対象外キーワード</ns1:text>
+                     <ns1:text>NegativeKeyword</ns1:text>
                      <ns1:matchType>EXACT</ns1:matchType>
                   </ns1:criterion>
                </ns1:adGroupCriterion>
@@ -387,20 +574,16 @@ Create Ad group criteria.
 ```
 
 ## mutate (SET)
-Upgrade or change Ad group criteria.
+Update or change Ad group criteria.
 
 ### Request
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Operations to do during checks on keywords to be added. | 
+| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Criteria of ad group for operation and process details. | 
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://ss.yahooapis.jp/V6"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -417,50 +600,61 @@ Upgrade or change Ad group criteria.
             <ns1:operator>SET</ns1:operator>
             <ns1:accountId>100000001</ns1:accountId>
             <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
-               <ns1:campaignId>100000001</ns1:campaignId>
-               <ns1:adGroupId>100000001</ns1:adGroupId>
-               <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
-               <ns1:criterion xsi:type="ns1:Keyword">
-                  <ns1:criterionId>1000000001</ns1:criterionId>
-                  <ns1:type>KEYWORD</ns1:type>
-               </ns1:criterion>
-               <ns1:userStatus>ACTIVE</ns1:userStatus>
-               <ns1:biddingStrategyConfiguration>
-                  <ns1:bid>
-                     <ns1:maxCpc>0</ns1:maxCpc>
-                  </ns1:bid>
-               </ns1:biddingStrategyConfiguration>
-               <ns1:advancedUrl>http://test.jp</ns1:advancedUrl>
-               <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-               <ns1:customParameters>
-                 <ns1:isRemove>FALSE</ns1:isRemove>
-                 <ns1:parameters>
-                   <ns1:key>site</ns1:key>
-                   <ns1:value>aaaa</ns1:value>
-                 </ns1:parameters>
-                 <ns1:parameters>
-                   <ns1:key>id1</ns1:key>
-                   <ns1:value>9999</ns1:value>
-                 </ns1:parameters>
-                 <ns1:parameters>
-                   <ns1:key>id2</ns1:key>
-                   <ns1:value>a7h59A98yu</ns1:value>
-                 </ns1:parameters>
-               </ns1:customParameters>
-               <ns1:advanced>TRUE</ns1:advanced>
-            </ns1:operand>
-<!-- Delete of Custom parameter -->
-            <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
-               <ns1:campaignId>100000001</ns1:campaignId>
-               <ns1:adGroupId>100000001</ns1:adGroupId>
+               <ns1:campaignId>1000000001</ns1:campaignId>
+               <ns1:adGroupId>1000000001</ns1:adGroupId>
                <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
                <ns1:criterion xsi:type="ns1:Keyword">
                   <ns1:criterionId>1000000002</ns1:criterionId>
                   <ns1:type>KEYWORD</ns1:type>
                </ns1:criterion>
+               <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
+               <!--Remove additionalAdvancedUrls-->
+               <ns1:additionalAdvancedUrls>
+                    <ns1:isRemove>TRUE</ns1:isRemove>
+               </ns1:additionalAdvancedUrls>
+               <ns1:advancedMobileUrl>http://mobile.yahoo.co.jp</ns1:advancedMobileUrl>
+               <!--To update, add, change additionalAdvancedMobileUrls, need to set URLs which has no change-->
+               <ns1:additionalAdvancedMobileUrls>
+                   <ns1:additionalAdvancedMobileUrl>
+                       <ns1:url>http://mobile.yahoo.co.jp/url1</ns1:url>
+                   </ns1:additionalAdvancedMobileUrl>
+                  <ns1:additionalAdvancedMobileUrl>
+                       <ns1:url>http://mobile.yahoo.co.jp/url2</ns1:url>
+                   </ns1:additionalAdvancedMobileUrl>
+                  <ns1:additionalAdvancedMobileUrl>
+                       <ns1:url>http://mobile.yahoo.co.jp/url3</ns1:url>
+                   </ns1:additionalAdvancedMobileUrl>                 
+              </ns1:additionalAdvancedMobileUrls>
+               <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+               <ns1:customParameters>
+                  <ns1:isRemove>FALSE</ns1:isRemove>
+                  <ns1:parameters>
+                     <ns1:key>site</ns1:key>
+                     <ns1:value>yahoo</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id1</ns1:key>
+                     <ns1:value>1234</ns1:value>
+                  </ns1:parameters>
+                  <ns1:parameters>
+                     <ns1:key>id2</ns1:key>
+                     <ns1:value>a7h59A98yu</ns1:value>
+                  </ns1:parameters>
+               </ns1:customParameters>
+               <ns1:advanced>TRUE</ns1:advanced>
+            </ns1:operand>
+<!--Remove Custom Parameter-->
+            <ns1:operand xsi:type="ns1:BiddableAdGroupCriterion">
+               <ns1:campaignId>100000001</ns1:campaignId>
+               <ns1:adGroupId>100000001</ns1:adGroupId>
+               <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
+               <ns1:criterion xsi:type="ns1:Keyword">
+                  <ns1:criterionId>1000000003</ns1:criterionId>
+                  <ns1:type>KEYWORD</ns1:type>
+               </ns1:criterion>
                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}</ns1:trackingUrl>
                <ns1:customParameters>
-                 <ns1:isRemove>TRUE</ns1:isRemove>
+                  <ns1:isRemove>TRUE</ns1:isRemove>
                </ns1:customParameters>
                <ns1:advanced>TRUE</ns1:advanced>
             </ns1:operand>
@@ -471,19 +665,13 @@ Upgrade or change Ad group criteria.
 ```
 
 ### Response
-Response Field
-
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupCriterionReturnValue](../data/AdGroupCriterionReturnValue.md) | Ad group criteria (without optional parts). | 
+| rval | [AdGroupCriterionReturnValue](../data/AdGroupCriterionReturnValue.md) | Container of ad group criteria information including operation results. | 
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://ss.yahooapis.jp/V6"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>AdGroupCriterionService</ns1:service>
@@ -497,89 +685,56 @@ Response Field
          <ns1:rval>
             <ns1:ListReturnValue.Type>AdGroupCriterionReturnValue</ns1:ListReturnValue.Type>
             <ns1:Operation.Type>SET</ns1:Operation.Type>
-<!-- BiddableAdGroupCriterion -->
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+           <ns1:values>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
-                  <ns1:accountId>1000000001</ns1:accountId>
                   <ns1:campaignId>1000000001</ns1:campaignId>
-                  <ns1:campaignTrackId>111111</ns1:campaignTrackId>
-                  <ns1:campaignName>campaign name</ns1:campaignName>
                   <ns1:adGroupId>1000000001</ns1:adGroupId>
-                  <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
-                  <ns1:adGroupName>ad group name</ns1:adGroupName>
                   <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
                   <ns1:criterion xsi:type="ns1:Keyword">
-                     <ns1:criterionId>1000000001</ns1:criterionId>
-                     <ns1:criterionTrackId>333333</ns1:criterionTrackId>
+                     <ns1:criterionId>1000000002</ns1:criterionId>
+                     <ns1:criterionTrackId>22222</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>キーワード</ns1:text>
+                     <ns1:text>Keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
                   <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                   <ns1:biddingStrategyConfiguration>
-                     <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>自動入札名1</ns1:biddingStrategyName>
-                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-                     <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     </ns1:biddingScheme>
                      <ns1:bid>
-                        <ns1:maxCpc>0</ns1:maxCpc>
-                        <ns1:bidSource>CRITERION</ns1:bidSource>
-                        <ns1:adGroupMaxCpc>120</ns1:adGroupMaxCpc>
-                        <ns1:keywordMaxCpc>120</ns1:keywordMaxCpc>
+                        <ns1:maxCpc>120</ns1:maxCpc>
                      </ns1:bid>
-                     <ns1:parentBiddingStrategyConfigurations>
-                        <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
-                        <ns1:biddingStrategyName>自動入札名2</ns1:biddingStrategyName>
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                        <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                           <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        </ns1:biddingScheme>
-                     </ns1:parentBiddingStrategyConfigurations>
                   </ns1:biddingStrategyConfiguration>
                   <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
-                  <ns1:reviewAdvancedUrl>http://test.jp</ns1:reviewAdvancedUrl>
-                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                  <ns1:reviewTrackingUrl>http://test.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:reviewTrackingUrl>
+                 <ns1:advancedMobileUrl>http://mobile.yahoo.co.jp</ns1:advancedMobileUrl>
+                  <ns1:additionalAdvancedMobileUrls>
+                     <ns1:additionalAdvancedMobileUrl>
+                          <ns1:url>http://mobile.yahoo.co.jp/url1</ns1:url>
+                     </ns1:additionalAdvancedMobileUrl>
+                      <ns1:additionalAdvancedMobileUrl>
+                          <ns1:url>http://mobile.yahoo.co.jp/url2</ns1:url>
+                      </ns1:additionalAdvancedMobileUrl>
+                       <ns1:additionalAdvancedMobileUrl>
+                          <ns1:reviewUrl>http://mobile.yahoo.co.jp/url3</ns1:reviewUrl>
+                      </ns1:additionalAdvancedMobileUrl>
+                 </ns1:additionalAdvancedMobileUrls>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
                   <ns1:customParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
                     <ns1:parameters>
-                      <ns1:key>site</ns1:key>
-                      <ns1:value>yahoo</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id1</ns1:key>
-                      <ns1:value>1234</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id2</ns1:key>
-                      <ns1:value>a7h59A98yu</ns1:value>
-                    </ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
                   </ns1:customParameters>
-                  <ns1:reviewCustomParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
-                    <ns1:parameters>
-                      <ns1:key>site</ns1:key>
-                      <ns1:value>aaaa</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id1</ns1:key>
-                      <ns1:value>9999</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id2</ns1:key>
-                      <ns1:value>a7h59A98yu</ns1:value>
-                    </ns1:parameters>
-                  </ns1:reviewCustomParameters>
                   <ns1:advanced>TRUE</ns1:advanced>
                </ns1:adGroupCriterion>
             </ns1:values>
-<!-- BiddableAdGroupCriterion (Delete of Custom parameter) -->
             <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
@@ -595,14 +750,14 @@ Response Field
                      <ns1:criterionId>1000000002</ns1:criterionId>
                      <ns1:criterionTrackId>444444</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>キーワード2</ns1:text>
+                     <ns1:text>Keyword2</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
                   <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                   <ns1:biddingStrategyConfiguration>
                      <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>自動入札名1</ns1:biddingStrategyName>
+                     <ns1:biddingStrategyName>AutoBiddingName1</ns1:biddingStrategyName>
                      <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                      <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
                      <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -615,8 +770,8 @@ Response Field
                         <ns1:keywordMaxCpc>120</ns1:keywordMaxCpc>
                      </ns1:bid>
                      <ns1:parentBiddingStrategyConfigurations>
-                        <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
-                        <ns1:biddingStrategyName>自動入札名2</ns1:biddingStrategyName>
+                        <ns1:biddingStrategyId>1000000003</ns1:biddingStrategyId>
+                        <ns1:biddingStrategyName>AutoBiddingName2</ns1:biddingStrategyName>
                         <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                         <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
                         <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -625,25 +780,10 @@ Response Field
                      </ns1:parentBiddingStrategyConfigurations>
                   </ns1:biddingStrategyConfiguration>
                   <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
-                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
                   <ns1:reviewTrackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}</ns1:reviewTrackingUrl>
-                  <ns1:customParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
-                    <ns1:parameters>
-                      <ns1:key>site</ns1:key>
-                      <ns1:value>yahoo</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id1</ns1:key>
-                      <ns1:value>1234</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id2</ns1:key>
-                      <ns1:value>a7h59A98yu</ns1:value>
-                    </ns1:parameters>
-                  </ns1:customParameters>
-                  <ns1:reviewCustomParameters>
-                    <ns1:isRemove>TRUE</ns1:isRemove>
+                 <ns1:reviewCustomParameters>
+                     <ns1:isRemove>TRUE</ns1:isRemove>
                   </ns1:reviewCustomParameters>
                   <ns1:advanced>TRUE</ns1:advanced>
                </ns1:adGroupCriterion>
@@ -655,12 +795,12 @@ Response Field
 ```
 
 ## mutate (REMOVE)
-### Request
 Removes Ad group criteria.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Operations to do during checks on keywords to be added. | 
+| operations | Req | [AdGroupCriterionOperation](../data/AdGroupCriterionOperation.md) | Criteria of ad group for operation and process details. | 
 
 ##### Request Sample
 ```xml
@@ -711,19 +851,13 @@ Removes Ad group criteria.
 ```
 
 ### Response
-Response Field
-
 | Field | Data Type | Description | 
 |---|---|---|
 | rval | [AdGroupCriterionReturnValue](../data/AdGroupCriterionReturnValue.md) | Ad group criteria (without optional parts). |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://ss.yahooapis.jp/V6"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>AdGroupCriterionService</ns1:service>
@@ -736,8 +870,7 @@ Response Field
       <ns1:mutateResponse>
          <ns1:rval>
             <ns1:ListReturnValue.Type>AdGroupCriterionReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-<!-- BiddableAdGroupCriterion -->
+            <ns1:Operation.Type>REOVE</ns1:Operation.Type>
             <ns1:values>
                <ns1:operationSucceeded>true</ns1:operationSucceeded>
                <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
@@ -753,14 +886,14 @@ Response Field
                      <ns1:criterionId>1000000001</ns1:criterionId>
                      <ns1:criterionTrackId>333333</ns1:criterionTrackId>
                      <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>キーワード</ns1:text>
+                     <ns1:text>Keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:criterion>
                   <ns1:userStatus>ACTIVE</ns1:userStatus>
                   <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                   <ns1:biddingStrategyConfiguration>
                      <ns1:biddingStrategyId>1000000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>自動入札名1</ns1:biddingStrategyName>
+                     <ns1:biddingStrategyName>AutoBiddingName1</ns1:biddingStrategyName>
                      <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                      <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
                      <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -774,7 +907,7 @@ Response Field
                      </ns1:bid>
                      <ns1:parentBiddingStrategyConfigurations>
                         <ns1:biddingStrategyId>1000000002</ns1:biddingStrategyId>
-                        <ns1:biddingStrategyName>自動入札名2</ns1:biddingStrategyName>
+                        <ns1:biddingStrategyName>AutoBiddingName2</ns1:biddingStrategyName>
                         <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
                         <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
                         <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
@@ -782,48 +915,66 @@ Response Field
                         </ns1:biddingScheme>
                      </ns1:parentBiddingStrategyConfigurations>
                   </ns1:biddingStrategyConfiguration>
+                  <ns1:reviewAdvancedUrl>http://www.yahoo.co.jp</ns1:reviewAdvancedUrl>
+                  <ns1:reviewAdvancedMobileUrl>http://aaaa.jp/mb</ns1:reviewAdvancedMobileUrl>
+                  <ns1:reviewTrackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewTrackingUrl>
+                  <ns1:reviewCustomParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:reviewCustomParameters>
+                  <ns1:advanced>TRUE</ns1:advanced>
+               </ns1:adGroupCriterion>
+            </ns1:values>
+            <ns1:values>
+               <ns1:adGroupCriterion xsi:type="ns1:BiddableAdGroupCriterion">
+                  <ns1:campaignId>1000000001</ns1:campaignId>
+                  <ns1:adGroupId>1000000001</ns1:adGroupId>
+                  <ns1:criterionUse>BIDDABLE</ns1:criterionUse>
+                  <ns1:criterion xsi:type="ns1:Keyword">
+                     <ns1:criterionId>1000000002</ns1:criterionId>
+                     <ns1:criterionTrackId>22222</ns1:criterionTrackId>
+                     <ns1:type>KEYWORD</ns1:type>
+                     <ns1:text>Keyword</ns1:text>
+                     <ns1:matchType>PHRASE</ns1:matchType>
+                  </ns1:criterion>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:bid>
+                        <ns1:maxCpc>120</ns1:maxCpc>
+                     </ns1:bid>
+                  </ns1:biddingStrategyConfiguration>
                   <ns1:advancedUrl>http://www.yahoo.co.jp</ns1:advancedUrl>
-                  <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
+                  <ns1:advancedMobileUrl>http://mobile.yahoo.co.jp</ns1:advancedMobileUrl>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
                   <ns1:customParameters>
-                    <ns1:isRemove>FALSE</ns1:isRemove>
                     <ns1:parameters>
-                      <ns1:key>site</ns1:key>
-                      <ns1:value>yahoo</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id1</ns1:key>
-                      <ns1:value>1234</ns1:value>
-                    </ns1:parameters>
-                    <ns1:parameters>
-                      <ns1:key>id2</ns1:key>
-                      <ns1:value>a7h59A98yu</ns1:value>
-                    </ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
                   </ns1:customParameters>
                   <ns1:advanced>TRUE</ns1:advanced>
                </ns1:adGroupCriterion>
             </ns1:values>
-<!-- NegativeAdGroupCriterion -->
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:adGroupCriterion xsi:type="ns1:NegativeAdGroupCriterion">
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:campaignId>1000000001</ns1:campaignId>
-                  <ns1:campaignTrackId>111111</ns1:campaignTrackId>
-                  <ns1:campaignName>campaign name</ns1:campaignName>
-                  <ns1:adGroupId>1000000001</ns1:adGroupId>
-                  <ns1:adGroupTrackId>222222</ns1:adGroupTrackId>
-                  <ns1:adGroupName>ad group name</ns1:adGroupName>
-                  <ns1:criterionUse>NEGATIVE</ns1:criterionUse>
-                  <ns1:criterion xsi:type="ns1:Keyword">
-                     <ns1:criterionId>1000000002</ns1:criterionId>
-                     <ns1:criterionTrackId>444444</ns1:criterionTrackId>
-                     <ns1:type>KEYWORD</ns1:type>
-                     <ns1:text>対象外キーワード</ns1:text>
-                     <ns1:matchType>EXACT</ns1:matchType>
-                  </ns1:criterion>
-               </ns1:adGroupCriterion>
-            </ns1:values>
-         </ns1:rval>
+        </ns1:rval>
       </ns1:mutateResponse>
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

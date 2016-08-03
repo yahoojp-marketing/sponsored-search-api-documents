@@ -10,6 +10,6 @@ CampaignCriterionOperationオブジェクトは、操作の対象となるキャ
 | CampaignCriterionOperation||||
 | accountId| xsd:long| アカウントIDです。| Req |
 | campaignId| xsd:long| キャンペーンIDです。| Req |
-| criterionUse| enum <a href="./CriterionUse.md">CriterionUse</a>| クライテリアを単価設定可能にするか除外にするかを選択します。| Req |
+| criterionUse| enum <a href="./CampaignCriterionUse.md">CampaignCriterionUse</a>| クライテリアを単価設定可能にするか除外にするかを選択します。| Req |
 | operand[]| <a href="./CampaignCriterion.md">CampaignCriterion</a><br>inherited <a href="./NegativeCampaignCriterion.md">NegativeCampaignCriterion</a>| 処理の対象となるキャンペーンのクライテリア情報が含まれます。| Req |
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

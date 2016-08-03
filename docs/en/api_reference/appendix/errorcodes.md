@@ -98,7 +98,6 @@ All services.
 20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed. 
 20410006 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.
 20410007 | NO ACCOUNT FOUND | One of the account IDs indicated in the request was not found. <br>Please confirm your account IDs.
-20410008 | CANNOT GET BALANCE ACCOUNT | This operation is not applicable for account which choose payment type is invoice.
 20410009 | GET BALANCE FAILED | The operation failed to get account balance.
 
 ##### Service
@@ -122,13 +121,19 @@ All services.
 20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed. 
 20410006 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.
 20410007 | NO ACCOUNT FOUND | One of the account IDs indicated in the request was not found. <br>Please confirm your account IDs
-20410008 | CANNOT GET BALANCE ACCOUNT | This operation is not applicable for account which choose payment type is invoice.
 20410009 | GET BALANCE FAILED | The operation failed to get account balance.
 
 
 #### Campaign Management error
 ##### Service
-[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br> [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br> [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
+[AccountSharedService](/docs/en/api_reference/services/AccountSharedService.md), <br>
+[AdGroupAdService,](/docs/en/api_reference/services/AdGroupAdService.md), <br> 
+[AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md), <br>
+[CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> 
+[CampaignSharedSetService](/docs/en/api_reference/services/CampaignSharedSetService.md), <br>
+[CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br> 
+[SharedCriterionService](/docs/en/api_reference/services/SharedCriterionService.md), <br>
+
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
@@ -176,6 +181,7 @@ All services.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
 211003 | Domain does not match with DisplayURL.  | Display URL and Landing Page URL (including mobile) domain does not match.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br>- Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.
+211005 | SharedList is used. | Negative keyword to be removed has been made setup to campaign.<br>(Negative keyword list setup to campaign cannot be removed.)
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
@@ -308,7 +314,7 @@ All services.
 
 #### Forecasting error
 ##### Service
-[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md), <br> [TrafficEstimatorService](/docs/en/api_reference/services/TrafficEstimatorService.md), <br> [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
+[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md), <br>  [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------

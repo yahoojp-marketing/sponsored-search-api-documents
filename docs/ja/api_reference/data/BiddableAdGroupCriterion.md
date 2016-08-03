@@ -90,7 +90,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
+  <td>enum<br><a href="./AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
   <td>クライテリアを単価設定可能にするか 除外にするかを選択します。</td>
   <td>yes</td>
   <td>-</td>
@@ -113,7 +113,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>userStatus</td>
-  <td>enum <a href="./UserStatus.md">UserStatus</a></td>
+  <td>enum<br><a href="./UserStatus.md">UserStatus</a></td>
   <td>ユーザーにより設定される広告の掲載状況です。<br>※指定しない場合は、フィルタ条件にすべての 掲載状況が含まれます。</td>
   <td>yes</td>
   <td>-</td>
@@ -123,7 +123,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>approvalStatus</td>
-  <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
+  <td>enum<br><a href="./ApprovalStatus.md">ApprovalStatus</a></td>
   <td>審査ステータスです。</td>
   <td>yes</td>
   <td>-</td>
@@ -163,7 +163,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
+  <td><a href="./AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
   <td>入札設定です。<br>※現在有効な入札設定がレスポンスされます。<br>※親エンティティの有効な入札設定が 適用されます。</td>
   <td>yes</td>
   <td>-</td>
@@ -173,7 +173,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>biddingStrategyFailedReason</td>
-  <td>enum <a href="../data/BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
+  <td>enum<br><a href="../data/BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
   <td>自動入札設定に失敗した理由です。<br>※失敗時のみレスポンスとして表示されます。</td>
   <td>yes</td>
   <td>-</td>
@@ -183,7 +183,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./BiddingStrategy_AdGroupCriterion.md">BiddingStrategy</a></td>
+  <td><a href="./AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
   <td>登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスとして表示されます。</td>
   <td>yes</td>
   <td>-</td>
@@ -209,6 +209,16 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td>additionalAdvancedUrls</td>
+  <td><a href="./AdGroupCriterionAdditionalAdvancedUrls.md">AdGroupCriterionAdditionalAdvancedUrls</a></td>
+  <td>最終リンク先URLの追加設定です。<br>設定にはadvancedUrlの設定が必要です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
  <td>advancedMobileUrl</td>
   <td>xsd:string</td>
   <td>カスタムURL（スマートフォン）です。<br>※空で設定すると、既存のカスタムURL （スマートフォン）は削除されます。</td>
@@ -227,6 +237,17 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td>additionalAdvancedMobileUrls</td>
+  <td><a href="./AdGroupCriterionAdditionalAdvancedMobileUrls.md">AdGroupCriterionAdditionalAdvancedMobileUrls</a></td>
+  <td>スマートフォン用URLの追加設定です。<br>設定にはAdvancedMobileUrlsの設定が必要です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+ <tr>
  <td>trackingUrl</td>
   <td>xsd:string</td>
   <td>トラッキングURLです。<br>※空で設定すると、既存のトラッキングURLは 削除されます。</td>

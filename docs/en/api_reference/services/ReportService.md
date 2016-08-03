@@ -5,8 +5,8 @@ And it provides the operation to download URL of the reports.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/ReportService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/ReportService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/ReportService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -38,18 +38,18 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="feedFolderName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="placeholderType" type="tns:FeedFolderPlaceholderType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="feedAttribute" type="tns:FeedAttribute"/>
-          <element maxOccurs="1" minOccurs="0" name="placeholderType" type="tns:PlaceholderType"/>
         </sequence>
       </complexType>
       <complexType name="FeedAttribute">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="feedAttributeId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="feedAttributeName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="placeholderField" type="tns:PlaceholderField"/>
+          <element maxOccurs="1" minOccurs="0" name="placeholderField" type="tns:FeedFolderPlaceholderField"/>
         </sequence>
       </complexType>
-      <simpleType name="PlaceholderField">
+      <simpleType name="FeedFolderPlaceholderField">
         <restriction base="xsd:string">
           <enumeration value="AD_CUSTOMIZER_INTEGER"/>
           <enumeration value="AD_CUSTOMIZER_PRICE"/>
@@ -57,7 +57,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <enumeration value="AD_CUSTOMIZER_STRING"/>
         </restriction>
       </simpleType>
-      <simpleType name="PlaceholderType">
+      <simpleType name="FeedFolderPlaceholderType">
         <restriction base="xsd:string">
           <enumeration value="AD_CUSTOMIZER"/>
         </restriction>
@@ -256,7 +256,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="FeedFolderService">
     <wsdl:port binding="tns:FeedFolderServiceSoapBinding" name="FeedFolderService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/FeedFolderService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/FeedFolderService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

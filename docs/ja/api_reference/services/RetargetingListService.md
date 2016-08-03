@@ -4,8 +4,8 @@ RetargetingListServiceでは、ターゲットリストに関する情報の取�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/RetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

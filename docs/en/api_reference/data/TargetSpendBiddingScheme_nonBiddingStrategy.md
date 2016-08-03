@@ -1,6 +1,6 @@
 # TargetSpendBiddingScheme [Non-BiddingStrategyService]
-TargetSpendBiddingScheme object displays Auto Bidding setting for Maximize Clicks. <br>
-(This is for services other than BiddingStrategyService)
+TargetSpendBiddingScheme object describes auto bidding setting for Maximize Clicks. <br>
+(Object for services other than BiddingStrategyService)
 
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
@@ -37,7 +37,17 @@ TargetSpendBiddingScheme object displays Auto Bidding setting for Maximize Click
   <tr>
   <td>bidCeiling</td>
   <td>xsd:long</td>
-  <td>Limit of bid (CPC).<br>* Limit range: 0 - 50000<br>* There will be no setting limit, if set as "0"./td>
+  <td>Bid amount limit.<br>*Limit range: 0 - 50000 <br>*If "0" is set, no bid limit.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>spendTarget</td>
+  <td>xsd:long</td>
+  <td>Limit of Target Budget</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -87,7 +87,9 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="type" type="tns:AdType"/>
           <element maxOccurs="1" minOccurs="0" name="advancedUrl" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="additionalAdvancedUrls" type="tns:AdGroupAdAdditionalAdvancedUrls"/>
           <element maxOccurs="1" minOccurs="0" name="advancedMobileUrl" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="additionalAdvancedMobileUrls" type="tns:AdGroupAdAdditionalAdvancedMobileUrls"/>
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
           <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
@@ -95,6 +97,18 @@
           <element maxOccurs="1" minOccurs="0" name="displayUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="headline" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="AdGroupAdAdditionalAdvancedUrls">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="advancedUrl" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="AdGroupAdAdditionalAdvancedMobileUrls">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="advancedMobileUrl" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="CustomParameters">
@@ -372,7 +386,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

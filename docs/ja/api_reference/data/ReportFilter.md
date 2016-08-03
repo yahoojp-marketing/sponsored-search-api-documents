@@ -35,7 +35,7 @@ ReportFilterオブジェクトは、レポートのフィルタ条件を表し�
   <td>-</td>
   <td>-</td>
  </tr>
-  <td>value[0...n]</td>
+  <td>value[0...200]</td>
   <td>xsd:string</td>
   <td>表示項目の条件値です。<br>複数する場合は、カンマ 区切り（,）で指定します。</td>
   <td>yes</td>

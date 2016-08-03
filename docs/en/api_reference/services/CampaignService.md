@@ -1,29 +1,29 @@
 # CampaignService
-CampaignService is to get, add, update, or delete campaigns.
+CampaignService is to get, add, update, or remove campaigns.
 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/CampaignService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/CampaignService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6
 
 #### Overview
-Get, add, update, or delete campaigns.
+Get, add, update, or remove campaigns.
 
 #### Operation
 Explains the operation which provides at CampaignService.
 
 ## get
-
-### Request
 Gets information related to campaigns.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| selector | Req | [CampaignSelector](../data/CampaignSelector.md) | Campaign information relate to the operations to apply. | 
+| selector | Req | [CampaignSelector](../data/CampaignSelector.md) | The campaign selector for operations. | 
 
 ##### Request Sample
 ```xml
@@ -70,7 +70,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignPage](../data/CampaignPage.md) | The acquired entry related campaign. | 
+| rval | [CampaignPage](../data/CampaignPage.md) | Entry of acquired campaign. | 
 
 ##### Response Sample
 ```xml
@@ -428,12 +428,12 @@ Response Fields
 ```
 
 ## mutate (ADD)
-Create the information related to campaigns.
+Create the campaign information.
 
 ### Request
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | Operation elements for campaign information. | 
+| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | The Campaign selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -541,7 +541,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container for campaign information including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign information which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -673,9 +673,9 @@ Response Fields
 ### Request
 Updates the information related to campaigns.
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | Operation elements for campaign information. | 
+| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | The Campaign selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -777,7 +777,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container for campaign information including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -939,11 +939,11 @@ Response Fields
 
 ## mutate (REMOVE)
 ### Request
-Delete the inforamtion related to campaigns.
+Removes the inforamtion related to campaigns.
 
-| Fileld | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | Operation elements for campaign information. | 
+| operations | Req | [CampaignOperation](../data/CampaignOperation.md) | The Campaign selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -982,7 +982,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container for campaign information including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign which includes operation results. | 
 
 ##### Response Sample
 ```xml

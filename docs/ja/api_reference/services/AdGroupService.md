@@ -4,8 +4,8 @@ AdGroupServiceでは、広告グループに関する情報の取得および追
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6

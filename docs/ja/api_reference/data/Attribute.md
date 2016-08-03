@@ -3,7 +3,6 @@ Attributeオブジェクトは、見積もりの結果の属性を表します�
 
 ### Service
 + [TargetingIdeaService](../services/TargetingIdeaService.md)
-+ [TrafficEstimatorService](../services/TrafficEstimatorService.md)
 
 <table>
  <tr>

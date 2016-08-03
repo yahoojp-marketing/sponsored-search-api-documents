@@ -1,26 +1,26 @@
 # AdGroupService
-Use this service to get, add, update, or delete Ad group.
+Use this service to get, add, update, or remove Ad group.
 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V6.0/AdGroupService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V6.0/AdGroupService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6
 
 #### Overview
-Use this service to get, add, update, or delete Ad group.
+Use this service to get, add, update, or remove Ad group.
 
 #### Operation
 Explains the operation which provides at AdGroupService.
 
 ## get
-### Request
 Gets Ad group information.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | selector | Req | [AdGroupSelector](../data/AdGroupSelector.md) | Ad Group Selector. | 
 
@@ -60,7 +60,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupPage](../data/AdGroupPage.md) | List of Ad groups identified by the AdGroupSelector. | 
+| rval | [AdGroupPage](../data/AdGroupPage.md) | Entry of acquired Ad group. | 
 
 ##### Response Sample
 ```xml
@@ -354,12 +354,13 @@ Response Fields
 ```
 
 ## mutate (ADD)
-### Request
 Create Ad group information.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same Ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -421,7 +422,7 @@ Response Field
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The created Ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | This object is a container for Ad group which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -500,12 +501,13 @@ Response Field
 ```
 
 ## mutate (SET)
-### Request
 Updates Ad group information.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same Ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -569,7 +571,7 @@ Response Field
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The updated Ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | This object is a container for Ad group which includes operation results. | 
 
 ##### Response Sample
 ```xml
@@ -664,12 +666,13 @@ Response Field
 ```
 
 ## mutate (REMOVE)
-### Request
-Deletes Ad group information.
+Removes Ad group information.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | List of unique operations. <br>The same Ad group cannot be specified in more than one operation. | 
+| operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
@@ -711,7 +714,7 @@ Response Fields
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | The deleted Ad groups. | 
+| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | This object is a container for Ad group which includes operation results. | 
 
 ##### Response Sample
 ```xml

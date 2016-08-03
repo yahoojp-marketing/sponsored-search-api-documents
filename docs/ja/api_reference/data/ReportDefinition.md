@@ -107,7 +107,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>isTemplate</td>
   <td>enum <a href="./ReportIsTemplate.md">ReportIsTemplate</a></td>
-  <td>テンプレートの有無を選択します。</td>
+  <td>テンプレートの有無を選択します。<br>※Default：FALSE</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -117,7 +117,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>intervalType</td>
   <td>enum <a href="./ReportIntervalType.md">ReportIntervalType</a></td>
-  <td>定期レポート作成タイミング設定です。</td>
+  <td>定期レポート作成タイミング設定です。<br>※Default：ONETIME</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -137,7 +137,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>format</td>
   <td>enum <a href="./ReportDownloadFormat.md">ReportDownloadFormat</a></td>
-  <td>定義されたダウンロードレポートのファイル形式です。</td>
+  <td>定義されたダウンロードレポートのファイル形式です。<br>※Default：CSV</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -147,7 +147,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>encode</td>
   <td>enum <a href="./ReportDownloadEncode.md">ReportDownloadEncode</a></td>
-  <td> 定義されたダウンロードレポートの文字コードです。</td>
+  <td> 定義されたダウンロードレポートの文字コードです。<br>※Default：UTF-8</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -157,7 +157,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>language</td>
   <td>enum <a href="./ReportLanguage.md">ReportLanguage</a></td>
-  <td>レポート定義の出力言語です。</td>
+  <td>レポート定義の出力言語です。<br>※Default：JA</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -167,7 +167,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>compress</td>
   <td>enum <a href="./ReportCompressType.md">ReportCompressType</a></td>
-  <td>レポート定義の圧縮形式での出力です。</td>
+  <td>レポート定義の圧縮形式での出力です。<br>※Default：NONE</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
