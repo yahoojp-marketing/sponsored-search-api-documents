@@ -1,6 +1,5 @@
 # Release Note
 Sponsored Search API Ver.6.1<br>
-*System release of this version is scheduled in late August.
 
 ## Release version
 6.1(WSDL version : 6.1.0)
