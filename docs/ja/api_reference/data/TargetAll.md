@@ -2,7 +2,6 @@
 TargetAllは、全ユーザを配信対象設定です。
 
 ### Service
-+ [AdGroupRetargetingListService](../services/AdGroupRetargetingListService.md)
 + [AdGroupService](../services/AdGroupService.md)
 
 | 値 | データ型 | 説明 | 

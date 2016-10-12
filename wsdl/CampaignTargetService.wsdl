@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -40,6 +40,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <element maxOccurs="unbounded" minOccurs="0" name="targetIds" type="xsd:string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="targetTypes" type="tns:TargetType"/>
           <element maxOccurs="1" minOccurs="0" name="excludedType" type="tns:ExcludedType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="platformTypes" type="tns:PlatformType"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -191,6 +192,8 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <simpleType name="PlatformType">
         <restriction base="xsd:string">
           <enumeration value="SMART_PHONE"/>
+          <enumeration value="TABLET"/>
+          <enumeration value="DESKTOP"/>
         </restriction>
       </simpleType>
       <complexType name="CampaignTargetOperation">
@@ -340,7 +343,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="CampaignTargetService">
     <wsdl:port binding="tns:CampaignTargetServiceSoapBinding" name="CampaignTargetService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/CampaignTargetService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/CampaignTargetService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

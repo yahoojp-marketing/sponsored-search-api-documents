@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -122,7 +122,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="LocationService">
     <wsdl:port binding="tns:LocationServiceSoapBinding" name="LocationService">
-      <wsdlsoap:address location="https://ss.yahooapis.jp/services/V6.1/LocationService"/>
+      <wsdlsoap:address location="https://ss.yahooapis.jp/services/V6.2/LocationService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

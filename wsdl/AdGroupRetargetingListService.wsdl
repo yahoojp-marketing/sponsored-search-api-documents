@@ -13,7 +13,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -44,7 +44,6 @@
           <element maxOccurs="1" minOccurs="1" name="criterionTargetList" type="tns:CriterionTargetList" />
           <element maxOccurs="1" minOccurs="0" name="excludedType" type="tns:ExcludedType" />
           <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double" />
-          <element maxOccurs="1" minOccurs="0" name="targetAll" type="tns:TargetAll" />
         </sequence>
       </complexType>
       <complexType name="CriterionTargetList">
@@ -57,12 +56,6 @@
         <restriction base="xsd:string">
           <enumeration value="INCLUDED" />
           <enumeration value="EXCLUDED" />
-        </restriction>
-      </simpleType>
-      <simpleType name="TargetAll">
-        <restriction base="xsd:string">
-          <enumeration value="ACTIVE" />
-          <enumeration value="DEACTIVE" />
         </restriction>
       </simpleType>
       <complexType name="AdGroupRetargetingListSelector">
@@ -265,7 +258,7 @@
   <wsdl:service name="AdGroupRetargetingListService">
     <wsdl:port binding="tns:AdGroupRetargetingListServiceSoapBinding" name="AdGroupRetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/AdGroupRetargetingListService" />
+        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/AdGroupRetargetingListService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

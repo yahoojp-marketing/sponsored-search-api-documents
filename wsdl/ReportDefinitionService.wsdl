@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -63,6 +63,8 @@
           <element maxOccurs="1" minOccurs="0" name="encode" type="tns:ReportDownloadEncode" />
           <element maxOccurs="1" minOccurs="0" name="language" type="tns:ReportLanguage" />
           <element maxOccurs="1" minOccurs="0" name="compress" type="tns:ReportCompressType" />
+          <element maxOccurs="1" minOccurs="0" name="includeZeroImpressions" type="tns:ReportIncludeZeroImpressions"/>
+          <element maxOccurs="1" minOccurs="0" name="includeDeleted" type="tns:ReportIncludeDeleted"/>
         </sequence>
       </complexType>
       <complexType name="ReportFieldAttribute">
@@ -107,7 +109,6 @@
           <enumeration value="FEED_ITEM" />
           <enumeration value="GEO_TARGET" />
           <enumeration value="SCHEDULE_TARGET" />
-          <enumeration value="DEVICE_TARGET" />
           <enumeration value="BID_STRATEGY" />
           <enumeration value="AD_CUSTOMIZERS" />
           <enumeration value="TARGET_LIST" />
@@ -192,6 +193,18 @@
         <restriction base="xsd:string">
           <enumeration value="NONE" />
           <enumeration value="ZIP" />
+        </restriction>
+      </simpleType>
+      <simpleType name="ReportIncludeZeroImpressions">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE" />
+          <enumeration value="FALSE" />
+        </restriction>
+      </simpleType>
+      <simpleType name="ReportIncludeDeleted">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE" />
+          <enumeration value="FALSE" />
         </restriction>
       </simpleType>
       <complexType name="ReportDefinitionPage">
@@ -423,7 +436,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportDefinitionService">
     <wsdl:port binding="tns:ReportDefinitionServiceSoapBinding" name="ReportDefinitionService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/ReportDefinitionService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/ReportDefinitionService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

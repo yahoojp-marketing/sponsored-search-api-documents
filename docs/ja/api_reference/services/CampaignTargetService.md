@@ -36,25 +36,22 @@ CampaignTargetServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope
- xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6" 
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:license>9999-9999-9999-9999</ns1:license>
+         <ns1:apiAccountId>8888-8888-8888-8888</ns1:apiAccountId>
+         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:get>
          <ns1:selector>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:campaignIds>00000003</ns1:campaignIds>
-            <ns1:campaignIds>00000004</ns1:campaignIds>
-            <ns1:campaignIds>00000005</ns1:campaignIds>
-            <ns1:targetIds>JP-0001-0010</ns1:targetIds>
+            <ns1:accountId>14201</ns1:accountId>
+            <ns1:campaignIds>7261</ns1:campaignIds>
+            <ns1:campaignIds>7262</ns1:campaignIds>
+            <ns1:campaignIds>7263</ns1:campaignIds>
+            <ns1:targetIds>JP011112222</ns1:targetIds>
             <ns1:targetIds>011112222</ns1:targetIds>
             <ns1:targetIds>911112222</ns1:targetIds>
             <ns1:targetTypes>SCHEDULE</ns1:targetTypes>
@@ -87,20 +84,38 @@ CampaignTargetServiceで提供される操作を説明します。
         <ns1:ResponseHeader>
             <ns1:service>CampaignTargetService</ns1:service>
             <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
             <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
         </ns1:ResponseHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-        <ns1:getResponse>
+        <ns1:mutateResponse>
             <ns1:rval>
-                <ns1:Page.Type>CampaignTargetPage</ns1:Page.Type>
-                <ns1:totalNumEntries>4</ns1:totalNumEntries>
-                <ns1:values>
+                <ns1:ListReturnValue.Type>CampaignTargetReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>ADD</ns1:Operation.Type>
+               <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignTarget>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7261</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
+                        <ns1:target xsi:type="ns1:ScheduleTarget">
+                           <ns1:targetId>011112222</ns1:targetId>
+                           <ns1:targetType>SCHEDULE</ns1:targetType>
+                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
+                           <ns1:startHour>21</ns1:startHour>
+                           <ns1:startMinute>ZERO</ns1:startMinute>
+                           <ns1:endHour>24</ns1:endHour>
+                           <ns1:endMinute>ZERO</ns1:endMinute>
+                        </ns1:target>
+                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
+                    </ns1:campaignTarget>
+                </ns1:values>
+                 <ns1:values>
                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
                   <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
+                     <ns1:accountId>14201</ns1:accountId>
+                     <ns1:campaignId>7261</ns1:campaignId>
                      <ns1:campaignName>Sample2</ns1:campaignName>
                      <ns1:target xsi:type="ns1:LocationTarget">
                      <ns1:targetId>JP-0001-0010</ns1:targetId>
@@ -114,48 +129,64 @@ CampaignTargetServiceで提供される操作を説明します。
                      </ns1:target>
                      <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
                   </ns1:campaignTarget>
-                </ns1:values>
+                </ns1:values>              
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
-                        <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetType>SCHEDULE</ns1:targetType>
-                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                           <ns1:startHour>21</ns1:startHour>
-                           <ns1:startMinute>ZERO</ns1:startMinute>
-                           <ns1:endHour>24</ns1:endHour>
-                           <ns1:endMinute>ZERO</ns1:endMinute>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
-                        <ns1:target xsi:type="ns1:PlatformTarget">
-                            <ns1:targetType>PLATFORM</ns1:targetType>
-                            <ns1:platformType>SMART_PHONE</ns1:platformType>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000005</ns1:campaignId>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:NetworkTarget">
+                            <ns1:targetId>811112222</ns1:targetId>
                             <ns1:targetType>NETWORK</ns1:targetType>
                             <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
                         </ns1:target>
                     </ns1:campaignTarget>
                 </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignTarget>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
+                        <ns1:target xsi:type="ns1:PlatformTarget">
+                            <ns1:targetId>811112222</ns1:targetId>
+                            <ns1:targetType>PLATFORM</ns1:targetType>
+                            <ns1:platformType>SMART_PHONE</ns1:platformType>
+                        </ns1:target>
+                        <ns1:bidMultiplier>3.0</ns1:bidMultiplier>
+                    </ns1:campaignTarget>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignTarget>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
+                        <ns1:target xsi:type="ns1:PlatformTarget">
+                            <ns1:targetId>811112223</ns1:targetId>
+                            <ns1:targetType>PLATFORM</ns1:targetType>
+                            <ns1:platformType>TABLET</ns1:platformType>
+                        </ns1:target>
+                        <ns1:bidMultiplier>2.0</ns1:bidMultiplier>
+                    </ns1:campaignTarget>
+                </ns1:values>
+                 <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignTarget>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
+                        <ns1:target xsi:type="ns1:PlatformTarget">
+                            <ns1:targetId>811112223</ns1:targetId>
+                            <ns1:targetType>PLATFORM</ns1:targetType>
+                            <ns1:platformType>DESKTOP</ns1:platformType>
+                        </ns1:target>
+                        <ns1:bidMultiplier>0</ns1:bidMultiplier>
+                    </ns1:campaignTarget>
+                </ns1:values>
             </ns1:rval>
-        </ns1:getResponse>
+        </ns1:mutateResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -170,25 +201,22 @@ CampaignTargetServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V6" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:license>9999-9999-9999-9999</ns1:license>
+         <ns1:apiAccountId>8888-8888-8888-8888</ns1:apiAccountId>
+         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
+            <ns1:accountId>14201</ns1:accountId>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7261</ns1:campaignId>
                <ns1:target xsi:type="ns1:ScheduleTarget">
                   <ns1:targetType>SCHEDULE</ns1:targetType>
                   <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
@@ -200,27 +228,18 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <ns1:bidMultiplier>1</ns1:bidMultiplier>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7261</ns1:campaignId>
                <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
+                  <ns1:targetId>JP011112222</ns1:targetId>
                   <ns1:targetType>LOCATION</ns1:targetType>
                   <ns1:excludedType>INCLUDED</ns1:excludedType>
                </ns1:target>
                <ns1:bidMultiplier>1</ns1:bidMultiplier>
             </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000004</ns1:campaignId>
-               <ns1:target xsi:type="ns1:PlatformTarget">
-                  <ns1:targetType>PLATFORM</ns1:targetType>
-                  <ns1:platformType>SMART_PHONE</ns1:platformType>
-               </ns1:target>
-               <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000005</ns1:campaignId>
+           <ns1:operand>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7263</ns1:campaignId>
                <ns1:target xsi:type="ns1:NetworkTarget">
                   <ns1:targetType>NETWORK</ns1:targetType>
                   <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
@@ -260,8 +279,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7261</ns1:campaignId>
                         <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:ScheduleTarget">
                            <ns1:targetId>011112222</ns1:targetId>
@@ -278,8 +297,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                  <ns1:values>
                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
                   <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
+                     <ns1:accountId>14201</ns1:accountId>
+                     <ns1:campaignId>7261</ns1:campaignId>
                      <ns1:campaignName>Sample2</ns1:campaignName>
                      <ns1:target xsi:type="ns1:LocationTarget">
                      <ns1:targetId>JP-0001-0010</ns1:targetId>
@@ -293,15 +312,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                      </ns1:target>
                      <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
                   </ns1:campaignTarget>
-                </ns1:values>                
+                </ns1:values>              
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
                         <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>00000010</ns1:targetId>
+                            <ns1:targetId>811112222</ns1:targetId>
                             <ns1:targetType>NETWORK</ns1:targetType>
                             <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
                         </ns1:target>
@@ -323,50 +342,73 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 | operations | ○ | [CampaignTargetOperation](../data/CampaignTargetOperation.md) | 操作の対象とするキャンペーンのターゲティング設定です。 | 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
- xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6" 
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:license>9999-9999-9999-9999</ns1:license>
+         <ns1:apiAccountId>8888-8888-8888-8888</ns1:apiAccountId>
+         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
+            <ns1:accountId>14201</ns1:accountId>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7264</ns1:campaignId>
                <ns1:target xsi:type="ns1:ScheduleTarget">
-                  <ns1:targetId>011112222</ns1:targetId>
+                  <ns1:targetId>00124534</ns1:targetId>
                   <ns1:targetType>SCHEDULE</ns1:targetType>
                </ns1:target>
                <ns1:bidMultiplier>1.5</ns1:bidMultiplier>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7264</ns1:campaignId>
                <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
+                  <ns1:targetId>JP011112222</ns1:targetId>
                   <ns1:targetType>LOCATION</ns1:targetType>
                </ns1:target>
                <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7264</ns1:campaignId>
                <ns1:target xsi:type="ns1:PlatformTarget">
                   <ns1:targetId>0124534</ns1:targetId>
                   <ns1:targetType>PLATFORM</ns1:targetType>
                </ns1:target>
                <ns1:bidMultiplier>3</ns1:bidMultiplier>
             </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7262</ns1:campaignId>
+               <ns1:target xsi:type="ns1:PlatformTarget">
+                  <ns1:targetType>PLATFORM</ns1:targetType>
+                  <ns1:platformType>SMART_PHONE</ns1:platformType>
+               </ns1:target>
+               <ns1:bidMultiplier>3.0</ns1:bidMultiplier>
+            </ns1:operand>
+          <ns1:operand>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7262</ns1:campaignId>
+               <ns1:target xsi:type="ns1:PlatformTarget">
+                  <ns1:targetType>PLATFORM</ns1:targetType>
+                  <ns1:platformType>TABLET</ns1:platformType>
+               </ns1:target>
+               <ns1:bidMultiplier>2.0</ns1:bidMultiplier>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7262</ns1:campaignId>
+               <ns1:target xsi:type="ns1:PlatformTarget">
+                  <ns1:targetType>PLATFORM</ns1:targetType>
+                  <ns1:platformType>DESKTOP</ns1:platformType>
+               </ns1:target>
+               <ns1:bidMultiplier>0</ns1:bidMultiplier>
+            </ns1:operand>          
          </ns1:operations>
       </ns1:mutate>
    </soapenv:Body>
@@ -401,11 +443,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7261</ns1:campaignId>
                         <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>00000011</ns1:targetId>
+                           <ns1:targetId>011112222</ns1:targetId>
                            <ns1:targetType>SCHEDULE</ns1:targetType>
                            <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
                            <ns1:startHour>21</ns1:startHour>
@@ -419,8 +461,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                  <ns1:values>
                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
                   <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
+                     <ns1:accountId>14201</ns1:accountId>
+                     <ns1:campaignId>7261</ns1:campaignId>
                      <ns1:campaignName>Sample2</ns1:campaignName>
                      <ns1:target xsi:type="ns1:LocationTarget">
                      <ns1:targetId>JP-0001-0010</ns1:targetId>
@@ -434,7 +476,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                      </ns1:target>
                      <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
                   </ns1:campaignTarget>
-                </ns1:values>                
+                </ns1:values>              
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
@@ -442,10 +484,24 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                         <ns1:campaignId>7262</ns1:campaignId>
                         <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>00000012</ns1:targetId>
+                            <ns1:targetId>811112222</ns1:targetId>
                             <ns1:targetType>NETWORK</ns1:targetType>
                             <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
                         </ns1:target>
+                    </ns1:campaignTarget>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaignTarget>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7262</ns1:campaignId>
+                        <ns1:campaignName>Sample</ns1:campaignName>
+                        <ns1:target xsi:type="ns1:PlatformTarget">
+                            <ns1:targetId>811112222</ns1:targetId>
+                            <ns1:targetType>PLATFORM</ns1:targetType>
+                            <ns1:platformType>SMART_PHONE</ns1:platformType>
+                        </ns1:target>
+                        <ns1:bidMultiplier>3.0</ns1:bidMultiplier>
                     </ns1:campaignTarget>
                 </ns1:values>
             </ns1:rval>
@@ -463,44 +519,33 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
- xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6" 
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:license>9999-9999-9999-9999</ns1:license>
+         <ns1:apiAccountId>8888-8888-8888-8888</ns1:apiAccountId>
+         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
       </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
       <ns1:mutate>
          <ns1:operations>
             <ns1:operator>REMOVE</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
+            <ns1:accountId>14201</ns1:accountId>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7261</ns1:campaignId>
                <ns1:target xsi:type="ns1:ScheduleTarget">
                   <ns1:targetId>011112222</ns1:targetId>
                   <ns1:targetType>SCHEDULE</ns1:targetType>
                </ns1:target>
             </ns1:operand>
             <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
+               <ns1:accountId>14201</ns1:accountId>
+               <ns1:campaignId>7261</ns1:campaignId>
                <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
+                  <ns1:targetId>JP011112222</ns1:targetId>
                   <ns1:targetType>LOCATION</ns1:targetType>
-               </ns1:target>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000004</ns1:campaignId>
-               <ns1:target xsi:type="ns1:NetworkTarget">
-                  <ns1:targetId>811112222</ns1:targetId>
-                  <ns1:targetType>NETWORK</ns1:targetType>
                </ns1:target>
             </ns1:operand>
          </ns1:operations>
@@ -537,11 +582,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
+                        <ns1:accountId>14201</ns1:accountId>
+                        <ns1:campaignId>7261</ns1:campaignId>
                         <ns1:campaignName>Sample</ns1:campaignName>
                         <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>00000010</ns1:targetId>
+                           <ns1:targetId>011112222</ns1:targetId>
                            <ns1:targetType>SCHEDULE</ns1:targetType>
                            <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
                            <ns1:startHour>21</ns1:startHour>
@@ -555,8 +600,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                  <ns1:values>
                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
                   <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
+                     <ns1:accountId>14201</ns1:accountId>
+                     <ns1:campaignId>7261</ns1:campaignId>
                      <ns1:campaignName>Sample2</ns1:campaignName>
                      <ns1:target xsi:type="ns1:LocationTarget">
                      <ns1:targetId>JP-0001-0010</ns1:targetId>
@@ -570,20 +615,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                      </ns1:target>
                      <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
                   </ns1:campaignTarget>
-                </ns1:values>                
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>00000011</ns1:targetId>
-                            <ns1:targetType>NETWORK</ns1:targetType>
-                            <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-                        </ns1:target>
-                    </ns1:campaignTarget>
-                </ns1:values>
+                </ns1:values>               
             </ns1:rval>
         </ns1:mutateResponse>
     </SOAP-ENV:Body>
