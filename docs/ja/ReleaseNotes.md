@@ -1,125 +1,56 @@
 # リリースノート
-スポンサードサーチAPI Ver.6.1<br>
+スポンサードサーチAPI Ver.6.2<br>
 
 ## リリースバージョン
-6.1(WSDLバージョン: 6.1.0)
+6.2 (WSDLバージョン: 6.2.0)
 
 ## バージョンアップの種類
 マイナーバージョンアップ  
 
 ## 本リリースの主な内容
+※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-#### 1. 対象外キーワードの共有機能を追加
-対象外キーワードをリストにまとめて、アカウント内で共有できる機能を追加しました。<br><br>
+#### 1. 拡大テキスト広告の対応
+テキスト広告のタイトルを2行、説明文を1行で設定できる「拡大テキスト広告」に対応します。従来より情報量や広告の表示幅を増やした形式での広告配信が可能です。<br><br>
 
 ##### 対象ウェブサービス  
- * [AccountSharedService](/docs/ja/api_reference/services/AccountSharedService.md)
- * [SharedCriterionService](/docs/ja/api_reference/services/SharedCriterionService.md)
- * [CampaignSharedSetService](/docs/ja/api_reference/services/CampaignSharedSetService.md)
-<br><br>
-
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
-<br><br>
-
-#### 2.	自動入札設定の機能追加
-自動入札設定「クリック数の最大化」で、目標予算が設定可能になりました。<br>
-<br>
-
-##### 対象ウェブサービス
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
-<br><br>
-
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
-<br><br>
-
-#### 3.	広告表示の最適化の選択項目追加
-キャンペーンの作成時に、設定情報の「広告表示の最適化」で「コンバージョン最適化」が設定可能になりました。<br>
-<br>
-
-##### 対象ウェブサービス
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
-<br><br>
-
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
-<br><br>
-
-#### 4.	最終リンク先URLの設定件数増加
-広告、キーワード、クイックリンクの各最終リンク先URLが、最大10件まで設定可能になりました。これにより、A/Bテストなどのランディングページ最適化（LPO）にも対応できます。<br>
-<br>
-
-##### 対象ウェブサービス
  * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
-
-
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
 <br><br>
 
-#### 5.	広告表示オプションの機能追加
-広告表示オプションに、説明文を補足できる「テキスト補足オプション」を追加しました。<br>
+#### 2.	デバイスごとの入札調整率の改善
+入札価格調整率を、PC、タブレット、スマートフォンの各デバイスごとに設定できます。キャンペーンまたは広告グループ単位での設定が可能です。<br>
 <br>
 
 ##### 対象ウェブサービス
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)
- * [AdGroupFeedService](/docs/ja/api_reference/services/AdGroupFeedService.md)
+ * [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md)
+ * [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
 <br><br>
 
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
+#### 3.	コンバージョン計測方法の機能変更
+コンバージョンの計測で、以下の各項目を変更します。
+ * 測定方法で「ユニーク」か「合計」のいずれかを指定したコンバージョンタグの発行
+ * 自動入札を対象外とするコンバージョンタグの発行
+ * コンバージョン計測期間の変更(現在の30日間固定から、7～90日間で指定可能に)
+ * コンバージョン実績値（レスポンス）の項目を変更します。
 <br><br>
-
-#### 6.	保守改善の追加
-一部機能の保守改善を行いました。改善内容は以下のとおりです：<br>
-
-* オブジェクト名の変更<br>
-以下のオブジェクト名を変更しました。
-<table>
-<tr><th>変更前</th><th>変更後</th></tr>
-<tr><td rowspan="2">PlaceholderField</td><td>FeedItemPlaceholderField</td></tr>
-<tr><td>FeedFolderPlaceholderField</td></tr>
-<tr><td rowspan="4">PlaceholderType</td><td>FeedFolderPlaceholderType</td></tr>
-<tr><td>FeedItemPlaceholderType</td></tr>
-<tr><td>CampaignFeedPlaceholderType</td></tr>
-<tr><td>AdGroupFeedPlaceholderType</td></tr>
-<tr><td rowspan="4">BiddingStrategy</td><td>BiddingStrategy</td></tr>
-<tr><td>CampaignBiddingStrategy</td></tr>
-<tr><td>AdGroupBiddingStrategy</td></tr>
-<tr><td>AdGroupCriterionBiddingStrategy</td></tr>
-<tr><td rowspan="2">CriterionUse</td><td>CampaignCriterionUse</td></tr>
-<tr><td>AdGroupCriterionUse</td></tr>
-<tr><td rowspan="2">Settings</td><td>CampaignSettings</td></tr>
-<tr><td>AdGroupSettings</td></tr>
-</table>
-
-
-* TrafficEstimatorServiceをサンセットとしました。KeywordEstimatorServiceと同機能を提供しているためです。
-<br><br>
-
 
 ##### 対象ウェブサービス
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)
- * [AdGroupFeedService](/docs/ja/api_reference/services/AdGroupFeedService.md)
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [FeedFolderService](/docs/ja/api_reference/services/FeedFolderService.md)
- * [CampaignCriterionService](/docs/ja/api_reference/services/CampaignCriterionService.md)
- * TrafficEstimatorService
-
+ * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
 <br><br>
 
-##### 対象データオブジェクトとEnumeration 
- * データオブジェクト（Enumeration）集をご確認ください。
+#### 4.	保守改善の追加
+* レポート定義の作成時に、以下の条件が指定可能になります。<br>
+ - レポートの出力対象にインプレッションが0のデータを含める<br>
+ - レポート出力対象に削除済みエンティティを含める<br>
+ 
+* デバイスターゲティングレポートを廃止します。
+<br>
+<br>
+
+##### 対象ウェブサービス
+ * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 <br><br>
+
 
 ## Serviceの変更による各Versionへの影響
 <table class="standard">
@@ -129,102 +60,66 @@
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Ver.6.0以前</p>
+  <p>Ver.6.1以前</p>
 </th>
 <th valign="top">
-  <p>Ver.6.1</p>
+  <p>Ver.6.2</p>
 </th>
 </tr>
 <tr>
-  <td colspan="3"><b>対象外キーワードの共有機能</b></td>
+  <td colspan="3"><b>拡大テキスト広告の対応</b></td>
 </tr>
 <tr>
- <td valign="top">AccountSharedService</td><td valign="top">機能提供なし</td><td valign="top">
-新規公開</td>
+ <td valign="top">AdGroupAdService</td><td valign="top">変更ありません</td><td valign="top">
+・拡大テキスト広告を登録、照会できる<br>
+・一部オブジェクトの変更<br>　-ExtendedTextAdを追加<br>　-MobileAdを削除
+</td>
 </tr>
 <tr>
-<td valign="top">SharedCriterionService</td><td valign="top">機能提供なし</td><td valign="top">
-新規公開</td>
+  <td colspan="3"><b>デバイスごとの入札調整率の改善</b></td>
 </tr>
 <tr>
-<td valign="top">CampaignSharedSetService</td><td valign="top">機能提供なし</td><td valign="top">
-新規公開</td>
+ <td valign="top">CampaignTargetService</td><td valign="top">入札価格調整率は、スマートフォンのみ設定可能（キャンペーン単位）</td><td valign="top">
+PC、タブレット、スマートフォンのそれぞれに、入札価格調整率を設定、照会できる（キャンペーン単位）</td>
 </tr>
 <tr>
-  <td colspan="3"><b>自動入札設定の機能追加</b></td>
-</tr>
-<tr>
- <td valign="top">BiddingStrategyService</td><td valign="top">TargetSpend(クリック数最大化)で設定できるのはクリック単価のみ</td><td valign="top">
-TargetSpend(クリック数最大化)でspendTarget(目標予算)の設定が可能</td>
-</tr>
-<tr>
-  <td colspan="3"><b>広告標示の最適化の選択項目追加</b></td>
-</tr>
-<tr>
- <td valign="top">CampaignService</td><td valign="top">CONVERSION_OPTIMIZEを指定できない</td><td valign="top">
-CONVERSION_OPTIMIZEを指定できる</td>
-</tr>
-<tr>
-  <td colspan="3"><b>最終リンク先URLの設定件数増加</b></td>
-</tr>
-<tr>
- <td valign="top">AdGroupAdService</td><td valign="top">最終リンク先URLの追加登録、修正、削除、照会ができない</td><td valign="top">
-最終リンク先URLの追加、修正、削除、照会</td>
-</tr>
-<tr>
- <td valign="top">FeedItemService</td><td valign="top">最終リンク先URLの追加登録、修正、削除、照会ができない</td><td valign="top">
-最終リンク先URLの追加、修正、削除、照会</td>
-</tr>
-<tr>
- <td valign="top">AdGroupCriterionService</td><td valign="top">最終リンク先URLの追加、修正、削除、照会ができない</td><td valign="top">
-最終リンク先URLの追加、修正、削除、照会</td>
-</tr>
-<tr>
-  <td colspan="3"><b>広告表示オプションの機能追加</b></td>
-</tr>
-<tr>
- <td valign="top">FeedItemService</td><td valign="top">テキスト補足オプションの関連付け、照会ができない</td><td valign="top">テキスト補足オプションの関連付け、照会</td>
-</tr>
-<tr>
- <td valign="top">CampaignFeedService</td><td valign="top">テキスト補足オプションの関連付け、照会ができない</td><td valign="top">テキスト補足オプションの関連付け、照会</td>
-</tr>
-<tr>
- <td valign="top">AdGroupFeedService</td><td valign="top">テキスト補足オプションの関連付け、照会ができない</td><td valign="top">テキスト補足オプションの関連付け、照会</td>
+ <td valign="top">AdGroupBidMultiplierService</td><td valign="top">入札価格調整率は、スマートフォンのみ設定可能（広告グループ単位）</td><td valign="top">
+・PC、タブレット、スマートフォンのそれぞれに、入札価格調整率を設定、照会できる（広告グループ単位）<br>
+・以下のオブジェクトの削除<br>
+　-BidMultiplierList<br>
+　-PlatformBidMultiplierList<br>
+　-PlatformBidMultiplier<br>
+　-BidMultiplierType<br>
+</td>
 </tr>
 
+<tr>
+  <td colspan="3"><b>コンバージョン計測方法の項目追加</b></td>
+</tr>
+<tr>
+ <td valign="top">ConversionTrackerService</td><td valign="top">・countingTypeの設定、照会はできない<br>・自動入札に含めるかの選択が<br>できない<br>・コンバージョン計測期間は30日間<br>固定
+</td><td valign="top">・countingTypeの設定、照会ができる<br>・自動入札に含めるか、含めないかを選択できる<br>・コンバージョン計測期間を7～90日間で設定できる<br>※アプリダウンロードキャンペーンのみ30日間固定<br>
+・コンバージョン実績値（レスポンス）で、以下の項目を変更<br>
+　-totalAllConversionsを新設<br>
+　-totalAllConversionValueを新設<br>
+　-allConversionsを新設<br>
+　-allConversionValueを新設<br>
+　-numConversionEventsをconversionsに変更<br>
+　-totalNumConversionEventsを<br>totalConversionsに変更<br>
+　-totalNumConvertedClicksを廃止<br>
+　-numConvertedClicksを廃止<br>
+・一部オブジェクトの変更<br>
+　-ConversionCountingTypeを追加<br>
+　-ExcludeFromBiddingを追加<br>
+　-HttpProtocolを削除
+</td>
+</tr>
 <tr>
   <td colspan="3"><b>保守改善の追加</b></td>
 </tr>
 <tr>
- <td valign="top">FeedItemService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更</td>
+ <td valign="top">ReportDefinitionService</td><td valign="top">・0インプレッションを含めるかの<br>設定は、filtersでのみ可能<br>・レポートの出力対象に、削除済みエンティティの有無を設定できない
+</td><td valign="top">・レポート定義設定時に、0インプレッションを含めるかを設定できる<br>・レポートの出力対象に、削除済みエンティティを含めるかを設定できる<br>・デバイスターゲティングレポートを廃止
+</td>
 </tr>
-<tr>
- <td valign="top">AdGroupCriterionService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更</td>
-</tr>
-<tr>
- <td valign="top">CampaignFeedService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更</td>
-</tr>
-<tr>
- <td valign="top">AdGroupFeedService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更</td>
-</tr>
-<tr>
- <td valign="top">AdGroupService</td><td valign="top">影響なし</td><td valign="top">Enum、Entityの名称変更</td>
-</tr>
-<tr>
- <td valign="top">CampaignCriterionService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更、Entityの構成変更</td>
-</tr>
-<tr>
- <td valign="top">FeedFolderService</td><td valign="top">影響なし</td><td valign="top">Enumの名称変更</td>
-</tr>
-<tr>
- <td valign="top">TrafficEstimatorService</td><td valign="top">影響なし</td><td valign="top">削除</td>
-</tr>
-
 </table>
-
-## スポンサードサーチAPI 過去バージョンのサポート終了予定日
-* 以下のバージョンは、アドバンスドURLへの移行終了時（2016年10月頃）にサポート終了予定です。<br>
-　・スポンサードサーチAPI Ver.5.1<br>
-　・スポンサードサーチAPI Ver.5.2<br>
-　・スポンサードサーチAPI Ver.5.3<br>
-<br>

@@ -34,7 +34,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Landing Page URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Requirement if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Required if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -44,7 +44,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Landing Page URL (Smartphone).</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -54,7 +54,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Tracking URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -64,7 +64,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Custome parameters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -84,7 +84,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Destination URL before upgrading.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Ignore if not upgrading URL (advanced=TRUE).<br>*Requirement if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Ignore if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Required if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -94,7 +94,7 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>Display URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>*Ignore if type of ad is App ad.</td>
+  <td>Requirement<br>*Ignore if Ad type is App ad.</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -128,16 +128,6 @@ TextAd2 object is a text ad type for Sponsored Search on PC and smartphone.
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>devicePreference</td>
-  <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
-  <td>Appoint the high priority device in delivering ads.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
   <td>-</td>
   <td>-</td>
  </tr>

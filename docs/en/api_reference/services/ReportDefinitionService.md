@@ -31,9 +31,9 @@ So if you need to add report definition over the limit, you will need to delete 
 Explains the operations provided by ReportDefinitionService.
 
 ## get
+Get information related to report definition.
 
 ### Request
-Get information related to report definition.
 
 | Field | Restrictions | Data Type | Description | 
 |---|---|---|---|
@@ -68,11 +68,11 @@ Get information related to report definition.
 ```
 
 ### Response
-Response Fields
+Response Fields for normal case.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [ReportDefinitionPage](../data/ReportDefinitionPage.md) | A list of report definitions. | 
+| rval | [ReportDefinitionPage](../data/ReportDefinitionPage.md) | Entry of report definitions to be generated. | 
 
 ##### Response Sample (LANDING_PAGE_URL)
 ```xml
@@ -163,7 +163,9 @@ Response Fields
             <ns1:format>CSV</ns1:format>
             <ns1:encode>UTF-8</ns1:encode>
             <ns1:language>EN</ns1:language>
-            <ns1:compress>OFF</ns1:compress>
+            <ns1:compress>NONE</ns1:compress>
+            <ns1:includeZeroImpressions>FALSE</ns1:includeZeroImpressions>
+            <ns1:includeDeleted>FALSE</ns1:includeDeleted>
           </ns1:reportDefinition>
         </ns1:values>
       </ns1:rval>
@@ -173,12 +175,13 @@ Response Fields
 ```
 
 ## getReportFields
-### Request
 Returns the available report fields for a given report type.
+
+### Request
 
 | Field | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| accountId | Req | xsd:long | Account ID | 
+| accountId | Req | xsd:long | Account ID. | 
 |reportType | Req | enum [ReportType](../data/ReportType.md) | Type of report. |
 | lang |  | enum [ReportLang](../data/ReportLang.md) | Specify language for report field. <br>If omit, EN will be specified. | 
 
@@ -203,11 +206,11 @@ Returns the available report fields for a given report type.
 ```
 
 ### Response
-Response Fields
+Response Fields for normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [ReportDefinitionFieldValue](../data/ReportDefinitionFieldValue.md) | The list of available report fields. | 
+| rval | [ReportDefinitionFieldValue](../data/ReportDefinitionFieldValue.md) | Entry of available report fields list. | 
 
 ##### Response Sample (LANDING_PAGE_URL)
 ```xml
@@ -442,108 +445,107 @@ Response Fields
 ```
 
 ## mutate (ADD)
-### Request
 Adds report definitions.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operation | Req | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | A list of unique operations. | 
+| operation | Req | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | Report definitions and operation details to be processed. | 
 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <soapenv:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
-  </soapenv:Header>
-  <soapenv:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-          <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-          <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-          <ns1:dateRange>
-            <ns1:startDate>20160101</ns1:startDate>
-            <ns1:endDate>20161231</ns1:endDate>
-          </ns1:dateRange>
-          <ns1:fields>CAMPAIGN_ID</ns1:fields>
-          <ns1:fields>ADGROUP_ID</ns1:fields>
-          <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-          <ns1:fields>ADGROUP_NAME</ns1:fields>
-          <ns1:fields>COST</ns1:fields>
-          <ns1:fields>IMPS</ns1:fields>
-          <ns1:fields>CLICKS</ns1:fields>
-          <ns1:fields>CLICK_RATE</ns1:fields>
-          <ns1:fields>AVG_CPM</ns1:fields>
-          <ns1:fields>AVG_CPC</ns1:fields>
-          <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-          <ns1:fields>REVENUE</ns1:fields>
-          <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-          <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-          <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-          <ns1:fields>TRACKING_URL</ns1:fields>
-          <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-          <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-          <ns1:fields>NETWORK</ns1:fields>
-          <ns1:fields>DEVICE</ns1:fields>
-          <ns1:fields>DAY</ns1:fields>
-          <ns1:fields>DAY_OF_WEEK</ns1:fields>
-          <ns1:fields>QUARTER</ns1:fields>
-          <ns1:fields>YEAR</ns1:fields>
-          <ns1:fields>MONTH</ns1:fields>
-          <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-          <ns1:fields>WEEK</ns1:fields>
-          <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-          <ns1:fields>CONVERSION_NAME</ns1:fields>
-          <ns1:sortFields>
-            <ns1:type>ASC</ns1:type>
-            <ns1:field>CLICKS</ns1:field>
-          </ns1:sortFields>
-          <ns1:filters>
-            <ns1:field>TRACKING_URL</ns1:field>
-            <ns1:operator>IN</ns1:operator>
-            <ns1:value>http://yahoo.co.jp</ns1:value>
-            <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-            <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-          </ns1:filters>
-          <ns1:filters>
-            <ns1:field>IMPS</ns1:field>
-            <ns1:operator>GREATER_THAN</ns1:operator>
-            <ns1:value>0</ns1:value>
-          </ns1:filters>
-          <ns1:filters>
-            <ns1:field>CAMPAIGN_ID</ns1:field>
-            <ns1:operator>IN</ns1:operator>
-            <ns1:value>200000001</ns1:value>
-            <ns1:value>200000002</ns1:value>
-            <ns1:value>200000003</ns1:value>
-            <ns1:value>200000003</ns1:value>
-            <ns1:value>200000004</ns1:value>
-            <ns1:value>200000005</ns1:value>
-          </ns1:filters>
-          <ns1:isTemplate>FALSE</ns1:isTemplate>
-          <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-          <ns1:specifyDay>28</ns1:specifyDay>
-          <ns1:format>CSV</ns1:format>
-          <ns1:encode>UTF-8</ns1:encode>
-          <ns1:language>EN</ns1:language>
-          <ns1:compress>OFF</ns1:compress>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
-  </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
+         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>ADD</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:reportId>111111</ns1:reportId>
+               <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
+               <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
+               <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
+               <ns1:dateRange>
+                  <ns1:startDate>20160101</ns1:startDate>
+                  <ns1:endDate>20161231</ns1:endDate>
+               </ns1:dateRange>
+               <ns1:fields>CAMPAIGN_ID</ns1:fields>
+               <ns1:fields>ADGROUP_ID</ns1:fields>
+               <ns1:fields>CAMPAIGN_NAME</ns1:fields>
+               <ns1:fields>ADGROUP_NAME</ns1:fields>
+               <ns1:fields>COST</ns1:fields>
+               <ns1:fields>IMPS</ns1:fields>
+               <ns1:fields>CLICKS</ns1:fields>
+               <ns1:fields>CLICK_RATE</ns1:fields>
+               <ns1:fields>AVG_CPM</ns1:fields>
+               <ns1:fields>AVG_CPC</ns1:fields>
+               <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
+               <ns1:fields>REVENUE</ns1:fields>
+               <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
+               <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
+               <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
+               <ns1:fields>TRACKING_URL</ns1:fields>
+               <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
+               <ns1:fields>LANDING_PAGE_URL</ns1:fields>
+               <ns1:fields>NETWORK</ns1:fields>
+               <ns1:fields>DEVICE</ns1:fields>
+               <ns1:fields>DAY</ns1:fields>
+               <ns1:fields>DAY_OF_WEEK</ns1:fields>
+               <ns1:fields>QUARTER</ns1:fields>
+               <ns1:fields>YEAR</ns1:fields>
+               <ns1:fields>MONTH</ns1:fields>
+               <ns1:fields>MONTH_OF_YEAR</ns1:fields>
+               <ns1:fields>WEEK</ns1:fields>
+               <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
+               <ns1:fields>CONVERSION_NAME</ns1:fields>
+               <ns1:sortFields>
+                  <ns1:type>ASC</ns1:type>
+                  <ns1:field>CLICKS</ns1:field>
+               </ns1:sortFields>
+               <ns1:filters>
+                  <ns1:field>TRACKING_URL</ns1:field>
+                  <ns1:operator>IN</ns1:operator>
+                  <ns1:value>http://yahoo.co.jp</ns1:value>
+                  <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
+                  <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
+               </ns1:filters>
+              <ns1:filters>
+                  <ns1:field>CAMPAIGN_ID</ns1:field>
+                  <ns1:operator>IN</ns1:operator>
+                  <ns1:value>200000001</ns1:value>
+                  <ns1:value>200000002</ns1:value>
+                  <ns1:value>200000003</ns1:value>
+                  <ns1:value>200000003</ns1:value>
+                  <ns1:value>200000004</ns1:value>
+                  <ns1:value>200000005</ns1:value>
+               </ns1:filters>
+               <ns1:isTemplate>FALSE</ns1:isTemplate>
+               <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
+               <ns1:specifyDay>28</ns1:specifyDay>
+               <ns1:format>CSV</ns1:format>
+               <ns1:encode>UTF-8</ns1:encode>
+               <ns1:language>EN</ns1:language>
+               <ns1:compress>NONE</ns1:compress>
+               <ns1:includeZeroImpressions>TRUE</ns1:includeZeroImpressions>
+               <ns1:includeDeleted>FALSE</ns1:includeDeleted>
+            </ns1:operand>
+        </ns1:operations>
+     </ns1:mutate>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Response
-Response Fields
+Response Fields for normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
@@ -553,107 +555,110 @@ Response Fields
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportDefinitionService</ns1:service>
-      <ns1:remainingQuota>993</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.7982</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportDefinition>
-            <ns1:reportId>100000001</ns1:reportId>
-            <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-            <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-            <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-            <ns1:dateRange>
-              <ns1:startDate>20160101</ns1:startDate>
-              <ns1:endDate>20161231</ns1:endDate>
-            </ns1:dateRange>
-            <ns1:fields>CAMPAIGN_ID</ns1:fields>
-            <ns1:fields>ADGROUP_ID</ns1:fields>
-            <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-            <ns1:fields>ADGROUP_NAME</ns1:fields>
-            <ns1:fields>COST</ns1:fields>
-            <ns1:fields>IMPS</ns1:fields>
-            <ns1:fields>CLICKS</ns1:fields>
-            <ns1:fields>CLICK_RATE</ns1:fields>
-            <ns1:fields>AVG_CPM</ns1:fields>
-            <ns1:fields>AVG_CPC</ns1:fields>
-            <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-            <ns1:fields>REVENUE</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-            <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>TRACKING_URL</ns1:fields>
-            <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-            <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-            <ns1:fields>NETWORK</ns1:fields>
-            <ns1:fields>DEVICE</ns1:fields>
-            <ns1:fields>DAY</ns1:fields>
-            <ns1:fields>DAY_OF_WEEK</ns1:fields>
-            <ns1:fields>QUARTER</ns1:fields>
-            <ns1:fields>YEAR</ns1:fields>
-            <ns1:fields>MONTH</ns1:fields>
-            <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-            <ns1:fields>WEEK</ns1:fields>
-            <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-            <ns1:fields>CONVERSION_NAME</ns1:fields>
-            <ns1:sortFields>
-              <ns1:type>ASC</ns1:type>
-              <ns1:field>CLICKS</ns1:field>
-            </ns1:sortFields>
-            <ns1:filters>
-              <ns1:field>TRACKING_URL</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>http://yahoo.co.jp</ns1:value>
-              <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-              <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>IMPS</ns1:field>
-              <ns1:operator>GREATER_THAN</ns1:operator>
-              <ns1:value>0</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>CAMPAIGN_ID</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>200000001</ns1:value>
-              <ns1:value>200000002</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000004</ns1:value>
-              <ns1:value>200000005</ns1:value>
-            </ns1:filters>
-            <ns1:isTemplate>FALSE</ns1:isTemplate>
-            <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-            <ns1:specifyDay>28</ns1:specifyDay>
-            <ns1:format>CSV</ns1:format>
-            <ns1:encode>UTF-8</ns1:encode>
-            <ns1:language>EN</ns1:language>
-            <ns1:compress>OFF</ns1:compress>
-          </ns1:reportDefinition>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
-  </SOAP-ENV:Body>
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>ReportDefinitionService</ns1:service>
+         <ns1:remainingQuota>993</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.7982</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>ADD</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:reportDefinition>
+                  <ns1:reportId>111111</ns1:reportId>
+                  <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
+                  <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
+                  <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
+                  <ns1:dateRange>
+                     <ns1:startDate>20160101</ns1:startDate>
+                     <ns1:endDate>20161231</ns1:endDate>
+                  </ns1:dateRange>
+                  <ns1:fields>CAMPAIGN_ID</ns1:fields>
+                  <ns1:fields>ADGROUP_ID</ns1:fields>
+                  <ns1:fields>CAMPAIGN_NAME</ns1:fields>
+                  <ns1:fields>ADGROUP_NAME</ns1:fields>
+                  <ns1:fields>COST</ns1:fields>
+                  <ns1:fields>IMPS</ns1:fields>
+                  <ns1:fields>CLICKS</ns1:fields>
+                  <ns1:fields>CLICK_RATE</ns1:fields>
+                  <ns1:fields>AVG_CPM</ns1:fields>
+                  <ns1:fields>AVG_CPC</ns1:fields>
+                  <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
+                  <ns1:fields>REVENUE</ns1:fields>
+                  <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
+                  <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
+                  <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
+                  <ns1:fields>TRACKING_URL</ns1:fields>
+                  <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
+                  <ns1:fields>LANDING_PAGE_URL</ns1:fields>
+                  <ns1:fields>NETWORK</ns1:fields>
+                  <ns1:fields>DEVICE</ns1:fields>
+                  <ns1:fields>DAY</ns1:fields>
+                  <ns1:fields>DAY_OF_WEEK</ns1:fields>
+                  <ns1:fields>QUARTER</ns1:fields>
+                  <ns1:fields>YEAR</ns1:fields>
+                  <ns1:fields>MONTH</ns1:fields>
+                  <ns1:fields>MONTH_OF_YEAR</ns1:fields>
+                  <ns1:fields>WEEK</ns1:fields>
+                  <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
+                  <ns1:fields>CONVERSION_NAME</ns1:fields>
+                  <ns1:sortFields>
+                     <ns1:type>ASC</ns1:type>
+                     <ns1:field>CLICKS</ns1:field>
+                  </ns1:sortFields>
+                  <ns1:filters>
+                     <ns1:field>TRACKING_URL</ns1:field>
+                     <ns1:operator>IN</ns1:operator>
+                     <ns1:value>http://yahoo.co.jp</ns1:value>
+                     <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
+                     <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
+                  </ns1:filters>
+                  <ns1:filters>
+                     <ns1:field>IMPS</ns1:field>
+                     <ns1:operator>GREATER_THAN</ns1:operator>
+                     <ns1:value>0</ns1:value>
+                  </ns1:filters>
+                  <ns1:filters>
+                     <ns1:field>CAMPAIGN_ID</ns1:field>
+                     <ns1:operator>IN</ns1:operator>
+                     <ns1:value>200000001</ns1:value>
+                     <ns1:value>200000002</ns1:value>
+                     <ns1:value>200000003</ns1:value>
+                     <ns1:value>200000003</ns1:value>
+                     <ns1:value>200000004</ns1:value>
+                     <ns1:value>200000005</ns1:value>
+                  </ns1:filters>
+                  <ns1:isTemplate>FALSE</ns1:isTemplate>
+                  <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
+                  <ns1:specifyDay>28</ns1:specifyDay>
+                  <ns1:format>CSV</ns1:format>
+                  <ns1:encode>UTF-8</ns1:encode>
+                  <ns1:language>EN</ns1:language>
+                  <ns1:compress>NONE</ns1:compress>
+                  <ns1:includeZeroImpressions>TRUE</ns1:includeZeroImpressions>
+                  <ns1:includeDeleted>FALSE</ns1:includeDeleted>
+               </ns1:reportDefinition>
+            </ns1:values>
+        </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate (REMOVE)
-### Request
-Deletes report definitions.
+REmoves report definitions.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operation | Req | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | A list of unique operations. | 
+| operation | Req | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | Report definitions and operation details to be processed. | 
 
 ##### Request Sample
 ```xml
@@ -683,7 +688,7 @@ Deletes report definitions.
 </SOAP-ENV:Envelope>
 ```
 ### Response
-Response Fields
+Response Fields for normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|

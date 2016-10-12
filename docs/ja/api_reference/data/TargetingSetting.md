@@ -28,7 +28,7 @@ TargetingSettingは、ターゲット設定を保持するオブジェクトで�
   <td>Requirement</td>
   <td>-</td>
  </tr>
- <tr>
+  <tr>
   <td colspan="8">TargetingSetting</td>
  </tr>
  <tr>

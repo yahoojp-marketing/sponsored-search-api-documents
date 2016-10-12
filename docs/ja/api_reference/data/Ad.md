@@ -111,7 +111,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>表示URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>※広告の種類が アプリ広告の場合、Ignore。</td>
+  <td>Requirement<br>※広告の種類が アプリ広告と拡大テキスト広告の場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -132,6 +132,16 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>devicePreference</td>
+  <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
+  <td>優先デバイスです。<br>※スマートフォンに優先的に配信します。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>※広告の種類が拡大テキスト広告の場合、Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>

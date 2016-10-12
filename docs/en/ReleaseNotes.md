@@ -1,120 +1,56 @@
 # Release Note
-Sponsored Search API Ver.6.1<br>
+Sponsored Search API Ver.6.2<br>
 
 ## Release version
-6.1(WSDL version : 6.1.0)
+6.2 (WSDL version : 6.2.0)
 
 ## Type of version up
 Minor version up  
 
 ## Main features enhancement on the release
-
-#### 1. Add "Negative Keyword List" sharing function
-Negative keywords can be managed by single list which is shared with each component within an account.<br><br>
-
-##### Target Web Service 
- * [AccountSharedService](/docs/en/api_reference/services/AccountSharedService.md)
- * [SharedCriterionService](/docs/en/api_reference/services/SharedCriterionService.md)
- * [CampaignSharedSetService](/docs/en/api_reference/services/CampaignSharedSetService.md)
+*Target objects and Enumeration are available on the list of Data Object (Enumeration).
 <br><br>
 
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
-<br><br>
-
-#### 2.	Function improvement on Auto Bidding setting
-Target Cost is available on creating auto bidding setting of "Maximize Clicks".<br>
-<br>
-
-##### Target Web Service 
- * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
- * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
- * [BiddingStrategyService](/docs/en/api_reference/services/BiddingStrategyService.md)
-<br><br>
-
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
-<br><br>
-
-#### 3.	Add a selectable item on Ad Rotation (Optimization)
-"Maximize conversions" is available on the setting "Ad Rotation" (Optimization) for campaign creation<br><br>
-
-##### Target Web Service 
- * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
-<br><br>
-
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
-<br><br>
-
-#### 4.	Expand available number of Landing Page URL
-10 Landing Page URLs are available for each of ad, keyword and QuickLinks. It makes available to deal with Landing Page Optimization (LPO) such as A/B testing.<br><br>
+#### 1. Add "Extended Text Ads" feature
+"Extended TExt Ads" which supports 2 lines Title and 1 line Description is now available.<br>
+It enables ad delivery with much information and large width more than usual.<br><br>
 
 ##### Target Web Service 
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
- * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
- * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
-
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
 <br><br>
 
-#### 5.	Function improvement on Ad Display Option
-"Callout option" is added as optional description on QuickLinks of Ad Display Option.<br><br>
+#### 2.	Function improvement on Bid Adjustment rate for devices
+Bid adjustment rate can be set for each device, such as PC, Tablet or Smartphone. It is available by campaign or ad group level.<br><br>
 
 ##### Target Web Service 
- * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
- * [CampaignFeedService](/docs/en/api_reference/services/CampaignFeedService.md)
- * [AdGroupFeedService](/docs/en/api_reference/services/AdGroupFeedService.md)
+ * [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md)
+ * [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
 <br><br>
 
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
+#### 3.	Function update on Converion Count
+Following data items are updated on counting conversion.
+* Conversion tag issued when specified "One-per-click" or "Many-per-click" for counting type.
+* Conversion tag issued when excluded from auto bidding.
+* Counting period change (it has been fixed as 30 days, but now it can be specified between 7 to 90 days).
+* Actual conversion value (response) change.
 <br><br>
-
-#### 6.	Added function upgrade
-Partial function has been improved. Details are as follows:<br>
-
-* Changes on WSDL namespace<br>
-Following field names are changed.
-<table>
-<tr><th>Before</th><th>After</th></tr>
-<tr><td rowspan="2">PlaceholderField</td><td>FeedItemPlaceholderField</td></tr>
-<tr><td>FeedFolderPlaceholderField</td></tr>
-<tr><td rowspan="4">PlaceholderType</td><td>FeedFolderPlaceholderType</td></tr>
-<tr><td>FeedItemPlaceholderType</td></tr>
-<tr><td>CampaignFeedPlaceholderType</td></tr>
-<tr><td>AdGroupFeedPlaceholderType</td></tr>
-<tr><td rowspan="4">BiddingStrategy</td><td>BiddingStrategy</td></tr>
-<tr><td>CampaignBiddingStrategy</td></tr>
-<tr><td>AdGroupBiddingStrategy</td></tr>
-<tr><td>AdGroupCriterionBiddingStrategy</td></tr>
-<tr><td rowspan="2">CriterionUse</td><td>CampaignCriterionUse</td></tr>
-<tr><td>AdGroupCriterionUse</td></tr>
-<tr><td rowspan="2">Settings</td><td>CampaignSettings</td></tr>
-<tr><td>AdGroupSettings</td></tr>
-</table>
-
-* TrafficEstimatorService will sunset, because functions are similar to KeywordEstimatorService.
-<br><br>
-
 
 ##### Target Web Service 
- * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
- * [CampaignFeedService](/docs/en/api_reference/services/CampaignFeedService.md)
- * [AdGroupFeedService](/docs/en/api_reference/services/AdGroupFeedService.md)
- * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
- * [FeedFolderService](/docs/en/api_reference/services/FeedFolderService.md)
- * [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md)
- * TrafficEstimatorService
-
+ * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
 <br><br>
 
-##### Target Data Object and Enumeration 
- * Please confirm from data directory under API reference directory.
+#### 4. Additional upgrades
+* Following conditions are available on creating report definition.<br>
+ - Includes "0 impression" data to output target of reporting.<br>
+ - Includes deleted entities to output target of reporting.<br>
+ 
+* Device Targeting Report sunset.
 <br><br>
+
+##### Target Web Service
+ * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+<br><br>
+
 
 ## Impact on each Version from the change of Services
 <table class="standard">
@@ -124,102 +60,85 @@ Following field names are changed.
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Before Ver.6.0</p>
+  <p>Ver.6.1 or before</p>
 </th>
 <th valign="top">
-  <p>Ver.6.1</p>
+  <p>Ver.6.2</p>
 </th>
 </tr>
 <tr>
-  <td colspan="3"><b>Sharing Negative Keywords</b></td>
+  <td colspan="3"><b>Enhancement for "Extended Text Ads"</b></td>
 </tr>
 <tr>
- <td valign="top">AccountSharedService</td><td valign="top">Not supported</td><td valign="top">
-New service</td>
+ <td valign="top">AdGroupAdService</td><td valign="top">No change.</td><td valign="top">
+・Can Add/Browse Extended Text Ads<br>
+・Updates some objects<br>
+-Added ExtendedTextAd<br>
+-Deleted MobileAd
+</td>
 </tr>
 <tr>
-<td valign="top">SharedCriterionService</td><td valign="top">Not supported</td><td valign="top">
-New service</td>
+  <td colspan="3"><b>Function improvement on Bid Adjustment rate for devices</b></td>
 </tr>
 <tr>
-<td valign="top">CampaignSharedSetService</td><td valign="top">Not supported</td><td valign="top">
-New service</td>
+ <td valign="top">CampaignTargetService</td><td valign="top">Bid adjustment is available on Smartphone only (by campaign) </td>
+ <td valign="top">Can add and browse Bid adjustment setting for each device, PC, Tablet and Smartphone (by campaign)</td>
 </tr>
 <tr>
-  <td colspan="3"><b>Expand Auto bidding setting</b></td>
-</tr>
-<tr>
- <td valign="top">BiddingStrategyService</td><td valign="top">TargetSpend (Maximize clicks) supports click bid only</td><td valign="top">
-TargetSpend (Maximize clicks) supports spendTarget (Target cost)</td>
-</tr>
-<tr>
-  <td colspan="3"><b>Expand options of Optimization</b></td>
-</tr>
-<tr>
- <td valign="top">CampaignService</td><td valign="top">CONVERSION_OPTIMIZE is not available</td><td valign="top">
-CONVERSION_OPTIMIZE is supported</td>
-</tr>
-<tr>
-  <td colspan="3"><b>Expand available Landing Page URLs</b></td>
-</tr>
-<tr>
- <td valign="top">AdGroupAdService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
-Add/edit/delete/browse LPO</td>
-</tr>
-<tr>
- <td valign="top">FeedItemService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
-Add/edit/delete/browse LPO</td>
-</tr>
-<tr>
- <td valign="top">AdGroupCriterionService</td><td valign="top">Add/edit/delete/browse LPO are not available</td><td valign="top">
-Add/edit/delete/browse LPO</td>
-</tr>
-<tr>
-  <td colspan="3"><b>Improve Ad Display option</b></td>
-</tr>
-<tr>
- <td valign="top">FeedItemService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
-</tr>
-<tr>
- <td valign="top">CampaignFeedService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
-</tr>
-<tr>
- <td valign="top">AdGroupFeedService</td><td valign="top">Setup/reference Callouts are not available</td><td valign="top">Setup/reference Callouts</td>
+ <td valign="top">AdGroupBidMultiplierService</td><td valign="top">Bid adjustment is available on Smartphone only (by ad group)</td>
+ <td valign="top">
+・Can add and browse Bid adjustment setting for each device, PC, Tablet and Smartphone (by ad group)<br>
+・Delete following objects<br>
+　-BidMultiplierList<br>
+　-PlatformBidMultiplierList<br>
+　-PlatformBidMultiplier<br>
+　-BidMultiplierType<br>
+</td>
 </tr>
 
 <tr>
-  <td colspan="3"><b>Function upgrade</b></td>
+  <td colspan="3"><b>Additional items on Converion Count</b></td>
 </tr>
 <tr>
- <td valign="top">FeedItemService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+ <td valign="top">ConversionTrackerService</td>
+ <td valign="top">
+ ・Cannot get/set countingType<br>
+ ・Cannot specify whether including to auto bidding<br>
+ ・Counting period of conversion is fixed as 30days
+</td>
+<td valign="top">
+・Can get/set countingType<br>
+・Can specify whether include/exclude to auto bidding<br>
+・Can specify the counting period between 7 to 90 days<br>
+  *For App download campaign, it is fixed as 30days<br>
+・Updated following items on actual conversion value (response)<br>
+　-Added totalAllConversions as new<br>
+　-Added totalAllConversionValue as new<br>
+　-Added allConversions as new<br>
+　-Addedd allConversionValue as new<br>
+　-Changed numConversionEvents to conversions<br>
+　-Changed totalNumConversionEvents to totalConversions<br>
+　-Deleted totalNumConvertedClicks<br>
+　-Deleted numConvertedClicks<br>
+・Updated some objects<br>
+　-Added ConversionCountingType<br>
+　-Added ExcludeFromBidding<br>
+　-Deleted HttpProtocol
+</td>
 </tr>
 <tr>
- <td valign="top">AdGroupCriterionService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+  <td colspan="3"><b>Additional upgrades</b></td>
 </tr>
 <tr>
- <td valign="top">CampaignFeedService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
+ <td valign="top">ReportDefinitionService</td>
+ <td valign="top">
+ ・Setting whether includes "0 impression" is only available on filters<br>
+ ・Cannot specify whether there is deleted entity or not on report output definition
+</td>
+<td valign="top">
+・Including "0 impression" data to output target of reporting is available on report definition setting<br>
+・Including deleted entities to output target of reporting is available on report definition setting<br>
+・Device Targeting report closed.
+</td>
 </tr>
-<tr>
- <td valign="top">AdGroupFeedService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
-</tr>
-<tr>
- <td valign="top">AdGroupService</td><td valign="top">No impact</td><td valign="top">Enum / Entity name change</td>
-</tr>
-<tr>
- <td valign="top">CampaignCriterionService</td><td valign="top">No impact</td><td valign="top">Enum name change, Entity configuration change</td>
-</tr>
-<tr>
- <td valign="top">FeedFolderService</td><td valign="top">No impact</td><td valign="top">Enum name change</td>
-</tr>
-<tr>
- <td valign="top">TrafficEstimatorService</td><td valign="top">No impact</td><td valign="top">Deleted</td>
-</tr>
-
 </table>
-
-## Sunset Date of Older Version of Sponsored Search API
-* Following versions will end support after the Advanced URL upgrade period (October 2016 or later).<br>
-・Sponsored Search API Ver.5.1<br>
-・Sponsored Search API Ver.5.2<br>
-・Sponsored Search API Ver.5.3<br>
-<br>
