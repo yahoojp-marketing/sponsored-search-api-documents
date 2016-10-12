@@ -1,12 +1,11 @@
-# AppAd
-AppAdオブジェクトは、アプリ向けの広告です。
+# ExtendedTextAd
+ExtendedTextAd obeject describes the information of Extended Text Ad.
+
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
 
- 
 ### Inheritance
 + [Ad](./Ad.md)
-
 
 <table>
  <tr>
@@ -14,15 +13,15 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
+  <th>GET</th>
+  <th>ADD</th>
+  <th>SET</th>
+  <th>REMOVE</th>
  </tr>
- <tr>
-  <td>description2</td>
+   <tr>
+  <td>headline2</td>
   <td>xsd:string</td>
-  <td>説明文（2行目）2です。</td>
+  <td>Title on the second line.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -30,22 +29,22 @@ AppAdオブジェクトは、アプリ向けの広告です。
   <td>-</td>
  </tr>
  <tr>
-  <td>appStore</td>
-  <td>enum <a href="./AppStore_AdGroupAd.md">AppStore</a></td>
-  <td>アプリストアです。<br>※アプリキャンペーンの 場合、自動で設定され ます。</td>
+  <td>path1</td>
+  <td>xsd:string</td>
+  <td>The path information which complements display URL generated automatically.<br>*To specify path2, path1 is required.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional<br>*default:null</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
-  <td>appId</td>
+  <td>path2</td>
   <td>xsd:string</td>
-  <td>アプリIDです。<br>※アプリキャンペーンの 場合、自動で設定され ます。</td>
+  <td>The path information which complements display URL generated automatically.<br>*If path1 is not specified, path2 can be ignored.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional<br>*default:null</td>
   <td>-</td>
   <td>-</td>
  </tr>

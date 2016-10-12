@@ -56,8 +56,8 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>dateRangeType</td>
-  <td>enum <a href="./ReportDateRangeType.md">ReportDateRangeType</a></td>
-  <td>定義されたレポートの集計対象期間です。</td>
+  <td>enum <br><a href="./ReportDateRangeType.md">ReportDateRangeType</a></td>
+  <td>レポートの集計対象期間です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -106,8 +106,8 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>isTemplate</td>
-  <td>enum <a href="./ReportIsTemplate.md">ReportIsTemplate</a></td>
-  <td>テンプレートの有無を選択します。<br>※Default：FALSE</td>
+  <td>enum <br><a href="./ReportIsTemplate.md">ReportIsTemplate</a></td>
+  <td>レポートテンプレートに登録するかを選択します。<br>※Default：FALSE（登録しない）</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -116,7 +116,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>intervalType</td>
-  <td>enum <a href="./ReportIntervalType.md">ReportIntervalType</a></td>
+  <td>enum <br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
   <td>定期レポート作成タイミング設定です。<br>※Default：ONETIME</td>
   <td>yes</td>
   <td>-</td>
@@ -136,8 +136,8 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>format</td>
-  <td>enum <a href="./ReportDownloadFormat.md">ReportDownloadFormat</a></td>
-  <td>定義されたダウンロードレポートのファイル形式です。<br>※Default：CSV</td>
+  <td>enum <br><a href="./ReportDownloadFormat.md">ReportDownloadFormat</a></td>
+  <td>ダウンロードレポートのファイル形式です。<br>※Default：CSV</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -146,8 +146,8 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>encode</td>
-  <td>enum <a href="./ReportDownloadEncode.md">ReportDownloadEncode</a></td>
-  <td> 定義されたダウンロードレポートの文字コードです。<br>※Default：UTF-8</td>
+  <td>enum <br><a href="./ReportDownloadEncode.md">ReportDownloadEncode</a></td>
+  <td>ダウンロードレポートの文字コードです。<br>※Default：UTF-8</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -156,8 +156,8 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>language</td>
-  <td>enum <a href="./ReportLanguage.md">ReportLanguage</a></td>
-  <td>レポート定義の出力言語です。<br>※Default：JA</td>
+  <td>enum <br><a href="./ReportLanguage.md">ReportLanguage</a></td>
+  <td>レポートの出力言語です。<br>※Default：JA（日本語）</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -166,8 +166,30 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>compress</td>
-  <td>enum <a href="./ReportCompressType.md">ReportCompressType</a></td>
-  <td>レポート定義の圧縮形式での出力です。<br>※Default：NONE</td>
+  <td>enum <br><a href="./ReportCompressType.md">ReportCompressType</a></td>
+  <td>レポートを圧縮して出力するかを選択します。<br>※Default：NONE（圧縮しない）</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>includeZeroImpressions</td>
+  <td>enum <br><a href="./ReportIncludeZeroImpressions.md">ReportIncludeZeroImpressions</a></td>
+  <td>0インプレッションの行をレポートに含めるかを選択します。<br>※Default：FALSE（含めない）</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>includeDeleted</td>
+  <td>enum <br><a href="./ReportIncludeDeleted.md">ReportIncludeDeleted</a></td>
+  <td>削除済みの項目を出力対象にするかを選択します。<br>
+  FALSEを指定した場合は、削除済み、および掲載停止の項目が出力対象外になります。<br>
+  ※Default：TRUE（出力対象）</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

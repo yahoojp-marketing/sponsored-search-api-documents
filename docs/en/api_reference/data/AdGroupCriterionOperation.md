@@ -38,36 +38,6 @@ AdGroupCriterionOperation displays target ad group criteria information and its 
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
  <tr>
-  <td>campaignId</td>
-  <td>xsd:long</td>
-  <td>Campaign ID.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
-  <td>adGroupId</td>
-  <td>xsd:long</td>
-  <td>Ad group ID.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
-  <td>criterionUse</td>
-  <td>enum <a href="./CriterionUse.md">CriterionUse</a></td>
-  <td>Select biddable or negative criterion.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
-  <td>Requirement<br><i>NotUpdatable</i></td>
- </tr>
- <tr>
   <td>operand[1...2000]</td>
   <td><a href="./AdGroupCriterion.md">AdGroupCriterion</a><br>inherited <a href="./NegativeAdGroupCriterion.md">NegativeAdGroupCriterion</a><br>inherited <a href="./BiddableAdGroupCriterion.md">BiddableAdGroupCriterion</a></td>
   <td>List of ad related criterion.<br>Each list includes details of criterion.</td>

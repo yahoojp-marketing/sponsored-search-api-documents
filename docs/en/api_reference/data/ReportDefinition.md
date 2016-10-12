@@ -68,7 +68,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>dateRange</td>
   <td><a href="./DateRange.md">DateRange</a></td>
-  <td>Date range of retrieving report, set by user.<br>It is required when dataRangeType is set as "CUSTOM DATE".</td>
+  <td>Date range of retrieving report, set by user.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -169,6 +169,28 @@ ReportDefinition object displays the report definition.
   <td>compress</td>
   <td>enum <a href="./ReportCompressType.md">ReportCompressType</a></td>
   <td>Select the compress type of report definition.<br>*Default: NONE</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>includeZeroImpressions</td>
+  <td>enum <br><a href="./ReportIncludeZeroImpressions.md">ReportIncludeZeroImpressions</a></td>
+  <td>Select if include "0 impression" line to the report or not.<br>※Default：FALSE(not include)</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>includeDeleted</td>
+  <td>enum <br><a href="./ReportIncludeDeleted.md">ReportIncludeDeleted</a></td>
+  <td>Select if include deleted items to report output.<br>
+  When select FALSE, deleted and paused items are out of output target.<br>
+  ※Default：TRUE (to be output on the report)</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

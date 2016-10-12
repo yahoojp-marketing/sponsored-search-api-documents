@@ -111,7 +111,7 @@ Ad object describes ad information.
   <td>Display URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>*Ignore if type of ad is App ad.</td>
+  <td>Requirement<br>*If Ad Type is Mobile App Ad or Enhanced Text Ads, it can be ignored.</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -134,6 +134,16 @@ Ad object describes ad information.
   <td>Requirement</td>
   <td>-</td>
   <td>-</td>
+ </tr>
+ <tr>
+ <td>devicePreference</td>
+ <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
+ <td>Information of Focus Device.<br>*It enables to display your ads to smartphone devices.</td>
+ <td>yes</td>
+ <td>-</td>
+ <td>Optional<br>*If Ad Type is Enhanced Text Ads, it can be ignored.</td>
+ <td>-</td>
+ <td>-</td>
  </tr>
 </table>
 

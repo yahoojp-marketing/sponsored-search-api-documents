@@ -147,7 +147,7 @@ AdGroupAdオブジェクトは、広告に関する操作を行うための情�
  </tr>
  <tr>
   <td>ad</td>
-  <td><a href="../data/Ad.md">Ad</a><br>inherited <a href="../data/TextAd2.md">TextAd2</a><br> inherited <a href="../data/MobileAd.md">MobileAd</a><br> inherited <a href="../data/AppAd.md">AppAd</a></td>
+  <td><a href="../data/Ad.md">Ad</a><br>inherited <a href="../data/TextAd2.md">TextAd2</a><br> inherited <a href="../data/AppAd.md">AppAd</a><br> inherited <a href="../data/ExtendedTextAd.md">ExtendedTextAd</a></td>
   <td>クリエイティブ広告の情報です。</td>
   <td>yes</td>
   <td>-</td>

@@ -147,7 +147,7 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
  </tr>
  <tr>
   <td>ad</td>
-  <td><a href="../data/Ad.md">Ad</a><br>inherited <a href="../data/TextAd2.md">TextAd2</a><br> inherited <a href="../data/MobileAd.md">MobileAd</a><br> inherited <a href="../data/AppAd.md">AppAd</a></td>
+  <td><a href="../data/Ad.md">Ad</a><br>inherited <a href="../data/TextAd2.md">TextAd2</a><br> inherited <a href="../data/AppAd.md">AppAd</a><br> inherited <a href="../data/ExtendedTextAd.md">ExtendedTextAd</a></td>
   <td>Details of creative ad.</td>
   <td>yes</td>
   <td>-</td>

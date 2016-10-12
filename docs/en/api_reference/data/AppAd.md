@@ -1,5 +1,5 @@
 # AppAd
-App ad excluding the smartphone.
+Appad object is for Mobile App ads.
 
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
@@ -34,7 +34,7 @@ App ad excluding the smartphone.
   <td>Landing Page URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Requirement if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Requirement if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -44,7 +44,7 @@ App ad excluding the smartphone.
   <td>Landing Page URL (Smartphone).</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -54,7 +54,7 @@ App ad excluding the smartphone.
   <td>Tracking URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -64,7 +64,7 @@ App ad excluding the smartphone.
   <td>Custome parameters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Optional if not upgrading URL (advanced=TRUE).<br>*Ignore if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Optional if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Ignore if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -81,10 +81,10 @@ App ad excluding the smartphone.
  <tr>
   <td>url</td>
   <td>xsd:string</td>
-  <td>Destination URL before upgrading.</td>
+  <td>Destination URL before upgraded.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*Ignore if not upgrading URL (advanced=TRUE).<br>*Requirement if not upgrading URL (advanced=FALSE).</td>
+  <td>Optional<br>*Ignore if upgrade the URL to Advanced URL format (advanced=TRUE).<br>*Requirement if not upgrade the URL (advanced=FALSE).</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -94,7 +94,7 @@ App ad excluding the smartphone.
   <td>Display URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>*Ignore if type of ad is App ad.</td>
+  <td>Requirement<br>*Ignore if Ad type is App ad.</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -134,7 +134,7 @@ App ad excluding the smartphone.
  <tr>
   <td>appStore</td>
   <td>enum <a href="./AppStore_AdGroupAd.md">AppStore</a></td>
-  <td>App store.<br>* Automati- cally set for Mobile app download.</td>
+  <td>App store.<br>*Automatically set for Mobile app campaign.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -144,20 +144,10 @@ App ad excluding the smartphone.
  <tr>
   <td>appId</td>
   <td>xsd:string</td>
-  <td>App ID.<br>* Automati- cally set for Mobile app download.</td>
+  <td>App ID.<br>*Automatically set for Mobile app campaign.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>devicePreference</td>
-  <td>enum <a href="./DevicePreference.md">DevicePreference</a></td>
-  <td>Appoint the high priority device in delivering ads.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
   <td>-</td>
   <td>-</td>
  </tr>
