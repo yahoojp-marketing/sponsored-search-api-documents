@@ -85,8 +85,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
               <ns1:targetListName>デフォルトリスト</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -102,8 +101,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:getResponse>
@@ -195,8 +193,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
               <ns1:targetListName>デフォルトリスト</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -212,8 +209,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>
@@ -306,8 +302,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
               <ns1:targetListName>デフォルトリスト</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -323,8 +318,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>
@@ -417,8 +411,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
               <ns1:targetListName>デフォルトリスト</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -434,8 +427,7 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>

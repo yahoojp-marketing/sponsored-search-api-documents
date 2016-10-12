@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -43,6 +43,7 @@
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="platformTypes" type="tns:PlatformType"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -87,27 +88,7 @@
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="bidMultipliers" type="tns:BidMultiplierList"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="BidMultiplierList">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="type" type="tns:BidMultiplierType"/>
-        </sequence>
-      </complexType>
-      <complexType name="PlatformBidMultiplierList">
-        <complexContent>
-          <extension base="tns:BidMultiplierList">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="bidMultipliers" type="tns:PlatformBidMultiplier"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="PlatformBidMultiplier">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="type" type="tns:BidMultiplierType"/>
-          <element maxOccurs="1" minOccurs="0" name="platformName" type="tns:PlatformType"/>
+          <element maxOccurs="1" minOccurs="0" name="platformType" type="tns:PlatformType"/>
           <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double"/>
         </sequence>
       </complexType>
@@ -116,7 +97,6 @@
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long"/>
               <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:AdGroupBidMultiplier"/>
             </sequence>
           </extension>
@@ -153,11 +133,14 @@
       <simpleType name="Operator">
         <restriction base="xsd:string">
           <enumeration value="SET"/>
+          <enumeration value="REMOVE"/>
         </restriction>
       </simpleType>
       <simpleType name="PlatformType">
         <restriction base="xsd:string">
           <enumeration value="SMART_PHONE"/>
+          <enumeration value="TABLET"/>
+          <enumeration value="DESKTOP"/>
         </restriction>
       </simpleType>
       <simpleType name="BidMultiplierType">
@@ -266,7 +249,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupBidMultiplierService">
     <wsdl:port binding="tns:AdGroupBidMultiplierServiceSoapBinding" name="AdGroupBidMultiplierService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/AdGroupBidMultiplierService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/AdGroupBidMultiplierService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

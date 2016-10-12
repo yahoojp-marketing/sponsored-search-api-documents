@@ -81,11 +81,10 @@ Retreive the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -97,12 +96,11 @@ Retreive the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:getResponse>
@@ -190,11 +188,10 @@ Create the target list setting in ad group level.。
             <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -206,12 +203,11 @@ Create the target list setting in ad group level.。
             <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>
@@ -300,11 +296,10 @@ Update the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -316,12 +311,11 @@ Update the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>
@@ -410,11 +404,10 @@ Delete the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>EXCLUDED</ns1:excludedType>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
@@ -426,12 +419,11 @@ Delete the target list setting in ad group level.
             <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
             <ns1:criterionTargetList>
               <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>デフォルトリスト</ns1:targetListName>
+              <ns1:targetListName>Default List</ns1:targetListName>
             </ns1:criterionTargetList>
             <ns1:excludedType>INCLUDED</ns1:excludedType>
             <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            <ns1:targetAll>DEACTIVE</ns1:targetAll>
-          </ns1:adGroupRetargetingList>
+         </ns1:adGroupRetargetingList>
         </ns1:values>
       </ns1:rval>
     </ns1:mutateResponse>

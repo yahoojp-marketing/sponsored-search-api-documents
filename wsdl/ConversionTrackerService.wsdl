@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.1.0</version>
+          <version>6.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -41,6 +41,8 @@
           <element maxOccurs="unbounded" minOccurs="0" name="categories" type="tns:ConversionTrackerCategory"/>
           <element maxOccurs="unbounded" minOccurs="0" name="conversionTrackerTypes" type="tns:ConversionTrackerType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="trackingCodeTypes" type="tns:TrackingCodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="countingTypes" type="tns:ConversionCountingType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="excludeFromBiddings" type="tns:ExcludeFromBidding"/>
           <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ConversionDateRange"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
@@ -64,12 +66,16 @@
           <element maxOccurs="1" minOccurs="0" name="conversionTrackerName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="status" type="tns:ConversionTrackerStatus"/>
           <element maxOccurs="1" minOccurs="0" name="category" type="tns:ConversionTrackerCategory"/>
-          <element maxOccurs="1" minOccurs="0" name="numConversionEvents" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="conversionValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversions" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversionValue" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="mostRecentConversionDate" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="numConvertedClicks" type="xsd:int"/>
           <element maxOccurs="1" minOccurs="0" name="conversionTrackerType" type="tns:ConversionTrackerType"/>
           <element maxOccurs="1" minOccurs="0" name="userRevenueValue" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="countingType" type="tns:ConversionCountingType"/>
+          <element maxOccurs="1" minOccurs="0" name="excludeFromBidding" type="tns:ExcludeFromBidding"/>
+          <element maxOccurs="1" minOccurs="0" name="measurementPeriod" type="xsd:int"/>
         </sequence>
       </complexType>
       <complexType name="WebConversion">
@@ -78,7 +84,6 @@
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="snippet" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="markupLanguage" type="tns:MarkupLanguage"/>
-              <element maxOccurs="1" minOccurs="0" name="httpProtocol" type="tns:HttpProtocol"/>
               <element maxOccurs="1" minOccurs="0" name="trackingCodeType" type="tns:TrackingCodeType"/>
             </sequence>
           </extension>
@@ -140,12 +145,6 @@
           <enumeration value="WML"/>
         </restriction>
       </simpleType>
-      <simpleType name="HttpProtocol">
-        <restriction base="xsd:string">
-          <enumeration value="HTTP"/>
-          <enumeration value="HTTPS"/>
-        </restriction>
-      </simpleType>
       <simpleType name="AppPlatform">
         <restriction base="xsd:string">
           <enumeration value="ANDROID_MARKET"/>
@@ -163,19 +162,26 @@
           <enumeration value="TRUE"/>
         </restriction>
       </simpleType>
-      <simpleType name="CountingType">
+      <simpleType name="ConversionCountingType">
         <restriction base="xsd:string">
           <enumeration value="ONE_PER_CLICK"/>
           <enumeration value="MANY_PER_CLICK"/>
         </restriction>
       </simpleType>
+      <simpleType name="ExcludeFromBidding">
+         <restriction base="xsd:string">
+           <enumeration value="TRUE"/>
+           <enumeration value="FALSE"/>
+         </restriction>
+      </simpleType>
       <complexType name="ConversionTrackerPage">
         <complexContent>
           <extension base="tns:Page">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="totalNumConvertedClicks" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="totalNumConversionEvents" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="totalConversions" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="totalAllConversions" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="totalConversionValue" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="totalAllConversionValue" type="xsd:long"/>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ConversionTrackerValues"/>
             </sequence>
           </extension>
@@ -352,7 +358,7 @@
   </wsdl:binding>
   <wsdl:service name="ConversionTrackerService">
     <wsdl:port binding="tns:ConversionTrackerServiceSoapBinding" name="ConversionTrackerService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/ConversionTrackerService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/ConversionTrackerService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

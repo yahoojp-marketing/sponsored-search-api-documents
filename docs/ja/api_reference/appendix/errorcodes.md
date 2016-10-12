@@ -108,6 +108,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210907 | url restriction. | 入稿できないURLが設定されました。
 210909 | not account updatable. | アカウントの更新ができない状態です。
 
+
 #### 請求に関連するエラー
 ##### Service
 [BalanceService](/docs/ja/api_reference/services/BalanceService.md)  
@@ -133,12 +134,12 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
 0018 | The data size you requested is too large. Please try your request again with a smaller date range or reduce the size of your request.  | 生成されるデータのサイズが大きいため取得に失敗しました。<br>集計期間やパラメーターを調整し、再度リクエストを実施してください。 
+0103 | Exists same name. | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
 1003 | invalid download request. | ダウンロードURLの取得ホストと実行ホストが異なります。
 1004 | download URL has expired. | ダウンロードURLの有効期限が切れました。<br />ダウンロードURLが改ざんされています。
 10100 | DEACTIVATED | 削除済みとして登録されました。<br>アカウントステータスがアクティブでない、またはアカウントが存在しない場合にもこのエラーが発生する可能性があります。
 10200 | INVALID_STATUS | カスタムURLを更新するためには、キーワードが"承認済み"になっている必要があります。
 10300 | OVER_LIMIT | 上限値を超えています。リクエストのサイズを調整して、再度実行してください。
-10400 | EXISTS_SAME_NAME | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
 10501 | UNMATCH_BIDDING _STRATEGY_TYPE | 広告の配信方法が「ACCELERATED」の場合は、BudgetOptimizerを設定できません。<br>biddingStrategyTypeが、キャンペーンのiddingStrategyTypeと一致しない場合にもこのエラーが発生する可能性があります。
 10601 | OVER_BUDGET_AMOUNT | キャンペーンよりも高い予算額は設定できません。
 10602 | LOWER_BUDGET_AMOUNT | 予算額は、キャンペーン内の広告グループ・キーワードに設定されている予算よりも高く設定する必要があります。
@@ -211,10 +212,10 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210403 | Not enough conversions.  | コンバージョン数が不十分です。
 210404 | Auto bidding is already set.  | キーワードに個別の入札価格や入札設定が指定されている状態で、キャンペーンに「コンバージョン数の最大化」、または「コンバージョン単価の目標値」の自動入札を設定しています。
 210405 | Budget has exceeded.  | 予算額を超過しています。
-210406 | Cannot use conversion optimizer.  | コンバージョンオプティマイザーが利用できません。
+210406 | Cannot use conversion optimizer.  | 自動入札設定が利用できません。
 210407 | Set campaign active.	| キャンペーンがACTIVEでないため、入札設定が利用できません。
 210408 | Set campaign to Manual CPC.  | キャンペーンが「MANUAL_CPC」でないため、入札設定が利用できません。
-210409 | Bid setting limit has exceed.  | キャンペーン配下の広告グループに上限以上の入札を設定されています。
+210409 | Bid setting limit has exceed.  | キャンペーン配下の広告広告グループに設定した入札金額または自動入札設定数が上限を超えています。<br>※1キャンペーンに設定できる入札金額および自動入札設定は、配下の広告グループ合計で1000件までです。
 211000 | Cannot operate AdvancedURL.	| アドバンスドURLに移行済みのため、操作できません。
 211001 | Cannot set AdvancedMobileURL. | アプリダウンロードキャンペーンでは、advancedMobileUrlの設定はできません。
 211002 | Lpurl is required for ValueTrack.	| トラッキングURLにバリュートラックの{lpurl}を入れてください。
@@ -262,10 +263,8 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
 0002 | An internal error has occurred.  | 内部エラーが発生しました。再度操作を実行してください。 <br>もし、問題が解決しない場合は、お問い合わせページをご利用ください。<br>※お問合せの際は、必ずXML形式のSOAPリクエスト/レスポンスを含めて連絡ください。 
-0108 | entity count limit exceeded.  | 登録できるテンプレートの上限数を超えています。
+0108 | entity count limit exceeded.  | 登録できるテンプレートの上限数を超えています。<br>レポート定義のテンプレートが、標準認証と代行認証あわせて30件に達していないか確認してください。
 20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
-30001 | TEMPLATE_OVER | 登録されているレポート定義のテンプレートが上限値に達しています。<br>レポート定義のテンプレートが、標準認証と代行認証あわせて30件に達していないか確認してください。 
-30101 | JOB_OVER_ONETIME | 登録されているレポートジョブIDが上限値に達しています。<br>FrequencyがONETIMEのレポートジョブIDが、標準認証と代行認証あわせて50件に達していないか確認してください。
 40001 | REQUIRED | リクエストに必要なパラメーターが欠落、または空で指定されています。 
 40002 | NOT_LIST | 要求された操作は配列が必要です。 
 40003 | OVER_LIST_SIZE | 指定した要素数が上限値を超えています。 <br>リクエストのサイズを調整して、再度実行してください。
@@ -359,10 +358,11 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
 21601 | Invalid url format. | クイックリンクURL、または、キーワードのカスタムURLが不正です。
 210102 | INVALID PHONE NUMBER | FeedItemServiceでCALL_PHONE_NUMBERに指定した電話番号の形式が正しくありません。<br>このエラーはCALLEXTENSIONのFeedItem情報の登録の場合に発生します。
-210103 | UNMATCH PLACEHOLDER TYPE | placeholderTypeとfeedItemIdの組み合わせが正しくないときに発生します。 <br>CampaignFeedSerivceやAdGroupFeedServiceで、placeholderTypeがQUICKLINKのときにCALLEXTENSIONのfeedItemIdを指定した場合などです。
-210104 | INVALID STATUS | 誤った値です。 
-210110 | INVALID TARGET | 無効なターゲティングです。
+210104 | INVALID STATUS | 審査中のため、更新できません。 
+210110 | INVALID TARGET | １日のスケジュール指定が上限値（6件）を超えています。
 211000 | Cannot operate AdvancedURL.	| アドバンスドURLに移行済みのため、操作できません。
+210123 | CAMPAIGN TARGETING MISMATCH | targetingCampaignIdで指定したキャンペーンIDと、targetingAdGroupIdで指定した広告グループの上位キャンペーンIDが異なるため、設定できません。
+210126 | Mobile app download cannot connect to. | アプリダウンロードキャンペーンは設定できません。
 
 
 ##### Service

@@ -2,7 +2,7 @@
 TargetAll is the setting of activating all user targets.
 
 ### Service
-+ [AdGroupRetargetingListService](./services/AdGroupRetargetingListService.md)
++ [AdGroupService](../services/AdGroupService.md)
 
 | Enumeration value | Data type | Description | 
 |---|---|---|
