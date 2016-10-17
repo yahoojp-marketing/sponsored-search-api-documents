@@ -178,7 +178,7 @@ ReportDefinition object displays the report definition.
   <tr>
   <td>includeZeroImpressions</td>
   <td>enum <br><a href="./ReportIncludeZeroImpressions.md">ReportIncludeZeroImpressions</a></td>
-  <td>Select if include "0 impression" line to the report or not.<br>※Default：FALSE(not include)</td>
+  <td>Select if include "0 impression" line in the report or not.<br>※Default：FALSE(not include)</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -188,7 +188,7 @@ ReportDefinition object displays the report definition.
  <tr>
   <td>includeDeleted</td>
   <td>enum <br><a href="./ReportIncludeDeleted.md">ReportIncludeDeleted</a></td>
-  <td>Select if include deleted items to report output.<br>
+  <td>Select if include deleted items in report output.<br>
   When select FALSE, deleted and paused items are out of output target.<br>
   ※Default：TRUE (to be output on the report)</td>
   <td>yes</td>

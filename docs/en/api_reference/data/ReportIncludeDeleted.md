@@ -1,5 +1,5 @@
 # ReportIncludeDeleted(enum)
-ReportIncludeDeleted object describes whether output deleted items on the report or not.
+ReportIncludeDeleted object describes whether to output deleted items on the report or not.
 
 ### Service
 + [ReportDefinitionService](../services/ReportDefinitionService.md)

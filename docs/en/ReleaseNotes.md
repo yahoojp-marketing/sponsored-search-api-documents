@@ -13,7 +13,7 @@ Minor version up
 
 #### 1. Add "Extended Text Ads" feature
 "Extended TExt Ads" which supports 2 lines Title and 1 line Description is now available.<br>
-It enables ad delivery with much information and large width more than usual.<br><br>
+It enables ad delivery with much information and larger width more than usual.<br><br>
 
 ##### Target Web Service 
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)

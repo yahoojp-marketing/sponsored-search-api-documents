@@ -124,12 +124,12 @@ Gets bid multiplier of adgroup
 </SOAP-ENV:Envelope>  
 ```
 ## mutate (SET)
-### Request
 Updates adgroup bid multiplier.
 
+### Request
 | Name | Req | Value | Description | 
 |---|---|---|---|
-| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplierOperation.md) | Modify bid multiplier and operation details of the ad group to be processed. | 
+| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation details of the ad group to be processed. | 
 
 ##### Request Sample
 ```xml

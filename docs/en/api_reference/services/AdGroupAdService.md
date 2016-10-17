@@ -1,5 +1,5 @@
 # AdGroupAdService
-Use this service to get, add, update, or remove ad information.
+Use this service to get, add, update, or remove information.
 
 #### WSDL
 | environment | url |
