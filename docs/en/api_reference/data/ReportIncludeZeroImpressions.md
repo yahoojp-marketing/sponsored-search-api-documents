@@ -1,5 +1,5 @@
 # ReportIncludeZeroImpressions(enum)
-ReportIncludeZeroImpressions object describes whether including "0 impression" line to the report or not.
+ReportIncludeZeroImpressions object describes whether including "0 impression" line in the report or not.
 
 ### Service
 + [ReportDefinitionService](../services/ReportDefinitionService.md)
