@@ -146,7 +146,6 @@ IS_SELF_ACTION		|当該の広告表示オプションとその他	|Is Self Actio
 * [Ad Display Option Report](./reportfields_types.md#feed_item)
 * [Geo Targeting Report](./reportfields_types.md#geo_target)
 * [Schedule Targeting Report](./reportfields_types.md#schedule_target)
-* [Device Targeting Report](./reportfields_types.md#device_target)
 * [Auto Bidding Report](./reportfields_types.md#bid_strategy)
 * [Data Auto Insertion Report](./reportfields_types.md#ad_customizers)
 * [Target List Setting Report](./reportfields_types.md#target_list)
