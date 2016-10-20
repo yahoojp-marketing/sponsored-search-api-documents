@@ -12,7 +12,6 @@ List of available report field per report type.
 * [Ad Display Option Report](#feed_item)
 * [Geo Targeting Report](#geo_target)
 * [Schedule Targeting Report](#schedule_target)
-* [Device Targeting Report](#device_target)
 * [Auto Bidding Report](#bid_strategy)
 * [Target List Setting Report](#target_list)
 * [Data Auto Insertion Report](#ad_customizers)

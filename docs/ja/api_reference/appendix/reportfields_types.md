@@ -12,7 +12,6 @@
 * [広告表示オプションレポート](#feed_item)
 * [地域ターゲティングレポート](#geo_target)
 * [曜日・時間帯ターゲティングレポート](#schedule_target)
-* [デバイスターゲティングレポート](#device_target)
 * [自動入札レポート](#bid_strategy)
 * [ターゲットリスト設定レポート](#target_list)
 * [データ自動挿入レポート](#ad_customizers)
@@ -481,40 +480,6 @@ YEAR		|×	|×	|×	|×
 MONTH		|×	|×	|×	|×
 MONTH_OF_YEAR	|×	|×	|×	|×
 WEEK		|×	|×	|×	|×
-<br>
-
-<hr>
-<a name="device_target">
-#### デバイスターゲティングレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
------|-----|-----|-----|-----
-CAMPAIGN_ID	|×	|×	|×	|×
-CAMPAIGN_NAME	|×	|×	|×	|×
-COST	|×	|×	|×	|×
-IMPS	|×	|×	|×	|×
-CLICKS	|×	|×	|×	|×
-CLICK_RATE	|×	|×	|×	|×
-AVG_CPM	|×	|×	|×	|×
-AVG_CPC	|×	|×	|×	|×
-AVG_DELIVER_RANK	|×	|×	|×	|×
-REVENUE		|×	|×	|×	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
-REVENUE_CONVERSION	|×	|×	|×	|×
-CONVERSION		|×	|×	|×	|×
-CONVERSION_RATE		|×	|×	|×	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
-CPA		|×	|×	|×	|×
-BID_MULTIPLIER	|×	|×	|×	|×
-TARGET_DEVICE_ID	|×	|×	|×	|×
-TARGET_DEVICE	|×	|×	|×	|×
-DAY		|×	|×	|×	|×
-QUARTER	|×	|×	|×	|×
-YEAR	|×	|×	|×	|×
-MONTH	|×	|×	|×	|×
-MONTH_OF_YEAR	|×	|×	|×	|×
-WEEK	|×	|×	|×	|×
 <br>
 
 <hr>
