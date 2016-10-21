@@ -138,12 +138,12 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0018 | The data size you requested is too large. <br>Please try your request again with a smaller date range or reduce the size of your request.  | Failed operations due to data size excess.
+0103 | Exists same name. | The name you specified for a campaign, ad group, ad was not unique. <br>Please choose one that is unique.
 1003 | invalid download request. | Host of creating and host of obtaining the Download URL differs.
 1004 | download URL has expired. | Passed the retainment period of Download URL (10 minutes after report creation)<br />Download URL may have falsified.
 10100 | DEACTIVATED | The entity is having status as deleted. <br>This error may also result if account status is not active or the entity does not exist.
 10200 | INVALID_STATUS | To update destinationUrl at keyword BiddableAdGroupCriterion, approbalStatus of the keyword must be "APPROVED"
 10300 | OVER_LIMIT | Number of entities exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
-10400 | EXISTS_SAME_NAME | The name you specified for a campaign, ad group, ad was not unique. <br>Please choose one that is unique.
 10501 | UNMATCH_BIDDING _STRATEGY_TYPE | Accelerated delivery method is not supported for budget optimizer. <br>This error may also result if biddingStrategyType does not match campaign's biddingStrategyType.
 10601 | OVER_BUDGET_AMOUNT | You cannot set/add amount greater than the amount specified for the campaign budget.
 10602 | LOWER_BUDGET_AMOUNT | Have to set/add amount greater than the budget set for ad group or keywords of specific campaign.
@@ -266,10 +266,8 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>*Be sure to have your SOAP Request/Response ready.
-0108 | entity count limit exceeded.  | It exceeds the maxumium number of template.
+0108 | entity count limit exceeded.  | The error occurs when you create 31st report definitions.<br>The limitation of report definitions you can store is 30.<br>Please check and remove old report definitions.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
-30001 | TEMPLATE_OVER | The error occurs when you create 31st report definitions. <br>The limitation of report definitions you can store is 30. <br>Please check and remove old report definitions.
-30101 | JOB_OVER_ONETIME | The error occurs when you create 51st ONE TIME report job.<br>The limitation of ONE TIME report job ID you can store is 50.<br>Please check and remove old report job.
 40001 | REQUIRED | The operation is missing a required field or parameter or the value is empty.
 40002 | NOT_LIST | The operation requires array.
 40003 | OVER_LIST_SIZE | Number of elements exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
@@ -302,6 +300,7 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------    
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>*Be sure to have your SOAP Request/Response ready.
+0108 | entity count limit exceeded.  | The error occurs when you create 51st ONE TIME report job.<br>The limitation of ONE TIME report job ID you can store is 50.<br>Please check and remove old report job.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 40001 | REQUIRED | The operation is missing a required field or parameter or the value is empty.
 40002 | NOT_LIST | The operation requires array.
