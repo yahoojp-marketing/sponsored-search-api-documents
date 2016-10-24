@@ -33,9 +33,9 @@ AVG_DELIVER_RANK		|○	|×	|×	|○
 INVALID_CLICKS			|×	|×	|×	|○
 INVALID_CLICK_RATE		|×	|×	|×	|○
 REVENUE				|○	|○	|○	|○
-UNIQUE_CONVERSION		|○	|○	|○	|○
+UNIQUE_CONVERSION		|○	|×	|×	|○
 UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION	|○	|○	|○	|○
+REVENUE_UNIQUE_CONVERSION	|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION			|○	|○	|○	|○
 CONVERSION_RATE			|○	|×	|×	|○
@@ -83,9 +83,9 @@ AVG_DELIVER_RANK		|○	|×	|×	|○
 INVALID_CLICKS		|×	|×	|×	|○
 INVALID_CLICK_RATE	|○	|×	|×	|×	|○
 REVENUE		|○	|○	|○	|○
-UNIQUE_CONVERSION	|○	|○	|○	|○
+UNIQUE_CONVERSION	|○	|×	|×	|○
 UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|○	|○	|○	|○
+REVENUE_UNIQUE_CONVERSION		|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION	|○		|○	|○	|○
 CONVERSION_RATE	|○		|×	|×	|○
@@ -134,9 +134,9 @@ AVG_CPC	|○		|×	|×	|○
 AVG_DELIVER_RANK	|○	|○	|×	|×	|○
 MAX_CPM	|○		|○	|○	|○
 REVENUE	|○		|○	|○	|○
-UNIQUE_CONVERSION		|○	|○	|○	|○
+UNIQUE_CONVERSION		|○	|×	|×	|○
 UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|○	|○	|○	|○
+REVENUE_UNIQUE_CONVERSION		|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION	|○		|○	|○	|○
 CONVERSION_RATE	|○		|×	|×	|○
@@ -188,9 +188,9 @@ AVG_CPM	|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK		|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION		|×	|○	|○	|○
+UNIQUE_CONVERSION		|×	|×	|×	|○
 UNIQUE_CONVERSION_RATE		|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|×	|○	|○	|○
+REVENUE_UNIQUE_CONVERSION		|×	|×	|×	|○
 REVENUE_CONVERSION		|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE		|×	|×	|×	|○
@@ -246,9 +246,9 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK	|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION		|×	|○	|○	|○
+UNIQUE_CONVERSION		|×	|×	|×	|○
 UNIQUE_CONVERSION_RATE		|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|×	|○	|○	|○
+REVENUE_UNIQUE_CONVERSION		|×	|×	|×	|○
 REVENUE_CONVERSION		|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE	|×	|×	|×	|○
@@ -294,9 +294,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK		|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION		|×	|○	|○	|×
+UNIQUE_CONVERSION		|×	|×	|×	|×
 UNIQUE_CONVERSION_RATE		|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|○	|○	|×
+REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION		|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
@@ -333,9 +333,9 @@ CLICK_RATE	|×	|×	|×	|×
 AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION	|×	|○	|○	|×
+UNIQUE_CONVERSION	|×	|×	|×	|×
 UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|○	|○	|×
+REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
@@ -376,13 +376,13 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION	|×	|○	|○	|○
-UNIQUE_CONVERSION_RATE	|×	|○	|○	|○
-REVENUE_UNIQUE_CONVERSION	|×	|○	|○	|○
+UNIQUE_CONVERSION	|×	|×	|×	|○
+UNIQUE_CONVERSION_RATE	|×	|×	|×	|○
+REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|○
 REVENUE_CONVERSION	|×	|○	|○	|○
 CONVERSION		|×	|○	|○	|○
 CONVERSION_RATE		|×	|○	|○	|○
-COST_UNIQUE_CONVERSION	|×	|○	|○	|○
+COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA		|×	|○	|○	|○
 EDITORIAL_STATUS	|×	|○	|○	|○
 PHONE_NUMBER	|×	|○	|○	|○
@@ -548,13 +548,13 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK	|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION	|×	|○	|○	|○
-UNIQUE_CONVERSION_RATE	|×	|○	|○	|○
-REVENUE_UNIQUE_CONVERSION	|×	|○	|○	|○
+UNIQUE_CONVERSION	|×	|×	|×	|○
+UNIQUE_CONVERSION_RATE	|×	|×	|×	|○
+REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|○
 REVENUE_CONVERSION	|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE	|×	|○	|○	|○
-COST_UNIQUE_CONVERSION	|×	|○	|○	|○
+COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA		|×	|○	|○	|○
 BID_MULTIPLIER	|×	|○	|○	|○
 TARGET_LIST_ID	|×	|○	|○	|○
@@ -593,13 +593,13 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK	|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION	|×	|○	|○	|×
-UNIQUE_CONVERSION_RATE	|×	|○	|○	|×
-REVENUE_UNIQUE_CONVERSION	|×	|○	|○	|×
+UNIQUE_CONVERSION	|×	|×	|×	|×
+UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
+REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|○	|○	|×
-COST_UNIQUE_CONVERSION	|×	|○	|○	|×
+COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|○	|○	|×
 EDITORIAL_STATUS	|×	|○	|○	|×
 FEED_ID		|×	|○	|○	|×
