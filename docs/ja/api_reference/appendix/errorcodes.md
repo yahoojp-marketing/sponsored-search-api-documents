@@ -178,6 +178,9 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 211003 | Domain does not match with DisplayURL.  | 	表示URLと最終リンク先URL（モバイル含む）のドメインが一致していません。
 211004 | Cannot set under AndroidCampaign.  | 	Androidのアプリキャンペーンでは、以下の設定ができません：<br>・キャンペーン、広告グループ、広告、キーワードにTrackingUrlや CustomParameterを設定
 211005| SharedList is used. | 削除しようとしている対象外キーワードリストは、キャンペーンに設定済みです。<br>（キャンペーンに設定されている対象外キーワードリストは削除できません）
+211006 | Cannot bid modify criterion campaign opted out. |  キャンペーンでデバイス別入札価格調整率を0（そのデバイスには配信しない）で設定済みのため、広告グループで同デバイスの入札価格調整率は変更できません。
+
+
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  

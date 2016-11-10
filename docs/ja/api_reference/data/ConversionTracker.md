@@ -10,13 +10,13 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
 | status| enum <a href="./ConversionTrackerStatus.md">ConversionTrackerStatus</a>| コンバージョントラッカーのステータスです。| Yes | - | Requirement | Optional<br>Updatable | - |
 | category| enum<br><a href="./ConversionTrackerCategory.md">ConversionTrackerCategory</a>| トラッキング対象のコンバージョンのカテゴリです。<br>コンバージョン測定を行う目的をConversionTrackerCategoryより選んでください。<br>※電話コンバージョンの場合は、PAGE_VEIWの指定はできません。<br>※アプリコンバージョンの場合は、DEFAULTのみ指定可能です。| Yes | - | Requirement | Optional<br>Updatable | - |
 | conversions| xsd:long| 自動入札設定対象のコンバージョン数です。<br>ユニークコンバージョンか総コンバージョンかは、countingTypeに依存します。| Yes | - | - | - | - |
-| conversionValue| xsd:long| 自動入札設定対象のコンバージョン値です。| Yes | - | - | - | - |
+| conversionValue| xsd:string| 自動入札設定対象のコンバージョン値です。| Yes | - | - | - | - |
 | allConversions| xsd:long| 自動入札設定対象のコンバージョン数と、対象外のコンバージョン数の合計です。| Yes | - | - | - | - |
-| allConversionVaule| xsd:long| 自動入札設定対象のコンバージョン値と、対象外のコンバージョン値の合計です。| Yes | - | - | - | - |
+| allConversionVaule| xsd:string| 自動入札設定対象のコンバージョン値と、対象外のコンバージョン値の合計です。| Yes | - | - | - | - |
 | mostRecentConversionDate| xsd:string| 直近のコンバージョン発生日です。| Yes | - | - | - | - |
 | conversionTrackerType| enum<br><a href="./ConversionTrackerType.md">ConversionTrackerType</a>| コンバージョンタイプです。| Yes | - | Requirement | Requirement | - |
 | userRevenueValue| xsd:string| このコンバージョントラッカーに対するユーザー指定の収益値です。<br>1コンバージョンあたりの売上金額が固定値の場合、その金額を設定することで、売上金額をレポートなどで確認できます。<br>ADDリクエスト時に未指定の場合、0が設定されます。| Yes | - | Optional | Optional<br>Updatable | - |
-| countingType| enum<br><a href="./ConversionCountingType.md">ConversionCountingType</a>| コンバージョンの計測方法です。| Yes | - | Optional<br>default：MANY_PER_CLICK | Optional | - |
+| countingType| enum<br><a href="./ConversionCountingType.md">ConversionCountingType</a>| コンバージョンの計測方法です。<br>※Default：WebコンバージョンはMANY_PER_CLICK、<br>アプリコンバージョンはONE_PER_CLICK。| Yes | - | Optional<br>default：MANY_PER_CLICK | Optional | - |
 | excludeFromBidding | enum<br><a href="./ExcludeFromBidding.md">ExcludeFromBidding</a>| 自動入札設定で使用するかを表します。| Yes | - | Optional<br>default: FALSE（使用する） | Optional | - |
 | measurermentPeriod | xsd:int | コンバージョン計測期間です（単位：日)。<br>7～90日間で設定可能です。<br>※アプリダウンロードの場合は30日間固定。| Yes | - | Optional<br>default: 30 | Optional | - |
 

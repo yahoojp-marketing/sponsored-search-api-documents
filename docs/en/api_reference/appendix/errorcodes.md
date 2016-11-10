@@ -182,6 +182,7 @@ All services.
 211003 | Domain does not match with DisplayURL.  | Display URL and Landing Page URL (including mobile) domain does not match.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br>- Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.
 211005 | SharedList is used. | Negative keyword to be removed has been made setup to campaign.<br>(Negative keyword list setup to campaign cannot be removed.)
+211006 | Cannot bid modify criterion campaign opted out. | Because Bid Adjustment rate by device on campaign has been set as 100% already, the Bid Adjustment rate for same device on ad group cannot be edited.
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  

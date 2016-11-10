@@ -3,21 +3,11 @@ AppConversionオブジェクトは、アプリコンバージョン測定タグ�
 ### Service
 + [ConversionTrackerService](../services/ConversionTrackerService.md)
 
-| フィールド | データ型 | 説明 | ADD | SET | 
+### Inheritance
++ [ConversionTracker](./ConversionTracker.md)
+
+| Field | Type | Description | Add | Set | 
 |---|---|---|---|---|
-| ConversionTracker(inherited)|||||
-| accountid| xsd:long| アカウントIDです。| Req| Req |
-| conversionTrackerId| xsd:long| コンバージョントラッカーのIDです。| -| Req |
-| conversionTrackerName| xsd:string| コンバージョントラッカーの名称です。| Req| Opt |
-| status| enum <a href="./ConversionTrackerStatus.md">ConversionTrackerStatus</a>| コンバージョントラッカーのステータスです。| Req| Opt |
-| category| enum <a href="./ConversionTrackerCategory.md">ConversionTrackerCategory</a>| ラッキング対象のコンバージョンのカテゴリです。コンバージョン測定を行う目的をConversionTrackerCategoryより選んでください。<br>※電話コンバージョンの場合は、PAGE_VEIWの指定はできません。<br>※アプリコンバージョンの場合は、DEFAULTのみ指定可能です。| Req| Opt |
-| numConversionEvents| xsd:int| 総コンバージョン数です。広告1回のクリックに対して30日以内に発生したコンバージョンをすべてカウントします。| -| - |
-| conversionValue| xsd:long| 総コンバージョンによる売上金額の合計です。| -| - |
-| mostRecentConversionDate| xsd:string| 直近のコンバージョン発生日です。| -| - |
-| numConvertedClicks| xsd:int| ユニークコンバージョン数です。広告1回のクリックに対して30日以内に発生した全コンバージョン数のうち、最初の1回のみがカウントされます。広告1回のクリックに対し複数のコンバージョンが発生しても、2回目以降のコンバージョン数はカウントされません。| -| - |
-| conversionTrackerType| enum <a href="./ConversionTrackerType.md">ConversionTrackerType</a>| コンバージョントラッカーのタイプです。| Req| Req |
-| userRevenueValue| xsd:string| このコンバージョントラッカーに対するユーザー指定の収益値です。1コンバージョンあたりの売上金額が固定値の場合、その金額を設定することで、売上金額をレポートなどで確認できます。アプリコンバージョンは、値の設定はできずダウンロード料金でコンバージョン値が計算されます。| Req(WebConversion)<br>- (AppConversion)| Opt(WebConversion)<br>- (AppConversion) |
-| AppConversion|||||
 | appId| xsd:long| アプリケーションIDです。| Opt| Opt |
 | appPlatform| enum <a href="./AppPlatform.md">AppPlatform</a>| アプリコンバージョンのプラットフォームです。| Req| - |
 | appConversionType| enum <a href="./AppConversionType.md">AppConversionType</a>| アプリケーションコンバージョンタイプです。| Req| - |

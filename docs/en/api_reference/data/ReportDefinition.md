@@ -193,7 +193,8 @@ ReportDefinition object displays the report definition.
   ※Default：TRUE (to be output on the report)</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional</td>
+  <td>Optional<br>*But for the following report types only:<br>・CAMPAIGN<br>・ADGROUP<br>・AD<br>・KEYWORDS<br>・FEED_ITEM<br>・AD_CUSTOMIZERS<br>*For other report types: Ignore
+</td>
   <td>-</td>
   <td>-</td>
  </tr>
