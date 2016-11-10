@@ -189,10 +189,12 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>enum <br><a href="./ReportIncludeDeleted.md">ReportIncludeDeleted</a></td>
   <td>削除済みの項目を出力対象にするかを選択します。<br>
   FALSEを指定した場合は、削除済み、および掲載停止の項目が出力対象外になります。<br>
-  ※Default：TRUE（出力対象）</td>
+  ※Default：TRUE（出力対象）<br>
+  </td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional</td>
+  <td>Optional<br>※レポートタイプが以下の場合のみ。<br>・CAMPAIGN<br>・ADGROUP<br>・AD<br>・KEYWORDS<br>・FEED_ITEM<br>・AD_CUSTOMIZERS<br>これ以外の場合はIgnore
+</td>
   <td>-</td>
   <td>-</td>
  </tr>

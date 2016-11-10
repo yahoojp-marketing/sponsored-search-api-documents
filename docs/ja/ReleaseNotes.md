@@ -38,7 +38,15 @@
  * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
 <br><br>
 
-#### 4.	保守改善の追加
+#### 4.	サイトリターゲティング複数設定に伴う変更
+2016年10月19日に開始した広告グループへのサイトリターゲティングの複数設定（Ver6.0、6.1で対応済み）に伴い、「TargetAll」オブジェクトを削除します。
+
+##### 対象ウェブサービス
+ * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
+<br><br>
+
+
+#### 5.	保守改善の追加
 * レポート定義の作成時に、以下の条件が指定可能になります。<br>
  - レポートの出力対象にインプレッションが0のデータを含める<br>
  - レポート出力対象に削除済みエンティティを含める<br>
@@ -85,6 +93,9 @@ PC、タブレット、スマートフォンのそれぞれに、入札価格調
 <tr>
  <td valign="top">AdGroupBidMultiplierService</td><td valign="top">入札価格調整率は、スマートフォンのみ設定可能（広告グループ単位）</td><td valign="top">
 ・PC、タブレット、スマートフォンのそれぞれに、入札価格調整率を設定、照会できる（広告グループ単位）<br>
+・エラーコードの追加<br>
+キャンペーンでデバイス別入札価格調整率を0（そのデバイスには配信しない）で設定中に、広告グループで同デバイスの入札価格調整率を変更しようとした場合、以下のエラーコードを表示<br>
+「211006：Cannot bid modify criterion campaign opted out」<br>
 ・以下のオブジェクトの削除<br>
 　-BidMultiplierList<br>
 　-PlatformBidMultiplierList<br>
@@ -115,10 +126,19 @@ PC、タブレット、スマートフォンのそれぞれに、入札価格調
 </td>
 </tr>
 <tr>
+  <td colspan="3"><b>サイトリターゲティング複数設定に伴う変更</b></td>
+</tr>
+<tr>
+ <td valign="top">AdGroupService</td>
+ <td valign="top">・2016年10月19日以降、広告グループにサイトリターゲティングの複数設定が可能<br>・2016年10月19日以降、TargetAllの設定が無効</td>
+ <td valign="top">・広告グループにサイトリターゲティングの複数設定が可能<br>・TargetAllを削除
+</td>
+</tr>
+<tr>
   <td colspan="3"><b>保守改善の追加</b></td>
 </tr>
 <tr>
- <td valign="top">ReportDefinitionService</td><td valign="top">・0インプレッションを含めるかの<br>設定は、filtersでのみ可能<br>・レポートの出力対象に、削除済みエンティティの有無を設定できない
+ <td valign="top">ReportDefinitionService</td><td valign="top">・0インプレッションを含めるかの設定は、filtersでのみ可能<br>・レポートの出力対象に、削除済みエンティティの有無を設定できない
 </td><td valign="top">・レポート定義設定時に、0インプレッションを含めるかを設定できる<br>・レポートの出力対象に、削除済みエンティティを含めるかを設定できる<br>・デバイスターゲティングレポートを廃止
 </td>
 </tr>

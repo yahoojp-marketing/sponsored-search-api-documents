@@ -39,7 +39,13 @@ Following data items are updated on counting conversion.
  * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
 <br><br>
 
-#### 4. Additional upgrades
+#### 4. Change associated with Site Retargeting multiple settings
+The object 'TargetAll' has been removed from 'AdGroupService' on Ver.6.2, because of Site Retargeting multiple settings (already supported on Ver.6.0/6.1) enabled on October 19, 2016.
+
+##### Target Web Service 
+* [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+
+#### 5. Additional upgrades
 * Following conditions are available on creating report definition.<br>
  - Includes "0 impression" data to output target of reporting.<br>
  - Includes deleted entities to output target of reporting.<br>
@@ -88,6 +94,9 @@ Following data items are updated on counting conversion.
  <td valign="top">AdGroupBidMultiplierService</td><td valign="top">Bid adjustment is available on Smartphone only (by ad group)</td>
  <td valign="top">
 ・Can add and browse Bid adjustment setting for each device, PC, Tablet and Smartphone (by ad group)<br>
+・Error code added
+The following error code will be displayed when the bid adjustment rate of a device on ad group is changed, with the setting of 'device bid adjustment rate = "0"' on campaign (it means that ads are not displayed for the device) 
+   211006：Cannot bid modify criterion campaign opted out
 ・Delete following objects<br>
 　-BidMultiplierList<br>
 　-PlatformBidMultiplierList<br>
@@ -124,6 +133,15 @@ Following data items are updated on counting conversion.
 　-Added ConversionCountingType<br>
 　-Added ExcludeFromBidding<br>
 　-Deleted HttpProtocol
+</td>
+</tr>
+<tr>
+  <td colspan="3"><b>Change associated with Site Retargeting multiple settings</b></td>
+</tr>
+<tr>
+ <td valign="top">AdGroupService</td>
+ <td valign="top">・Site Retargeting multiple settings on ad group is available since Octover 19, 2016. <br>・'TargetAll' setting is not available since October 19, 2016.</td>
+ <td valign="top">・Site Retargeting multiple settings on ad group is available<br>・Removed 'TargetAll'.
 </td>
 </tr>
 <tr>

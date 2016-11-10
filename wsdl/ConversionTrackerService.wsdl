@@ -67,9 +67,9 @@
           <element maxOccurs="1" minOccurs="0" name="status" type="tns:ConversionTrackerStatus"/>
           <element maxOccurs="1" minOccurs="0" name="category" type="tns:ConversionTrackerCategory"/>
           <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="conversionValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionValue" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="allConversions" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="allConversionValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversionValue" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="mostRecentConversionDate" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="conversionTrackerType" type="tns:ConversionTrackerType"/>
           <element maxOccurs="1" minOccurs="0" name="userRevenueValue" type="xsd:string"/>
@@ -180,8 +180,8 @@
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="totalConversions" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="totalAllConversions" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="totalConversionValue" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="totalAllConversionValue" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="totalConversionValue" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="totalAllConversionValue" type="xsd:string"/>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ConversionTrackerValues"/>
             </sequence>
           </extension>

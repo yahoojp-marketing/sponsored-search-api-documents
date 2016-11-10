@@ -33,7 +33,7 @@ ConversionTrackerPageオブジェクトは、取得されるコンバージョ�
  </tr>
  <tr>
   <td>totalConversionValue</td>
-  <td>xsd:long</td>
+  <td>xsd:string</td>
   <td>自動入札設定の対象コンバージョン値の合計です。</td>
   <td>yes</td>
   <td>-</td>
@@ -53,8 +53,8 @@ ConversionTrackerPageオブジェクトは、取得されるコンバージョ�
   <td>-</td>
  </tr>
  <tr>
-  <td>totalAllConversionVaule</td>
-  <td>xsd:long</td>
+  <td>totalAllConversionValue</td>
+  <td>xsd:string</td>
   <td>自動入札設定の対象コンバージョン値と、対象外コンバージョン値の合計です。</td>
   <td>yes</td>
   <td>-</td>
