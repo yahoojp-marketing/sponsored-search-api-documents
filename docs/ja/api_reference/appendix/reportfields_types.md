@@ -165,7 +165,7 @@ CONVERSION_NAME		|○	|○	|-	|○
 <hr>
 <a name="ad">
 #### 広告レポート
-利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン測定<br>の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
+利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID		|×	|○	|○	|○
 ADGROUP_ID		|×	|○	|○	|○
@@ -221,7 +221,7 @@ AD_KEYWORD_ID	|×	|○	|○	|○
 <hr>
 <a name="keywords">
 #### キーワードレポート
-利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
+利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|○
 ADGROUP_ID	|×	|○	|○	|○
@@ -276,7 +276,7 @@ CONVERSION_NAME	|×	|○	|-	|○
 <hr>
 <a name="search_query">
 #### 検索クエリレポート
-利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
+利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|×
 ADGROUP_ID	|×	|○	|○	|×
@@ -304,16 +304,6 @@ COST_UNIQUE_CONVERSION		|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 TRACKING_URL		|×	|○	|○	|×
 LANDING_PAGE_URL		|×	|○	|○	|×
-CONVERSIONS		|○	|○	|○	|×
-CONV_RATE		|○	|×	|×	|×
-CONV_VALUE		|○	|○	|○	|×
-COST_PER_CONV		|○	|×	|×	|×
-VALUE_PER_CONV		|○	|○	|○	|×
-ALL_CONV		|○	|○	|○	|×
-ALL_CONV_RATE		|○	|×	|×	|×
-ALL_CONV_VALUE		|○	|○	|○	|×
-COST_PER_ALL_CONV		|○	|×	|×	|×
-VALUE_PER_ALL_CONV		|○	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×
@@ -351,16 +341,6 @@ CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
 COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
-CONVERSIONS		|○	|○	|○	|×
-CONV_RATE		|○	|×	|×	|×
-CONV_VALUE		|○	|○	|○	|×
-COST_PER_CONV		|○	|×	|×	|×
-VALUE_PER_CONV		|○	|○	|○	|×
-ALL_CONV		|○	|○	|○	|×
-ALL_CONV_RATE		|○	|×	|×	|×
-ALL_CONV_VALUE		|○	|○	|○	|×
-COST_PER_ALL_CONV		|○	|×	|×	|×
-VALUE_PER_ALL_CONV		|○	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×
