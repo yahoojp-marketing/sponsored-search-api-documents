@@ -21,7 +21,7 @@
 <hr>
 <a name="account">
 #### アカウントレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 COST				|○	|×	|×	|○
 IMPS				|○	|×	|×	|○
@@ -46,6 +46,16 @@ EXACT_MATCH_IMPRESSION_SHARE		|○	|×	|×	|×
 BUDGET_LOST_IMPRESSION_SHARE		|○	|×	|×	|×
 QUALITY_LOST_IMPRESSION_SHARE		|○	|×	|×	|×
 TRACKING_URL			|○	|○	|○	|○
+CONVERSIONS			|○	|○	|○	|○
+CONV_RATE			|○	|×	|×	|○
+CONV_VALUE			|○	|○	|○	|○
+COST_PER_CONV			|○	|×	|×	|○
+VALUE_PER_CONV			|○	|○	|○	|○
+ALL_CONV			|×	|○	|○	|○
+ALL_CONV_RATE			|×	|×	|×	|○
+ALL_CONV_VALUE			|×	|○	|○	|○
+COST_PER_ALL_CONV			|×	|×	|×	|○
+VALUE_PER_ALL_CONV			|×	|○	|○	|○
 NETWORK				|○	|○	|○	|○
 CLICK_TYPE			|○	|○	|○	|-
 DEVICE				|○	|○	|○	|○
@@ -64,7 +74,7 @@ CONVERSION_NAME		|○	|○	|-	|○
 <hr>
 <a name="campaign">
 #### キャンペーンレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|○	|○	|○	|○
 CAMPAIGN_NAME	|○	|○	|○	|○
@@ -99,6 +109,17 @@ CAMPAIGN_TYPE		|○	|○	|○	|○
 TRACKING_URL		|○	|○	|○	|○
 CUSTOM_PARAMETERS		|○	|○	|○	|○
 CAMPAIGN_TRACKING_ID		|○	|○	|○	|○
+CONVERSIONS		|○	|○	|○	|○
+CONV_RATE		|○	|×	|×	|○
+CONV_VALUE		|○	|○	|○	|○
+COST_PER_CONV		|○	|×	|×	|○
+VALUE_PER_CONV		|○	|○	|○	|○
+ALL_CONV		|×	|○	|○	|○
+ALL_CONV_RATE		|×	|×	|×	|○
+ALL_CONV_VALUE		|×	|○	|○	|○
+COST_PER_ALL_CONV		|×	|×	|×	|○
+VALUE_PER_ALL_CONV		|×	|○	|○	|○
+CAMPAIGN_MOBILE_BID_MODIFIER		|○	|○	|○	|○
 NETWORK		|○	|○	|○	|○
 CLICK_TYPE		|○	|○	|○	
 DEVICE	|○		|○	|○	|○
@@ -117,7 +138,7 @@ CONVERSION_NAME	|○		|○	|-	|○
 <hr>
 <a name="adgroup">
 #### 広告グループレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID		|○	|○	|○	|○
 ADGROUP_ID		|○	|○	|○	|○
@@ -147,6 +168,17 @@ EXACT_MATCH_IMPRESSION_SHARE		|○	|×	|×	|×
 QUALITY_LOST_IMPRESSION_SHARE		|○	|×	|×	|×
 TRACKING_URL	|○		|○	|○	|○
 CUSTOM_PARAMETERS		|○	|○	|○	|○
+CONVERSIONS		|○	|○	|○	|○
+CONV_RATE		|○	|×	|×	|○
+CONV_VALUE		|○	|○	|○	|○
+COST_PER_CONV		|○	|×	|×	|○
+VALUE_PER_CONV		|○	|○	|○	|○
+ALL_CONV		|×	|○	|○	|○
+ALL_CONV_RATE		|×	|×	|×	|○
+ALL_CONV_VALUE		|×	|○	|○	|○
+COST_PER_ALL_CONV		|×	|×	|×	|○
+VALUE_PER_ALL_CONV		|×	|○	|○	|○
+ADGROUP_MOBILE_BID_MODIFIER		|○	|○	|○	|○
 NETWORK	|○	|○		|○	|○
 CLICK_TYPE	|○		|○	|○	|-
 DEVICE	|○	|○		|○	|○
@@ -165,7 +197,7 @@ CONVERSION_NAME		|○	|○	|-	|○
 <hr>
 <a name="ad">
 #### 広告レポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID		|×	|○	|○	|○
 ADGROUP_ID		|×	|○	|○	|○
@@ -203,6 +235,21 @@ CUSTOM_PARAMETERS	|×	|○	|○	|○
 LANDING_PAGE_URL	|×	|○	|○	|○
 LANDING_PAGE_URL_SMARTPHONE	|×	|○	|○	|○
 AD_TRACKING_ID	|×	|○	|○	|○
+TITLE1	|○	|○	|○	|○
+TITLE2	|○	|○	|○	|○
+DESC	|○	|○	|○	|○
+DIRECTORY1	|○	|○	|○	|○
+DIRECTORY2	|○	|○	|○	|○
+CONVERSIONS	|○	|○	|○	|○
+CONV_RATE	|○	|×	|×	|○
+CONV_VALUE	|○	|○	|○	|○
+COST_PER_CONV	|○	|×	|×	|○
+VALUE_PER_CONV	|○	|○	|○	|○
+ALL_CONV	|○	|○	|○	|○
+ALL_CONV_RATE	|○	|×	|×	|○
+ALL_CONV_VALUE	|○	|○	|○	|○
+COST_PER_ALL_CONV	|○	|×	|×	|○
+VALUE_PER_ALL_CONV	|○	|○	|○	|○
 NETWORK	|×	|○	|○	|○
 CLICK_TYPE	|×	|○	|○	|-
 DEVICE	|×	|○	|○	|○
@@ -221,7 +268,7 @@ AD_KEYWORD_ID	|×	|○	|○	|○
 <hr>
 <a name="keywords">
 #### キーワードレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|○
 ADGROUP_ID	|×	|○	|○	|○
@@ -259,6 +306,16 @@ TRACKING_URL		|×	|○	|○	|○
 CUSTOM_PARAMETERS	|×	|○	|○	|○
 LANDING_PAGE_URL	|×	|○	|○	|○
 LANDING_PAGE_URL_SMARTPHONE	|×	|○	|○	|○
+CONVERSIONS	|○	|○	|○	|○
+CONV_RATE	|○	|×	|×	|○
+CONV_VALUE	|○	|○	|○	|○
+COST_PER_CONV	|○	|×	|×	|○
+VALUE_PER_CONV	|○	|○	|○	|○
+ALL_CONV	|○	|○	|○	|○
+ALL_CONV_RATE	|○	|×	|×	|○
+ALL_CONV_VALUE	|○	|○	|○	|○
+COST_PER_ALL_CONV	|○	|×	|×	|○
+VALUE_PER_ALL_CONV	|○	|○	|○	|○
 NETWORK		|×	|○	|○	|○
 CLICK_TYPE	|×	|○	|○	|-
 DEVICE		|×	|○	|○	|○
@@ -276,7 +333,7 @@ CONVERSION_NAME	|×	|○	|-	|○
 <hr>
 <a name="search_query">
 #### 検索クエリレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|×
 ADGROUP_ID	|×	|○	|○	|×
@@ -304,6 +361,16 @@ COST_UNIQUE_CONVERSION		|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 TRACKING_URL		|×	|○	|○	|×
 LANDING_PAGE_URL		|×	|○	|○	|×
+CONVERSIONS		|○	|○	|○	|×
+CONV_RATE		|○	|×	|×	|×
+CONV_VALUE		|○	|○	|○	|×
+COST_PER_CONV		|○	|×	|×	|×
+VALUE_PER_CONV		|○	|○	|○	|×
+ALL_CONV		|○	|○	|○	|×
+ALL_CONV_RATE		|○	|×	|×	|×
+ALL_CONV_VALUE		|○	|○	|○	|×
+COST_PER_ALL_CONV		|○	|×	|×	|×
+VALUE_PER_ALL_CONV		|○	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×
@@ -320,7 +387,7 @@ CONVERSION_NAME		|×	|○	|-	|×
 <hr>
 <a name="geo">
 #### 地域別レポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|×
 ADGROUP_ID	|×	|○	|○	|×
@@ -341,6 +408,16 @@ CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
 COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
+CONVERSIONS		|○	|○	|○	|×
+CONV_RATE		|○	|×	|×	|×
+CONV_VALUE		|○	|○	|○	|×
+COST_PER_CONV		|○	|×	|×	|×
+VALUE_PER_CONV		|○	|○	|○	|×
+ALL_CONV		|○	|○	|○	|×
+ALL_CONV_RATE		|○	|×	|×	|×
+ALL_CONV_VALUE		|○	|○	|○	|×
+COST_PER_ALL_CONV		|○	|×	|×	|×
+VALUE_PER_ALL_CONV		|○	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×
@@ -360,7 +437,7 @@ CITY		|×	|○	|○	|×
 <hr>
 <a name="feed_item">
 #### 広告表示オプションレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|○
 ADGROUP_ID	|×	|○	|○	|○
@@ -398,6 +475,16 @@ TRACKING_URL		|×	|○	|○	|○
 CUSTOM_PARAMETERS	|×	|○	|○	|○
 LANDING_PAGE_URL	|×	|○	|○	|○
 LANDING_PAGE_URL_SMARTPHONE	|×	|○	|○	|○
+CONVERSIONS		|×	|○	|○	|○
+CONV_RATE		|×	|○	|○	|○
+CONV_VALUE		|×	|○	|○	|○
+COST_PER_CONV		|×	|○	|○	|○
+VALUE_PER_CONV		|×	|○	|○	|○
+ALL_CONV		|×	|○	|○	|○
+ALL_CONV_RATE		|×	|○	|○	|○
+ALL_CONV_VALUE		|×	|○	|○	|○
+COST_PER_ALL_CONV		|×	|○	|○	|○
+VALUE_PER_ALL_CONV		|×	|○	|○	|○
 NETWORK		|×	|○	|○	|○
 CLICK_TYPE	|×	|○	|○	|-
 DEVICE		|×	|○	|○	|○
@@ -417,7 +504,7 @@ IS_SELF_ACTION	|×	|○	|○	|×
 <hr>
 <a name="geo_target">
 #### 地域ターゲティングレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|×	|×	|×
 CAMPAIGN_NAME	|×	|×	|×	|×
@@ -440,6 +527,16 @@ CPA		|×	|×	|×	|×
 BID_MULTIPLIER	|×	|×	|×	|×
 TARGET_LOCATION_ID	|×	|×	|×	|×
 TARGET_LOCATION_NAME	|×	|×	|×	|×
+CONVERSIONS	|×	|×	|×	|×
+CONV_RATE	|×	|×	|×	|×
+CONV_VALUE	|×	|×	|×	|×
+COST_PER_CONV	|×	|×	|×	|×
+VALUE_PER_CONV	|×	|×	|×	|×
+ALL_CONV	|×	|×	|×	|×
+ALL_CONV_RATE	|×	|×	|×	|×
+ALL_CONV_VALUE	|×	|×	|×	|×
+COST_PER_ALL_CONV	|×	|×	|×	|×
+VALUE_PER_ALL_CONV	|×	|×	|×	|×
 DAY	|×	|×	|×	|×
 QUARTER	|×	|×	|×	|×
 YEAR	|×	|×	|×	|×
@@ -451,7 +548,7 @@ WEEK	|×	|×	|×	|×
 <hr>
 <a name="schedule_target">
 #### 曜日・時間帯ターゲティングレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|×	|×	|×
 CAMPAIGN_NAME	|×	|×	|×	|×
@@ -474,6 +571,16 @@ CPA		|×	|×	|×	|×
 BID_MULTIPLIER	|×	|×	|×	|×
 TARGET_SCHEDULE_ID	|×	|×	|×	|×
 TARGET_SCHEDULE	|×	|×	|×	|×
+CONVERSIONS		|×	|×	|×	|×
+CONV_RATE		|×	|×	|×	|×
+CONV_VALUE		|×	|×	|×	|×
+COST_PER_CONV		|×	|×	|×	|×
+VALUE_PER_CONV		|×	|×	|×	|×
+ALL_CONV		|×	|×	|×	|×
+ALL_CONV_RATE		|×	|×	|×	|×
+ALL_CONV_VALUE		|×	|×	|×	|×
+COST_PER_ALL_CONV		|×	|×	|×	|×
+VALUE_PER_ALL_CONV		|×	|×	|×	|×
 DAY		|×	|×	|×	|×
 QUARTER		|×	|×	|×	|×
 YEAR		|×	|×	|×	|×
@@ -485,7 +592,7 @@ WEEK		|×	|×	|×	|×
 <hr>
 <a name="bid_strategy">
 #### 自動入札レポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 COST		|○	|×	|×	|×
 IMPS		|○	|×	|×	|×
@@ -520,6 +627,16 @@ TARGET_ROAS		|○	|×	|×	|×
 UPPER_BID_LIMIT_OF_TARGET_ROAS	|○	|×	|×	|×
 LOWER_BID_LIMIT_OF_TARGET_ROAS	|○	|×	|×	|×
 UPPER_BID_LIMIT_OF_MAXIMIZE_CLICKS	|○	|×	|×	|×
+CONVERSIONS		|○	|×	|×	|×
+CONV_RATE		|○	|×	|×	|×
+CONV_VALUE		|○	|×	|×	|×
+COST_PER_CONV		|○	|×	|×	|×
+VALUE_PER_CONV		|○	|×	|×	|×
+ALL_CONV		|×	|×	|×	|×
+ALL_CONV_RATE		|×	|×	|×	|×
+ALL_CONV_VALUE		|×	|×	|×	|×
+COST_PER_ALL_CONV		|×	|×	|×	|×
+VALUE_PER_ALL_CONV		|×	|×	|×	|×
 DEVICE		|○	|×	|×	|×
 DAY		|○	|×	|×	|×
 DAY_OF_WEEK	|○	|×	|×	|×
@@ -534,7 +651,7 @@ HOUR_OF_DAY	|-	|×	|×	|×
 <hr>
 <a name="target_list">
 #### ターゲットリスト設定レポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|○
 ADGROUP_ID	|×	|○	|○	|○
@@ -560,6 +677,16 @@ BID_MULTIPLIER	|×	|○	|○	|○
 TARGET_LIST_ID	|×	|○	|○	|○
 TARGET_LIST_NAME	|×	|○	|○	|○
 TARGET_LIST_STATUS	|×	|○	|○	|○
+CONVERSIONS		|×	|○	|○	|○
+CONV_RATE		|×	|○	|○	|○
+CONV_VALUE		|×	|○	|○	|○
+COST_PER_CONV		|×	|○	|○	|○
+VALUE_PER_CONV		|×	|○	|○	|○
+ALL_CONV		|×	|○	|○	|○
+ALL_CONV_RATE		|×	|○	|○	|○
+ALL_CONV_VALUE		|×	|○	|○	|○
+COST_PER_ALL_CONV		|×	|○	|○	|○
+VALUE_PER_ALL_CONV		|×	|○	|○	|○
 NETWORK		|×	|○	|○	|○
 CLICK_TYPE	|×	|○	|○	|-
 DEVICE		|×	|○	|○	|○
@@ -577,7 +704,7 @@ CONVERSION_NAME	|×	|○	|-	|○
 <hr>
 <a name="ad_customizers">
 #### データ自動挿入レポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|×
 ADGROUP_ID	|×	|○	|○	|×
@@ -607,6 +734,16 @@ FEED_ITEM_ID	|×	|○	|○	|×
 FEED_ITEM_START_DATE	|×	|○	|○	|×
 FEED_ITEM_END_DATE	|×	|○	|○	|×
 FEED_ITEM_ATTRIBUTES	|×	|○	|○	|×
+CONVERSIONS		|×	|○	|○	|×
+CONV_RATE		|×	|○	|○	|×
+CONV_VALUE		|×	|○	|○	|×
+COST_PER_CONV		|×	|○	|○	|×
+VALUE_PER_CONV		|×	|○	|○	|×
+ALL_CONV		|×	|○	|○	|×
+ALL_CONV_RATE		|×	|○	|○	|×
+ALL_CONV_VALUE		|×	|○	|○	|×
+COST_PER_ALL_CONV		|×	|○	|○	|×
+VALUE_PER_ALL_CONV		|×	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×
@@ -623,7 +760,7 @@ CONVERSION_NAME	|×	|○	|-	|×
 <hr>
 <a name="landing_page_url">
 #### 最終リンク先URLレポート
-利用できるフィールド	|時間との組み合わせ（HOUR_OF_DAY）	|コンバージョン測定の<br>目的との組み合わせ（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ（CLICK_TYPE）
+利用できるフィールド	|時間との<br>組み合わせ<br>（HOUR_OF_DAY）	|コンバージョン<br>測定の目的との<br>組み合わせ<br>（OBJECT_OF_CONV<br>ERSION_TRACKING）	|コンバージョン名<br>との組み合わせ<br>（CONVER<br>SION_NAME）	|クリック種別<br>との組み合わせ<br>（CLICK_TYPE）
 -----|-----|-----|-----|-----
 CAMPAIGN_ID	|×	|○	|○	|×
 ADGROUP_ID	|×	|○	|○	|×
@@ -647,6 +784,16 @@ COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 TRACKING_URL	|×	|○	|○	|×
 LANDING_PAGE_URL	|×	|○	|○	|×
+CONVERSIONS		|×	|○	|○	|×
+CONV_RATE		|×	|×	|×	|×
+CONV_VALUE		|×	|○	|○	|×
+COST_PER_CONV		|×	|×	|×	|×
+VALUE_PER_CONV		|×	|○	|○	|×
+ALL_CONV		|×	|○	|○	|×
+ALL_CONV_RATE		|×	|×	|×	|×
+ALL_CONV_VALUE		|×	|○	|○	|×
+COST_PER_ALL_CONV		|×	|×	|×	|×
+VALUE_PER_ALL_CONV		|×	|○	|○	|×
 NETWORK		|×	|○	|○	|×
 DEVICE		|×	|○	|○	|×
 DAY		|×	|○	|○	|×

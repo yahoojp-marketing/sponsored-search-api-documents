@@ -112,6 +112,23 @@ LANDING_PAGE_URL	|最終リンク先URL	|Landing Page URL |landingPageURL	|strin
 LANDING_PAGE_URL_SMARTPHONE	|最終リンク先URL（スマートフォン）	|Landing Page URL (Smartphone) |landingPageURLSmartphone	|string
 CAMPAIGN_TRACKING_ID			|キャンペーントラッキングID	|Campaign Tracking ID	|campaignTrackingID	|long
 AD_TRACKING_ID		|広告トラッキングID	|Ad Tracking ID	|adTrackingID	|long
+TITLE1			|タイトル1	|Title1	|title1	|string
+TITLE2			|タイトル2	|Title2	|title2	|string
+DESC			|説明文	|Description	|description	|string
+DIRECTORY1			|ディレクトリ1	|Directory1	|directory1	|string
+DIRECTORY2			|ディレクトリ2	|Directory2	|directory2	|string
+CONVERSIONS			|コンバージョン数	|Conversions	|conversions	|long
+CONV_RATE			|コンバージョン率	|Conv. Rate	|convRate	|double
+CONV_VALUE			|コンバージョンの価値	|Conv. Value	|convValue	|double
+COST_PER_CONV			|コスト/コンバージョン数	|Cost Per Conv.	|costPerConv	|double
+VALUE_PER_CONV			|価値/コンバージョン数	|Value Per Conv.	|valuePerConv	|double
+ALL_CONV			|すべてのコンバージョン数	|All Conv.	|allConv	|long
+ALL_CONV_RATE			|すべてのコンバージョン率	|All Conv. Rate	|allConvRate	|double
+ALL_CONV_VALUE			|すべてのコンバージョンの価値	|All Conv. Value	|allConvValue	|double
+COST_PER_ALL_CONV			|コスト/すべてのコンバージョン数	|Cost Per All Conv.	|costPerAllConv	|double
+VALUE_PER_ALL_CONV			|価値/すべてのコンバージョン数	|Value Per All Conv.	|valuePerConv	|double
+CAMPAIGN_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
+ADGROUP_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
 NETWORK			|広告掲載方式の指定	|Network	|network	|enum
 CLICK_TYPE		|クリック種別	|Click Type	|clickType	|enum
 DEVICE			|デバイス	|Device		|device		|enum

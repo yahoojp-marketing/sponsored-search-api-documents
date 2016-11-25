@@ -15,6 +15,7 @@
 
 ##### 対象ウェブサービス  
  * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
+ * [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md)
 <br><br>
 
 #### 2.	デバイスごとの入札調整率の改善
@@ -59,6 +60,30 @@
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 <br><br>
 
+#### 6.	レポートフィールド項目の追加
+本機能追加に伴い、以下のレポートフィールド項目を追加しました。<br>
+ - TITLE1<br>
+ - TITLE2<br>
+ - DESC<br>
+ - DIRECTORY1<br>
+ - DIRECTORY2<br>
+ - CONVERSIONS<br>
+ - CONV_RATE<br>
+ - CONV_VALUE<br>
+ - COST_PER_CONV<br>
+ - VALUE_PER_CONV<br>
+ - ALL_CONV<br>
+ - ALL_CONV_RATE<br>
+ - ALL_CONV_VALUE<br>
+ - COST_PER_ALL_CONV<br>
+ - VALUE_PER_ALL_CONV<br>
+ - CAMPAIGN_MOBILE_BID_MODIFIER<br>
+ - ADGROUP_MOBILE_BID_MODIFIER<br>
+
+※レポートフィールドの詳細については[こちら](/docs/ja/api_reference/appendix/reportfields.md)をご確認ください。<br>
+※Ver.6.0、6.1についても同様にレポートフィールドを追加しました。
+<br>
+<br>
 
 ## Serviceの変更による各Versionへの影響
 <table class="standard">
@@ -82,6 +107,11 @@
 ・拡大テキスト広告を登録、照会できる<br>
 ・一部オブジェクトの変更<br>　-ExtendedTextAdを追加<br>　-MobileAdを削除
 </td>
+</tr>
+<tr>
+ <td valign="top">CampaignExportService</td>
+ <td valign="top">拡大テキスト広告形式の広告はダウンロードできない</td>
+ <td valign="top">2016年11月28日以降、拡大テキスト広告形式の広告がダウンロードができる<br></td>
 </tr>
 <tr>
   <td colspan="3"><b>デバイスごとの入札調整率の改善</b></td>

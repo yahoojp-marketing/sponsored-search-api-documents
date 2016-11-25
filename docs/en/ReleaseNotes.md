@@ -8,15 +8,16 @@ Sponsored Search API Ver.6.2<br>
 Minor version up  
 
 ## Main features enhancement on the release
-*Target objects and Enumeration are available on the list of Data Object (Enumeration).
+*Please confirm from data directory under API reference directory. 
 <br><br>
 
 #### 1. Add "Extended Text Ads" feature
-"Extended TExt Ads" which supports 2 lines Title and 1 line Description is now available.<br>
+"Extended Text Ads" which supports 2 lines Title and 1 line Description is now available.<br>
 It enables ad delivery with much information and larger width more than usual.<br><br>
 
 ##### Target Web Service 
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+ * [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md)
 <br><br>
 
 #### 2.	Function improvement on Bid Adjustment rate for devices
@@ -57,6 +58,29 @@ The object 'TargetAll' has been removed from 'AdGroupService' on Ver.6.2, becaus
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 <br><br>
 
+#### 6.	Add Report Fields
+Following report fields are now available to support newly added features.<br>
+ - TITLE1<br>
+ - TITLE2<br>
+ - DESC<br>
+ - DIRECTORY1<br>
+ - DIRECTORY2<br>
+ - CONVERSIONS<br>
+ - CONV_RATE<br>
+ - CONV_VALUE<br>
+ - COST_PER_CONV<br>
+ - VALUE_PER_CONV<br>
+ - ALL_CONV<br>
+ - ALL_CONV_RATE<br>
+ - ALL_CONV_VALUE<br>
+ - COST_PER_ALL_CONV<br>
+ - VALUE_PER_ALL_CONV<br>
+ - CAMPAIGN_MOBILE_BID_MODIFIER<br>
+ - ADGROUP_MOBILE_BID_MODIFIER<br>
+
+*More details of report fields are available on "reportsfields.md"(/docs/ja/api_reference/appendix/reportfields.md)<br>
+*For Ver.6.0/6.1, these fields have been added similarily.
+<br><br>
 
 ## Impact on each Version from the change of Services
 <table class="standard">
@@ -82,6 +106,11 @@ The object 'TargetAll' has been removed from 'AdGroupService' on Ver.6.2, becaus
 -Added ExtendedTextAd<br>
 -Deleted MobileAd
 </td>
+</tr>
+<tr>
+ <td valign="top">CampaignExportService</td>
+ <td valign="top">Ads in Extended Text Ad format cannot be downloaded</td>
+ <td valign="top">After Nov-28,2016, ads in Extended Text Ad format can be downloaded<br></td>
 </tr>
 <tr>
   <td colspan="3"><b>Function improvement on Bid Adjustment rate for devices</b></td>
