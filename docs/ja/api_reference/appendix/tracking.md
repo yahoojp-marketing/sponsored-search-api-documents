@@ -16,8 +16,8 @@ creative | 広告トラッキングID（adTrackId）です。<br>※各広告に
 keyword | 入札キーワードです。| http://www.example.com/?keyword={keyword} 
 matchtype | マッチタイプです。表示内容は以下の通りです。<br>・e：完全一致<br>・p：フレーズ一致<br>・b：部分一致<br>|http://www.example.com/?matchtype={matchtype} 
 device | クリックされたデバイスの種類です。表示内容は以下の通りです。<br>・m：スマートフォンとモバイル<br>・t：タブレット<br>・c：PC | http://www.example.com/?device={device}
-ifmobile | スマートフォンやモバイルからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定できます。<br>※広告表示オプションのQuickLinkでも利用可能です。 | http://www.example.com/?ifmobile={ifmobile:[value]}
-ifnotmobile|タブレットやPCからクリックされた場合、事前に設定した値が返されます。<br>※カスタムURLにのみ設定できます。<br>※広告表示オプションのQuickLinkでも利用可能です。|http://www.example.com/?ifnotmobile={ifnotmobile:[value]}
+ifmobile | このパラメータを設定すると、スマートフォンからのアクセス時に任意の値をURLに付加できます。これにより、スマートフォン向けURLへの変換やパラメータの追加などが可能です。<br>※キーワード、広告、クイックリンクオプションの最終リンク先URLに設定できます。| http://www.example.com/?ifmobile={ifmobile:[value]}
+ifnotmobile | このパラメータを設定すると、PC・タブレットからのアクセス時に任意の値をURLに付加できます。これにより、PC・タブレット向けURLへの変換やパラメータの追加などが可能です。<br>※キーワード、広告、クイックリンクオプションの最終リンク先URLに設定できます。 | http://www.example.com/?ifnotmobile={ifnotmobile:[value]}
 lpurl|最終リンク先URLです。トラッキングURLへの設定の際に利用できます。<br>アドバンスドURL対応済みのエンティティのみ利用可能です。|・最終リンク先URL：<br>http://www.yahoo.co.jp/?param=1<br>・トラッキングURL：<br>http://www.yahoo.co.jp/?lp={lpurl}<br>・広告クリック後のURL：<br>http://www.yahoo.co.jp/?lp=http://www.yahoo.co.jp/%3Fparam%3D1
 lpurl+2|lpurl（最終リンク先URL）を含むトラッキングURLで、「?」「=」「“」「#」「\t」「‘」とスペースのエンコードが2回必要な場合に利用できます。<br>アドバンスドURL対応済みのエンティティのみ利用可能です。|最終リンク先URL：<br>http://www.yahoo.co.jp/?param=1<br>・トラッキングURL：<br>http://www.yahoo.co.jp/?lp={lpurl+2}<br>・広告クリック後のURL：<br>http://www.yahoo.co.jp/?lp=http://www.yahoo.co.jp/%253Fparam%253D1
 lpurl+3|lpurl（最終リンク先URL）を含むトラッキングURLで、「?」「=」「“」「#」「\t」「‘」とスペースのエンコードが3回必要な場合に利用できます。<br>アドバンスドURL対応済みのエンティティのみ利用可能です。|・最終リンク先URL：<br>http://www.yahoo.co.jp/?param=1<br>・トラッキングURL：<br>http://www.yahoo.co.jp/?lp={lpurl+3}<br>・広告クリック後のURL：<br>http://www.yahoo.co.jp/?lp=http://www.yahoo.co.jp/%25253Fparam%25253D1
