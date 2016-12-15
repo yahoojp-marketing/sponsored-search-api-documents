@@ -117,18 +117,22 @@ TITLE2			|タイトル2	|Title2	|title2	|string
 DESC			|説明文	|Description	|description	|string
 DIRECTORY1			|ディレクトリ1	|Directory1	|directory1	|string
 DIRECTORY2			|ディレクトリ2	|Directory2	|directory2	|string
-CONVERSIONS			|コンバージョン数	|Conversions	|conversions	|long
+CONVERSIONS			|コンバージョン数	|Conversions	|conversions	|double
 CONV_RATE			|コンバージョン率	|Conv. Rate	|convRate	|double
 CONV_VALUE			|コンバージョンの価値	|Conv. Value	|convValue	|double
 COST_PER_CONV			|コスト/コンバージョン数	|Cost Per Conv.	|costPerConv	|double
 VALUE_PER_CONV			|価値/コンバージョン数	|Value Per Conv.	|valuePerConv	|double
-ALL_CONV			|すべてのコンバージョン数	|All Conv.	|allConv	|long
+ALL_CONV			|すべてのコンバージョン数	|All Conv.	|allConv	|double
 ALL_CONV_RATE			|すべてのコンバージョン率	|All Conv. Rate	|allConvRate	|double
 ALL_CONV_VALUE			|すべてのコンバージョンの価値	|All Conv. Value	|allConvValue	|double
 COST_PER_ALL_CONV			|コスト/すべてのコンバージョン数	|Cost Per All Conv.	|costPerAllConv	|double
 VALUE_PER_ALL_CONV			|価値/すべてのコンバージョン数	|Value Per All Conv.	|valuePerConv	|double
 CAMPAIGN_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
 ADGROUP_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
+CAMPAIGN_DESKTOP_BID_MODIFIER			|PC入札価格調整率（％）	|PC Bid Adjustment (%)	|desktopBidAdj	|double
+ADGROUP_DESKTOP_BID_MODIFIER			|PC入札価格調整率（％）	|PC Bid Adjustment (%)	|desktopBidAdj	|double
+CAMPAIGN_TABLET_BID_MODIFIER			|タブレット入札価格調整率（％）	|Tablet Bid Adjustment (%)	|tabletBidAdj	|double
+ADGROUP_TABLET_BID_MODIFIER			|タブレット入札価格調整率（％）	|Tablet Bid Adjustment (%)	|tabletBidAdj	|double
 NETWORK			|広告掲載方式の指定	|Network	|network	|enum
 CLICK_TYPE		|クリック種別	|Click Type	|clickType	|enum
 DEVICE			|デバイス	|Device		|device		|enum

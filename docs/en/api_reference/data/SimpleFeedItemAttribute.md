@@ -1,6 +1,6 @@
 # SimpleFeedItemAttribute
-SimpleFeedItemAttributeオブジェクトは、フィードアイテムの属性情報の値を格納します。<br>
-以下のplaceholderFieldの使用時に適用するオブジェクトです。<br>
+SimpleFeedItemAttribute object stores the value of attribution information of feed items.<br>
+This object is applied for the following placeholderFields.<br>
 + LINK_TEXT
 + LINK_URL
 + ADVANCED_URL
@@ -31,8 +31,8 @@ SimpleFeedItemAttributeオブジェクトは、フィードアイテムの属性
   <th>remove</th>
  </tr>
 <tr>
-<td>feedAttributeValue</td><td>xsd:string</td><td>フィードアイテム情報の値です。<br><br>
-※データ自動挿入の利用時は、属性は以下のように入力してください：<br>
+<td>feedAttributeValue</td><td>xsd:string</td><td>Value of feed iteim information.<br><br>
+*When using data insertion, you need to enter attribution as follows:<br>
 ・AD_CUSTOMIZER_INTEGER<br>
 ex) 99999999<br>
 ・AD_CUSTOMIZER_PRICE<br>
@@ -44,7 +44,7 @@ ex) home<br>
 </td>
 <td>yes</td><td>-</td><td>Requirement</td><td>Optional</td><td>Ignore</td>
 </tr>
-<tr><td>reviewFeedAttributeValue</td><td>xsd:string</td><td>審査中のフィードアイテム情報です。<br>※審査中の間のみ、レスポンス時に表示されます。</td><td>yes</td><td>-</td><td>Ignore</td><td>Ignore</td><td>Ignore</td>
+<tr><td>reviewFeedAttributeValue</td><td>xsd:string</td><td>The feed item information on editorial review.<br>*It is displayed for response only on Editorial Review.</td><td>yes</td><td>-</td><td>Ignore</td><td>Ignore</td><td>Ignore</td>
 </tr>
 </table>
 

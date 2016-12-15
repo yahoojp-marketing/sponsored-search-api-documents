@@ -33,13 +33,9 @@ AVG_DELIVER_RANK		|○	|×	|×	|○
 INVALID_CLICKS			|×	|×	|×	|○
 INVALID_CLICK_RATE		|×	|×	|×	|○
 REVENUE				|○	|○	|○	|○
-UNIQUE_CONVERSION		|○	|×	|×	|○
-UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION	|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION			|○	|○	|○	|○
 CONVERSION_RATE			|○	|×	|×	|○
-COST_UNIQUE_CONVERSION		|○	|×	|×	|○
 CPA				|○	|×	|×	|○
 IMPRESSION_SHARE		|○	|×	|×	|×
 EXACT_MATCH_IMPRESSION_SHARE		|○	|×	|×	|×
@@ -93,13 +89,9 @@ AVG_DELIVER_RANK		|○	|×	|×	|○
 INVALID_CLICKS		|×	|×	|×	|○
 INVALID_CLICK_RATE	|○	|×	|×	|×	|○
 REVENUE		|○	|○	|○	|○
-UNIQUE_CONVERSION	|○	|×	|×	|○
-UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION	|○		|○	|○	|○
 CONVERSION_RATE	|○		|×	|×	|○
-COST_UNIQUE_CONVERSION		|○	|×	|×	|○
 CPA	|○	|×	|×	|○
 IMPRESSION_SHARE		|○	|×	|×	|×
 EXACT_MATCH_IMPRESSION_SHARE		|○	|×	|×	|×
@@ -120,6 +112,8 @@ ALL_CONV_VALUE		|×	|○	|○	|○
 COST_PER_ALL_CONV		|×	|×	|×	|○
 VALUE_PER_ALL_CONV		|×	|○	|○	|○
 CAMPAIGN_MOBILE_BID_MODIFIER		|○	|○	|○	|○
+CAMPAIGN_DESKTOP_BID_MODIFIER		|○	|○	|○	|○
+CAMPAIGN_TABLET_BID_MODIFIER		|○	|○	|○	|○
 NETWORK		|○	|○	|○	|○
 CLICK_TYPE		|○	|○	|○	
 DEVICE	|○		|○	|○	|○
@@ -155,13 +149,9 @@ AVG_CPC	|○		|×	|×	|○
 AVG_DELIVER_RANK	|○	|○	|×	|×	|○
 MAX_CPM	|○		|○	|○	|○
 REVENUE	|○		|○	|○	|○
-UNIQUE_CONVERSION		|○	|×	|×	|○
-UNIQUE_CONVERSION_RATE		|○	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|○	|×	|×	|○
 REVENUE_CONVERSION		|○	|○	|○	|○
 CONVERSION	|○		|○	|○	|○
 CONVERSION_RATE	|○		|×	|×	|○
-COST_UNIQUE_CONVERSION		|○	|×	|×	|○
 CPA	|○		|×	|×	|○
 IMPRESSION_SHARE		|○	|×	|×	|×
 EXACT_MATCH_IMPRESSION_SHARE		|○	|×	|×	|×
@@ -179,6 +169,8 @@ ALL_CONV_VALUE		|×	|○	|○	|○
 COST_PER_ALL_CONV		|×	|×	|×	|○
 VALUE_PER_ALL_CONV		|×	|○	|○	|○
 ADGROUP_MOBILE_BID_MODIFIER		|○	|○	|○	|○
+ADGROUP_DESKTOP_BID_MODIFIER		|○	|○	|○	|○
+ADGROUP_TABLET_BID_MODIFIER		|○	|○	|○	|○
 NETWORK	|○	|○		|○	|○
 CLICK_TYPE	|○		|○	|○	|-
 DEVICE	|○	|○		|○	|○
@@ -220,13 +212,9 @@ AVG_CPM	|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK		|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION		|×	|×	|×	|○
-UNIQUE_CONVERSION_RATE		|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|×	|×	|×	|○
 REVENUE_CONVERSION		|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE		|×	|×	|×	|○
-COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA	|×	|×	|×	|○
 DESCRIPTION2	|×	|○	|○	|○
 DEVICE_PREFERENCE	|×	|○	|○	|○
@@ -293,13 +281,9 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK	|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION		|×	|×	|×	|○
-UNIQUE_CONVERSION_RATE		|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION		|×	|×	|×	|○
 REVENUE_CONVERSION		|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE	|×	|×	|×	|○
-COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA		|×	|×	|×	|○
 TOP_OF_PAGE_BID_ESTIMATE	|×	|○	|○	|○
 TRACKING_URL		|×	|○	|○	|○
@@ -351,13 +335,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK		|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION		|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE		|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION		|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
-COST_UNIQUE_CONVERSION		|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 TRACKING_URL		|×	|○	|○	|×
 LANDING_PAGE_URL		|×	|○	|○	|×
@@ -400,13 +380,9 @@ CLICK_RATE	|×	|×	|×	|×
 AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|×	|×	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 CONVERSIONS		|×	|○	|○	|×
 CONV_RATE		|×	|×	|×	|×
@@ -453,13 +429,9 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION	|×	|×	|×	|○
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|○
 REVENUE_CONVERSION	|×	|○	|○	|○
 CONVERSION		|×	|○	|○	|○
 CONVERSION_RATE		|×	|○	|○	|○
-COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA		|×	|○	|○	|○
 EDITORIAL_STATUS	|×	|○	|○	|○
 PHONE_NUMBER	|×	|○	|○	|○
@@ -516,13 +488,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK	|×	|×	|×	|×
 REVENUE		|×	|×	|×	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|×	|×	|×
 CONVERSION		|×	|×	|×	|×
 CONVERSION_RATE		|×	|×	|×	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 BID_MULTIPLIER	|×	|×	|×	|×
 TARGET_LOCATION_ID	|×	|×	|×	|×
@@ -560,13 +528,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK	|×	|×	|×	|×
 REVENUE		|×	|×	|×	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|×	|×	|×
 CONVERSION	|×	|×	|×	|×
 CONVERSION_RATE	|×	|×	|×	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 BID_MULTIPLIER	|×	|×	|×	|×
 TARGET_SCHEDULE_ID	|×	|×	|×	|×
@@ -601,13 +565,9 @@ CLICK_RATE	|○	|×	|×	|×
 AVG_CPM		|○	|×	|×	|×
 AVG_CPC		|○	|×	|×	|×
 AVG_DELIVER_RANK	|○	|×	|×	|×
-UNIQUE_CONVERSION	|○	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|○	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|○	|×	|×	|×
 REVENUE_CONVERSION	|○	|×	|×	|×
 CONVERSION		|○	|×	|×	|×
 CONVERSION_RATE		|○	|×	|×	|×
-COST_UNIQUE_CONVERSION	|○	|×	|×	|×
 CPA	|○	|×	|×	|×
 BID_STRATEGY_ID		|○	|×	|×	|×
 BID_STRATEGY_NAME	|○	|×	|×	|×
@@ -665,13 +625,9 @@ AVG_CPM		|×	|×	|×	|○
 AVG_CPC		|×	|×	|×	|○
 AVG_DELIVER_RANK	|×	|×	|×	|○
 REVENUE		|×	|○	|○	|○
-UNIQUE_CONVERSION	|×	|×	|×	|○
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|○
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|○
 REVENUE_CONVERSION	|×	|○	|○	|○
 CONVERSION	|×	|○	|○	|○
 CONVERSION_RATE	|×	|○	|○	|○
-COST_UNIQUE_CONVERSION	|×	|×	|×	|○
 CPA		|×	|○	|○	|○
 BID_MULTIPLIER	|×	|○	|○	|○
 TARGET_LIST_ID	|×	|○	|○	|○
@@ -720,13 +676,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK	|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|○	|○	|×
 CONVERSION		|×	|○	|○	|×
 CONVERSION_RATE		|×	|○	|○	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|○	|○	|×
 EDITORIAL_STATUS	|×	|○	|○	|×
 FEED_ID		|×	|○	|○	|×
@@ -774,13 +726,9 @@ AVG_CPM		|×	|×	|×	|×
 AVG_CPC		|×	|×	|×	|×
 AVG_DELIVER_RANK	|×	|×	|×	|×
 REVENUE		|×	|○	|○	|×
-UNIQUE_CONVERSION	|×	|×	|×	|×
-UNIQUE_CONVERSION_RATE	|×	|×	|×	|×
-REVENUE_UNIQUE_CONVERSION	|×	|×	|×	|×
 REVENUE_CONVERSION	|×	|○	|○	|×
 CONVERSION	|×	|○	|○	|×
 CONVERSION_RATE	|×	|×	|×	|×
-COST_UNIQUE_CONVERSION	|×	|×	|×	|×
 CPA		|×	|×	|×	|×
 TRACKING_URL	|×	|○	|○	|×
 LANDING_PAGE_URL	|×	|○	|○	|×
@@ -806,5 +754,4 @@ WEEK		|×	|○	|○	|×
 OBJECT_OF_CONVERSION_TRACKING	|×	|-	|○	|×
 CONVERSION_NAME	|×	|○	|-	|×
 <br>
-
 <hr>
