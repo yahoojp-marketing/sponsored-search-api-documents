@@ -48,9 +48,9 @@ FeedItemOperationオブジェクトは、フィードアイテムの情報を格
   <td>Requirement</td>
  </tr>
  <tr>
-  <td>operand[1...200]</td>
+  <td>operand[1...2000]</td>
   <td><a href="./FeedItem.md">FeedItem</a></td>
-  <td>フィードアイテムの配列です。<br>各配列には処理の対象となる フィードアイテム情報が含まれます。</td>
+  <td>フィードアイテムの配列です。<br>各配列には処理の対象となるフィードアイテム情報が含まれます。</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>

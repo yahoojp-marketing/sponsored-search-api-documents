@@ -1,20 +1,20 @@
-# Data Auto Insertion (Data Insertion)
-## What is “Data Auto Insertion”?
-Data Auto Insertion is a function of changing the title and descriptions of the Sponsored Search ads.<br>
-"Data Insertion" can automatically insert the ad title and description flexibly.
+# Ad Customizers feature (Data Assignment)
+## What is “Ad Customizers”?
+Ad Customizers is a function of changing the title and descriptions of the Sponsored Search ads in dynamic.<br>
+It can automatically insert the ad title and description flexibly. And 'COUNTDOWN' function will enable the feature to count down remaining minutes on discount sale.<br>
 
 ## How to operate from Sponsored Search API
-To display ads for Data Auto Insertion, use the three services below from Sponsored Search API.
+To display ads by using Ad Customizers feature, use the three services below from Sponsored Search API.
 
 ##### 1.	FeedFolderService 
 FeedFolderService can retrieve and add/update/delete the FeedFolder information. <br>
-FeedFolder is a component of data, which will be used for Data Auto Insertion.
+FeedFolder is a component to store Data Assignment List which added data to be inserted to ads.
   
 ##### 2.	FeedItemService  
-FeedItemService can add/update/delete the list for the ads from FeedFolder information.
+FeedItemService can add/update/delete data to/from each Data Assignment List in FeedFolder information.
 
 ##### 3.	AdGroupAdService
-AdGroupAdService can create the ads using the functions for Data Auto Insertion.
+AdGroupAdService can create the ads which is inserted the data already added to the list (ads using a function to insert data).
 
 ## Examples
 Company A is planning to add the data list below by Sponsored Search API for the promotion.
@@ -90,7 +90,7 @@ Company A is planning to add the data list below by Sponsored Search API for the
                     </td>
                 </tr>
 </table>
-*CampaignId and AdGroupId are to set the data on the specific campaign and ad group ID. Cbr>
+*Setting CampaignId and AdGroupId will enable to specify campaign and ad group to be used for the data line. Cbr>
 Can leave the setting blank, if specifying is not necessary.
 
 #### 1.	Adding FeedFolder
@@ -187,7 +187,7 @@ For this example, "Sale product list" will be added to the account of company A 
 ```
 
 #### 2.	Adding FeedItem
-Next, use FeedItemService to add and set the data to the FeedFolder that was created earlier.
+Next, use FeedItemService to set data to be inserted or to be set to the FeedFolder that was created earlier.
 
 ##### Request Sample
 ```xml
@@ -398,10 +398,13 @@ Next, use FeedItemService to add and set the data to the FeedFolder that was cre
 ```
 
 #### 3.	Adding AdGroupAd
-Then, use AdGroupAdService to create the ads for the added data in FeedItemService.<br>
-Also, in order to display the ads from Data Auto Insertion, another ad that is not using Data Auto Insertion function have to be available.<br>
-*In this example, two of different ads are created.<br>
-*Cannot use BulkService to submit ads.
+Then, use AdGroupAdService to create ads to be inserted added data to.<br>
+In this example, two of different ads are created since Ad Customizer requires to enable ordinary ads and ads to be inserted data automatically.<br>
+*Cannot use BulkService to submit ads.<br>
+[Tips]<br>
+Using 'COUNTDOWN' feature will enable to display remaining minutes of discount sales and campaign within the ad. And ad delivery can be paused at the same time as the end of countdown. <br>
+
+
 
 ##### Request Sample
 ```xml
@@ -529,9 +532,8 @@ Also, in order to display the ads from Data Auto Insertion, another ad that is n
 ```
 
 #### 4.	Change of FeedItem
-The data have to be changed from the change of price.<br>
-Instead of recreating the ads again for the change, only updating the FeedItemService can solve this.<br>
-Changing the data will automatically change the ad titles and/or descriptions.
+Since some price changes occurred after creating ads, following data revision is required.<br>
+Ad Customizers can change ad creatives automatically only with data updates, using FeedItemService.
 
 ##### Sale product list (After the change)
 <table class="standard">
