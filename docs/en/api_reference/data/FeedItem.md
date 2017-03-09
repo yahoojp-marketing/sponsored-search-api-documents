@@ -143,8 +143,8 @@ FeedItem is a container of Feed Item information.
   <td>Campaign used for Feed Item.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>*Requirement for Data Auto Insertion</td>
-  <td>-<br>*Requirement for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
+  <td>-<br>*Optional for Data Auto Insertion</td>
   <td>-</td>
  </tr>
  <tr>

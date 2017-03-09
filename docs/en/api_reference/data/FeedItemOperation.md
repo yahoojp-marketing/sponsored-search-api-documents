@@ -48,7 +48,7 @@ FeedItemOperation contains the Feed Item information.
   <td>Requirement</td>
  </tr>
  <tr>
-  <td>operand[1...200]</td>
+  <td>operand[1...2000]</td>
   <td><a href="./FeedItem.md">FeedItem</a></td>
   <td>List of Feed Item.<br>Each list includes the Feed Item details.</td>
   <td>-</td>

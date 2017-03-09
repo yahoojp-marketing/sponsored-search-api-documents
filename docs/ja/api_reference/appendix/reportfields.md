@@ -1,173 +1,19 @@
 # レポートフィールド
-ご利用可能なレポートフィールド集です。<br>
+スポンサードサーチAPIで利用できるレポートフィールド集です。<br>
+希望のレポートタイプをクリックすると、指定できるレポートフィールドの詳細が表示されます。<br>
 
-* [フィールド集](#fieldlist)
-* [レポートタイプ別フィールド指定](#availablefield)
+* [アカウントレポート](./reports/ACCOUNT.csv)
+* [キャンペーンレポート](./reports/CAMPAIGN.csv)
+* [広告グループレポート](./reports/ADGROUP.csv)
+* [広告レポート](./reports/AD.csv)
+* [キーワードレポート](./reports/KEYWORDS.csv)
+* [検索クエリレポート](./reports/SEARCH_QUERY.csv)
+* [地域別レポート](./reports/GEO.csv)
+* [広告表示オプションレポート](./reports/FEED_ITEM.csv)
+* [地域ターゲティングレポート](./reports/GEO_TARGET.csv)
+* [曜日・時間帯ターゲティングレポート](./reports/SCHEDULE_TARGET.csv)
+* [自動入札レポート](./reports/BID_STRATEGY.csv)
+* [データ自動挿入レポート](./reports/AD_CUSTOMIZERS.csv)
+* [ターゲットリスト設定レポート](./reports/TARGET_LIST.csv)
+* [最終リンク先URLレポート](./reports/LANDING_PAGE_URL.csv)
 
-<a name="fieldlist">
-### フィールド集
-値           | 表示名（日本語） | 表示名（英語） | XML属性| 型/単位 
------|-----|-----|-----|-----|-----
-CAMPAIGN_ID		|キャンペーンID	|CampaignID	|campaignID	|long
-ADGROUP_ID		|広告グループID	|AdGroup ID	|adGroupID	|long
-AD_ID			|広告ID		|Ad ID		|adID		|long
-KEYWORD_ID		|キーワードID	|Keyword ID	|keywordID	|long
-CAMPAIGN_NAME		|キャンペーン名	|Campaign Name	|campaignName	|string
-ADGROUP_NAME		|広告グループ名	|Ad Group Name	|adgroupName	|string
-AD_NAME			|広告名		|Ad Name	|adName		|string
-TITLE			|タイトル	|Title　	|title		|string
-DESCRIPTION		|説明文1	|Description 1	|description1	|string
-DISPLAY_URL		|表示URL	|Display URL	|displayURL	|string
-SEARCH_QUERY_DESTINATION_URL	|クリックされたURL	|Search Query Destination URL	|searchQueryDestinationURL	|string
-CUSTOM_URL		|カスタムURL	|Custom URL	|customURL	|string
-DESTINATION_URL		|リンク先URL	| Destination URL	|destinationURL	|string
-AD_TYPE			|広告タイプ	|Ad Type	|adType		|enum
-KEYWORD			|キーワード	|Keyword	|keyword	|string
-CAMPAIGN_DISTRIBUTION_SETTINGS	|キャンペーン配信設定	|Distribution Settings	|campaignDistributionSettings	|enum
-CAMPAIGN_DISTRIBUTION_STATUS	|配信状況	|Distribution Status	|campaignDistributionStatus	|enum
-ADGROUP_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|adGroupDistributionSettings	|enum
-AD_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|adDistributionSettings	|enum
-AD_EDITORIAL_STATUS		|審査状況	|Editorial Status	|editorialStatus	|enum
-KEYWORD_DISTRIBUTION_SETTINGS	|配信設定	|Distribution Settings	|keywordDistributionSettings	|enum
-KEYWORD_EDITORIAL_STATUS		|審査状況	|Editorial Status	|kwEditorialStatus	|enum
-ADGROUP_BID		|広告グループの入札価格	|Ad Group Bid	|adGroupBid	|long
-BID			|入札価格	|Bid (JPY)	|bid			|long
-DAILY_SPENDING_LIMIT	|1日の予算	|Daily Spending Limit	|dailySpendingLimit	|long
-CAMPAIGN_START_DATE	|開始日	|Start Date	|campaignStartDate		|string
-CAMPAIGN_END_DATE	|終了日	|End Date	|campaignEndDate		|string
-NEGATIVE_KEYWORD	|対象外キーワード	|Negative Keywords	|negativekeywords	|string
-QUALITY_INDEX		|品質インデックス	|Quality Index	|qualityIndex	|long
-FIRST_PAGE_BID_ESTIMATE	|1ページ目掲載に必要な入札価格	|First Page Bid Estimate	|firstPageBidEstimate	|long
-SEARCH_QUERY		|検索クエリー	|Search Query	|searchQuery		|string
-KEYWORD_MATCH_TYPE	|マッチタイプ	|Match Type	|keywordMatchType	|enum
-SEARCH_QUERY_MATCH_TYPE	|検索クエリーのマッチタイプ	|SearchQueryMatch Type	|searchQueryMatchType	|enum
-COST			|コスト		|Cost		|cost			|long
-IMPS			|インプレッション数	|Impressions	|impressions	|long
-CLICKS			|クリック数	|Clicks		|clicks			|long
-CLICK_RATE		|クリック率	|CTR		|ctr			|double
-AVG_CPM			|平均CPM	|Avg. CPM	|averageCpm		|double
-AVG_CPC			|平均CPC	|Avg. CPC	|averageCpc		|double
-AVG_DELIVER_RANK	|平均掲載順位	|Avg. Position	|averagePosition	|double
-INVALID_CLICKS		|無効なクリック	|Invalid Clicks	|invalidClicks		|long
-INVALID_CLICK_RATE	|無効なクリック率	|Invalid Click Rate	|invalidClickRate	|double
-MAX_CPM			|最大CPM	|Max. CPM	|maxCpm			|long
-REVENUE			|合計売上金額	|Total Revenue	|totalRevenue		|long
-UNIQUE_CONVERSION	|ユニークコンバージョン数	|Unique Conversions	|uniqueConversions	|long
-UNIQUE_CONVERSION_RATE	|ユニークコンバージョン率	|Unique Conversion Rate	|uniqueConversionRate	|double
-REVENUE_UNIQUE_CONVERSION	|売上/ユニークコンバージョン数	|Revenue / Unique Conversions	|revenueUniqueConversions	|double
-REVENUE_CONVERSION	|売上/総コンバージョン数	|Revenue / Total Conversions	|revenueTotalConversions		|double
-CONVERSION		|総コンバージョン数		|Total Conversions	|totalConversions	|double
-CONVERSION_RATE		|総コンバージョン率		|Total Conversion Rate	|totalConversionRate	|double
-COST_UNIQUE_CONVERSION	|コスト/ユニークコンバージョン数	|Cost / Unique Conversions	|costUniqueConversions	|double
-CPA			|コスト/総コンバージョン数	|Cost / Total Conversions	|costTotalConversions	|double
-IMPRESSION_SHARE	|インプレッションシェア		|Impression Share		|impressionShare	|double
-EXACT_MATCH_IMPRESSION_SHARE	|完全一致のインプレッションシェア	|Exact Match Impression Share	|exactMatchImpressionShare	|double
-BUDGET_LOST_IMPRESSION_SHARE	|インプレッション損失率（予算）	|Budget Lost Impression Share	|budgetLostImpressionShare		|double
-QUALITY_LOST_IMPRESSION_SHARE	|インプレッション損失率（掲載順位）	|Quality Lost Impression Share	|qualityLostImpressionShare	|double
-EDITORIAL_STATUS	|審査状況	|Editorial Status	|editorialStatus	|enum
-TOP_OF_PAGE_BID_ESTIMATE	|1ページ目上部掲載に必要な入札価格	|Top of Page Bid Estimate	|topOfPageBidEstimate	|long
-DESCRIPTION2		|説明文2	|Description 2		|description2		|string
-PHONE_NUMBER		|電話番号	|Phone Number		|phoneNumber		|string
-DEVICE_PREFERENCE	|優先デバイス	|Focus Device		|focusDevice		|enum
-FEED_ID			|フィードID	|Feed ID		|feedID			|long
-FEED_ITEM_ID		|広告表示オプションID	|Ad Display Option ID	|adDisplayOptionID	|long
-QUICK_LINK_TEXT		|クイックリンクテキスト	|QuickLink Text	|quickLinkText		|string
-QUICK_LINK_URL		|クイックリンクURL	|QuickLink URL	|quickLinkURL		|string
-PLACEHOLDER_TYPE	|広告表示オプションの種類	|Ad Display Option Type	|adDisplayOptionType	|enum
-FEED_ITEM_START_DATE	|開始日		|Start Date	|adDisplayOptionStartDate	|string
-FEED_ITEM_END_DATE	|終了日		|End Date	|adDisplayOptionEndDate		|string
-BID_MULTIPLIER		|入札価格調整率(％)	|Bid Adjustment(%)	|bidAdjustment	|long
-TARGET_LOCATION_ID	|地域ID		|Target Location ID	|targetLocationID	|long
-TARGET_LOCATION_NAME	|地域		|Target Location Name	|targetLocationName	|string
-TARGET_SCHEDULE_ID	|曜日・時間帯ID	|Target Schedule ID	|targetScheduleID	|long
-TARGET_SCHEDULE		|曜日・時間帯	|Target Schedule	|targetSchedule		|string
-TARGET_DEVICE_ID	|デバイスID	|Target Device ID	|targetDeviceID		|long
-TARGET_DEVICE		|デバイス	|Target Device		|targetDevice		|string
-BID_STRATEGY_ID		|自動入札ID	|Auto Bidding ID	|autoBiddingID		|long
-BID_STRATEGY_NAME	|自動入札名	|Auto Bidding Name	|autoBiddingName	|string
-BID_STRATEGY_TYPE	|自動入札タイプ	|Auto Bidding Type	|autoBiddingType	|enum
-AD_GROUP_COUNT		|広告グループ数	|Ad Groups		|adGroups		|long
-CAMPAIGN_COUNT		|キャンペーン数	|Campaigns		|campaigns		|long
-TARGET_SEARCH_PAGE_LOCATION	|掲載位置（検索結果ページの目標掲載位置）		|Ad Position (Target position in search results)	|adPositionOfTargetPositionInSearchResults	|enum
-BID_AUTOMATION			|入札調整方法（検索結果ページの目標掲載位置）		|Bidding Adjustment Method (Target position in search results)	|biddingAdjustmentMethodOfTargetPositionInSearchResults	|enum
-BID_MULTIPLIER_OF_TARGET_PAGE_LOCATION	|入札価格調整（検索結果ページの目標掲載位置）	|Bidding Adjustment (Target position in search results)	|biddingAdjustmentOfTargetPositionInSearchResults	|long
-LIMITED_BUDGETS			|キャンペーン予算による制限（検索結果ページの目標掲載位置）	|Limit by Campaign Budget (Target position in search results)	|limitByCampaignBudgetOfTargetPositionInSearchResults	|enum
-LOW_QUALITY_KEYWORDS		|品質が低いキーワード（検索結果ページの目標掲載位置）	|Low Quality Keyword (Target position in search results)	|lowQualityKeywordOfTargetPositionInSearchResults	|enum
-UPPER_BID_LIMIT_OF_TARGET_PAGE_LOCATION	|入札価格の上限（検索結果ページの目標掲載位置）	|Bid Limit (Target position in search results)	|bidLimitForTargetPositionInSearchResults	|long
-TARGET_CPA			|コンバージョン単価の目標値	|Target CPA	|targetCpa	|double
-UPPER_BID_LIMIT_OF_TARGET_CPA	|入札価格の上限（コンバージョン単価の目標値）	|Bid Limit (Target CPA)	|bidLimitForTargetCpa	|long
-LOWER_BID_LIMIT_OF_TARGET_CPA	|入札価格の下限（コンバージョン単価の目標値）	|Lower Bid Limit (Target CPA)	|lowerBidLimitForTargetCpa	|long
-TARGET_ROAS			|広告費用対効果の目標値		|Target ROAS	|targetRoas	|double
-UPPER_BID_LIMIT_OF_TARGET_ROAS	|入札価格の上限（広告費用対効果の目標値）	|Bid Limit (Target ROAS)	|bidLimitForTargetRoas	|long
-LOWER_BID_LIMIT_OF_TARGET_ROAS	|入札価格の下限（広告費用対効果の目標値）	|Lower Bid Limit (Target ROAS)	|lowerBidLimitForTargetRoas	|long
-UPPER_BID_LIMIT_OF_MAXIMIZE_CLICKS	|入札価格の上限（クリック数の最大化）	|Bid Limit (Maximize Clicks)	|bidLimitForMaximizeClicks	|long
-TARGET_LIST_ID		|ターゲットリストID	|Target List ID	|targetListID	|long
-TARGET_LIST_NAME	|ターゲットリスト名	|Target List Name	|targetListName	|string
-TARGET_LIST_STATUS	|訪問履歴の蓄積	|Reach Status	|reachStatus		|enum
-FEED_ITEM_ATTRIBUTES	|データ自動挿入リスト	|Data Auto Insertion List	|dataAutoInsertionList	|string
-CAMPAIGN_TYPE		|キャンペーンタイプ	|Campaign type |campaignType	|enum
-TRACKING_URL		|トラッキングURL	|Tracking URL	|trackingURL	|string
-CUSTOM_PARAMETERS	|カスタムパラメータ	|Custom Parameters	|customParameters	|enum
-LANDING_PAGE_URL	|最終リンク先URL	|Landing Page URL |landingPageURL	|string
-LANDING_PAGE_URL_SMARTPHONE	|最終リンク先URL（スマートフォン）	|Landing Page URL (Smartphone) |landingPageURLSmartphone	|string
-CAMPAIGN_TRACKING_ID			|キャンペーントラッキングID	|Campaign Tracking ID	|campaignTrackingID	|long
-AD_TRACKING_ID		|広告トラッキングID	|Ad Tracking ID	|adTrackingID	|long
-TITLE1			|タイトル1	|Title1	|title1	|string
-TITLE2			|タイトル2	|Title2	|title2	|string
-DESC			|説明文	|Description	|description	|string
-DIRECTORY1			|ディレクトリ1	|Directory1	|directory1	|string
-DIRECTORY2			|ディレクトリ2	|Directory2	|directory2	|string
-CONVERSIONS			|コンバージョン数	|Conversions	|conversions	|double
-CONV_RATE			|コンバージョン率	|Conv. Rate	|convRate	|double
-CONV_VALUE			|コンバージョンの価値	|Conv. Value	|convValue	|double
-COST_PER_CONV			|コスト/コンバージョン数	|Cost Per Conv.	|costPerConv	|double
-VALUE_PER_CONV			|価値/コンバージョン数	|Value Per Conv.	|valuePerConv	|double
-ALL_CONV			|すべてのコンバージョン数	|All Conv.	|allConv	|double
-ALL_CONV_RATE			|すべてのコンバージョン率	|All Conv. Rate	|allConvRate	|double
-ALL_CONV_VALUE			|すべてのコンバージョンの価値	|All Conv. Value	|allConvValue	|double
-COST_PER_ALL_CONV			|コスト/すべてのコンバージョン数	|Cost Per All Conv.	|costPerAllConv	|double
-VALUE_PER_ALL_CONV			|価値/すべてのコンバージョン数	|Value Per All Conv.	|valuePerConv	|double
-CAMPAIGN_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
-ADGROUP_MOBILE_BID_MODIFIER			|スマートフォン入札価格調整率（％）	|Smartphone Bid Adjustment (%)	|mobileBidAdj	|double
-CAMPAIGN_DESKTOP_BID_MODIFIER | PC入札価格調整率（％） | PC Bid Adjustment (%)	| desktopBidAdj |double
-ADGROUP_DESKTOP_BID_MODIFIER | PC入札価格調整率（％） | PC Bid Adjustment (%)	| desktopBidAdj |double
-CAMPAIGN_TABLET_BID_MODIFIER | タブレット入札価格調整率（％） | Tablet Bid Adjustment (%) | tabletBidAdj |double
-ADGROUP_TABLET_BID_MODIFIER | タブレット入札価格調整率（％） | Tablet Bid Adjustment (%) | tabletBidAdj |double
-NETWORK			|広告掲載方式の指定	|Network	|network	|enum
-CLICK_TYPE		|クリック種別	|Click Type	|clickType	|enum
-DEVICE			|デバイス	|Device		|device		|enum
-DAY			|日		|Day		|day		|string
-DAY_OF_WEEK		|曜日		|Day of week	|dayOfWeek	|enum
-QUARTER			|四半期		|Quarter	|quarter	|string
-YEAR			|年間		|Year		|year		|string
-MONTH			|毎月		|Month		|month		|string
-MONTH_OF_YEAR		|月		|Month of Year	|monthofYear	|enum
-WEEK			|毎週		|Week		|week		|string
-HOUR_OF_DAY		|時間		|Hour of day	|hourofday	|long
-OBJECT_OF_CONVERSION_TRACKING		|コンバージョン測定の目的	|Object of Conversion Tracking	|objectOfConversionTracking	|enum
-CONVERSION_NAME		|コンバージョン名	|Conversion Name	|conversionName	|string
-COUNTRY_TERRITORY	|国/地域	|Country/Territory	|countryTerritory	|enum
-PREFECTURE		|都道府県	|Prefecture	|prefecture	|enum
-CITY			|都市		|City		|city		|enum
-AD_KEYWORD_ID		|キーワードID	|Keyword ID	|adKeywordID	|long
-IS_SELF_ACTION		|当該の広告表示オプションとその他	|Is Self Action	|isSelfAction	|enum
-<br>
-
-<hr>
-<a name="availablefield">
-#### レポートタイプ別フィールド指定
-* [アカウントレポート](./reportfields_types.md#account)
-* [キャンペーンレポート](./reportfields_types.md#campaign)
-* [広告グループレポート](./reportfields_types.md#adgroup)
-* [広告レポート](./reportfields_types.md#ad)
-* [キーワードレポート](./reportfields_types.md#keywords)
-* [検索クエリレポート](./reportfields_types.md#search_query)
-* [リンク先URLレポート](./reportfields_types.md#destination_url)
-* [地域別レポート](./reportfields_types.md#geo)
-* [広告表示オプションレポート](./reportfields_types.md#feed_item)
-* [地域ターゲティングレポート](./reportfields_types.md#geo_target)
-* [曜日・時間帯ターゲティングレポート](./reportfields_types.md#schedule_target)
-* [自動入札レポート](./reportfields_types.md#bid_strategy)
-* [データ自動挿入レポート](./reportfields_types.md#ad_customizers)
-* [ターゲットリスト設定レポート](./reportfields_types.md#target_list)
-* [最終リンク先URLレポート](./reportfields_types.md#landing_page_url)

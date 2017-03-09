@@ -18,11 +18,12 @@ TargetingCampaign contains Campaign setting for Data Auto Insertion.
  <tr>
   <td>targetingCampaignId</td>
   <td>xsd:long</td>
-  <td>Campaign ID used for ad display.</td>
+  <td>Campaign ID used for ad display.<br>*Specify '0' to clear the setting.<br>
+*The specified '0' will be handled as same as 'not specified' by add request.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>* Require- ment for Data Auto Insertion.</td>
-  <td>-<br>* Optional for Data Auto Insertion.</td>
+  <td>-<br>* Requirement for Data Auto Insertion.</td>
+  <td>-<br>* Requirement for Data Auto Insertion.</td>
   <td>-</td>
  </tr>
 </table>

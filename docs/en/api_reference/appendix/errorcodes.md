@@ -195,7 +195,7 @@ All services.
 210303 | Invalid conversion tracking.  | Conversion tracking is not valid.
 210304 | Not enough conversions.  | Conversion performance is not enough.
 210305 | Auto bidding is already set.  | Setting the Auto Bidding of "Target CPC" or "Maximize conversions" to campaign, when Bid settings are made to keywords.
-210306 | Cannot use conversion optimizer.  | Conversion optimizer is not available.
+210306 | Cannot use conversion optimizer.  | Conversion Optimizer is not available.
 210307 | Budget is lower than ad group/keywords.	| Set the budget higher than the budget set in Ad Group and/or Keyword.
 210308 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210309 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
@@ -217,10 +217,10 @@ All services.
 210403 | Not enough conversions.  | Conversion performance is not enough.
 210404 | Auto bidding is already set.  | Setting the Auto Bidding of "Target CPC" or "Maximize conversions" to campaign, when Bid settings are made to keywords.
 210405 | Budget has exceeded.  | Please change the budget to avoid exceeding the limit.
-210406 | Cannot use conversion optimizer.  | Conversion optimizer is not available.
+210406 | Cannot use conversion optimizer.  | Auto Bidding setting is not available.
 210407 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210408 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
-210409 | Bid setting limit has exceed.  | It has exceeded the bid limit for Ad Group.
+210409 | Bid setting limit has exceed.  | Number of bidding settings or number of Auto Bidding settings for the ad group under the campaign has exceeded the maximum limit. <br> *Up to 1000 settings are totally available for all ad groups under a single campaign.
 211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
 211002 | Lpurl is required for ValueTrack.	| Include {lpurl} in Tracking URL.
@@ -364,10 +364,11 @@ All services.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 21601 | Invalid url format. | QuickLink URL and/or Custom URL of Keyword is not valid.
 210102 | INVALID PHONE NUMBER | Phone number in CALL_PHONE_NUMBER from FeedItemService is invalid. <br>This error occur when adding the FeedItem information on CALLEXTENSION.  
-210103 | UNMATCH PLACEHOLDER TYPE | Combination of placeholderType and feedItemId is not correct. <br>For example, defining CALLEXTENSION in feedItemId for QUICKLINK in placeholderType in CampaignFeedSerivce or AdGroupFeedService.  
-210104 | INVALID STATUS | Making SET in FeedAttributeValue during the APPROVED_WITH_REVIEW or REVIEW status in FeedItemService.
-210110 | INVALID TARGET | Targeting is invalid.
+210104 | INVALID STATUS | Since it is in review, cannot be updated.
+210110 | INVALID TARGET | Number of scheduled targeting settings exceeds the maximum items per a day (max: 6).
 211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
+210123 | CAMPAIGN TARGETING MISMATCH 	| It is not available to set, since the campaign ID specified with 'targetingCampaignId' does not match to the parent campaign ID of the ad group specified with 'targetingAdGroupId'.
+210126 | Mobile app download cannot connect to. | Mobile App Download campaign is not available.
 
 ##### Service
 [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)

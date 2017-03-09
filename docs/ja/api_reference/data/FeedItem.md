@@ -145,8 +145,8 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>フィードアイテムで使用する キャンペーンです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Requirement</td>
-  <td>-<br>※データ自動 挿入の場合、Requirement</td>
+  <td>-<br>※データ自動 挿入の場合、Optional</td>
+  <td>-<br>※データ自動 挿入の場合、Optional</td>
   <td>-</td>
  </tr>
  <tr>

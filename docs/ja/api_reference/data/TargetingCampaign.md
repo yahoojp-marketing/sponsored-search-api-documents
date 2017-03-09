@@ -18,11 +18,12 @@ TargetingCampaignオブジェクトは、データ自動挿入のキャンペー
  <tr>
   <td>targetingCampaignId</td>
   <td>xsd:long</td>
-  <td>配信に使用する キャンペーンIDです。</td>
+  <td>配信に使用するキャンペーンIDです。<br>※設定を解除する場合は「0」を指定してください。<br>
+※addのリクエストで、「0」指定は未指定と同じ扱いになります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Requirement</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
+  <td>-<br>※データ自動挿入の場合、Requirement</td>
+  <td>-<br>※データ自動挿入の場合、Requirement</td>
   <td>-</td>
  </tr>
 </table>
