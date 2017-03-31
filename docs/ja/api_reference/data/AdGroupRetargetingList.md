@@ -4,16 +4,97 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
 ### Service
 + [AdGroupRetargetingListService](../services/AdGroupRetargetingListService.md)
 
-| Field | Type | response | get | add | set | remove | Description | 
-|---|---|---|---|---|---|---|---|---|
-| accountId| xsd:long|yes|-|-|-|-| アカウントIDです。 |
-| campaignId| xsd:long|yes|-|Requirement|Requirement|Requirement| キャンペーンIDです。 |
-| campaignName| xsd:string|yes|-|-|-|-| キャンペーン名です。 |
-| adGroupId| xsd:long|yes|-|Requirement|Requirement|Requirement| 広告グループIDです。 |
-| adGroupName| xsd:string|yes|-|-|-|-| 広告グループ名です。 |
-| criterionTargetList| <a href="./CriterionTargetList.md">CriterionTargetList</a>|yes|-|Requirement|Requirement|Requirement| ターゲットリストです。 |
-| excludedType|enum <a href="./ExcludedType_AdGroupRetargetingList.md">ExcludedType</a>|yes|-|Optional|Optional|Requirement| 包含/追加設定です。<br>※Default値：INCLUDED |
-| bidMultiplier| xsd:double|yes|-|Optional|Optional|-| MaxCPC上昇値です。<br>※Default値：1.00 |
-
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>アカウントIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>campaignId</td>
+  <td>xsd:long</td>
+  <td>キャンペーンIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>campaignName</td>
+  <td>xsd:string</td>
+  <td>キャンペーン名です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>adGroupId</td>
+  <td>xsd:long</td>
+  <td>広告グループIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>adGroupName</td>
+  <td>xsd:string</td>
+  <td>広告グループ名です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>criterionTargetList</td>
+  <td><a href="./CriterionTargetList.md">CriterionTargetList</a></td>
+  <td>ターゲットリストです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>excludedType</td>
+  <td>enum <a href="./ExcludedType_AdGroupRetargetingList.md">ExcludedType</a></td>
+  <td>包含/追加設定です。<br>※Default値：INCLUDED</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>bidMultiplier</td>
+  <td>xsd:double</td>
+  <td>MaxCPC上昇値です。<br>※Default値：1.00 </td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>-</td>
+ </tr>
+</table>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
