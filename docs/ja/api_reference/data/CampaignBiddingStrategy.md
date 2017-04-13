@@ -58,7 +58,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
  <tr>
   <td>biddingScheme</td>
   <td><a href="./BiddingScheme_nonBiddingStrategy.md">BiddingScheme</a><br> inherited <a href="./ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="./BudgetOptimizerBiddingScheme.md">BudgetOptimizerBiddingScheme </a><br> inherited <a href="./EnhancedCpcBiddingScheme_nonBiddingStrategy.md">EnhancedCpcBiddingScheme</a><br> inherited <a href="./PageOnePromotedBiddingScheme_nonBiddingStrategy.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="./TargetCpaBiddingScheme_nonBiddingStrategy.md">TargetCpaBiddingScheme</a><br> inherited <a href="./TargetSpendBiddingScheme_nonBiddingStrategy.md">TargetSpendBiddingScheme</a><br> inherited <a href="./TargetRoasBiddingScheme_nonBiddingStrategy.md">TargetRoasBiddingScheme</a></td>
-  <td>自動入札設定の詳細です。</td>
+  <td>自動入札設定の詳細です。<br>※BudgetOptimizerBiddingSchemeは現在設定できません。同項目を設定していたキャンペーンには、2017年4月12日にTargetSpendBiddingSchemeが設定されました。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

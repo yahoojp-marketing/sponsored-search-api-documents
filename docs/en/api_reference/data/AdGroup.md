@@ -98,7 +98,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>biddingStrategyConfiguration</td>
   <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-  <td>Bidding setting.<br>*Bidding setting which is currently valid is responded.<br>*Cannot create or update the BudgetOptimizer (Only referring is available)<br>*Input "NONE" in biddingStrategyType if no bidding setting on each Ad group level.<br>*If no bidding setting, the bidding setting on parent entity will be applied as default.<br>*If iOS is selected for App Campaign, "TARGET_CPA" and "TARGET_ROAS" are not to be set.</td>
+  <td>Bidding setting.<br>*Bidding setting which is currently valid is responded.<br>*BudgetOptimizer is currently unavailable.<br>*Input "NONE" in biddingStrategyType if no bidding setting on each Ad group level. In this case, the bidding stting for campaign will be applied.<br>*If iOS is selected for App Campaign, "TARGET_CPA" and "TARGET_ROAS" are not to be set.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

@@ -58,7 +58,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  <tr>
   <td>userStatuses</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>ユーザーにより広告配信の有無を調整できる 設定です。</td>
+  <td>ユーザーにより広告配信の有無を調整できる設定です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -78,7 +78,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>キャンペーンの開始日です。<br>過去の日付は指定 できません。<br>※配信開始済みのキャンペーンは日程の 変更はできません。</td>
+  <td>キャンペーンの開始日です。<br>過去の日付は指定できません。<br>※配信開始済みのキャンペーンは変更できません。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※Default: 当日日付</td>
@@ -88,7 +88,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>キャンペーンの終了日です。<br>過去の日付、開始日以前の日付は指定 できません。</td>
+  <td>キャンペーンの終了日です。<br>過去の日付、開始日以前の日付は指定できません。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>※Default: 20371231</td>
@@ -108,7 +108,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  <tr>
   <td>biddingStrategyConfiguration</td>
   <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
-  <td>入札設定です。<br>※BudgetOptimizerの登録、更新は行えません。（照会のみ可能です）<br>※アプリキャンペーンでiOSを指定した場合、 TARGET_CPA/TARGET_ROASは 設定できません。</td>
+  <td>入札設定です。<br>※BudgetOptimizerは設定できません。<br>※アプリキャンペーンでiOSを指定した場合、TARGET_CPA/TARGET_ROASは 設定できません。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -137,7 +137,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  <tr>
   <td>conversionOptimizerEligibility</td>
   <td>enum <a href="./ConversionOptimizerEligibility.md">ConversionOptimizerEligibility</a></td>
-  <td>コンバージョンオプティマイザーが利用可能 であるか判定します。</td>
+  <td>コンバージョンオプティマイザーが利用可能であるか判定します。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -187,10 +187,10 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
  <tr>
   <td>appId</td>
   <td>xsd:string</td>
-  <td>アプリID（iOS）またはパッケージ名 （Android）です。<br>※アプリキャンペーンの場合、 iOSは数値のみの入力をお願いします。</td>
+  <td>アプリID（iOS）またはパッケージ名（Android）です。<br>※アプリキャンペーンの場合、iOSは数値のみの入力をお願いします。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>※campaignType: MOBILE_APPの場合のみ</td>
+  <td>Requirement<br>※campaignType:MOBILE_APPの場合のみ</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -201,7 +201,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional<br>※こちらが審査中 の場合、編集は できません。<br>※変更がない場合、審査対象とはなりません。</td>
+  <td>Optional<br>※こちらが審査中の場合、編集はできません。<br>※変更がない場合、審査対象とはなりません。</td>
   <td>-</td>
  </tr>
  <tr>
@@ -211,7 +211,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
-  <td>Optional<br>※トラッキング URLが審査中の場合、編集はできません。<br>※変更がない場合、審査対象とはなりません。</td>
+  <td>Optional<br>※トラッキングURLが審査中の場合、編集はできません。<br>※変更がない場合、審査対象とはなりません。</td>
   <td>-</td>
  </tr>
  <tr>
