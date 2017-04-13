@@ -59,7 +59,8 @@ CampaignBiddingStrategy object describes Auto Bidding setting.<br>
  <tr>
   <td>biddingScheme</td>
   <td><a href="./BiddingScheme_nonBiddingStrategy.md">BiddingScheme</a><br> inherited <a href="./ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="./BudgetOptimizerBiddingScheme.md">BudgetOptimizerBiddingScheme </a><br> inherited <a href="./EnhancedCpcBiddingScheme_nonBiddingStrategy.md">EnhancedCpcBiddingScheme</a><br> inherited <a href="./PageOnePromotedBiddingScheme_nonBiddingStrategy.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="./TargetCpaBiddingScheme_nonBiddingStrategy.md">TargetCpaBiddingScheme</a><br> inherited <a href="./TargetSpendBiddingScheme_nonBiddingStrategy.md">TargetSpendBiddingScheme</a><br> inherited <a href="./TargetRoasBiddingScheme_nonBiddingStrategy.md">TargetRoasBiddingScheme</a></td>
-  <td>Details of Auto Bidding setting</td>
+  <td>Details of Auto Bidding setting.<br> *
+  *BudgetOptimizerBiddingScheme is currently unavailable. On April 12, 2017, TargetSpendBiddingScheme has been set to campaigns which had been set this item instead.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

@@ -1,5 +1,5 @@
 # BiddingStrategyType (enum)
-BiddingStrategyTypeは、入札方法を表します。
+BiddingStrategyTypeは、自動入札タイプを表します。
 
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
@@ -8,7 +8,7 @@ BiddingStrategyTypeは、入札方法を表します。
 
 | Enumeration | Type | Description | 
 |---|---|---|
-| BUDGET_OPTIMIZER| string| 入札価格の上限金額を設定しない自動入札です。 |
+| BUDGET_OPTIMIZER| string| 入札価格の上限金額を設定しない自動入札です。現在は設定できません。<br>※この項目を設定していたキャンペーンには、2017年4月12日にTARGET_SPENDが設定されました。 |
 | MANUAL_CPC| string| 手動で入札を行います。 |
 | PAGE_ONE_PROMOTED| string| 検索結果ページの目標掲載位置です。<br>※キャンペーン、広告グループに適用可能です。 |
 | TARGET_ROAS| string| 広告費用対効果の目標値です。<br>※キャンペーン（更新時のみ指定可能）、広告グループに適用可能です。 |

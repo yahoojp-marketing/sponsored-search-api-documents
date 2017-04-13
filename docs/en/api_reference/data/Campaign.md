@@ -108,7 +108,7 @@ Campaign object describes Campaign information.
  <tr>
   <td>biddingStrategyConfiguration</td>
   <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
-  <td>Bid setting.<br>*Cannot create or update the BudgetOptimizer (Only referring is available)<br>*If iOS is selected for App Campaign, cannot set "TARGET_CPA" or "TARGET_ROAS".</td>
+  <td>Bid setting.<br>*BudgetOptimizer is not available.<br>*If iOS is selected for App Campaign, cannot set "TARGET_CPA" or "TARGET_ROAS".</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
