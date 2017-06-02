@@ -13,19 +13,20 @@ It also provides operation to get available report fields for specific report ty
 http://ss.yahooapis.jp/V6
 
 #### Overview
-Obtain or delete report definitions. Report definitions can be saved up to 30 as templates. <br>
+Obtain or delete report definitions. <br>
+Report definitions can be saved up to 30 as templates. <br>
 If not saved as template, there is no limit in setting definition.<br>
 <br>
 [Important Notes]<br>
-No data will be shown in the report of search_query, destination_url and geo, when there is no performance data.<br>
-Also, if you specify the report segment in any other report type, zero performance data will not be shown either.<br>
+- No data will be shown in the report of search_query, destination_url and geo, when there is no performance data.<br>
+  Also, if you specify the report segment in any other report type, zero performance data will not be shown either.<br>
+- Report definition can be confirmed only by the API Account ID which created the report definition.<br>
+  Definitions created by same API Account ID can be confirmed regardless of authentication method.<br>
+- The maximum template number is the sum total of the report definition created by each authentic method.<br>
+  For example:<br>
+  If you've already saved 20 definitions by authentication, you will be able to save 10 more by on behalf of access. <br>
+  So if you need to add report definition over the limit, you will need to delete either definition.<br>
 <br>
-Report definition can be confirmed only by the authentic method when the report definition was created.<br>
-- If it was created by authentication: Cannot confirm by on behalf of access.<br>
-- If it was created by on behalf of access: Cannot confirm by authentication.<br>
-The maximum template number is the sum total of the report definition created by each authentic method.<br>
-For example, if you've already saved 20 definitions by authentication, you will be able to save 10 more by on behalf of access. <br>
-So if you need to add report definition over the limit, you will need to delete either definition.
 
 #### Operation
 Explains the operations provided by ReportDefinitionService.
