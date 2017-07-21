@@ -10,7 +10,6 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -23,14 +22,12 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>displayFieldNameJA</td>
   <td>xsd:string</td>
   <td>ダウンロードされたレポートに 表示される日本語名です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -43,7 +40,6 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>xmlAttributeName</td>
@@ -53,14 +49,12 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>fieldType</td>
   <td>xsd:string</td>
-  <td>フィールドの種類です。<br>数字、文字列、Enum値等を 表します。</td>
+  <td>フィールドの種類です。<br>数字、文字列、Enum値等を表します。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -73,7 +67,6 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>canFilter</td>
@@ -81,6 +74,14 @@ ReportFieldAttributeオブジェクトは、レポート定義の作成に使用
   <td>ユーザーがこのフィールドにフィルタを 適用できるかどうかを示します。</td>
   <td>yes</td>
   <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>impossibleCombinationFields[0..n]</td>
+  <td>xsd:string</td>
+  <td>組み合わせができないレポートフィールドです。</td>
+  <td>yes</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

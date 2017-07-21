@@ -1,51 +1,51 @@
-"フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not compatible fields","表示回数0回のレコード取得指定可否/Supports Zero Impressions"
-"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG",,false
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",,false
-"AD_ID","広告ID","Ad ID","adID","LONG",,false
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",,false
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",,false
-"AD_NAME","広告名","Ad Name","adName","STRING",,false
-"COST","コスト","Cost","cost","LONG","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"IMPS","インプレッション数","Impressions","impressions","LONG","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"CLICKS","クリック数","Clicks","clicks","LONG","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]",true
-"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM",,false
-"PHONE_NUMBER","電話番号","Phone Number","phoneNumber","STRING",,true
-"DEVICE_PREFERENCE","優先デバイス","Focus Device","focusDevice","ENUM",,true
-"FEED_ID","フィードID","Feed ID","feedID","LONG",,true
-"FEED_ITEM_ID","広告表示オプションID","Ad Display Option ID","adDisplayOptionID","LONG",,true
-"QUICK_LINK_TEXT","クイックリンクテキスト","QuickLink Text","quickLinkText","STRING",,true
-"QUICK_LINK_URL","クイックリンクURL","QuickLink URL","quickLinkURL","STRING",,true
-"PLACEHOLDER_TYPE","広告表示オプションの種類","Ad Display Option Type","adDisplayOptionType","ENUM",,true
-"FEED_ITEM_START_DATE","開始日","Start Date","adDisplayOptionStartDate","STRING",,true
-"FEED_ITEM_END_DATE","終了日","End Date","adDisplayOptionEndDate","STRING",,true
-"TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING",,true
-"CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING",,true
-"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING",,false
-"LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING",,true
-"CALLOUT","補足用テキスト","Callout","callout","STRING",,true
-"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE",,true
-"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE",,true
-"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE",,true
-"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE",,true
-"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE",,true
-"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE",,true
-"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE",,true
-"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE",,true
-"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE",,true
-"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",,true
-"NETWORK","広告掲載方式の指定","Network","network","ENUM",,false
-"CLICK_TYPE","クリック種別","ClickType","clickType","ENUM","[""IS_SELF_ACTION""]",false
-"DEVICE","デバイス","Device","device","ENUM",,false
-"DAY","日","Day","day","STRING",,false
-"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM",,false
-"QUARTER","四半期","Quarter","quarter","STRING",,false
-"YEAR","年間","Year","year","STRING",,false
-"MONTH","毎月","Month","month","STRING",,false
-"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM",,false
-"WEEK","毎週","Week","week","STRING",,false
-"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK""]",false
-"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK""]",false
-"IS_SELF_ACTION","当該の広告表示オプションとその他","Is Self Action","isSelfAction","ENUM","[""CLICK_TYPE""]",false
+"フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields"
+"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG",false,
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",false,
+"AD_ID","広告ID","Ad ID","adID","LONG",false,
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",false,
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",false,
+"AD_NAME","広告名","Ad Name","adName","STRING",false,
+"COST","コスト","Cost","cost","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"IMPS","インプレッション数","Impressions","impressions","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"CLICKS","クリック数","Clicks","clicks","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
+"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM",false,
+"PHONE_NUMBER","電話番号","Phone Number","phoneNumber","STRING",true,
+"DEVICE_PREFERENCE","優先デバイス","Focus Device","focusDevice","ENUM",true,
+"FEED_ID","フィードID","Feed ID","feedID","LONG",true,
+"FEED_ITEM_ID","広告表示オプションID","Ad Display Option ID","adDisplayOptionID","LONG",true,
+"QUICK_LINK_TEXT","クイックリンクテキスト","QuickLink Text","quickLinkText","STRING",true,
+"QUICK_LINK_URL","クイックリンクURL","QuickLink URL","quickLinkURL","STRING",true,
+"PLACEHOLDER_TYPE","広告表示オプションの種類","Ad Display Option Type","adDisplayOptionType","ENUM",true,
+"FEED_ITEM_START_DATE","開始日","Start Date","adDisplayOptionStartDate","STRING",true,
+"FEED_ITEM_END_DATE","終了日","End Date","adDisplayOptionEndDate","STRING",true,
+"TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING",true,
+"CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING",true,
+"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING",false,
+"LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING",true,
+"CALLOUT","補足用テキスト","Callout","callout","STRING",true,
+"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE",true,
+"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE",true,
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE",true,
+"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE",true,
+"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE",true,
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE",true,
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE",true,
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE",true,
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE",true,
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",true,
+"NETWORK","広告掲載方式の指定","Network","network","ENUM",false,
+"CLICK_TYPE","クリック種別","ClickType","clickType","ENUM",false,"[""IS_SELF_ACTION""]"
+"DEVICE","デバイス","Device","device","ENUM",false,
+"DAY","日","Day","day","STRING",false,
+"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM",false,
+"QUARTER","四半期","Quarter","quarter","STRING",false,
+"YEAR","年間","Year","year","STRING",false,
+"MONTH","毎月","Month","month","STRING",false,
+"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM",false,
+"WEEK","毎週","Week","week","STRING",false,
+"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM",false,"[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK""]"
+"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING",false,"[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK""]"
+"IS_SELF_ACTION","当該の広告表示オプションとその他","Is Self Action","isSelfAction","ENUM",false,"[""CLICK_TYPE""]"

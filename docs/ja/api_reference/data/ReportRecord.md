@@ -9,7 +9,6 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -22,14 +21,12 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
   <tr>
   <td>reportId</td>
   <td>xsd:long</td>
   <td>レポートIDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>-</td>
   <td>-</td>
@@ -41,15 +38,22 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <td>yes</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
   <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>reportName</td>
+  <td>xsd:string</td>
+  <td>レポート名称です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>reportJobStatus</td>
   <td>enum <a href="./ReportJobStatus.md">ReportJobStatus</a></td>
   <td>レポートジョブのステータスです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -62,14 +66,12 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>requestTime</td>
   <td>xsd:string</td>
   <td>ジョブの起動時刻です。<br>※YYYY/MM/DD hh:mm:ss形式になります。<br>※hhは24時間表記になります。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -82,14 +84,12 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>reportDownloadURL</td>
   <td>xsd:string</td>
   <td>レポートファイルのダウンロード URLです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

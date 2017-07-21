@@ -1,8 +1,8 @@
 # リリースノート
-スポンサードサーチAPI Ver.6.2<br>
+スポンサードサーチAPI Ver.6.3<br>
 
 ## リリースバージョン
-6.2 (WSDLバージョン: 6.2.0)
+6.3 (WSDLバージョン: 6.3.0)
 
 ## バージョンアップの種類
 マイナーバージョンアップ  
@@ -10,80 +10,29 @@
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-#### 1. 拡大テキスト広告の対応
-テキスト広告のタイトルを2行、説明文を1行で設定できる「拡大テキスト広告」に対応します。従来より情報量や広告の表示幅を増やした形式での広告配信が可能です。<br><br>
+#### 1. サイトリターゲティング機能の改善
+ * 代理店様配下の同一広告主様、および直接お取り引きの広告主様配下の、複数のアカウント間で共通のターゲットリストが利用可能になりました。これに伴いスポンサードサーチAPIにおいて、アカウント間で共通のターゲットリストの登録、変更などに対応しました。
+ *  キャンペーンにターゲットリストを設定する際に従来の「除外」に加えて「配信」での関連付け設定が可能になりました。<br><br>
 
 ##### 対象ウェブサービス  
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md)
+ * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
+ * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * [CampaignRetargetingListService](/docs/ja/api_reference/services/CampaignRetargetingListService.md)
+ * NegativeCampaignRetargetingListService（廃止）
 <br><br>
 
-#### 2.	デバイスごとの入札調整率の改善
-入札価格調整率を、PC、タブレット、スマートフォンの各デバイスごとに設定できます。キャンペーンまたは広告グループ単位での設定が可能です。<br>
-<br>
-
-##### 対象ウェブサービス
- * [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md)
- * [AdGroupBidMultiplierService](/docs/ja/api_reference/services/AdGroupBidMultiplierService.md)
-<br><br>
-
-#### 3.	コンバージョン計測方法の機能変更
-コンバージョンの計測で、以下の各項目を変更します。
- * 測定方法で「ユニーク」か「合計」のいずれかを指定したコンバージョンタグの発行
- * 自動入札を対象外とするコンバージョンタグの発行
- * コンバージョン計測期間の変更(現在の30日間固定から、7～90日間で指定可能に)
- * コンバージョン実績値（レスポンス）の項目を変更します。
-<br><br>
-
-##### 対象ウェブサービス
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
-<br><br>
-
-#### 4.	サイトリターゲティング複数設定に伴う変更
-2016年10月19日に開始した広告グループへのサイトリターゲティングの複数設定（Ver6.0、6.1で対応済み）に伴い、「TargetAll」オブジェクトを削除します。
-
-##### 対象ウェブサービス
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
-<br><br>
-
-
-#### 5.	保守改善の追加
-* レポート定義の作成時に、以下の条件が指定可能になります。<br>
- - レポートの出力対象にインプレッションが0のデータを含める<br>
- - レポート出力対象に削除済みエンティティを含める<br>
- 
-* デバイスターゲティングレポートを廃止します。
+#### 2.	システムの保守、改善
+以下のウェブサービスにおいてシステムの保守、改善を実施しました。<br>
+対象サービスごとの変更内容は「Serviceの変更による各Versionへの影響」の項目をご確認ください。
 <br>
 <br>
 
 ##### 対象ウェブサービス
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+ * [ReportService](/docs/ja/api_reference/services/ReportService.md)
+ * [AccountService](/docs/ja/api_reference/services/AccountService.md)
+ * [AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
 <br><br>
-
-#### 6.	レポートフィールド項目の追加
-本機能追加に伴い、以下のレポートフィールド項目を追加しました。<br>
- - TITLE1<br>
- - TITLE2<br>
- - DESC<br>
- - DIRECTORY1<br>
- - DIRECTORY2<br>
- - CONVERSIONS<br>
- - CONV_RATE<br>
- - CONV_VALUE<br>
- - COST_PER_CONV<br>
- - VALUE_PER_CONV<br>
- - ALL_CONV<br>
- - ALL_CONV_RATE<br>
- - ALL_CONV_VALUE<br>
- - COST_PER_ALL_CONV<br>
- - VALUE_PER_ALL_CONV<br>
- - CAMPAIGN_MOBILE_BID_MODIFIER<br>
- - ADGROUP_MOBILE_BID_MODIFIER<br>
-
-※レポートフィールドの詳細については[こちら](/docs/ja/api_reference/appendix/reportfields.md)をご確認ください。<br>
-※Ver.6.0、6.1についても同様にレポートフィールドを追加しました。
-<br>
-<br>
 
 ## Serviceの変更による各Versionへの影響
 <table class="standard">
@@ -93,83 +42,72 @@
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Ver.6.1以前</p>
+  <p>Ver.6.2以前</p>
 </th>
 <th valign="top">
-  <p>Ver.6.2</p>
+  <p>Ver.6.3</p>
 </th>
 </tr>
 <tr>
-  <td colspan="3"><b>拡大テキスト広告の対応</b></td>
+  <td colspan="3"><b>1.	サイトリターゲティング機能の改善</b></td>
 </tr>
 <tr>
- <td valign="top">AdGroupAdService</td><td valign="top">変更ありません</td><td valign="top">
-・拡大テキスト広告を登録、照会できる<br>
-・一部オブジェクトの変更<br>　-ExtendedTextAdを追加<br>　-MobileAdを削除
-</td>
+ <td valign="top">CampaignService</td>
+ <td valign="top">変更ありません。</td>
+ <td valign="top">
+ ・サイトリターゲティングの配信対象ユーザー（targetAll）が設定、照会できます。
+ </td>
 </tr>
 <tr>
- <td valign="top">CampaignExportService</td>
- <td valign="top">拡大テキスト広告形式の広告はダウンロードできない</td>
- <td valign="top">2016年11月28日以降、拡大テキスト広告形式の広告がダウンロードができる<br></td>
+ <td valign="top">RetargetingListService</td>
+ <td valign="top">変更ありません。<br>
+ 　・専有のターゲットリストの登録、変更、照会ができます。<br>
+ 　・専有のサイトリターゲティング用タグを照会できます。<br>
+ </td>
+ <td valign="top">サイトリターゲティング機能の改善に対応します。<br>
+ 　・専有、および共有のターゲットリストの登録、変更、照会ができます。<br>
+ 　・専有、および共有のサイトリターゲティング用タグを照会できます。<br>
+ 　・トラッキング用のターゲットリストID（targetListTrackId）を利用できます。<br>
+ 　・エラーコードを追加しました。
+ </td>
 </tr>
 <tr>
-  <td colspan="3"><b>デバイスごとの入札調整率の改善</b></td>
+ <td valign="top">NegativeCampaignRetargetingListService</td>
+ <td valign="top">利用できます。</td>
+ <td valign="top">利用できません。<br>※CampaignRetargetingListServiceに機能を移管します。</td>
 </tr>
 <tr>
- <td valign="top">CampaignTargetService</td><td valign="top">入札価格調整率は、スマートフォンのみ設定可能（キャンペーン単位）</td><td valign="top">
-PC、タブレット、スマートフォンのそれぞれに、入札価格調整率を設定、照会できる（キャンペーン単位）</td>
+ <td valign="top">CampaignRetargetingListService</td>
+ <td valign="top">利用できません。</td>
+ <td valign="top">利用できます（新規追加）。<br>
+ ・キャンペーンに配信対象のターゲットリストを関連付けできます。<br>
+ ・キャンペーンに除外対象のターゲットリストを関連付けできます。<br>
+ ・エラーコードを追加しました。
+ </td>
 </tr>
 <tr>
- <td valign="top">AdGroupBidMultiplierService</td><td valign="top">入札価格調整率は、スマートフォンのみ設定可能（広告グループ単位）</td><td valign="top">
-・PC、タブレット、スマートフォンのそれぞれに、入札価格調整率を設定、照会できる（広告グループ単位）<br>
-・エラーコードの追加<br>
-キャンペーンでデバイス別入札価格調整率を0（そのデバイスには配信しない）で設定中に、広告グループで同デバイスの入札価格調整率を変更しようとした場合、以下のエラーコードを表示<br>
-「211006：Cannot bid modify criterion campaign opted out」<br>
-・以下のオブジェクトの削除<br>
-　-BidMultiplierList<br>
-　-PlatformBidMultiplierList<br>
-　-PlatformBidMultiplier<br>
-　-BidMultiplierType<br>
-</td>
-</tr>
-
-<tr>
-  <td colspan="3"><b>コンバージョン計測方法の項目追加</b></td>
+  <td colspan="3"><b>2.	システムの保守、改善の実施</b></td>
 </tr>
 <tr>
- <td valign="top">ConversionTrackerService</td><td valign="top">・countingTypeの設定、照会はできない<br>・自動入札に含めるかの選択が<br>できない<br>・コンバージョン計測期間は30日間<br>固定
-</td><td valign="top">・countingTypeの設定、照会ができる<br>・自動入札に含めるか、含めないかを選択できる<br>・コンバージョン計測期間を7～90日間で設定できる<br>※アプリダウンロードキャンペーンのみ30日間固定<br>
-・コンバージョン実績値（レスポンス）で、以下の項目を変更<br>
-　-totalAllConversionsを新設<br>
-　-totalAllConversionValueを新設<br>
-　-allConversionsを新設<br>
-　-allConversionValueを新設<br>
-　-numConversionEventsをconversionsに変更<br>
-　-totalNumConversionEventsを<br>totalConversionsに変更<br>
-　-totalNumConvertedClicksを廃止<br>
-　-numConvertedClicksを廃止<br>
-・一部オブジェクトの変更<br>
-　-ConversionCountingTypeを追加<br>
-　-ExcludeFromBiddingを追加<br>
-　-HttpProtocolを削除
-</td>
+ <td valign="top">ReportDefinitionService</td>
+ <td valign="top">変更ありません。</td>
+ <td valign="top">・getReportFieldsで「指定できる」もしくは「指定できない」の情報を照会できます。<br>
+ ・組み合わせ指定できないレポートフィールドフィールドを照会できます。
+ </td>
 </tr>
 <tr>
-  <td colspan="3"><b>サイトリターゲティング複数設定に伴う変更</b></td>
+ <td valign="top">ReportService</td>
+ <td valign="top">変更ありません。</td>
+ <td valign="top">getでreportName(ReportDefintionService/addで指定)を照会できます。</td>
 </tr>
 <tr>
- <td valign="top">AdGroupService</td>
- <td valign="top">・2016年10月19日以降、広告グループにサイトリターゲティングの複数設定が可能<br>・2016年10月19日以降、TargetAllの設定が無効</td>
- <td valign="top">・広告グループにサイトリターゲティングの複数設定が可能<br>・TargetAllを削除
-</td>
+ <td valign="top">AccountService</td>
+ <td valign="top">変更ありません。</td>
+ <td valign="top">AccountStatusに「CANCELED(解約済み)」を新規公開しました。<br>これにより解約済みアカウントを照会できます。</td>
 </tr>
 <tr>
-  <td colspan="3"><b>保守改善の追加</b></td>
-</tr>
-<tr>
- <td valign="top">ReportDefinitionService</td><td valign="top">・0インプレッションを含めるかの設定は、filtersでのみ可能<br>・レポートの出力対象に、削除済みエンティティの有無を設定できない
-</td><td valign="top">・レポート定義設定時に、0インプレッションを含めるかを設定できる<br>・レポートの出力対象に、削除済みエンティティを含めるかを設定できる<br>・デバイスターゲティングレポートを廃止
-</td>
+ <td valign="top">AdGroupRetargetingListService</td>
+ <td valign="top">変更ありません。</td>
+ <td valign="top">エラーコードを追加しました。<br>仕様に変更はありません。</td>
 </tr>
 </table>

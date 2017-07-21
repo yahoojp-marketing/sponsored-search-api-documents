@@ -4,45 +4,38 @@ RetargetingListOperation is an object that holds target retargeting in mutate me
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)
 
+### Inheritance
++ [Operation](../data/Operation.md)
+
 <table>
  <tr>
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
-  <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./Operation.md">Operation</a>(inherited)</td>
- </tr>
- <tr>
-  <td>operator</td>
-  <td>enum <a href="./Operator.md">Operator</a></td>
-  <td>Operator that displays process. </td>
-  <td colspan="5"></td>
- </tr>
- <tr>
-  <td colspan="8">RetargetingListOperation</td>
- </tr>
- <tr>
   <td>accountId</td>
   <td>xsd:long</td>
   <td>Account ID.</td>
-  <td>yes</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>owner</td>
+  <td>enum <a href="./TargetListOwner.md">TargetListOwner</a></td>
+  <td>Target list owner information.</td>
+  <td>Optional</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>operand[1...200]</td>
   <td><a href="./TargetingList.md">TargetingList</a><br>inherited <a href="./DefaultTargetList.md">DefaultTargetList</a><br>inherited <a href="./RuleBaseTargetList.md">RuleBaseTargetList</a><br>inherited <a href="./LogicalTargetList.md">LogicalTargetList</a></td>
   <td>Target list of operation object.</td>
-  <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>Requirement</td>

@@ -23,6 +23,7 @@ If your SOAP request is successful, the Sponsored Search API will return an HTTP
 ### Error Codes
 Sponsored Search API returns these SOAP faults when errors occur.
 #### Authentication error
+
 ##### Service
 All services.
 
@@ -65,7 +66,6 @@ All services.
 0066 | Date set before the available period.  | Date has been set before the possible date range.
 0067 | Date set after the available period.  | Date has been set after the possible date range.
 0099 | Out of service.  | API is under maintenance or not available to use.
-
 
 #### Account Management error
 ##### Service
@@ -110,6 +110,7 @@ All services.
 210907 | url restriction. | URL that cannot be submitted was set.
 210909 | not account updatable. | Account is not in updatable condition.
 
+
 #### Billing error
 ##### Service
 [BalanceService](/docs/en/api_reference/services/BalanceService.md)  
@@ -123,11 +124,10 @@ All services.
 20410007 | NO ACCOUNT FOUND | One of the account IDs indicated in the request was not found. <br>Please confirm your account IDs
 20410009 | GET BALANCE FAILED | The operation failed to get account balance.
 
-
 #### Campaign Management error
 ##### Service
 [AccountSharedService](/docs/en/api_reference/services/AccountSharedService.md), <br>
-[AdGroupAdService,](/docs/en/api_reference/services/AdGroupAdService.md), <br> 
+[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br> 
 [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md), <br>
 [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> 
 [CampaignSharedSetService](/docs/en/api_reference/services/CampaignSharedSetService.md), <br>
@@ -138,6 +138,7 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0018 | The data size you requested is too large. <br>Please try your request again with a smaller date range or reduce the size of your request.  | Failed operations due to data size excess.
+0102 | DEACTIVATED | There is no such account, account status is invalid, the account has been already deleted.
 0103 | Exists same name. | The name you specified for a campaign, ad group, ad was not unique. <br>Please choose one that is unique.
 1003 | invalid download request. | Host of creating and host of obtaining the Download URL differs.
 1004 | download URL has expired. | Passed the retainment period of Download URL (10 minutes after report creation)<br />Download URL may have falsified.
@@ -200,6 +201,7 @@ All services.
 210308 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210309 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
 210310 | Select the correct bid type.  | Bid type does not match.
+210311 | Campaign has been started.  | The start date of the campaign which has started cannot be changed. 
 211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download
 211002 | Lpurl is required for ValueTrack.	| Include {lpurl} in Tracking URL.
@@ -260,6 +262,7 @@ All services.
 210201 | Minimum value is higher than maximum value.  | Click minimum value is set higher value than maximum value.
 210202 | Auto bidding type does not match.  | Registered Auto Bidding type and requested Auto Bidding type does not match.
 
+
 #### Reporting error
 ##### Service
 [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
@@ -295,6 +298,7 @@ All services.
 240007 | Is Not Template. | Cannot specify the timing of report creation other than ONETIME when the report template is FALSE.
 240008 | Interval Type Is Not SPECIFY_DAY. | Cannot specify the report creation day when the timing of report creation is set other than SPECIFYDAY.
 
+
 ##### Service
 [ReportService](/docs/en/api_reference/services/ReportService.md)
 
@@ -309,12 +313,12 @@ All services.
 40004 | LOWER_LIST_SIZE | Specified list/container must not contain any null elements. <br>You must provide at least one valid object in this operation.
 40011 | INVALID_NUMBER_FORMAT | The number value is incorrect for this parameter.
 40012 | LOWER_NUMBER | The number is too small.
-40013 | LOWER_NUMBER | The number is too small.
 40013 | OVER_NUMBER | The number is too big.
 
 #### Forecasting error
 ##### Service
-[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md), <br>  [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
+[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md), 
+<br>  [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------
@@ -322,7 +326,7 @@ All services.
 20003 | TOO HIGH | The number is too big.
 20004 | TOO LOW | The number is too small.
 30002 | INVALID VALUE | Parameter is invalid. <br>Please make sure the parameter is not duplicated, lost or empty.
-40002 | INVALID VALUE | Parameter is invalid.
+40002 | INVALID VALUE | Parameter is invalid. <br>Please make sure the parameter is not duplicated, lost or empty.
 40003 | TO LONG | The keyword has too many characters.
 40004 | INVALID ENUM | Your request contains an enumeration type value that is not valid.
 50002 | MISSING REQUIRED FIELED | Parameter specified in the request is lost or empty.
@@ -333,7 +337,6 @@ All services.
 80006 | TOO MANY WORDS | Number of keyword token exceed maximum allowed in this request.
 80007 | INSUFFICIENT SEARCH PARAMETERS | No search term or URL is specified. <br>When you specify EXCLUDED_KEYWORD you need to specify RELATED_TO_KEYWORD or RELATED_TO_URL.
 120026 | REQUIRED BIDDABLE KEYWORD | Biddable keyword is required. 
-
 
 #### ConversionTracker management error
 ##### Service
@@ -353,7 +356,6 @@ All services.
 120023 | OVER LIMIT | Limit is over.
 120024 | INVALID RELATION | Relation is invalid.
 210004 | INVALID SNIPPET FORMAT | Snipet format is invalid.
-
 
 #### Feed Item error
 ##### Service
@@ -411,14 +413,17 @@ All services.
 210809 | Not logical target list.| Selecting combination target list to combination list.
 210815 | Selecting only one target list.| Please select multiple target lists for combination list.
 210816 | Selecting only Not condition.| Cannot select “NOT” condition only in combination list setting.
-
+210822 | Cannot create a share target list. | When no shared account setting, shared Target List cannot be added.
 
 ##### Service
-[NegativeCampaignRetargetingListService](/docs/ja/api_reference/services/NegativeCampaignRetargetingListService.md)
+[CampaignRetargetingListService](/docs/ja/api_reference/services/CampaignRetargetingListService.md)
 
  Code    | Message        | Description   
 ------------------------ | ----------- | -------------------------------------------------------
-210810 | Status not approved.| Review is not approved for the selected target list.
+210810 | Status not approved. | Review is not approved for the selected target list.
+210812 | Already existing target list. | 'Exclude/Include' setting of the Target List has been already made for the ad group ID. (For a single ad group, one target list for each Exclude and Include setting is available for setup.
+210813 | Cannot bid the negative criterion. | Bid adjustment rate is set although the target list setting is as 'Exclude'.
+225301 | Cannot attach criteria at campaign and adgroup. | Target list cannot be setup both for ad group and campaign.
 
 
 ##### Service
@@ -431,4 +436,4 @@ All services.
 210812 | Already existing target list.| Selected target list is already registered.
 210813 | Cannot bid the negative criterion.| Bidding setting been requested to the campaign or ad group that made exclude setting.
 210814 | List already registered.| Combination of target or exclude list to the selected ad group ID is already registered.
-
+225301 |  Cannot attach criteria at campaign and adgroup. | Target list cannot be setup both for ad group and campaign.

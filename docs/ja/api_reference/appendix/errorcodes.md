@@ -21,7 +21,9 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 ```
 
 ### エラーコード
+
 #### 認証エラー
+
 ##### Service
 全サービス共通  
 
@@ -135,6 +137,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 ------------------------ | ----------- | -------------------------------------------------------
 0018 | The data size you requested is too large. Please try your request again with a smaller date range or reduce the size of your request.  | 生成されるデータのサイズが大きいため取得に失敗しました。<br>集計期間やパラメーターを調整し、再度リクエストを実施してください。 
 0103 | Exists same name. | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
+0102 | DEACTIVATED | アカウントが存在しない、ステータスが無効、削除済みなどの状態です。
 1003 | invalid download request. | ダウンロードURLの取得ホストと実行ホストが異なります。
 1004 | download URL has expired. | ダウンロードURLの有効期限が切れました。<br />ダウンロードURLが改ざんされています。
 10100 | DEACTIVATED | 削除済みとして登録されました。<br>アカウントステータスがアクティブでない、またはアカウントが存在しない場合にもこのエラーが発生する可能性があります。
@@ -198,6 +201,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210308 | Set campaign active.	| キャンペーンがACTIVEでないため、入札設定が利用できません。
 210309 | Set campaign to Manual CPC.  | キャンペーンが「MANUAL_CPC」でないため、入札設定が利用できません。
 210310 | Select the correct bid type.  | 入札最適化タイプと一致しません。
+210311 | Campaign has been started.  | すでに開始しているキャンペーンの開始日は変更できません。 
 211000 | Cannot operate AdvancedURL.	| アドバンスドURLに移行済みのため、操作できません。
 211001 | Cannot set AdvancedMobileURL. | アプリダウンロードキャンペーンでは、advancedMobileUrlの設定はできません。
 211002 | Lpurl is required for ValueTrack.	| トラッキングURLにバリュートラックの{lpurl}を入れてください。
@@ -407,16 +411,20 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210806 | Requires default list.| デフォルトリストが登録されていないアカウントに対して条件リストまたは組み合わせリストを登録しています。
 210807 | Selecting Close default list.| 対象のデフォルトリストに「CLOSE」を指定しています。
 210808 | Invalid rule operator.| 指定できないオペレーターを指定しています。
-210809 | Not logical target list.| 組合せリストに組合せのターゲットリストを指定しています。
-210815 | Selecting only one target list.| 組合せリストにターゲットリストをひとつだけ指定しています。
-210816 | Selecting only Not condition.| 組合せリストでNOT条件のみを指定しています。
+210809 | Not logical target list.| 組み合わせリストに組合せのターゲットリストを指定しています。
+210815 | Selecting only one target list.| 組み合わせリストにターゲットリストをひとつだけ指定しています。
+210816 | Selecting only Not condition.| 組み合わせリストでNOT条件のみを指定しています。
+210822 | Cannot create a share target list. | 共有アカウントの設定がない場合は、共有のターゲットリストを追加できません。
 
 ##### Service
-[NegativeCampaignRetargetingListService](/docs/ja/api_reference/services/NegativeCampaignRetargetingListService.md)
+[CampaignRetargetingListService](/docs/ja/api_reference/services/CampaignRetargetingListService.md)
 
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
-210810 | Status not approved.| 指定したターゲットリストの審査が承認されていません。
+210810 | Status not approved. | 指定したターゲットリストの審査が承認されていません。
+210812 | Already existing target list. | 広告グループIDに対して配信、除外のターゲットリストが既に設定されています （1つの広告グループに対して配信、除外のターゲットリストはそれぞれ1件まで関連付け可能です）。
+210813 | Cannot bid the negative criterion. | ターゲットリストが除外で設定されていますが、入札価格調整率が設定されています。
+225301 | Cannot attach criteria at campaign and adgroup. | 広告グループとキャンペーンの両方にターゲットリストの関連付けはできません。
 
 ##### Service
 [AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
@@ -428,4 +436,5 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210812 | Already existing target list.| リクエストで指定されたターゲットリストが既に登録されています。
 210813 | Cannot bid the negative criterion.| 除外設定にも関わらず入札が指定されています。
 210814 | List already registered.| 対象広告グループIDに対して有効・除外ユーザリストの組み合わせが既に登録されています。
+225301 |  Cannot attach criteria at campaign and adgroup. | 広告グループとキャンペーンの両方にターゲットリストの関連付けはできません。
 

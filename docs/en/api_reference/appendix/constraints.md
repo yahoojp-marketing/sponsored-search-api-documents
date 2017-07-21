@@ -13,7 +13,7 @@ Report                       | Filter creation: 5
 Filters                      | Can save up to: 10
 Templates                    | Can save up to: 30
 
-### Charcter Lengths
+### Character Lengths
 *Regardless of whether one-byte or two-byte
 
 Parameters                                   | Constraints

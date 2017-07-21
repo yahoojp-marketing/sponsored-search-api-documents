@@ -10,7 +10,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -20,9 +19,17 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>xsd:long</td>
   <td>アカウントIDです。</td>
   <td>yes</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>owner</td>
+  <td><a href="./TargetListOwner.md">TargetListOwner</a></td>
+  <td>ターゲットリストの所有状態を表します。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -33,7 +40,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListId</td>
@@ -41,8 +47,16 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>ターゲットリストIDです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
   <td>Requirement</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>targetListTrackId</td>
+  <td>xsd:long</a></td>
+  <td>ターゲットリストのトラッキング用IDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -50,7 +64,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>enum <a href="./TargetListType.md">TargetListType</a></td>
   <td>ターゲットリスト種別です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>-</td>
@@ -60,7 +73,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>xsd:string</a></td>
   <td>ターゲットリスト名です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -70,7 +82,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>xsd:string</a></td>
   <td>ターゲットリストの説明です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
@@ -78,9 +89,8 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
  <tr>
   <td>reachStorageStatus</td>
   <td>enum <a href="./ReachStorageStatus.md">ReachStorageStatus</a></td>
-  <td>Cookieの保持かのステータスです。<br>※Default：OPEN<br>※デフォルトリストは「OPEN」のままです。</td>
+  <td>Cookieの保持設定です。<br>※Default：OPEN<br>※デフォルトリストは「OPEN」のままです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>※Logical TargetListの場合、Ignore</td>
   <td>Optional<br>※Logical TargetListの場合、Ignore</td>
   <td>-</td>
@@ -90,8 +100,7 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>xsd:long</a></td>
   <td>Cookieを保持する日数です。<br>※Default：180<br>※1-180日まで設定可能です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Optional<br>※Logical TargetListの場合、Ignore</td>
+  <td>‐</td>
   <td>Optional<br>※Logical TargetListの場合、Ignore</td>
   <td>-</td>
  </tr>
@@ -100,17 +109,6 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
   <td>xsd:long</a></td>
   <td>リストに蓄積されているユーザー数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>targetListTrackId</td>
-  <td>xsd:long</a></td>
-  <td>ターゲットリストのトラッキングIDです。<br>※Sandbox環境では常に0が返ります。</td>
-  <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

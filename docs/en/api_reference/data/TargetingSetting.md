@@ -2,7 +2,12 @@
 TargetingSetting is object that holds target setting.
 
 ### Service
++ [CampaignService](../services/CampaignService.md)
 + [AdGroupService](../services/AdGroupService.md)
+
+### Inheritance
++ [CampaignSettings](./CampaignSettings.md)
++ [AdGroupSettings](./AdGroupSettings.md)
 
 <table>
  <tr>
@@ -10,33 +15,15 @@ TargetingSetting is object that holds target setting.
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./AdGroupSettings.md">AdGroupSettings</a>(inherited)</td>
- </tr>
- <tr>
-  <td>criterionType</td>
-  <td>enum <a href="./TargetCriterionType.md">TargetCriterionType</a></td>
-  <td>Target type. </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td colspan="8">TargetingSetting</td>
- </tr>
- <tr>
   <td>targetAll</td>
   <td>enum <a href="./TargetAll.md">TargetAll</a></td>
-  <td>Flag of setting for designated target type.</td>
+  <td>Defines setting of target user range on Site Retargeting.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>-</td>

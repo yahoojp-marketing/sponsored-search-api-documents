@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.2.0</version>
+          <version>6.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -33,25 +33,29 @@
           <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string" />
         </sequence>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingList">
+      <complexType name="CampaignRetargetingList">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="1" name="campaignId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string" />
           <element maxOccurs="1" minOccurs="1" name="criterionTargetList" type="tns:CriterionTargetList" />
+          <element maxOccurs="1" minOccurs="0" name="excludedType" type="tns:ExcludedType" />
+          <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double" />
         </sequence>
       </complexType>
       <complexType name="CriterionTargetList">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="targetListId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="retargetingTrackId" type="xsd:long" />
         </sequence>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingListSelector">
+      <complexType name="CampaignRetargetingListSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long" />
           <element maxOccurs="unbounded" minOccurs="0" name="targetListIds" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="excludedType" type="tns:ExcludedType" />
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging" />
         </sequence>
       </complexType>
@@ -61,43 +65,39 @@
           <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int" />
         </sequence>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingListPage">
+      <complexType name="CampaignRetargetingListPage">
         <complexContent>
           <extension base="tns:Page">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values"
-                type="tns:NegativeCampaignRetargetingListValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignRetargetingListValues" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingListValues">
+      <complexType name="CampaignRetargetingListValues">
         <complexContent>
           <extension base="tns:ReturnValue">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="negativeCampaignRetargetingList"
-                type="tns:NegativeCampaignRetargetingList" />
+              <element maxOccurs="1" minOccurs="0" name="campaignRetargetingList" type="tns:CampaignRetargetingList" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingListOperation">
+      <complexType name="CampaignRetargetingListOperation">
         <complexContent>
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-              <element maxOccurs="unbounded" minOccurs="1" name="operand"
-                type="tns:NegativeCampaignRetargetingList" />
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:CampaignRetargetingList" />
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="NegativeCampaignRetargetingListReturnValue">
+      <complexType name="CampaignRetargetingListReturnValue">
         <complexContent>
           <extension base="tns:ListReturnValue">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values"
-                type="tns:NegativeCampaignRetargetingListValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignRetargetingListValues" />
             </sequence>
           </extension>
         </complexContent>
@@ -132,9 +132,16 @@
           <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator" />
         </sequence>
       </complexType>
+      <simpleType name="ExcludedType">
+        <restriction base="xsd:string">
+          <enumeration value="INCLUDED" />
+          <enumeration value="EXCLUDED" />
+        </restriction>
+      </simpleType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
           <enumeration value="ADD" />
+          <enumeration value="SET" />
           <enumeration value="REMOVE" />
         </restriction>
       </simpleType>
@@ -147,16 +154,14 @@
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector"
-              type="tns:NegativeCampaignRetargetingListSelector" />
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:CampaignRetargetingListSelector" />
           </sequence>
         </complexType>
       </element>
       <element name="getResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval"
-              type="tns:NegativeCampaignRetargetingListPage" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignRetargetingListPage" />
             <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
           </sequence>
         </complexType>
@@ -164,16 +169,14 @@
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations"
-              type="tns:NegativeCampaignRetargetingListOperation" />
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:CampaignRetargetingListOperation" />
           </sequence>
         </complexType>
       </element>
       <element name="mutateResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval"
-              type="tns:NegativeCampaignRetargetingListReturnValue" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignRetargetingListReturnValue" />
             <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
           </sequence>
         </complexType>
@@ -204,7 +207,7 @@
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException" />
   </wsdl:message>
-  <wsdl:portType name="NegativeCampaignRetargetingListServiceInterface">
+  <wsdl:portType name="CampaignRetargetingListServiceInterface">
     <wsdl:operation name="get">
       <wsdl:input message="tns:getRequest" name="getRequest" />
       <wsdl:output message="tns:getResponse" name="getResponse" />
@@ -216,7 +219,7 @@
       <wsdl:fault message="tns:ApiException" name="ApiException" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="NegativeCampaignRetargetingListServiceSoapBinding" type="tns:NegativeCampaignRetargetingListServiceInterface">
+  <wsdl:binding name="CampaignRetargetingListServiceSoapBinding" type="tns:CampaignRetargetingListServiceInterface">
     <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="get">
       <wsdlsoap:operation soapAction="" />
@@ -247,10 +250,10 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="NegativeCampaignRetargetingListService">
-    <wsdl:port binding="tns:NegativeCampaignRetargetingListServiceSoapBinding" name="NegativeCampaignRetargetingListService">
+  <wsdl:service name="CampaignRetargetingListService">
+    <wsdl:port binding="tns:CampaignRetargetingListServiceSoapBinding" name="CampaignRetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/NegativeCampaignRetargetingListService" />
+        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/CampaignRetargetingListService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

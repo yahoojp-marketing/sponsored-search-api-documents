@@ -9,51 +9,37 @@ RetargetingListSelector is an object that holds search condition (parameter) of 
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
-  <th>response</th>
   <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
  </tr>
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
   <td>Search conditon: Account ID.</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListIds[0...1000]</td>
   <td>xsd:long</td>
   <td>Search conditon: Target List ID.</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListTypes[0...3]</td>
   <td>enum <a href="./TargetListType.md">TargetListType</a></td>
   <td>Search conditon: Type of Target list type.</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
+  <td>owner</td>
+  <td>enum <a href="./TargetListOwner.md">TargetListOwner</a></td>
+  <td>Search conditon: Target list owner information.</td>
+  <td>Optional</td>
+ </tr>
+<tr>
   <td>paging</td>
   <td><a href="./Paging.md">Paging</a></td>
   <td>Search conditon: Page of results.</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 </table>
 

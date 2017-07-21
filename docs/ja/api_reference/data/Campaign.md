@@ -10,7 +10,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -23,14 +22,12 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
   <td>キャンペーンIDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -43,14 +40,12 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
   <td>キャンペーン名です。<br>※入力制限：50文字以内です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -60,7 +55,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
   <td>ユーザーにより広告配信の有無を調整できる設定です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -73,14 +67,12 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
   <tr>
   <td>startDate</td>
   <td>xsd:string</td>
   <td>キャンペーンの開始日です。<br>過去の日付は指定できません。<br>※配信開始済みのキャンペーンは変更できません。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>※Default: 当日日付</td>
   <td>Optional</td>
   <td>-</td>
@@ -90,7 +82,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>xsd:string</td>
   <td>キャンペーンの終了日です。<br>過去の日付、開始日以前の日付は指定できません。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>※Default: 20371231</td>
   <td>Optional</td>
   <td>-</td>
@@ -100,7 +91,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td><a href="./Budget.md">Budget</a></td>
   <td>キャンペーンの予算です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -110,7 +100,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
   <td>入札設定です。<br>※BudgetOptimizerは設定できません。<br>※アプリキャンペーンでiOSを指定した場合、TARGET_CPA/TARGET_ROASは 設定できません。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -120,7 +109,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>enum <a href="./BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
   <td>自動入札の設定に失敗した理由です。<br>※失敗時のみレスポンスとして表示されます。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -142,25 +130,29 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>adServingOptimizationStatus</td>
   <td>enum <a href="./AdServingOptimizationStatus.md">AdServingOptimizationStatus</a></td>
   <td>広告表示の最適化の設定です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>※Default: OPTIMIZE</td>
   <td>Optional</td>
   <td>-</td>
  </tr>
   <tr>
-  <td>settings</td>
-  <td><a href="./CampaignSettings.md">CampaignSettings</a><br>inherited <a href="./GeoTargetTypeSetting.md">GeoTargetTypeSetting</a></td>
-  <td>ターゲット及びマッチング設定です。</td>
+  <td>settings[0..2]</td>
+  <td>
+  <a href="./CampaignSettings.md">CampaignSettings</a><br>
+  inherited <a href="./GeoTargetTypeSetting.md">GeoTargetTypeSetting</a><br>
+  inherited <a href="./TargetingSetting.md">TargetingSetting</a>
+  </td>
+  <td>ターゲティング、およびマッチング設定です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Optional<br>※Default: GeoTargetTypeSetting</td>
+  <td>Optional<br>
+  ※TargetingSettingが未設定の場合のDefault値<br>
+  SettingType:TARGET_LIST_SETTING<br>
+  TargetAll:DEACTIVE</td>
   <td>Optional</td>
   <td>-</td>
  </tr>
@@ -169,7 +161,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>enum <a href="./CampaignType.md">CampaignType</a></td>
   <td>キャンペーンの種類です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>※Default: STANDARD</td>
   <td>-</td>
   <td>-</td>
@@ -179,8 +170,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>enum <a href="./AppStore_Campaign.md">AppStore</a></td>
   <td>アプリストアの選択です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Requirement<br>※campaignType: MOBILE_APPの場合のみ</td>
+  <td>-<br>※campaignType:MOBILE_APPの場合はRequirement</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -189,8 +179,7 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>xsd:string</td>
   <td>アプリID（iOS）またはパッケージ名（Android）です。<br>※アプリキャンペーンの場合、iOSは数値のみの入力をお願いします。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Requirement<br>※campaignType:MOBILE_APPの場合のみ</td>
+  <td>-<br>※campaignType:MOBILE_APPの場合はRequirement</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -199,7 +188,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>xsd:string</td>
   <td>トラッキングURLです。<br>※アプリキャンペーンでAndroidの場合、設定はできません。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional<br>※こちらが審査中の場合、編集はできません。<br>※変更がない場合、審査対象とはなりません。</td>
   <td>-</td>
@@ -209,7 +197,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td><a href="./CustomParameters.md">CustomParameters</a></td>
   <td>カスタムパラメータです。<br>※アプリキャンペーンでAndroidの場合、設定はできません。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional<br>※トラッキングURLが審査中の場合、編集はできません。<br>※変更がない場合、審査対象とはなりません。</td>
   <td>-</td>
@@ -219,7 +206,6 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td><a href="./UrlReviewData.md">UrlReviewData</a></td>
   <td>URLの審査状況です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
