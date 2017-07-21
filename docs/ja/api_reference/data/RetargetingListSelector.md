@@ -9,51 +9,37 @@ RetargetingListSelectorは、ターゲットリストのgetメソッド検索条
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
-  <th>response</th>
   <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
  </tr>
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
   <td>検索条件：アカウントIDです。</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListIds[0...1000]</td>
   <td>xsd:long</td>
   <td>検索条件：ターゲットリストIDです。</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListTypes[0...3]</td>
   <td>enum <a href="./TargetListType.md">TargetListType</a></td>
   <td>検索条件：ターゲットリストの種類です。</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+ </tr>
+ <tr>
+  <td>owner</td>
+  <td>enum <a href="./TargetListOwner.md">TargetListOwner</a></td>
+  <td>検索条件：ターゲットリストの所有状態です。</td>
+  <td>Optional</td>
  </tr>
  <tr>
   <td>paging</td>
   <td><a href="./Paging.md">Paging</a></td>
   <td>検索条件：取得範囲です。</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 </table>
 

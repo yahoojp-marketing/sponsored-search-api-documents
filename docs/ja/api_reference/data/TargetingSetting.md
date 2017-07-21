@@ -2,7 +2,12 @@
 TargetingSettingは、ターゲット設定を保持するオブジェクトです。
 
 ### Service
++ [CampaignService](../services/CampaignService.md)
 + [AdGroupService](../services/AdGroupService.md)
+
+### Inheritance
++ [CampaignSettings](./CampaignSettings.md)
++ [AdGroupSettings](./AdGroupSettings.md)
 
 <table>
  <tr>
@@ -10,33 +15,15 @@ TargetingSettingは、ターゲット設定を保持するオブジェクトで�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
  </tr>
  <tr>
-  <td colspan="8"><a href="./AdGroupSettings.md">AdGroupSettings</a>(inherited)</td>
- </tr>
- <tr>
-  <td>criterionType</td>
-  <td>enum <a href="./TargetCriterionType.md">TargetCriterionType</a></td>
-  <td>ターゲットタイプです。 </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
-  <td>-</td>
- </tr>
-  <tr>
-  <td colspan="8">TargetingSetting</td>
- </tr>
- <tr>
   <td>targetAll</td>
   <td>enum <a href="./TargetAll.md">TargetAll</a></td>
-  <td>配信対象の設定です。</td>
+  <td>サイトリターゲティングにおける配信対象ユーザーの範囲を設定をします。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>-</td>

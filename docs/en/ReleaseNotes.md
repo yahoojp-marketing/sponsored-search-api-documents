@@ -1,86 +1,40 @@
 # Release Note
-Sponsored Search API Ver.6.2<br>
+Sponsored Search API Ver.6.3<br>
 
 ## Release version
-6.2 (WSDL version : 6.2.0)
+6.3 (WSDL version : 6.3.0)
 
 ## Type of version up
 Minor version up  
 
 ## Main features enhancement on the release
-*Please confirm from data directory under API reference directory. 
+*Target Data Objects and Enumerations are referable on the list of Data Objects (Enumerations).
 <br><br>
 
-#### 1. Add "Extended Text Ads" feature
-"Extended Text Ads" which supports 2 lines Title and 1 line Description is now available.<br>
-It enables ad delivery with much information and larger width more than usual.<br><br>
+#### 1. Function improvement on "Site Retargeting"
+ * This feature enables the target list to be shared across accounts under the same advertiser. It supports to create and edit Target List to be shared between accounts. 
+ * “Include” option can be available for setup Target List to campaign, adding to the “Exclude” option which is currently used.<br><br>
 
 ##### Target Web Service 
- * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
- * [CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md)
+ * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
+ * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * [CampaignRetargetingListService](/docs/ja/api_reference/services/CampaignRetargetingListService.md)
+ * NegativeCampaignRetargetingListService (End support)
 <br><br>
 
-#### 2.	Function improvement on Bid Adjustment rate for devices
-Bid adjustment rate can be set for each device, such as PC, Tablet or Smartphone. It is available by campaign or ad group level.<br><br>
-
-##### Target Web Service 
- * [CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md)
- * [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md)
-<br><br>
-
-#### 3.	Function update on Converion Count
-Following data items are updated on counting conversion.
-* Conversion tag issued when specified "One-per-click" or "Many-per-click" for counting type.
-* Conversion tag issued when excluded from auto bidding.
-* Counting period change (it has been fixed as 30 days, but now it can be specified between 7 to 90 days).
-* Actual conversion value (response) change.
-<br><br>
-
-##### Target Web Service 
- * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
-<br><br>
-
-#### 4. Change associated with Site Retargeting multiple settings
-The object 'TargetAll' has been removed from 'AdGroupService' on Ver.6.2, because of Site Retargeting multiple settings (already supported on Ver.6.0/6.1) enabled on October 19, 2016.
-
-##### Target Web Service 
-* [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
-
-#### 5. Additional upgrades
-* Following conditions are available on creating report definition.<br>
- - Includes "0 impression" data to output target of reporting.<br>
- - Includes deleted entities to output target of reporting.<br>
- 
-* Device Targeting Report sunset.
-<br><br>
+#### 2.	Additional upgrades
+Following web services have been updated.<br>
+More change details of each service are referable on the matrix of 'Impact on each version from the change of services' below.
+<br>
+<br>
 
 ##### Target Web Service
  * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+ * [ReportService](/docs/ja/api_reference/services/ReportService.md)
+ * [AccountService](/docs/ja/api_reference/services/AccountService.md)
+ * [AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
 <br><br>
 
-#### 6.	Add Report Fields
-Following report fields are now available to support newly added features.<br>
- - TITLE1<br>
- - TITLE2<br>
- - DESC<br>
- - DIRECTORY1<br>
- - DIRECTORY2<br>
- - CONVERSIONS<br>
- - CONV_RATE<br>
- - CONV_VALUE<br>
- - COST_PER_CONV<br>
- - VALUE_PER_CONV<br>
- - ALL_CONV<br>
- - ALL_CONV_RATE<br>
- - ALL_CONV_VALUE<br>
- - COST_PER_ALL_CONV<br>
- - VALUE_PER_ALL_CONV<br>
- - CAMPAIGN_MOBILE_BID_MODIFIER<br>
- - ADGROUP_MOBILE_BID_MODIFIER<br>
-
-*More details of report fields are available on "reportsfields.md"(/docs/ja/api_reference/appendix/reportfields.md)<br>
-*For Ver.6.0/6.1, these fields have been added similarily.
-<br><br>
 
 ## Impact on each Version from the change of Services
 <table class="standard">
@@ -90,102 +44,73 @@ Following report fields are now available to support newly added features.<br>
   <p>Service</p>
 </th>
 <th valign="top">
-  <p>Ver.6.1 or before</p>
+  <p>Ver.6.2 or before</p>
 </th>
 <th valign="top">
-  <p>Ver.6.2</p>
+  <p>Ver.6.3</p>
 </th>
 </tr>
 <tr>
-  <td colspan="3"><b>Enhancement for "Extended Text Ads"</b></td>
+  <td colspan="3"><b>1. Site Retargeting feature enhancemenmt</b></td>
 </tr>
 <tr>
- <td valign="top">AdGroupAdService</td><td valign="top">No change.</td><td valign="top">
-・Can Add/Browse Extended Text Ads<br>
-・Updates some objects<br>
--Added ExtendedTextAd<br>
--Deleted MobileAd
-</td>
-</tr>
-<tr>
- <td valign="top">CampaignExportService</td>
- <td valign="top">Ads in Extended Text Ad format cannot be downloaded</td>
- <td valign="top">After Nov-28,2016, ads in Extended Text Ad format can be downloaded<br></td>
-</tr>
-<tr>
-  <td colspan="3"><b>Function improvement on Bid Adjustment rate for devices</b></td>
-</tr>
-<tr>
- <td valign="top">CampaignTargetService</td><td valign="top">Bid adjustment is available on Smartphone only (by campaign) </td>
- <td valign="top">Can add and browse Bid adjustment setting for each device, PC, Tablet and Smartphone (by campaign)</td>
-</tr>
-<tr>
- <td valign="top">AdGroupBidMultiplierService</td><td valign="top">Bid adjustment is available on Smartphone only (by ad group)</td>
+ <td valign="top">CampaignService</td>
+ <td valign="top">No change.</td>
  <td valign="top">
-・Can add and browse Bid adjustment setting for each device, PC, Tablet and Smartphone (by ad group)<br>
-・Error code added
-The following error code will be displayed when the bid adjustment rate of a device on ad group is changed, with the setting of 'device bid adjustment rate = "0"' on campaign (it means that ads are not displayed for the device) 
-   211006：Cannot bid modify criterion campaign opted out
-・Delete following objects<br>
-　-BidMultiplierList<br>
-　-PlatformBidMultiplierList<br>
-　-PlatformBidMultiplier<br>
-　-BidMultiplierType<br>
-</td>
-</tr>
-
-<tr>
-  <td colspan="3"><b>Additional items on Converion Count</b></td>
+ ・Set/browse Target user of Site Retargeting (targetAll) are available.
+ </td>
 </tr>
 <tr>
- <td valign="top">ConversionTrackerService</td>
- <td valign="top">
- ・Cannot get/set countingType<br>
- ・Cannot specify whether including to auto bidding<br>
- ・Counting period of conversion is fixed as 30days
-</td>
-<td valign="top">
-・Can get/set countingType<br>
-・Can specify whether include/exclude to auto bidding<br>
-・Can specify the counting period between 7 to 90 days<br>
-  *For App download campaign, it is fixed as 30days<br>
-・Updated following items on actual conversion value (response)<br>
-　-Added totalAllConversions as new<br>
-　-Added totalAllConversionValue as new<br>
-　-Added allConversions as new<br>
-　-Addedd allConversionValue as new<br>
-　-Changed numConversionEvents to conversions<br>
-　-Changed totalNumConversionEvents to totalConversions<br>
-　-Deleted totalNumConvertedClicks<br>
-　-Deleted numConvertedClicks<br>
-・Updated some objects<br>
-　-Added ConversionCountingType<br>
-　-Added ExcludeFromBidding<br>
-　-Deleted HttpProtocol
-</td>
+ <td valign="top">RetargetingListService</td>
+ <td valign="top">No change.<br>
+ ・Add/edit/browse excluded Target list are available.<br>
+ ・Browse excluded Site retargeting tag is available.<br>
+ </td>
+ <td valign="top">Following Site retargeting feature improvement.<br>
+ ・Add/edit/browse Target list (both excluded and shared list) are available.<br>
+ ・Browse Site retargeting tag (both excluded and shared list) is available.<br>
+ ・Target list ID for tracking (targetListTrackId) is available.<br>
+ ・Added error codes.
+ </td>
 </tr>
 <tr>
-  <td colspan="3"><b>Change associated with Site Retargeting multiple settings</b></td>
+ <td valign="top">NegativeCampaignRetargetingListService</td>
+ <td valign="top">Available.</td>
+ <td valign="top">Not supported.<br>※The function is replaced with CampaignRetargetingListService.</td>
 </tr>
 <tr>
- <td valign="top">AdGroupService</td>
- <td valign="top">・Site Retargeting multiple settings on ad group is available since Octover 19, 2016. <br>・'TargetAll' setting is not available since October 19, 2016.</td>
- <td valign="top">・Site Retargeting multiple settings on ad group is available<br>・Removed 'TargetAll'.
-</td>
+ <td valign="top">CampaignRetargetingListService</td>
+ <td valign="top">Not supported.</td>
+ <td valign="top">Available (New service).<br>
+ ・The "Include" option is available when setting Target list for campaigns.<br>
+ ・The "Exclude" option is available when setting Target List for campaigns.<br>
+ ・Added error codes.
+ </td>
 </tr>
 <tr>
-  <td colspan="3"><b>Additional upgrades</b></td>
+  <td colspan="3"><b>2.	Additional upgrades</b></td>
 </tr>
 <tr>
  <td valign="top">ReportDefinitionService</td>
- <td valign="top">
- ・Setting whether includes "0 impression" is only available on filters<br>
- ・Cannot specify whether there is deleted entity or not on report output definition
-</td>
-<td valign="top">
-・Including "0 impression" data to output target of reporting is available on report definition setting<br>
-・Including deleted entities to output target of reporting is available on report definition setting<br>
-・Device Targeting report closed.
-</td>
+ <td valign="top">No change.</td>
+ <td valign="top">・It browses the information which can be specified or cannot be specified on "getReportFields".<br>
+ ・It browses report fields which cannot be specified together.
+ </td>
+</tr>
+<tr>
+ <td valign="top">ReportService</td>
+ <td valign="top">No change.</td>
+ <td valign="top">"get" can browse "reportName" (which can be specified by ReportDefintionService/add).</td>
+</tr>
+<tr>
+ <td valign="top">AccountService</td>
+ <td valign="top">No change.</td>
+ <td valign="top">New option "CANCELED" is available on AccountStatus.<br>It enables to browse cancelled account.</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupRetargetingListService</td>
+ <td valign="top">No change.</td>
+ <td valign="top">Added error codes.<br>No specification change.</td>
 </tr>
 </table>
+

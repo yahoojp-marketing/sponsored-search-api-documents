@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.2.0</version>
+          <version>6.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -122,6 +122,7 @@
       <simpleType name="SettingType">
         <restriction base="xsd:string">
           <enumeration value="GEO_TARGET_TYPE_SETTING" />
+          <enumeration value="TARGET_LIST_SETTING" />
         </restriction>
       </simpleType>
       <complexType name="GeoTargetTypeSetting">
@@ -139,6 +140,21 @@
           <enumeration value="DONT_CARE" />
           <enumeration value="AREA_OF_INTENT" />
           <enumeration value="LOCATION_OF_PRESENCE" />
+        </restriction>
+      </simpleType>
+      <complexType name="TargetingSetting">
+        <complexContent>
+          <extension base="tns:CampaignSettings">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="targetAll" type="tns:TargetAll" />
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <simpleType name="TargetAll">
+        <restriction base="xsd:string">
+          <enumeration value="ACTIVE" />
+          <enumeration value="DEACTIVE" />
         </restriction>
       </simpleType>
       <complexType name="CampaignBiddingStrategy">
@@ -512,7 +528,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignService">
     <wsdl:port binding="tns:CampaignServiceSoapBinding" name="CampaignService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/CampaignService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/CampaignService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -12,7 +12,7 @@
                 xmlns:tns="http://ss.yahooapis.jp/V6">
             <annotation>
                 <appinfo>
-                    <version>6.2.0</version>
+                    <version>6.3.0</version>
                 </appinfo>
             </annotation>
             <complexType name="SoapHeader">
@@ -238,7 +238,7 @@
     </wsdl:binding>
     <wsdl:service name="AccountSharedService">
         <wsdl:port name="AccountSharedService" binding="tns:AccountSharedServiceSoapBinding">
-            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/AccountSharedService"/>
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/AccountSharedService"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -13,7 +13,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.2.0</version>
+          <version>6.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -50,6 +50,7 @@
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="targetListId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="retargetingTrackId" type="xsd:long" />
         </sequence>
       </complexType>
       <simpleType name="ExcludedType">
@@ -258,7 +259,7 @@
   <wsdl:service name="AdGroupRetargetingListService">
     <wsdl:port binding="tns:AdGroupRetargetingListServiceSoapBinding" name="AdGroupRetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/AdGroupRetargetingListService" />
+        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/AdGroupRetargetingListService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

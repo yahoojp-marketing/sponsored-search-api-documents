@@ -10,7 +10,6 @@ ReportFieldAttribute object describes the available field to create report defin
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -23,14 +22,12 @@ ReportFieldAttribute object describes the available field to create report defin
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>displayFieldNameJA</td>
   <td>xsd:string</td>
   <td>Field name displayed in downloaded report (in Japanese).</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -43,14 +40,12 @@ ReportFieldAttribute object describes the available field to create report defin
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>xmlAttributeName</td>
   <td>xsd:string</td>
   <td>XML attribute name displayed in donwloaded report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -63,14 +58,12 @@ ReportFieldAttribute object describes the available field to create report defin
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>canSelect</td>
   <td>xsd:boolean</td>
   <td>Indicate if user can select the fields.</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -81,6 +74,14 @@ ReportFieldAttribute object describes the available field to create report defin
   <td>Indicate if use can filter the fields.</td>
   <td>yes</td>
   <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>impossibleCombinationFields[0..n]</td>
+  <td>xsd:string</td>
+  <td>Report fields which cannot be combined.</td>
+  <td>yes</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

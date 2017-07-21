@@ -20,7 +20,6 @@ Explains the operation which provides at CampaignService.
 Gets information related to campaigns.
 
 ### Request
-
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | selector | Req | [CampaignSelector](../data/CampaignSelector.md) | The campaign selector for operations. | 
@@ -66,7 +65,7 @@ Gets information related to campaigns.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
@@ -87,114 +86,9 @@ Response Fields
   <SOAP-ENV:Body>
     <ns1:getResponse>
       <ns1:rval>
-        <ns1:totalNumEntries>1</ns1:totalNumEntries>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
         <ns1:Page.Type>CampaignPage</ns1:Page.Type>
-        <!-- Campaign created at Ver.5.3 or before -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000001</ns1:campaignId>
-            <ns1:campaignTrackId>3000000001</ns1:campaignTrackId>
-            <ns1:campaignName>campaign name</ns1:campaignName>
-            <ns1:userStatus>PAUSED</ns1:userStatus>
-            <ns1:servingStatus>PENDING</ns1:servingStatus>
-            <ns1:startDate>20101201</ns1:startDate>
-            <ns1:endDate>20141231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>ENABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>STANDARD</ns1:campaignType>
-          </ns1:campaign>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000002</ns1:campaignId>
-            <ns1:campaignTrackId>3000000002</ns1:campaignTrackId>
-            <ns1:campaignName>campaign name</ns1:campaignName>
-            <ns1:userStatus>PAUSED</ns1:userStatus>
-            <ns1:servingStatus>PENDING</ns1:servingStatus>
-            <ns1:startDate>20101201</ns1:startDate>
-            <ns1:endDate>20141231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>ENABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>IOS</ns1:appStore>
-            <ns1:appId>100000000000000</ns1:appId>
-          </ns1:campaign>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000003</ns1:campaignId>
-            <ns1:campaignTrackId>3000000003</ns1:campaignTrackId>
-            <ns1:campaignName>campaign name</ns1:campaignName>
-            <ns1:userStatus>PAUSED</ns1:userStatus>
-            <ns1:servingStatus>PENDING</ns1:servingStatus>
-            <ns1:startDate>20101201</ns1:startDate>
-            <ns1:endDate>20141231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>ENABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>ANDROID</ns1:appStore>
-            <ns1:appId>jp.yahooapis.ss.V6.sampleApplication</ns1:appId>
-          </ns1:campaign>
-        </ns1:values>
-        <!-- Campaign created from Ver.6.0 -->
-        <ns1:values>
+       <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:campaign>
             <ns1:accountId>1000000001</ns1:accountId>
@@ -224,11 +118,14 @@ Response Fields
               <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
               <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
             </ns1:settings>
+            <ns1:settings xsi:type="ns1:TargetingSetting">
+             <ns1:type>TARGET_LIST_SETTING</ns1:type>
+              <ns1:targetAll>ACTIVE</ns1:targetAll>
+            </ns1:settings>                       
             <ns1:campaignType>STANDARD</ns1:campaignType>
             <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
             <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
+             <ns1:parameters>
                 <ns1:key>site</ns1:key>
                 <ns1:value>yahoo</ns1:value>
               </ns1:parameters>
@@ -276,6 +173,10 @@ Response Fields
               <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
               <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
             </ns1:settings>
+            <ns1:settings xsi:type="ns1:TargetingSetting">
+             <ns1:type>TARGET_LIST_SETTING</ns1:type>
+              <ns1:targetAll>DEACTIVE</ns1:targetAll>
+            </ns1:settings>           
             <ns1:campaignType>MOBILE_APP</ns1:campaignType>
             <ns1:appStore>IOS</ns1:appStore>
             <ns1:appId>100000000000000</ns1:appId>
@@ -299,136 +200,14 @@ Response Fields
             </ns1:urlReviewData>
           </ns1:campaign>
         </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000004</ns1:campaignId>
-            <ns1:campaignTrackId>3000000006</ns1:campaignTrackId>
-            <ns1:campaignName>campaign name</ns1:campaignName>
-            <ns1:userStatus>PAUSED</ns1:userStatus>
-            <ns1:servingStatus>PENDING</ns1:servingStatus>
-            <ns1:startDate>20101201</ns1:startDate>
-            <ns1:endDate>20141231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>ENABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>STANDARD</ns1:campaignType>
-            <ns1:urlReviewData>
-              <ns1:disapprovalReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:disapprovalReviewUrl>
-              <ns1:urlApprovalStatus>DISAPPROVED</ns1:urlApprovalStatus>
-              <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
-              <ns1:disapprovalReasonCodes>1002</ns1:disapprovalReasonCodes>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000005</ns1:campaignId>
-            <ns1:campaignTrackId>3000000005</ns1:campaignTrackId>
-            <ns1:campaignName>campaign name</ns1:campaignName>
-            <ns1:userStatus>PAUSED</ns1:userStatus>
-            <ns1:servingStatus>PENDING</ns1:servingStatus>
-            <ns1:startDate>20101201</ns1:startDate>
-            <ns1:endDate>20141231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>ENABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>DONT_CARE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>IOS</ns1:appStore>
-            <ns1:appId>100000000000000</ns1:appId>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-      </ns1:rval>
+     </ns1:rval>
     </ns1:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate (ADD)
-Create the campaign information.
+Add campaign information.
 
 ### Request
 | Parameter | Restrictions | Data Type | Description | 
@@ -454,11 +233,10 @@ Create the campaign information.
       <ns1:operations>
         <ns1:operator>ADD</ns1:operator>
         <ns1:accountId>100000001</ns1:accountId>
-        <!-- Standard Campaign -->
-        <ns1:operand>
-          <ns1:campaignName>STANDARD_MANUAL_CPC_${__time(YMDHMS,rTime)}_${__Random(1000000,9999999)}</ns1:campaignName>
+       <ns1:operand>
+          <ns1:campaignName>STANDARD_MANUAL_CPC</ns1:campaignName>
           <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:startDate>${__time(YMD,rTime)}</ns1:startDate>
+          <ns1:startDate>20170701</ns1:startDate>
           <ns1:endDate>20371231</ns1:endDate>
           <ns1:budget>
             <ns1:period>DAILY</ns1:period>
@@ -468,13 +246,13 @@ Create the campaign information.
           <ns1:biddingStrategyConfiguration>
             <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
           </ns1:biddingStrategyConfiguration>
-          <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
+          <ns1:adServingOptimizationStatus>CONVERSION_OPTIMIZE</ns1:adServingOptimizationStatus>
           <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
             <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
             <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
             <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
           </ns1:settings>
-          <ns1:campaignType>STANDARD</ns1:campaignType>
+         <ns1:campaignType>STANDARD</ns1:campaignType>
           <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
           <ns1:customParameters>
             <ns1:parameters>
@@ -491,11 +269,10 @@ Create the campaign information.
             </ns1:parameters>
           </ns1:customParameters>
         </ns1:operand>
-        <!-- Mobile APP Campaign (IOS Only) -->
-        <ns1:operand>
-          <ns1:campaignName>IOS_MANUAL_CPC_${__time(YMDHMS,rTime)}_${__Random(1000000,9999999)}</ns1:campaignName>
+       <ns1:operand>
+          <ns1:campaignName>IOS_MANUAL_CPC</ns1:campaignName>
           <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:startDate>${__time(YMD,rTime)}</ns1:startDate>
+          <ns1:startDate>20170701</ns1:startDate>
           <ns1:endDate>20371231</ns1:endDate>
           <ns1:budget>
             <ns1:period>DAILY</ns1:period>
@@ -511,9 +288,13 @@ Create the campaign information.
             <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
             <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
           </ns1:settings>
+          <ns1:settings xsi:type="ns1:TargetingSetting">
+            <ns1:type>TARGET_LIST_SETTING</ns1:type>
+            <ns1:targetAll>ACTIVE</ns1:targetAll>
+          </ns1:settings>
           <ns1:campaignType>MOBILE_APP</ns1:campaignType>
           <ns1:appStore>IOS</ns1:appStore>
-          <ns1:appId>${__time(YMD,rTime)}${__Random(1000000,9999999)}</ns1:appId>
+          <ns1:appId>sampleAppId</ns1:appId>
           <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
           <ns1:customParameters>
             <ns1:parameters>
@@ -537,142 +318,131 @@ Create the campaign information.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign information which includes operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign information including operation results. |
 
 ##### Response Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>CampaignService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <!-- Standard Campaign -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878935</ns1:campaignId>
-            <ns1:campaignName>STANDARD_MANUAL_CPC_20151126-172421_8817360</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>STANDARD</ns1:campaignType>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-        <!-- Mobile APP Campaign(IOS Only) -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878936</ns1:campaignId>
-            <ns1:campaignName>IOS_MANUAL_CPC_20151126-172425_2884194</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>IOS</ns1:appStore>
-            <ns1:appId>201511261169467</ns1:appId>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
-  </SOAP-ENV:Body>
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>CampaignService</ns1:service>
+         <ns1:remainingQuota>-1</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>ADD</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10001</ns1:campaignId>
+                  <ns1:campaignName>STANDARD_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>CONVERSION_OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>DEACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>STANDARD</ns1:campaignType>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10002</ns1:campaignId>
+                  <ns1:campaignName>IOS_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>ACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>MOBILE_APP</ns1:campaignType>
+                  <ns1:appStore>IOS</ns1:appStore>
+                  <ns1:appId>sampleAppId</ns1:appId>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+         </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate (SET)
-### Request
 Updates the information related to campaigns.
 
+### Request
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | operations | Req | [CampaignOperation](../data/CampaignOperation.md) | The Campaign selector for operations and list of operations. | 
@@ -681,272 +451,174 @@ Updates the information related to campaigns.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <!-- Standard Campaign -->
-        <ns1:operand>
-          <ns1:campaignId>200000001</ns1:campaignId>
-          <ns1:campaignName>STANDARD_MANUAL_CPC_${__time(YMDHMS,rTime)}_${__Random(1000000,9999999)}</ns1:campaignName>
-          <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:startDate>${__time(YMD,rTime)}</ns1:startDate>
-          <ns1:endDate>20361231</ns1:endDate>
-          <ns1:budget>
-            <ns1:period>DAILY</ns1:period>
-            <ns1:amount>10000</ns1:amount>
-            <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-          </ns1:budget>
-          <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-          <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-            <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-            <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-            <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-          </ns1:settings>
-          <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-          <ns1:customParameters>
-            <ns1:isRemove>FALSE</ns1:isRemove>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>mysite</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>5678</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>jFj903Hng8e</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-       </ns1:operand>
-        <!-- Mobile APP Campaign(IOS Only) -->
-        <ns1:operand>
-          <ns1:campaignId>200000002</ns1:campaignId>
-          <ns1:campaignName>STANDARD_MANUAL_CPC_${__time(YMDHMS,rTime)}_${__Random(1000000,9999999)}</ns1:campaignName>
-          <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:startDate>${__time(YMD,rTime)}</ns1:startDate>
-          <ns1:endDate>20361231</ns1:endDate>
-          <ns1:budget>
-            <ns1:period>DAILY</ns1:period>
-            <ns1:amount>10000</ns1:amount>
-            <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-          </ns1:budget>
-          <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-          <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-            <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-            <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-            <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-          </ns1:settings>
-          <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-          <ns1:customParameters>
-            <ns1:isRemove>FALSE</ns1:isRemove>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>mysite</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>5678</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>jFj903Hng8e</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
-  </SOAP-ENV:Body>
+   <SOAP-ENV:Header>
+      <ns1:RequestHeader>
+         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
+         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>100000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:campaignId>10001</ns1:campaignId>
+               <ns1:settings xsi:type="ns1:TargetingSetting">
+                  <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                  <ns1:targetAll>ACTIVE</ns1:targetAll>
+               </ns1:settings>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:campaignId>10002</ns1:campaignId>
+               <ns1:settings xsi:type="ns1:TargetingSetting">
+                  <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                  <ns1:targetAll>DEACTIVE</ns1:targetAll>
+               </ns1:settings>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign which includes operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | This object is a container for campaign including operation results. | 
 
 ##### Response Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>CampaignService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <!-- Standard Campaign -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878935</ns1:campaignId>
-            <ns1:campaignName>STANDARD_MANUAL_CPC_20151126-172421_8817360</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>STANDARD</ns1:campaignType>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-        <!-- Mobile APP Campaign(IOS Only) -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878936</ns1:campaignId>
-            <ns1:campaignName>IOS_MANUAL_CPC_20151126-172425_2884194</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>IOS</ns1:appStore>
-            <ns1:appId>201511261169467</ns1:appId>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
-  </SOAP-ENV:Body>
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>CampaignService</ns1:service>
+         <ns1:remainingQuota>-1</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>SET</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10001</ns1:campaignId>
+                  <ns1:campaignName>STANDARD_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>CONVERSION_OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>ACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>STANDARD</ns1:campaignType>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10002</ns1:campaignId>
+                  <ns1:campaignName>IOS_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>DEACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>MOBILE_APP</ns1:campaignType>
+                  <ns1:appStore>IOS</ns1:appStore>
+                  <ns1:appId>sampleAppId</ns1:appId>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+         </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate (REMOVE)
-### Request
 Removes the inforamtion related to campaigns.
 
-| Parameter | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data type | Description | 
 |---|---|---|---|
 | operations | Req | [CampaignOperation](../data/CampaignOperation.md) | The Campaign selector for operations and list of operations. | 
 
 ##### Request Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
@@ -965,11 +637,11 @@ Removes the inforamtion related to campaigns.
             <ns1:accountId>100000001</ns1:accountId>
             <ns1:operand>
                <ns1:accountId>100000001</ns1:accountId>
-               <ns1:campaignId>100000001</ns1:campaignId>
+               <ns1:campaignId>10001</ns1:campaignId>
             </ns1:operand>
             <ns1:operand>
                <ns1:accountId>100000001</ns1:accountId>
-               <ns1:campaignId>100000002</ns1:campaignId>
+               <ns1:campaignId>10002</ns1:campaignId>
             </ns1:operand>
          </ns1:operations>
       </ns1:mutate>
@@ -978,7 +650,7 @@ Removes the inforamtion related to campaigns.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
@@ -986,159 +658,116 @@ Response Fields
 
 ##### Response Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>CampaignService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <!-- Standard Campaign -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878935</ns1:campaignId>
-            <ns1:campaignName>STANDARD_MANUAL_CPC_20151126-172421_8817360</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>STANDARD</ns1:campaignType>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-        <!-- Mobile APP Campaign(IOS Only) -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:campaign>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>878936</ns1:campaignId>
-            <ns1:campaignName>IOS_MANUAL_CPC_20151126-172425_2884194</ns1:campaignName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:servingStatus>SERVING</ns1:servingStatus>
-            <ns1:startDate>20151126</ns1:startDate>
-            <ns1:endDate>20371231</ns1:endDate>
-            <ns1:budget>
-              <ns1:period>DAILY</ns1:period>
-              <ns1:amount>10000</ns1:amount>
-              <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-            </ns1:budget>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:conversionOptimizerEligibility>DISABLE</ns1:conversionOptimizerEligibility>
-            <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
-            <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
-              <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
-              <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
-              <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
-            </ns1:settings>
-            <ns1:campaignType>MOBILE_APP</ns1:campaignType>
-            <ns1:appStore>IOS</ns1:appStore>
-            <ns1:appId>201511261169467</ns1:appId>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:campaign>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
-  </SOAP-ENV:Body>
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>CampaignService</ns1:service>
+         <ns1:remainingQuota>-1</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:mutateResponse>
+         <ns1:rval>
+            <ns1:ListReturnValue.Type>CampaignReturnValue</ns1:ListReturnValue.Type>
+            <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10001</ns1:campaignId>
+                  <ns1:campaignName>STANDARD_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>CONVERSION_OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>ACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>STANDARD</ns1:campaignType>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:campaign>
+                  <ns1:accountId>1000000001</ns1:accountId>
+                  <ns1:campaignId>10002</ns1:campaignId>
+                  <ns1:campaignName>IOS_MANUAL_CPC</ns1:campaignName>
+                  <ns1:userStatus>ACTIVE</ns1:userStatus>
+                  <ns1:startDate>20170701</ns1:startDate>
+                  <ns1:endDate>20371231</ns1:endDate>
+                  <ns1:budget>
+                     <ns1:period>DAILY</ns1:period>
+                     <ns1:amount>10000</ns1:amount>
+                     <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
+                  </ns1:budget>
+                  <ns1:biddingStrategyConfiguration>
+                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
+                  </ns1:biddingStrategyConfiguration>
+                  <ns1:adServingOptimizationStatus>OPTIMIZE</ns1:adServingOptimizationStatus>
+                  <ns1:settings xsi:type="ns1:GeoTargetTypeSetting">
+                     <ns1:type>GEO_TARGET_TYPE_SETTING</ns1:type>
+                     <ns1:positiveGeoTargetType>DONT_CARE</ns1:positiveGeoTargetType>
+                     <ns1:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns1:negativeGeoTargetType>
+                  </ns1:settings>
+                  <ns1:settings xsi:type="ns1:TargetingSetting">
+                     <ns1:type>TARGET_LIST_SETTING</ns1:type>
+                     <ns1:targetAll>DEACTIVE</ns1:targetAll>
+                  </ns1:settings>
+                  <ns1:campaignType>MOBILE_APP</ns1:campaignType>
+                  <ns1:appStore>IOS</ns1:appStore>
+                  <ns1:appId>sampleAppId</ns1:appId>
+                  <ns1:trackingUrl><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:trackingUrl>
+                  <ns1:customParameters>
+                     <ns1:parameters>
+                        <ns1:key>site</ns1:key>
+                        <ns1:value>yahoo</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id1</ns1:key>
+                        <ns1:value>1234</ns1:value>
+                     </ns1:parameters>
+                     <ns1:parameters>
+                        <ns1:key>id2</ns1:key>
+                        <ns1:value>a7h59A98yu</ns1:value>
+                     </ns1:parameters>
+                  </ns1:customParameters>
+               </ns1:campaign>
+            </ns1:values>
+         </ns1:rval>
+      </ns1:mutateResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 

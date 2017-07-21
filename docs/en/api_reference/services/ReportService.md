@@ -1,5 +1,5 @@
 # ReportService
-Use this service to get, add, or delete reports.<br>
+ReportService is to get, add, or delete  information of reports.<br>
 And it provides the operation to download URL of the reports.
 
 #### WSDL
@@ -18,10 +18,10 @@ Use this service to get, add, or delete reports.
 Explains the operation which will be provided at ReportService.
 
 ## get
-### Request
 Gets the list of report that meets the selector criteria.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | selector | Req | [ReportSelector](../data/ReportSelector.md) | Determines which report to return. | 
 
@@ -64,11 +64,11 @@ Gets the list of report that meets the selector criteria.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
-| Parameter | Data Type | Description | 
+| Field | Data Type | Description | 
 |---|---|---|
-| rval | [ReportPage](../data/ReportPage.md) | A list of report where each entry in the list is the result of applying the operation in the input list with the same index. | 
+| rval | [ReportPage](../data/ReportPage.md) | Entries of the reports to be got.| 
 
 ##### Response Sample
 ```xml
@@ -93,6 +93,7 @@ Response Fields
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000001</ns1:reportId>
             <ns1:reportJobId>3000000001</ns1:reportJobId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobStatus>COMPLETED</ns1:reportJobStatus>
             <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
             <ns1:completeTime>2015/11/30 23:22:30</ns1:completeTime>
@@ -104,6 +105,7 @@ Response Fields
           <ns1:reportRecord>
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000002</ns1:reportId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobId>3000000002</ns1:reportJobId>
             <ns1:reportJobStatus>FAILED</ns1:reportJobStatus>
             <ns1:reportJobErrorDetail>INTERNAL_ERROR</ns1:reportJobErrorDetail>
@@ -125,6 +127,7 @@ Response Fields
           <ns1:reportRecord>
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000004</ns1:reportId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobId>3000000004</ns1:reportJobId>
             <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
             <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
@@ -137,13 +140,12 @@ Response Fields
 ```
 
 ## mutate (ADD)
-
-### Request
 Adds report.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [ReportOperation](../data/ReportOperation.md) | A list of unique operations. | 
+| operations | Req | [ReportOperation](../data/ReportOperation.md) | List of reports to be operated including operation details. | 
 
 ##### Request Sample
 ```xml
@@ -175,11 +177,11 @@ Adds report.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | The list of added reports. | 
+| rval | [ReportReturnValue](../data/ReportReturnValue.md) | Container of reports including operation results. | 
 
 ##### Response Sample
 ```xml
@@ -204,6 +206,7 @@ Response Fields
             <ns1:accountId>10000000001</ns1:accountId>
             <ns1:reportId>10000000001</ns1:reportId>
             <ns1:reportJobId>200000001</ns1:reportJobId>
+            <ns1:reportName>XXXXXXXXX</ns1:reportName>
             <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
             <ns1:requestTime>2011/11/30 23:22:30</ns1:requestTime>
           </ns1:reportRecord>
@@ -215,12 +218,12 @@ Response Fields
 ```
 
 ## mutate (REMOVE)
-### Request
 Deletes reports.
 
-| Field | Restrictions | Data Type | Description | 
+### Request
+| Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | Req | [ReportOperation](../data/ReportOperation.md) | A list of unique operations. | 
+| operations | Req | [ReportOperation](../data/ReportOperation.md) | List of reports to be operated and operation details. | 
 
 ##### Request Sample
 ```xml
@@ -252,11 +255,11 @@ Deletes reports.
 ```
 
 ### Response
-Response Fields
+Response Fields in normal cases.
 
 | Field | Data Type | Description | 
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | The list of removed reports. |
+| rval | [ReportReturnValue](../data/ReportReturnValue.md) | Container of reports including operation results. |
 
 ##### Response Sample
 ```xml

@@ -10,7 +10,6 @@ TargetingList is an object that holds retargeting information (target list).
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -20,9 +19,17 @@ TargetingList is an object that holds retargeting information (target list).
   <td>xsd:long</td>
   <td>Account ID.</td>
   <td>yes</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement</td>
+ </tr>
+ <tr>
+  <td>owner</td>
+  <td><a href="./TargetListOwner.md">TargetListOwner</a></td>
+  <td>Target list owner information.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -33,7 +40,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>targetListId</td>
@@ -41,8 +47,16 @@ TargetingList is an object that holds retargeting information (target list).
   <td>Target List ID.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
   <td>Requirement</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>targetListTrackId</td>
+  <td>xsd:long</a></td>
+  <td>Tracking ID of Target list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
@@ -50,7 +64,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>enum <a href="./TargetListType.md">TargetListType</a></td>
   <td>Type of Target List.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>-</td>
@@ -60,7 +73,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>xsd:string</a></td>
   <td>Target List name.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
   <td>-</td>
@@ -70,7 +82,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>xsd:string</a></td>
   <td>Description of Target List.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
@@ -80,7 +91,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>enum <a href="./ReachStorageStatus.md">ReachStorageStatus</a></td>
   <td>Flag status of holding Cookie.<br>*Default: OPEN<br>*Always be "OPEN" for default list.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional<br>*Ignore for LogicalTargetList</td>
   <td>Optional<br>*Ignore for LogicalTargetList</td>
   <td>-</td>
@@ -92,7 +102,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>*Ignore for LogicalTargetList</td>
-  <td>Optional<br>*Ignore for LogicalTargetList</td>
   <td>-</td>
  </tr>
  <tr>
@@ -100,17 +109,6 @@ TargetingList is an object that holds retargeting information (target list).
   <td>xsd:long</a></td>
   <td>Number of users stored to the list.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>targetListTrackId</td>
-  <td>xsd:long</a></td>
-  <td>Tracking ID of Target List.<br>* "0" will return in Sandbox.</td>
-  <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>

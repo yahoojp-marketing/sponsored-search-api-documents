@@ -5,8 +5,8 @@ ReportServiceでは、レポートの取得および作成・削除を行いま�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/ReportService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/ReportService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportService?wsdl |
 
 #### Namespace
 http://ss.yahooapis.jp/V6
@@ -18,7 +18,6 @@ http://ss.yahooapis.jp/V6
 ReportServiceで提供される操作を説明します。
 
 ## get
-
 レポートに関する情報を取得します。
 
 ### リクエスト
@@ -94,6 +93,7 @@ ReportServiceで提供される操作を説明します。
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000001</ns1:reportId>
             <ns1:reportJobId>3000000001</ns1:reportJobId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobStatus>COMPLETED</ns1:reportJobStatus>
             <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
             <ns1:completeTime>2015/11/30 23:22:30</ns1:completeTime>
@@ -105,6 +105,7 @@ ReportServiceで提供される操作を説明します。
           <ns1:reportRecord>
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000002</ns1:reportId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobId>3000000002</ns1:reportJobId>
             <ns1:reportJobStatus>FAILED</ns1:reportJobStatus>
             <ns1:reportJobErrorDetail>INTERNAL_ERROR</ns1:reportJobErrorDetail>
@@ -126,6 +127,7 @@ ReportServiceで提供される操作を説明します。
           <ns1:reportRecord>
             <ns1:accountId>1000000001</ns1:accountId>
             <ns1:reportId>2000000004</ns1:reportId>
+            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
             <ns1:reportJobId>3000000004</ns1:reportJobId>
             <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
             <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
@@ -141,7 +143,7 @@ ReportServiceで提供される操作を説明します。
 レポートを作成します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
 | operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
 
@@ -204,6 +206,7 @@ ReportServiceで提供される操作を説明します。
             <ns1:accountId>10000000001</ns1:accountId>
             <ns1:reportId>10000000001</ns1:reportId>
             <ns1:reportJobId>200000001</ns1:reportJobId>
+            <ns1:reportName>XXXXXXXXX</ns1:reportName>
             <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
             <ns1:requestTime>2011/11/30 23:22:30</ns1:requestTime>
           </ns1:reportRecord>
@@ -218,7 +221,7 @@ ReportServiceで提供される操作を説明します。
 レポートを削除します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
 | operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
 

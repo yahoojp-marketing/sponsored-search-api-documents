@@ -6,15 +6,15 @@ ReportDefinitionServiceでは、レポート定義の取得および追加・削
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
 
 #### Namespace
 http://ss.yahooapis.jp/V6
 
 #### サービス概要
 レポート定義の取得および追加・削除を行います。<br>
-レポート定義は、テンプレートとして登録する場合、最大30まで追加することが可能です。<br>
+レポート定義は、テンプレートとして登録する場合、最大30個まで追加することが可能です。<br>
 テンプレートとして登録しない場合、上限値はありません。<br>
 <br>
 【注意事項】<br>
@@ -76,7 +76,6 @@ ReportDefinitionServiceで提供される操作を説明します。
 
 ##### ＜レスポンスサンプル＞
 ```xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
@@ -179,13 +178,11 @@ ReportDefinitionServiceで提供される操作を説明します。
 レポートタイプに対して使用可能なレポートのフィールドを返します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| accountId | ○ | xsd:long | アカウントIDです。 |
 | reportType | ○ | enum [ReportType](../data/ReportType.md) | レポートの形式です。 |
-|lang |  | enum [ReportLang](../data/ReportLang.md) |取得するレポートフィールドの言語を選択します。<br>省略時は、ENになります。 | 
 
-##### ＜リクエストサンプル＞
+##### ＜リクエストサンプル＞（LANDING_PAGE_URL）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
@@ -210,7 +207,7 @@ ReportDefinitionServiceで提供される操作を説明します。
 
 | フィールド | データ型 | 説明 | 
 |---|---|---|
-| field | [ReportDefinitionFieldValue](../data/ReportDefinitionFieldValue.md) | 取得される使用可能なレポートのエントリーです。 | 
+| rval | [ReportDefinitionFieldValue](../data/ReportDefinitionFieldValue.md) | 取得される使用可能なレポートのエントリーです。 | 
 
 ＜レスポンスサンプル＞（LANDING_PAGE_URL）
 ```xml
@@ -235,6 +232,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>ADGROUP_ID</ns1:fieldName>
@@ -243,6 +242,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>CAMPAIGN_NAME</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CAMPAIGN_NAME</ns1:fieldName>
@@ -251,6 +252,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_NAME</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>AD_NAME</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>ADGROUP_NAME</ns1:fieldName>
@@ -259,6 +262,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>AD_NAME</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>TITLE</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>COST</ns1:fieldName>
@@ -267,6 +272,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>DESCRIPTION</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>COST</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>IMPS</ns1:fieldName>
@@ -275,6 +282,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CLICKS</ns1:fieldName>
@@ -283,6 +292,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CLICK_RATE</ns1:fieldName>
@@ -291,6 +302,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>AVG_CPM</ns1:fieldName>
@@ -299,6 +312,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>AVG_CPC</ns1:fieldName>
@@ -307,6 +322,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>AVG_DELIVER_RANK</ns1:fieldName>
@@ -315,6 +332,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>REVENUE</ns1:fieldName>
@@ -323,6 +342,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>UNIQUE_CONVERSION</ns1:fieldName>
@@ -331,6 +352,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>UNIQUE_CONVERSION_RATE</ns1:fieldName>
@@ -339,6 +362,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>REVENUE_UNIQUE_CONVERSION</ns1:fieldName>
@@ -347,6 +372,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>REVENUE_CONVERSION</ns1:fieldName>
@@ -355,6 +382,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CONVERSION</ns1:fieldName>
@@ -363,6 +392,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>LONG</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CONVERSION_RATE</ns1:fieldName>
@@ -371,6 +402,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>COST_UNIQUE_CONVERSION</ns1:fieldName>
@@ -379,6 +412,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CPA</ns1:fieldName>
@@ -387,6 +422,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>DOUBLE</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>TRACKING_URL</ns1:fieldName>
@@ -395,6 +432,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>LANDING_PAGE_URL</ns1:fieldName>
@@ -403,6 +442,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>NETWORK</ns1:fieldName>
@@ -411,6 +452,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>ENUM</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>DEVICE</ns1:fieldName>
@@ -419,6 +462,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>ENUM</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>DAY</ns1:fieldName>
@@ -427,6 +472,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>DAY_OF_WEEK</ns1:fieldName>
@@ -435,6 +482,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>ENUM</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>QUARTER</ns1:fieldName>
@@ -443,6 +492,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>YEAR</ns1:fieldName>
@@ -451,6 +502,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>MONTH</ns1:fieldName>
@@ -459,6 +512,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>MONTH_OF_YEAR</ns1:fieldName>
@@ -467,6 +522,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>ENUM</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>WEEK</ns1:fieldName>
@@ -475,6 +532,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>OBJECT_OF_CONVERSION_TRACKING</ns1:fieldName>
@@ -483,6 +542,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>ENUM</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
             <ns1:fields>
                <ns1:fieldName>CONVERSION_NAME</ns1:fieldName>
@@ -491,6 +552,8 @@ ReportDefinitionServiceで提供される操作を説明します。
                <ns1:fieldType>STRING</ns1:fieldType>
                <ns1:canSelect>true</ns1:canSelect>
                <ns1:canFilter>true</ns1:canFilter>
+               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
+               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
             </ns1:fields>
          </ns1:rval>
       </ns1:getReportFieldsResponse>
@@ -502,9 +565,9 @@ ReportDefinitionServiceで提供される操作を説明します。
 レポート定義を追加します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operation | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | 操作の対象となるレポート定義および操作の内容を表します。 | 
+| operations | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | 操作の対象となるレポート定義および操作の内容を表します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -605,6 +668,7 @@ ReportDefinitionServiceで提供される操作を説明します。
 | rval | [ReportDefinitionReturnValue](../data/ReportDefinitionReturnValue.md) | 操作結果を含むレポート定義のコンテナです。 | 
 ##### ＜レスポンスサンプル＞
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
@@ -706,9 +770,9 @@ ReportDefinitionServiceで提供される操作を説明します。
 レポート定義を削除します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operation | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | 操作の対象となるレポート定義および操作の内容を表します。 | 
+| operations | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | 操作の対象となるレポート定義および操作の内容を表します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -744,6 +808,7 @@ ReportDefinitionServiceで提供される操作を説明します。
 | フィールド | データ型 | 説明 | 
 |---|---|---|
 | rval | [ReportDefinitionReturnValue](../data/ReportDefinitionReturnValue.md) | 操作結果を含むレポート定義のコンテナです。 | 
+
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

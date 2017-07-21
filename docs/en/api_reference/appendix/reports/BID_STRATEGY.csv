@@ -1,44 +1,44 @@
-"フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not compatible fields","表示回数0回のレコード取得指定可否/Supports Zero Impressions"
-"COST","コスト","Cost","cost","LONG",,true
-"IMPS","インプレッション数","Impressions","impressions","LONG",,true
-"CLICKS","クリック数","Clicks","clicks","LONG",,true
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE",,true
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE",,true
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE",,true
-"BID_STRATEGY_ID","自動入札ID","Auto Bidding ID","autoBiddingID","LONG",,true
-"BID_STRATEGY_NAME","自動入札名","Auto Bidding Name","autoBiddingName","STRING",,true
-"BID_STRATEGY_TYPE","自動入札タイプ","Auto Bidding Type","autoBiddingType","ENUM",,false
-"ADGROUP_COUNT","広告グループ数","Ad Groups","adGroups","LONG",,true
-"CAMPAIGN_COUNT","キャンペーン数","Campaigns","campaigns","LONG",,true
-"TARGET_SEARCH_PAGE_LOCATION","掲載位置（検索結果ページの目標掲載位置）","Ad Position (Target position in search results)","adPositionOfTargetPositionInSearchResults","ENUM",,false
-"BID_AUTOMATION","入札調整方法（検索結果ページの目標掲載位置）","Bidding Adjustment Method (Target position in search results)","biddingAdjustmentMethodOfTargetPositionInSearchResults","ENUM",,true
-"BID_MULTIPLIER_OF_TARGET_PAGE_LOCATION","入札価格調整（検索結果ページの目標掲載位置）","Bidding Adjustment (Target position in search results)","biddingAdjustmentOfTargetPositionInSearchResults","LONG",,true
-"LIMITED_BUDGETS","キャンペーン予算による制限（検索結果ページの目標掲載位置）","Limit by Campaign Budget (Target position in search results)","limitByCampaignBudgetOfTargetPositionInSearchResults","ENUM",,false
-"LOW_QUALITY_KEYWORDS","品質が低いキーワード（検索結果ページの目標掲載位置）","Low Quality Keyword (Target position in search results)","lowQualityKeywordOfTargetPositionInSearchResults","ENUM",,true
-"UPPER_BID_LIMIT_OF_TARGET_PAGE_LOCATION","入札価格の上限（検索結果ページの目標掲載位置）","Bid Limit (Target position in search results)","bidLimitForTargetPositionInSearchResults","LONG",,true
-"TARGET_CPA","コンバージョン単価の目標値","Target CPA","targetCpa","DOUBLE",,true
-"UPPER_BID_LIMIT_OF_TARGET_CPA","入札価格の上限（コンバージョン単価の目標値）","Bid Limit (Target CPA)","bidLimitForTargetCpa","LONG",,true
-"LOWER_BID_LIMIT_OF_TARGET_CPA","入札価格の下限（コンバージョン単価の目標値）","Lower Bid Limit (Target CPA)","lowerBidLimitForTargetCpa","LONG",,true
-"TARGET_ROAS","広告費用対効果の目標値","Target ROAS","targetRoas","DOUBLE",,true
-"UPPER_BID_LIMIT_OF_TARGET_ROAS","入札価格の上限（広告費用対効果の目標値）","Bid Limit (Target ROAS)","bidLimitForTargetRoas","LONG",,true
-"LOWER_BID_LIMIT_OF_TARGET_ROAS","入札価格の下限（広告費用対効果の目標値）","Lower Bid Limit (Target ROAS)","lowerBidLimitForTargetRoas","LONG",,true
-"UPPER_BID_LIMIT_OF_MAXIMIZE_CLICKS","入札価格の上限（クリック数の最大化）","Bid Limit (Maximize Clicks)","bidLimitForMaximizeClicks","LONG",,true
-"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE",,true
-"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE",,true
-"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE",,true
-"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE",,true
-"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE",,true
-"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE","[""HOUR_OF_DAY""]",true
-"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","[""HOUR_OF_DAY""]",true
-"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","[""HOUR_OF_DAY""]",true
-"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","[""HOUR_OF_DAY""]",true
-"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","[""HOUR_OF_DAY""]",true
-"DEVICE","デバイス","Device","device","ENUM",,false
-"DAY","日","Day","day","STRING",,false
-"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM",,false
-"QUARTER","四半期","Quarter","quarter","STRING",,false
-"YEAR","年間","Year","year","STRING",,false
-"MONTH","毎月","Month","month","STRING",,false
-"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM",,false
-"WEEK","毎週","Week","week","STRING",,false
-"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","[""ALL_CONV"",""ALL_CONV_RATE"",""ALL_CONV_VALUE"",""COST_PER_ALL_CONV"",""VALUE_PER_ALL_CONV""]",false
+"フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields"
+"COST","コスト","Cost","cost","LONG",true,
+"IMPS","インプレッション数","Impressions","impressions","LONG",true,
+"CLICKS","クリック数","Clicks","clicks","LONG",true,
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE",true,
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE",true,
+"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE",true,
+"BID_STRATEGY_ID","自動入札ID","Auto Bidding ID","autoBiddingID","LONG",true,
+"BID_STRATEGY_NAME","自動入札名","Auto Bidding Name","autoBiddingName","STRING",true,
+"BID_STRATEGY_TYPE","自動入札タイプ","Auto Bidding Type","autoBiddingType","ENUM",false,
+"ADGROUP_COUNT","広告グループ数","Ad Groups","adGroups","LONG",true,
+"CAMPAIGN_COUNT","キャンペーン数","Campaigns","campaigns","LONG",true,
+"TARGET_SEARCH_PAGE_LOCATION","掲載位置（検索結果ページの目標掲載位置）","Ad Position (Target position in search results)","adPositionOfTargetPositionInSearchResults","ENUM",false,
+"BID_AUTOMATION","入札調整方法（検索結果ページの目標掲載位置）","Bidding Adjustment Method (Target position in search results)","biddingAdjustmentMethodOfTargetPositionInSearchResults","ENUM",true,
+"BID_MULTIPLIER_OF_TARGET_PAGE_LOCATION","入札価格調整（検索結果ページの目標掲載位置）","Bidding Adjustment (Target position in search results)","biddingAdjustmentOfTargetPositionInSearchResults","LONG",true,
+"LIMITED_BUDGETS","キャンペーン予算による制限（検索結果ページの目標掲載位置）","Limit by Campaign Budget (Target position in search results)","limitByCampaignBudgetOfTargetPositionInSearchResults","ENUM",false,
+"LOW_QUALITY_KEYWORDS","品質が低いキーワード（検索結果ページの目標掲載位置）","Low Quality Keyword (Target position in search results)","lowQualityKeywordOfTargetPositionInSearchResults","ENUM",true,
+"UPPER_BID_LIMIT_OF_TARGET_PAGE_LOCATION","入札価格の上限（検索結果ページの目標掲載位置）","Bid Limit (Target position in search results)","bidLimitForTargetPositionInSearchResults","LONG",true,
+"TARGET_CPA","コンバージョン単価の目標値","Target CPA","targetCpa","DOUBLE",true,
+"UPPER_BID_LIMIT_OF_TARGET_CPA","入札価格の上限（コンバージョン単価の目標値）","Bid Limit (Target CPA)","bidLimitForTargetCpa","LONG",true,
+"LOWER_BID_LIMIT_OF_TARGET_CPA","入札価格の下限（コンバージョン単価の目標値）","Lower Bid Limit (Target CPA)","lowerBidLimitForTargetCpa","LONG",true,
+"TARGET_ROAS","広告費用対効果の目標値","Target ROAS","targetRoas","DOUBLE",true,
+"UPPER_BID_LIMIT_OF_TARGET_ROAS","入札価格の上限（広告費用対効果の目標値）","Bid Limit (Target ROAS)","bidLimitForTargetRoas","LONG",true,
+"LOWER_BID_LIMIT_OF_TARGET_ROAS","入札価格の下限（広告費用対効果の目標値）","Lower Bid Limit (Target ROAS)","lowerBidLimitForTargetRoas","LONG",true,
+"UPPER_BID_LIMIT_OF_MAXIMIZE_CLICKS","入札価格の上限（クリック数の最大化）","Bid Limit (Maximize Clicks)","bidLimitForMaximizeClicks","LONG",true,
+"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE",true,
+"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE",true,
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE",true,
+"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE",true,
+"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE",true,
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE",true,"[""HOUR_OF_DAY""]"
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE",true,"[""HOUR_OF_DAY""]"
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE",true,"[""HOUR_OF_DAY""]"
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE",true,"[""HOUR_OF_DAY""]"
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",true,"[""HOUR_OF_DAY""]"
+"DEVICE","デバイス","Device","device","ENUM",false,
+"DAY","日","Day","day","STRING",false,
+"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM",false,
+"QUARTER","四半期","Quarter","quarter","STRING",false,
+"YEAR","年間","Year","year","STRING",false,
+"MONTH","毎月","Month","month","STRING",false,
+"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM",false,
+"WEEK","毎週","Week","week","STRING",false,
+"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG",false,"[""ALL_CONV"",""ALL_CONV_RATE"",""ALL_CONV_VALUE"",""COST_PER_ALL_CONV"",""VALUE_PER_ALL_CONV""]"

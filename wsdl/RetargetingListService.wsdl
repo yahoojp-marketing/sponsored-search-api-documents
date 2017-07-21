@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.2.0</version>
+          <version>6.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -36,15 +36,16 @@
       <complexType name="TargetingList">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
           <element maxOccurs="1" minOccurs="0" name="retargetingAccountStatus" type="tns:RetargetingAccountStatus" />
           <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="targetListTrackId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="1" name="targetListType" type="tns:TargetListType" />
           <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="targetListDescription" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="reachStorageStatus" type="tns:ReachStorageStatus" />
           <element maxOccurs="1" minOccurs="0" name="reachStorageSpan" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="reach" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="targetListTrackId" type="xsd:long" />
         </sequence>
       </complexType>
       <complexType name="RetargetingAccountStatus">
@@ -185,11 +186,18 @@
           <enumeration value="NOT" />
         </restriction>
       </simpleType>
+      <simpleType name="TargetListOwner">
+        <restriction base="xsd:string">
+          <enumeration value="OWNER" />
+          <enumeration value="SHARED" />
+        </restriction>
+      </simpleType>
       <complexType name="RetargetingListSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
           <element maxOccurs="unbounded" minOccurs="0" name="targetListIds" type="xsd:long" />
           <element maxOccurs="3" minOccurs="0" name="targetListTypes" type="tns:TargetListType" />
+          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging" />
         </sequence>
       </complexType>
@@ -222,6 +230,7 @@
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
+              <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
               <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:TargetingList" />
             </sequence>
           </extension>
@@ -380,7 +389,7 @@
   <wsdl:service name="RetargetingListService">
     <wsdl:port binding="tns:RetargetingListServiceSoapBinding" name="RetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/RetargetingListService" />
+        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/RetargetingListService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

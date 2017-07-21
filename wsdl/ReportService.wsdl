@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.2.0</version>
+          <version>6.3.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -80,6 +80,7 @@
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="reportId" type="xsd:long" />
           <element maxOccurs="1" minOccurs="0" name="reportJobId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="0" name="reportName" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="reportJobStatus" type="tns:ReportJobStatus" />
           <element maxOccurs="1" minOccurs="0" name="reportJobErrorDetail" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string" />
@@ -267,7 +268,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportService">
     <wsdl:port binding="tns:ReportServiceSoapBinding" name="ReportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.2/ReportService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/ReportService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

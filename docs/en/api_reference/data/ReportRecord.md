@@ -1,6 +1,5 @@
 # ReportRecord
-information of the report.
-
+ReportRecord object describes report information.
 ### Service
 + [ReportService](../services/ReportService.md)
 
@@ -10,7 +9,6 @@ information of the report.
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -23,14 +21,12 @@ information of the report.
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
   <tr>
   <td>reportId</td>
   <td>xsd:long</td>
   <td>Report ID.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>-</td>
   <td>-</td>
@@ -42,15 +38,22 @@ information of the report.
   <td>yes</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
   <td>Requirement</td>
  </tr>
+ <tr>
+  <td>reportName</td>
+  <td>xsd:string</td>
+  <td>Name of the report.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr> 
  <tr>
   <td>reportJobStatus</td>
   <td>enum <a href="./ReportJobStatus.md">ReportJobStatus</a></td>
   <td>Status of Report Job.</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -63,14 +66,12 @@ information of the report.
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>requestTime</td>
   <td>xsd:string</td>
   <td>Start time of Report Job request.<br>*Displays in YYYY/MM/DD hh:mm:ss form.<br>*hh will display in 24-hour time.</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -83,14 +84,12 @@ information of the report.
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>reportDownloadURL</td>
   <td>xsd:string</td>
   <td>Download URL of report file.</td>
   <td>yes</td>
-  <td>-</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
