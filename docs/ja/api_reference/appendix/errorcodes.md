@@ -77,7 +77,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 20110006 | TOO MANY VALUE | アカウントIDの数が上限を超えています。
 20110007 | INVALID VALUE CONTENT | 無効なアカウントIDが含まれています。
 20110011 | INVALID VALUE | 要求されたアカウントステータスが無効です。
-20110012 | TOO MANY VALRUE | アカウントステータスの数が上限を超えています。
+20110012 | TOO MANY VALUE | アカウントステータスの数が上限を超えています。
 20110013 | INVALID VALUE CONTENT | 無効なアカウントステータスが含まれています。
 20130008 | INVALID VALUE | 無効なアカウントです。
 20130009 | INPUT REQUIRED | アカウントは必須です。

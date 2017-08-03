@@ -36,6 +36,10 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE",true,
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE",true,
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",true,
+"CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG",false,
+"ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG",false,
+"AD_TRACKING_ID","広告トラッキングID","Ad Tracking ID","adTrackingID","LONG",false,
+"FEED_ITEM_TRACKING_ID","広告表示オプショントラッキングID","Ad Display Option Tracking ID","adDisplayOptionTrackingID","LONG",true,
 "NETWORK","広告掲載方式の指定","Network","network","ENUM",false,
 "CLICK_TYPE","クリック種別","ClickType","clickType","ENUM",false,"[""IS_SELF_ACTION""]"
 "DEVICE","デバイス","Device","device","ENUM",false,
