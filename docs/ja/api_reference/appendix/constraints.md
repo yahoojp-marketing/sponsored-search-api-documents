@@ -227,6 +227,19 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
+  <td rowspan="2">AuditLogService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>addJob</td>
+  <td>1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
   <td>BalanceService</td>
   <td>get</td>
   <td>-</td>

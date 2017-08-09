@@ -1,11 +1,15 @@
-# Paging
-Pagingオブジェクトは、取得される結果(ページ)についてのインデックスを表します。
-### Service
-get操作共通
+# AuditLogEncoding(enum)
+AuditLogEncodingは、操作履歴ファイルのエンコーディング形式（文字コード）を表します。<br>
 
-| Field | Type | Description | 
+### Service
++ [AuditLogService](../services/AuditLogService.md)
+
+| Enumeration | Type | Description | 
 |---|---|---|
-| startIndex | xsd:int | ページの先頭のインデックスです。このフィールドは、1以上を指定する必要があります。 |
-| numberResults | xsd:int | ページの最大件数です。このフィールドは、1以上を指定する必要があります。 |
+| SJIS | xsd:string | SJIS形式です。 |
+| UTF_8 | xsd:string | UTF_8形式です。 |
+| UTF_16LE | xsd:string | UTF_16LE形式です。 |
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
+

@@ -1,19 +1,19 @@
 # Value Constraints
-The following table contains parameter values and constraints.
+The following table contains parameter values and constraints.  
 
 ### Entity Limits 
-Entity                       | Constraints                         
----------------------------- | ---------------------------
-Account                      | Campaigns per account: 100<br />Keywords per account: 50,000<br />*Default maximum value
-Campaign                     | Ad Groups per campaign: 2,000
-Ad Group                     | Keywords per ad group: 2,000<br />*Includes negative keywords<br />Ads per ad group: 50
-Negative Keyword             | At campaign level: 5,000<br />At ad group level: 2,000<br />*Total of bidding keywords
-Day of week/Hour targeting   | Maximum of setting per day: 6<br />*With 15 minutes intervals   
-Report                       | Filter creation: 5 
-Filters                      | Can save up to: 10
-Templates                    | Can save up to: 30
+Entity                           | Constraints                         
+---------------------------- | --------------------------- 
+Account                        | Campaign per account 100  <br> Keywords per account 50,000                     
+Campaign                       | Ad Groups per campaign 2,000
+Ad Group                       | Keywords per ad group 2,000 <br>Ads per Ad Group 50                         
+Negative Keyword                     | Negative keywords can be set  <br>5,000 at Campaign level<br>2,000 at Ad Group level  
+Day of week/Hour targeting                 | Number of HourlyTargetings that can be Set per Day <br>6 (in intervals of 15 minutes)   
+Report                         | Combinations of Filter Criteria 5 <br>Number of Filters Saved (not including filters that had been saved) 10<br>Templates List can be saved 30                         
+Filter                   | can be save up to 10                         
+Template               | can be saved up to 30      
 
-### Character Lengths
+### Charcter Lengh
 *Regardless of whether one-byte or two-byte
 
 Parameters                                   | Constraints
@@ -31,11 +31,12 @@ Destination URL at keyword level(Custom URL) | 1024 characters
 Keyword                                      | 80 characters* 10 words                                         
 Negative Keyword                             | 80 characters* 10 words                                                  
 Campaign Budget                              | 100 to 12,500,000 JPY (in 100 JPY increments)                
-Bid limit for automatic bidding              | 1 to 9,999 JPY (in 1 JPY increments)                         
+Campaign                                     | 1 to 9,999 JPY (in 1 JPY increments)                            
 Ad Group bid                                 | 1 to 50,000 JPY (in 1 JPY increments)                        
 Keyword bid                                  | 1 to 50,000 JPY (in 1 JPY increments)                        
 Account Budget                               | Minimum 3,000 (in 1,000 JPY increments)                      
 Ad Schedule                                  | Can be specified in the range from today to December 31, 2037
+Auto Bidding CPC                             | 0 to 50,000 JPY    
 Target CPA of Auto Bidding                   | 0 to 99,999,999 JPY                      
 Bid Adjustment                               | 0.10 to 10.00 (-90% to +900%)                      
 Target ROAS                                  | 0.01 to 1,000.00 (1% to 100,000%)                      
@@ -64,7 +65,7 @@ Report Job ID   | No limits.             | 50
 &nbsp;ONETIME report IDs and Report Job IDs are deleted automatically in a week.<br>
 *Maximum number of IDs set via API is a total number created by "on-behalf of" and "standard" authentication access.
 
-### Maximum elements/responses per request
+### Maximum amount per request to be retrieved per service  
 <table>
  <tr>
   <th>Web Service</th>
@@ -78,7 +79,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>200</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -91,7 +92,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -104,7 +105,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -129,7 +130,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -142,7 +143,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -167,7 +168,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -180,7 +181,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -205,7 +206,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -226,25 +227,38 @@ Report Job ID   | No limits.             | 50
   <td>-</td>
  </tr>
  <tr>
+  <td rowspan="2">AuditLogService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>Yes</td>
+ </tr>
+ <tr>
+  <td>addJob</td>
+  <td>1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
   <td>BalanceService</td>
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>BidLandscapeService</td>
   <td>get</td>
   <td>-</td>
   <td>100</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td rowspan="4">BiddingStrategyService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -269,7 +283,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -288,7 +302,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>addJob</td>
@@ -301,7 +315,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -314,7 +328,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -339,7 +353,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -364,7 +378,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -403,7 +417,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>50</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -428,7 +442,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>2000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -467,7 +481,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -486,7 +500,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>getReportFields</td>
@@ -511,7 +525,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -530,7 +544,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>1000</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -549,7 +563,7 @@ Report Job ID   | No limits.             | 50
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>yes</td>
+  <td>Yes</td>
  </tr>
  <tr>
   <td>TrafficEstimatorService</td>
@@ -559,3 +573,5 @@ Report Job ID   | No limits.             | 50
   <td>-</td>
  </tr>
 </table>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
