@@ -1,5 +1,5 @@
 # CampaignFeedList
-CampaignFeedListオブジェクトは、キャンペーンに紐づけられたFeedItem情報を表します。
+CampaignFeedListオブジェクトは、キャンペーンに関連付けられたFeedItem情報を表します。
 ### Service
 + [CampaignFeedService](../services/CampaignFeedService.md)
 
@@ -57,7 +57,7 @@ CampaignFeedListオブジェクトは、キャンペーンに紐づけられたF
  <tr>
   <td>devicePlatform </td>
   <td>enum <a href="./DevicePlatform.md">DevicePlatform</a></td>
-  <td>デバイスの指定です。</td>
+  <td>デバイスの指定です。<br>※placeholderTypeにCALLEXTENSIONを指定する場合、指定不要です。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

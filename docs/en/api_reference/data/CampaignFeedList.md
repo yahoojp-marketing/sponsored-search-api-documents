@@ -57,7 +57,7 @@ CampaignFeedList object describes FeedItem information connected to campaign.
  <tr>
   <td>devicePlatform </td>
   <td>enum <a href="./DevicePlatform.md">DevicePlatform</a></td>
-  <td>Specifies device.</td>
+  <td>Specifies device.<br>*If specify CALLEXTENSIONS for placeholderType, this field can be skipped. </td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
