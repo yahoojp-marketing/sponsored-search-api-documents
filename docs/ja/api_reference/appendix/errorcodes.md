@@ -380,7 +380,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 ------------------------ | ----------- | -------------------------------------------------------
 20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
 120002 | INVALID VALUE| 値が無効です。
-120018 | DUPLICATE VALUE| 値が重複しています。
+120018 | DUPLICATE VALUE| キャンペーンIDが重複しています。
 120022 | DEACTIVATED| 無効なIDを指定しています。
 120024 | INVALID RELATION| 関係が無効です。
 210103 | UNMATCH PLACEHOLDER TYPE| placeholderTypeとfeedItemIdの組み合わせが正しくありません。
@@ -393,7 +393,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 ------------------------ | ----------- | -------------------------------------------------------
 20103 | OVER_LIST_SIZE| 指定した要素数が上限値を超えています。
 120002 | INVALID VALUE| 値が無効です。
-120018 | DUPLICATE VALUE| 値が重複しています。
+120018 | DUPLICATE VALUE| 広告グループIDが重複しています。
 120022 | DEACTIVATED| 無効なIDを指定しています。
 120024 | INVALID RELATION| 関係が無効です。
 210103 | UNMATCH PLACEHOLDER TYPE| placeholderTypeとfeedItemIdの組み合わせが正しくありません。
