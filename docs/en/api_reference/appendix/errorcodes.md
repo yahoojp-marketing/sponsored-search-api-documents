@@ -379,7 +379,7 @@ All services.
 -------- | -------------- | ------------------------  
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 120002 | INVALID VALUE| Value is invalid.
-120018 | DUPLICATE VALUE| Value is overlapped. Please use different value.
+120018 | DUPLICATE VALUE| Duplicated Campaign ID.
 120022 | DEACTIVATED| Invalid ID has been specified.
 120024 | INVALID RELATION| Relation is invalid.
 210103 | UNMATCH PLACEHOLDER TYPE| Inappropriate combination of placeholderType and feedItemId.
@@ -392,7 +392,7 @@ All services.
 -------- | -------------- | ------------------------  
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 120002 | INVALID VALUE| Value is invalid.
-120018 | DUPLICATE VALUE| Value is overlapped. Please use different value.
+120018 | DUPLICATE VALUE| Duplicated Ad group ID.
 120022 | DEACTIVATED| Invalid ID has been specified.
 120024 | INVALID RELATION| Relation is invalid.
 210103 | UNMATCH PLACEHOLDER TYPE| Inappropriate combination of placeholderType and feedItemId.

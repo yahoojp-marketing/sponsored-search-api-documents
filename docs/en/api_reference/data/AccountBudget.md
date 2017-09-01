@@ -8,7 +8,6 @@ AccountBudget object describes Budget for advertising on the account.
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
-  <th>response</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -16,37 +15,33 @@ AccountBudget object describes Budget for advertising on the account.
  <tr>
   <td>amount</td>
   <td>xsd:long</td>
-  <td>Amount of budeget. <br>The amount have to be specified over 3000JPY.</td>
-  <td>yes</td>
+  <td>Amount of budget.</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>-</td>
  </tr>
  <tr>
   <td>limitChargeType</td>
   <td>enum <a href="../data/LimitChargeType.md">LimitChargeType</a></td>
   <td>Type of payment for the Account, such as monthly budget.</td>
-  <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>-</td>
  </tr>
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>Start date of ad serving.<br>It has to be specified in 'yyyyMMdd' format.<br>This date have to be after the opearing day.</td>
-  <td>yes</td>
+  <td>Start date of ad serving.<br>It is displayed in 'yyyyMMdd' format.</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>-</td>
  </tr>
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>End date of ad serving.<br>It has to be specified in 'yyyyMMdd' format.<br>This date have to be after Start date.</td>
-  <td>yes</td>
+  <td>End date of ad serving.<br>It is displayed in 'yyyyMMdd' format.</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>-</td>
  </tr>
  </table>

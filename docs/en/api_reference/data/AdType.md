@@ -6,7 +6,7 @@ AdType is device type and number of title and description character.<br>The numb
 
 | Enumeration | Type | Description | 
 |---|---|---|
-| TEXT_AD2| xsd:string | Text ads for “Title: 15 characters, Description: 19 characters / 19 characters”. <br>It is available for PC, Smartphone and Tablet (Recommended). |
+| TEXT_AD2| xsd:string | Text ads for “Title: 15 characters, Description: 19 characters / 19 characters”. <br>It is available for PC, Smartphone and Tablet.<br>*Currently this ad type is not available for ad creation. |
 | APP_AD| xsd:string | Ads for Mobile App Ads. <br>It is available for Smartphone or Tablet. |
 | EXTENDED_TEXT_AD| xsd:string | Text ads for “Title: 15 - 15 characters, Description: 40 characters”. <br>It is available for PC, Smartphone and Tablet. |
 
