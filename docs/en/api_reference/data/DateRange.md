@@ -2,7 +2,6 @@
 DateRange object displays the conditions and period to get Operation History.
 
 ### Service
-+ [CustomerSyncService](../services/CustomerSyncService.md)
 + [ReportDefinitionService](../services/ReportDefinitionService.md)
 + [AuditLogService](../services/AuditLogService.md)
 
@@ -35,7 +34,7 @@ DateRange object displays the conditions and period to get Operation History.
  </tr>
 </table>
 
-*1 The format for CustomerSyncService and AuditLogService is specified as "YYYYMMDDhhmmss". It can be set at second bid level.<br>If it's not specified, the value'0:00:00' is set as default.<br>
+*1 The format for AuditLogService is specified as "YYYYMMDDhhmmss". It can be set at second bid level.<br>If it's not specified, the value'0:00:00' is set as default.<br>
 　ex.) To set 2:05:35 PM on May 25, 2017, the value for this option is "20170525140535". <br>
 *2 For ReportDefinitionService, it should be specified in "YYYMMDD" format.<br>
 *3 Available date range :Jan 1, 1970 (19700101) - Dec 31, 2037 (20371231)<br>
