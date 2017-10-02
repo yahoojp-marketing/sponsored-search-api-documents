@@ -393,13 +393,6 @@ Report Job ID   | No limits.             | 50
   <td>-</td>
  </tr>
  <tr>
-  <td>CustomerSyncService</td>
-  <td>get</td>
-  <td>-</td>
-  <td>1</td>
-  <td>-</td>
- </tr>
- <tr>
   <td rowspan="2">DictionaryService</td>
   <td>getDisapprovalReason</td>
   <td>-</td>
