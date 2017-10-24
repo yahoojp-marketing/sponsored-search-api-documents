@@ -22,7 +22,7 @@ Each report fields encapsulate the field name, field data type, and enumerations
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -45,7 +45,7 @@ Each report fields encapsulate the field name, field data type, and enumerations
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>ReportDefinitionService</ns1:service>
@@ -320,7 +320,7 @@ It requires the following:
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -395,7 +395,7 @@ It requires the following:
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>ReportDefinitionService</ns1:service>
@@ -478,7 +478,7 @@ Creates report from designated ReportID.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -508,7 +508,7 @@ Creates report from designated ReportID.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>ReportService</ns1:service>
@@ -569,7 +569,7 @@ Can confirm the report creation status.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -600,7 +600,7 @@ or
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -629,7 +629,7 @@ or
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>ReportService</ns1:service>
@@ -690,7 +690,7 @@ Retrieves report files by designating accountID and/or reportJobID.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -716,7 +716,7 @@ Retrieves report files by designating accountID and/or reportJobID.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>ReportService</ns1:service>
@@ -779,7 +779,7 @@ Deletes downloaded report from ReportList.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -809,7 +809,7 @@ Deletes downloaded report from ReportList.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>ReportService</ns1:service>
@@ -848,7 +848,7 @@ Deletes the unnecessary defined report.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V5">
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -875,7 +875,7 @@ Deletes the unnecessary defined report.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
             <ns1:service>ReportDefinitionService</ns1:service>

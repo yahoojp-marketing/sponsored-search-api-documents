@@ -47,7 +47,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -154,7 +154,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜レスポンスサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -295,7 +295,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞ [CALLEXTENSION用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -325,7 +325,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜レスポンスサンプル＞ [CALLEXTENSION用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -364,7 +364,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -413,7 +413,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -485,7 +485,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -529,7 +529,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -587,7 +587,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -636,7 +636,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -707,7 +707,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -778,7 +778,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -813,7 +813,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -848,7 +848,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -890,7 +890,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -923,7 +923,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>

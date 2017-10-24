@@ -47,7 +47,7 @@ For this example, each Ad Display Option will be added to the account of company
 ##### <Request Sample> [For QUICKLINK]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -153,7 +153,7 @@ For this example, each Ad Display Option will be added to the account of company
 ##### <Response Sample> [For QUICKLINK]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -295,7 +295,7 @@ For this example, each Ad Display Option will be added to the account of company
 ##### <Request Sample> [For CALLEXTENSION]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -325,7 +325,7 @@ For this example, each Ad Display Option will be added to the account of company
 ##### <Response Sample> [For CALLEXTENSION]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -364,7 +364,7 @@ For this example, QuickLink[No.1-4] and CallExtension[No.1] will be set to campa
 ##### <Request Sample>
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -413,7 +413,7 @@ For this example, QuickLink[No.1-4] and CallExtension[No.1] will be set to campa
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -485,7 +485,7 @@ For this example, QuickLink[No.5] will be set to ad group.
 ##### <Request Sample>
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -529,7 +529,7 @@ For this example, QuickLink[No.5] will be set to ad group.
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -587,7 +587,7 @@ For this example, QuickLink[No.1] will be deleted and QuickLink[No.6] will be se
 ##### <Request Sample> [For QUICKLINK]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -636,7 +636,7 @@ For this example, QuickLink[No.1] will be deleted and QuickLink[No.6] will be se
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -707,7 +707,7 @@ For this example, QuickLink[No.1] will be deleted and QuickLink[No.6] will be se
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -778,7 +778,7 @@ For this example, QuickLink[No.1] will be deleted and QuickLink[No.6] will be se
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -813,7 +813,7 @@ For this example, QuickLink[No.5] will be deleted and QuickLink[No.7] will be se
 ##### <Request Sample>
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -848,7 +848,7 @@ For this example, QuickLink[No.5] will be deleted and QuickLink[No.7] will be se
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -890,7 +890,7 @@ The call center has been abolished, so the setting of CallExtension to the ad gr
 ##### <Request Sample>
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -923,7 +923,7 @@ The call center has been abolished, so the setting of CallExtension to the ad gr
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
