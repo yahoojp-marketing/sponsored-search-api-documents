@@ -370,7 +370,7 @@ ReportDefinitionServiceのmutate:addを使用します。
           <ns1:format>CSV</ns1:format>
           <ns1:encode>UTF-8</ns1:encode>
           <ns1:language>EN</ns1:language>
-          <ns1:compress>OFF</ns1:compress>
+          <ns1:compress>NONE</ns1:compress>
         </ns1:operand>
       </ns1:operations>
     </ns1:mutate>
@@ -467,7 +467,7 @@ ReportDefinitionServiceのmutate:addを使用します。
             <ns1:format>CSV</ns1:format>
             <ns1:encode>UTF-8</ns1:encode>
             <ns1:language>EN</ns1:language>
-            <ns1:compress>OFF</ns1:compress>
+            <ns1:compress>NONE</ns1:compress>
           </ns1:reportDefinition>
         </ns1:values>
       </ns1:rval>
