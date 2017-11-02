@@ -11,7 +11,7 @@
                 xmlns:tns="http://ss.yahooapis.jp/V6">
             <annotation>
                 <appinfo>
-                    <version>6.3.0</version>
+                    <version>6.4.0</version>
                 </appinfo>
             </annotation>
             <complexType name="SoapHeader">
@@ -52,6 +52,7 @@
                     <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
                     <element maxOccurs="1" minOccurs="0" name="reviewCustomParameters" type="tns:CustomParameters"/>
                     <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
+                    <element maxOccurs="1" minOccurs="0" name="geoTargeting" type="tns:Location" />
                 </sequence>
             </complexType>
             <complexType name="FeedItemSelector">
@@ -205,6 +206,14 @@
                     <enumeration value="BROAD"/>
                 </restriction>
             </simpleType>
+            <complexType name="Location">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="targetId" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="type" type="tns:CriterionTypeFeedItem"/>
+                    <element maxOccurs="1" minOccurs="0" name="geoTargetingRestriction" type="tns:FeedItemGeoRestriction" />
+                    <element maxOccurs="1" minOccurs="0" name="isRemove" type="tns:IsRemove"/>
+                </sequence>
+            </complexType>
             <complexType name="CustomParameters">
                 <sequence>
                     <element maxOccurs="1" minOccurs="0" name="isRemove" type="tns:IsRemove"/>
@@ -221,6 +230,17 @@
                 <restriction base="xsd:string">
                     <enumeration value="FALSE"/>
                     <enumeration value="TRUE"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="CriterionTypeFeedItem">
+                <restriction base="xsd:string">
+                    <enumeration value="LOCATION"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="FeedItemGeoRestriction">
+                <restriction base="xsd:string">
+                    <enumeration value="NONE"/>
+                    <enumeration value="LOCATION_OF_PRESENCE"/>
                 </restriction>
             </simpleType>
             <complexType name="FeedItemPage">
@@ -405,7 +425,7 @@
     </wsdl:binding>
     <wsdl:service name="FeedItemService">
         <wsdl:port binding="tns:FeedItemServiceSoapBinding" name="FeedItemService">
-            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/FeedItemService"/>
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/FeedItemService"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -1,14 +1,12 @@
-# Advanced (enum)
-Advanced is a flag of Advanced URL upgrade.
+# FeedItemGeoRestriction(enum)
+FeedItemGeoRestriction object controls ad delivery of location restriction.
 
 ### Service
-+ [AdGroupAdService](../services/AdGroupAdService.md)
-+ [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 + [FeedItemService](../services/FeedItemService.md)
 
 | Enumeration | Type | Description |
 |---|---|---|
-| TRUE| xsd:string| Upgraded to Advanced URL. <br>&lowast;Cannot return to FALSE when changed to TRUE.|
-| FALSE| xsd:string| Not upgraded to Advanced URL. |
+| NONE | xsd:string | Regardless of the relationship between the search keyword and the user's location, Ads will be delivered.|
+| LOCATION_OF_PRESENCE | xsd:string | Ads will not be delivered if the search keyword is unrelated to the user's location. |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

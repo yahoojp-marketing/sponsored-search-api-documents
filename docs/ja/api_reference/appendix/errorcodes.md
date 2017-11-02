@@ -136,8 +136,8 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
 0018 | The data size you requested is too large. Please try your request again with a smaller date range or reduce the size of your request.  | 生成されるデータのサイズが大きいため取得に失敗しました。<br>集計期間やパラメーターを調整し、再度リクエストを実施してください。 
-0103 | Exists same name. | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
 0102 | DEACTIVATED | アカウントが存在しない、ステータスが無効、削除済みなどの状態です。
+0103 | Exists same name. | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
 1003 | invalid download request. | ダウンロードURLの取得ホストと実行ホストが異なります。
 1004 | download URL has expired. | ダウンロードURLの有効期限が切れました。<br />ダウンロードURLが改ざんされています。
 10100 | DEACTIVATED | 削除済みとして登録されました。<br>アカウントステータスがアクティブでない、またはアカウントが存在しない場合にもこのエラーが発生する可能性があります。
@@ -177,6 +177,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 120018 | DUPLICATE VALUE | 配列内に同一広告グループIDです。
 120022 | DEACTIVATED | データが存在しません。
 120027 | OVER LIST SIZE | 配列が2以上です。
+210607 | Require default value. | アドカスタマイザーの挿入用広告に、デフォルトテキストが入力されていません。
 211001 | Cannot set AdvancedMobileURL. | アプリダウンロードキャンペーンでは、advancedMobileUrlの設定はできません。
 211003 | Domain does not match with DisplayURL.  | 	表示URLと最終リンク先URL（モバイル含む）のドメインが一致していません。
 211004 | Cannot set under AndroidCampaign.  | 	Androidのアプリキャンペーンでは、以下の設定ができません：<br>・キャンペーン、広告グループ、広告、キーワードにTrackingUrlや CustomParameterを設定
@@ -368,10 +369,10 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210102 | INVALID PHONE NUMBER | FeedItemServiceでCALL_PHONE_NUMBERに指定した電話番号の形式が正しくありません。<br>このエラーはCALLEXTENSIONのFeedItem情報の登録の場合に発生します。
 210104 | INVALID STATUS | 審査中のため、更新できません。 
 210110 | INVALID TARGET | １日のスケジュール指定が上限値（6件）を超えています。
-211000 | Cannot operate AdvancedURL.	| アドバンスドURLに移行済みのため、操作できません。
+211000 | Cannot operate AdvancedURL. | アドバンスドURLに移行済みのため、操作できません。
 210123 | CAMPAIGN TARGETING MISMATCH | targetingCampaignIdで指定したキャンペーンIDと、targetingAdGroupIdで指定した広告グループの上位キャンペーンIDが異なるため、設定できません。
 210126 | Mobile app download cannot connect to. | アプリダウンロードキャンペーンは設定できません。
-
+211013 | Require geo targeting settings. | FeedItemGeoRestriction（地域配信設定の制御）がLOCATION_OF_PRESENCEの場合、地域設定が必須です。
 
 ##### Service
 [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)

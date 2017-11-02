@@ -1,55 +1,55 @@
 "フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields"
-"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG",true,
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",true,
-"KEYWORD_ID","キーワードID","Keyword ID","keywordID","LONG",true,
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",true,
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",true,
-"CUSTOM_URL","カスタムURL","Custom URL","customURL","STRING",true,
-"KEYWORD","キーワード","Keyword","keyword","STRING",true,
-"KEYWORD_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","keywordDistributionSettings","ENUM",false,
-"KEYWORD_EDITORIAL_STATUS","審査状況","Editorial Status","kwEditorialStatus","ENUM",true,
-"ADGROUP_BID","広告グループの入札価格","Ad Group Bid","adGroupBid","LONG",false,
-"BID","入札価格","Bid (JPY)","bid","LONG",false,
-"NEGATIVE_KEYWORD","対象外キーワード","Negative Keywords","negativeKeywords","STRING",true,
-"QUALITY_INDEX","品質インデックス","Quality Index","qualityIndex","LONG",true,
-"FIRST_PAGE_BID_ESTIMATE","1ページ目掲載に必要な入札価格","First Page Bid Estimate","firstPageBidEstimate","LONG",true,
-"KEYWORD_MATCH_TYPE","マッチタイプ","Match Type","keywordMatchType","ENUM",true,
-"COST","コスト","Cost","cost","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"IMPS","インプレッション数","Impressions","impressions","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"CLICKS","クリック数","Clicks","clicks","LONG",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"IMPRESSION_SHARE","インプレッションシェア","Impression Share","impressionShare","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CLICK_TYPE"",""CONVERSION_NAME""]"
-"EXACT_MATCH_IMPRESSION_SHARE","完全一致のインプレッションシェア","Exact Match Impression Share","exactMatchImpressionShare","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CLICK_TYPE"",""CONVERSION_NAME""]"
-"QUALITY_LOST_IMPRESSION_SHARE","インプレッション損失率（掲載順位）","Quality Lost Impression Share","qualityLostImpressionShare","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CLICK_TYPE"",""CONVERSION_NAME""]"
-"TOP_OF_PAGE_BID_ESTIMATE","1ページ目上部掲載に必要な入札価格","Top Of Page Bid Estimate","topOfPageBidEstimate","LONG",true,
-"TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING",true,
-"CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING",true,
-"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING",false,
-"LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING",true,
-"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE",true,
-"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE",true,
-"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE",true,
-"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE",true,
-"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE",true,
-"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE",true,"[""OBJECT_OF_CONVERSION_TRACKING"",""CONVERSION_NAME""]"
-"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",true,
-"CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG",true,
-"ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG",true,
-"KEYWORD_TRACKING_ID","キーワードトラッキングID","Keyword Tracking ID","keywordTrackingID","LONG",true,
-"NETWORK","広告掲載方式の指定","Network","network","ENUM",false,
-"CLICK_TYPE","クリック種別","ClickType","clickType","ENUM",false,"[""IMPRESSION_SHARE"",""EXACT_MATCH_IMPRESSION_SHARE"",""QUALITY_LOST_IMPRESSION_SHARE""]"
-"DEVICE","デバイス","Device","device","ENUM",false,
-"DAY","日","Day","day","STRING",false,
-"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM",false,
-"QUARTER","四半期","Quarter","quarter","STRING",false,
-"YEAR","年間","Year","year","STRING",false,
-"MONTH","毎月","Month","month","STRING",false,
-"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM",false,
-"WEEK","毎週","Week","week","STRING",false,
-"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM",false,"[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK"",""IMPRESSION_SHARE"",""EXACT_MATCH_IMPRESSION_SHARE"",""QUALITY_LOST_IMPRESSION_SHARE"",""CONV_RATE"",""COST_PER_CONV"",""ALL_CONV_RATE"",""COST_PER_ALL_CONV""]"
-"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING",false,"[""COST"",""IMPS"",""CLICKS"",""CLICK_RATE"",""AVG_CPC"",""AVG_DELIVER_RANK"",""IMPRESSION_SHARE"",""EXACT_MATCH_IMPRESSION_SHARE"",""QUALITY_LOST_IMPRESSION_SHARE"",""CONV_RATE"",""COST_PER_CONV"",""ALL_CONV_RATE"",""COST_PER_ALL_CONV""]"
+"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","true",
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","true",
+"KEYWORD_ID","キーワードID","Keyword ID","keywordID","LONG","true",
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","true",
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","true",
+"CUSTOM_URL","カスタムURL","Custom URL","customURL","STRING","true",
+"KEYWORD","キーワード","Keyword","keyword","STRING","true",
+"KEYWORD_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","keywordDistributionSettings","ENUM","false",
+"KEYWORD_EDITORIAL_STATUS","審査状況","Editorial Status","kwEditorialStatus","ENUM","true",
+"ADGROUP_BID","広告グループの入札価格","Ad Group Bid","adGroupBid","LONG","false",
+"BID","入札価格","Bid (JPY)","bid","LONG","false",
+"NEGATIVE_KEYWORD","対象外キーワード","Negative Keywords","negativeKeywords","STRING","true",
+"QUALITY_INDEX","品質インデックス","Quality Index","qualityIndex","LONG","true",
+"FIRST_PAGE_BID_ESTIMATE","1ページ目掲載に必要な入札価格","First Page Bid Estimate","firstPageBidEstimate","LONG","true",
+"KEYWORD_MATCH_TYPE","マッチタイプ","Match Type","keywordMatchType","ENUM","true",
+"COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CLICKS","クリック数","Clicks","clicks","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"IMPRESSION_SHARE","インプレッションシェア","Impression Share","impressionShare","DOUBLE","true","[CLICK_TYPE, CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"EXACT_MATCH_IMPRESSION_SHARE","完全一致のインプレッションシェア","Exact Match Impression Share","exactMatchImpressionShare","DOUBLE","true","[CLICK_TYPE, CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"QUALITY_LOST_IMPRESSION_SHARE","インプレッション損失率（掲載順位）","Quality Lost Impression Share","qualityLostImpressionShare","DOUBLE","true","[CLICK_TYPE, CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"TOP_OF_PAGE_BID_ESTIMATE","1ページ目上部掲載に必要な入札価格","Top Of Page Bid Estimate","topOfPageBidEstimate","LONG","true",
+"TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING","true",
+"CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING","true",
+"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING","false",
+"LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING","true",
+"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE","true",
+"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE","true",
+"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE","true",
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE","true",
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",
+"CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG","true",
+"ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG","true",
+"KEYWORD_TRACKING_ID","キーワードトラッキングID","Keyword Tracking ID","keywordTrackingID","LONG","true",
+"NETWORK","広告掲載方式の指定","Network","network","ENUM","false",
+"CLICK_TYPE","クリック種別","ClickType","clickType","ENUM","false","[EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, QUALITY_LOST_IMPRESSION_SHARE]"
+"DEVICE","デバイス","Device","device","ENUM","false",
+"DAY","日","Day","day","STRING","false",
+"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM","false",
+"QUARTER","四半期","Quarter","quarter","STRING","false",
+"YEAR","年間","Year","year","STRING","false",
+"MONTH","毎月","Month","month","STRING","false",
+"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",
+"WEEK","毎週","Week","week","STRING","false",
+"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, QUALITY_LOST_IMPRESSION_SHARE]"
+"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, QUALITY_LOST_IMPRESSION_SHARE]"

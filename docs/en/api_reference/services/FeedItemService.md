@@ -20,9 +20,9 @@ Describes operation provided by FeedItemService.
 Get Feed Item information.
 
 ### Request
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [FeedItemSelector](../data/FeedItemSelector.md) | Specify Feed Item information for operations. | 
+| selector | Required | [FeedItemSelector](../data/FeedItemSelector.md) | Specify Feed Item information for operations. |
 
 ##### Request Sample
 ```xml
@@ -59,9 +59,9 @@ Get Feed Item information.
 ```
 
 ### Response
-| Filed | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [FeedItemPage](../data/FeedItemPage.md) | Feed Item information of the operation. | 
+| rval | [FeedItemPage](../data/FeedItemPage.md) | Stores information of Feed Item |
 
 ##### Response Sample
 ```xml
@@ -312,6 +312,11 @@ Get Feed Item information.
                      <ns1:text>keyword keyword keyword keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:targetingKeyword>
+                  <ns1:geoTargeting>
+                    <ns1:targetId>JP-0001-0010</ns1:targetId>
+                    <ns1:type>LOCATION</ns1:type>
+                    <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+                  </ns1:geoTargeting>
                </ns1:feedItem>
             </ns1:values>
             <ns1:values>
@@ -361,9 +366,9 @@ Get Feed Item information.
 Add Feed Item information.
 
 ### Request
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [FeedItemOperation](../data/FeedItemOperation.md) | FeedItem information for operation and list of operations. | 
+| operations | Required | [FeedItemOperation](../data/FeedItemOperation.md) | FeedItem information for operation and list of operations |
 
 ##### Request Sample (QuickLinks)
 ```xml
@@ -480,7 +485,7 @@ Add Feed Item information.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (Auto data insertion)
+##### Request Sample （Ad Customizer）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -544,6 +549,11 @@ Add Feed Item information.
             <ns1:text>keyword keyword keyword keyword</ns1:text>
             <ns1:matchType>PHRASE</ns1:matchType>
           </ns1:targetingKeyword>
+          <ns1:geoTargeting>
+            <ns1:targetId>JP-0001-0010</ns1:targetId>
+            <ns1:type>LOCATION</ns1:type>
+            <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+          </ns1:geoTargeting>
         </ns1:operand>
         <ns1:operand>
           <ns1:accountId>100000001</ns1:accountId>
@@ -684,9 +694,9 @@ Add Feed Item information.
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Container for FeedItem information including operation results. | 
+| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Container for FeedItem information including operation results |
 
 ##### Response Sample (QuickLinks)
 ```xml
@@ -834,7 +844,7 @@ Add Feed Item information.
 </SOAP-ENV:Envelope>
 ```
 
-##### Response Sample (Auto data insertion)
+##### Response Sample (Ad Customizer)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -904,6 +914,11 @@ Add Feed Item information.
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-0001-0010</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>
@@ -1076,12 +1091,10 @@ Add Feed Item information.
 ```
 
 ## mutate(SET)
-Update or change Feed Item details.
-
 ### Request
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [FeedItemOperation](../data/FeedItemOperation.md) | FeeItem information for operation and process details. | 
+| operations | Required | [FeedItemOperation](../data/FeedItemOperation.md) | FeeItem information for operation and process details |
 
 ##### Request Sample (QuickLinks)
 ```xml
@@ -1214,7 +1227,7 @@ Update or change Feed Item details.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (Auto data insertion)
+##### Request Sample （Ad Customizer）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1267,6 +1280,10 @@ Update or change Feed Item details.
           <ns1:targetingKeyword>
             <ns1:targetingKeywordId>999999</ns1:targetingKeywordId>
           </ns1:targetingKeyword>
+          <ns1:geoTargeting>
+            <ns1:targetId>JP-13-0004</ns1:targetId>
+            <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
+          </ns1:geoTargeting>
         </ns1:operand>
         <ns1:operand>
           <ns1:accountId>1000000001</ns1:accountId>
@@ -1401,11 +1418,11 @@ Update or change Feed Item details.
 ```
 
 ### Response
-| Field | Data type | Description | 
+| Field | Data type | Description |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Container for Feed Item information including operation results. | 
+| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Container for Feed Item information including operation results |
 
-##### Response Sample
+##### Response Sample (QuickLinks)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1551,7 +1568,7 @@ Update or change Feed Item details.
 </SOAP-ENV:Envelope>
 ```
 
-##### Response Sample (Auto data insertion)
+##### Response Sample (Ad Customizer)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1621,6 +1638,11 @@ Update or change Feed Item details.
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-13-0004</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>
@@ -1773,9 +1795,9 @@ Update or change Feed Item details.
 Remove the Feed Item details.
 
 ### Request
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [FeedItemOperation](../data/FeedItemOperation.md) | FeedItem information for operation and process details. | 
+| operations | Required | [FeedItemOperation](../data/FeedItemOperation.md) | FeedItem information for operation and process details |
 
 ##### Request Sample (QuickLinks, including removing multiple Landing Page URLs)
 ```xml
@@ -1838,7 +1860,7 @@ Remove the Feed Item details.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (Auto data insertion)
+##### Request Sample (Ad Customizer)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
@@ -1894,9 +1916,9 @@ Remove the Feed Item details.
 ```
 
 ### Response
-| Field | Data type | Description | 
+| Field | Data type | Description |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Operation elements for Feed Item information. | 
+| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | Container for FeedItem information including operation results |
 
 ##### Response Sample (QuickLinks, including removing multiple Landing Page URLs)
 ```xml
@@ -2122,7 +2144,7 @@ Remove the Feed Item details.
 </SOAP-ENV:Envelope>
 ```
 
-##### Response Sample (Auto data insertion)
+##### Response Sample (Ad Customizer)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -2192,6 +2214,11 @@ Remove the Feed Item details.
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-0001-0010</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>

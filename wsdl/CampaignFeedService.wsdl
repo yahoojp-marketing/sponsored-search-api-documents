@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.3.0</version>
+          <version>6.4.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -258,7 +258,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="CampaignFeedService">
     <wsdl:port binding="tns:CampaignFeedServiceSoapBinding" name="CampaignFeedService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/CampaignFeedService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/CampaignFeedService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

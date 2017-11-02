@@ -5,7 +5,7 @@ CampaignExportService provides operations of collectively obtaining the campaign
 | environment | url |
 |---|---|
 | production  | https://ss.yahooapis.jp/services/Vx.x/CampaignExportService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignExportService?wsdl|]
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignExportService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V6
@@ -16,21 +16,22 @@ Collectively obtains the campaign, ad group, keyword, and ad information.
 #### Operation
 Describe the operation which provides at CampaignExportService.
 
+#### [Notes]
+　- Can confirm the information of past "addJob" request from "get" operation. Created jobs are valid for 30 days after the first request. <br>
+　- Can confirm the result of export from download URLs in "get" response. URLs are valid for 15 minutes after the status is "COMPLETED".
+
 ## addJob
 Creates job to register for export.
 
 ### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [ExportSetting](../data/ExportSetting.md) | Details of conditions to export. | 
+| setting | Required | [ExportSetting](../data/ExportSetting.md) | Details of conditions to export. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
@@ -64,7 +65,8 @@ Creates job to register for export.
             <ns1:lang>JA</ns1:lang>
             <ns1:output>CSV</ns1:output>
             <ns1:encoding>SJIS</ns1:encoding>
-            <ns1:advanced>FALSE</ns1:advanced>
+            <ns1:exportFields>CAMPAIGN_NAME</ns1:exportFields>
+            <ns1:exportFields>AD_GROUP_NAME</ns1:exportFields>
          </ns1:setting>
       </ns1:addJob>
    </SOAP-ENV:Body>
@@ -73,16 +75,13 @@ Creates job to register for export.
 
 ### Response
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignExportReturnValue](../data/CampaignExportReturnValue.md) | Container that includes operation result with export information. | 
+| rval | [CampaignExportReturnValue](../data/CampaignExportReturnValue.md) | Container that includes operation result with export information. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
@@ -104,6 +103,8 @@ Creates job to register for export.
             <ns1:startDate>2011-09-07T22:55:37+09:00</ns1:startDate>
             <ns1:status>IN_PROGRESS</ns1:status>
             <ns1:progress>0</ns1:progress>
+            <ns1:exportFields>CAMPAIGN_NAME</ns1:exportFields>
+            <ns1:exportFields>AD_GROUP_NAME</ns1:exportFields>
           </ns1:job>
         </ns1:values>
       </ns1:rval>
@@ -113,13 +114,13 @@ Creates job to register for export.
 ```
 
 ## get
-Obtains the information of registered jobs.
+Obtains the status of registered jobs.
 
 ### Request
 
-| Field | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [JobSelector](../data/JobSelector.md) | Information of condition to search the registered export information. | 
+| selector | Required | [JobSelector](../data/JobSelector.md) | Information of condition to search the registered export information. |
 
 ##### Request Sample
 ```xml
@@ -154,20 +155,19 @@ Obtains the information of registered jobs.
 
 ### Response
 
-| Filed | Data Type | Description | 
+| Filed | Data Type | Description |
 |---|---|---|
-| rval | [CampaignExportPage](../data/CampaignExportPage.md) | Details of obtainable registered export information. | 
+| rval | [CampaignExportPage](../data/CampaignExportPage.md) | Details of obtainable registered export information. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
-      <ns1:remainingQuota>129997</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>3.995</ns1:timeTakenMillis>
+      <ns1:remainingQuota>-1</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>9999.99</ns1:timeTakenMillis>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -179,15 +179,99 @@ Obtains the information of registered jobs.
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:job>
             <ns1:accountId>1000000380</ns1:accountId>
-            <ns1:jobId>1</ns1:jobId>
+            <ns1:jobId>9999</ns1:jobId>
             <ns1:userName>8983-5689-9971-5970</ns1:userName>
             <ns1:startDate>2011-09-06T23:53:08+09:00</ns1:startDate>
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
-            <ns1:progress>100</ns1:progress>
             <ns1:status>COMPLETED</ns1:status>
-            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+            <ns1:progress>100</ns1:progress>
+            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/iHCYtsbwryBPGfYDAzEAyGSuINVilbjw5OSqHmYBL.n4ngH_NhxJ2TdmfsymSATBnVpaw.hHf1Bxv.g0YBr4uaUeXA--</ns1:downloadUrl>
           </ns1:job>
         </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:job>
+            <ns1:accountId>1000000380</ns1:accountId>
+            <ns1:jobId>8888</ns1:jobId>
+            <ns1:userName>8983-5689-9971-5970</ns1:userName>
+            <ns1:startDate>2011-09-06T23:53:08+09:00</ns1:startDate>
+            <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
+            <ns1:status>COMPLETED</ns1:status>
+            <ns1:progress>100</ns1:progress>
+            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/iHCYtsbwryBPGfYDAzEAyGSuINVilbjw5OSqHmYBL.n4ngH_NhxJ2TdmfsymSATBnVpaw.hHf1Bxv.g0YBr4uaUeXA--</ns1:downloadUrl>
+          </ns1:job>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:job>
+            <ns1:accountId>1000000380</ns1:accountId>
+            <ns1:jobId>7777</ns1:jobId>
+            <ns1:userName>8983-5689-9971-5970</ns1:userName>
+            <ns1:startDate>2011-09-06T23:53:08+09:00</ns1:startDate>
+            <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
+            <ns1:status>IN_PROGRESS</ns1:status>
+            <ns1:progress>50</ns1:progress>
+          </ns1:job>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## GetExportFields
+Obtains the fields which can export.
+
+##### Request Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
+            <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
+            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+            <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getExportFields/>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### Response
+Contains the results (list of fields which can export) for getExportFields method.
+
+| Filed | Data Type | Description |
+|---|---|---|
+| rval | [CampaignExportFieldValue](../data/CampaignExportFieldValue.md) | Contains the results (list of fields which can export) for getExportFields method. |
+
+##### Response Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>CampaignExportService</ns1:service>
+      <ns1:remainingQuota>-1</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>9999.99</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getExportFieldsResponse>
+      <ns1:rval>
+            <ns1:operationSucceeded>true</ns1:operationSucceeded>
+            <ns1:fields>
+               <ns1:fieldName>CAMPAIGN_NAME</ns1:fieldName>
+               <ns1:displayFieldNameJA>キャンペーン名</ns1:displayFieldNameJA>
+               <ns1:displayFieldNameEN>Campaign Name</ns1:displayFieldNameEN>
+            </ns1:fields>
       </ns1:rval>
     </ns1:getResponse>
   </SOAP-ENV:Body>

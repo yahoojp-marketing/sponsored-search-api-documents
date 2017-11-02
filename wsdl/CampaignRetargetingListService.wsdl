@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.3.0</version>
+          <version>6.4.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -253,7 +253,7 @@
   <wsdl:service name="CampaignRetargetingListService">
     <wsdl:port binding="tns:CampaignRetargetingListServiceSoapBinding" name="CampaignRetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/CampaignRetargetingListService" />
+        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/CampaignRetargetingListService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

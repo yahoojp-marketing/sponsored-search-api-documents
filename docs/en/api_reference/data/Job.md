@@ -18,7 +18,7 @@ Job object describes the information of job settings.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID.</td>
+  <td>Account ID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -28,7 +28,7 @@ Job object describes the information of job settings.
  <tr>
   <td>jobId</td>
   <td>xsd:string</td>
-  <td>Job ID.</td>
+  <td>Job ID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -38,17 +38,17 @@ Job object describes the information of job settings.
  <tr>
   <td>jobName</td>
   <td>xsd:string</td>
-  <td>Job name.<br>*Default: NULL</td>
+  <td>Job name<br>&lowast;Default: NULL</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional</td>
+  <td>-</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>userName</td>
   <td>xsd:string</td>
-  <td>User name of who registered job setting.</td>
+  <td>Name of user who run the job.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -58,7 +58,7 @@ Job object describes the information of job settings.
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>Start date of job setting.</td>
+  <td>Start date and time of job setting</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -68,7 +68,7 @@ Job object describes the information of job settings.
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>End date of job setting.</td>
+  <td>End date and time of job setting</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -78,7 +78,7 @@ Job object describes the information of job settings.
  <tr>
   <td>status</td>
   <td>enum <a href="./JobStatus.md">JobStatus</a></td>
-  <td>Status of job.</td>
+  <td>Status of job</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -88,17 +88,7 @@ Job object describes the information of job settings.
  <tr>
   <td>progress</td>
   <td>xsd:int</td>
-  <td>Progress of job setting.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>advanced</td>
-  <td>enum <a href="./Advanced.md">Advanced</a></td>
-  <td>Flag of Advanced URL.</td>
+  <td>Progress of job setting</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -108,7 +98,17 @@ Job object describes the information of job settings.
  <tr>
   <td>downloadUrl</td>
   <td>xsd:string</td>
-  <td>Export result of export (download) URL.</td>
+  <td>URL to acquire export result</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>exportFields[0..n]</td>
+  <td>xsd:string</td>
+  <td>Fields to be exported</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

@@ -86,15 +86,15 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
   <td>-</td>
  </tr>
  <tr>
-  <td>advanced</td>
-  <td>enum <a href="./Advanced.md">Advanced</a></td>
-  <td>検索条件：アドバンスドURL対応のフラグです。</td>
-  <td>-</td>
-  <td>Optional</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
+<td>advanced</td>
+<td>enum <a href="./Advanced.md">Advanced</a></td>
+<td>検索条件：アドバンスドURL対応のフラグです。</td>
+<td>-</td>
+<td>Optional</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
  <tr>
   <td>paging</td>
   <td><a href="./Paging.md">Paging</a></td>

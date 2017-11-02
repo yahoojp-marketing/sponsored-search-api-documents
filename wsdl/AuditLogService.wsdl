@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        targetNamespace="http://ss.yahooapis.jp/V6"
+        xmlns:tns="http://ss.yahooapis.jp/V6"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <schema elementFormDefault="qualified"
+                targetNamespace="http://ss.yahooapis.jp/V6"
+                xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:tns="http://ss.yahooapis.jp/V6">
+            <annotation>
+                <appinfo>
+                    <version>6.3.0</version>
+                </appinfo>
+            </annotation>
+            <complexType name="SoapHeader">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+                    <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="SoapResponseHeader">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="Paging">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+                    <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="Page">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+                    <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="ReturnValue">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="ListReturnValue">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="Error">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+                </sequence>
+            </complexType>
+            <complexType name="ErrorDetail">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="AuditLogPage">
+                <complexContent>
+                    <extension base="tns:Page">
+                        <sequence>
+                            <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AuditLogValues"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AuditLogReturnValue">
+                <complexContent>
+                    <extension base="tns:ListReturnValue">
+                        <sequence>
+                            <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AuditLogValues"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AuditLogValues">
+                <complexContent>
+                    <extension base="tns:ReturnValue">
+                        <sequence>
+                            <element maxOccurs="1" minOccurs="0" name="job" type="tns:AuditLogJob"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AuditLogJob">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+                    <element maxOccurs="1" minOccurs="0" name="jobId" type="xsd:long"/>
+                    <element maxOccurs="1" minOccurs="0" name="jobName" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="jobStatus" type="tns:AuditLogJobStatus"/>
+                    <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="eventSelector" type="tns:EventSelector"/>
+                    <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:DateRange"/>
+                    <element maxOccurs="1" minOccurs="0" name="sourceType" type="tns:AuditLogSourceType"/>
+                    <element maxOccurs="1" minOccurs="0" name="output" type="tns:AuditLogOutput"/>
+                    <element maxOccurs="1" minOccurs="0" name="encoding" type="tns:AuditLogEncoding"/>
+                    <element maxOccurs="1" minOccurs="0" name="lang" type="tns:AuditLogLang"/>
+                </sequence>
+            </complexType>
+            <complexType name="EventSelector">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="entityType" type="xsd:string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="eventTypes" type="tns:AuditLogEventType"/>
+                </sequence>
+            </complexType>
+            <complexType name="DateRange">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="AuditLogSelector">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="jobIds" type="xsd:long"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="jobStatuses" type="tns:AuditLogJobStatus"/>
+                    <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+                </sequence>
+            </complexType>
+            <simpleType name="AuditLogJobStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="IN_PROGRESS"/>
+                    <enumeration value="COMPLETED"/>
+                    <enumeration value="TIMEOUT"/>
+                    <enumeration value="SYSTEM_ERROR"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="AuditLogSourceType">
+                <restriction base="xsd:string">
+                    <enumeration value="API"/>
+                    <enumeration value="YAHOO_JAPAN"/>
+                    <enumeration value="ALL"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="AuditLogOutput">
+                <restriction base="xsd:string">
+                    <enumeration value="CSV"/>
+                    <enumeration value="TSV"/>
+                    <enumeration value="ZIPPED_CSV"/>
+                    <enumeration value="ZIPPED_TSV"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="AuditLogEncoding">
+                <restriction base="xsd:string">
+                    <enumeration value="SJIS"/>
+                    <enumeration value="UTF_8"/>
+                    <enumeration value="UTF_16LE"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="AuditLogLang">
+                <restriction base="xsd:string">
+                    <enumeration value="JA"/>
+                    <enumeration value="EN"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="AuditLogEventType">
+                <restriction base="xsd:string">
+                    <enumeration value="ADD"/>
+                    <enumeration value="SET"/>
+                    <enumeration value="REMOVE"/>
+                    <enumeration value="ALL"/>
+                </restriction>
+            </simpleType>
+            <complexType name="AuditLogOperation">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="operand" type="tns:AuditLogJob"/>
+                </sequence>
+            </complexType>
+            <element name="get">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1" name="selector" type="tns:AuditLogSelector"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getResponse">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AuditLogPage"/>
+                        <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="addJob">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1" name="operations" type="tns:AuditLogOperation"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="addJobResponse">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AuditLogReturnValue"/>
+                        <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="RequestHeader" type="tns:SoapHeader"/>
+            <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+            <element name="ApiExceptionFault" type="xsd:string"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="RequestHeader">
+        <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ResponseHeader">
+        <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+    </wsdl:message>
+    <wsdl:message name="getRequest">
+        <wsdl:part element="tns:get" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getResponse">
+        <wsdl:part element="tns:getResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addJobRequest">
+        <wsdl:part element="tns:addJob" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addJobResponse">
+        <wsdl:part element="tns:addJobResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="ApiException">
+        <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+    </wsdl:message>
+    <wsdl:portType name="AuditLogServiceInterface">
+        <wsdl:operation name="get">
+            <wsdl:input message="tns:getRequest" name="getRequest"/>
+            <wsdl:output message="tns:getResponse" name="getResponse"/>
+            <wsdl:fault message="tns:ApiException" name="ApiException"/>
+        </wsdl:operation>
+        <wsdl:operation name="addJob">
+            <wsdl:input message="tns:addJobRequest" name="addJobRequest"/>
+            <wsdl:output message="tns:addJobResponse" name="addJobResponse"/>
+            <wsdl:fault message="tns:ApiException" name="ApiException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AuditLogServiceSoapBinding" type="tns:AuditLogServiceInterface">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="get">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getRequest">
+                <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getResponse">
+                <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiException">
+                <wsdlsoap:fault name="ApiException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="addJob">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addJobRequest">
+                <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addJobResponse">
+                <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiException">
+                <wsdlsoap:fault name="ApiException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AuditLogService">
+        <wsdl:port name="AuditLogService" binding="tns:AuditLogServiceSoapBinding">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/AuditLogService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

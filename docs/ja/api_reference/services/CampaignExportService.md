@@ -16,6 +16,10 @@ http://ss.yahooapis.jp/V6
 #### 操作
 CampaignExportServiceで提供される操作を説明します。
 
+#### 注意事項
+・過去にリクエストしたaddJobの詳細は、getにて確認できます。作成したジョブの有効期限は、addJobのリクエストから30日間です。<br>
+・エクスポート結果は、getレスポンスのダウンロードURLから確認できます。ダウンロードURLの有効期限は、JobStatusがCOMPLETEDになってから15分間です。<br>
+
 ## addJob
 エクスポートの登録を実施します。
 
@@ -26,11 +30,8 @@ CampaignExportServiceで提供される操作を説明します。
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
- <SOAP-ENV:Header>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+   <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
          <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
@@ -63,7 +64,8 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:lang>JA</ns1:lang>
             <ns1:output>CSV</ns1:output>
             <ns1:encoding>SJIS</ns1:encoding>
-            <ns1:advanced>FALSE</ns1:advanced>
+            <ns1:exportFields>CAMPAIGN_NAME</ns1:exportFields>
+            <ns1:exportFields>AD_GROUP_NAME</ns1:exportFields>
          </ns1:setting>
       </ns1:addJob>
    </SOAP-ENV:Body>
@@ -79,11 +81,8 @@ CampaignExportServiceで提供される操作を説明します。
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
- <SOAP-ENV:Header>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+  <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
       <ns1:remainingQuota>-1</ns1:remainingQuota>
@@ -104,7 +103,8 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:startDate>2011-09-07T22:55:37+09:00</ns1:startDate>
             <ns1:status>IN_PROGRESS</ns1:status>
             <ns1:progress>0</ns1:progress>
-            <ns1:advanced>FALSE</ns1:advanced>
+            <ns1:exportFields>CAMPAIGN_NAME</ns1:exportFields>
+            <ns1:exportFields>AD_GROUP_NAME</ns1:exportFields>
           </ns1:job>
         </ns1:values>
       </ns1:rval>
@@ -115,7 +115,6 @@ CampaignExportServiceで提供される操作を説明します。
 
 ## get
 登録したジョブに関するステータス情報を取得します。<br>
-また、ダウンロードURLの作成完了後は、URLも取得できます。
 
 #### リクエスト
 | パラメータ | 必須 | データ型 | 説明 | 
@@ -162,11 +161,8 @@ CampaignExportServiceで提供される操作を説明します。
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
- <SOAP-ENV:Header>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+  <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>CampaignExportService</ns1:service>
       <ns1:remainingQuota>-1</ns1:remainingQuota>
@@ -189,8 +185,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>COMPLETED</ns1:status>
             <ns1:progress>100</ns1:progress>
-            <ns1:advanced>TRUE</ns1:advanced>
-            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--</ns1:downloadUrl>
+            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/iHCYtsbwryBPGfYDAzEAyGSuINVilbjw5OSqHmYBL.n4ngH_NhxJ2TdmfsymSATBnVpaw.hHf1Bxv.g0YBr4uaUeXA--</ns1:downloadUrl>
           </ns1:job>
         </ns1:values>
         <ns1:values>
@@ -203,8 +198,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>COMPLETED</ns1:status>
             <ns1:progress>100</ns1:progress>
-            <ns1:advanced>FALSE</ns1:advanced>
-            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--</ns1:downloadUrl>
+            <ns1:downloadUrl>https ://colo05.ss.yahooapis.jp/bulkDownload/V6/download/iHCYtsbwryBPGfYDAzEAyGSuINVilbjw5OSqHmYBL.n4ngH_NhxJ2TdmfsymSATBnVpaw.hHf1Bxv.g0YBr4uaUeXA--</ns1:downloadUrl>
           </ns1:job>
         </ns1:values>
         <ns1:values>
@@ -217,9 +211,67 @@ CampaignExportServiceで提供される操作を説明します。
             <ns1:endDate>2011-09-06T23:53:30+09:00</ns1:endDate>
             <ns1:status>IN_PROGRESS</ns1:status>
             <ns1:progress>50</ns1:progress>
-            <ns1:advanced>FALSE</ns1:advanced>
           </ns1:job>
         </ns1:values>
+      </ns1:rval>
+    </ns1:getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## GetExportFields
+エクスポートできるフィールドを照会します。
+
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://ss.yahooapis.jp/V6">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
+            <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
+            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
+            <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getExportFields/>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### レスポンス
+getExportFieldsメソッドの実行結果(エクスポート可能なフィールドのリスト)を保持します。
+
+| フィールド | データ型 | 説明 | 
+|---|---|---|
+| rval | [CampaignExportFieldValue](../data/CampaignExportFieldValue.md) | getExportFieldsメソッドの実行結果(エクスポート可能なフィールドのリスト)を保持します。 | 
+
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>CampaignExportService</ns1:service>
+      <ns1:remainingQuota>-1</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>9999.99</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getExportFieldsResponse>
+      <ns1:rval>
+            <ns1:operationSucceeded>true</ns1:operationSucceeded>
+            <ns1:fields>
+               <ns1:fieldName>CAMPAIGN_NAME</ns1:fieldName>
+               <ns1:displayFieldNameJA>キャンペーン名</ns1:displayFieldNameJA>
+               <ns1:displayFieldNameEN>Campaign Name</ns1:displayFieldNameEN>
+            </ns1:fields>
       </ns1:rval>
     </ns1:getResponse>
   </SOAP-ENV:Body>

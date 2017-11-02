@@ -4,6 +4,9 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
 ### Service
 + [AdGroupCriterionService](../services/AdGroupCriterionService.md)
 
+### Inheritance
++ [AdGroupCriterion](./AdGroupCriterion.md)
+
 <table>
  <tr>
   <th>Field</th>
@@ -14,9 +17,6 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <th>add</th>
   <th>set</th>
   <th>remove</th>
- </tr>
- <tr>
-  <td colspan="8"><a href="./AdGroupCriterion.md">AdGroupCriterion</a>(inherited)</td>
  </tr>
  <tr>
   <td>accountId</td>
@@ -284,7 +284,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
   <td>-</td>
  </tr>
- <td>advanced</td>
+  <td>advanced</td>
   <td>enum <a href="./Advanced.md">Advanced</a></td>
   <td>アドバンスドURL対応のフラグです。</td>
   <td>yes</td>
