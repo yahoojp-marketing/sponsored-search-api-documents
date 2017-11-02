@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.3.0</version>
+          <version>6.4.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -122,12 +122,6 @@
           <enumeration value="SYSTEM_ERROR"/>
         </restriction>
       </simpleType>
-      <simpleType name="Advanced">
-        <restriction base="xsd:string">
-          <enumeration value="TRUE"/>
-          <enumeration value="FALSE"/>
-        </restriction>
-      </simpleType>
       <complexType name="CampaignExportPage">
         <complexContent>
           <extension base="tns:Page">
@@ -165,8 +159,8 @@
           <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="status" type="tns:JobStatus"/>
           <element maxOccurs="1" minOccurs="0" name="progress" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
           <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="exportFields" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="ExportSetting">
@@ -188,7 +182,7 @@
            <element maxOccurs="1" minOccurs="0" name="lang" type="tns:Lang"/>
            <element maxOccurs="1" minOccurs="0" name="output" type="tns:Output"/>
            <element maxOccurs="1" minOccurs="0" name="encoding" type="tns:Encoding"/>
-           <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
+           <element maxOccurs="unbounded" minOccurs="0" name="exportFields" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="JobSelector">
@@ -198,6 +192,22 @@
            <element maxOccurs="unbounded" minOccurs="0" name="statuses" type="tns:JobStatus"/>
            <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
+      </complexType>
+      <complexType name="CampaignExportFieldAttribute">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="fieldName" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="displayFieldNameJA" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="displayFieldNameEN" type="xsd:string" />
+        </sequence>
+      </complexType>
+      <complexType name="CampaignExportFieldValue">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="fields" type="tns:CampaignExportFieldAttribute" />
+            </sequence>
+          </extension>
+        </complexContent>
       </complexType>
       <element name="get">
         <complexType>
@@ -229,6 +239,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="getExportFields">
+        <complexType>
+          <sequence>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getExportFieldsResponse">
+      <complexType>
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignExportFieldValue" />
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+        </sequence>
+      </complexType>
+      </element>
       <element name="RequestHeader" type="tns:SoapHeader"/>
       <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
@@ -252,6 +276,12 @@
   <wsdl:message name="addJobResponse">
     <wsdl:part element="tns:addJobResponse" name="parameters"/>
   </wsdl:message>
+  <wsdl:message name="getExportFieldsRequest">
+    <wsdl:part element="tns:getExportFields" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="getExportFieldsResponse">
+    <wsdl:part element="tns:getExportFieldsResponse" name="parameters" />
+  </wsdl:message>
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
@@ -265,6 +295,11 @@
       <wsdl:input message="tns:addJobRequest" name="addJobRequest"/>
       <wsdl:output message="tns:addJobResponse" name="addJobResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getExportFields">
+      <wsdl:input message="tns:getExportFieldsRequest" name="getExportFieldsRequest" />
+      <wsdl:output message="tns:getExportFieldsResponse" name="getExportFieldsResponse" />
+      <wsdl:fault message="tns:ApiException" name="ApiException" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CampaignExportServiceSoapBinding" type="tns:CampaignExportServiceInterface">
@@ -297,10 +332,24 @@
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+  <wsdl:operation name="getExportFields">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getExportFieldsRequest">
+      <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+      <wsdlsoap:body use="literal"/>
+    </wsdl:input>
+    <wsdl:output name="getExportFieldsResponse">
+      <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+      <wsdlsoap:body use="literal"/>
+    </wsdl:output>
+    <wsdl:fault name="ApiException">
+      <wsdlsoap:fault name="ApiException" use="literal"/>
+    </wsdl:fault>
+  </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CampaignExportService">
     <wsdl:port binding="tns:CampaignExportServiceSoapBinding" name="CampaignExportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.3/CampaignExportService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/CampaignExportService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

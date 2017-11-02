@@ -95,7 +95,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>-</td>
   <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>url</td>
   <td>xsd:string</td>
   <td>移行前のリンク先 URLです。</td>

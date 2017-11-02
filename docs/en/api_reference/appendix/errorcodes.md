@@ -30,7 +30,7 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0001 | Invalid Request.  | This error can result for a variety of reasons. <br>Typically because one of the parameter values in the request is wrong or invalid and the operation cannot be completed.  
-0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>*Be sure to have your SOAP Request/Response ready.
+0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
 0003 | Frequency limit exceeded. Please try your request again later. | Frequency limit exceeded. Please try your request again later.  
 0004 | Invalid location.  | Account cannot be accessed at this location. <br>Please use the LocationService to retrieve the URL prefix for the colocation the account is assigned to.  
 0006 | required. | The soap header is missing required parameter.  
@@ -95,7 +95,7 @@ All services.
 20130028 | CANNOT SET VALUE | You can not specify delivery status.
 20410003 | INPUT REQUIRED | Account ID is required.
 20410004 | INVALID VALUE | You have submitted an invalid account ID.
-20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed. 
+20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed.
 20410006 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.
 20410007 | NO ACCOUNT FOUND | One of the account IDs indicated in the request was not found. <br>Please confirm your account IDs.
 20410009 | GET BALANCE FAILED | The operation failed to get account balance.
@@ -118,8 +118,8 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 20410003 | INPUT REQUIRED | Account ID is required.
-20410004 | INVALID VALUE | You have submitted an invalid account ID. 
-20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed. 
+20410004 | INVALID VALUE | You have submitted an invalid account ID.
+20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed.
 20410006 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.
 20410007 | NO ACCOUNT FOUND | One of the account IDs indicated in the request was not found. <br>Please confirm your account IDs
 20410009 | GET BALANCE FAILED | The operation failed to get account balance.
@@ -127,11 +127,11 @@ All services.
 #### Campaign Management error
 ##### Service
 [AccountSharedService](/docs/en/api_reference/services/AccountSharedService.md), <br>
-[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br> 
+[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), <br>
 [AdGroupBidMultiplierService](/docs/en/api_reference/services/AdGroupBidMultiplierService.md), <br>
-[CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br> 
+[CampaignExportService](/docs/en/api_reference/services/CampaignExportService.md), <br> [CampaignCriterionService](/docs/en/api_reference/services/CampaignCriterionService.md), <br>
 [CampaignSharedSetService](/docs/en/api_reference/services/CampaignSharedSetService.md), <br>
-[CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br> 
+[CampaignTargetService](/docs/en/api_reference/services/CampaignTargetService.md), <br> [CustomerSyncService](/docs/en/api_reference/services/CustomerSyncService.md), <br>
 [SharedCriterionService](/docs/en/api_reference/services/SharedCriterionService.md), <br>
 
 
@@ -145,13 +145,13 @@ All services.
 10100 | DEACTIVATED | The entity is having status as deleted. <br>This error may also result if account status is not active or the entity does not exist.
 10200 | INVALID_STATUS | To update destinationUrl at keyword BiddableAdGroupCriterion, approbalStatus of the keyword must be "APPROVED"
 10300 | OVER_LIMIT | Number of entities exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
-10501 | UNMATCH_BIDDING _STRATEGY_TYPE | Accelerated delivery method is not supported for budget optimizer. <br>This error may also result if biddingStrategyType does not match campaign's biddingStrategyType.
+10501 | UNMATCH_BIDDING_STRATEGY_TYPE | Accelerated delivery method is not supported for budget optimizer. <br>This error may also result if biddingStrategyType does not match campaign's biddingStrategyType.
 10601 | OVER_BUDGET_AMOUNT | You cannot set/add amount greater than the amount specified for the campaign budget.
 10602 | LOWER_BUDGET_AMOUNT | Have to set/add amount greater than the budget set for ad group or keywords of specific campaign.
-10701 | EXISTS_DIFFERENT _CRITERION_USE_TYPE | The BiddableAdGroupCriterion already exists for NegativeAdGroupCriterion and vice versa.
-10702 | EXISTS_SAME_TERM _WITH_MATCH_TYPE | The name you specified for a keyword with match type already exists in the campaign/ad group, cannot be duplicated.
+10701 | EXISTS_DIFFERENT_CRITERION_USE_TYPE | Cannot set as bid keyword that is already set as negative keywords. Same for vice versa.
+10702 | EXISTS_SAME_TERM_WITH_MATCH_TYPE | The name you specified for a keyword with match type already exists in the campaign/ad group, cannot be duplicated.
 10900 | UNMATCH_PLATFORM_TYPE | Invalid platformType.
-10901 | UNMATCH_DEVICE _PREFERENCE | Invalid device preference setting. <br>It is only valid in Unified Campaign.
+10901 | UNMATCH_DEVICE_PREFERENCE | Invalid device preference setting. <br>It is only valid in Unified Campaign.
 20101 | REQUIRED | The operation is missing a required field or parameter or the value is empty.
 20102 | NOT_LIST | The operation requires array.
 20103 | OVER_LIST_SIZE | Number of elements exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
@@ -178,7 +178,8 @@ All services.
 120017 | TOO SMALL VALUE | The number is small.  
 120018 | DUPLICATE VALUE | The same Ad Group ID in the array.  
 120022 | DEACTIVATED | Data does not exist.  
-120027 | OVER LIST SIZE | Array is two or more. 
+120027 | OVER LIST SIZE | Array is two or more.
+210607 | Require default value. | Default text is not input into ad for insertion of the ad customizer.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
 211003 | Domain does not match with DisplayURL.  | Display URL and Landing Page URL (including mobile) domain does not match.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br>- Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.
@@ -187,7 +188,7 @@ All services.
 
 ##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
-  
+
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 210300 | Double or no settings in Auto bidding.  | Bid type or Auto Bidding ID is not set, or both Bid type and Auto Bidding ID are set.
@@ -201,8 +202,8 @@ All services.
 210308 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210309 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
 210310 | Select the correct bid type.  | Bid type does not match.
-210311 | Campaign has been started.  | The start date of the campaign which has started cannot be changed. 
-211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
+210311 | Campaign has been started.  | The start date of the campaign which has started cannot be changed.
+211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download
 211002 | Lpurl is required for ValueTrack.	| Include {lpurl} in Tracking URL.
 211003 | Domain does not match with DisplayURL.  | Display URL and Landing Page URL (including mobile) domain does not match.
@@ -222,15 +223,15 @@ All services.
 210406 | Cannot use conversion optimizer.  | Auto Bidding setting is not available.
 210407 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210408 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
-210409 | Bid setting limit has exceed.  | Number of bidding settings or number of Auto Bidding settings for the ad group under the campaign has exceeded the maximum limit. <br> *Up to 1000 settings are totally available for all ad groups under a single campaign.
-211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
+210409 | Bid setting limit has exceed.  | Number of bidding settings or number of Auto Bidding settings for the ad group under the campaign has exceeded the maximum limit. <br> &lowast;Up to 1000 settings are totally available for all ad groups under a single campaign.
+211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
 211002 | Lpurl is required for ValueTrack.	| Include {lpurl} in Tracking URL.
 211003 | Domain does not match with DisplayURL.  | Display URL and Landing Page URL (including mobile) domain does not match.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br> - Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.<br> - Setting Landing Page URL and/or URL for Smartphone in Keyword.
 
 ##### Service
-[AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md) 
+[AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
@@ -249,12 +250,12 @@ All services.
 210512 | Set campaign active.	| Cannot set Auto Bidding when Campaign is not "ACTIVE".
 210513 | Set campaign to Manual CPC.  | Cannot set Auto Bidding when Campaign is not "MANUAL_CPC".
 210517 | Exceeds maximum word limit. | Cannot set more than 10 keywords.
-211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
+211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br> - Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.<br> - Setting Landing Page URL and/or URL for Smartphone in Keyword.
 
 ##### Service
-[BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md) 
+[BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
@@ -269,7 +270,7 @@ All services.
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
-0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>*Be sure to have your SOAP Request/Response ready.
+0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
 0108 | entity count limit exceeded.  | The error occurs when you create 31st report definitions.<br>The limitation of report definitions you can store is 30.<br>Please check and remove old report definitions.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 40001 | REQUIRED | The operation is missing a required field or parameter or the value is empty.
@@ -304,7 +305,7 @@ All services.
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------    
-0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>*Be sure to have your SOAP Request/Response ready.
+0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
 0108 | entity count limit exceeded.  | The error occurs when you create 51st ONE TIME report job.<br>The limitation of ONE TIME report job ID you can store is 50.<br>Please check and remove old report job.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 40001 | REQUIRED | The operation is missing a required field or parameter or the value is empty.
@@ -317,7 +318,7 @@ All services.
 
 #### Forecasting error
 ##### Service
-[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md), 
+[BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md),
 <br>  [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
 
  Code    | Message        | Description              
@@ -336,7 +337,7 @@ All services.
 80004 | CRITERION NOT FOUND | Keyword in the request was not found.
 80006 | TOO MANY WORDS | Number of keyword token exceed maximum allowed in this request.
 80007 | INSUFFICIENT SEARCH PARAMETERS | No search term or URL is specified. <br>When you specify EXCLUDED_KEYWORD you need to specify RELATED_TO_KEYWORD or RELATED_TO_URL.
-120026 | REQUIRED BIDDABLE KEYWORD | Biddable keyword is required. 
+120026 | REQUIRED BIDDABLE KEYWORD | All specified keywords are negative keywords. Biddable keyword is required.
 
 #### ConversionTracker management error
 ##### Service
@@ -368,9 +369,10 @@ All services.
 210102 | INVALID PHONE NUMBER | Phone number in CALL_PHONE_NUMBER from FeedItemService is invalid. <br>This error occur when adding the FeedItem information on CALLEXTENSION.  
 210104 | INVALID STATUS | Since it is in review, cannot be updated.
 210110 | INVALID TARGET | Number of scheduled targeting settings exceeds the maximum items per a day (max: 6).
-211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL. 
+211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL.
 210123 | CAMPAIGN TARGETING MISMATCH 	| It is not available to set, since the campaign ID specified with 'targetingCampaignId' does not match to the parent campaign ID of the ad group specified with 'targetingAdGroupId'.
 210126 | Mobile app download cannot connect to. | Mobile App Download campaign is not available.
+211013 | Require geo targeting settings. | Location setting is required if LOCATION_OF_PRESENCE is set for FeedItemGeoRestriction (Geo Targeting).
 
 ##### Service
 [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)

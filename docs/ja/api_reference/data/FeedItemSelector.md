@@ -55,7 +55,7 @@ FeedItemSelectorオブジェクトは、フィードアイテムの情報を指�
   <td>-</td>
   <td>-</td>
  </tr>
- <tr>
+  <tr>
   <td>advanced</td>
   <td>enum <br><a href="./Advanced.md">Advanced</a></td>
   <td>検索条件：アドバンスドURL対応のフラグです。<br>※Default:：TRUE</td>

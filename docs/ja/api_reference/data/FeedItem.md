@@ -31,7 +31,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>フィードフォルダIDです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Requirement</td>
+  <td>-<br>※アドカスタマイザーの場合、Requirement</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -105,14 +105,14 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>優先デバイス設定です。<br>※空で設定すると、既存の優先 デバイス設定は削除されます（電話番号以外のみ）。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※電話番号 の場合、Optional<br>※Default: SMART_PHONE</td>
-  <td>Optional<br>※電話番号 の場合、Ignore</td>
+  <td>Optional<br>※電話番号オプションの場合、Optional<br>※Default: SMART_PHONE</td>
+  <td>Optional<br>※電話番号オプションの場合、Ignore</td>
   <td>-</td>
  </tr>
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>配信開始日です。<br>※空で設定すると、既存の配信 開始日は削除されます。</td>
+  <td>配信開始日です。<br>※空で設定すると、既存の配信開始日は削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -122,7 +122,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>配信終了日です。<br>※空で設定すると、既存の配信 終了日は削除されます。</td>
+  <td>配信終了日です。<br>※空で設定すると、既存の配信終了日は削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -132,7 +132,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>scheduling</td>
   <td><a href="./FeedItemScheduling.md">FeedItemScheduling</a></td>
-  <td>配信スケジュールです。<br>※空で設定すると、既存の配信 スケジュールは削除されます。</td>
+  <td>配信スケジュールです。<br>※空で設定すると、既存の配信スケジュールは削除されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -142,31 +142,31 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
  <tr>
   <td>targetingCampaign</td>
   <td><a href="./TargetingCampaign.md">TargetingCampaign</a></td>
-  <td>フィードアイテムで使用する キャンペーンです。</td>
+  <td>アドカスタマイザーで使用するキャンペーンです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
   <td>-</td>
  </tr>
  <tr>
   <td>targetingAdGroup</td>
   <td><a href="./TargetingAdGroup.md">TargetingAdGroup</a></td>
-  <td>フィードアイテムで使用する 広告グループです。</td>
+  <td>アドカスタマイザーで使用する広告グループです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
   <td>-</td>
  </tr>
  <tr>
   <td>targetingKeyword</td>
   <td><a href="./TargetingKeyword.md">TargetingKeyword</a></td>
-  <td>フィードアイテムで使用する キーワードです。</td>
+  <td>アドカスタマイザーで使用するキーワードです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
-  <td>-<br>※データ自動 挿入の場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
   <td>-</td>
  </tr>
  <tr>
@@ -175,8 +175,8 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※クイック リンクの場合、Optional</td>
-  <td>-<br>※クイック リンクの場合、Optional</td>
+  <td>-<br>※クイックリンクオプションの場合、Optional</td>
+  <td>-<br>※クイックリンクオプションの場合、Optional</td>
   <td>-</td>
  </tr>
  <tr>
@@ -189,7 +189,17 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>-</td>
  </tr>
- <tr>
+  <tr>
+  <td>geoTargeting</td>
+  <td><a href="./Location.md">Location</a></td>
+  <td>地域設定情報です。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-<br>※アドカスタマイザーの場合、Optional</td>
+  <td>-</td>
+  <td>-</td> 
+ </tr>
+  <tr>
   <td>advanced</td>
   <td>enum <a href="./Advanced.md">Advanced</a></td>
   <td>アドバンスドURL対応のフラグです。</td>

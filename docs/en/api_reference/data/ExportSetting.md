@@ -18,19 +18,19 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID.</td>
+  <td>Account ID</td>
   <td>-</td>
-  <td>-</td>
-  <td>Requirement</td>
+  <td>Required</td>
+  <td>Required</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>campaignIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Campaign ID of export objective.</td>
+  <td>Campaign ID of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -38,9 +38,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>campaignCriterionIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Campaign criteria ID.</td>
+  <td>Campaign criteria ID</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -48,9 +48,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Ad group ID of export objective.</td>
+  <td>Ad group ID of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -58,9 +58,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Ad ID of export objective.</td>
+  <td>Ad ID of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -68,9 +68,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupCriterionIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Ad group criteria ID.</td>
+  <td>Ad group criteria ID</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -78,9 +78,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>campaignUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Distribution status in campaign of export objective.</td>
+  <td>Distribution status in campaign of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -88,9 +88,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Distribution status in ad group of export objective.</td>
+  <td>Distribution status in ad group of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -98,9 +98,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupAdUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Distribution status in ad of export objective.</td>
+  <td>Distribution status in ad of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -108,9 +108,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupCriterionUserStatuses[0...2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Distribution status in ad group criteria of export objective.</td>
+  <td>Distribution status in ad group criteria of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -118,9 +118,9 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>adGroupAdApprovalStatuses[0...5]</td>
   <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>Status in ad approval of export objective.</td>
+  <td>Status in ad approval of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -128,9 +128,9 @@ ExportSetting object describes the condition for exports.
   <tr>
   <td>adGroupCriterionApprovalStatuses[0...5]</td>
   <td>enum <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>Status in keyword approval of export objective.</td>
+  <td>Status in keyword approval of export objective</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>
@@ -138,59 +138,59 @@ ExportSetting object describes the condition for exports.
  <tr>
   <td>entityTypes[0...6]</td>
   <td>enum <a href="./EntityType_CampaignExport.md">EntityType</a></td>
-  <td>Entity type to download.<br>*Default: ALL</td>
-  <td>-</td>
+  <td>Entity type to download</td>
   <td>-</td>
   <td>Optional</td>
+  <td>Optional<br>&lowast;Default: ALL</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>jobName</td>
   <td>xsd:string</td>
-  <td>Job information for export.<br>*Default: NULL</td>
-  <td>-</td>
+  <td>Job information for export</td>
   <td>-</td>
   <td>Optional</td>
+  <td>Optional<br>&lowast;Default: NULL</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>lang</td>
   <td>enum <a href="./Lang.md">Lang</a></td>
-  <td>Language setting for export.<br>*Default: JA</td>
+  <td>Language setting for export</td>
   <td>-</td>
-  <td>-</td>
-  <td>Optional</td>
+  <td>Required</td>
+  <td>Optional<br>&lowast;Default: JA</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>output</td>
   <td>enum <a href="./Output.md">Output</a></td>
-  <td>Output format for export.<br>*Default: CSV</td>
+  <td>Output format for export</td>
   <td>-</td>
-  <td>-</td>
-  <td>Requirement</td>
+  <td>Required</td>
+  <td>Optional<br>&lowast;Default: CSV</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>encoding</td>
   <td>enum <a href="./Encoding.md">Encoding</a></td>
-  <td>Encoding setting of export.<br>*Default: UTF-8</td>
+  <td>Encoding setting of export</td>
   <td>-</td>
-  <td>-</td>
-  <td>Requirement</td>
+  <td>Required</td>
+  <td>Optional<br>&lowast;Default: UTF-8</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
-  <td>advanced</td>
-  <td>enum <a href="./Advanced.md">Advanced</a></td>
-  <td>Select which object to export.<br>*Default: TRUE</td>
+  <td>exportFields[0..n]</td>
+  <td>xsd:string</td>
+  <td>Select which field to export.</td>
   <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
   <td>Optional</td>
   <td>-</td>
   <td>-</td>

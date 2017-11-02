@@ -312,6 +312,11 @@ FeedItemServiceで提供される操作を説明します。
                      <ns1:text>keyword keyword keyword keyword</ns1:text>
                      <ns1:matchType>PHRASE</ns1:matchType>
                   </ns1:targetingKeyword>
+                  <ns1:geoTargeting>
+                    <ns1:targetId>JP-0001-0010</ns1:targetId>
+                    <ns1:type>LOCATION</ns1:type>
+                    <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+                  </ns1:geoTargeting>
                </ns1:feedItem>
             </ns1:values>
             <ns1:values>
@@ -480,7 +485,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜リクエストサンプル＞（データ自動挿入）
+＜リクエストサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -544,6 +549,11 @@ FeedItemServiceで提供される操作を説明します。
             <ns1:text>keyword keyword keyword keyword</ns1:text>
             <ns1:matchType>PHRASE</ns1:matchType>
           </ns1:targetingKeyword>
+          <ns1:geoTargeting>
+            <ns1:targetId>JP-0001-0010</ns1:targetId>
+            <ns1:type>LOCATION</ns1:type>
+            <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+          </ns1:geoTargeting>
         </ns1:operand>
         <ns1:operand>
           <ns1:accountId>100000001</ns1:accountId>
@@ -836,7 +846,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜レスポンスサンプル＞（データ自動挿入）
+＜レスポンスサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -906,6 +916,11 @@ FeedItemServiceで提供される操作を説明します。
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-0001-0010</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>
@@ -1214,7 +1229,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜リクエストサンプル＞（データ自動挿入）
+＜リクエストサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1267,6 +1282,10 @@ FeedItemServiceで提供される操作を説明します。
           <ns1:targetingKeyword>
             <ns1:targetingKeywordId>999999</ns1:targetingKeywordId>
           </ns1:targetingKeyword>
+          <ns1:geoTargeting>
+            <ns1:targetId>JP-13-0004</ns1:targetId>
+            <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
+          </ns1:geoTargeting>
         </ns1:operand>
         <ns1:operand>
           <ns1:accountId>1000000001</ns1:accountId>
@@ -1553,7 +1572,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜レスポンスサンプル＞（データ自動挿入）
+＜レスポンスサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1623,6 +1642,11 @@ FeedItemServiceで提供される操作を説明します。
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-13-0004</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>
@@ -1840,7 +1864,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜リクエストサンプル＞（データ自動挿入）
+＜リクエストサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
@@ -2125,7 +2149,7 @@ FeedItemServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-＜レスポンスサンプル＞（データ自動挿入）
+＜レスポンスサンプル＞（アドカスタマイザー）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -2195,6 +2219,11 @@ FeedItemServiceで提供される操作を説明します。
               <ns1:text>keyword keyword keyword keyword</ns1:text>
               <ns1:matchType>PHRASE</ns1:matchType>
             </ns1:targetingKeyword>
+            <ns1:geoTargeting>
+              <ns1:targetId>JP-0001-0010</ns1:targetId>
+              <ns1:type>LOCATION</ns1:type>
+              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
+            </ns1:geoTargeting>
           </ns1:feedItem>
         </ns1:values>
         <ns1:values>
