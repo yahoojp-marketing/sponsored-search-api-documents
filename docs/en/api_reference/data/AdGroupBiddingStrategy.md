@@ -1,5 +1,5 @@
 # AdGroupBiddingStrategy
-AdGroupBiddingStrategy object describes the detail of bidding setting. <br>(This is an object for AdGroupService)
+AdGroupBiddingStrategy object describes the detail of bidding setting. 
 
 ### Service
 + [AdGroupService](../services/AdGroupService.md)
@@ -10,7 +10,6 @@ AdGroupBiddingStrategy object describes the detail of bidding setting. <br>(This
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -18,72 +17,65 @@ AdGroupBiddingStrategy object describes the detail of bidding setting. <br>(This
  <tr>
   <td>biddingStrategyId</td>
   <td>xsd:long</td>
-  <td>Auto Bidding ID.</td>
+  <td>Auto Bidding ID.<br>*Not available after November 15, 2017 JST.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
-  <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyName</td>
   <td>xsd:string</td>
-  <td>Auto Bidding name.<br>*Input limit: 50 characters.</td>
+  <td>Auto Bidding name.<br>*Up to 50 characters.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyType</td>
   <td>enum <a href="./BiddingStrategyType.md">BiddingStrategyType</a></td>
-  <td>Auto Bidding type.</td>
+  <td>Auto Bidding type.<br>*After November 15, 2017 JST, only "NONE" is available as bidding setting.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategySource</td>
   <td>enum <a href="./BiddingStrategySource.md">BiddingStrategySource</a></td>
   <td>Bidding source.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingScheme</td>
   <td><a href="./BiddingScheme_nonBiddingStrategy.md">BiddingScheme</a><br> inherited <a href="./ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="./BudgetOptimizerBiddingScheme.md">BudgetOptimizerBiddingScheme </a><br> inherited <a href="./EnhancedCpcBiddingScheme_nonBiddingStrategy.md">EnhancedCpcBiddingScheme</a><br> inherited <a href="./PageOnePromotedBiddingScheme_nonBiddingStrategy.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="./TargetCpaBiddingScheme_nonBiddingStrategy.md">TargetCpaBiddingScheme</a><br> inherited <a href="./TargetSpendBiddingScheme_nonBiddingStrategy.md">TargetSpendBiddingScheme</a><br> inherited <a href="./TargetRoasBiddingScheme_nonBiddingStrategy.md">TargetRoasBiddingScheme</a></td>
   <td>Details of Auto Bidding setting.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>initialBid</td>
   <td>enum <a href="./Bid_AdGroup.md">Bid</a></td>
-  <td>Bid rate.</td>
+  <td>Bid amount.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>parentBiddingStrategyConfigurations[0...n]</td>
   <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-  <td>Auto Bidding setting of upper level entity.</td>
+  <td>Auto Bidding setting for the upper level entity.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 
