@@ -17,15 +17,15 @@ Get, add, update ConversionTracker informations.
 
 #### Notes
 ConversionTrackerService has following restrictions.<br>
-・You can acquire up to 200 conversion tags in three kinds such as Web Page , Click to Call , App Download.<br>
-・Conversion Tag will not be removed. Please use it by updating the created Conversion Tag. <br>
+・You can acquire up to 1,000 conversion tags in three kinds such as Web Page , Click to Call , App Download.<br>
+・Conversion Tag will not be removed. Please create a new tag or update the created Conversion Tag. <br>
 ・Conversion is measured based on cookie.<br>
 ・If you add/edit conversion tag after November 16, 2016, you can set the counting period between 7 to 90 days after clicked the ad.<br>For Mobile App Download ad, the counting period is fixed as 30days after clicked.
 ・For the measurement of the phone call conversion, you must setting the "conversion tracking tag" and "on-click event tag" on your site.<br>
-　The installation method of "on-click event tag", please check the help pages of Yahoo! promotional advertising.<br>
+　The installation method of "on-click event tag", please check Sponsored Search help pages.<br>
 <br>
-Please refer “help” page in Yahoo! JAPAN Promotional Ads for Conversion Analytics:<br>
-http://help.marketing.yahoo.co.jp/en/?p=367
+Please refer Sponsored Search help pages for Conversion Analytics:<br>
+https://help.marketing.yahoo.co.jp/en/?p=367
 
 ## get
 Describes the operation which provide at ConversionTrackerService
