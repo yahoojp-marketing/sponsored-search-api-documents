@@ -1,12 +1,13 @@
-# ExcludedType (enum)
-ExcludedTypeは、ユーザー設定の配信ステータスです。
+# AuditLogEncoding(enum)
+AuditLogEncoding describes the encoding type (character encoding) for Operation History file.<br>
 
 ### Service
-+ [AdGroupRetargetingListService](./services/AdGroupRetargetingListService.md)
++ [AuditLogService](../services/AuditLogService.md)
 
-| 値 | データ型 | 説明 | 
+| Enumeration | Type | Description | 
 |---|---|---|
-| INCLUDED| string| 包含です。 |
-| EXCLUDED| string| 除外です。 |
+| SJIS | xsd:string | SJIS |
+| UTF_8 | xsd:string | UTF_8 |
+| UTF_16LE | xsd:string | UTF_16LE |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
