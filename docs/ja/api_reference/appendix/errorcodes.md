@@ -136,11 +136,10 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
 0018 | The data size you requested is too large. Please try your request again with a smaller date range or reduce the size of your request.  | 生成されるデータのサイズが大きいため取得に失敗しました。<br>集計期間やパラメーターを調整し、再度リクエストを実施してください。 
-0102 | DEACTIVATED | アカウントが存在しない、ステータスが無効、削除済みなどの状態です。
+0102 | Deactivated. | アカウントが存在しない、ステータスが無効、削除済みなどの状態です。
 0103 | Exists same name. | キャンペーン、広告グループ、もしくは広告の名前が重複します。<br>ユニーク（一意的）な名前を指定してください。 
 1003 | invalid download request. | ダウンロードURLの取得ホストと実行ホストが異なります。
 1004 | download URL has expired. | ダウンロードURLの有効期限が切れました。<br />ダウンロードURLが改ざんされています。
-10100 | DEACTIVATED | 削除済みとして登録されました。<br>アカウントステータスがアクティブでない、またはアカウントが存在しない場合にもこのエラーが発生する可能性があります。
 10200 | INVALID_STATUS | カスタムURLを更新するためには、キーワードが"承認済み"になっている必要があります。
 10300 | OVER_LIMIT | 上限値を超えています。リクエストのサイズを調整して、再度実行してください。
 10501 | UNMATCH_BIDDING _STRATEGY_TYPE | 広告の配信方法が「ACCELERATED」の場合は、BudgetOptimizerを設定できません。<br>biddingStrategyTypeが、キャンペーンのiddingStrategyTypeと一致しない場合にもこのエラーが発生する可能性があります。
@@ -214,6 +213,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
   
 コード                   | メッセージ  | 説明 
 ------------------------ | ----------- | -------------------------------------------------------
+0102 | Deactivated. | 無効な設定です。
 210301 | Setting the disabled Auto bidding.  | 編集中（削除含む）の自動入札を指定しています。
 210400 | Double setting in Auto bidding.	| 入札タイプと自動入札IDの両方を指定しています。
 210402 | Invalid conversion tracking.  | コンバージョントラッキングが無効です。

@@ -138,11 +138,10 @@ All services.
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
 0018 | The data size you requested is too large. <br>Please try your request again with a smaller date range or reduce the size of your request.  | Failed operations due to data size excess.
-0102 | DEACTIVATED | There is no such account, account status is invalid, the account has been already deleted.
+0102 | Deactivated. | There is no such account, account status is invalid, the account has been already deleted.
 0103 | Exists same name. | The name you specified for a campaign, ad group, ad was not unique. <br>Please choose one that is unique.
 1003 | invalid download request. | Host of creating and host of obtaining the Download URL differs.
 1004 | download URL has expired. | Passed the retainment period of Download URL (10 minutes after report creation)<br />Download URL may have falsified.
-10100 | DEACTIVATED | The entity is having status as deleted. <br>This error may also result if account status is not active or the entity does not exist.
 10200 | INVALID_STATUS | To update destinationUrl at keyword BiddableAdGroupCriterion, approbalStatus of the keyword must be "APPROVED"
 10300 | OVER_LIMIT | Number of entities exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
 10501 | UNMATCH_BIDDING_STRATEGY_TYPE | Accelerated delivery method is not supported for budget optimizer. <br>This error may also result if biddingStrategyType does not match campaign's biddingStrategyType.
@@ -214,6 +213,7 @@ All services.
 
  Code    | Message        | Description              
 -------- | -------------- | ------------------------  
+0102 | Deactivated. | Invalid setting.
 210301 | Setting the disabled Auto bidding.  | Designating the Auto bidding that in updating or deleted mode.
 210400 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.  
 210402 | Invalid conversion tracking.  | Conversion tracking is not valid.

@@ -10,7 +10,6 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -20,17 +19,15 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
   <td>xsd:long</td>
   <td>アカウントIDです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>ignore</td>
+  <td>ignore</td>
+  <td>ignore</td>
  </tr>
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
   <td>キャンペーンIDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>Requirement</td>
@@ -40,17 +37,15 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
   <td>xsd:string</td>
   <td>キャンペーン名です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>ignore</td>
+  <td>ignore</td>
+  <td>ignore</td>
  </tr>
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
   <td>広告グループIDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>Requirement</td>
@@ -60,27 +55,24 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
   <td>xsd:string</td>
   <td>広告グループ名です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>ignore</td>
+  <td>ignore</td>
+  <td>ignore</td>
  </tr>
  <tr>
   <td>criterionTargetList</td>
   <td><a href="./CriterionTargetList.md">CriterionTargetList</a></td>
   <td>ターゲットリストです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Requirement</td>
   <td>Requirement</td>
  </tr>
  <tr>
   <td>excludedType</td>
-  <td>enum <a href="./ExcludedType_AdGroupRetargetingList.md">ExcludedType</a></td>
+  <td>enum <a href="./ExcludedType.md">ExcludedType</a></td>
   <td>包含/追加設定です。<br>※Default値：INCLUDED</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
   <td>Requirement</td>
@@ -90,10 +82,9 @@ AdGroupRetargetingListは、広告グループレベルでのターゲットリ�
   <td>xsd:double</td>
   <td>MaxCPC上昇値です。<br>※Default値：1.00 </td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>ignore</td>
  </tr>
 </table>
 
