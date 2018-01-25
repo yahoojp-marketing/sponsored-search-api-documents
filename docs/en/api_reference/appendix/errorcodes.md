@@ -357,6 +357,8 @@ All services.
 120023 | OVER LIMIT | Limit is over.
 120024 | INVALID RELATION | Relation is invalid.
 210004 | INVALID SNIPPET FORMAT | Snipet format is invalid.
+225303 | Cannot duplicate Auto Bidding, since the app conversion type 'App Download' has been already with 'Auto' bidding on the same App ID. | Cannot duplicate Auto Bidding, since the app conversion type 'App Download' has been already with 'Auto' bidding on the same App ID.
+225304 | Invalid combination of Auto Bidding and the app conversion type ‘App Download’ on the same App ID. | Invalid combination of Auto Bidding and the app conversion type ‘App Download’ on the same App ID.
 
 #### Feed Item error
 ##### Service
@@ -426,6 +428,7 @@ All services.
 210812 | Already existing target list. | 'Exclude/Include' setting of the Target List has been already made for the ad group ID. (For a single ad group, one target list for each Exclude and Include setting is available for setup.
 210813 | Cannot bid the negative criterion. | Bid adjustment rate is set although the target list setting is as 'Exclude'.
 225301 | Cannot attach criteria at campaign and adgroup. | Target list cannot be setup both for ad group and campaign.
+225302 | Cannot add closed target list. | Cannot add closed target list to setup.
 
 
 ##### Service
@@ -439,3 +442,4 @@ All services.
 210813 | Cannot bid the negative criterion.| Bidding setting been requested to the campaign or ad group that made exclude setting.
 210814 | List already registered.| Combination of target or exclude list to the selected ad group ID is already registered.
 225301 |  Cannot attach criteria at campaign and adgroup. | Target list cannot be setup both for ad group and campaign.
+225302 |  Cannot add closed target list. | Cannot add closed target list to setup.

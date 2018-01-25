@@ -3,52 +3,48 @@ WebConversion describes ConversionTracker information such as ConversionTag and 
 ### Service
 + [ConversionTrackerService](../services/ConversionTrackerService.md)
 
+### Inheritance
++ [ConversionTracker](./ConversionTracker.md)
 <table>
  <tr>
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
-  <th>remove</th>
- </tr>
- <tr>
-  <td colspan="8"><a href="./ConversionTracker.md">ConversionTracker</a>(inherited)</td>
- </tr>
- <tr>
-  <td colspan="8">WebConversion</td>
  </tr>
  <tr>
   <td>snippet</td>
   <td>xsd:string</td>
   <td>Tracking script.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>markupLanguage</td>
   <td>enum<br><a href="../data/MarkupLanguage.md">MarkupLanguage</a></td>
   <td>Markup Language.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Required</td>
+  <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>trackingCodeType</td>
   <td>enum<br><a href="./TrackingCodeType.md">TrackingCodeType</a></td>
   <td>Tracking code type.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Required</td>
+  <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+ </tr>
+ <tr>
+  <td>crossDeviceConversionFlag</td>
+  <td>enum<br><a href="./CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
+  <td>The flag to control tracking conversions across different devices.</td>
+  <td>yes</td>
+  <td>Optional<br>※default:FALSE</td>
+  <td>Optional</td>
  </tr>
 </table>
 

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://ss.yahooapis.jp/V6"
-  xmlns:tns="http://ss.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://ss.yahooapis.jp/V6"
+        xmlns:tns="http://ss.yahooapis.jp/V6"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V6">
+            targetNamespace="http://ss.yahooapis.jp/V6"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.4.0</version>
+          <version>6.5.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -37,12 +37,14 @@
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="conversionTrackerIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="appIds" type="xsd:string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="statuses" type="tns:ConversionTrackerStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="categories" type="tns:ConversionTrackerCategory"/>
           <element maxOccurs="unbounded" minOccurs="0" name="conversionTrackerTypes" type="tns:ConversionTrackerType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="trackingCodeTypes" type="tns:TrackingCodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="countingTypes" type="tns:ConversionCountingType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="excludeFromBiddings" type="tns:ExcludeFromBidding"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="crossDeviceConversionFlags" type="tns:CrossDeviceConversionFlag"/>
           <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ConversionDateRange"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
@@ -85,6 +87,7 @@
               <element maxOccurs="1" minOccurs="0" name="snippet" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="markupLanguage" type="tns:MarkupLanguage"/>
               <element maxOccurs="1" minOccurs="0" name="trackingCodeType" type="tns:TrackingCodeType"/>
+              <element maxOccurs="1" minOccurs="0" name="crossDeviceConversionFlag" type="tns:CrossDeviceConversionFlag"/>
             </sequence>
           </extension>
         </complexContent>
@@ -169,10 +172,16 @@
         </restriction>
       </simpleType>
       <simpleType name="ExcludeFromBidding">
-         <restriction base="xsd:string">
-           <enumeration value="TRUE"/>
-           <enumeration value="FALSE"/>
-         </restriction>
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="CrossDeviceConversionFlag">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
       </simpleType>
       <complexType name="ConversionTrackerPage">
         <complexContent>
@@ -358,7 +367,7 @@
   </wsdl:binding>
   <wsdl:service name="ConversionTrackerService">
     <wsdl:port binding="tns:ConversionTrackerServiceSoapBinding" name="ConversionTrackerService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/ConversionTrackerService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/ConversionTrackerService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

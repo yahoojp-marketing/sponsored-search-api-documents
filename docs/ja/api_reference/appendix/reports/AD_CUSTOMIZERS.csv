@@ -11,7 +11,7 @@
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","false",
+"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","true",
 "FEED_ID","データ自動挿入リストID","Data Assignment List ID","dataAssignmentListId","LONG","true",
 "FEED_ITEM_ID","データ自動挿入リスト（詳細）","Data Assignment List (details)","dataAssignmentListDetails","LONG","true",
 "FEED_ITEM_START_DATE","開始日","Start Date","dataAssignmentListDetailsStartDate","STRING","true",
@@ -28,6 +28,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true",
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true",
 "KEYWORD_TARGETING_TEXT","設定先キーワード","Target Keyword","targetKeywordText","STRING","true",
 "KEYWORD_TARGETING_MATCH_TYPE","設定先キーワードマッチタイプ","Target Keyword Match Type","targetKeywordMatchType","ENUM","true",
 "TARGETING_CAMPAIGN_ID","設定先キャンペーンID","Target Campaign ID","targetCampaignID","LONG","true",

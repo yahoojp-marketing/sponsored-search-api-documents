@@ -1,8 +1,8 @@
 "フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields"
 "CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","true",
 "CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","true",
-"CAMPAIGN_DISTRIBUTION_SETTINGS","キャンペーン配信設定","Distribution Settings","campaignDistributionSettings","ENUM","false",
-"CAMPAIGN_DISTRIBUTION_STATUS","配信状況","Distribution Status","campaignDistributionStatus","ENUM","false",
+"CAMPAIGN_DISTRIBUTION_SETTINGS","キャンペーン配信設定","Distribution Settings","campaignDistributionSettings","ENUM","true",
+"CAMPAIGN_DISTRIBUTION_STATUS","配信状況","Distribution Status","campaignDistributionStatus","ENUM","true",
 "DAILY_SPENDING_LIMIT","1日の予算","Daily Spending Limit","dailySpendingLimit","LONG","true",
 "CAMPAIGN_START_DATE","開始日","Start Date","campaignStartDate","STRING","true",
 "CAMPAIGN_END_DATE","終了日","End Date","campaignEndDate","STRING","true",
@@ -31,6 +31,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true","[HOUR_OF_DAY]"
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true","[CONVERSION_NAME, HOUR_OF_DAY, OBJECT_OF_CONVERSION_TRACKING]"
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true","[HOUR_OF_DAY]"
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true","[HOUR_OF_DAY]"
 "CAMPAIGN_MOBILE_BID_MODIFIER","スマートフォン入札価格調整率（％）","Smartphone Bid Adjustment (%)","mobileBidAdj","DOUBLE","true",
 "CAMPAIGN_DESKTOP_BID_MODIFIER","PC入札価格調整率（％）","PC Bid Adjustment (%)","desktopBidAdj","DOUBLE","true",
 "CAMPAIGN_TABLET_BID_MODIFIER","タブレット入札価格調整率（％）","Tablet Bid Adjustment (%)","tabletBidAdj","DOUBLE","true",
@@ -44,7 +45,7 @@
 "MONTH","毎月","Month","month","STRING","false",
 "MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",
 "WEEK","毎週","Week","week","STRING","false",
-"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, INVALID_CLICKS, INVALID_CLICK_RATE, VALUE_PER_ALL_CONV]"
+"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, CROSS_DEVICE_CONVERSIONS, INVALID_CLICKS, INVALID_CLICK_RATE, VALUE_PER_ALL_CONV]"
 "OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, BUDGET_LOST_IMPRESSION_SHARE, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, INVALID_CLICKS, INVALID_CLICK_RATE, QUALITY_LOST_IMPRESSION_SHARE]"
 "CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, BUDGET_LOST_IMPRESSION_SHARE, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, INVALID_CLICKS, INVALID_CLICK_RATE, QUALITY_LOST_IMPRESSION_SHARE]"
-"CAMPAIGN_TYPE","キャンペーンタイプ","Campaign type","campaignType","ENUM","false",
+"CAMPAIGN_TYPE","キャンペーンタイプ","Campaign type","campaignType","ENUM","true",

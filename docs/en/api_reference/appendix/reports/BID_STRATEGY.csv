@@ -7,13 +7,13 @@
 "AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true",
 "BID_STRATEGY_ID","自動入札ID","Auto Bidding ID","autoBiddingID","LONG","true",
 "BID_STRATEGY_NAME","自動入札名","Auto Bidding Name","autoBiddingName","STRING","true",
-"BID_STRATEGY_TYPE","自動入札タイプ","Auto Bidding Type","autoBiddingType","ENUM","false",
+"BID_STRATEGY_TYPE","自動入札タイプ","Auto Bidding Type","autoBiddingType","ENUM","true",
 "ADGROUP_COUNT","広告グループ数","Ad Groups","adGroups","LONG","true",
 "CAMPAIGN_COUNT","キャンペーン数","Campaigns","campaigns","LONG","true",
-"TARGET_SEARCH_PAGE_LOCATION","掲載位置（検索結果ページの目標掲載位置）","Ad Position (Target position in search results)","adPositionOfTargetPositionInSearchResults","ENUM","false",
+"TARGET_SEARCH_PAGE_LOCATION","掲載位置（検索結果ページの目標掲載位置）","Ad Position (Target position in search results)","adPositionOfTargetPositionInSearchResults","ENUM","true",
 "BID_AUTOMATION","入札調整方法（検索結果ページの目標掲載位置）","Bidding Adjustment Method (Target position in search results)","biddingAdjustmentMethodOfTargetPositionInSearchResults","ENUM","true",
 "BID_MULTIPLIER_OF_TARGET_PAGE_LOCATION","入札価格調整（検索結果ページの目標掲載位置）","Bidding Adjustment (Target position in search results)","biddingAdjustmentOfTargetPositionInSearchResults","LONG","true",
-"LIMITED_BUDGETS","キャンペーン予算による制限（検索結果ページの目標掲載位置）","Limit by Campaign Budget (Target position in search results)","limitByCampaignBudgetOfTargetPositionInSearchResults","ENUM","false",
+"LIMITED_BUDGETS","キャンペーン予算による制限（検索結果ページの目標掲載位置）","Limit by Campaign Budget (Target position in search results)","limitByCampaignBudgetOfTargetPositionInSearchResults","ENUM","true",
 "LOW_QUALITY_KEYWORDS","品質が低いキーワード（検索結果ページの目標掲載位置）","Low Quality Keyword (Target position in search results)","lowQualityKeywordOfTargetPositionInSearchResults","ENUM","true",
 "UPPER_BID_LIMIT_OF_TARGET_PAGE_LOCATION","入札価格の上限（検索結果ページの目標掲載位置）","Bid Limit (Target position in search results)","bidLimitForTargetPositionInSearchResults","LONG","true",
 "TARGET_CPA","コンバージョン単価の目標値","Target CPA","targetCpa","DOUBLE","true",
@@ -33,6 +33,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true","[HOUR_OF_DAY]"
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true","[HOUR_OF_DAY]"
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true","[HOUR_OF_DAY]"
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true","[HOUR_OF_DAY]"
 "DEVICE","デバイス","Device","device","ENUM","false",
 "DAY","日","Day","day","STRING","false",
 "DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM","false",
@@ -41,4 +42,4 @@
 "MONTH","毎月","Month","month","STRING","false",
 "MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",
 "WEEK","毎週","Week","week","STRING","false",
-"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, VALUE_PER_ALL_CONV]"
+"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, CROSS_DEVICE_CONVERSIONS, VALUE_PER_ALL_CONV]"

@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.4.0</version>
+          <version>6.5.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -349,7 +349,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignExportService">
     <wsdl:port binding="tns:CampaignExportServiceSoapBinding" name="CampaignExportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/CampaignExportService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/CampaignExportService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -10,7 +10,7 @@ AdGroupRetargetingListService is to get, add, update, or delete information of t
 #### Namespace
 http://ss.yahooapis.jp/V6
 
-#### Overview
+#### Service Overview
 AdGroupRetargetingListService provides operation of target list setting in ad group level.
 
 #### Operation

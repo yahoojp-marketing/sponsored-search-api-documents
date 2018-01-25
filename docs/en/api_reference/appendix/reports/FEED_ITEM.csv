@@ -11,7 +11,7 @@
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","false",
+"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","true",
 "PHONE_NUMBER","電話番号","Phone Number","phoneNumber","STRING","true",
 "DEVICE_PREFERENCE","優先デバイス","Focus Device","focusDevice","ENUM","true",
 "FEED_ID","フィードID","Feed ID","feedID","LONG","true",
@@ -23,7 +23,7 @@
 "FEED_ITEM_END_DATE","終了日","End Date","adDisplayOptionEndDate","STRING","true",
 "TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING","true",
 "CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING","true",
-"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING","false",
+"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING","true",
 "LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING","true",
 "CALLOUT","補足用テキスト","Callout","callout","STRING","true",
 "CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE","true",
@@ -36,6 +36,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true",
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true",
 "CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG","false",
 "ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG","false",
 "AD_TRACKING_ID","広告トラッキングID","Ad Tracking ID","adTrackingID","LONG","false",

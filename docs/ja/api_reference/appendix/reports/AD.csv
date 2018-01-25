@@ -10,7 +10,7 @@
 "DISPLAY_URL","表示URL","Display URL","displayURL","STRING","true",
 "DESTINATION_URL","リンク先URL","Destination URL","destinationURL","STRING","true",
 "AD_TYPE","広告タイプ","Ad Type","adType","ENUM","true",
-"AD_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","adDistributionSettings","ENUM","false",
+"AD_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","adDistributionSettings","ENUM","true",
 "AD_EDITORIAL_STATUS","審査状況","Editorial Status","adEditorialStatus","ENUM","true",
 "COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
@@ -22,7 +22,7 @@
 "DEVICE_PREFERENCE","優先デバイス","Focus Device","focusDevice","ENUM","true",
 "TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING","true",
 "CUSTOM_PARAMETERS","カスタムパラメータ","Custom Parameters","customParameters","STRING","true",
-"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING","false",
+"LANDING_PAGE_URL","最終リンク先URL","Landing Page URL","landingPageURL","STRING","true",
 "LANDING_PAGE_URL_SMARTPHONE","最終リンク先URL（スマートフォン）","Landing Page URL (Smartphone)","landingPageURLSmartphone","STRING","true",
 "CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG","true",
 "AD_TRACKING_ID","広告トラッキングID","Ad Tracking ID","adTrackingID","LONG","true",
@@ -36,6 +36,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true",
 "ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG","true",
 "NETWORK","広告掲載方式の指定","Network","network","ENUM","false",
 "CLICK_TYPE","クリック種別","ClickType","clickType","ENUM","false",

@@ -19,16 +19,16 @@ Campaign object describes Campaign information.
   <td>xsd:long</td>
   <td>Account ID.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
   <td>Campaign ID.</td>
   <td>yes</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
@@ -37,9 +37,9 @@ Campaign object describes Campaign information.
   <td>xsd:long</td>
   <td>Campaign ID for tracking.<br>* "0" will return in Sandbox.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignName</td>
@@ -48,7 +48,7 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>userStatuses</td>
@@ -57,16 +57,16 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>servingStatus</td>
   <td>enum <a href="./CampaignServingStatus.md">CampaignServingStatus</a></td>
   <td>Display status in Campaign level.<br>Return the campgin status regardless of display status set from user (userStatuses).</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>startDate</td>
@@ -75,16 +75,16 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Optional<br>*Default: Current date.</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
   <td>End date of Campaign.<br>*Cannot set the past date and date before the start date.</td>
   <td>yes</td>
-   <td>Optional<br>※Default: 20371231</td>
+  <td>Optional<br>※Default: 20371231</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>budget</td>
@@ -93,7 +93,7 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyConfiguration</td>
@@ -102,95 +102,101 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>biddingStrategyFailedReason</td>
   <td>enum <a href="./BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
   <td>Reason of Auto Bidding set has failed.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
   <td><a href="./CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
   <td>Reason of Auto Bidding creation has failed.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>conversionOptimizerEligibility</td>
   <td>enum <a href="./ConversionOptimizerEligibility.md">ConversionOptimizerEligibility</a></td>
   <td>Determines if eligible to use Conversion Optimizer.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adServingOptimizationStatus</td>
   <td>enum <a href="./AdServingOptimizationStatus.md">AdServingOptimizationStatus</a></td>
-  <td>Setting of Ad display optimization.</td>
+  <td>Setting of Ad rotation for optimizing ad display.<br>*This item of 'Ad rotation' on campaign level has been changed to read-only.</td>
   <td>yes</td>
-  <td>Optional<br>*Default: OPTIMIZE</td>
-  <td>Optional</td>
-  <td>-</td>
+  <td>Ignore<br>*Default: OPTIMIZE is set.<br>It's not editable with other value.</td>
+  <td>Ignore<br>*The value which has been already set for this item is responded.<br>It's not editable with other value.</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>settings[0..2]</td>
   <td>
   <a href="./CampaignSettings.md">CampaignSettings</a><br>
   inherited <a href="./GeoTargetTypeSetting.md">GeoTargetTypeSetting</a><br>
-  inherited <a href="./TargetingSetting.md">TargetingSetting</a> 
+  inherited <a href="./TargetingSetting.md">TargetingSetting</a>
   </td>
   <td>Setting of target and matching.</td>
   <td>yes</td>
-    <td>Optional<br>
+  <td>Optional<br>
   *Default value for the case of no setting 'TargetingSetting'<br>
   SettingType:TARGET_LIST_SETTING<br>
   TargetAll:DEACTIVE</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignType</td>
   <td>enum <a href="./CampaignType.md">CampaignType</a></td>
   <td>Campaign type.</td>
   <td>yes</td>
-  <td>Optional<br>*Default: STANDARD</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>※Default: STANDARD</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>appStore</td>
   <td>enum <a href="./AppStore_Campaign.md">AppStore</a></td>
   <td>Selection of App store.</td>
   <td>yes</td>
-  <td>-<br>*Requirement for the case when the campaign type is Mobile App (MOBILE_APP)</td>
-  <td>-</td>
-  <td>-</td>
+  <td>If campaignType is 'STANDARD':ignore<br>
+   If campaignType is 'MOBILE_APP':Requirement<br>
+   If campaignType is 'DYNAMIC_ADS_FOR_SEARCH_SETTING':ignore
+  </td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>appId</td>
   <td>xsd:string</td>
   <td>App ID (for iOS) or Package name (for Android).<br>*Input only the numbers for iOS in Mobile App Campaign.</td>
   <td>yes</td>
-  <td>-<br>*Requirement for the case when the campaign type is Mobile App (MOBILE_APP)</td>
-  <td>-</td>
-  <td>-</td>
+  <td>If campaignType is 'STANDARD':ignore<br>
+   If campaignType is 'MOBILE_APP':Requirement<br>
+   If campaignType is 'DYNAMIC_ADS_FOR_SEARCH_SETTING':ignore
+  </td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
   <td>Tracking URL.<br>*Cannot set if Mobile App Campaign is in Android.</td>
   <td>yes</td>
-   <td>Optional</td>
+  <td>Optional</td>
   <td>Optional<br>*Cannot update during review.<br>*If there is no change on this field, it will not be reviewed.</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>customParameters</td>
@@ -199,16 +205,16 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>*Cannot update when Tracking URL is in review.<br>*If there is no change on this field, it will not be reviewed.</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>urlReviewData</td>
   <td><a href="./UrlReviewData.md">UrlReviewData</a></td>
   <td>Review status of URL.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

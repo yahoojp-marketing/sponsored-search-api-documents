@@ -89,34 +89,34 @@ AdGroup object describes ad group information.
  <tr>
   <td>biddingStrategyConfiguration</td>
   <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-  <td>Bidding setting which is currently available.<br>*After November 15, 2017 JST, creating/editing bidding setting is not available.</td>
+ <td>Bidding setting which is currently available.<br>*After November 15, 2017 JST, creating/editing bidding setting is not available.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
-  <tr>
-  <td>biddingStrategyFailedReason</td>
-  <td>enum <a href="./BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-  <td>Reason of failed Auto Bidding settgin.<br>*This field shows when setting has actually failed.</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-  <td>Settings in detail on the failed Auto Bidding creation.<br>*This field shows when setting has actually failed.</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
+<tr>
+<td>biddingStrategyFailedReason</td>
+<td>enum <a href="./BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
+<td>Reason of failed Auto Bidding setting.<br>*This field shows when setting has actually failed.</td>
+<td>yes</td>
+<td>Ignore</td>
+<td>Ignore</td>
+<td>Ignore</td>
+</tr>
+<tr>
+<td>failedBiddingStrategyConfiguration</td>
+<td><a href="./AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
+<td>Settings in detail on the failed Auto Bidding creation.<br>*This field shows when setting has actually failed.</td>
+<td>yes</td>
+<td>Ignore</td>
+<td>Ignore</td>
+<td>Ignore</td>
+</tr>
+<tr>
   <td>settings[0...1]</td>
   <td><a href="./AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
-  <td>Target setting.</td>
+  <td>Targeting setting.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional</td>
@@ -147,6 +147,15 @@ AdGroup object describes ad group information.
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>adGroupAdRotationMode</td>
+  <td><a href="./AdGroupAdRotationMode.md">AdGroupAdRotationMode</a></td>
+  <td>Ad rotation setting for optimizing.</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional</td>
   <td>Ignore</td>
  </tr>
 </table>

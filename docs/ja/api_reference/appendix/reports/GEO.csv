@@ -1,13 +1,13 @@
 "フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields"
-"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","true",
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","true",
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","true",
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","true",
-"COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"CLICKS","クリック数","Clicks","clicks","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","false",
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","false",
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","false",
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","false",
+"COST","コスト","Cost","cost","LONG","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"IMPS","インプレッション数","Impressions","impressions","LONG","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CLICKS","クリック数","Clicks","clicks","LONG","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE","false",
 "CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE","false",
@@ -18,8 +18,9 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","false",
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","false","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","false",
-"CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG","true",
-"ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG","true",
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","false",
+"CAMPAIGN_TRACKING_ID","キャンペーントラッキングID","Campaign Tracking ID","campaignTrackingID","LONG","false",
+"ADGROUP_TRACKING_ID","広告グループトラッキングID","Ad Group Tracking ID","adgroupTrackingID","LONG","false",
 "NETWORK","広告掲載方式の指定","Network","network","ENUM","false",
 "DEVICE","デバイス","Device","device","ENUM","false",
 "DAY","日","Day","day","STRING","false",
