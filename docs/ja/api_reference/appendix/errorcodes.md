@@ -357,6 +357,8 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 120023 | OVER LIMIT | 制限を超えています。
 120024 | INVALID RELATION | 関係が無効です。
 210004 | INVALID SNIPPET FORMAT | スニペットの形式が無効です。
+225303 | Cannot duplicate Auto Bidding, since the app conversion type 'App Download' has been already with 'Auto' bidding on the same App ID. | 同一のappIdで、アプリコンバージョン種別に「ダウンロード」が設定されている場合、自動入札を重複して設定できません。
+225304 | Invalid combination of Auto Bidding and the app conversion type ‘App Download’ on the same App ID. | 同一のappIdで、アプリコンバージョン種別「ダウンロード」と、自動入札設定の組み合わせが正しくありません。
 
 #### FeedItemに関するエラー
 ##### Service
@@ -426,6 +428,7 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210812 | Already existing target list. | 広告グループIDに対して配信、除外のターゲットリストが既に設定されています （1つの広告グループに対して配信、除外のターゲットリストはそれぞれ1件まで関連付け可能です）。
 210813 | Cannot bid the negative criterion. | ターゲットリストが除外で設定されていますが、入札価格調整率が設定されています。
 225301 | Cannot attach criteria at campaign and adgroup. | 広告グループとキャンペーンの両方にターゲットリストの関連付けはできません。
+225302 | Cannot add closed target list. | 停止中のターゲットリストは関連付けできません。
 
 ##### Service
 [AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
@@ -438,4 +441,4 @@ SOAPリクエストが成功した場合、スポンサードサーチ APIは HT
 210813 | Cannot bid the negative criterion.| 除外設定にも関わらず入札が指定されています。
 210814 | List already registered.| 対象広告グループIDに対して有効・除外ユーザリストの組み合わせが既に登録されています。
 225301 |  Cannot attach criteria at campaign and adgroup. | 広告グループとキャンペーンの両方にターゲットリストの関連付けはできません。
-
+225302 | Cannot add closed target list. | 停止中のターゲットリストは関連付けできません。

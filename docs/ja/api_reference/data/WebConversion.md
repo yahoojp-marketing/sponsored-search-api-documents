@@ -12,40 +12,40 @@ WebConversionオブジェクトは、ウェブページのコンバージョン�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
-  <th>remove</th>
  </tr>
  <tr>
   <td>snippet</td>
   <td>xsd:string</td>
   <td>トラッキングスクリプトです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>markupLanguage</td>
   <td>enum<br><a href="../data/MarkupLanguage.md">MarkupLanguage</a></td>
   <td>マークアップ言語です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>trackingCodeType</td>
   <td>enum<br><a href="./TrackingCodeType.md">TrackingCodeType</a></td>
   <td>トラッキングコードタイプです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+ </tr>
+ <tr>
+  <td>crossDeviceConversionFlag</td>
+  <td>enum<br><a href="./CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
+  <td>デバイスまたぎでコンバージョンを計測するかしないかを制御するフラグです。</td>
+  <td>yes</td>
+  <td>Optional<br>※default値:FALSE</td>
+  <td>Optional</td>
  </tr>
 </table>
 

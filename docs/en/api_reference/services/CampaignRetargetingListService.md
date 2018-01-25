@@ -10,7 +10,7 @@ CampaignRetargetingListService is to get, add, update, or delete information of 
 #### Namespace
 http://ss.yahooapis.jp/V6
 
-#### Overview
+#### Service Overview
 CampaignRetargetingListService provides operation of target list setting in campaign level.
 
 #### Operation

@@ -11,9 +11,23 @@ And it provides the operation to download URL of the reports.
 #### Namespace
 http://ss.yahooapis.jp/V6
 
-#### Overview
-Use this service to get, add, or delete reports.
+#### Service Overview
+The following operations are provided:
+- Get reports
+- Add reports
+- Delete reports
 
+[Maximum number of report download job]
+- Up to 50 report download job that is saved as one-time report (Add Template: NO) can be added for regular and proxy authentications combined.<br>
+- There is no upper limits to the number of report download jobs that is saved as scheduled report (Add Template: YES).
+Example：<br>
+If you have already saved 40 report download jobs for regular authentication, you can add a maximum of 10 jobs for proxy authentication.<br>
+*If you wish to add more jobs though the upper saving limit is reached, delete some of the download jobs you already saved.<br>
+
+[Notes]<br>
+- Reports can be downloaded from the URL created with 'get' method.<br>
+ The URL is valid in the first 5 minutes after the status becomes COMPLETED.
+- Report download jobs will be automatically deleted after a week (7 days) from requested.<br>
 #### Operation
 Explains the operation which will be provided at ReportService.
 

@@ -13,20 +13,21 @@ ReportDefinitionServiceでは、レポート定義の取得および追加・削
 http://ss.yahooapis.jp/V6
 
 #### サービス概要
-レポート定義の取得および追加・削除を行います。<br>
-レポート定義は、テンプレートとして登録する場合、最大30個まで追加することが可能です。<br>
-テンプレートとして登録しない場合、上限値はありません。<br>
-<br>
-【注意事項】<br>
-・検索クエリレポートと地域別レポートおよびリンク先URLレポートは、配信実績のないデータは出力されません。<br>
-　また、その他のレポートタイプでもレポートセグメントを指定した場合は、配信実績がないデータは出力されません。<br>
-・レポート定義は、作成したAPIアカウントIDごとに確認が可能です。<br>
-　同じAPIアカウントIDで作成されたレポート定義は、認証方式に関係なくすべて確認できます。<br>
-・テンプレート数の上限は、標準認証と代行認証で登録したレポート定義の合計値です。<br>
-　例：<br>
-　標準認証で20個のレポート定義をテンプレートに登録している場合、代行認証では最大10個まで登録できます。<br>
-　この状態からさらに追加でレポート定義を登録する場合は、登録済みのレポート定義を削除する必要があります。<br>
-<br>
+以下の操作が実行可能です。
+- レポート定義の取得
+- レポート定義の登録
+- レポート定義の削除
+- レポート出力項目の取得
+
+【レポート定義の登録上限数】
+- テンプレートとして登録されたレポート定義（定期レポート用）は、標準認証と代行認証で併せて最大30件まで登録できます。
+- テンプレートとして登録しないレポート定義（ONETIMEレポート用）の登録上限数はありません。<br>
+例：<br>
+テンプレートとして登録されたレポート定義を、標準認証で20件登録済みの場合、代行認証では残り10件まで登録できます。<br>
+※登録上限数に達した状態から新たにレポート定義を登録する場合は、登録済みのレポート定義を削除する必要があります。
+
+【補足】
+- 同じAPIアカウントIDで作成されたレポート定義は、認証方式に関係なくすべて確認できます。
 
 #### 操作
 ReportDefinitionServiceで提供される操作を説明します。
@@ -42,27 +43,26 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountID>xxxxxxxxxxxxxxxxxx</ns1:apiAccountID>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:reportIds>200000001</ns1:reportIds>
-        <ns1:reportIds>200000002</ns1:reportIds>
-        <ns1:reportIds>200000003</ns1:reportIds>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>500</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V6">
+      <selector>
+        <accountId>100000001</accountId>
+        <reportIds>1111</reportIds>
+        <reportIds>1111</reportIds>
+        <paging>
+          <startIndex>1</startIndex>
+          <numberResults>10</numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -77,99 +77,99 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportDefinitionService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ReportDefinition</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>1</ns1:totalNumEntries>
-        <ns1:Page.Type>ReportDefinitionPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportDefinition>
-            <ns1:reportId>100000001</ns1:reportId>
-            <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-            <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-            <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-            <ns1:dateRange>
-              <ns1:startDate>20160101</ns1:startDate>
-              <ns1:endDate>20161231</ns1:endDate>
-            </ns1:dateRange>
-            <ns1:fields>CAMPAIGN_ID</ns1:fields>
-            <ns1:fields>ADGROUP_ID</ns1:fields>
-            <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-            <ns1:fields>ADGROUP_NAME</ns1:fields>
-            <ns1:fields>COST</ns1:fields>
-            <ns1:fields>IMPS</ns1:fields>
-            <ns1:fields>CLICKS</ns1:fields>
-            <ns1:fields>CLICK_RATE</ns1:fields>
-            <ns1:fields>AVG_CPM</ns1:fields>
-            <ns1:fields>AVG_CPC</ns1:fields>
-            <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-            <ns1:fields>REVENUE</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-            <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-            <ns1:fields>TRACKING_URL</ns1:fields>
-            <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-            <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-            <ns1:fields>NETWORK</ns1:fields>
-            <ns1:fields>DEVICE</ns1:fields>
-            <ns1:fields>DAY</ns1:fields>
-            <ns1:fields>DAY_OF_WEEK</ns1:fields>
-            <ns1:fields>QUARTER</ns1:fields>
-            <ns1:fields>YEAR</ns1:fields>
-            <ns1:fields>MONTH</ns1:fields>
-            <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-            <ns1:fields>WEEK</ns1:fields>
-            <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-            <ns1:fields>CONVERSION_NAME</ns1:fields>
-            <ns1:sortFields>
-              <ns1:type>ASC</ns1:type>
-              <ns1:field>CLICKS</ns1:field>
-            </ns1:sortFields>
-            <ns1:filters>
-              <ns1:field>TRACKING_URL</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>http://yahoo.co.jp</ns1:value>
-              <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-              <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>IMPS</ns1:field>
-              <ns1:operator>GREATER_THAN</ns1:operator>
-              <ns1:value>0</ns1:value>
-            </ns1:filters>
-            <ns1:filters>
-              <ns1:field>CAMPAIGN_ID</ns1:field>
-              <ns1:operator>IN</ns1:operator>
-              <ns1:value>200000001</ns1:value>
-              <ns1:value>200000002</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000003</ns1:value>
-              <ns1:value>200000004</ns1:value>
-              <ns1:value>200000005</ns1:value>
-            </ns1:filters>
-            <ns1:isTemplate>FALSE</ns1:isTemplate>
-            <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-            <ns1:specifyDay>28</ns1:specifyDay>
-            <ns1:format>CSV</ns1:format>
-            <ns1:encode>UTF-8</ns1:encode>
-            <ns1:language>EN</ns1:language>
-            <ns1:compress>NONE</ns1:compress>
-            <ns1:includeZeroImpressions>FALSE</ns1:includeZeroImpressions>
-            <ns1:includeDeleted>FALSE</ns1:includeDeleted>
-          </ns1:reportDefinition>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <getResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <totalNumEntries>2</totalNumEntries>
+        <Page.Type>ReportDefinitionPage</Page.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <reportDefinition>
+            <reportId>1111</reportId>
+            <reportName>Sample LANDING_PAGE_URL Report</reportName>
+            <reportType>LANDING_PAGE_URL</reportType>
+            <dateRangeType>CUSTOM_DATE</dateRangeType>
+            <dateRange>
+              <startDate>20160101</startDate>
+              <endDate>20161231</endDate>
+            </dateRange>
+            <fields>CAMPAIGN_ID</fields>
+            <fields>ADGROUP_ID</fields>
+            <fields>CAMPAIGN_NAME</fields>
+            <fields>ADGROUP_NAME</fields>
+            <fields>COST</fields>
+            <fields>IMPS</fields>
+            <fields>CLICKS</fields>
+            <fields>CLICK_RATE</fields>
+            <fields>AVG_CPM</fields>
+            <fields>AVG_CPC</fields>
+            <fields>AVG_DELIVER_RANK</fields>
+            <fields>REVENUE</fields>
+            <fields>UNIQUE_CONVERSION</fields>
+            <fields>UNIQUE_CONVERSION_RATE</fields>
+            <fields>REVENUE_UNIQUE_CONVERSION</fields>
+            <fields>TRACKING_URL</fields>
+            <fields>CUSTOM_PARAMETERS</fields>
+            <fields>LANDING_PAGE_URL</fields>
+            <fields>NETWORK</fields>
+            <fields>DEVICE</fields>
+            <fields>DAY</fields>
+            <fields>DAY_OF_WEEK</fields>
+            <fields>QUARTER</fields>
+            <fields>YEAR</fields>
+            <fields>MONTH</fields>
+            <fields>MONTH_OF_YEAR</fields>
+            <fields>WEEK</fields>
+            <fields>OBJECT_OF_CONVERSION_TRACKING</fields>
+            <fields>CONVERSION_NAME</fields>
+            <sortFields>
+              <type>ASC</type>
+              <field>CLICKS</field>
+            </sortFields>
+            <filters>
+              <field>TRACKING_URL</field>
+              <operator>IN</operator>
+              <value>http://yahoo.co.jp</value>
+              <value>http://marketing.yahoo.co.jp</value>
+              <value>http://promotionalads.yahoo.co.jp</value>
+            </filters>
+            <filters>
+              <field>IMPS</field>
+              <operator>GREATER_THAN</operator>
+              <value>0</value>
+            </filters>
+            <filters>
+              <field>CAMPAIGN_ID</field>
+              <operator>IN</operator>
+              <value>200000001</value>
+              <value>200000002</value>
+              <value>200000003</value>
+              <value>200000003</value>
+              <value>200000004</value>
+              <value>200000005</value>
+            </filters>
+            <isTemplate>FALSE</isTemplate>
+            <intervalType>SPECIFYDAY</intervalType>
+            <specifyDay>28</specifyDay>
+            <format>CSV</format>
+            <encode>UTF-8</encode>
+            <language>EN</language>
+            <compress>NONE</compress>
+            <includeZeroImpressions>FALSE</includeZeroImpressions>
+            <includeDeleted>FALSE</includeDeleted>
+          </reportDefinition>
+        </values>
+      </rval>
+    </getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -185,21 +185,20 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（LANDING_PAGE_URL）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <soapenv:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-    </ns1:RequestHeader>
-  </soapenv:Header>
-  <soapenv:Body>
-    <ns1:getReportFields>
-      <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-    </ns1:getReportFields>
-  </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getReportFields xmlns="http://ss.yahooapis.jp/V6">
+      <reportType>LANDING_PAGE_URL</reportType>
+    </getReportFields>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
@@ -212,352 +211,385 @@ ReportDefinitionServiceで提供される操作を説明します。
 ＜レスポンスサンプル＞（LANDING_PAGE_URL）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>ReportDefinitionService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.2087</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getReportFieldsResponse>
-         <ns1:rval>
-            <ns1:operationSucceeded>true</ns1:operationSucceeded>
-            <ns1:fields>
-               <ns1:fieldName>CAMPAIGN_ID</ns1:fieldName>
-               <ns1:displayFieldNameJA>キャンペーンID</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>CampaignID</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>ADGROUP_ID</ns1:fieldName>
-               <ns1:displayFieldNameJA>広告グループID</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Ad Group ID</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>CAMPAIGN_NAME</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CAMPAIGN_NAME</ns1:fieldName>
-               <ns1:displayFieldNameJA>キャンペーン名</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Campaign Name</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_NAME</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>AD_NAME</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>ADGROUP_NAME</ns1:fieldName>
-               <ns1:displayFieldNameJA>広告グループ名</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Ad Group Name</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>AD_NAME</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>TITLE</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>COST</ns1:fieldName>
-               <ns1:displayFieldNameJA>コスト</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Cost</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>DESCRIPTION</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>COST</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>IMPS</ns1:fieldName>
-               <ns1:displayFieldNameJA>インプレッション数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Impressions</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CLICKS</ns1:fieldName>
-               <ns1:displayFieldNameJA>クリック数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Clicks</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CLICK_RATE</ns1:fieldName>
-               <ns1:displayFieldNameJA>クリック率</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>CTR</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>AVG_CPM</ns1:fieldName>
-               <ns1:displayFieldNameJA>平均CPM</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Avg. CPM</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>AVG_CPC</ns1:fieldName>
-               <ns1:displayFieldNameJA>平均CPC</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Avg. CPC</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>AVG_DELIVER_RANK</ns1:fieldName>
-               <ns1:displayFieldNameJA>平均掲載順位</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Avg. Position</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>REVENUE</ns1:fieldName>
-               <ns1:displayFieldNameJA>合計売上金額</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Total Revenue</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>UNIQUE_CONVERSION</ns1:fieldName>
-               <ns1:displayFieldNameJA>ユニークコンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Unique Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>UNIQUE_CONVERSION_RATE</ns1:fieldName>
-               <ns1:displayFieldNameJA>ユニークコンバージョン率</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Unique Conversion Rate</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>REVENUE_UNIQUE_CONVERSION</ns1:fieldName>
-               <ns1:displayFieldNameJA>売上/ユニークコンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Revenue / Unique Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>REVENUE_CONVERSION</ns1:fieldName>
-               <ns1:displayFieldNameJA>売上/総コンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Revenue / Total Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CONVERSION</ns1:fieldName>
-               <ns1:displayFieldNameJA>総コンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Total Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>LONG</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CONVERSION_RATE</ns1:fieldName>
-               <ns1:displayFieldNameJA>総コンバージョン率</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Total Conversion Rate</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>COST_UNIQUE_CONVERSION</ns1:fieldName>
-               <ns1:displayFieldNameJA>コスト/ユニークコンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Cost / Unique Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CPA</ns1:fieldName>
-               <ns1:displayFieldNameJA>コスト/総コンバージョン数</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Cost / Total Conversions</ns1:displayFieldNameEN>
-               <ns1:fieldType>DOUBLE</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>TRACKING_URL</ns1:fieldName>
-               <ns1:displayFieldNameJA>トラッキングURL</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Tracking URL</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>LANDING_PAGE_URL</ns1:fieldName>
-               <ns1:displayFieldNameJA>最終リンク先URL</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Landing Page URL</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>NETWORK</ns1:fieldName>
-               <ns1:displayFieldNameJA>広告掲載方式の指定</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Network</ns1:displayFieldNameEN>
-               <ns1:fieldType>ENUM</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>DEVICE</ns1:fieldName>
-               <ns1:displayFieldNameJA>デバイス</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Device</ns1:displayFieldNameEN>
-               <ns1:fieldType>ENUM</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>DAY</ns1:fieldName>
-               <ns1:displayFieldNameJA>日</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Day</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>DAY_OF_WEEK</ns1:fieldName>
-               <ns1:displayFieldNameJA>曜日</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Day of week</ns1:displayFieldNameEN>
-               <ns1:fieldType>ENUM</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>QUARTER</ns1:fieldName>
-               <ns1:displayFieldNameJA>四半期</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Quarter</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>YEAR</ns1:fieldName>
-               <ns1:displayFieldNameJA>年間</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Year</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>MONTH</ns1:fieldName>
-               <ns1:displayFieldNameJA>毎月</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Month</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>MONTH_OF_YEAR</ns1:fieldName>
-               <ns1:displayFieldNameJA>月</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Month of Year</ns1:displayFieldNameEN>
-               <ns1:fieldType>ENUM</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>WEEK</ns1:fieldName>
-               <ns1:displayFieldNameJA>毎週</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Week</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>OBJECT_OF_CONVERSION_TRACKING</ns1:fieldName>
-               <ns1:displayFieldNameJA>コンバージョン測定の目的</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Objective of Conversion Tracking</ns1:displayFieldNameEN>
-               <ns1:fieldType>ENUM</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-            <ns1:fields>
-               <ns1:fieldName>CONVERSION_NAME</ns1:fieldName>
-               <ns1:displayFieldNameJA>コンバージョン名</ns1:displayFieldNameJA>
-               <ns1:displayFieldNameEN>Conversion Name</ns1:displayFieldNameEN>
-               <ns1:fieldType>STRING</ns1:fieldType>
-               <ns1:canSelect>true</ns1:canSelect>
-               <ns1:canFilter>true</ns1:canFilter>
-               <ns1:impossibleCombinationFields>CAMPAIGN_ID</ns1:impossibleCombinationFields>
-               <ns1:impossibleCombinationFields>ADGROUP_ID</ns1:impossibleCombinationFields>
-            </ns1:fields>
-         </ns1:rval>
-      </ns1:getReportFieldsResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ReportDefinition</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getReportFieldsResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <fields>
+          <fieldName>CAMPAIGN_ID</fieldName>
+          <displayFieldNameJA>キャンペーンID</displayFieldNameJA>
+          <displayFieldNameEN>CampaignID</displayFieldNameEN>
+          <xmlAttributeName>campaignID</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>ADGROUP_ID</fieldName>
+          <displayFieldNameJA>広告グループID</displayFieldNameJA>
+          <displayFieldNameEN>Ad Group ID</displayFieldNameEN>
+          <xmlAttributeName>adgroupID</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>CAMPAIGN_NAME</fieldName>
+          <displayFieldNameJA>キャンペーン名</displayFieldNameJA>
+          <displayFieldNameEN>Campaign Name</displayFieldNameEN>
+          <xmlAttributeName>campaignName</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>ADGROUP_NAME</fieldName>
+          <displayFieldNameJA>広告グループ名</displayFieldNameJA>
+          <displayFieldNameEN>Ad Group Name</displayFieldNameEN>
+          <xmlAttributeName>adgroupName</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>COST</fieldName>
+          <displayFieldNameJA>コスト</displayFieldNameJA>
+          <displayFieldNameEN>Cost</displayFieldNameEN>
+          <xmlAttributeName>cost</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>IMPS</fieldName>
+          <displayFieldNameJA>インプレッション数</displayFieldNameJA>
+          <displayFieldNameEN>Impressions</displayFieldNameEN>
+          <xmlAttributeName>impressions</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>CLICKS</fieldName>
+          <displayFieldNameJA>クリック数</displayFieldNameJA>
+          <displayFieldNameEN>Clicks</displayFieldNameEN>
+          <xmlAttributeName>clicks</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>CLICK_RATE</fieldName>
+          <displayFieldNameJA>クリック率</displayFieldNameJA>
+          <displayFieldNameEN>CTR</displayFieldNameEN>
+          <xmlAttributeName>ctr</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>AVG_CPC</fieldName>
+          <displayFieldNameJA>平均CPC</displayFieldNameJA>
+          <displayFieldNameEN>Avg. CPC</displayFieldNameEN>
+          <xmlAttributeName>averageCpc</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>AVG_DELIVER_RANK</fieldName>
+          <displayFieldNameJA>平均掲載順位</displayFieldNameJA>
+          <displayFieldNameEN>Avg. Position</displayFieldNameEN>
+          <xmlAttributeName>averagePosition</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>TRACKING_URL</fieldName>
+          <displayFieldNameJA>トラッキングURL</displayFieldNameJA>
+          <displayFieldNameEN>Tracking URL</displayFieldNameEN>
+          <xmlAttributeName>trackingURL</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>LANDING_PAGE_URL</fieldName>
+          <displayFieldNameJA>最終リンク先URL</displayFieldNameJA>
+          <displayFieldNameEN>Landing Page URL</displayFieldNameEN>
+          <xmlAttributeName>landingPageURL</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>CONVERSIONS</fieldName>
+          <displayFieldNameJA>コンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Conversions</displayFieldNameEN>
+          <xmlAttributeName>conversions</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>CONV_RATE</fieldName>
+          <displayFieldNameJA>コンバージョン率</displayFieldNameJA>
+          <displayFieldNameEN>Conv. Rate</displayFieldNameEN>
+          <xmlAttributeName>convRate</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>CONV_VALUE</fieldName>
+          <displayFieldNameJA>コンバージョンの価値</displayFieldNameJA>
+          <displayFieldNameEN>Conv. Value</displayFieldNameEN>
+          <xmlAttributeName>convValue</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>COST_PER_CONV</fieldName>
+          <displayFieldNameJA>コスト/コンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Cost Per Conv.</displayFieldNameEN>
+          <xmlAttributeName>costPerConv</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>VALUE_PER_CONV</fieldName>
+          <displayFieldNameJA>価値/コンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Value Per Conv.</displayFieldNameEN>
+          <xmlAttributeName>valuePerConv</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>ALL_CONV</fieldName>
+          <displayFieldNameJA>すべてのコンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>All Conv.</displayFieldNameEN>
+          <xmlAttributeName>allConv</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>ALL_CONV_RATE</fieldName>
+          <displayFieldNameJA>すべてのコンバージョン率</displayFieldNameJA>
+          <displayFieldNameEN>All Conv. Rate</displayFieldNameEN>
+          <xmlAttributeName>allConvRate</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>ALL_CONV_VALUE</fieldName>
+          <displayFieldNameJA>すべてのコンバージョンの価値</displayFieldNameJA>
+          <displayFieldNameEN>All Conv. Value</displayFieldNameEN>
+          <xmlAttributeName>allConvValue</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>COST_PER_ALL_CONV</fieldName>
+          <displayFieldNameJA>コスト/すべてのコンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Cost Per All Conv.</displayFieldNameEN>
+          <xmlAttributeName>costPerAllConv</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>CONVERSION_NAME</impossibleCombinationFields>
+          <impossibleCombinationFields>OBJECT_OF_CONVERSION_TRACKING</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>VALUE_PER_ALL_CONV</fieldName>
+          <displayFieldNameJA>価値/すべてのコンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Value Per All Conv.</displayFieldNameEN>
+          <xmlAttributeName>valuePerAllConv</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>CROSS_DEVICE_CONVERSIONS</fieldName>
+          <displayFieldNameJA>デバイスをまたいだコンバージョン数</displayFieldNameJA>
+          <displayFieldNameEN>Conversions across devices</displayFieldNameEN>
+          <xmlAttributeName>crossDeviceConversions</xmlAttributeName>
+          <fieldType>DOUBLE</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>CAMPAIGN_TRACKING_ID</fieldName>
+          <displayFieldNameJA>キャンペーントラッキングID</displayFieldNameJA>
+          <displayFieldNameEN>Campaign Tracking ID</displayFieldNameEN>
+          <xmlAttributeName>campaignTrackingID</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>ADGROUP_TRACKING_ID</fieldName>
+          <displayFieldNameJA>広告グループトラッキングID</displayFieldNameJA>
+          <displayFieldNameEN>Ad Group Tracking ID</displayFieldNameEN>
+          <xmlAttributeName>adgroupTrackingID</xmlAttributeName>
+          <fieldType>LONG</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>NETWORK</fieldName>
+          <displayFieldNameJA>広告掲載方式の指定</displayFieldNameJA>
+          <displayFieldNameEN>Network</displayFieldNameEN>
+          <xmlAttributeName>network</xmlAttributeName>
+          <fieldType>ENUM</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>DEVICE</fieldName>
+          <displayFieldNameJA>デバイス</displayFieldNameJA>
+          <displayFieldNameEN>Device</displayFieldNameEN>
+          <xmlAttributeName>device</xmlAttributeName>
+          <fieldType>ENUM</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>DAY</fieldName>
+          <displayFieldNameJA>日</displayFieldNameJA>
+          <displayFieldNameEN>Day</displayFieldNameEN>
+          <xmlAttributeName>day</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>DAY_OF_WEEK</fieldName>
+          <displayFieldNameJA>曜日</displayFieldNameJA>
+          <displayFieldNameEN>Day of week</displayFieldNameEN>
+          <xmlAttributeName>dayOfWeek</xmlAttributeName>
+          <fieldType>ENUM</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>QUARTER</fieldName>
+          <displayFieldNameJA>四半期</displayFieldNameJA>
+          <displayFieldNameEN>Quarter</displayFieldNameEN>
+          <xmlAttributeName>quarter</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>YEAR</fieldName>
+          <displayFieldNameJA>年間</displayFieldNameJA>
+          <displayFieldNameEN>Year</displayFieldNameEN>
+          <xmlAttributeName>year</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>MONTH</fieldName>
+          <displayFieldNameJA>毎月</displayFieldNameJA>
+          <displayFieldNameEN>Month</displayFieldNameEN>
+          <xmlAttributeName>month</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>MONTH_OF_YEAR</fieldName>
+          <displayFieldNameJA>月</displayFieldNameJA>
+          <displayFieldNameEN>Month of Year</displayFieldNameEN>
+          <xmlAttributeName>monthofYear</xmlAttributeName>
+          <fieldType>ENUM</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>WEEK</fieldName>
+          <displayFieldNameJA>毎週</displayFieldNameJA>
+          <displayFieldNameEN>Week</displayFieldNameEN>
+          <xmlAttributeName>week</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+        </fields>
+        <fields>
+          <fieldName>OBJECT_OF_CONVERSION_TRACKING</fieldName>
+          <displayFieldNameJA>コンバージョン測定の目的</displayFieldNameJA>
+          <displayFieldNameEN>Objective of Conversion Tracking</displayFieldNameEN>
+          <xmlAttributeName>objectiveOfConversionTracking</xmlAttributeName>
+          <fieldType>ENUM</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>COST</impossibleCombinationFields>
+          <impossibleCombinationFields>IMPS</impossibleCombinationFields>
+          <impossibleCombinationFields>CLICKS</impossibleCombinationFields>
+          <impossibleCombinationFields>CLICK_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>AVG_CPC</impossibleCombinationFields>
+          <impossibleCombinationFields>AVG_DELIVER_RANK</impossibleCombinationFields>
+          <impossibleCombinationFields>CONV_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>COST_PER_CONV</impossibleCombinationFields>
+          <impossibleCombinationFields>ALL_CONV_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>COST_PER_ALL_CONV</impossibleCombinationFields>
+        </fields>
+        <fields>
+          <fieldName>CONVERSION_NAME</fieldName>
+          <displayFieldNameJA>コンバージョン名</displayFieldNameJA>
+          <displayFieldNameEN>Conversion Name</displayFieldNameEN>
+          <xmlAttributeName>conversionName</xmlAttributeName>
+          <fieldType>STRING</fieldType>
+          <canSelect>true</canSelect>
+          <canFilter>true</canFilter>
+          <impossibleCombinationFields>COST</impossibleCombinationFields>
+          <impossibleCombinationFields>IMPS</impossibleCombinationFields>
+          <impossibleCombinationFields>CLICKS</impossibleCombinationFields>
+          <impossibleCombinationFields>CLICK_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>AVG_CPC</impossibleCombinationFields>
+          <impossibleCombinationFields>AVG_DELIVER_RANK</impossibleCombinationFields>
+          <impossibleCombinationFields>CONV_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>COST_PER_CONV</impossibleCombinationFields>
+          <impossibleCombinationFields>ALL_CONV_RATE</impossibleCombinationFields>
+          <impossibleCombinationFields>COST_PER_ALL_CONV</impossibleCombinationFields>
+        </fields>
+      </rval>
+    </getReportFieldsResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -572,91 +604,72 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:reportId>111111</ns1:reportId>
-               <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-               <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-               <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-               <ns1:dateRange>
-                  <ns1:startDate>20160101</ns1:startDate>
-                  <ns1:endDate>20161231</ns1:endDate>
-               </ns1:dateRange>
-               <ns1:fields>CAMPAIGN_ID</ns1:fields>
-               <ns1:fields>ADGROUP_ID</ns1:fields>
-               <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-               <ns1:fields>ADGROUP_NAME</ns1:fields>
-               <ns1:fields>COST</ns1:fields>
-               <ns1:fields>IMPS</ns1:fields>
-               <ns1:fields>CLICKS</ns1:fields>
-               <ns1:fields>CLICK_RATE</ns1:fields>
-               <ns1:fields>AVG_CPM</ns1:fields>
-               <ns1:fields>AVG_CPC</ns1:fields>
-               <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-               <ns1:fields>REVENUE</ns1:fields>
-               <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-               <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-               <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-               <ns1:fields>TRACKING_URL</ns1:fields>
-               <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-               <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-               <ns1:fields>NETWORK</ns1:fields>
-               <ns1:fields>DEVICE</ns1:fields>
-               <ns1:fields>DAY</ns1:fields>
-               <ns1:fields>DAY_OF_WEEK</ns1:fields>
-               <ns1:fields>QUARTER</ns1:fields>
-               <ns1:fields>YEAR</ns1:fields>
-               <ns1:fields>MONTH</ns1:fields>
-               <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-               <ns1:fields>WEEK</ns1:fields>
-               <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-               <ns1:fields>CONVERSION_NAME</ns1:fields>
-               <ns1:sortFields>
-                  <ns1:type>ASC</ns1:type>
-                  <ns1:field>CLICKS</ns1:field>
-               </ns1:sortFields>
-               <ns1:filters>
-                  <ns1:field>TRACKING_URL</ns1:field>
-                  <ns1:operator>IN</ns1:operator>
-                  <ns1:value>http://yahoo.co.jp</ns1:value>
-                  <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-                  <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-               </ns1:filters>
-              <ns1:filters>
-                  <ns1:field>CAMPAIGN_ID</ns1:field>
-                  <ns1:operator>IN</ns1:operator>
-                  <ns1:value>200000001</ns1:value>
-                  <ns1:value>200000002</ns1:value>
-                  <ns1:value>200000003</ns1:value>
-                  <ns1:value>200000003</ns1:value>
-                  <ns1:value>200000004</ns1:value>
-                  <ns1:value>200000005</ns1:value>
-               </ns1:filters>
-               <ns1:isTemplate>FALSE</ns1:isTemplate>
-               <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-               <ns1:specifyDay>28</ns1:specifyDay>
-               <ns1:format>CSV</ns1:format>
-               <ns1:encode>UTF-8</ns1:encode>
-               <ns1:language>EN</ns1:language>
-               <ns1:compress>NONE</ns1:compress>
-               <ns1:includeZeroImpressions>TRUE</ns1:includeZeroImpressions>
-               <ns1:includeDeleted>FALSE</ns1:includeDeleted>
-            </ns1:operand>
-        </ns1:operations>
-     </ns1:mutate>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <reportName>Sample Report Definition</reportName>
+          <reportType>ACCOUNT</reportType>
+          <dateRangeType>CUSTOM_DATE</dateRangeType>
+          <dateRange>
+            <startDate>19700101</startDate>
+            <endDate>20371231</endDate>
+          </dateRange>
+          <fields>COST</fields>
+          <fields>IMPS</fields>
+          <fields>CLICKS</fields>
+          <fields>CLICK_RATE</fields>
+          <fields>AVG_CPC</fields>
+          <fields>AVG_DELIVER_RANK</fields>
+          <fields>TRACKING_URL</fields>
+          <fields>CONVERSIONS</fields>
+          <fields>CONV_RATE</fields>
+          <fields>CONV_VALUE</fields>
+          <fields>COST_PER_CONV</fields>
+          <fields>VALUE_PER_CONV</fields>
+          <fields>NETWORK</fields>
+          <fields>CLICK_TYPE</fields>
+          <fields>DEVICE</fields>
+          <fields>DAY</fields>
+          <fields>DAY_OF_WEEK</fields>
+          <fields>QUARTER</fields>
+          <fields>YEAR</fields>
+          <fields>MONTH</fields>
+          <fields>MONTH_OF_YEAR</fields>
+          <fields>WEEK</fields>
+          <fields>HOUR_OF_DAY</fields>
+          <sortFields>
+            <type>ASC</type>
+            <field>CLICKS</field>
+          </sortFields>
+          <filters>
+            <field>COST</field>
+            <operator>NOT_EQUALS</operator>
+            <value>100</value>
+          </filters>
+          <isTemplate>TRUE</isTemplate>
+          <intervalType>SPECIFYDAY</intervalType>
+          <specifyDay>1</specifyDay>
+          <format>CSV</format>
+          <encode>UTF-8</encode>
+          <language>JA</language>
+          <compress>NONE</compress>
+          <includeZeroImpressions>TRUE</includeZeroImpressions>
+          <includeDeleted>TRUE</includeDeleted>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -669,100 +682,78 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>ReportDefinitionService</ns1:service>
-         <ns1:remainingQuota>993</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.7982</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>ADD</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:reportDefinition>
-                  <ns1:reportId>111111</ns1:reportId>
-                  <ns1:reportName>Sample LANDING_PAGE_URL Report</ns1:reportName>
-                  <ns1:reportType>LANDING_PAGE_URL</ns1:reportType>
-                  <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-                  <ns1:dateRange>
-                     <ns1:startDate>20160101</ns1:startDate>
-                     <ns1:endDate>20161231</ns1:endDate>
-                  </ns1:dateRange>
-                  <ns1:fields>CAMPAIGN_ID</ns1:fields>
-                  <ns1:fields>ADGROUP_ID</ns1:fields>
-                  <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-                  <ns1:fields>ADGROUP_NAME</ns1:fields>
-                  <ns1:fields>COST</ns1:fields>
-                  <ns1:fields>IMPS</ns1:fields>
-                  <ns1:fields>CLICKS</ns1:fields>
-                  <ns1:fields>CLICK_RATE</ns1:fields>
-                  <ns1:fields>AVG_CPM</ns1:fields>
-                  <ns1:fields>AVG_CPC</ns1:fields>
-                  <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-                  <ns1:fields>REVENUE</ns1:fields>
-                  <ns1:fields>UNIQUE_CONVERSION</ns1:fields>
-                  <ns1:fields>UNIQUE_CONVERSION_RATE</ns1:fields>
-                  <ns1:fields>REVENUE_UNIQUE_CONVERSION</ns1:fields>
-                  <ns1:fields>TRACKING_URL</ns1:fields>
-                  <ns1:fields>CUSTOM_PARAMETERS</ns1:fields>
-                  <ns1:fields>LANDING_PAGE_URL</ns1:fields>
-                  <ns1:fields>NETWORK</ns1:fields>
-                  <ns1:fields>DEVICE</ns1:fields>
-                  <ns1:fields>DAY</ns1:fields>
-                  <ns1:fields>DAY_OF_WEEK</ns1:fields>
-                  <ns1:fields>QUARTER</ns1:fields>
-                  <ns1:fields>YEAR</ns1:fields>
-                  <ns1:fields>MONTH</ns1:fields>
-                  <ns1:fields>MONTH_OF_YEAR</ns1:fields>
-                  <ns1:fields>WEEK</ns1:fields>
-                  <ns1:fields>OBJECT_OF_CONVERSION_TRACKING</ns1:fields>
-                  <ns1:fields>CONVERSION_NAME</ns1:fields>
-                  <ns1:sortFields>
-                     <ns1:type>ASC</ns1:type>
-                     <ns1:field>CLICKS</ns1:field>
-                  </ns1:sortFields>
-                  <ns1:filters>
-                     <ns1:field>TRACKING_URL</ns1:field>
-                     <ns1:operator>IN</ns1:operator>
-                     <ns1:value>http://yahoo.co.jp</ns1:value>
-                     <ns1:value>http://marketing.yahoo.co.jp</ns1:value>
-                     <ns1:value>http://promotionalads.yahoo.co.jp</ns1:value>
-                  </ns1:filters>
-                  <ns1:filters>
-                     <ns1:field>IMPS</ns1:field>
-                     <ns1:operator>GREATER_THAN</ns1:operator>
-                     <ns1:value>0</ns1:value>
-                  </ns1:filters>
-                  <ns1:filters>
-                     <ns1:field>CAMPAIGN_ID</ns1:field>
-                     <ns1:operator>IN</ns1:operator>
-                     <ns1:value>200000001</ns1:value>
-                     <ns1:value>200000002</ns1:value>
-                     <ns1:value>200000003</ns1:value>
-                     <ns1:value>200000003</ns1:value>
-                     <ns1:value>200000004</ns1:value>
-                     <ns1:value>200000005</ns1:value>
-                  </ns1:filters>
-                  <ns1:isTemplate>FALSE</ns1:isTemplate>
-                  <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-                  <ns1:specifyDay>28</ns1:specifyDay>
-                  <ns1:format>CSV</ns1:format>
-                  <ns1:encode>UTF-8</ns1:encode>
-                  <ns1:language>EN</ns1:language>
-                  <ns1:compress>NONE</ns1:compress>
-                  <ns1:includeZeroImpressions>TRUE</ns1:includeZeroImpressions>
-                  <ns1:includeDeleted>FALSE</ns1:includeDeleted>
-               </ns1:reportDefinition>
-            </ns1:values>
-        </ns1:rval>
-      </ns1:mutateResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ReportDefinition</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <reportDefinition>
+            <accountId>11111</accountId>
+            <reportId>22222</reportId>
+            <reportName>Sample Report Definition</reportName>
+            <reportType>ACCOUNT</reportType>
+            <dateRangeType>CUSTOM_DATE</dateRangeType>
+            <dateRange>
+              <startDate>19700101</startDate>
+              <endDate>20371231</endDate>
+            </dateRange>
+            <fields>COST</fields>
+            <fields>IMPS</fields>
+            <fields>CLICKS</fields>
+            <fields>CLICK_RATE</fields>
+            <fields>AVG_CPC</fields>
+            <fields>AVG_DELIVER_RANK</fields>
+            <fields>TRACKING_URL</fields>
+            <fields>CONVERSIONS</fields>
+            <fields>CONV_RATE</fields>
+            <fields>CONV_VALUE</fields>
+            <fields>COST_PER_CONV</fields>
+            <fields>VALUE_PER_CONV</fields>
+            <fields>NETWORK</fields>
+            <fields>CLICK_TYPE</fields>
+            <fields>DEVICE</fields>
+            <fields>DAY</fields>
+            <fields>DAY_OF_WEEK</fields>
+            <fields>QUARTER</fields>
+            <fields>YEAR</fields>
+            <fields>MONTH</fields>
+            <fields>MONTH_OF_YEAR</fields>
+            <fields>WEEK</fields>
+            <fields>HOUR_OF_DAY</fields>
+            <sortFields>
+              <type>ASC</type>
+              <field>CLICKS</field>
+            </sortFields>
+            <filters>
+              <field>COST</field>
+              <operator>NOT_EQUALS</operator>
+              <value>100</value>
+            </filters>
+            <isTemplate>TRUE</isTemplate>
+            <intervalType>SPECIFYDAY</intervalType>
+            <specifyDay>1</specifyDay>
+            <format>CSV</format>
+            <encode>UTF-8</encode>
+            <language>JA</language>
+            <compress>NONE</compress>
+            <includeZeroImpressions>TRUE</includeZeroImpressions>
+            <includeDeleted>TRUE</includeDeleted>
+          </reportDefinition>
+        </values>
+      </rval>
+    </mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -777,27 +768,24 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:reportId>123456789</ns1:reportId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <reportId>22222</reportId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -812,28 +800,77 @@ ReportDefinitionServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportDefinitionService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ReportDefinition</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportDefinition>
-            <ns1:reportId>123456789</ns1:reportId>
-          </ns1:reportDefinition>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <reportDefinition>
+            <accountId>11111</accountId>
+            <reportId>22222</reportId>
+            <reportName>Sample Report Definition</reportName>
+            <reportType>ACCOUNT</reportType>
+            <dateRangeType>CUSTOM_DATE</dateRangeType>
+            <dateRange>
+              <startDate>19700101</startDate>
+              <endDate>20371231</endDate>
+            </dateRange>
+            <fields>COST</fields>
+            <fields>IMPS</fields>
+            <fields>CLICKS</fields>
+            <fields>CLICK_RATE</fields>
+            <fields>AVG_CPC</fields>
+            <fields>AVG_DELIVER_RANK</fields>
+            <fields>TRACKING_URL</fields>
+            <fields>CONVERSIONS</fields>
+            <fields>CONV_RATE</fields>
+            <fields>CONV_VALUE</fields>
+            <fields>COST_PER_CONV</fields>
+            <fields>VALUE_PER_CONV</fields>
+            <fields>NETWORK</fields>
+            <fields>CLICK_TYPE</fields>
+            <fields>DEVICE</fields>
+            <fields>DAY</fields>
+            <fields>DAY_OF_WEEK</fields>
+            <fields>QUARTER</fields>
+            <fields>YEAR</fields>
+            <fields>MONTH</fields>
+            <fields>MONTH_OF_YEAR</fields>
+            <fields>WEEK</fields>
+            <fields>HOUR_OF_DAY</fields>
+            <sortFields>
+              <type>ASC</type>
+              <field>CLICKS</field>
+            </sortFields>
+            <filters>
+              <field>COST</field>
+              <operator>NOT_EQUALS</operator>
+              <value>100</value>
+            </filters>
+            <isTemplate>TRUE</isTemplate>
+            <intervalType>SPECIFYDAY</intervalType>
+            <specifyDay>1</specifyDay>
+            <format>CSV</format>
+            <encode>UTF-8</encode>
+            <language>JA</language>
+            <compress>NONE</compress>
+            <includeZeroImpressions>TRUE</includeZeroImpressions>
+            <includeDeleted>TRUE</includeDeleted>
+          </reportDefinition>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

@@ -3,7 +3,7 @@
 "ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","true",
 "CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","true",
 "ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","true",
-"ADGROUP_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","adgroupDistributionSettings","ENUM","false",
+"ADGROUP_DISTRIBUTION_SETTINGS","配信設定","Distribution Settings","adgroupDistributionSettings","ENUM","true",
 "ADGROUP_BID","広告グループの入札価格","Ad Group Bid","adGroupBid","LONG","true",
 "COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
 "IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]"
@@ -26,6 +26,7 @@
 "ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true","[HOUR_OF_DAY]"
 "COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true","[CONVERSION_NAME, HOUR_OF_DAY, OBJECT_OF_CONVERSION_TRACKING]"
 "VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true","[HOUR_OF_DAY]"
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true","[HOUR_OF_DAY]"
 "ADGROUP_MOBILE_BID_MODIFIER","スマートフォン入札価格調整率（％）","Smartphone Bid Adjustment (%)","mobileBidAdj","DOUBLE","true",
 "ADGROUP_DESKTOP_BID_MODIFIER","PC入札価格調整率（％）","PC Bid Adjustment (%)","desktopBidAdj","DOUBLE","true",
 "ADGROUP_TABLET_BID_MODIFIER","タブレット入札価格調整率（％）","Tablet Bid Adjustment (%)","tabletBidAdj","DOUBLE","true",
@@ -41,6 +42,6 @@
 "MONTH","毎月","Month","month","STRING","false",
 "MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",
 "WEEK","毎週","Week","week","STRING","false",
-"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, VALUE_PER_ALL_CONV]"
+"HOUR_OF_DAY","時間","Hour of day","hourofday","LONG","false","[ALL_CONV, ALL_CONV_RATE, ALL_CONV_VALUE, COST_PER_ALL_CONV, CROSS_DEVICE_CONVERSIONS, VALUE_PER_ALL_CONV]"
 "OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, QUALITY_LOST_IMPRESSION_SHARE]"
 "CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[ALL_CONV_RATE, AVG_CPC, AVG_DELIVER_RANK, CLICKS, CLICK_RATE, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, EXACT_MATCH_IMPRESSION_SHARE, IMPRESSION_SHARE, IMPS, QUALITY_LOST_IMPRESSION_SHARE]"

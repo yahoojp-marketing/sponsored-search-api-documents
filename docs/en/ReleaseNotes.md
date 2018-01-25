@@ -1,8 +1,8 @@
 # Release Note
-Sponsored Search API Ver.6.4<br>
+Sponsored Search API Ver.6.5<br>
 
 ## Release version
-6.4 (WSDL version : 6.4.0)
+6.5 (WSDL version : 6.5.0)
 
 ## Type of version up
 Minor version up  
@@ -11,33 +11,53 @@ Minor version up
 &lowast;Target Data Objects and Enumerations are referable on the list of Data Objects (Enumerations).
 <br><br>
 
-#### 1. "Ad Customizer" feature enhancement
-The following enhancements have been updated with Ad Customizer.
+#### 1. Conversion tracking across different devices (Website and click-to-call)
+Conversions is tracked based on the user login information along with the existing cookie information.<br>
+This enhancement will enable you to track conversions across different devices such as the case when the product was bought on smartphone after the ad was clicked on PC.<br>
+The following enhancements have been updated:
+1. The flag to control conversions across different devices has been added.
+1. The report field used for conversion tracking has been added.
 
- * It supports Geo Targeting in data auto insertion list units.
- * When using Ad Customizer, it is no longer necessary to create Ads. Ad Customizer is only available for a set of insertion ads and data auto insertion list.
- * It supports "IF function". By using the IF function in insertion ads, ad text for smartphone is able to be displayed automatically when the device is a smartphone.
- * To increase the number of data auto insertion list from 400 thousand to 1 million per account.<br>
-
-&lowast;Geo Targeting is the only change on the API interface.
-For details of ad customizer, please refer to the following Help.<br>
-<a href="https://help.marketing.yahoo.co.jp/en/?cat=476">Sponsored Search Help　Ad Customizer</a>
+##### Target Web Service 
+ * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
 <br><br>
 
-##### Target Web Service   
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
+#### 2. Ad rotation setting by ad groups
+Ad rotation setting has been changed from campaign level to ad group level.<br>
+The following enhancements have been updated:
+1. The items for adGroupAdRotationMode were added.<br>The following two values are available for 'ad rotation' items.
+    - OPTIMIZE：Optimizes and display ads
+    - ROTATE_FOREVER：Always rotates ads evenly (not optimized)
+1. The item for the campaign’s have become read-only.<br>
+    - On creating a new campaign, “OPTIMIZE” is evenly set to the 'ad rotation' item.<br>For this reason, if other enumeration besides "OPTIMIZE" is specified, it will be changed to "OPTIMIZE" when creating a new campaign.
+    - On updating a campaign, even if you set a value when updating the campaign, the existing setting will be responded. It cannot be updated with any other enumuration.
+1. The option "OPTIMIZE" is applied on ad distribution if the enumerations below have been set  for the item "adServingOptimizationStatus" on campaign. 
+    - ROTATE
+    - CONVERSION_OPTIMIZE
+
+*Above changes 2 and 3 have been applied to the lower versions (Ver.6.4.0/6.3.0) similarily. 
+
+##### Target Web Service  
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
 <br><br>
 
-#### 2.	Additional upgrades
-Following web services have been updated.<br>
-More change details are referable on the matrix of 'Impact on each version from the change of services' below.
-<br>
-<br>
+#### 3. App Conversion Tracking Settings
+At the time of conversion tracking for Mobile app download campaigns, you cannot select “Include” (Use conversion for Auto Bidding) for both “Download” and “App First Open” for the same package.<br>
+The following enhancements have been updated:
+1. A validation has been added so that an error occurs when the following two operations are performed.
+    - The case if you select two settings below for the same ‘appId’ (application ID) at a time:<br>
+      App conversion types: “Download”, “Use for auto bidding”<br>
+      App conversion types: “App First Open”, “Use for auto bidding”
+    - The case if you select “App First Open” AND “Use for auto bidding” for conversion setting without the settings both “Download” and “Do not use for auto budding” on App conversion type in advance for the same ‘appId’:
+1. You are able to search the conversion settings of app using the ‘appId’.
 
-##### Target Web Service
- * [CampaignExportService](/docs/ja/api_reference/services/CampaignExportService.md)
- <br><br>
+*Above change 1 has been applied to the lower versions (Ver.6.4.0/6.3.0) similarily.
+
+##### Target Web Service  You will be able to search the conversion settings of app using the ‘appId’.
+ * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
+<br><br>
 
 ## Impact on each Version from the change of Services
 <table class="standard">
@@ -47,52 +67,59 @@ More change details are referable on the matrix of 'Impact on each version from 
 Service
 </th>
 <th>
-Ver.6.3 or before
+Ver.6.4 or before
 </th>
 <th>
-Ver.6.4
+Ver.6.5
 </th>
 </tr>
 <tr>
-  <td colspan="3"><b>1.	"Ad Customizer" feature enhancement</b></td>
-</tr>
-<tr>
- <td valign="top">FeedItemService</td>
- <td valign="top">No change</td>
+ <td valign="top">ConversionTrackerService</td>
+ <td valign="top">No change in API IF.<br>*Error codes have been added.</td>
  <td valign="top">
-・It supports Geo Targeting(Target Location) in data auto insertion list units.
-<br>
-・Added Location object.<br>
-・Added the following Enumerations.<br>
-　- FeedItemGeoRestriction<br>
-　- CriterionTypeFeedItem<br>
-・Added error codes.
- </td>
+  ・The flag 'CrossDeviceConversionFlag' to control conversions across different devices has been added.<br>
+  ・Conversion settings for app can be searched by application ID (appId).<br>
+  ・Error codes have been added.
+  </td>
 </tr>
 <tr>
- <td valign="top">AdGroupAdService</td>
- <td valign="top">No change</td>
- <td valign="top">Added error codes.
- </td>
+ <td valign="top">ReportDefinitionService</td>
+ <td valign="top">No change in API IF.<br>*Report fields have been added.</td>
+ <td valign="top">No change in API IF.<br>*Report fields have been added.</td>
 </tr>
 <tr>
-  <td colspan="3"><b>2.	Additional upgrades</b></td>
-</tr>
-<tr>
- <td valign="top">CampaignExportService</td>
- <td valign="top">No change</td>
+ <td valign="top">CampaignService</td>
  <td valign="top">
-・Searching job status by "get" operation is available. And, Job ID specification was changed from required to optional.<br>
-・Specifing the field to be exported by "addJob" is allowed.<br>
-・New "getExportFields" has been released. It enables to inquire exportable fields.<br>
-・Added the following Enumerations.<br>
-　- CampaignExportFieldAttribute<br>
-　- CampaignExportFieldValue<br>
-・Deleted Advanced object.<br>
+  ・The item for the campaign’s ‘adServingOptimizationStatus’ has become read-only.<br>
+  ・On the request of ADD/SET, 'adServingOptimizationStatus' is 'Ignore'.<br>
+  ・On the response of ADD/SET, the responded enumuration to 'adServingOptimizationStatus' is 'OPTIMIZE' for ADD case, and the existing enumuration which has been already set is for SET case.
  </td>
+ <td valign="top">
+  ・The item for the campaign’s ‘adServingOptimizationStatus’ have become read-only.<br>
+  ・On the request of ADD/SET, 'adServingOptimizationStatus' is 'Ignore'.<br>
+  ・On the response of ADD/SET, the responded enumuration to 'adServingOptimizationStatus' is 'OPTIMIZE' for ADD case, and the existing enumuration which has been already set is for SET case.
+  </td>
+</tr>
+<tr>
+ <td valign="top">AdGroupService</td>
+ <td valign="top">No change in API IF.<br>*Ad rotation (optimization) setting is not available for ADD/SET/GET.</td>
+ <td valign="top">
+  ・'AdGroupAdRotationMode' has been added.<br>
+  ・Ad rotation (optimization) setting by ad group is available for ADD/SET/GET.</td>
+</tr>
+<tr>
+ <td valign="top">CampaignRetargetingListService</td>
+ <td valign="top">No change in API IF.<br>*Error codes have been added.</td>
+ <td valign="top">No change in API IF.<br>*Error codes have been added.</td>
+</tr>
+<tr>
+ <td valign="top">AdGroupRetargetingListService</td>
+ <td valign="top">No change in API IF.<br>*Error codes have been added.</td>
+ <td valign="top">No change in API IF.<br>*Error codes have been added.</td>
 </tr>
 </table>
 
-## The end scheduled date for Sponsored Search API 6.2
-Sponsored Search API 6.2 is scheduled to sunset on January 24, 2018 (Wed) JST.<br>
+## The end scheduled date for Sponsored Search API 6.3
+Sponsored Search API 6.3 is scheduled to sunset on the end of March, 2018<br>
 <br>
+

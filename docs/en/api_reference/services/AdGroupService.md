@@ -10,7 +10,7 @@ Use this service to get, add, update, or remove Ad group.
 #### Namespace
 http://ss.yahooapis.jp/V6
 
-#### Overview
+#### Service Overview
 Use this service to get, add, update, or remove Ad group.
 
 #### Operation
@@ -27,30 +27,36 @@ Gets Ad group information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:campaignIds>100000001</ns1:campaignIds>
-        <ns1:campaignIds>100000007</ns1:campaignIds>
-        <ns1:adGroupIds>100000001</ns1:adGroupIds>
-        <ns1:adGroupIds>100000002</ns1:adGroupIds>
-        <ns1:adGroupIds>100000003</ns1:adGroupIds>
-        <ns1:userStatuses>ACTIVE</ns1:userStatuses>
-        <ns1:userStatuses>PAUSED</ns1:userStatuses>
-        <ns1:biddingStrategyIds>100000001</ns1:biddingStrategyIds>
-        <ns1:biddingStrategyIds>100000002</ns1:biddingStrategyIds>
-        <ns1:biddingStrategyIds>100000003</ns1:biddingStrategyIds>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V6">
+      <selector>
+        <accountId>1234567890</accountId>
+        <campaignIds>10001</campaignIds>
+        <campaignIds>10002</campaignIds>
+        <campaignIds>10003</campaignIds>
+        <campaignIds>10004</campaignIds>
+        <campaignIds>10005</campaignIds>
+        <adGroupIds>20001</adGroupIds>
+        <adGroupIds>20002</adGroupIds>
+        <adGroupIds>20003</adGroupIds>
+        <adGroupIds>20004</adGroupIds>
+        <adGroupIds>20005</adGroupIds>
+        <userStatuses>ACTIVE</userStatuses>
+        <userStatuses>PAUSED</userStatuses>
+        <paging>
+          <startIndex>1</startIndex>
+          <numberResults>1000</numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -65,290 +71,60 @@ Response Fields
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupService</ns1:service>
-      <ns1:remainingQuota>49992</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.9104</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">AdGroup</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>5</ns1:totalNumEntries>
-        <ns1:Page.Type>AdGroupPage</ns1:Page.Type>
-        <!-- Ad group created at Ver.5.3 or before -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000001</ns1:campaignId>
-            <ns1:campaignTrackId>1111111111</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000001</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222221</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>DEACTIVE</ns1:targetAll>
-            </ns1:settings>
-          </ns1:adGroup>
-        </ns1:values>
-        <!-- Ad group created from Ver.6.0 -->
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000002</ns1:campaignId>
-            <ns1:campaignTrackId>1111111112</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000002</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222222</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>DEACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000003</ns1:campaignId>
-            <ns1:campaignTrackId>1111111113</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000003</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222223</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>DEACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:urlApprovalStatus>APPROVED</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000004</ns1:campaignId>
-            <ns1:campaignTrackId>1111111114</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000004</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222224</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>DEACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:urlReviewData>
-              <ns1:disapprovalReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:disapprovalReviewUrl>
-              <ns1:urlApprovalStatus>DISAPPROVED</ns1:urlApprovalStatus>
-              <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
-              <ns1:disapprovalReasonCodes>1002</ns1:disapprovalReasonCodes>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000005</ns1:campaignId>
-            <ns1:campaignTrackId>1111111115</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000005</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222225</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>DEACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <getResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>AdGroupPage</Page.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <adGroup>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <campaignTrackId>100000001</campaignTrackId>
+            <campaignName>test campaign.</campaignName>
+            <adGroupId>20001</adGroupId>
+            <adGroupTrackId>0</adGroupTrackId>
+            <adGroupName>test adGroup.</adGroupName>
+            <userStatus>ACTIVE</userStatus>
+            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+              <criterionType>TARGET_LIST</criterionType>
+              <targetAll>ACTIVE</targetAll>
+            </settings>
+            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
+            <customParameters>
+              <parameters>
+                <key>site</key>
+                <value>yahoo</value>
+              </parameters>
+              <parameters>
+                <key>id1</key>
+                <value>1234</value>
+              </parameters>
+              <parameters>
+                <key>id2</key>
+                <value>a7h59A98yu</value>
+              </parameters>
+            </customParameters>
+            <urlReviewData>
+              <urlApprovalStatus>APPROVED</urlApprovalStatus>
+            </urlReviewData>
+            <adGroupAdRotationMode>
+              <adRotationMode>OPTIMIZE</adRotationMode>
+            </adGroupAdRotationMode>
+          </adGroup>
+        </values>
+      </rval>
+    </getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -357,7 +133,6 @@ Response Fields
 Create Ad group information.
 
 ### Request
-
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
@@ -365,54 +140,48 @@ Create Ad group information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:campaignId>2000000001</ns1:campaignId>
-          <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-          <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:biddingStrategyConfiguration>
-            <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-            <ns1:initialBid>
-              <ns1:maxCpc>120</ns1:maxCpc>
-            </ns1:initialBid>
-          </ns1:biddingStrategyConfiguration>
-          <ns1:settings xsi:type="ns1:TargetingSetting">
-            <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-            <ns1:targetAll>ACTIVE</ns1:targetAll>
-          </ns1:settings>
-          <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-          <ns1:customParameters>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>yahoo</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>1234</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>a7h59A98yu</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupName>test adGroup.</adGroupName>
+          <userStatus>ACTIVE</userStatus>
+          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+            <criterionType>TARGET_LIST</criterionType>
+            <targetAll>ACTIVE</targetAll>
+          </settings>
+          <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
+          <customParameters>
+            <parameters>
+              <key>site</key>
+              <value>yahoo</value>
+            </parameters>
+            <parameters>
+              <key>id1</key>
+              <value>1234</value>
+            </parameters>
+            <parameters>
+              <key>id2</key>
+              <value>a7h59A98yu</value>
+            </parameters>
+          </customParameters>
+          <adGroupAdRotationMode>
+            <adRotationMode>ROTATE_FOREVER</adRotationMode>
+          </adGroupAdRotationMode>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -427,75 +196,60 @@ Response Field
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupService</ns1:service>
-      <ns1:remainingQuota>49903</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.7685</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">AdGroup</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000001</ns1:campaignId>
-            <ns1:campaignTrackId>1111111111</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000001</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222221</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>ACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>yahoo</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>1234</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>a7h59A98yu</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <adGroup>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <campaignTrackId>100000001</campaignTrackId>
+            <campaignName>test campaign.</campaignName>
+            <adGroupId>20001</adGroupId>
+            <adGroupTrackId>0</adGroupTrackId>
+            <adGroupName>test adGroup.</adGroupName>
+            <userStatus>ACTIVE</userStatus>
+            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+              <criterionType>TARGET_LIST</criterionType>
+              <targetAll>ACTIVE</targetAll>
+            </settings>
+            <urlReviewData>
+              <inReviewUrl>
+                <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
+                <parameters>
+                  <key>site</key>
+                  <value>yahoo</value>
+                </parameters>
+                <parameters>
+                  <key>id1</key>
+                  <value>1234</value>
+                </parameters>
+                <parameters>
+                  <key>id2</key>
+                  <value>a7h59A98yu</value>
+                </parameters>
+              </inReviewUrl>
+              <urlApprovalStatus>REVIEW</urlApprovalStatus>
+            </urlReviewData>
+            <adGroupAdRotationMode>
+              <adRotationMode>ROTATE_FOREVER</adRotationMode>
+            </adGroupAdRotationMode>
+          </adGroup>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -504,7 +258,6 @@ Response Field
 Updates Ad group information.
 
 ### Request
-
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
@@ -512,56 +265,34 @@ Updates Ad group information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:campaignId>2000000001</ns1:campaignId>
-          <ns1:adGroupId>3000000001</ns1:adGroupId>
-          <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-          <ns1:userStatus>ACTIVE</ns1:userStatus>
-          <ns1:biddingStrategyConfiguration>
-            <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-            <ns1:initialBid>
-              <ns1:maxCpc>120</ns1:maxCpc>
-            </ns1:initialBid>
-          </ns1:biddingStrategyConfiguration>
-          <ns1:settings xsi:type="ns1:TargetingSetting">
-            <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-            <ns1:targetAll>ACTIVE</ns1:targetAll>
-          </ns1:settings>
-          <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-          <ns1:customParameters>
-            <ns1:isRemove>FALSE</ns1:isRemove>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>mysite</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>5678</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>jFj903Hng8e</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <adGroupName>set test adGroup.</adGroupName>
+          <userStatus>PAUSED</userStatus>
+          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+            <criterionType>TARGET_LIST</criterionType>
+            <targetAll>DEACTIVE</targetAll>
+          </settings>
+          <adGroupAdRotationMode>
+            <adRotationMode>OPTIMIZE</adRotationMode>
+          </adGroupAdRotationMode>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -576,91 +307,60 @@ Response Field
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupService</ns1:service>
-      <ns1:remainingQuota>49875</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.8844</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">AdGroup</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000001</ns1:campaignId>
-            <ns1:campaignTrackId>1111111111</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000001</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222221</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>ACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-            <ns1:urlReviewData>
-              <ns1:inReviewUrl>
-                <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:trackingUrl>
-                <ns1:parameters>
-                  <ns1:key>site</ns1:key>
-                  <ns1:value>mysite</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id1</ns1:key>
-                  <ns1:value>5678</ns1:value>
-                </ns1:parameters>
-                <ns1:parameters>
-                  <ns1:key>id2</ns1:key>
-                  <ns1:value>jFj903Hng8e</ns1:value>
-                </ns1:parameters>
-              </ns1:inReviewUrl>
-              <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-            </ns1:urlReviewData>
-          </ns1:adGroup>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <adGroup>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <campaignTrackId>100000001</campaignTrackId>
+            <campaignName>test campaign.</campaignName>
+            <adGroupId>20001</adGroupId>
+            <adGroupTrackId>0</adGroupTrackId>
+            <adGroupName>test adGroup.</adGroupName>
+            <userStatus>ACTIVE</userStatus>
+            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+              <criterionType>TARGET_LIST</criterionType>
+              <targetAll>ACTIVE</targetAll>
+            </settings>
+            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
+            <customParameters>
+              <parameters>
+                <key>site</key>
+                <value>yahoo</value>
+              </parameters>
+              <parameters>
+                <key>id1</key>
+                <value>1234</value>
+              </parameters>
+              <parameters>
+                <key>id2</key>
+                <value>a7h59A98yu</value>
+              </parameters>
+            </customParameters>
+            <urlReviewData>
+              <urlApprovalStatus>APPROVED</urlApprovalStatus>
+            </urlReviewData>
+            <adGroupAdRotationMode>
+              <adRotationMode>OPTIMIZE</adRotationMode>
+            </adGroupAdRotationMode>
+          </adGroup>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -669,7 +369,6 @@ Response Field
 Removes Ad group information.
 
 ### Request
-
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
 | operations | Req | [AdGroupOperation](../data/AdGroupOperation.md) | The Ad group selector for operations and list of operations. | 
@@ -677,34 +376,25 @@ Removes Ad group information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:accountId>1000000001</ns1:accountId>
-          <ns1:campaignId>1000000001</ns1:campaignId>
-          <ns1:adGroupId>1000000001</ns1:adGroupId>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>1000000001</ns1:accountId>
-          <ns1:campaignId>1000000001</ns1:campaignId>
-          <ns1:adGroupId>1000000002</ns1:adGroupId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -719,73 +409,60 @@ Response Fields
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupService</ns1:service>
-      <ns1:remainingQuota>49875</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.8844</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">AdGroup</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroup>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignId>2000000001</ns1:campaignId>
-            <ns1:campaignTrackId>1111111111</ns1:campaignTrackId>
-            <ns1:campaignName>sample campaign</ns1:campaignName>
-            <ns1:adGroupId>3000000001</ns1:adGroupId>
-            <ns1:adGroupTrackId>2222222221</ns1:adGroupTrackId>
-            <ns1:adGroupName>sample adgroup</ns1:adGroupName>
-            <ns1:userStatus>ACTIVE</ns1:userStatus>
-            <ns1:biddingStrategyConfiguration>
-              <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-              <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-              </ns1:biddingScheme>
-              <ns1:initialBid>
-                <ns1:maxCpc>120</ns1:maxCpc>
-                <ns1:bidSource>ADGROUP</ns1:bidSource>
-              </ns1:initialBid>
-              <ns1:parentBiddingStrategyConfigurations>
-                <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                  <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                </ns1:biddingScheme>
-              </ns1:parentBiddingStrategyConfigurations>
-            </ns1:biddingStrategyConfiguration>
-            <ns1:settings xsi:type="ns1:TargetingSetting">
-              <ns1:criterionType>TARGET_LIST</ns1:criterionType>
-              <ns1:targetAll>ACTIVE</ns1:targetAll>
-            </ns1:settings>
-            <ns1:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}</ns1:trackingUrl>
-            <ns1:customParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:customParameters>
-          </ns1:adGroup>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <adGroup>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <campaignTrackId>100000001</campaignTrackId>
+            <campaignName>test campaign.</campaignName>
+            <adGroupId>20001</adGroupId>
+            <adGroupTrackId>0</adGroupTrackId>
+            <adGroupName>test adGroup.</adGroupName>
+            <userStatus>ACTIVE</userStatus>
+            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
+              <criterionType>TARGET_LIST</criterionType>
+              <targetAll>ACTIVE</targetAll>
+            </settings>
+            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
+            <customParameters>
+              <parameters>
+                <key>site</key>
+                <value>yahoo</value>
+              </parameters>
+              <parameters>
+                <key>id1</key>
+                <value>1234</value>
+              </parameters>
+              <parameters>
+                <key>id2</key>
+                <value>a7h59A98yu</value>
+              </parameters>
+            </customParameters>
+            <urlReviewData>
+              <urlApprovalStatus>APPROVED</urlApprovalStatus>
+            </urlReviewData>
+            <adGroupAdRotationMode>
+              <adRotationMode>OPTIMIZE</adRotationMode>
+            </adGroupAdRotationMode>
+          </adGroup>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

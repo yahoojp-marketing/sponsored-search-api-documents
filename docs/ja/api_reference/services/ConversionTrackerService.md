@@ -33,45 +33,56 @@ http://help.marketing.yahoo.co.jp/ja/?p=1161<br>
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>9999-9999-9999-9999</ns1:license>
-      <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>2000003390</ns1:accountId>
-        <ns1:conversionTrackerIds>11</ns1:conversionTrackerIds>
-        <ns1:conversionTrackerIds>13</ns1:conversionTrackerIds>
-        <ns1:statuses>ENABLED</ns1:statuses>
-        <ns1:statuses>DISABLED</ns1:statuses>
-        <ns1:categories>DEFAULT</ns1:categories>
-        <ns1:categories>PAGE_VIEW</ns1:categories>
-        <ns1:categories>PURCHASE</ns1:categories>
-        <ns1:categories>SIGNUP</ns1:categories>
-        <ns1:categories>LEAD</ns1:categories>
-        <ns1:categories>DOWNLOAD</ns1:categories>
-        <ns1:conversionTrackerTypes>WEB_CONVERSION</ns1:conversionTrackerTypes>
-        <ns1:conversionTrackerTypes>APP_CONVERSION</ns1:conversionTrackerTypes>
-        <ns1:trackingCodeTypes>WEBPAGE</ns1:trackingCodeTypes>
-        <ns1:trackingCodeTypes>CLICK_TO_CALL</ns1:trackingCodeTypes>
-        <ns1:countingTypes>ONE_PER_CLICK</ns1:countingTypes>
-        <ns1:countingTypes>MANY_PER_CLICK</ns1:countingTypes>
-        <ns1:excludeFromBiddings>TRUE</ns1:excludeFromBiddings>
-        <ns1:dateRange>
-          <ns1:startDate>19700101</ns1:startDate>
-          <ns1:endDate>20371231</ns1:endDate>
-        </ns1:dateRange>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V6">
+      <selector>
+        <accountId>1111</accountId>
+        <conversionTrackerIds>222</conversionTrackerIds>
+        <conversionTrackerIds>333</conversionTrackerIds>
+        <conversionTrackerIds>444</conversionTrackerIds>
+        <conversionTrackerIds>555</conversionTrackerIds>
+        <conversionTrackerIds>666</conversionTrackerIds>
+        <appIds>aaaaa</appIds>
+        <appIds>bbbbb</appIds>
+        <appIds>ccccc</appIds>
+        <appIds>ddddd</appIds>
+        <appIds>eeeee</appIds>
+        <statuses>ENABLED</statuses>
+        <statuses>DISABLED</statuses>
+        <categories>DEFAULT</categories>
+        <categories>PAGE_VIEW</categories>
+        <categories>PURCHASE</categories>
+        <categories>SIGNUP</categories>
+        <categories>LEAD</categories>
+        <categories>DOWNLOAD</categories>
+        <conversionTrackerTypes>WEB_CONVERSION</conversionTrackerTypes>
+        <conversionTrackerTypes>APP_CONVERSION</conversionTrackerTypes>
+        <trackingCodeTypes>WEBPAGE</trackingCodeTypes>
+        <trackingCodeTypes>CLICK_TO_CALL</trackingCodeTypes>
+        <countingTypes>ONE_PER_CLICK</countingTypes>
+        <countingTypes>MANY_PER_CLICK</countingTypes>
+        <excludeFromBiddings>TRUE</excludeFromBiddings>
+        <excludeFromBiddings>FALSE</excludeFromBiddings>
+        <crossDeviceConversionFlags>TRUE</crossDeviceConversionFlags>
+        <crossDeviceConversionFlags>FALSE</crossDeviceConversionFlags>
+        <dateRange>
+          <startDate>19700101</startDate>
+          <endDate>20371231</endDate>
+        </dateRange>
+        <paging>
+          <startIndex>1</startIndex>
+          <numberResults>10</numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -84,178 +95,127 @@ http://help.marketing.yahoo.co.jp/ja/?p=1161<br>
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ConversionTrackerService</ns1:service>
-      <ns1:remainingQuota>6544</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>2.077</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ConversionTracker</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>5</ns1:totalNumEntries>
-        <ns1:Page.Type>ConversionTrackerPage</ns1:Page.Type>
-        <ns1:totalConversions>20</ns1:totalConversions>
-        <ns1:totalAllConversions>50</ns1:totalAllConversions>
-        <ns1:totalConversionValue>20</ns1:totalConversionValue>
-        <ns1:totalAllConversionValue>50</ns1:totalAllConversionValue>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DEFAULT</ns1:category>
-            <ns1:conversions>0</ns1:conversions>
-            <ns1:conversionValue>0</ns1:conversionValue>
-            <ns1:allConversions>10</ns1:allConversions>
-           <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>TRUE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
-            <ns1:snippetId>1000661</ns1:snippetId>
-            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-            <ns1:conversions>0</ns1:conversions>
-            <ns1:conversionValue>0</ns1:conversionValue>
-            <ns1:allConversions>20</ns1:allConversions>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>1</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>TRUE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>7</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
-            <ns1:snippetId>1000661</ns1:snippetId>
-            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
-            <ns1:appPostbackUrl>
-              <ns1:url>http://yahoo.co.jp?advertising_id={adid}&amp;lat={lat}</ns1:url>
-            </ns1:appPostbackUrl>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-             <ns1:conversions>20</ns1:conversions>
-            <ns1:conversionValue>20</ns1:conversionValue>
-            <ns1:allConversions>20</ns1:allConversions>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>1</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>90</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>DISABLED</ns1:status>
-            <ns1:category>DEFAULT</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>200</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>TRUE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page In your html page, add the snippet and call
-yahoo_report_conversion when someone clicks on the phone number link or button. --&amp;gt;
-&amp;lt;script type="text/javascript"&amp;gt;
-    /* &amp;lt;![CDATA[ */
-    yahoo_snippet_vars = function() {
-        var w = window;
-        w.yahoo_conversion_id = 1000661;
-        w.yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-        w.yahoo_conversion_value = 200;
-        w.yahoo_remarketing_only = false;
-    }
-    // IF YOU CHANGE THE CODE BELOW, THIS CONVERSION TAG MAY NOT WORK.
-    yahoo_report_conversion = function(url) {
-        yahoo_snippet_vars();
-        window.yahoo_conversion_format = "3";
-        window.yahoo_is_call = true;
-        var opt = new Object();
-        opt.onload_callback = function() {
-            if (typeof(url) != 'undefined') {
-                window.location = url;
-            }
-        }
-        var conv_handler = window['yahoo_trackConversion'];
-        if (typeof(conv_handler) == 'function') {
-            conv_handler(opt);
-        }
-    }
-    /* ]]&amp;gt; */
-&amp;lt;/script&amp;gt;
-&amp;lt;script type="text/javascript"
-        src="//s.yimg.jp/images/listing/tool/cv/conversion_async.js"&amp;gt;
-&amp;lt;/script&amp;gt;</ns1:snippet>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-           <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>20741</ns1:accountId>
-            <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PAGE_VIEW</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
-&amp;lt;script type="text/javascript"&amp;gt;
-    /* &amp;lt;![CDATA[ */
+    <getResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <totalNumEntries>4</totalNumEntries>
+        <totalConversions>20</totalConversions>
+        <totalAllConversions>50</totalAllConversions>
+        <totalConversionValue>20</totalConversionValue>
+        <totalAllConversionValue>50</totalAllConversionValue>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193198</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DEFAULT</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>10</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>IN_APP_PURCHASE</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193197</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>7</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>FIRST_OPEN</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+            <appPostbackUrl>
+              <url>&gt;http://yahoo.co.jp?advertising_id={adid}&amp;amp;lat={lat}</url>
+            </appPostbackUrl>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193196</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>20</conversions>
+            <conversionValue>20</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>90</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>DOWNLOAD</appConversionType>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="WebConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193194</conversionTrackerId>
+            <conversionTrackerName>WEB_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>PAGE_VIEW</category>
+            <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
+    /* &amp;amp;lt;![CDATA[ */
     var yahoo_conversion_id = 1000661;
     var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
     var yahoo_conversion_value = 100;
-    /* ]]&amp;gt; */
-&amp;lt;/script&amp;gt;
-&amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
-&amp;lt;/script&amp;gt;
-&amp;lt;noscript&amp;gt;
-    &amp;lt;div style="display:inline;"&amp;gt;
-        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/noscript&amp;gt;</ns1:snippet>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-           <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    /* ]]&amp;amp;gt; */
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;noscript&amp;amp;gt;
+    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
+        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
+    &amp;amp;lt;/div&amp;amp;gt;
+&amp;amp;lt;/noscript&amp;amp;gt;</snippet>
+            <markupLanguage>HTML</markupLanguage>
+            <trackingCodeType>WEBPAGE</trackingCodeType>
+            <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
+          </conversionTracker>
+        </values>
+      </rval>
+    </getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -271,80 +231,40 @@ yahoo_report_conversion when someone clicks on the phone number link or button. 
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>9999-9999-9999-9999</ns1:license>
-         <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>PAGE_VIEW</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:WebConversion">
-               <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>DISABLED</ns1:status>
-               <ns1:category>DEFAULT</ns1:category>
-               <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>200</ns1:userRevenueValue>
-               <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-               <ns1:measurementPeriod>10</ns1:measurementPeriod>
-               <ns1:markupLanguage>HTML</ns1:markupLanguage>
-               <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:AppConversion">
-               <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>DOWNLOAD</ns1:category>
-               <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-               <ns1:appId>abc_1234</ns1:appId>
-               <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-               <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:AppConversion">
-               <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>DOWNLOAD</ns1:category>
-               <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-               <ns1:excludeFromBidding>TRUE</ns1:excludeFromBidding>
-               <ns1:appId>abc_1234</ns1:appId>
-               <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-               <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
-               <ns1:appPostbackUrl>
-                  <ns1:url>http://yahoo.co.jp?advertising_id={adid}&amp;lat={lat}</ns1:url>
-               </ns1:appPostbackUrl>
-            </ns1:operand>
-            <ns1:operand xsi:type="ns1:AppConversion">
-               <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</ns1:conversionTrackerName>
-               <ns1:status>ENABLED</ns1:status>
-               <ns1:category>DEFAULT</ns1:category>
-               <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-               <ns1:userRevenueValue>100</ns1:userRevenueValue>
-               <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-               <ns1:measurementPeriod>7</ns1:measurementPeriod>
-               <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-               <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>0</accountId>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="WebConversion">
+          <conversionTrackerName>WebConversion</conversionTrackerName>
+          <status>ENABLED</status>
+          <category>DEFAULT</category>
+          <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
+          <markupLanguage>HTML</markupLanguage>
+          <trackingCodeType>WEBPAGE</trackingCodeType>
+          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+          <conversionTrackerName>AppConversion</conversionTrackerName>
+          <status>ENABLED</status>
+          <category>DOWNLOAD</category>
+          <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+          <appId>abc_1234</appId>
+          <appPlatform>ANDROID_MARKET</appPlatform>
+          <appConversionType>DOWNLOAD</appConversionType>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -358,114 +278,124 @@ yahoo_report_conversion when someone clicks on the phone number link or button. 
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ConversionTrackerService</ns1:service>
-      <ns1:remainingQuota>6547</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>2.4381</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ConversionTracker</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ConversionTrackerReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>WEB_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PAGE_VIEW</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-           <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>20741</ns1:accountId>
-            <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>CALL_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>DISABLED</ns1:status>
-            <ns1:category>DEFAULT</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>200</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-             <ns1:measurementPeriod>10</ns1:measurementPeriod>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-            <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>20741</ns1:accountId>
-            <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>TRUE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
-            <ns1:appPostbackUrl>
-              <ns1:url>http://yahoo.co.jp?advertising_id={adid}&amp;lat={lat}</ns1:url>
-            </ns1:appPostbackUrl>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DEFAULT</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>7</ns1:measurementPeriod>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193198</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DEFAULT</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>10</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>IN_APP_PURCHASE</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193197</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>7</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>FIRST_OPEN</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+            <appPostbackUrl>
+              <url>&gt;http://yahoo.co.jp?advertising_id={adid}&amp;amp;lat={lat}</url>
+            </appPostbackUrl>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193196</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>20</conversions>
+            <conversionValue>20</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>90</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>DOWNLOAD</appConversionType>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="WebConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193194</conversionTrackerId>
+            <conversionTrackerName>WEB_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>PAGE_VIEW</category>
+            <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
+    /* &amp;amp;lt;![CDATA[ */
+    var yahoo_conversion_id = 1000661;
+    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
+    var yahoo_conversion_value = 100;
+    /* ]]&amp;amp;gt; */
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;noscript&amp;amp;gt;
+    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
+        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
+    &amp;amp;lt;/div&amp;amp;gt;
+&amp;amp;lt;/noscript&amp;amp;gt;</snippet>
+            <markupLanguage>HTML</markupLanguage>
+            <trackingCodeType>WEBPAGE</trackingCodeType>
+            <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
+          </conversionTracker>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -481,75 +411,41 @@ yahoo_report_conversion when someone clicks on the phone number link or button. 
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>9999-9999-9999-9999</ns1:license>
-      <ns1:apiAccountId>9999-9999-9999-9999</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
+      <license xmlns="">1111-1111-1111-1111</license>
+      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
+      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>2000003390</ns1:accountId>
-        <ns1:operand xsi:type="ns1:WebConversion">
-          <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
-          <ns1:conversionTrackerName>WEB_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-          <ns1:status>ENABLED</ns1:status>
-          <ns1:category>PAGE_VIEW</ns1:category>
-          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-          <ns1:userRevenueValue>100</ns1:userRevenueValue>
-          <ns1:markupLanguage>HTML</ns1:markupLanguage>
-          <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:WebConversion">
-          <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
-          <ns1:conversionTrackerName>CALL_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-          <ns1:status>DISABLED</ns1:status>
-          <ns1:category>DEFAULT</ns1:category>
-          <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-          <ns1:userRevenueValue>200</ns1:userRevenueValue>
-          <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-          <ns1:markupLanguage>HTML</ns1:markupLanguage>
-          <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:AppConversion">
-          <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
-          <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-          <ns1:status>ENABLED</ns1:status>
-          <ns1:category>DOWNLOAD</ns1:category>
-          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-          <ns1:userRevenueValue>100</ns1:userRevenueValue>
-          <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-          <ns1:appId>abc_1234</ns1:appId>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:AppConversion">
-          <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
-          <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-          <ns1:status>ENABLED</ns1:status>
-          <ns1:category>DOWNLOAD</ns1:category>
-          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-          <ns1:userRevenueValue>100</ns1:userRevenueValue>
-          <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-          <ns1:appId>abc_1234</ns1:appId>
-          <ns1:appPostbackUrl>
-            <ns1:clearFlag>TRUE</ns1:clearFlag>
-          </ns1:appPostbackUrl>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:AppConversion">
-          <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
-          <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-          <ns1:status>ENABLED</ns1:status>
-          <ns1:category>PURCHASE</ns1:category>
-          <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-          <ns1:userRevenueValue>100</ns1:userRevenueValue>
-          <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-          <ns1:measurementPeriod>90</ns1:measurementPeriod>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V6">
+      <operations>
+        <operator>SET</operator>
+        <accountId>0</accountId>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="WebConversion">
+          <conversionTrackerId>1193194</conversionTrackerId>
+          <conversionTrackerName>WebConversion_update</conversionTrackerName>
+          <status>DISABLED</status>
+          <category>DEFAULT</category>
+          <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
+          <markupLanguage>XHTML</markupLanguage>
+          <trackingCodeType>CLICK_TO_CALL</trackingCodeType>
+          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+          <conversionTrackerId>1193193</conversionTrackerId>
+          <conversionTrackerName>AppConversion_update</conversionTrackerName>
+          <status>DISABLED</status>
+          <category>DOWNLOAD</category>
+          <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+          <appId>abc_1234</appId>
+          <appPlatform>ANDROID_MARKET</appPlatform>
+          <appConversionType>DOWNLOAD</appConversionType>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -563,163 +459,124 @@ yahoo_report_conversion when someone clicks on the phone number link or button. 
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ConversionTrackerService</ns1:service>
-      <ns1:remainingQuota>6529</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>3.4503</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
+      <service xmlns="">ConversionTracker</service>
+      <remainingQuota xmlns="">-1</remainingQuota>
+      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
+      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ConversionTrackerReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193194</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>WEB_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PAGE_VIEW</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>MANY_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
-&amp;lt;script type="text/javascript"&amp;gt;
-    /* &amp;lt;![CDATA[ */
+    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
+      <rval>
+        <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193198</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DEFAULT</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>10</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>IN_APP_PURCHASE</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193197</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>0</conversions>
+            <conversionValue>0</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>TRUE</excludeFromBidding>
+            <measurementPeriod>7</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>FIRST_OPEN</appConversionType>
+            <snippetId>1000661</snippetId>
+            <snippetLabel>XXXXXXXXXXXXXXXXXX</snippetLabel>
+            <appPostbackUrl>
+              <url>&gt;http://yahoo.co.jp?advertising_id={adid}&amp;amp;lat={lat}</url>
+            </appPostbackUrl>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193196</conversionTrackerId>
+            <conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>DOWNLOAD</category>
+            <conversions>20</conversions>
+            <conversionValue>20</conversionValue>
+            <allConversions>20</allConversions>
+            <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
+            <userRevenueValue>1</userRevenueValue>
+            <countingType>ONE_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>90</measurementPeriod>
+            <appId>abc_1234</appId>
+            <appPlatform>ANDROID_MARKET</appPlatform>
+            <appConversionType>DOWNLOAD</appConversionType>
+          </conversionTracker>
+        </values>
+        <values>
+          <operationSucceeded>true</operationSucceeded>
+          <conversionTracker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="WebConversion">
+            <accountId>1111</accountId>
+            <conversionTrackerId>1193194</conversionTrackerId>
+            <conversionTrackerName>WEB_コンバージョントラッカー</conversionTrackerName>
+            <status>ENABLED</status>
+            <category>PAGE_VIEW</category>
+            <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
+            <userRevenueValue>100</userRevenueValue>
+            <countingType>MANY_PER_CLICK</countingType>
+            <excludeFromBidding>FALSE</excludeFromBidding>
+            <measurementPeriod>30</measurementPeriod>
+            <snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
+    /* &amp;amp;lt;![CDATA[ */
     var yahoo_conversion_id = 1000661;
     var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
     var yahoo_conversion_value = 100;
-    /* ]]&amp;gt; */
-&amp;lt;/script&amp;gt;
-&amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
-&amp;lt;/script&amp;gt;
-&amp;lt;noscript&amp;gt;
-    &amp;lt;div style="display:inline;"&amp;gt;
-        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/noscript&amp;gt;</ns1:snippet>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-           <ns1:trackingCodeType>WEBPAGE</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:WebConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193195</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>CALL_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-            <ns1:status>DISABLED</ns1:status>
-            <ns1:category>DEFAULT</ns1:category>
-            <ns1:conversionTrackerType>WEB_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>200</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page In your html page, add the snippet and call
-yahoo_report_conversion when someone clicks on the phone number link or button. --&amp;gt;
-&amp;lt;script type="text/javascript"&amp;gt;
-    /* &amp;lt;![CDATA[ */
-    yahoo_snippet_vars = function() {
-        var w = window;
-        w.yahoo_conversion_id = 1000661;
-        w.yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-        w.yahoo_conversion_value = 200;
-        w.yahoo_remarketing_only = false;
-    }
-    // IF YOU CHANGE THE CODE BELOW, THIS CONVERSION TAG MAY NOT WORK.
-    yahoo_report_conversion = function(url) {
-        yahoo_snippet_vars();
-        window.yahoo_conversion_format = "3";
-        window.yahoo_is_call = true;
-        var opt = new Object();
-        opt.onload_callback = function() {
-            if (typeof(url) != 'undefined') {
-                window.location = url;
-            }
-        }
-        var conv_handler = window['yahoo_trackConversion'];
-        if (typeof(conv_handler) == 'function') {
-            conv_handler(opt);
-        }
-    }
-    /* ]]&amp;gt; */
-&amp;lt;/script&amp;gt;
-&amp;lt;script type="text/javascript"
-        src="//s.yimg.jp/images/listing/tool/cv/conversion_async.js"&amp;gt;
-&amp;lt;/script&amp;gt;</ns1:snippet>
-            <ns1:markupLanguage>HTML</ns1:markupLanguage>
-            <ns1:trackingCodeType>CLICK_TO_CALL</ns1:trackingCodeType>
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193196</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_DOWNLOAD_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>DOWNLOAD</ns1:appConversionType>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193197</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_FIRST_OPEN_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>DOWNLOAD</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>30</ns1:measurementPeriod>
-            <ns1:appId>abc_1234</ns1:appId>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>FIRST_OPEN</ns1:appConversionType>
-            <ns1:snippetId>1000661</ns1:snippetId>
-            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:conversionTracker xsi:type="ns1:AppConversion">
-            <ns1:accountId>2000003390</ns1:accountId>
-            <ns1:conversionTrackerId>1193198</ns1:conversionTrackerId>
-            <ns1:conversionTrackerName>APP_ANDROID_IN_APP_PURCHASE_コンバージョントラッカーEDIT</ns1:conversionTrackerName>
-            <ns1:status>ENABLED</ns1:status>
-            <ns1:category>PURCHASE</ns1:category>
-            <ns1:conversionTrackerType>APP_CONVERSION</ns1:conversionTrackerType>
-            <ns1:userRevenueValue>100</ns1:userRevenueValue>
-            <ns1:countingType>ONE_PER_CLICK</ns1:countingType>
-            <ns1:excludeFromBidding>FALSE</ns1:excludeFromBidding>
-            <ns1:measurementPeriod>90</ns1:measurementPeriod>
-            <ns1:appPlatform>ANDROID_MARKET</ns1:appPlatform>
-            <ns1:appConversionType>IN_APP_PURCHASE</ns1:appConversionType>
-            <ns1:snippetId>1000661</ns1:snippetId>
-            <ns1:snippetLabel>XXXXXXXXXXXXXXXXXX</ns1:snippetLabel>
-            <ns1:appPostbackUrl />
-          </ns1:conversionTracker>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    /* ]]&amp;amp;gt; */
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
+&amp;amp;lt;/script&amp;amp;gt;
+&amp;amp;lt;noscript&amp;amp;gt;
+    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
+        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
+    &amp;amp;lt;/div&amp;amp;gt;
+&amp;amp;lt;/noscript&amp;amp;gt;</snippet>
+            <markupLanguage>HTML</markupLanguage>
+            <trackingCodeType>WEBPAGE</trackingCodeType>
+            <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
+          </conversionTracker>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
