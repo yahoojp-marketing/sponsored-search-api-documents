@@ -12,7 +12,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.4.0</version>
+          <version>6.5.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -218,7 +218,7 @@
   </wsdl:binding>
   <wsdl:service name="TargetingIdeaService">
     <wsdl:port binding="tns:TargetingIdeaServiceSoapBinding" name="TargetingIdeaService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/TargetingIdeaService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/TargetingIdeaService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

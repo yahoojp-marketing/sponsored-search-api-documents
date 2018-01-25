@@ -11,7 +11,7 @@
       xmlns:tns="http://ss.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.4.0</version>
+          <version>6.5.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -89,6 +89,7 @@
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string" />
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters" />
           <element maxOccurs="1" minOccurs="0" name="urlReviewData" type="tns:UrlReviewData" />
+          <element maxOccurs="1" minOccurs="0" name="adGroupAdRotationMode" type="tns:AdGroupAdRotationMode" />
         </sequence>
       </complexType>
       <simpleType name="BiddingStrategyFailedReason">
@@ -311,6 +312,17 @@
           <enumeration value="DISAPPROVED" />
         </restriction>
       </simpleType>
+      <complexType name="AdGroupAdRotationMode">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="adRotationMode" type="tns:AdRotationMode" />
+        </sequence>
+      </complexType>
+      <simpleType name="AdRotationMode">
+        <restriction base="xsd:string">
+          <enumeration value="OPTIMIZE" />
+          <enumeration value="ROTATE_FOREVER" />
+        </restriction>
+      </simpleType>
       <complexType name="AdGroupReturnValue">
         <complexContent>
           <extension base="tns:ListReturnValue">
@@ -464,7 +476,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.4/AdGroupService" />
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/AdGroupService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
