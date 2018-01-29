@@ -30,7 +30,7 @@ Returns account balance.
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
             <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
             <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-        <ns1:RequestHeader>
+        </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
         <ns1:get>
@@ -60,7 +60,7 @@ Returns account balance.
             <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
             <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId> 
             <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-        <ns1:RequestHeader>
+        </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
         <ns1:get>
