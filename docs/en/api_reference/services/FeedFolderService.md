@@ -242,7 +242,7 @@ Response Fields
                         <ns1:accountId>1000000001</ns1:accountId>
                         <ns1:feedFolderId>113</ns1:feedFolderId>
                         <ns1:feedFolderName>myfeedname</ns1:feedFolderName>
-                        <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholde Type>
+                        <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000001</ns1:feedAttributeId>
                             <ns1:feedAttributeName>myfeedattname1</ns1:feedAttributeName>
