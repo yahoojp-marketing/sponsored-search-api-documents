@@ -114,12 +114,12 @@ Response Fields
                         <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000001</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname1</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname1</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                         </ns1:feedAttribute>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000002</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                         </ns1:feedAttribute>
                     </ns1:feedFolder>
@@ -159,11 +159,11 @@ Add the information related to Feed Folder.
                     <ns1:feedFolderName>myfeedname</ns1:feedFolderName>
                     <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname1</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname1</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                     </ns1:feedAttribute>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                     </ns1:feedAttribute>
                 </ns1:operand>
@@ -196,11 +196,11 @@ Add the information related to Feed Folder.
                     <ns1:feedFolderName>myfeedname</ns1:feedFolderName>
                     <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname1</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname1</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                     </ns1:feedAttribute>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                     </ns1:feedAttribute>
                 </ns1:operand>
@@ -245,12 +245,12 @@ Response Fields
                         <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholde Type>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000001</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname1</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname1</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                         </ns1:feedAttribute>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000002</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                         </ns1:feedAttribute>
                     </ns1:feedFolder>
@@ -294,7 +294,7 @@ Updates Feed Folder information.
                         <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                     </ns1:feedAttribute>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                     </ns1:feedAttribute>
                 </ns1:operand>
@@ -330,7 +330,7 @@ Updates Feed Folder information.
                         <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
                     </ns1:feedAttribute>
                     <ns1:feedAttribute>
-                        <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                        <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                         <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                     </ns1:feedAttribute>
                 </ns1:operand>
@@ -380,7 +380,7 @@ Response Fields
                         </ns1:feedAttribute>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000002</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                         </ns1:feedAttribute>
                     </ns1:feedFolder>
@@ -495,7 +495,7 @@ Response Fields
                         </ns1:feedAttribute>
                         <ns1:feedAttribute>
                             <ns1:feedAttributeId>2000000002</ns1:feedAttributeId>
-                            <ns1:feedAttributeName>myfeedattname2</ns1:feed AttributeName>
+                            <ns1:feedAttributeName>myfeedattname2</ns1:feedAttributeName>
                             <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
                         </ns1:feedAttribute>
                     </ns1:feedFolder>
