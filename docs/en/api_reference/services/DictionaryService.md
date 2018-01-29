@@ -92,31 +92,31 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:disapprovalReason>
-                        <ns1:disapprovalReasonCode>1<ns1:disapprovalReasonCode>
-                        <ns1:lang>JA<ns1:lang>
-                        <ns1:title>disapprovalReasonタイトル<ns1:title>
-                        <ns1:description>disapprovalReason説明<ns1:description>
-                        <ns1:recommend>対処方法<ns1:recommend>
+                        <ns1:disapprovalReasonCode>1</ns1:disapprovalReasonCode>
+                        <ns1:lang>JA</ns1:lang>
+                        <ns1:title>disapprovalReasonタイトル</ns1:title>
+                        <ns1:description>disapprovalReason説明</ns1:description>
+                        <ns1:recommend>対処方法</ns1:recommend>
                     </ns1:disapprovalReason>
                 </ns1:values>
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:disapprovalReason>
-                        <ns1:desapprovalReasonCode>2<ns1:disapprovalReasonCode>
-                        <ns1:lang>JA<ns1:lang>
-                        <ns1:title>disapprovalReasonタイトル2<ns1:title>
-                        <ns1:description>disapprovalReason説明2<ns1:description>
-                        <ns1:recommend>対処方法2<ns1:recommend>
+                        <ns1:disapprovalReasonCode>2</ns1:disapprovalReasonCode>
+                        <ns1:lang>JA</ns1:lang>
+                        <ns1:title>disapprovalReasonタイトル2</ns1:title>
+                        <ns1:description>disapprovalReason説明2</ns1:description>
+                        <ns1:recommend>対処方法2</ns1:recommend>
                     </ns1:disapprovalReason>
                 </ns1:values>
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:disapprovalReason>
-                        <ns1:disapprovalReasonCode>3<ns1:disapprovalReasonCode>
-                        <ns1:lang>JA<ns1:lang>
-                        <ns1:title>disapprovalReasonタイトル3<ns1:title>
-                        <ns1:description>disapprovalReason説明3<ns1:description>
-                        <ns1:recommend>対処方法3<ns1:recommend>
+                        <ns1:disapprovalReasonCode>3</ns1:disapprovalReasonCode>
+                        <ns1:lang>JA</ns1:lang>
+                        <ns1:title>disapprovalReasonタイトル3</ns1:title>
+                        <ns1:description>disapprovalReason説明3</ns1:description>
+                        <ns1:recommend>対処方法3</ns1:recommend>
                     </ns1:disapprovalReason>
                 </ns1:values>
             </ns1:rval>
