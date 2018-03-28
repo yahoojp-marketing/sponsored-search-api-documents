@@ -152,7 +152,7 @@ Campaign object describes Campaign information.
   <td>Optional<br>
   *Default value for the case of no setting 'TargetingSetting'<br>
   SettingType:TARGET_LIST_SETTING<br>
-  TargetAll:DEACTIVE</td>
+  TargetAll:ACTIVE</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>

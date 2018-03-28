@@ -117,7 +117,10 @@ AdGroup オブジェクトは、広告グループを表します。
   <td><a href="./AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
   <td>ターゲット設定です。</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Optional<br>
+  ※TargetingSettingが未設定の場合のDefault値<br>
+  TargetCriterionType:TARGET_LIST<br>
+  TargetAll:ACTIVE</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
