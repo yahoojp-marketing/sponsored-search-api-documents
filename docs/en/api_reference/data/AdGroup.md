@@ -118,7 +118,10 @@ AdGroup object describes ad group information.
   <td><a href="./AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="./TargetingSetting.md">TargetingSetting</a></td>
   <td>Targeting setting.</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Optional<br>
+  *Default value for the case of no setting 'TargetingSetting'<br>
+  TargetCriterionType:TARGET_LIST<br>
+  TargetAll:ACTIVE</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
