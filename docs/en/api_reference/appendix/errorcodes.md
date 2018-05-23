@@ -2,7 +2,7 @@
 List of SOAP error code and message when the error or problem occurs.
 
 ### Overview
-If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response. <br> If an error occurs during the processing of your SOAP request, Sponsored Search API will return an error code and message. <br>See [Error](/docs/en/api_reference/data/Error.md), [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md) for the entity details
+If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response. <br> If an error occurs during the processing of your SOAP request, Sponsored Search API will return an error code and message. <br>See [Error](/docs/en/api_reference/data/Common/Error.md), [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md) for the entity details
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Body>
@@ -27,20 +27,20 @@ Sponsored Search API returns these SOAP faults when errors occur.
 ##### Service
 All services.
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
-0001 | Invalid Request.  | This error can result for a variety of reasons. <br>Typically because one of the parameter values in the request is wrong or invalid and the operation cannot be completed.  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
+0001 | Invalid Request.  | This error can result for a variety of reasons. <br>Typically because one of the parameter values in the request is wrong or invalid and the operation cannot be completed.
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
-0003 | Frequency limit exceeded. Please try your request again later. | Frequency limit exceeded. Please try your request again later.  
-0004 | Invalid location.  | Account cannot be accessed at this location. <br>Please use the LocationService to retrieve the URL prefix for the colocation the account is assigned to.  
-0006 | required. | The soap header is missing required parameter.  
-0007 | invalid number format. | The number value is incorrect for this parameter.  
-0008 | invalid string format. | The string value is incorrect for this parameter.  
-0009 | invalid enum. | Your request contains an enumeration type value that is not valid.  
-0010 | not a valid id. | You have submitted an invalid ID. One of the ID indicated in the request was not found. <br>This error may also result if onBehalfOfAccountId is not associated with the accountId which is in your request.  
-0011 | not login for apiAccountId. | The given apiAccountId could not log in. <br>This could happen because of an incorrect apiAccountPassword or does not match the license in the request header.  
-0011 | not login for onBehalfOfAccountId. | The given OnBehalfOfAccountId could not log in. <br>This could happen because of an incorrect OnBehalfOfPassword or does not match the accountId in the request header.  
-0012 | status is invalid. | The accountId or onBehalfOfAccountId indicated in the request is not active.  
+0003 | Frequency limit exceeded. Please try your request again later. | Frequency limit exceeded. Please try your request again later.
+0004 | Invalid location.  | Account cannot be accessed at this location. <br>Please use the LocationService to retrieve the URL prefix for the colocation the account is assigned to.
+0006 | required. | The soap header is missing required parameter.
+0007 | invalid number format. | The number value is incorrect for this parameter.
+0008 | invalid string format. | The string value is incorrect for this parameter.
+0009 | invalid enum. | Your request contains an enumeration type value that is not valid.
+0010 | not a valid id. | You have submitted an invalid ID. One of the ID indicated in the request was not found. <br>This error may also result if onBehalfOfAccountId is not associated with the accountId which is in your request.
+0011 | not login for apiAccountId. | The given apiAccountId could not log in. <br>This could happen because of an incorrect apiAccountPassword or does not match the license in the request header.
+0011 | not login for onBehalfOfAccountId. | The given OnBehalfOfAccountId could not log in. <br>This could happen because of an incorrect OnBehalfOfPassword or does not match the accountId in the request header.
+0012 | status is invalid. | The accountId or onBehalfOfAccountId indicated in the request is not active.
 0013 | method is invalid. | The operation is not available. <br>This error may also result if you specified a operation which does not exist.
 0014 | selector is invalid.  | The selector is invalid. <br>This error result if you specified multiple selector in your request body.
 0015 | operations is invalid.  | The operation is invalid. <br>This error result if you specified multiple operation in your request body.
@@ -71,23 +71,23 @@ All services.
 ##### Service
 [AccountService](/docs/en/api_reference/services/AccountService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
-20110005 | INVALID VALUE | You have submitted invalid account IDs.  
-20110006 | TOO MANY VALUE | Account IDs exceed maximum allowed.  
-20110007 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.  
-20110011 | INVALID VALUE | You have submitted an invalid account statuses.  
-20110012 | TOO MANY VALUE | Account statuses exceed maximum allowed.  
-20110013 | INVALID VALUE CONTENT | You have submitted an invalid account statuses. <br>One of the account status indicated in the request is not valid.  
-20130008 | INVALID VALUE | You have submitted an invalid account.  
-20130009 | INPUT REQUIRED | Account is required.  
-20130010 | TOO MANY VALUE | Accounts exceed maximum allowed.  
-20130011 | INVALID VALUE | You have submitted an invalid account ID.  
-20130012 | INPUT REQUIRED | Account ID is required.  
-20130013 | DUPLICATE VALUE | You have specified a duplicate account ID.  
-20130014 | NO ACCOUNT FOUND | Account ID indicated in the request was not found.  
-20130015 | CANNOT SET TO ACCOUNT | You cannot perform write operations for this accout.  
-20130019 | INVALID VALUE | Account name specified in the request is not a valid account name.  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
+20110005 | INVALID VALUE | You have submitted invalid account IDs.
+20110006 | TOO MANY VALUE | Account IDs exceed maximum allowed.
+20110007 | INVALID VALUE CONTENT | You have submitted invalid account IDs. <br>One of the account ID indicated in the request is not valid.
+20110011 | INVALID VALUE | You have submitted an invalid account statuses.
+20110012 | TOO MANY VALUE | Account statuses exceed maximum allowed.
+20110013 | INVALID VALUE CONTENT | You have submitted an invalid account statuses. <br>One of the account status indicated in the request is not valid.
+20130008 | INVALID VALUE | You have submitted an invalid account.
+20130009 | INPUT REQUIRED | Account is required.
+20130010 | TOO MANY VALUE | Accounts exceed maximum allowed.
+20130011 | INVALID VALUE | You have submitted an invalid account ID.
+20130012 | INPUT REQUIRED | Account ID is required.
+20130013 | DUPLICATE VALUE | You have specified a duplicate account ID.
+20130014 | NO ACCOUNT FOUND | Account ID indicated in the request was not found.
+20130015 | CANNOT SET TO ACCOUNT | You cannot perform write operations for this accout.
+20130019 | INVALID VALUE | Account name specified in the request is not a valid account name.
 20130020 | CANNOT SET EMPTY | Account name specified in the request is empty.
 20130021 | TOO LONG VALUE | Account name is too long.
 20130022 | READ ONLY | Account Type is read-only.
@@ -103,8 +103,8 @@ All services.
 ##### Service
 [AccountTrackingUrlService](/docs/ja/api_reference/services/AccountTrackingUrlService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 210903 | Invalid role. | Account authorization is not valid.
 210905 | Invalid status. | Cannot change the approval status when in review.
 210907 | url restriction. | URL that cannot be submitted was set.
@@ -113,10 +113,10 @@ All services.
 
 #### Billing error
 ##### Service
-[BalanceService](/docs/en/api_reference/services/BalanceService.md)  
+[BalanceService](/docs/en/api_reference/services/BalanceService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 20410003 | INPUT REQUIRED | Account ID is required.
 20410004 | INVALID VALUE | You have submitted an invalid account ID.
 20410005 | TOO MANY VALUE | Account IDs exceed maximum allowed.
@@ -135,8 +135,8 @@ All services.
 [SharedCriterionService](/docs/en/api_reference/services/SharedCriterionService.md), <br>
 
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 0018 | The data size you requested is too large. <br>Please try your request again with a smaller date range or reduce the size of your request.  | Failed operations due to data size excess.
 0102 | Deactivated. | There is no such account, account status is invalid, the account has been already deleted.
 0103 | Exists same name. | The name you specified for a campaign, ad group, ad was not unique. <br>Please choose one that is unique.
@@ -169,14 +169,14 @@ All services.
 20903 | OVER_DATE | Date is after the date range.
 21001 | INVALID_ENUM | Your request contains an enumeration type value that is not valid.
 21301 | INVALID_TARGET | Specified target type cannot be set to the campaign.
-21401 | INVAILD_RELATION | The IDs or cliterionUse you provided is not valid.  <br>This error may also result if you have specified an enddate which is earlier than the start date.                            
+21401 | INVAILD_RELATION | The IDs or cliterionUse you provided is not valid.  <br>This error may also result if you have specified an enddate which is earlier than the start date.
 21601 | INVALID_URL_FORMAT | The url or destinationUrl in your request appears to be malformed or incomplete. <br>Please check it.
-120001 | REQUIRED | Request does not exist.  
-120003 | INVALID NUMBER FORMAT | The number format is invalid.  
-120016 | TOO LARGE VALUE | The number is larger.  
-120017 | TOO SMALL VALUE | The number is small.  
-120018 | DUPLICATE VALUE | The same Ad Group ID in the array.  
-120022 | DEACTIVATED | Data does not exist.  
+120001 | REQUIRED | Request does not exist.
+120003 | INVALID NUMBER FORMAT | The number format is invalid.
+120016 | TOO LARGE VALUE | The number is larger.
+120017 | TOO SMALL VALUE | The number is small.
+120018 | DUPLICATE VALUE | The same Ad Group ID in the array.
+120022 | DEACTIVATED | Data does not exist.
 120027 | OVER LIST SIZE | Array is two or more.
 210607 | Require default value. | Default text is not input into ad for insertion of the ad customizer.
 211001 | Cannot set AdvancedMobileURL. | Cannot set advancedMobileUrl in Mobile app download.
@@ -186,10 +186,10 @@ All services.
 211006 | Cannot bid modify criterion campaign opted out. | Because Bid Adjustment rate by device on campaign has been set as 100% already, the Bid Adjustment rate for same device on ad group cannot be edited.
 
 ##### Service
-[CampaignService](/docs/ja/api_reference/services/CampaignService.md)  
+[CampaignService](/docs/ja/api_reference/services/CampaignService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 210300 | Double or no settings in Auto bidding.  | Bid type or Auto Bidding ID is not set, or both Bid type and Auto Bidding ID are set.
 210301 | Setting the disabled Auto bidding.  | Designating the Auto bidding that in updating or deleted mode.
 210302 | Conversion related settings in Auto bidding.  | Designating the Auto bidding that is related to conversion.
@@ -209,13 +209,13 @@ All services.
 211004 | Cannot set under AndroidCampaign.  | Cannot set as below for App campaign for Android: <br> - Setting TrackingUrl and/or CustomParameter in Campaign, Ad Group, Ad, and Keyword.<br> - Setting Landing Page URL and/or URL for Smartphone in Keyword.
 
 ##### Service
-[AdGroupService](/docs/en/api_reference/services/AdGroupService.md)  
+[AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 0102 | Deactivated. | Invalid setting.
 210301 | Setting the disabled Auto bidding.  | Designating the Auto bidding that in updating or deleted mode.
-210400 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.  
+210400 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.
 210402 | Invalid conversion tracking.  | Conversion tracking is not valid.
 210403 | Not enough conversions.  | Conversion performance is not enough.
 210404 | Auto bidding is already set.  | Setting the Auto Bidding of "Target CPC" or "Maximize conversions" to campaign, when Bid settings are made to keywords.
@@ -233,9 +233,9 @@ All services.
 ##### Service
 [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
-210500 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
+210500 | Double setting in Auto bidding.  | Cannot set both Bidding type and Auto bidding ID.
 210501 | Setting the disabled Auto bidding.  | Designating the Auto bidding that in updating or deleted mode.
 210502 | Invalid conversion tracking.  | Conversion tracking is not valid.
 210503 | Not enough conversions.  | Conversion performance is not enough.
@@ -257,9 +257,9 @@ All services.
 ##### Service
 [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
-210200 | Auto bidding has been used.  | Cannot delete because Auto Bidding is set to either Campaign, Ad Group, or Keyword.  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
+210200 | Auto bidding has been used.  | Cannot delete because Auto Bidding is set to either Campaign, Ad Group, or Keyword.
 210201 | Minimum value is higher than maximum value.  | Click minimum value is set higher value than maximum value.
 210202 | Auto bidding type does not match.  | Registered Auto Bidding type and requested Auto Bidding type does not match.
 
@@ -268,8 +268,8 @@ All services.
 ##### Service
 [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
 0108 | entity count limit exceeded.  | The error occurs when you create 31st report definitions.<br>The limitation of report definitions you can store is 30.<br>Please check and remove old report definitions.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
@@ -277,7 +277,7 @@ All services.
 40002 | NOT_LIST | The operation requires array.
 40003 | OVER_LIST_SIZE | Number of elements exceed maximum allowed. <br>Please reduce the size of your request and submit it again.
 40004 | LOWER_LIST_SIZE | Specified list/container must not contain any null elements. <br>You must provide at least one valid object in this operation
-40011 | INVALID_NUMBER_FORMAT | The number value is incorrect for this parameter.  
+40011 | INVALID_NUMBER_FORMAT | The number value is incorrect for this parameter.
 40012 | LOWER_NUMBER | The number is too small.
 40013 | OVER_NUMBER | The number is too big.
 40021 | INVALID_STRING_FORMAT | The string value is incorrect for this parameter.
@@ -303,8 +303,8 @@ All services.
 ##### Service
 [ReportService](/docs/en/api_reference/services/ReportService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------    
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 0002 | An internal error has occurred.  | An internal error has occurred. Please try again later. <br>If the problem continues, please contact the support team via Inquiry page for assistance. <br>&lowast;Be sure to have your SOAP Request/Response ready.
 0108 | entity count limit exceeded.  | The error occurs when you create 51st ONE TIME report job.<br>The limitation of ONE TIME report job ID you can store is 50.<br>Please check and remove old report job.
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
@@ -321,7 +321,7 @@ All services.
 [BidLandscapeService](/docs/en/api_reference/services/BidLandscapeService.md), <br> [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md),
 <br>  [KeywordEstimatorService](/docs/en/api_reference/services/KeywordEstimatorService.md)
 
- Code    | Message        | Description              
+ Code    | Message        | Description
 -------- | -------------- | ------------------------
 20002 | INVALID VALUE | You have submitted an invalid account.
 20003 | TOO HIGH | The number is too big.
@@ -343,8 +343,8 @@ All services.
 ##### Service
 [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 120001 | REQUIRED | Required.
 120002 | INVALID VALUE | Value is invalid.
 120010 | TOO MANY ITEM | Item is too many.
@@ -364,11 +364,11 @@ All services.
 ##### Service
 [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------   
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 21601 | Invalid url format. | QuickLink URL and/or Custom URL of Keyword is not valid.
-210102 | INVALID PHONE NUMBER | Phone number in CALL_PHONE_NUMBER from FeedItemService is invalid. <br>This error occur when adding the FeedItem information on CALLEXTENSION.  
+210102 | INVALID PHONE NUMBER | Phone number in CALL_PHONE_NUMBER from FeedItemService is invalid. <br>This error occur when adding the FeedItem information on CALLEXTENSION.
 210104 | INVALID STATUS | Since it is in review, cannot be updated.
 210110 | INVALID TARGET | Number of scheduled targeting settings exceeds the maximum items per a day (max: 6).
 211000 | Cannot operate AdvancedURL.	| Cannot change because it has already migrated to Advanced URL.
@@ -379,8 +379,8 @@ All services.
 ##### Service
 [CampaignFeedService](/docs/ja/api_reference/services/CampaignFeedService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 120002 | INVALID VALUE| Value is invalid.
 120018 | DUPLICATE VALUE| Duplicated Campaign ID.
@@ -392,8 +392,8 @@ All services.
 ##### Service
 [AdGroupFeedService](/docs/ja/api_reference/services/AdGroupFeedService.md)
 
- Code    | Message        | Description              
--------- | -------------- | ------------------------  
+ Code    | Message        | Description
+-------- | -------------- | ------------------------
 20103 | OVER_LIST_SIZE| The element count exceeded the maximum.
 120002 | INVALID VALUE| Value is invalid.
 120018 | DUPLICATE VALUE| Duplicated Ad group ID.
@@ -406,7 +406,7 @@ All services.
 ##### Service
 [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
 
- Code    | Message        | Description   
+ Code    | Message        | Description
 ------------------------ | ----------- | -------------------------------------------------------
 210802 | Adult account selected.| Adult account cannot be selected.
 210803 | Retargeting unavailable.| Account that retargeting been stopped from review.
@@ -422,7 +422,7 @@ All services.
 ##### Service
 [CampaignRetargetingListService](/docs/ja/api_reference/services/CampaignRetargetingListService.md)
 
- Code    | Message        | Description   
+ Code    | Message        | Description
 ------------------------ | ----------- | -------------------------------------------------------
 210810 | Status not approved. | Review is not approved for the selected target list.
 210812 | Already existing target list. | 'Exclude/Include' setting of the Target List has been already made for the ad group ID. (For a single ad group, one target list for each Exclude and Include setting is available for setup.
@@ -434,7 +434,7 @@ All services.
 ##### Service
 [AdGroupRetargetingListService](/docs/ja/api_reference/services/AdGroupRetargetingListService.md)
 
- Code    | Message        | Description   
+ Code    | Message        | Description
 ------------------------ | ----------- | -------------------------------------------------------
 210810 | Status not approved.| Review is not approved for the selected target list.
 210811 | Target list not found.| Selected target list does not exist.

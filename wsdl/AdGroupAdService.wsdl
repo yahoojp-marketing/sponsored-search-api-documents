@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://ss.yahooapis.jp/V6"
-  xmlns:tns="http://ss.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://ss.yahooapis.jp/V201805/AdGroupAd"
+        xmlns:tns="http://ss.yahooapis.jp/V201805/AdGroupAd"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V6">
-      <annotation>
-        <appinfo>
-          <version>6.5.0</version>
-        </appinfo>
-      </annotation>
+            targetNamespace="http://ss.yahooapis.jp/V201805"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://ss.yahooapis.jp/V201805">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -28,11 +23,59 @@
       <complexType name="SoapResponseHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://ss.yahooapis.jp/V201805/AdGroupAd"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://ss.yahooapis.jp/V201805"
+            xmlns:tns="http://ss.yahooapis.jp/V201805/AdGroupAd">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201805"/>
+      <annotation>
+        <appinfo>
+          <version>201805</version>
+        </appinfo>
+      </annotation>
       <complexType name="AdGroupAdSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
@@ -42,13 +85,12 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adTypes" type="tns:AdType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
       <complexType name="AdGroupAdPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupAdValues"/>
             </sequence>
@@ -57,7 +99,7 @@
       </complexType>
       <complexType name="AdGroupAdValues">
         <complexContent>
-          <extension base="tns:ReturnValue">
+          <extension base="adv:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="adGroupAd" type="tns:AdGroupAd"/>
             </sequence>
@@ -92,7 +134,6 @@
           <element maxOccurs="unbounded" minOccurs="0" name="additionalAdvancedMobileUrls" type="tns:AdGroupAdAdditionalAdvancedMobileUrls"/>
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
-          <element maxOccurs="1" minOccurs="0" name="advanced" type="tns:Advanced"/>
           <element maxOccurs="1" minOccurs="0" name="url" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="displayUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="headline" type="xsd:string"/>
@@ -124,12 +165,6 @@
           <element maxOccurs="1" minOccurs="0" name="value" type="xsd:string"/>
         </sequence>
       </complexType>
-      <simpleType name="Advanced">
-        <restriction base="xsd:string">
-          <enumeration value="TRUE"/>
-          <enumeration value="FALSE"/>
-        </restriction>
-      </simpleType>
       <simpleType name="IsRemove">
         <restriction base="xsd:string">
           <enumeration value="TRUE"/>
@@ -189,23 +224,6 @@
           <enumeration value="POST_DISAPPROVED"/>
         </restriction>
       </simpleType>
-      <simpleType name="MarkupLanguageType">
-        <restriction base="xsd:string">
-          <enumeration value="HTML"/>
-          <enumeration value="CHTML"/>
-          <enumeration value="XHTML"/>
-          <enumeration value="WML"/>
-          <enumeration value="ALL"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="CarrierName">
-        <restriction base="xsd:string">
-          <enumeration value="DOCOMO"/>
-          <enumeration value="KDDI"/>
-          <enumeration value="SOFTBANK"/>
-          <enumeration value="ALL"/>
-        </restriction>
-      </simpleType>
       <simpleType name="DevicePreference">
         <restriction base="xsd:string">
           <enumeration value="SMART_PHONE"/>
@@ -217,6 +235,11 @@
           <enumeration value="ANDROID"/>
         </restriction>
       </simpleType>
+      <complexType abstract="true" name="Operation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
+        </sequence>
+      </complexType>
       <complexType name="AdGroupAdOperation">
         <complexContent>
           <extension base="tns:Operation">
@@ -227,51 +250,6 @@
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="AdGroupAdReturnValue">
-        <complexContent>
-          <extension base="tns:ListReturnValue">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupAdValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="Paging">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="ReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
-        </sequence>
-      </complexType>
-      <complexType name="Error">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
-        </sequence>
-      </complexType>
-      <complexType name="ErrorDetail">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Page">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Operation">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
-        </sequence>
-      </complexType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
           <enumeration value="ADD"/>
@@ -279,11 +257,14 @@
           <enumeration value="REMOVE"/>
         </restriction>
       </simpleType>
-      <complexType abstract="true" name="ListReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
-        </sequence>
+      <complexType name="AdGroupAdReturnValue">
+        <complexContent>
+          <extension base="adv:ListReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AdGroupAdValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
       </complexType>
       <element name="get">
         <complexType>
@@ -296,7 +277,7 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupAdPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
@@ -311,12 +292,12 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AdGroupAdReturnValue"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader"/>
-      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
@@ -386,7 +367,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201805/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

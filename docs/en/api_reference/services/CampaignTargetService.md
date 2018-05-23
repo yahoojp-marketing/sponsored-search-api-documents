@@ -4,10 +4,10 @@ CampaignTargetService is to get or update target setting information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/CampaignTargetService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/CampaignTargetService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/CampaignTargetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/CampaignTargetService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/CampaignTarget
 #### Overview
 Get, add, update or delete campaign informations related to targeting setting.<br>
 * Bid Adjustment (bidmultiplier) is only modifiable for each targeting.<br>
@@ -23,602 +23,554 @@ Get, add, update or delete campaign informations related to targeting setting.<b
 
 #### Operation
 Describes the operation which provides at CampaignTargetService.
+
++ [get](#get)
++ [mutate(ADD)](#mutate-add)
++ [mutate(SET)](#mutate-set)
++ [mutate(REMOVE)](#mutate-remove)
+
+#### Object
+[CampaignTarget](../data/CampaignTarget)
+
 ## get
+
 ### Request
 Gets campaign informations related to targeting setting.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [CampaignTargetSelector](../data/CampaignTargetSelector.md) | Operation elements for targeting setting of campaign. | 
+| selector | Req | [CampaignTargetSelector](../data/CampaignTarget/CampaignTargetSelector.md) | Operation elements for targeting setting of campaign. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>9999-9999-9999-9999</ns1:license>
-         <ns1:apiAccountId>8888-8888-8888-8888</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>14201</ns1:accountId>
-            <ns1:campaignIds>7261</ns1:campaignIds>
-            <ns1:campaignIds>7262</ns1:campaignIds>
-            <ns1:campaignIds>7263</ns1:campaignIds>
-            <ns1:targetIds>JP011112222</ns1:targetIds>
-            <ns1:targetIds>011112222</ns1:targetIds>
-            <ns1:targetIds>911112222</ns1:targetIds>
-            <ns1:targetTypes>SCHEDULE</ns1:targetTypes>
-            <ns1:targetTypes>LOCATION</ns1:targetTypes>
-            <ns1:targetTypes>PLATFORM</ns1:targetTypes>
-            <ns1:targetTypes>NETWORK</ns1:targetTypes>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>500</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>1234567890</accountId>
+        <campaignIds>10001</campaignIds>
+        <campaignIds>10002</campaignIds>
+        <campaignIds>10003</campaignIds>
+        <campaignIds>10004</campaignIds>
+        <campaignIds>10005</campaignIds>
+        <targetIds>20001</targetIds>
+        <targetIds>20002</targetIds>
+        <targetIds>20003</targetIds>
+        <targetIds>20004</targetIds>
+        <targetIds>20005</targetIds>
+        <targetIds>JP-01-0010</targetIds>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### Response
 Response Field
 
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CampaignTargetPage](../data/CampaignTargetPage.md) | Page of lists of the requested campaign targets. | 
+| rval | [CampaignTargetPage](../data/CampaignTarget/CampaignTargetPage.md) | Page of lists of the requested campaign targets. |
+
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>CampaignTargetService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>CampaignTargetReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>ADD</ns1:Operation.Type>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>14201</ns1:accountId>
-                        <ns1:campaignId>7261</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>011112222</ns1:targetId>
-                           <ns1:targetType>SCHEDULE</ns1:targetType>
-                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                           <ns1:startHour>21</ns1:startHour>
-                           <ns1:startMinute>ZERO</ns1:startMinute>
-                           <ns1:endHour>24</ns1:endHour>
-                           <ns1:endMinute>ZERO</ns1:endMinute>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                 <ns1:values>
-                  <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                  <ns1:campaignTarget>
-                     <ns1:accountId>14201</ns1:accountId>
-                     <ns1:campaignId>7261</ns1:campaignId>
-                     <ns1:campaignName>Sample2</ns1:campaignName>
-                     <ns1:target xsi:type="ns1:LocationTarget">
-                     <ns1:targetId>JP-0001-0010</ns1:targetId>
-                        <ns1:targetType>LOCATION</ns1:targetType>
-                        <ns1:provinceNameJA>東京都</ns1:provinceNameJA>
-                        <ns1:provinceNameEN>Tokyo</ns1:provinceNameEN>
-                        <ns1:cityNameJA>港区</ns1:cityNameJA>
-                        <ns1:cityNameEN>Minatoku</ns1:cityNameEN>
-                        <ns1:excludedType>INCLUDED</ns1:excludedType>
-                        <ns1:targetingStatus>ACTIVE</ns1:targetingStatus>
-                     </ns1:target>
-                     <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
-                  </ns1:campaignTarget>
-                </ns1:values>              
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>14201</ns1:accountId>
-                        <ns1:campaignId>7262</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>811112222</ns1:targetId>
-                            <ns1:targetType>NETWORK</ns1:targetType>
-                            <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-                        </ns1:target>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>14201</ns1:accountId>
-                        <ns1:campaignId>7262</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:PlatformTarget">
-                            <ns1:targetId>811112222</ns1:targetId>
-                            <ns1:targetType>PLATFORM</ns1:targetType>
-                            <ns1:platformType>SMART_PHONE</ns1:platformType>
-                        </ns1:target>
-                        <ns1:bidMultiplier>3.0</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>14201</ns1:accountId>
-                        <ns1:campaignId>7262</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:PlatformTarget">
-                            <ns1:targetId>811112223</ns1:targetId>
-                            <ns1:targetType>PLATFORM</ns1:targetType>
-                            <ns1:platformType>TABLET</ns1:platformType>
-                        </ns1:target>
-                        <ns1:bidMultiplier>2.0</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                 <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>14201</ns1:accountId>
-                        <ns1:campaignId>7262</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:PlatformTarget">
-                            <ns1:targetId>811112223</ns1:targetId>
-                            <ns1:targetType>PLATFORM</ns1:targetType>
-                            <ns1:platformType>DESKTOP</ns1:platformType>
-                        </ns1:target>
-                        <ns1:bidMultiplier>0</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignTarget</ns2:service>
+      <ns2:requestTime>1523506332854</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <ns2:rval>
+        <totalNumEntries>6</totalNumEntries>
+        <Page.Type>CampaignTargetPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ScheduleTarget">
+              <ns2:targetId>20001</ns2:targetId>
+              <ns2:targetType>SCHEDULE</ns2:targetType>
+              <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+              <ns2:startHour>10</ns2:startHour>
+              <ns2:startMinute>ZERO</ns2:startMinute>
+              <ns2:endHour>19</ns2:endHour>
+              <ns2:endMinute>ZERO</ns2:endMinute>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LocationTarget">
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:targetType>LOCATION</ns2:targetType>
+              <ns2:provinceNameJA>北海道</ns2:provinceNameJA>
+              <ns2:provinceNameEN>Hokkaido</ns2:provinceNameEN>
+              <ns2:cityNameJA>伊達市</ns2:cityNameJA>
+              <ns2:cityNameEN>Date</ns2:cityNameEN>
+              <ns2:excludedType>INCLUDED</ns2:excludedType>
+              <ns2:targetingStatus>ACTIVE</ns2:targetingStatus>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:NetworkTarget">
+              <ns2:targetId>20002</ns2:targetId>
+              <ns2:targetType>NETWORK</ns2:targetType>
+              <ns2:networkCoverageType>YAHOO_SEARCH</ns2:networkCoverageType>
+            </ns2:target>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlatformTarget">
+              <ns2:targetId>20003</ns2:targetId>
+              <ns2:targetType>PLATFORM</ns2:targetType>
+              <ns2:platformType>SMART_PHONE</ns2:platformType>
+            </ns2:target>
+            <ns2:bidMultiplier>1.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlatformTarget">
+              <ns2:targetId>20004</ns2:targetId>
+              <ns2:targetType>PLATFORM</ns2:targetType>
+              <ns2:platformType>TABLET</ns2:platformType>
+            </ns2:target>
+            <ns2:bidMultiplier>1.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlatformTarget">
+              <ns2:targetId>20005</ns2:targetId>
+              <ns2:targetType>PLATFORM</ns2:targetType>
+              <ns2:platformType>DESKTOP</ns2:platformType>
+            </ns2:target>
+            <ns2:bidMultiplier>1.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate (ADD)
+
 ### Request
 Adds campaign informations related to targeting setting.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignTargetOperation](../data/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign | 
+| operations | Req | [CampaignTargetOperation](../data/CampaignTarget/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V6" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
-               <ns1:target xsi:type="ns1:ScheduleTarget">
-                  <ns1:targetType>SCHEDULE</ns1:targetType>
-                  <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                  <ns1:startHour>21</ns1:startHour>
-                  <ns1:startMinute>ZERO</ns1:startMinute>
-                  <ns1:endHour>24</ns1:endHour>
-                  <ns1:endMinute>ZERO</ns1:endMinute>
-               </ns1:target>
-               <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
-               <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
-                  <ns1:targetType>LOCATION</ns1:targetType>
-                  <ns1:excludedType>INCLUDED</ns1:excludedType>
-               </ns1:target>
-               <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000004</ns1:campaignId>
-               <ns1:target xsi:type="ns1:PlatformTarget">
-                  <ns1:targetType>PLATFORM</ns1:targetType>
-                  <ns1:platformType>SMART_PHONE</ns1:platformType>
-               </ns1:target>
-               <ns1:bidMultiplier>1</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000005</ns1:campaignId>
-               <ns1:target xsi:type="ns1:NetworkTarget">
-                  <ns1:targetType>NETWORK</ns1:targetType>
-                  <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-               </ns1:target>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ScheduleTarget">
+            <targetType>SCHEDULE</targetType>
+            <dayOfWeek>FRIDAY</dayOfWeek>
+            <startHour>10</startHour>
+            <startMinute>ZERO</startMinute>
+            <endHour>19</endHour>
+            <endMinute>ZERO</endMinute>
+          </target>
+          <bidMultiplier>5.0</bidMultiplier>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationTarget">
+            <targetId>JP-01-0010</targetId>
+            <targetType>LOCATION</targetType>
+            <excludedType>INCLUDED</excludedType>
+          </target>
+          <bidMultiplier>5.0</bidMultiplier>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="NetworkTarget">
+            <targetType>NETWORK</targetType>
+            <networkCoverageType>YAHOO_SEARCH</networkCoverageType>
+          </target>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### Response
 Response Fields
 
-| Field | Requirement | Data Type | 
+| Field | Requirement | Data Type |
 |---|---|---|
-| rval | [CampaignTargetReturnValue](../data/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. | 
+| rval | [CampaignTargetReturnValue](../data/CampaignTarget/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. |
+
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>CampaignTargetService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>CampaignTargetReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>ADD</ns1:Operation.Type>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>011112222</ns1:targetId>
-                           <ns1:targetType>SCHEDULE</ns1:targetType>
-                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                           <ns1:startHour>21</ns1:startHour>
-                           <ns1:startMinute>ZERO</ns1:startMinute>
-                           <ns1:endHour>24</ns1:endHour>
-                           <ns1:endMinute>ZERO</ns1:endMinute>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                 <ns1:values>
-                  <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                  <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
-                     <ns1:campaignName>Sample2</ns1:campaignName>
-                     <ns1:target xsi:type="ns1:LocationTarget">
-                     <ns1:targetId>JP-0001-0010</ns1:targetId>
-                        <ns1:targetType>LOCATION</ns1:targetType>
-                        <ns1:provinceNameJA>東京都</ns1:provinceNameJA>
-                        <ns1:provinceNameEN>Tokyo</ns1:provinceNameEN>
-                        <ns1:cityNameJA>港区</ns1:cityNameJA>
-                        <ns1:cityNameEN>Minatoku</ns1:cityNameEN>
-                        <ns1:excludedType>INCLUDED</ns1:excludedType>
-                        <ns1:targetingStatus>ACTIVE</ns1:targetingStatus>
-                     </ns1:target>
-                     <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
-                  </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>811112222</ns1:targetId>
-                            <ns1:targetType>NETWORK</ns1:targetType>
-                            <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-                        </ns1:target>
-                    </ns1:campaignTarget>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignTarget</ns2:service>
+      <ns2:requestTime>1523506332876</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <ns2:rval>
+        <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ScheduleTarget">
+              <ns2:targetId>20001</ns2:targetId>
+              <ns2:targetType>SCHEDULE</ns2:targetType>
+              <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+              <ns2:startHour>10</ns2:startHour>
+              <ns2:startMinute>ZERO</ns2:startMinute>
+              <ns2:endHour>19</ns2:endHour>
+              <ns2:endMinute>ZERO</ns2:endMinute>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LocationTarget">
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:targetType>LOCATION</ns2:targetType>
+              <ns2:provinceNameJA>北海道</ns2:provinceNameJA>
+              <ns2:provinceNameEN>Hokkaido</ns2:provinceNameEN>
+              <ns2:cityNameJA>伊達市</ns2:cityNameJA>
+              <ns2:cityNameEN>Date</ns2:cityNameEN>
+              <ns2:excludedType>INCLUDED</ns2:excludedType>
+              <ns2:targetingStatus>ACTIVE</ns2:targetingStatus>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:NetworkTarget">
+              <ns2:targetId>20002</ns2:targetId>
+              <ns2:targetType>NETWORK</ns2:targetType>
+              <ns2:networkCoverageType>YAHOO_SEARCH</ns2:networkCoverageType>
+            </ns2:target>
+          </ns2:campaignTarget>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## mutate (SET)
+
 ### Request
 Update campaign informations related to targeting setting.
 * Bid Adjustment (bidmultiplier) is only modifiable.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignTargetOperation](../data/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign. | 
+| operations | Req | [CampaignTargetOperation](../data/CampaignTarget/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V6" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
-               <ns1:target xsi:type="ns1:ScheduleTarget">
-                  <ns1:targetId>00124534</ns1:targetId>
-                  <ns1:targetType>SCHEDULE</ns1:targetType>
-               </ns1:target>
-               <ns1:bidMultiplier>1.5</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
-               <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
-                  <ns1:targetType>LOCATION</ns1:targetType>
-               </ns1:target>
-               <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000006</ns1:campaignId>
-               <ns1:target xsi:type="ns1:PlatformTarget">
-                  <ns1:targetId>0124534</ns1:targetId>
-                  <ns1:targetType>PLATFORM</ns1:targetType>
-               </ns1:target>
-               <ns1:bidMultiplier>3</ns1:bidMultiplier>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ScheduleTarget">
+            <targetId>20001</targetId>
+            <targetType>SCHEDULE</targetType>
+          </target>
+          <bidMultiplier>10.0</bidMultiplier>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationTarget">
+            <targetId>JP-01-0010</targetId>
+            <targetType>LOCATION</targetType>
+          </target>
+          <bidMultiplier>10.0</bidMultiplier>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### Response
 Response Fields
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignTargetReturnValue](../data/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. | 
+| rval | [CampaignTargetReturnValue](../data/CampaignTarget/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>CampaignTargetService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>CampaignTargetReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>SET</ns1:Operation.Type>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>011112222</ns1:targetId>
-                           <ns1:targetType>SCHEDULE</ns1:targetType>
-                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                           <ns1:startHour>21</ns1:startHour>
-                           <ns1:startMinute>ZERO</ns1:startMinute>
-                           <ns1:endHour>24</ns1:endHour>
-                           <ns1:endMinute>ZERO</ns1:endMinute>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                 <ns1:values>
-                  <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                  <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
-                     <ns1:campaignName>Sample2</ns1:campaignName>
-                     <ns1:target xsi:type="ns1:LocationTarget">
-                     <ns1:targetId>JP-0001-0010</ns1:targetId>
-                        <ns1:targetType>LOCATION</ns1:targetType>
-                        <ns1:provinceNameJA>東京都</ns1:provinceNameJA>
-                        <ns1:provinceNameEN>Tokyo</ns1:provinceNameEN>
-                        <ns1:cityNameJA>港区</ns1:cityNameJA>
-                        <ns1:cityNameEN>Minatoku</ns1:cityNameEN>
-                        <ns1:excludedType>INCLUDED</ns1:excludedType>
-                        <ns1:targetingStatus>ACTIVE</ns1:targetingStatus>
-                     </ns1:target>
-                     <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
-                  </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>811112222</ns1:targetId>
-                            <ns1:targetType>NETWORK</ns1:targetType>
-                            <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-                        </ns1:target>
-                    </ns1:campaignTarget>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignTarget</ns2:service>
+      <ns2:requestTime>1523506332894</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <ns2:rval>
+        <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ScheduleTarget">
+              <ns2:targetId>20001</ns2:targetId>
+              <ns2:targetType>SCHEDULE</ns2:targetType>
+              <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+              <ns2:startHour>10</ns2:startHour>
+              <ns2:startMinute>ZERO</ns2:startMinute>
+              <ns2:endHour>19</ns2:endHour>
+              <ns2:endMinute>ZERO</ns2:endMinute>
+            </ns2:target>
+            <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LocationTarget">
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:targetType>LOCATION</ns2:targetType>
+              <ns2:provinceNameJA>北海道</ns2:provinceNameJA>
+              <ns2:provinceNameEN>Hokkaido</ns2:provinceNameEN>
+              <ns2:cityNameJA>伊達市</ns2:cityNameJA>
+              <ns2:cityNameEN>Date</ns2:cityNameEN>
+              <ns2:excludedType>INCLUDED</ns2:excludedType>
+              <ns2:targetingStatus>ACTIVE</ns2:targetingStatus>
+            </ns2:target>
+            <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## mutate (REMOVE)
+
 ### Request
 Delete campaign informations related to targeting setting.
 
-| Field | Restrictions | Data Type | Description | 
+| Field | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignTargetOperation](../data/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign. | 
+| operations | Req | [CampaignTargetOperation](../data/CampaignTarget/CampaignTargetOperation.md) | Operation elements for targeting setting of campaign. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:ns1="http://ss.yahooapis.jp/V6" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>REMOVE</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
-               <ns1:target xsi:type="ns1:ScheduleTarget">
-                  <ns1:targetId>011112222</ns1:targetId>
-                  <ns1:targetType>SCHEDULE</ns1:targetType>
-               </ns1:target>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
-               <ns1:target xsi:type="ns1:LocationTarget">
-                  <ns1:targetId>JP-0001-0010</ns1:targetId>
-                  <ns1:targetType>LOCATION</ns1:targetType>
-               </ns1:target>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:campaignId>00000003</ns1:campaignId>
-               <ns1:target xsi:type="ns1:NetworkTarget">
-                  <ns1:targetId>811112222</ns1:targetId>
-                  <ns1:targetType>NETWORK</ns1:targetType>
-               </ns1:target>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ScheduleTarget">
+            <targetId>20001</targetId>
+            <targetType>SCHEDULE</targetType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationTarget">
+            <targetId>JP-01-0010</targetId>
+            <targetType>LOCATION</targetType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationTarget">
+            <targetId>JP-01-0010</targetId>
+            <targetType>LOCATION</targetType>
+          </target>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### Response
 ##### Response Fields
 
-| Field | Requirement | Data Type | 
+| Field | Requirement | Data Type |
 |---|---|---|
-| rval | [CampaignTargetReturnValue](../data/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. | 
+| rval | [CampaignTargetReturnValue](../data/CampaignTarget/CampaignTargetReturnValue.md) | Page of lists of the requested campaign targets. |
+
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>CampaignTargetService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>CampaignTargetReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000003</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:ScheduleTarget">
-                           <ns1:targetId>011112222</ns1:targetId>
-                           <ns1:targetType>SCHEDULE</ns1:targetType>
-                           <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                           <ns1:startHour>21</ns1:startHour>
-                           <ns1:startMinute>ZERO</ns1:startMinute>
-                           <ns1:endHour>24</ns1:endHour>
-                           <ns1:endMinute>ZERO</ns1:endMinute>
-                        </ns1:target>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                    </ns1:campaignTarget>
-                </ns1:values>
-                 <ns1:values>
-                  <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                  <ns1:campaignTarget>
-                     <ns1:accountId>00000001</ns1:accountId>
-                     <ns1:campaignId>00000003</ns1:campaignId>
-                     <ns1:campaignName>Sample2</ns1:campaignName>
-                     <ns1:target xsi:type="ns1:LocationTarget">
-                     <ns1:targetId>JP-0001-0010</ns1:targetId>
-                        <ns1:targetType>LOCATION</ns1:targetType>
-                        <ns1:provinceNameJA>東京都</ns1:provinceNameJA>
-                        <ns1:provinceNameEN>Tokyo</ns1:provinceNameEN>
-                        <ns1:cityNameJA>港区</ns1:cityNameJA>
-                        <ns1:cityNameEN>Minatoku</ns1:cityNameEN>
-                        <ns1:excludedType>INCLUDED</ns1:excludedType>
-                        <ns1:targetingStatus>ACTIVE</ns1:targetingStatus>
-                     </ns1:target>
-                     <ns1:bidMultiplier>0.95</ns1:bidMultiplier>
-                  </ns1:campaignTarget>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:campaignTarget>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:campaignId>00000004</ns1:campaignId>
-                        <ns1:campaignName>Sample</ns1:campaignName>
-                        <ns1:target xsi:type="ns1:NetworkTarget">
-                            <ns1:targetId>811112222</ns1:targetId>
-                            <ns1:targetType>NETWORK</ns1:targetType>
-                            <ns1:networkCoverageType>YAHOO_SEARCH</ns1:networkCoverageType>
-                        </ns1:target>
-                    </ns1:campaignTarget>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignTarget</ns2:service>
+      <ns2:requestTime>1523506332920</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignTarget">
+      <ns2:rval>
+        <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ScheduleTarget">
+              <ns2:targetId>20001</ns2:targetId>
+              <ns2:targetType>SCHEDULE</ns2:targetType>
+              <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+              <ns2:startHour>10</ns2:startHour>
+              <ns2:startMinute>ZERO</ns2:startMinute>
+              <ns2:endHour>19</ns2:endHour>
+              <ns2:endMinute>ZERO</ns2:endMinute>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LocationTarget">
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:targetType>LOCATION</ns2:targetType>
+              <ns2:provinceNameJA>北海道</ns2:provinceNameJA>
+              <ns2:provinceNameEN>Hokkaido</ns2:provinceNameEN>
+              <ns2:cityNameJA>伊達市</ns2:cityNameJA>
+              <ns2:cityNameEN>Date</ns2:cityNameEN>
+              <ns2:excludedType>INCLUDED</ns2:excludedType>
+              <ns2:targetingStatus>ACTIVE</ns2:targetingStatus>
+            </ns2:target>
+            <ns2:bidMultiplier>5.0</ns2:bidMultiplier>
+          </ns2:campaignTarget>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignTarget>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:NetworkTarget">
+              <ns2:targetId>20002</ns2:targetId>
+              <ns2:targetType>NETWORK</ns2:targetType>
+              <ns2:networkCoverageType>YAHOO_SEARCH</ns2:networkCoverageType>
+            </ns2:target>
+          </ns2:campaignTarget>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

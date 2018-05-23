@@ -4,11 +4,11 @@ CampaignSharedSetService setup Negative keyword list to campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupAdService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/AdGroupAd
 
 #### Overview
 Use this service to setup Negative keyword list to campaign.
@@ -16,340 +16,222 @@ Use this service to setup Negative keyword list to campaign.
 #### Operation
 Describe the operation which provides at CampaignSharedSetService.
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(REMOVE)](#mutateremove)
+
+#### Object
+[CampaignSharedSet](../data/CampaignSharedSet)
+
 ## get
 Returns the setup information between campaign and negative keyword list.
 
 ### Request
-| Parameter | Restrictions| Data Type | Description | 
+| Parameter | Restrictions| Data Type | Description |
 |---|---|---|---|
-| selector | Req | [CampaignSharedSetSelector](../data/CampaignSharedSetSelector.md) | This is object which holds the search criteria (exec parameters) on get method. | 
+| selector | Req | [CampaignSharedSetSelector](../data/AdGroupAd/CampaignSharedSetSelector.md) | This is object which holds the search criteria (exec parameters) on get method. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignIds>100</ns1:campaignIds>
-            <ns1:campaignIds>200</ns1:campaignIds>
-            <ns1:campaignIds>300</ns1:campaignIds>
-            <ns1:sharedListIds>1000</ns1:sharedListIds>
-            <ns1:sharedListIds>1001</ns1:sharedListIds>
-            <ns1:paging>
-               <ns1:startIndex>4</ns1:startIndex>
-               <ns1:numberResults>100</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>111111</accountId>
+        <campaignIds>44</campaignIds>
+        <sharedListIds>22</sharedListIds>
+        <sharedListIds>33</sharedListIds>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Response
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetPage](../data/CampaignSharedSetPage.md) | This is object which holds the exec result (List of all entities) of get method. | 
+| rval | [CampaignSharedSetPage](../data/AdGroupAd/CampaignSharedSetPage.md) | This is object which holds the exec result (List of all entities) of get method. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>CampaignSharedSetService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>2</ns1:totalNumEntries>
-            <ns1:Page.Type>CampaignSharedSetPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>300</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No3</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>200</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No2</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignSharedSet</ns2:service>
+      <ns2:requestTime>1523506332508</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignSharedSet">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignSharedSet>
+            <ns2:accountId>111111</ns2:accountId>
+            <ns2:sharedListId>11</ns2:sharedListId>
+            <ns2:campaignId>44</ns2:campaignId>
+            <ns2:sharedListName>sample</ns2:sharedListName>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+          </ns2:campaignSharedSet>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## mutate(ADD)
 Setup negative keyword list for campaign.
 
 ### Request
-| Parameter | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignSharedSetOperation](../data/CampaignSharedSetOperation.md) | The object which holds setup information of campaign and negative keyword list for the operation by mutate method. | 
+| operations | Req | [CampaignSharedSetOperation](../data/AdGroupAd/CampaignSharedSetOperation.md) | The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:sharedListId>1000</ns1:sharedListId>
-               <ns1:campaignId>100</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1001</ns1:sharedListId>
-               <ns1:campaignId>100</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1001</ns1:sharedListId>
-               <ns1:campaignId>200</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1000</ns1:sharedListId>
-               <ns1:campaignId>300</ns1:campaignId>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1111</accountId>
+        <operand>
+          <sharedListId>11</sharedListId>
+          <campaignId>44</campaignId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetReturnValue](../data/CampaignSharedSetReturnValue.md) | This is object which holds the exec result (List of all entities) of mutate method. | 
+| rval | [CampaignSharedSetReturnValue](../data/AdGroupAd/CampaignSharedSetReturnValue.md) | This is object which holds the exec result (List of all entities) of mutate method. |
 
-#### Response Sample
+##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>CampaignSharedSetService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>CampaignSharedSetReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>ADD</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>200</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No2</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>300</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No3</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignSharedSet</ns2:service>
+      <ns2:requestTime>1523506332525</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignSharedSet">
+      <ns2:rval>
+        <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignSharedSet>
+            <ns2:accountId>111111</ns2:accountId>
+            <ns2:sharedListId>22</ns2:sharedListId>
+            <ns2:campaignId>44</ns2:campaignId>
+            <ns2:sharedListName>sample</ns2:sharedListName>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+          </ns2:campaignSharedSet>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## mutate(REMOVE)
 Remove the setup settings between campaign and negative keyword list.
 
 ### Request
-| Parameter | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignSharedSetOperation](../data/CampaignSharedSetOperation.md) |The object which holds setup information of campaign and negative keyword list for the operation by mutate method. | 
+| operations | Req | [CampaignSharedSetOperation](../data/AdGroupAd/CampaignSharedSetOperation.md) |The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>REMOVE</ns1:operator>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:sharedListId>1000</ns1:sharedListId>
-               <ns1:campaignId>100</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1001</ns1:sharedListId>
-               <ns1:campaignId>100</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1001</ns1:sharedListId>
-               <ns1:campaignId>200</ns1:campaignId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:sharedListId>1000</ns1:sharedListId>
-               <ns1:campaignId>300</ns1:campaignId>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1111</accountId>
+        <operand>
+          <sharedListId>2222</sharedListId>
+          <campaignId>3333</campaignId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Response
 Response field
 
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetReturnValue](../data/CampaignSharedSetReturnValue.md) |This is object which holds the exec result (List of all entities) of mutate method. | 
+| rval | [CampaignSharedSetReturnValue](../data/AdGroupAd/CampaignSharedSetReturnValue.md) |This is object which holds the exec result (List of all entities) of mutate method. |
 
-#### Response Sample
+##### Response Sample
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>CampaignSharedSetService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>CampaignSharedSetReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>100</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No1</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1001</ns1:sharedListId>
-                  <ns1:campaignId>200</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No2</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No2</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:campaignSharedSet>
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:sharedListId>1000</ns1:sharedListId>
-                  <ns1:campaignId>300</ns1:campaignId>
-                  <ns1:sharedListName>Sample SharedList No1</ns1:sharedListName>
-                  <ns1:campaignName>Sample Campaign No3</ns1:campaignName>
-               </ns1:campaignSharedSet>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>CampaignSharedSet</ns2:service>
+      <ns2:requestTime>1523506332539</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignSharedSet">
+      <ns2:rval>
+        <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaignSharedSet>
+            <ns2:accountId>111111</ns2:accountId>
+            <ns2:sharedListId>22</ns2:sharedListId>
+            <ns2:campaignId>44</ns2:campaignId>
+            <ns2:sharedListName>sample</ns2:sharedListName>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+          </ns2:campaignSharedSet>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

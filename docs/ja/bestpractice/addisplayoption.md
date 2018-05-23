@@ -1,32 +1,32 @@
 # 広告表示オプション
 ## 広告表示オプションとは
-広告表示オプションとは、スポンサードサーチの広告に別ページへのリンクや電話番号といった付加情報をつけて配信する機能です。  
-  
-広告表示オプションには、以下の2つがあります：  
+広告表示オプションとは、スポンサードサーチの広告に別ページへのリンクや電話番号といった付加情報をつけて配信する機能です。
+
+広告表示オプションには、以下の2つがあります：
 * “QuickLink” （広告の下部に別ページへのリンクを表示）
-* “CallExtension”（電話番号を表示）  
-  
-広告表示オプションのメリットは以下の2点です。  
+* “CallExtension”（電話番号を表示）
+
+広告表示オプションのメリットは以下の2点です。
 1. 広告スペースが広がるため、視認性が高まる。 → クリック率向上
 2. ユーザーが求めているページに、すぐにアクセスできる。 → 利便性の向上
 
 ## スポンサードサーチ APIでの実施方法
-スポンサードサーチAPIでは広告表示オプションを表示するために、以下の3つの Serviceを使用します。  
-##### 1.	FeedItemService 
-FeedItemServiceでは、FeedItem情報の取得および追加・更新・削除が実施できます。  
+スポンサードサーチAPIでは広告表示オプションを表示するために、以下の3つの Serviceを使用します。
+##### 1.	FeedItemService
+FeedItemServiceでは、FeedItem情報の取得および追加・更新・削除が実施できます。
 FeedItem情報とは、広告表示オプションとして表示するテキスト、リンクURL 、電話番号などのコンポーネントのことです。
-  
-##### 2.	CampaignFeedService  
+
+##### 2.	CampaignFeedService
 CampaignFeedServiceでは、追加したFeedItem情報のキャンペーンへの設定やキャンペーンに設定されているFeedItem情報の取得が実施できます。
-  
+
 ##### 3.	AdGroupFeedService
-AdGroupFeedServiceでは、追加したFeedItem情報の広告グループへの設定や広告グループに設定されているFeedItem情報の取得が実施できます。  
-  
+AdGroupFeedServiceでは、追加したFeedItem情報の広告グループへの設定や広告グループに設定されているFeedItem情報の取得が実施できます。
+
 ## シナリオ
 A社は、販促施策の一環として、スポンサードサーチAPIを使い以下の広告表示オプションの追加を行います。
-  
+
 ##### QuickLink
-No                | LINK_TEXT             | LINK_URL                                 
+No                | LINK_TEXT             | LINK_URL
 ----------------- | --------------------- | -----------------------------------------
 1 | セール | www.example.jp/sale
 2 | 店舗一覧 | www.example.jp/store
@@ -35,19 +35,19 @@ No                | LINK_TEXT             | LINK_URL
 5 | クーポン | www.example.jp/coupon
 6 | 特別セール | www.example.jp/specialsale
 7 | ポイント | www.example.jp/point
-   
+
 ##### CallExtension
-No                | CALL_PHONE_NUMBER                                 
+No                | CALL_PHONE_NUMBER
 ----------------- | ---------------------
 1 | 0120-45-6789
 
 #### 1.	FeedItemの登録
-はじめに、FeedItemServiceを使い、スポンサードサーチのアカウントにFeedItem情報を登録します。  
-ここではA社のスポンサードサーチのアカウント（ID:100000001）に、先述の広告表示オプションをそれぞれ登録します。  
+はじめに、FeedItemServiceを使い、スポンサードサーチのアカウントにFeedItem情報を登録します。
+ここではA社のスポンサードサーチのアカウント（ID:100000001）に、先述の広告表示オプションをそれぞれ登録します。
 ##### ＜リクエストサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -154,7 +154,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜レスポンスサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -286,7 +286,7 @@ No                | CALL_PHONE_NUMBER
                   </ns1:feedItemAttribute>
                   <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
                </ns1:feedItem>
-            </ns1:values>                            
+            </ns1:values>
          </ns1:rval>
       </ns1:mutateResponse>
    </SOAP-ENV:Body>
@@ -295,7 +295,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞ [CALLEXTENSION用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -325,7 +325,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜レスポンスサンプル＞ [CALLEXTENSION用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -359,12 +359,12 @@ No                | CALL_PHONE_NUMBER
 </SOAP-ENV:Envelope>
 ```
 #### 2.	キャンペーンへの登録
-次にCampaignFeedServiceを使い、登録したFeedItem情報をキャンペーンに設定します。  
-ここではQuickLink[No1-4]とCallExtension[No1]をキャンペーンに設定します。  
+次にCampaignFeedServiceを使い、登録したFeedItem情報をキャンペーンに設定します。
+ここではQuickLink[No1-4]とCallExtension[No1]をキャンペーンに設定します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -413,7 +413,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -480,12 +480,12 @@ No                | CALL_PHONE_NUMBER
 </SOAP-ENV:Envelope>
 ```
 #### 3.	広告グループへの登録
-続いてAdGroupFeedServiceを使い、登録したFeedItem情報を広告グループに設定します。  
-ここではQuickLink[No5]を広告グループに設定します。  
+続いてAdGroupFeedServiceを使い、登録したFeedItem情報を広告グループに設定します。
+ここではQuickLink[No5]を広告グループに設定します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -529,7 +529,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -575,19 +575,19 @@ No                | CALL_PHONE_NUMBER
                             <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
                        </ns1:adGroupFeed>
                     </ns1:adGroupFeedList>
-                </ns1:values>                
+                </ns1:values>
            </ns1:rval>
         </ns1:mutateResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 #### 4.	キャンペーンのFeedItem変更
-特別セールの開催が決まったため、キャンペーンに設定しているQuickLinkを変更します。  
-今回は、キャンペーンに設定しているQuickLink[No1]を削除し、新たにQuickLink[No6]を設定します。  
+特別セールの開催が決まったため、キャンペーンに設定しているQuickLinkを変更します。
+今回は、キャンペーンに設定しているQuickLink[No1]を削除し、新たにQuickLink[No6]を設定します。
 ##### ＜リクエストサンプル＞ [QUICKLINK用]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -616,7 +616,7 @@ No                | CALL_PHONE_NUMBER
                </ns1:campaignFeed>
               <ns1:campaignFeed>
                   <ns1:feedItemId>6</ns1:feedItemId>
-               </ns1:campaignFeed>               
+               </ns1:campaignFeed>
             </ns1:operand>
             <ns1:operand>
                <ns1:accountId>100000001</ns1:accountId>
@@ -636,7 +636,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -680,7 +680,7 @@ No                | CALL_PHONE_NUMBER
                             <ns1:campaignId>100000003</ns1:campaignId>
                             <ns1:feedItemId>6</ns1:feedItemId>
                             <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                        </ns1:campaignFeed>     
+                        </ns1:campaignFeed>
                     </ns1:campaignFeedList>
                </ns1:values>
                <ns1:values>
@@ -707,7 +707,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -751,7 +751,7 @@ No                | CALL_PHONE_NUMBER
                             <ns1:campaignId>100000003</ns1:campaignId>
                             <ns1:feedItemId>6</ns1:feedItemId>
                             <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                        </ns1:campaignFeed>     
+                        </ns1:campaignFeed>
                     </ns1:campaignFeedList>
                </ns1:values>
                <ns1:values>
@@ -778,7 +778,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/CampaignFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -808,12 +808,12 @@ No                | CALL_PHONE_NUMBER
 </SOAP-ENV:Envelope>
 ```
 #### 5.	広告グループのFeedItem変更
-クーポンの提供期間が終了したため、ポイントキャンペーンへの誘導ページに変更します。  
-今回は、広告グループに設定しているQuickLink[No5]を削除し、新たにQuickLink[No7]を設定します。 
+クーポンの提供期間が終了したため、ポイントキャンペーンへの誘導ページに変更します。
+今回は、広告グループに設定しているQuickLink[No5]を削除し、新たにQuickLink[No7]を設定します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -848,7 +848,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -890,7 +890,7 @@ No                | CALL_PHONE_NUMBER
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -923,7 +923,7 @@ No                | CALL_PHONE_NUMBER
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V4"
+ xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupFeed"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -947,7 +947,7 @@ No                | CALL_PHONE_NUMBER
                         <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
                         <ns1:adGroupFeed></ns1:adGroupFeed>
                     </ns1:adGroupFeedList>
-                </ns1:values>                
+                </ns1:values>
            </ns1:rval>
         </ns1:mutateResponse>
     </SOAP-ENV:Body>

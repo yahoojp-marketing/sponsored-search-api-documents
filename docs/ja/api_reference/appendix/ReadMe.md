@@ -11,3 +11,5 @@
 SOAPエラーコードです。
 #### [トラッキングパラメータ](/docs/ja/api_reference/appendix/tracking.md)
 トラッキングパラメータの説明です。
+#### [バージョン体系とwsdl構成の変更について](/docs/ja/api_reference/appendix/numbering_new_versions.md)
+V201805より変更したバージョン体系とwsdl構成についての説明です。

@@ -4,11 +4,11 @@ FeedItemServiceでは、フィードアイテム情報の取得および追加�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/FeedItemService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/FeedItemService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/FeedItemService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/FeedItemService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/FeedItem
 
 #### サービス概要
 フィードアイテム情報の取得および追加・更新・削除を行います。
@@ -16,349 +16,368 @@ http://ss.yahooapis.jp/V6
 #### 操作
 FeedItemServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
+
+#### オブジェクト
+[FeedItem](../data/FeedItem/FeedItem)
+
 ## get
 フィードアイテム情報を取得します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [FeedItemSelector](../data/FeedItemSelector.md) | フィードアイテムの情報を指定します。 | 
+| selector | ○ | [FeedItemSelector](../data/FeedItem/FeedItemSelector.md) | フィードアイテムの情報を指定します。 |
 
-＜リクエストサンプル＞
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:feedItemIds>12</ns1:feedItemIds>
-        <ns1:feedItemIds>13</ns1:feedItemIds>
-        <ns1:placeholderTypes>QUICKLINK</ns1:placeholderTypes>
-        <ns1:placeholderTypes>CALLEXTENSION</ns1:placeholderTypes>
-        <ns1:placeholderTypes>AD_CUSTOMIZER</ns1:placeholderTypes>
-        <ns1:placeholderTypes>CALLOUT</ns1:placeholderTypes>
-        <ns1:approvalStatuses>APPROVED</ns1:approvalStatuses>
-        <ns1:approvalStatuses>REVIEW</ns1:approvalStatuses>
-        <ns1:advanced>TRUE</ns1:advanced>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>100000001</accountId>
+        <feedItemIds>200000001</feedItemIds>
+        <feedItemIds>200000002</feedItemIds>
+        <feedItemIds>200000003</feedItemIds>
+        <feedItemIds>200000004</feedItemIds>
+        <feedItemIds>200000005</feedItemIds>
+        <placeholderTypes>QUICKLINK</placeholderTypes>
+        <placeholderTypes>CALLEXTENSION</placeholderTypes>
+        <placeholderTypes>AD_CUSTOMIZER</placeholderTypes>
+        <placeholderTypes>CALLOUT</placeholderTypes>
+        <placeholderTypes>STRUCTURED_SNIPPET</placeholderTypes>
+        <approvalStatuses>APPROVED</approvalStatuses>
+        <approvalStatuses>APPROVED_WITH_REVIEW</approvalStatuses>
+        <approvalStatuses>REVIEW</approvalStatuses>
+        <approvalStatuses>PRE_DISAPPROVED</approvalStatuses>
+        <approvalStatuses>POST_DISAPPROVED</approvalStatuses>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [FeedItemPage](../data/FeedItemPage.md) | フィードアイテムの情報を格納します。 | 
+| rval | [FeedItemPage](../data/FeedItem/FeedItemPage.md) | フィードアイテムの情報を格納します。 |
 
-＜レスポンスサンプル＞
+##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>FeedItemService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>7</ns1:totalNumEntries>
-            <ns1:Page.Type>FeedItemPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>113</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>114</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://www.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://www.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>115</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-                     <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-                  <ns1:startDate>20130910</ns1:startDate>
-                  <ns1:endDate>20130920</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>14</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>15</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>116</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-                     <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>21521</ns1:accountId>
-                  <ns1:feedFolderId>999999</ns1:feedFolderId>
-                  <ns1:feedItemId>100000</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-                     <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-                     <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
-                     <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-                     <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
-                     <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-                     <ns1:feedAttributeValue>20151231 235959</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
-                     <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-                     <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
-                     <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-                  <ns1:startDate>20150217</ns1:startDate>
-                  <ns1:endDate>20150217</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>14</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>15</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:targetingCampaign>
-                     <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-                  </ns1:targetingCampaign>
-                  <ns1:targetingAdGroup>
-                     <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-                  </ns1:targetingAdGroup>
-                  <ns1:targetingKeyword>
-                     <ns1:text>keyword keyword keyword keyword</ns1:text>
-                     <ns1:matchType>PHRASE</ns1:matchType>
-                  </ns1:targetingKeyword>
-                  <ns1:geoTargeting>
-                    <ns1:targetId>JP-0001-0010</ns1:targetId>
-                    <ns1:type>LOCATION</ns1:type>
-                    <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
-                  </ns1:geoTargeting>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>21521</ns1:accountId>
-                  <ns1:feedItemId>100000</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-                     <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-                     <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:feedItemId>200000001</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-                     <ns1:feedAttributeValue>modify Text</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-                  <ns1:startDate>20151231</ns1:startDate>
-                  <ns1:endDate>20200101</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>14</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>15</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-               </ns1:feedItem>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506333836</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>FeedItemPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>300000001</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000002</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>update quicklink feedItem.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000003</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALL_PHONE_NUMBER</ns2:placeholderField>
+              <ns2:feedAttributeValue>0120-111-222</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
+            <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000004</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALLOUT_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLOUT</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedFolderId>300000001</ns2:feedFolderId>
+            <ns2:feedItemId>200000005</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_STRING</ns2:placeholderField>
+              <ns2:feedAttributeId>1</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>test</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_DATE</ns2:placeholderField>
+              <ns2:feedAttributeId>2</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>20151231 235959</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_INTEGER</ns2:placeholderField>
+              <ns2:feedAttributeId>3</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>1234567890</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_PRICE</ns2:placeholderField>
+              <ns2:feedAttributeId>4</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:targetingCampaign>
+              <ns2:targetingCampaignId>400000001</ns2:targetingCampaignId>
+            </ns2:targetingCampaign>
+            <ns2:targetingAdGroup>
+              <ns2:targetingAdGroupId>500000001</ns2:targetingAdGroupId>
+            </ns2:targetingAdGroup>
+            <ns2:targetingKeyword>
+              <ns2:targetingKeywordId>600000001</ns2:targetingKeywordId>
+              <ns2:text>test keyword</ns2:text>
+              <ns2:matchType>EXACT</ns2:matchType>
+            </ns2:targetingKeyword>
+            <ns2:geoTargeting>
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:type>LOCATION</ns2:type>
+              <ns2:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>NIKE</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>ADIDAS</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>PUMA</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -366,1432 +385,1571 @@ FeedItemServiceで提供される操作を説明します。
 フィードアイテム情報を追加します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 | 
+| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
 
-＜リクエストサンプル＞（クイックリンクオプション）
+##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute  xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute  xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-          <ns1:customParameters>
-            <ns1:isRemove>FALSE</ns1:isRemove>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>yahoo</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>1234</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>a7h59A98yu</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-          <ns1:advanced>TRUE</ns1:advanced>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_TEXT</placeholderField>
+            <feedAttributeValue>quicklink feedItem.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_URL</placeholderField>
+            <feedAttributeValue>http://www.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_MOBILE_URL</placeholderField>
+            <feedAttributeValue>http://portal.mobile.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>TRACKING_URL</placeholderField>
+            <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <customParameters>
+            <parameters>
+              <key>site</key>
+              <value>yahoo</value>
+            </parameters>
+            <parameters>
+              <key>id1</key>
+              <value>1234</value>
+            </parameters>
+            <parameters>
+              <key>id2</key>
+              <value>a7h59A98yu</value>
+            </parameters>
+          </customParameters>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-＜リクエストサンプル＞（電話番号オプション）
+##### ＜リクエストサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-            <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-          <ns1:startDate>20130910</ns1:startDate>
-          <ns1:endDate>20130920</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-            <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLEXTENSION</placeholderType>
+        <operand>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>CALL_PHONE_NUMBER</placeholderField>
+            <feedAttributeValue>0120-111-222</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（アドカスタマイザー）
+##### ＜リクエストサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedFolderId>999999</ns1:feedFolderId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-            <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-            <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
-            <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-            <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute  xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
-            <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-            <ns1:feedAttributeValue>20151231 235959</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
-            <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-            <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz
-            </ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-          <ns1:startDate>20150217</ns1:startDate>
-          <ns1:endDate>20150217</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-          <ns1:targetingCampaign>
-            <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-          </ns1:targetingCampaign>
-          <ns1:targetingAdGroup>
-            <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-          </ns1:targetingAdGroup>
-          <ns1:targetingKeyword>
-            <ns1:text>keyword keyword keyword keyword</ns1:text>
-            <ns1:matchType>PHRASE</ns1:matchType>
-          </ns1:targetingKeyword>
-          <ns1:geoTargeting>
-            <ns1:targetId>JP-0001-0010</ns1:targetId>
-            <ns1:type>LOCATION</ns1:type>
-            <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
-          </ns1:geoTargeting>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemAttribute  xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-            <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-            <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>AD_CUSTOMIZER</placeholderType>
+        <operand>
+          <feedFolderId>300000001</feedFolderId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>1</feedAttributeId>
+            <feedAttributeValue>test</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>2</feedAttributeId>
+            <feedAttributeValue>20151231 235959</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>3</feedAttributeId>
+            <feedAttributeValue>1234567890</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>4</feedAttributeId>
+            <feedAttributeValue>9,999,999.99</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <targetingCampaign>
+            <targetingCampaignId>400000001</targetingCampaignId>
+          </targetingCampaign>
+          <targetingAdGroup>
+            <targetingAdGroupId>500000001</targetingAdGroupId>
+          </targetingAdGroup>
+          <targetingKeyword>
+            <text>test keyword</text>
+            <matchType>EXACT</matchType>
+          </targetingKeyword>
+          <geoTargeting>
+            <targetId>JP-01-0010</targetId>
+            <type>LOCATION</type>
+            <geoTargetingRestriction>LOCATION_OF_PRESENCE</geoTargetingRestriction>
+          </geoTargeting>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（テキスト補足オプション）
+##### ＜リクエストサンプル＞(テキスト補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-            <ns1:feedAttributeValue>sample Text</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-         <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLOUT</placeholderType>
+        <operand>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>CALLOUT_TEXT</placeholderField>
+            <feedAttributeValue>callout text.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（複数(2件以上)の最終リンク先URLを登録する場合）
+##### ＜リクエストサンプル＞(カテゴリ補足オプション)
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-         <ns1:accountId>1000000001</ns1:accountId>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-            <ns1:operand>
-               <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                  <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                  <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-               <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                  <ns1:placeholderField>ADDITIONAL_ADVANCED_URLS</ns1:placeholderField>
-                  <ns1:feedAttributeValues>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                  </ns1:feedAttributeValues>
-                  <ns1:feedAttributeValues>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                  </ns1:feedAttributeValues>
-               </ns1:feedItemAttribute>
-               <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                  <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                  <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-               <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                  <ns1:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns1:placeholderField>
-                  <ns1:feedAttributeValues>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                  </ns1:feedAttributeValues>
-                  <ns1:feedAttributeValues>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                  </ns1:feedAttributeValues>
-               </ns1:feedItemAttribute>
-               <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                  <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                  <ns1:feedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&uid={id1}&xid={id2}]]></ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-               <ns1:startDate>20151231</ns1:startDate>
-               <ns1:endDate>20200101</ns1:endDate>
-               <ns1:scheduling>
-                  <ns1:schedules>
-                     <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                     <ns1:startHour>14</ns1:startHour>
-                     <ns1:startMinute>ZERO</ns1:startMinute>
-                     <ns1:endHour>15</ns1:endHour>
-                     <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                  </ns1:schedules>
-               </ns1:scheduling>
-               <ns1:customParameters>
-                  <ns1:isRemove>FALSE</ns1:isRemove>
-                  <ns1:parameters>
-                     <ns1:key>site</ns1:key>
-                     <ns1:value>yahoo</ns1:value>
-                  </ns1:parameters>
-                  <ns1:parameters>
-                     <ns1:key>id1</ns1:key>
-                     <ns1:value>1234</ns1:value>
-                  </ns1:parameters>
-                  <ns1:parameters>
-                     <ns1:key>id2</ns1:key>
-                     <ns1:value>a7h59A98yu</ns1:value>
-                  </ns1:parameters>
-               </ns1:customParameters>
-               <ns1:advanced>TRUE</ns1:advanced>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>STRUCTURED_SNIPPET</placeholderType>
+        <operand>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>STRUCTURED_SNIPPET_HEADER</placeholderField>
+            <feedAttributeValue>Brands</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>STRUCTURED_SNIPPET_VALUES</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>NIKE</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>ADIDAS</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>PUMA</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
+##### ＜リクエストサンプル＞(複数(2件以上)の最終リンク先URLを登録する場合)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_TEXT</placeholderField>
+            <feedAttributeValue>quicklink feedItem.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_URL</placeholderField>
+            <feedAttributeValue>http://www.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>ADDITIONAL_ADVANCED_URLS</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www.yahoo.co.jp/lp1/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www.yahoo.co.jp/lp2/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www.yahoo.co.jp/lp3/</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_MOBILE_URL</placeholderField>
+            <feedAttributeValue>http://portal.mobile.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp1/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp2/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>TRACKING_URL</placeholderField>
+            <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <customParameters>
+            <parameters>
+              <key>site</key>
+              <value>yahoo</value>
+            </parameters>
+            <parameters>
+              <key>id1</key>
+              <value>1234</value>
+            </parameters>
+            <parameters>
+              <key>id2</key>
+              <value>a7h59A98yu</value>
+            </parameters>
+          </customParameters>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 | 
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
 
-
-＜レスポンスサンプル＞（クイックリンクオプション）
+##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506333908</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>200000001</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-              <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-              <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-              <ns1:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}
-              </ns1:reviewFeedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-            <ns1:startDate>20120112</ns1:startDate>
-            <ns1:endDate>20120113</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-            <ns1:reviewCustomParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:reviewCustomParameters>
-            <ns1:advanced>TRUE</ns1:advanced>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>update quicklink feedItem.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（電話番号オプション）
+##### ＜レスポンスサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506333940</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>115</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-            <ns1:startDate>20130910</ns1:startDate>
-            <ns1:endDate>20130920</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>116</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000003</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALL_PHONE_NUMBER</ns2:placeholderField>
+              <ns2:feedAttributeValue>0120-111-222</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
+            <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（アドカスタマイザー）
+##### ＜レスポンスサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506333977</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedFolderId>999999</ns1:feedFolderId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>20151231 235959</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-            <ns1:startDate>20150217</ns1:startDate>
-            <ns1:endDate>20150217</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-            <ns1:targetingCampaign>
-              <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-            </ns1:targetingCampaign>
-            <ns1:targetingAdGroup>
-              <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-            </ns1:targetingAdGroup>
-            <ns1:targetingKeyword>
-              <ns1:text>keyword keyword keyword keyword</ns1:text>
-              <ns1:matchType>PHRASE</ns1:matchType>
-            </ns1:targetingKeyword>
-            <ns1:geoTargeting>
-              <ns1:targetId>JP-0001-0010</ns1:targetId>
-              <ns1:type>LOCATION</ns1:type>
-              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
-            </ns1:geoTargeting>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedFolderId>300000001</ns2:feedFolderId>
+            <ns2:feedItemId>200000005</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_STRING</ns2:placeholderField>
+              <ns2:feedAttributeId>1</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>test</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_DATE</ns2:placeholderField>
+              <ns2:feedAttributeId>2</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>20151231 235959</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_INTEGER</ns2:placeholderField>
+              <ns2:feedAttributeId>3</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>1234567890</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_PRICE</ns2:placeholderField>
+              <ns2:feedAttributeId>4</ns2:feedAttributeId>
+              <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:targetingCampaign>
+              <ns2:targetingCampaignId>400000001</ns2:targetingCampaignId>
+            </ns2:targetingCampaign>
+            <ns2:targetingAdGroup>
+              <ns2:targetingAdGroupId>500000001</ns2:targetingAdGroupId>
+            </ns2:targetingAdGroup>
+            <ns2:targetingKeyword>
+              <ns2:targetingKeywordId>600000001</ns2:targetingKeywordId>
+              <ns2:text>test keyword</ns2:text>
+              <ns2:matchType>EXACT</ns2:matchType>
+            </ns2:targetingKeyword>
+            <ns2:geoTargeting>
+              <ns2:targetId>JP-01-0010</ns2:targetId>
+              <ns2:type>LOCATION</ns2:type>
+              <ns2:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（テキスト補足オプション）
+##### ＜レスポンスサンプル＞(テキスト補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334022</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-          <ns1:feedItemId>200000001</ns1:feedItemId>
-          <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-            <ns1:feedAttributeValue>modify Text</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-         <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-       </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000004</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALLOUT_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLOUT</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（複数(2件以上)の最終リンク先URLを登録する場合）
+##### ＜レスポンスサンプル＞(カテゴリ補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>FeedItemService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>ADD</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>200000001</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:reviewFeedAttributeValue>http://www.yahoo.co.jp/url1</ns1:reviewFeedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:reviewFeedAttributeValue>http://www.yahoo.co.jp/url2</ns1:reviewFeedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:reviewFeedAttributeValue>http://portal.mobile.yahoo.co.jp/url1</ns1:reviewFeedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:reviewFeedAttributeValue>http://portal.mobile.yahoo.co.jp/url2</ns1:reviewFeedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334062</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>NIKE</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>ADIDAS</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>PUMA</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞(複数(2件以上)の最終リンク先URLを登録する場合)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334099</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000002</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>update quicklink feedItem.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(SET)
+
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 | 
+| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
 
-＜リクエストサンプル＞（クイックリンクオプション）
+##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:feedItemId>200000001</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-            <ns1:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;uid={id1}&amp;xid={id2}</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-          <ns1:customParameters>
-            <ns1:isRemove>FALSE</ns1:isRemove>
-            <ns1:parameters>
-              <ns1:key>site</ns1:key>
-              <ns1:value>mysite</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id1</ns1:key>
-              <ns1:value>5678</ns1:value>
-            </ns1:parameters>
-            <ns1:parameters>
-              <ns1:key>id2</ns1:key>
-              <ns1:value>jFj903Hng8e</ns1:value>
-            </ns1:parameters>
-          </ns1:customParameters>
-          <ns1:advanced>TRUE</ns1:advanced>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemId>200000001</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_TEXT</placeholderField>
+            <feedAttributeValue>update quicklink feedItem.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_URL</placeholderField>
+            <feedAttributeValue>http://www2.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_MOBILE_URL</placeholderField>
+            <feedAttributeValue>http://mobile.mobile.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>TRACKING_URL</placeholderField>
+            <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180413</startDate>
+          <endDate>20180513</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <customParameters>
+            <parameters>
+              <key>site2</key>
+              <value>yahoo</value>
+            </parameters>
+            <parameters>
+              <key>id3</key>
+              <value>1234</value>
+            </parameters>
+            <parameters>
+              <key>id4</key>
+              <value>a7h59A98yu</value>
+            </parameters>
+          </customParameters>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（電話番号オプション）
+##### ＜リクエストサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>118</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-            <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:startDate>20130910</ns1:startDate>
-          <ns1:endDate>20130920</ns1:endDate>
-          <ns1:scheduling>
-           <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-            </ns1:scheduling>
-       </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>118</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-            <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-         <!--startDate,endDate,schedulingの設定を解除する場合 -->
-          <ns1:startDate></ns1:startDate>
-          <ns1:endDate></ns1:endDate>
-          <ns1:scheduling></ns1:scheduling>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>119</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-            <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLEXTENSION</placeholderType>
+        <operand>
+          <feedItemId>200000003</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>CALL_PHONE_NUMBER</placeholderField>
+            <feedAttributeValue>0120-888-999</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180413</startDate>
+          <endDate>20180513</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（アドカスタマイザー）
+##### ＜リクエストサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>1000000001</ns1:accountId>
-          <ns1:feedItemId>999999</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:feedAttributeValue>2015-02-16T11:22:12+09:00</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:startDate>20150217</ns1:startDate>
-          <ns1:endDate>20150217</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-          <ns1:targetingCampaign>
-            <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-          </ns1:targetingCampaign>
-          <ns1:targetingAdGroup>
-            <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-          </ns1:targetingAdGroup>
-          <ns1:targetingKeyword>
-            <ns1:targetingKeywordId>999999</ns1:targetingKeywordId>
-          </ns1:targetingKeyword>
-          <ns1:geoTargeting>
-            <ns1:targetId>JP-13-0004</ns1:targetId>
-            <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
-          </ns1:geoTargeting>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>1000000001</ns1:accountId>
-          <ns1:feedItemId>999999</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>AD_CUSTOMIZER</placeholderType>
+        <operand>
+          <feedItemId>200000005</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>1</feedAttributeId>
+            <feedAttributeValue>set test</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>2</feedAttributeId>
+            <feedAttributeValue>20171231 235959</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>3</feedAttributeId>
+            <feedAttributeValue>9012345678</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <feedAttributeId>4</feedAttributeId>
+            <feedAttributeValue>8,888,888.88</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180413</startDate>
+          <endDate>20180513</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <targetingCampaign>
+            <targetingCampaignId>0</targetingCampaignId>
+          </targetingCampaign>
+          <targetingAdGroup>
+            <targetingAdGroupId>0</targetingAdGroupId>
+          </targetingAdGroup>
+          <targetingKeyword>
+            <text>set test keyword</text>
+            <matchType>EXACT</matchType>
+          </targetingKeyword>
+          <geoTargeting>
+            <targetId>JP-01-0011</targetId>
+            <type>LOCATION</type>
+            <geoTargetingRestriction>LOCATION_OF_PRESENCE</geoTargetingRestriction>
+          </geoTargeting>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（テキスト補足オプション）
+##### ＜リクエストサンプル＞(テキスト補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:feedItemId>200000001</ns1:feedItemId>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-            <ns1:feedAttributeValue>modify text</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-         <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLOUT</placeholderType>
+        <operand>
+          <feedItemId>200000004</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>CALLOUT_TEXT</placeholderField>
+            <feedAttributeValue>set callout text.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180413</startDate>
+          <endDate>20180513</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（複数(2件以上)の最終リンク先URLを設定したFeedItemを変更する場合）
+##### ＜リクエストサンプル＞(カテゴリ補足オプション)
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-         <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-         <ns1:accountId>1000000001</ns1:accountId>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-<!-- MulitpleFeedItemAttributeの設定解除 -->           
-            <ns1:operand>
-               <ns1:feedItemId>200000001</ns1:feedItemId>
-               <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                   <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                   <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-               <!--ADDITIONAL_ADVANCED_URLSの設定解除-->
-               <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                  <ns1:placeholderField>ADDITIONAL_ADVANCED_URLS</ns1:placeholderField>
-                  <ns1:isRemove>TRUE</ns1:isRemove>
-              </ns1:feedItemAttribute>
-              <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                   <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                   <ns1:feedAttributeValue>http://www.yahoo.co.jp/mobile</ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-              <!--ADDITIONAL_ADVANCED_MOBILE_URLSの設定解除-->
-               <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                  <ns1:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns1:placeholderField>
-                  <ns1:isRemove>TRUE</ns1:isRemove>
-               </ns1:feedItemAttribute>
-               <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                  <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                  <ns1:feedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&uid={id1}&xid={id2}]]></ns1:feedAttributeValue>
-               </ns1:feedItemAttribute>
-               <ns1:startDate>20151231</ns1:startDate>
-               <ns1:endDate>20200101</ns1:endDate>
-               <ns1:scheduling>
-                  <ns1:schedules>
-                     <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                     <ns1:startHour>14</ns1:startHour>
-                     <ns1:startMinute>ZERO</ns1:startMinute>
-                     <ns1:endHour>15</ns1:endHour>
-                     <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                  </ns1:schedules>
-               </ns1:scheduling>
-               <ns1:customParameters>
-                  <ns1:isRemove>FALSE</ns1:isRemove>
-                  <ns1:parameters>
-                     <ns1:key>site</ns1:key>
-                     <ns1:value>mysite</ns1:value>
-                  </ns1:parameters>
-                  <ns1:parameters>
-                     <ns1:key>id1</ns1:key>
-                     <ns1:value>5678</ns1:value>
-                  </ns1:parameters>
-                  <ns1:parameters>
-                     <ns1:key>id2</ns1:key>
-                     <ns1:value>jFj903Hng8e</ns1:value>
-                  </ns1:parameters>
-               </ns1:customParameters>
-               <ns1:advanced>TRUE</ns1:advanced>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>STRUCTURED_SNIPPET</placeholderType>
+        <operand>
+          <feedItemId>200000001</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>STRUCTURED_SNIPPET_HEADER</placeholderField>
+            <feedAttributeValue>update Brands</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>STRUCTURED_SNIPPET_VALUES</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>FILA</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>ASICS</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>CHAMPION</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <startDate>20180412</startDate>
+          <endDate>20180512</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
+##### ＜リクエストサンプル＞(複数(2件以上)の最終リンク先URLを設定したFeedItemを変更する場合)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemId>200000002</feedItemId>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_TEXT</placeholderField>
+            <feedAttributeValue>update quicklink feedItem.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_URL</placeholderField>
+            <feedAttributeValue>http://www2.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>ADDITIONAL_ADVANCED_URLS</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www2.yahoo.co.jp/lp1/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www2.yahoo.co.jp/lp2/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://www2.yahoo.co.jp/lp3/</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>ADVANCED_MOBILE_URL</placeholderField>
+            <feedAttributeValue>http://mobile.mobile.yahoo.co.jp</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
+            <placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</placeholderField>
+            <feedAttributeValues>
+              <feedAttributeValue>http://mobile.yahoo.co.jp/lp1/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://mobile.yahoo.co.jp/lp2/</feedAttributeValue>
+            </feedAttributeValues>
+            <feedAttributeValues>
+              <feedAttributeValue>http://mobile.yahoo.co.jp/lp3/</feedAttributeValue>
+            </feedAttributeValues>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>TRACKING_URL</placeholderField>
+            <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20180413</startDate>
+          <endDate>20180513</endDate>
+          <scheduling>
+            <schedules>
+              <dayOfWeek>FRIDAY</dayOfWeek>
+              <startHour>14</startHour>
+              <startMinute>ZERO</startMinute>
+              <endHour>15</endHour>
+              <endMinute>FIFTEEN</endMinute>
+            </schedules>
+          </scheduling>
+          <customParameters>
+            <parameters>
+              <key>site2</key>
+              <value>yahoo</value>
+            </parameters>
+            <parameters>
+              <key>id3</key>
+              <value>1234</value>
+            </parameters>
+            <parameters>
+              <key>id4</key>
+              <value>a7h59A98yu</value>
+            </parameters>
+          </customParameters>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 | 
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
 
-
-＜レスポンスサンプル＞（クイックリンクオプション）
+##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334140</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>200000001</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-              <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-              <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-              <ns1:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={site}&amp;pid={id1}&amp;vid={id2}
-              </ns1:reviewFeedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-            <ns1:startDate>20120112</ns1:startDate>
-            <ns1:endDate>20120113</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>12</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>13</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-            <ns1:reviewCustomParameters>
-              <ns1:isRemove>FALSE</ns1:isRemove>
-              <ns1:parameters>
-                <ns1:key>site</ns1:key>
-                <ns1:value>yahoo</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id1</ns1:key>
-                <ns1:value>1234</ns1:value>
-              </ns1:parameters>
-              <ns1:parameters>
-                <ns1:key>id2</ns1:key>
-                <ns1:value>a7h59A98yu</ns1:value>
-              </ns1:parameters>
-            </ns1:reviewCustomParameters>
-            <ns1:advanced>TRUE</ns1:advanced>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update quicklink feedItem.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://mobile.mobile.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site2</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id3</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id4</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（電話番号オプション）
+##### ＜レスポンスサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334182</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>115</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-            <ns1:startDate>20130910</ns1:startDate>
-            <ns1:endDate>20130920</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>116</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000003</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALL_PHONE_NUMBER</ns2:placeholderField>
+              <ns2:feedAttributeValue>0120-111-222</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>0120-888-999</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
+            <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（アドカスタマイザー）
+##### ＜レスポンスサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334217</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedFolderId>999999</ns1:feedFolderId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>20151231 235959</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-            <ns1:startDate>20150217</ns1:startDate>
-            <ns1:endDate>20150217</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-            <ns1:targetingCampaign>
-              <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-            </ns1:targetingCampaign>
-            <ns1:targetingAdGroup>
-              <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-            </ns1:targetingAdGroup>
-            <ns1:targetingKeyword>
-              <ns1:text>keyword keyword keyword keyword</ns1:text>
-              <ns1:matchType>PHRASE</ns1:matchType>
-            </ns1:targetingKeyword>
-            <ns1:geoTargeting>
-              <ns1:targetId>JP-13-0004</ns1:targetId>
-              <ns1:type>LOCATION</ns1:type>
-              <ns1:geoTargetingRestriction>NONE</ns1:geoTargetingRestriction>
-            </ns1:geoTargeting>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedFolderId>300000001</ns2:feedFolderId>
+            <ns2:feedItemId>200000005</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_STRING</ns2:placeholderField>
+              <ns2:feedAttributeId>1</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>set test</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_DATE</ns2:placeholderField>
+              <ns2:feedAttributeId>2</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>20171231 235959</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_INTEGER</ns2:placeholderField>
+              <ns2:feedAttributeId>3</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>9012345678</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_PRICE</ns2:placeholderField>
+              <ns2:feedAttributeId>4</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:targetingKeyword>
+              <ns2:targetingKeywordId>600000002</ns2:targetingKeywordId>
+              <ns2:text>set test keyword</ns2:text>
+              <ns2:matchType>EXACT</ns2:matchType>
+            </ns2:targetingKeyword>
+            <ns2:geoTargeting>
+              <ns2:targetId>JP-01-0011</ns2:targetId>
+              <ns2:type>LOCATION</ns2:type>
+              <ns2:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（テキスト補足オプション）
+##### ＜レスポンスサンプル＞(テキスト補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334255</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-          <ns1:feedItemId>200000001</ns1:feedItemId>
-          <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-            <ns1:feedAttributeValue>modify Text</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-         <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-       </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000004</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALLOUT_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLOUT</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（複数(2件以上)の最終リンク先URLを設定したFeedItemを変更する場合）
+##### ＜レスポンスサンプル＞(カテゴリ補足オプション)
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>FeedItemService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>SET</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>200000001</ns1:feedItemId>
-                  <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp/mobile</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334292</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update Brands</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>NIKE</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>FILA</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>ADIDAS</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>ASICS</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>PUMA</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>CHAMPION</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞(複数(2件以上)の最終リンク先URLを設定したFeedItemを変更する場合)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334326</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000002</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update quicklink feedItem.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://mobile.mobile.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp1/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp2/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp1/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp2/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site2</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id3</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id4</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -1799,495 +1957,603 @@ FeedItemServiceで提供される操作を説明します。
 フィードアイテム情報を削除します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 | 
+| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
 
-＜リクエストサンプル＞（クイックリンクオプション、複数（2件以上）の最終リンク先URLの削除も含む）
+##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:feedItemId>113</ns1:feedItemId>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:feedItemId>114</ns1:feedItemId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemId>200000001</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（電話番号オプション）
+##### ＜リクエストサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>115</ns1:feedItemId>
-          <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>116</ns1:feedItemId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLEXTENSION</placeholderType>
+        <operand>
+          <feedItemId>200000003</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（アドカスタマイザー）
+##### ＜リクエストサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>999999</ns1:feedItemId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>AD_CUSTOMIZER</placeholderType>
+        <operand>
+          <feedItemId>200000005</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜リクエストサンプル＞（テキスト補足オプション）
+##### ＜リクエストサンプル＞(テキスト補足オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:feedItemId>999999</ns1:feedItemId>
-       </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>CALLOUT</placeholderType>
+        <operand>
+          <feedItemId>200000004</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜リクエストサンプル＞(カテゴリ補足オプション)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>SET</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>STRUCTURED_SNIPPET</placeholderType>
+        <operand>
+          <feedItemId>200000001</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜リクエストサンプル＞(クイックリンクオプション、複数（2件以上）の最終リンク先URLの削除も含む)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/FeedItem">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemId>200000002</feedItemId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
 
-
-＜レスポンスサンプル＞（クイックリンクオプション、複数（2件以上）の最終リンク先URLの削除も含む）
+##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>FeedItemService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>113</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:feedItem>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:feedItemId>114</ns1:feedItemId>
-                  <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://www.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://www.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://www.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>ADVANCED_MOBILE_URL</ns1:placeholderField>
-                     <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns1:feedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:MultipleFeedItemAttribute">
-                     <ns1:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns1:placeholderField>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url1</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                     <ns1:feedAttributeValues>
-                        <ns1:feedAttributeValue>http://portal.mobile.yahoo.co.jp/url2</ns1:feedAttributeValue>
-                     </ns1:feedAttributeValues>
-                  </ns1:feedItemAttribute>
-                  <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-                     <ns1:placeholderField>TRACKING_URL</ns1:placeholderField>
-                     <ns1:reviewFeedAttributeValue><![CDATA[http://yahoo.co.jp?url={lpurl}&c={campaignid}&g={adgroupid}&a={creative}&type={site}&pid={id1}&vid={id2}]]></ns1:reviewFeedAttributeValue>
-                  </ns1:feedItemAttribute>
-                  <ns1:placeholderType>QUICKLINK</ns1:placeholderType>
-                  <ns1:startDate>20120112</ns1:startDate>
-                  <ns1:endDate>20120113</ns1:endDate>
-                  <ns1:scheduling>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                     <ns1:schedules>
-                        <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                        <ns1:startHour>12</ns1:startHour>
-                        <ns1:startMinute>ZERO</ns1:startMinute>
-                        <ns1:endHour>13</ns1:endHour>
-                        <ns1:endMinute>FIFTEEN</ns1:endMinute>
-                     </ns1:schedules>
-                  </ns1:scheduling>
-                  <ns1:reviewCustomParameters>
-                     <ns1:isRemove>FALSE</ns1:isRemove>
-                     <ns1:parameters>
-                        <ns1:key>site</ns1:key>
-                        <ns1:value>yahoo</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id1</ns1:key>
-                        <ns1:value>1234</ns1:value>
-                     </ns1:parameters>
-                     <ns1:parameters>
-                        <ns1:key>id2</ns1:key>
-                        <ns1:value>a7h59A98yu</ns1:value>
-                     </ns1:parameters>
-                  </ns1:reviewCustomParameters>
-                  <ns1:advanced>TRUE</ns1:advanced>
-               </ns1:feedItem>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-＜レスポンスサンプル＞（電話番号オプション）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334359</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>115</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-111-222</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-            <ns1:startDate>20130910</ns1:startDate>
-            <ns1:endDate>20130920</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:feedItemId>116</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>CALL_PHONE_NUMBER</ns1:placeholderField>
-              <ns1:feedAttributeValue>0120-123-456</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>CALLEXTENSION</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update quicklink feedItem.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://mobile.mobile.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site2</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id3</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id4</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（アドカスタマイザー）
+##### ＜レスポンスサンプル＞(電話番号オプション)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334389</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedFolderId>999999</ns1:feedFolderId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>9,999,999.99</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>20151231 235959</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>LINK_TEXT</ns1:placeholderField>
-              <ns1:feedAttributeValue>abcdefghijklmnopqrstuvwxyz</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-            <ns1:startDate>20150217</ns1:startDate>
-            <ns1:endDate>20150217</ns1:endDate>
-            <ns1:scheduling>
-              <ns1:schedules>
-                <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-                <ns1:startHour>14</ns1:startHour>
-                <ns1:startMinute>ZERO</ns1:startMinute>
-                <ns1:endHour>15</ns1:endHour>
-                <ns1:endMinute>FIFTEEN</ns1:endMinute>
-              </ns1:schedules>
-            </ns1:scheduling>
-            <ns1:targetingCampaign>
-              <ns1:targetingCampaignId>999999</ns1:targetingCampaignId>
-            </ns1:targetingCampaign>
-            <ns1:targetingAdGroup>
-              <ns1:targetingAdGroupId>999999</ns1:targetingAdGroupId>
-            </ns1:targetingAdGroup>
-            <ns1:targetingKeyword>
-              <ns1:text>keyword keyword keyword keyword</ns1:text>
-              <ns1:matchType>PHRASE</ns1:matchType>
-            </ns1:targetingKeyword>
-            <ns1:geoTargeting>
-              <ns1:targetId>JP-0001-0010</ns1:targetId>
-              <ns1:type>LOCATION</ns1:type>
-              <ns1:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns1:geoTargetingRestriction>
-            </ns1:geoTargeting>
-          </ns1:feedItem>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-            <ns1:accountId>21521</ns1:accountId>
-            <ns1:feedItemId>100000</ns1:feedItemId>
-            <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-            <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-              <ns1:placeholderField>AD_CUSTOMIZER_INTEGER</ns1:placeholderField>
-              <ns1:feedAttributeId>999999</ns1:feedAttributeId>
-              <ns1:feedAttributeValue>1234567890</ns1:feedAttributeValue>
-            </ns1:feedItemAttribute>
-            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
-          </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000003</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALL_PHONE_NUMBER</ns2:placeholderField>
+              <ns2:feedAttributeValue>0120-111-222</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>0120-888-999</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
+            <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-＜レスポンスサンプル＞（テキスト補足オプション）
+##### ＜レスポンスサンプル＞(アドカスタマイザー)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>FeedItemService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.285</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334420</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>FeedItemReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:feedItem>
-          <ns1:feedItemId>200000001</ns1:feedItemId>
-          <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-          <ns1:feedItemAttribute xsi:type="ns1:SimpleFeedItemAttribute">
-            <ns1:placeholderField>CALLOUT_TEXT</ns1:placeholderField>
-            <ns1:feedAttributeValue>modify Text</ns1:feedAttributeValue>
-          </ns1:feedItemAttribute>
-          <ns1:placeholderType>CALLOUT</ns1:placeholderType>
-         <ns1:startDate>20151231</ns1:startDate>
-          <ns1:endDate>20200101</ns1:endDate>
-          <ns1:scheduling>
-            <ns1:schedules>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>14</ns1:startHour>
-              <ns1:startMinute>ZERO</ns1:startMinute>
-              <ns1:endHour>15</ns1:endHour>
-              <ns1:endMinute>FIFTEEN</ns1:endMinute>
-            </ns1:schedules>
-          </ns1:scheduling>
-       </ns1:feedItem>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedFolderId>300000001</ns2:feedFolderId>
+            <ns2:feedItemId>200000005</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_STRING</ns2:placeholderField>
+              <ns2:feedAttributeId>1</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>set test</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_DATE</ns2:placeholderField>
+              <ns2:feedAttributeId>2</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>20171231 235959</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_INTEGER</ns2:placeholderField>
+              <ns2:feedAttributeId>3</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>9012345678</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>AD_CUSTOMIZER_PRICE</ns2:placeholderField>
+              <ns2:feedAttributeId>4</ns2:feedAttributeId>
+              <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:targetingKeyword>
+              <ns2:targetingKeywordId>600000002</ns2:targetingKeywordId>
+              <ns2:text>set test keyword</ns2:text>
+              <ns2:matchType>EXACT</ns2:matchType>
+            </ns2:targetingKeyword>
+            <ns2:geoTargeting>
+              <ns2:targetId>JP-01-0011</ns2:targetId>
+              <ns2:type>LOCATION</ns2:type>
+              <ns2:geoTargetingRestriction>LOCATION_OF_PRESENCE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞(テキスト補足オプション)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334450</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000004</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>CALLOUT_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>CALLOUT</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞(カテゴリ補足オプション)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334484</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update Brands</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>NIKE</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>FILA</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>ADIDAS</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>ASICS</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>PUMA</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>CHAMPION</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
+            <ns2:startDate>20180412</ns2:startDate>
+            <ns2:endDate>20180512</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### ＜レスポンスサンプル＞(クイックリンクオプション、複数（2件以上）の最終リンク先URLの削除も含む)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1523506334515</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000002</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update quicklink feedItem.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://mobile.mobile.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp1/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp2/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://www.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
+              <ns2:placeholderField>ADDITIONAL_ADVANCED_MOBILE_URLS</ns2:placeholderField>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp1/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp1/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp2/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp2/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+              <ns2:feedAttributeValues>
+                <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
+                <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
+              </ns2:feedAttributeValues>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20180413</ns2:startDate>
+            <ns2:endDate>20180513</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site2</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id3</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id4</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

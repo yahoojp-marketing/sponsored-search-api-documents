@@ -4,11 +4,11 @@ AccountTrackingUrlServiceでは、アカウントトラッキングに関する�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/AccountTrackingUrlService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AccountTrackingUrlService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/AccountTrackingUrlService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AccountTrackingUrlService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/AccountTrackingUrl
 
 #### サービス概要
 アカウントトラッキングに関する情報の取得および更新を行います。
@@ -16,38 +16,40 @@ http://ss.yahooapis.jp/V6
 #### 操作
 AccountTrackingUrlServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(SET)](#mutateset)
+
+#### オブジェクト
+[AccountTrackingUrl](../data/AccountTrackingUrl)
+
 ## get
 アカウントトラッキングに関する情報を取得します。
 
 #### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [AccountTrackingUrlSelector](../data/AccountTrackingUrlSelector.md) | 操作の対象とするアカウントトラッキングです。 | 
+| selector | ○ | [AccountTrackingUrlSelector](../data/AccountTrackingUrl/AccountTrackingUrlSelector.md) | 操作の対象とするアカウントトラッキングです。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountIds>100000001</ns1:accountIds>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountIds>1111</accountIds>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -55,55 +57,39 @@ AccountTrackingUrlServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AccountTrackingUrlPage](../data/AccountTrackingUrlPage.md) | 取得されるアカウントトラッキングのエントリーです。 | 
+| rval | [AccountTrackingUrlPage](../data/AccountTrackingUrl/AccountTrackingUrlPage.md) | 取得されるアカウントトラッキングのエントリーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AccountTrackingUrlService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AccountTrackingUrl</ns2:service>
+      <ns2:requestTime>1523506327298</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>2</ns1:totalNumEntries>
-        <ns1:Page.Type>AccountTrackingUrlPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:accountTrackingUrl>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:accountName>XXXXXXXXXXXXXX</ns1:accountName>
-            <ns1:trackingUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=1</ns1:trackingUrl>
-            <ns1:inReviewUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=2</ns1:inReviewUrl>
-            <ns1:disapprovalReviewUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=3</ns1:disapprovalReviewUrl>
-            <ns1:urlApprovalStatus>DISAPPROVED</ns1:urlApprovalStatus>
-            <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
-            <ns1:disapprovalReasonCodes>1002</ns1:disapprovalReasonCodes>
-          </ns1:accountTrackingUrl>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:accountTrackingUrl>
-            <ns1:accountId>100000002</ns1:accountId>
-            <ns1:accountName>XXXXXXXXXXXXXX</ns1:accountName>
-            <ns1:trackingUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=1</ns1:trackingUrl>
-            <ns1:inReviewUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=2</ns1:inReviewUrl>
-            <ns1:disapprovalReviewUrl>>http://www.xxxxx.com/?url={lpurl}&amp;id=3</ns1:disapprovalReviewUrl>
-            <ns1:urlApprovalStatus>DISAPPROVED</ns1:urlApprovalStatus>
-            <ns1:disapprovalReasonCodes>1001</ns1:disapprovalReasonCodes>
-            <ns1:disapprovalReasonCodes>1002</ns1:disapprovalReasonCodes>
-          </ns1:accountTrackingUrl>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountTrackingUrl">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountTrackingUrl>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:accountName>SampleAccount_CreatedOn_20180412</ns2:accountName>
+            <ns2:trackingUrl>http://www.xxxxx.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:trackingUrl>
+            <ns2:inReviewUrl>http://www.xxxxx2.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:inReviewUrl>
+            <ns2:disapprovalReviewUrl>http://www.xxxxx3.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:disapprovalReviewUrl>
+            <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
+            <ns2:disapprovalReasonCodes>1001</ns2:disapprovalReasonCodes>
+            <ns2:disapprovalReasonCodes>1002</ns2:disapprovalReasonCodes>
+          </ns2:accountTrackingUrl>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -112,39 +98,31 @@ AccountTrackingUrlServiceで提供される操作を説明します。
 アカウントトラッキングを更新します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AccountTrackingUrlOperation](../data/AccountTrackingUrlOperation.md) | 操作の対象となるアカウントトラッキングと処理の内容です。 | 
+| operations | ○ | [AccountTrackingUrlOperation](../data/AccountTrackingUrl/AccountTrackingUrlOperation.md) | 操作の対象となるアカウントトラッキングと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:operand>
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:trackingUrl>http://www.xxxxx.com/?url={lpurl}&amp;id=2</ns1:trackingUrl>
-        </ns1:operand>
-<!-- 設定されているtrackingUrlを削除する場合 -->
-        <ns1:operand>
-          <ns1:accountId>100000002</ns1:accountId>
-          <ns1:trackingUrl></ns1:trackingUrl>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl">
+      <operations>
+        <operator>SET</operator>
+        <operand>
+          <accountId>1111</accountId>
+          <accountName>SampleAccount_UpdatedOn_20180412</accountName>
+          <trackingUrl>http://www.xxxxx5.com/?url={lpurl}&amp;amp;pid={_id1}</trackingUrl>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -152,46 +130,40 @@ AccountTrackingUrlServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AccountTrackingUrlReturnValue](../data/AccountTrackingUrlReturnValue.md) | 操作結果を含むアカウントトラッキングに関する情報のコンテナです。 | 
+| rval | [AccountTrackingUrlReturnValue](../data/AccountTrackingUrl/AccountTrackingUrlReturnValue.md) | 操作結果を含むアカウントトラッキングに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AccountTrackingUrlService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountTrackingUrl" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AccountTrackingUrl</ns2:service>
+      <ns2:requestTime>1523506327316</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AccountTrackingUrlReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:accountTrackingUrl>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:accountName>XXXXXXXXXXXXXX</ns1:accountName>
-            <ns1:trackingUrl>http://www.xxxxx.com/?url={lpurl}&amp;id=1</ns1:trackingUrl>
-            <ns1:inReviewUrl>http://www.xxxxx.com/?url={lpurl}&amp;id=2</ns1:inReviewUrl>
-            <ns1:urlApprovalStatus>APPROVED_WITH_REVIEW</ns1:urlApprovalStatus>
-          </ns1:accountTrackingUrl>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:accountTrackingUrl>
-            <ns1:accountId>100000002</ns1:accountId>
-            <ns1:accountName>XXXXXXXXXXXXXX</ns1:accountName>
-          </ns1:accountTrackingUrl>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountTrackingUrl">
+      <ns2:rval>
+        <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountTrackingUrl>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:accountName>SampleAccount_UpdatedOn_20180412</ns2:accountName>
+            <ns2:trackingUrl>http://www.xxxxx.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:trackingUrl>
+            <ns2:inReviewUrl>http://www.xxxxx5.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:inReviewUrl>
+            <ns2:disapprovalReviewUrl>http://www.xxxxx3.com/?url={lpurl}&amp;amp;pid={_id1}</ns2:disapprovalReviewUrl>
+            <ns2:urlApprovalStatus>REVIEW</ns2:urlApprovalStatus>
+            <ns2:disapprovalReasonCodes>1001</ns2:disapprovalReasonCodes>
+            <ns2:disapprovalReasonCodes>1002</ns2:disapprovalReasonCodes>
+          </ns2:accountTrackingUrl>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

@@ -6,12 +6,12 @@
 ・<a href="https://help.marketing.yahoo.co.jp/ja/?p=11385">アドカスタマイザーについて</a><br>
 
 ## スポンサードサーチAPI での実施方法
-スポンサードサーチAPIではアドカスタマイザーを利用するために、以下の3つのServiceを使用します。 
-##### 1.	FeedFolderService 
+スポンサードサーチAPIではアドカスタマイザーを利用するために、以下の3つのServiceを使用します。
+##### 1.	FeedFolderService
 FeedFolderServiceでは、FeedFolder情報の追加・更新・削除が実施できます。<br>
 FeedFolder情報とは、広告に挿入するデータを登録したデータ自動挿入リストを格納するコンポーネントです。
 
-##### 2.	FeedItemService  
+##### 2.	FeedItemService
 FeedItemServiceでは、FeedFolder情報内の各データ自動挿入リストに、データを追加・更新・削除できます。
 
 ##### 3.	AdGroupAdService
@@ -19,7 +19,7 @@ AdGroupAdServiceでは、登録したデータを挿入する広告（データ�
 
 ## シナリオ
 A社は、販促施策の一環として、スポンサードサーチAPIを使い以下のデータセットを作成します。
-  
+
 ##### セール商品リスト
 <table class="standard">
                 <tr>
@@ -96,46 +96,46 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 
 #### 1.	FeedFolderの登録
 はじめに、FeedFolderServiceを使い、スポンサードサーチのアカウントにFeedFolder情報を登録します。<br>
-ここでは、A社のスポンサードサーチのアカウント（ID:100000001）に、「セール商品リスト」という名前で登録します。 
+ここでは、A社のスポンサードサーチのアカウント（ID:100000001）に、「セール商品リスト」という名前で登録します。
 
 ##### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v5="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedFolder">
    <soapenv:Header>
-      <v5:RequestHeader>
-         <v5:license>XXXX-XXXX-XXXX-XXXX</v5:license>
-         <v5:apiAccountId>XXXX-XXXX-XXXX-XXXX</v5:apiAccountId>
-         <v5:apiAccountPassword>passwd</v5:apiAccountPassword>
-         <v5:accountId>100000001</v5:accountId>
-         <v5:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</v5:onBehalfOfAccountId>
-         <v5:onBehalfOfPassword>passwd2</v5:onBehalfOfPassword>
-      </v5:RequestHeader>
+      <ns1:RequestHeader>
+         <ns1:license>XXXX-XXXX-XXXX-XXXX</ns1:license>
+         <ns1:apiAccountId>XXXX-XXXX-XXXX-XXXX</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>100000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
-      <v5:mutate>
-         <v5:operations>
-            <v5:operator>ADD</v5:operator>
-            <v5:accountId>100000001</v5:accountId>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderName>セール商品リスト</v5:feedFolderName>
-               <v5:feedAttribute>
-                  <v5:feedAttributeName>商品名</v5:feedAttributeName>
-                  <v5:placeholderField>AD_CUSTOMIZER_STRING</v5:placeholderField>
-               </v5:feedAttribute>
-               <v5:feedAttribute>
-                  <v5:feedAttributeName>価格</v5:feedAttributeName>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-               </v5:feedAttribute>
-               <v5:feedAttribute>
-                  <v5:feedAttributeName>セール終了日</v5:feedAttributeName>
-                  <v5:placeholderField>AD_CUSTOMIZER_DATE</v5:placeholderField>
-               </v5:feedAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-            </v5:operand>
-         </v5:operations>
-      </v5:mutate>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>ADD</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderName>セール商品リスト</ns1:feedFolderName>
+               <ns1:feedAttribute>
+                  <ns1:feedAttributeName>商品名</ns1:feedAttributeName>
+                  <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
+               </ns1:feedAttribute>
+               <ns1:feedAttribute>
+                  <ns1:feedAttributeName>価格</ns1:feedAttributeName>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+               </ns1:feedAttribute>
+               <ns1:feedAttribute>
+                  <ns1:feedAttributeName>セール終了日</ns1:feedAttributeName>
+                  <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
+               </ns1:feedAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
@@ -143,7 +143,7 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### レスポンスサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedFolder">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedFolderService</ns1:service>
@@ -193,97 +193,97 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v5="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <soapenv:Header>
-      <v5:RequestHeader>
-         <v5:license>XXXX-XXXX-XXXX-XXXX</v5:license>
-         <v5:apiAccountId>XXXX-XXXX-XXXX-XXXX</v5:apiAccountId>
-         <v5:apiAccountPassword>passwd</v5:apiAccountPassword>
-         <v5:accountId>100000001</v5:accountId>
-         <v5:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</v5:onBehalfOfAccountId>
-         <v5:onBehalfOfPassword>passwd2</v5:onBehalfOfPassword>
-      </v5:RequestHeader>
+      <ns1:RequestHeader>
+         <ns1:license>XXXX-XXXX-XXXX-XXXX</ns1:license>
+         <ns1:apiAccountId>XXXX-XXXX-XXXX-XXXX</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>100000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
-      <v5:mutate>
-         <v5:operations>
-            <v5:operator>ADD</v5:operator>
-            <v5:accountId>100000001</v5:accountId>
-            <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>20001</v5:feedFolderId>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_STRING</v5:placeholderField>
-                  <v5:feedAttributeId>1</v5:feedAttributeId>
-                  <v5:feedAttributeValue>製品101</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-                  <v5:feedAttributeId>2</v5:feedAttributeId>
-                  <v5:feedAttributeValue>100</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_DATE</v5:placeholderField>
-                  <v5:feedAttributeId>3</v5:feedAttributeId>
-                  <v5:feedAttributeValue>20151231 000000</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-               <v5:targetingAdGroup>
-                  <v5:targetingAdGroupId>600001</v5:targetingAdGroupId>
-               </v5:targetingAdGroup>
-            </v5:operand>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>20001</v5:feedFolderId>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_STRING</v5:placeholderField>
-                  <v5:feedAttributeId>1</v5:feedAttributeId>
-                  <v5:feedAttributeValue>製品102</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-                  <v5:feedAttributeId>2</v5:feedAttributeId>
-                  <v5:feedAttributeValue>300</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_DATE</v5:placeholderField>
-                  <v5:feedAttributeId>3</v5:feedAttributeId>
-                  <v5:feedAttributeValue>20151231 000000</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-            </v5:operand>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>53161</v5:feedFolderId>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_STRING</v5:placeholderField>
-                  <v5:feedAttributeId>1</v5:feedAttributeId>
-                  <v5:feedAttributeValue>製品103</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-                  <v5:feedAttributeId>2</v5:feedAttributeId>
-                  <v5:feedAttributeValue>1,000</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_DATE</v5:placeholderField>
-                  <v5:feedAttributeId>3</v5:feedAttributeId>
-                  <v5:feedAttributeValue>20151231 000000</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-            </v5:operand>
-         </v5:operations>
-      </v5:mutate>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>ADD</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>20001</ns1:feedFolderId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
+                  <ns1:feedAttributeId>1</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>製品101</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+                  <ns1:feedAttributeId>2</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>100</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
+                  <ns1:feedAttributeId>3</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>20151231 000000</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+               <ns1:targetingAdGroup>
+                  <ns1:targetingAdGroupId>600001</ns1:targetingAdGroupId>
+               </ns1:targetingAdGroup>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>20001</ns1:feedFolderId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
+                  <ns1:feedAttributeId>1</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>製品102</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+                  <ns1:feedAttributeId>2</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>300</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
+                  <ns1:feedAttributeId>3</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>20151231 000000</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>53161</ns1:feedFolderId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_STRING</ns1:placeholderField>
+                  <ns1:feedAttributeId>1</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>製品103</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+                  <ns1:feedAttributeId>2</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>1,000</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_DATE</ns1:placeholderField>
+                  <ns1:feedAttributeId>3</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>20151231 000000</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
@@ -291,7 +291,7 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### レスポンスサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>
@@ -405,59 +405,59 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 
 <b>■ヒント</b><br>
 カウントダウン関数を使用すると、広告内にセールやキャンペーンなどの終了までの残り時間を表示できます。また、カウントダウンの終了とともに、広告配信を停止できます。詳しくは以下のヘルプをご参照ください。<br>
-・<a href="https://help.marketing.yahoo.co.jp/ja/?p=11374">カウントダウン関数について</a> 
+・<a href="https://help.marketing.yahoo.co.jp/ja/?p=11374">カウントダウン関数について</a>
 
 ##### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:v5="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupAd">
    <soapenv:Header>
-      <v5:RequestHeader>
-         <v5:license>XXXX-XXXX-XXXX-XXXX</v5:license>
-         <v5:apiAccountId>XXXX-XXXX-XXXX-XXXX</v5:apiAccountId>
-         <v5:apiAccountPassword>passwd</v5:apiAccountPassword>
-         <v5:accountId>100000001</v5:accountId>
-         <v5:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</v5:onBehalfOfAccountId>
-         <v5:onBehalfOfPassword>passwd2</v5:onBehalfOfPassword>
-      </v5:RequestHeader>
+      <ns1:RequestHeader>
+         <ns1:license>XXXX-XXXX-XXXX-XXXX</ns1:license>
+         <ns1:apiAccountId>XXXX-XXXX-XXXX-XXXX</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>100000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
-      <v5:mutate>
-         <v5:operations>
-            <v5:operator>ADD</v5:operator>
-            <v5:accountId>100000001</v5:accountId>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>ADD</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
             <!--1 or more repetitions:-->
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:campaignId>1001</v5:campaignId>
-               <v5:adGroupId>10001</v5:adGroupId>
-               <v5:adName>Best Practice Ad</v5:adName>
-               <v5:userStatus>ACTIVE</v5:userStatus>
-               <v5:ad xsi:type="v5:TextAd2">
-                  <v5:type>TEXT_AD2</v5:type>
-                  <v5:url>http://www.example.jp</v5:url>
-                  <v5:displayUrl>www.example.jp</v5:displayUrl>
-                  <v5:headline>人気の{=セール商品リスト.商品名}が大特価</v5:headline>
-                  <v5:description>{=セール商品リスト.価格}円で販売。</v5:description>
-                  <v5:description2>終了まであと{=COUNTDOWN(セール商品リスト.セール終了日,"ja")}</v5:description2>
-               </v5:ad>
-            </v5:operand>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:campaignId>1002</v5:campaignId>
-               <v5:adName>Best Practice Normal Ad</v5:adName>
-               <v5:userStatus>ACTIVE</v5:userStatus>
-               <v5:ad xsi:type="v5:TextAd2">
-                  <v5:type>TEXT_AD2</v5:type>
-                  <v5:url>http://www.example.jp</v5:url>
-                  <v5:displayUrl>www.example.jp</v5:displayUrl>
-                  <v5:headline>人気の商品が大特価</v5:headline>
-                  <v5:description>期間限定特別価格で販売。</v5:description>
-                  <v5:description2>１２月３１日まで</v5:description2>
-               </v5:ad>
-            </v5:operand>
-         </v5:operations>
-      </v5:mutate>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>1001</ns1:campaignId>
+               <ns1:adGroupId>10001</ns1:adGroupId>
+               <ns1:adName>Best Practice Ad</ns1:adName>
+               <ns1:userStatus>ACTIVE</ns1:userStatus>
+               <ns1:ad xsi:type="ns1:TextAd2">
+                  <ns1:type>TEXT_AD2</ns1:type>
+                  <ns1:url>http://www.example.jp</ns1:url>
+                  <ns1:displayUrl>www.example.jp</ns1:displayUrl>
+                  <ns1:headline>人気の{=セール商品リスト.商品名}が大特価</ns1:headline>
+                  <ns1:description>{=セール商品リスト.価格}円で販売。</ns1:description>
+                  <ns1:description2>終了まであと{=COUNTDOWN(セール商品リスト.セール終了日,"ja")}</ns1:description2>
+               </ns1:ad>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:campaignId>1002</ns1:campaignId>
+               <ns1:adName>Best Practice Normal Ad</ns1:adName>
+               <ns1:userStatus>ACTIVE</ns1:userStatus>
+               <ns1:ad xsi:type="ns1:TextAd2">
+                  <ns1:type>TEXT_AD2</ns1:type>
+                  <ns1:url>http://www.example.jp</ns1:url>
+                  <ns1:displayUrl>www.example.jp</ns1:displayUrl>
+                  <ns1:headline>人気の商品が大特価</ns1:headline>
+                  <ns1:description>期間限定特別価格で販売。</ns1:description>
+                  <ns1:description2>１２月３１日まで</ns1:description2>
+               </ns1:ad>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
@@ -465,7 +465,7 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### レスポンスサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>AdGroupAdService</ns1:service>
@@ -611,65 +611,65 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v5="http://ss.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <soapenv:Header>
-      <v5:RequestHeader>
-         <v5:license>XXXX-XXXX-XXXX-XXXX</v5:license>
-         <v5:apiAccountId>XXXX-XXXX-XXXX-XXXX</v5:apiAccountId>
-         <v5:apiAccountPassword>passwd</v5:apiAccountPassword>
-         <v5:accountId>100000001</v5:accountId>
-         <v5:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</v5:onBehalfOfAccountId>
-         <v5:onBehalfOfPassword>passwd2</v5:onBehalfOfPassword>
-      </v5:RequestHeader>
+      <ns1:RequestHeader>
+         <ns1:license>XXXX-XXXX-XXXX-XXXX</ns1:license>
+         <ns1:apiAccountId>XXXX-XXXX-XXXX-XXXX</ns1:apiAccountId>
+         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
+         <ns1:accountId>100000001</ns1:accountId>
+         <ns1:onBehalfOfAccountId>XXXXX-XXXX-XXXXX-XXXX</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
    </soapenv:Header>
    <soapenv:Body>
-      <v5:mutate>
-         <v5:operations>
-            <v5:operator>SET</v5:operator>
-            <v5:accountId>100000001</v5:accountId>
-            <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>200001</v5:feedFolderId>
-               <v5:feedItemId>300001</v5:feedItemId>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-                  <v5:feedAttributeId>2</v5:feedAttributeId>
-                  <v5:feedAttributeValue>90</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-               <v5:targetingAdGroup>
-                  <v5:targetingAdGroupId>600001</v5:targetingAdGroupId>
-               </v5:targetingAdGroup>
-            </v5:operand>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>200001</v5:feedFolderId>
-               <v5:feedItemId>300001</v5:feedItemId>
-               <v5:feedItemAttribute>
-                  <v5:placeholderField>AD_CUSTOMIZER_PRICE</v5:placeholderField>
-                  <v5:feedAttributeId>2</v5:feedAttributeId>
-                  <v5:feedAttributeValue>350</v5:feedAttributeValue>
-               </v5:feedItemAttribute>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-            </v5:operand>
-            <v5:operand>
-               <v5:accountId>100000001</v5:accountId>
-               <v5:feedFolderId>200001</v5:feedFolderId>
-               <v5:feedItemId>300001</v5:feedItemId>
-               <v5:placeholderType>AD_CUSTOMIZER</v5:placeholderType>
-               <v5:targetingCampaign>
-                  <v5:targetingCampaignId>500001</v5:targetingCampaignId>
-               </v5:targetingCampaign>
-            </v5:operand>
-         </v5:operations>
-      </v5:mutate>
+      <ns1:mutate>
+         <ns1:operations>
+            <ns1:operator>SET</ns1:operator>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>200001</ns1:feedFolderId>
+               <ns1:feedItemId>300001</ns1:feedItemId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+                  <ns1:feedAttributeId>2</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>90</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+               <ns1:targetingAdGroup>
+                  <ns1:targetingAdGroupId>600001</ns1:targetingAdGroupId>
+               </ns1:targetingAdGroup>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>200001</ns1:feedFolderId>
+               <ns1:feedItemId>300001</ns1:feedItemId>
+               <ns1:feedItemAttribute>
+                  <ns1:placeholderField>AD_CUSTOMIZER_PRICE</ns1:placeholderField>
+                  <ns1:feedAttributeId>2</ns1:feedAttributeId>
+                  <ns1:feedAttributeValue>350</ns1:feedAttributeValue>
+               </ns1:feedItemAttribute>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+            </ns1:operand>
+            <ns1:operand>
+               <ns1:accountId>100000001</ns1:accountId>
+               <ns1:feedFolderId>200001</ns1:feedFolderId>
+               <ns1:feedItemId>300001</ns1:feedItemId>
+               <ns1:placeholderType>AD_CUSTOMIZER</ns1:placeholderType>
+               <ns1:targetingCampaign>
+                  <ns1:targetingCampaignId>500001</ns1:targetingCampaignId>
+               </ns1:targetingCampaign>
+            </ns1:operand>
+         </ns1:operations>
+      </ns1:mutate>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
@@ -677,7 +677,7 @@ A社は、販促施策の一環として、スポンサードサーチAPIを使�
 ##### レスポンスサンプル
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V201805/FeedItem">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>FeedItemService</ns1:service>

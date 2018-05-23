@@ -3,96 +3,98 @@ BidLandscapeServiceは、入札単価を変更したときのインプレッシ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/BidLandscapeService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BidLandscapeService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/BidLandscapeService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/BidLandscapeService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/BidLandscape
 #### サービス概要
 入札単価を変更したときのインプレッションやクリックの変化を予測します。
 #### 操作
 BidLandscapeServiceで提供される操作を説明します。
-<br>
+
++ [get](#get)
+
+#### オブジェクト
+[BidLandscape](../data/BidLandscape)
+
 ## get
 入札単価を変更したときのインプレッションやクリックの変化を予測します。<br>
 一度に指定できるクライテリアは最大100個です。
 
 #### リクエスト
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [BidLandscapeSelector](../data/BidLandscapeSelector.md) | 操作の対象とするアカウント、キャンペーン、広告グループ、クライテリアを指定します。 | 
+| selector | ○ | [BidLandscapeSelector](../data/BidLandscape/BidLandscapeSelector.md) | 操作の対象とするアカウント、キャンペーン、広告グループ、クライテリアを指定します。 |
+
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>aaaaaa</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>00000001</ns1:accountId>
-        <ns1:campaignId>1000000001</ns1:campaignId>
-        <ns1:adGroupId>1000000001</ns1:adGroupId>
-        <ns1:criterionIds>447</ns1:criterionIds>
-        <ns1:criterionIds>448</ns1:criterionIds>
-        <ns1:criterionIds>449</ns1:criterionIds>
-        <ns1:criterionIds>450</ns1:criterionIds>
-        <ns1:simType>ADGROUP</ns1:simType>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/BidLandscape">
+      <selector>
+        <accountId>1</accountId>
+        <campaignId>1000000001</campaignId>
+        <adGroupId>1000000001</adGroupId>
+        <criterionIds>447</criterionIds>
+        <criterionIds>448</criterionIds>
+        <criterionIds>449</criterionIds>
+        <criterionIds>450</criterionIds>
+        <simType>ADGROUP</simType>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-
 ```
+
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BidLandscapePage](../data/BidLandscapePage.md) | 取得される予測値に関するエントリーです。 | 
+| rval | [BidLandscapePage](../data/BidLandscape/BidLandscapePage.md) | 取得される予測値に関するエントリーです。 |
+
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>BidLandscapeService</ns1:service>
-      <ns1:remainingQuota>99948</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>4</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>2.0236</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>BidLandscape</ns2:service>
+      <ns2:requestTime>1523506330869</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>1</ns1:totalNumEntries>
-        <ns1:Page.Type>BidLandscapePage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:data xsi:type="ns1:AdGroupBidLandscape">
-            <ns1:campaignId>00000001</ns1:campaignId>
-            <ns1:adGroupId>00000001</ns1:adGroupId>
-            <ns1:landscapePoints>
-              <ns1:bid>100</ns1:bid>
-              <ns1:clicks>400</ns1:clicks>
-              <ns1:cost>200</ns1:cost>
-              <ns1:marginalCpc>300</ns1:marginalCpc>
-              <ns1:impressions>500</ns1:impressions>
-            </ns1:landscapePoints>
-            <ns1:BidLandscape.Type>AdGroupBidLandscape</ns1:BidLandscape.Type>
-            <ns1:type>DEFAULT</ns1:type>
-            <ns1:landscapeCurrent>true</ns1:landscapeCurrent>
-          </ns1:data>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/BidLandscape">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>BidLandscapePage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AdGroupBidLandscape">
+            <ns2:campaignId>1</ns2:campaignId>
+            <ns2:adGroupId>1</ns2:adGroupId>
+            <ns2:landscapePoints>
+              <ns2:bid>100</ns2:bid>
+              <ns2:clicks>400</ns2:clicks>
+              <ns2:cost>200</ns2:cost>
+              <ns2:marginalCpc>300</ns2:marginalCpc>
+              <ns2:impressions>500</ns2:impressions>
+            </ns2:landscapePoints>
+            <ns2:BidLandscape.Type>AdGroupBidLandscape</ns2:BidLandscape.Type>
+            <ns2:type>DEFAULT</ns2:type>
+            <ns2:landscapeCurrent>true</ns2:landscapeCurrent>
+          </ns2:data>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

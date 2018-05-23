@@ -4,11 +4,11 @@ TargetingIdeaService is a service that suggests new related keywords based on th
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/TargetingIdeaService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/TargetingIdeaService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/TargetingIdeaService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/TargetingIdeaService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/TargetingIdea
 
 #### Overview
 Suggests related keywords based on the specified information.
@@ -16,48 +16,52 @@ Suggests related keywords based on the specified information.
 #### Operation
 Explains the operations provided by TargetingIdeaService.
 
++ [get](#get)
+
+#### Object
+[TargetingIdea](../data/TargetingIdea)
+
 ## get
+
 ### Request
 Acquires related keyword information.
 
-| Parameter | Restrictions | Data Type | Description | 
+| Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [TargetingIdeaSelector](../data/TargetingIdeaSelector.md) | Specify conditions related keyword suggestions. | 
+| selector | Req | [TargetingIdeaSelector](../data/TargetingIdea/TargetingIdeaSelector.md) | Specify conditions related keyword suggestions. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/TargetingIdea" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:searchParameter xsi:type="ns1:RelatedToKeywordSearchParameter">
-          <ns1:searchParameterUse>RELATED_TO_KEYWORD</ns1:searchParameterUse>
-          <ns1:keywords>
-            <ns1:type>KEYWORD</ns1:type>
-            <ns1:text>スポーツ</ns1:text>
-            <ns1:matchType>PHRASE</ns1:matchType>
-          </ns1:keywords>
-          <ns1:keywords>
-            <ns1:type>KEYWORD</ns1:type>
-            <ns1:text>夏</ns1:text>
-            <ns1:matchType>PHRASE</ns1:matchType>
-          </ns1:keywords>
-        </ns1:searchParameter>
-        <ns1:searchParameter xsi:type="ns1:RelatedToUrlSearchParameter">
-          <ns1:searchParameterUse>RELATED_TO_URL</ns1:searchParameterUse>
-          <ns1:url>http://www.yahoo.co.jp/</ns1:url>
-          <ns1:includeSubUrls>FALSE</ns1:includeSubUrls>
-        </ns1:searchParameter>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/TargetingIdea" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <searchParameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RelatedToKeywordSearchParameter">
+          <searchParameterUse>RELATED_TO_KEYWORD</searchParameterUse>
+          <keywords>
+            <type>KEYWORD</type>
+            <text>スポーツ</text>
+            <matchType>PHRASE</matchType>
+          </keywords>
+          <keywords>
+            <type>KEYWORD</type>
+            <text>夏</text>
+            <matchType>PHRASE</matchType>
+          </keywords>
+        </searchParameter>
+        <searchParameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RelatedToUrlSearchParameter">
+          <searchParameterUse>RELATED_TO_URL</searchParameterUse>
+          <url>http://www.yahoo.co.jp/</url>
+        </searchParameter>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -65,68 +69,62 @@ Acquires related keyword information.
 ### Response
 Response Fields
 
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [TargetingIdeaPage](../data/TargetingIdeaPage.md) | The entry related to auquired suggestion. | 
+| rval | [TargetingIdeaPage](../data/TargetingIdea/TargetingIdeaPage.md) | The entry related to auquired suggestion. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>TargetingIdeaService</ns1:service>
-      <ns1:remainingQuota>119950</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.2758</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/TargetingIdea" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>TargetingIdea</ns2:service>
+      <ns2:requestTime>1523506337433</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>3</ns1:totalNumEntries>
-        <ns1:Page.Type>TargetingIdeaPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:data>
-            <ns1:key>KEYWORD</ns1:key>
-            <ns1:value xsi:type="ns1:KeywordAttribute">
-              <ns1:attributeType>KEYWORD</ns1:attributeType>
-              <ns1:value>
-                <ns1:type>KEYWORD</ns1:type>
-                <ns1:text>dummy keyword 0001</ns1:text>
-                <ns1:matchType>EXACT</ns1:matchType>
-              </ns1:value>
-            </ns1:value>
-          </ns1:data>
-        </ns1:values>
-        <ns1:values>
-          <ns1:data>
-            <ns1:key>KEYWORD</ns1:key>
-            <ns1:value xsi:type="ns1:KeywordAttribute">
-              <ns1:attributeType>KEYWORD</ns1:attributeType>
-              <ns1:value>
-                <ns1:type>KEYWORD</ns1:type>
-                <ns1:text>dummy keyword 0001</ns1:text>
-                <ns1:matchType>PHRASE</ns1:matchType>
-              </ns1:value>
-            </ns1:value>
-          </ns1:data>
-        </ns1:values>
-        <ns1:values>
-          <ns1:data>
-            <ns1:key>KEYWORD</ns1:key>
-            <ns1:value xsi:type="ns1:KeywordAttribute">
-              <ns1:attributeType>KEYWORD</ns1:attributeType>
-              <ns1:value>
-                <ns1:type>KEYWORD</ns1:type>
-                <ns1:text>dummy keyword 0001</ns1:text>
-                <ns1:matchType>BROAD</ns1:matchType>
-              </ns1:value>
-            </ns1:value>
-          </ns1:data>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/TargetingIdea">
+      <ns2:rval>
+        <totalNumEntries>3</totalNumEntries>
+        <Page.Type>TargetingIdeaPage</Page.Type>
+        <ns2:values>
+          <ns2:data>
+            <ns2:key>KEYWORD</ns2:key>
+            <ns2:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:KeywordAttribute">
+              <ns2:attributeType>KEYWORD</ns2:attributeType>
+              <ns2:value>
+                <ns2:type>KEYWORD</ns2:type>
+                <ns2:text>dummy keyword 0001</ns2:text>
+                <ns2:matchType>EXACT</ns2:matchType>
+              </ns2:value>
+            </ns2:value>
+          </ns2:data>
+        </ns2:values>
+        <ns2:values xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TypeAttributeMapEntry">
+          <ns2:key>KEYWORD</ns2:key>
+          <ns2:value xsi:type="ns2:KeywordAttribute">
+            <ns2:attributeType>KEYWORD</ns2:attributeType>
+            <ns2:value>
+              <ns2:type>KEYWORD</ns2:type>
+              <ns2:text>dummy keyword 0001</ns2:text>
+              <ns2:matchType>PHRASE</ns2:matchType>
+            </ns2:value>
+          </ns2:value>
+        </ns2:values>
+        <ns2:values xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TypeAttributeMapEntry">
+          <ns2:key>KEYWORD</ns2:key>
+          <ns2:value xsi:type="ns2:KeywordAttribute">
+            <ns2:attributeType>KEYWORD</ns2:attributeType>
+            <ns2:value>
+              <ns2:type>KEYWORD</ns2:type>
+              <ns2:text>dummy keyword 0001</ns2:text>
+              <ns2:matchType>BROAD</ns2:matchType>
+            </ns2:value>
+          </ns2:value>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

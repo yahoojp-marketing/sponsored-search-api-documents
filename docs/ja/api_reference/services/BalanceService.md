@@ -3,122 +3,82 @@ BalanceServiceでは、選択したアカウントのアカウント残高の情
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/BalanceService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BalanceService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/BalanceService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/BalanceService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/Balance
 #### サービス概要
 アカウントの残高の情報を取得するWebサービスです。取得したアカウント残高の情報は入札戦略などに活用できます。
 #### 操作
 BalanceServiceで提供される操作を説明します。
-<br>
+
++ [get](#get)
+
+#### オブジェクト
+[Balance](../data/Balance)
+
 ## get
 選択したアカウント残高に関する情報を取得します。
 
 #### リクエスト
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [BalanceSelector](../data/BalanceSelector.md) | 操作の対象とするアカウントです。 | 
-##### ＜リクエストサンプル＞（標準認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountIds>00000001</ns1:accountIds>
-                <ns1:accountIds>00000002</ns1:accountIds>
-                <ns1:paging>
-                    <ns1:startIndex>0</ns1:startIndex>
-                    <ns1:numberResults>2</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
+| selector | ○ | [BalanceSelector](../data/Balance/BalanceSelector.md) | 操作の対象とするアカウントです。 |
 
-##### ＜リクエストサンプル＞（代行認証）
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId> 
-            <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountIds>00000002</ns1:accountIds>
-                <ns1:paging>
-                    <ns1:startIndex>0</ns1:startIndex>
-                    <ns1:numberResults>2</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201805/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountIds>1111</accountIds>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 #### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BalancePage](../data/BalancePage.md) | 取得されるアカウント残高に関するエントリーを表します。 | 
+| rval | [BalancePage](../data/Balance/BalancePage.md) | 取得されるアカウント残高に関するエントリーを表します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>BalanceService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:rval>
-                <ns1:totalNumEntries>2</ns1:totalNumEntries>
-                <ns1:Page.Type>BalancePage</ns1:Page.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:balance>
-                        <ns1:accountId>00000001</ns1:accountId>
-                        <ns1:balance>1000000</ns1:balance>
-                    </ns1:balance>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:balance>
-                        <ns1:accountId>00000002</ns1:accountId>
-                        <ns1:balance>3000000</ns1:balance>
-                    </ns1:balance>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>Balance</ns2:service>
+      <ns2:requestTime>1523506330364</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Balance">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:balance>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:balance>10000</ns2:balance>
+          </ns2:balance>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
