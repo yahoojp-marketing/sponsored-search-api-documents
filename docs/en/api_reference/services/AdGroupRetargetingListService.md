@@ -4,106 +4,103 @@ AdGroupRetargetingListService is to get, add, update, or delete information of t
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupRetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupRetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/AdGroupRetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupRetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/AdGroupRetargetingList
 
 #### Service Overview
 AdGroupRetargetingListService provides operation of target list setting in ad group level.
 
 #### Operation
 Describe the operation which provides at AdGroupRetargetingListService.
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
+
+#### Object
+[AdGroupRetargetingList](../data/AdGroupRetargetingList)
 
 ## get
 Retreive the target list setting in ad group level.
 
 #### Request
-| name | req? | type | description | 
+| name | req? | type | description |
 |---|---|---|---|
-| selector | Req| [AdGroupRetargetingListSelector](../data/AdGroupRetargetingListSelector.md) | Target list deliver information relate to the operations to apply. | 
+| selector | Req| [AdGroupRetargetingListSelector](../data/AdGroupRetargetingList/AdGroupRetargetingListSelector.md) | Target list deliver information relate to the operations to apply. |
 
 ##### Request Sample
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:campaignIds>100000002</ns1:campaignIds>
-        <ns1:targetListIds>100000003</ns1:targetListIds>
-        <ns1:adGroupIds>100000004</ns1:adGroupIds>
-        <ns1:excludedType>INCLUDED</ns1:excludedType>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>1111</accountId>
+        <campaignIds>1</campaignIds>
+        <campaignIds>2</campaignIds>
+        <targetListIds>100000001</targetListIds>
+        <targetListIds>100000002</targetListIds>
+        <adGroupIds>3</adGroupIds>
+        <adGroupIds>4</adGroupIds>
+        <excludedType>INCLUDED</excludedType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 #### Response
 
-| field | data | description | 
+| field | data | description |
 |---|---|---|
-| rval | [AdGroupRetargetingListPage](../data/AdGroupRetargetingListPage.md) | The acquired target list deliver related entry.| 
+| rval | [AdGroupRetargetingListPage](../data/AdGroupRetargetingList/AdGroupRetargetingListPage.md) | The acquired target list deliver related entry.|
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupRetargetingListService</ns1:service>
-      <ns1:remainingQuota>74939</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.7359</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupRetargetingList</ns2:service>
+      <ns2:requestTime>1523506330064</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>2</ns1:totalNumEntries>
-        <ns1:Page.Type>AdGroupRetargetingListPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000003</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>EXCLUDED</ns1:excludedType>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000004</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>INCLUDED</ns1:excludedType>
-            <ns1:bidMultiplier>1</ns1:bidMultiplier>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <ns2:rval>
+        <totalNumEntries>4</totalNumEntries>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:campaignId>1</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>3</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>100000001</ns2:targetListId>
+              <ns2:targetListName>test1</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>INCLUDED</ns2:excludedType>
+            <ns2:bidMultiplier>1.0</ns2:bidMultiplier>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -112,105 +109,106 @@ Retreive the target list setting in ad group level.
 Create the target list setting in ad group level.。
 
 #### Request
-| name | req? | type | description | 
+| name | req? | type | description |
 |---|---|---|---|
-| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. | 
+| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingList/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. |
 
 ##### Request
+
+##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000003</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>INCLUDED</ns1:excludedType>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000004</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>EXCLUDED</ns1:excludedType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1111111</accountId>
+        <operand>
+          <campaignId>22222</campaignId>
+          <adGroupId>33333</adGroupId>
+          <criterionTargetList>
+            <targetListId>44444</targetListId>
+          </criterionTargetList>
+          <excludedType>INCLUDED</excludedType>
+          <bidMultiplier>1.5</bidMultiplier>
+        </operand>
+        <operand>
+          <campaignId>55555</campaignId>
+          <adGroupId>66666</adGroupId>
+          <criterionTargetList>
+            <targetListId>7777</targetListId>
+          </criterionTargetList>
+          <excludedType>EXCLUDED</excludedType>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 #### Response
 
-| field | data | description | 
+| field | data | description |
 |---|---|---|
-| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingListReturnValue.md) |Container for target list deliver information including operation results. | 
+| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingList/AdGroupRetargetingListReturnValue.md) |Container for target list deliver information including operation results. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupRetargetingListService</ns1:service>
-      <ns1:remainingQuota>74980</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>1.148</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupRetargetingList</ns2:service>
+      <ns2:requestTime>1523506330088</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupRetargetingListReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000003</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>EXCLUDED</ns1:excludedType>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000004</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>INCLUDED</ns1:excludedType>
-            <ns1:bidMultiplier>1</ns1:bidMultiplier>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>22222</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>33333</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>44444</ns2:targetListId>
+              <ns2:targetListName>test1</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>INCLUDED</ns2:excludedType>
+            <ns2:bidMultiplier>1.5</ns2:bidMultiplier>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>55555</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>66666</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>7777</ns2:targetListId>
+              <ns2:targetListName>test2</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>EXCLUDED</ns2:excludedType>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -220,105 +218,104 @@ Update the target list setting in ad group level.
 
 #### Request
 
-| name | req? | type | description | 
+| name | req? | type | description |
 |---|---|---|---|
-| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. | 
+| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingList/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000003</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>INCLUDED</ns1:excludedType>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000004</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>EXCLUDED</ns1:excludedType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1111111</accountId>
+        <operand>
+          <campaignId>22222</campaignId>
+          <adGroupId>55555</adGroupId>
+          <criterionTargetList>
+            <targetListId>3333</targetListId>
+          </criterionTargetList>
+          <excludedType>INCLUDED</excludedType>
+          <bidMultiplier>1.5</bidMultiplier>
+        </operand>
+        <operand>
+          <campaignId>3333</campaignId>
+          <adGroupId>6666</adGroupId>
+          <criterionTargetList>
+            <targetListId>4444</targetListId>
+          </criterionTargetList>
+          <excludedType>EXCLUDED</excludedType>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 #### Response
 
-| field | data | description | 
+| field | data | description |
 |---|---|---|
-| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingListReturnValue.md) | Container for target list deliver information including operation results. | 
+| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingList/AdGroupRetargetingListReturnValue.md) | Container for target list deliver information including operation results. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupRetargetingListService</ns1:service>
-      <ns1:remainingQuota>74980</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>1.148</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupRetargetingList</ns2:service>
+      <ns2:requestTime>1523506330102</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupRetargetingListReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000003</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>EXCLUDED</ns1:excludedType>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000004</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>INCLUDED</ns1:excludedType>
-            <ns1:bidMultiplier>1</ns1:bidMultiplier>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>22222</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>55555</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>3333</ns2:targetListId>
+              <ns2:targetListName>test1</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>INCLUDED</ns2:excludedType>
+            <ns2:bidMultiplier>1.5</ns2:bidMultiplier>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>22222</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>66666</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>4444</ns2:targetListId>
+              <ns2:targetListName>test2</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>EXCLUDED</ns2:excludedType>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -328,105 +325,103 @@ Delete the target list setting in ad group level.
 
 #### Request
 
-| name | req? | type | description | 
+| name | req? | type | description |
 |---|---|---|---|
-| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. | 
+| operations | Req | [AdGroupRetargetingListOperation](../data/AdGroupRetargetingList/AdGroupRetargetingListOperation.md) | Target list deliver information relate to the operations to apply. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000003</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>INCLUDED</ns1:excludedType>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:campaignId>100000002</ns1:campaignId>
-          <ns1:adGroupId>100000004</ns1:adGroupId>
-          <ns1:criterionTargetList>
-            <ns1:targetListId>100000005</ns1:targetListId>
-          </ns1:criterionTargetList>
-          <ns1:excludedType>EXCLUDED</ns1:excludedType>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1111111</accountId>
+        <operand>
+          <campaignId>22222</campaignId>
+          <adGroupId>99999</adGroupId>
+          <criterionTargetList>
+            <targetListId>3333</targetListId>
+          </criterionTargetList>
+          <excludedType>INCLUDED</excludedType>
+        </operand>
+        <operand>
+          <campaignId>3333</campaignId>
+          <adGroupId>8888</adGroupId>
+          <criterionTargetList>
+            <targetListId>4444</targetListId>
+          </criterionTargetList>
+          <excludedType>EXCLUDED</excludedType>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 #### Response
 
-| field | type | description | 
+| field | type | description |
 |---|---|---|
-| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingListReturnValue.md) | Container for target list deliver information including operation results. | 
+| rval | [AdGroupRetargetingListReturnValue](../data/AdGroupRetargetingList/AdGroupRetargetingListReturnValue.md) | Container for target list deliver information including operation results. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupRetargetingListService</ns1:service>
-      <ns1:remainingQuota>74980</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>1.148</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupRetargetingList</ns2:service>
+      <ns2:requestTime>1523506330119</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupRetargetingListReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000003</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup1</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>EXCLUDED</ns1:excludedType>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupRetargetingList>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:campaignId>100000002</ns1:campaignId>
-            <ns1:campaignName>SampleCampaign</ns1:campaignName>
-            <ns1:adGroupId>100000004</ns1:adGroupId>
-            <ns1:adGroupName>SampleAdGroup2</ns1:adGroupName>
-            <ns1:criterionTargetList>
-              <ns1:targetListId>100000005</ns1:targetListId>
-              <ns1:targetListName>Default List</ns1:targetListName>
-            </ns1:criterionTargetList>
-            <ns1:excludedType>INCLUDED</ns1:excludedType>
-            <ns1:bidMultiplier>1</ns1:bidMultiplier>
-         </ns1:adGroupRetargetingList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>22222</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>9999</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>3333</ns2:targetListId>
+              <ns2:targetListName>test1</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>INCLUDED</ns2:excludedType>
+            <ns2:bidMultiplier>1.5</ns2:bidMultiplier>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupRetargetingList>
+            <ns2:accountId>1111111</ns2:accountId>
+            <ns2:campaignId>22222</ns2:campaignId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>8888</ns2:adGroupId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:criterionTargetList>
+              <ns2:targetListId>4444</ns2:targetListId>
+              <ns2:targetListName>test2</ns2:targetListName>
+              <ns2:retargetingTrackId>0</ns2:retargetingTrackId>
+            </ns2:criterionTargetList>
+            <ns2:excludedType>EXCLUDED</ns2:excludedType>
+          </ns2:adGroupRetargetingList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

@@ -3,202 +3,150 @@ KeywordEstimatorService is to request traffic estimates based on exsisting campa
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/KeywordEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/KeywordEstimatorService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201805/KeywordEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/KeywordEstimatorService?wsdl |
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/KeywordEstimator
 #### Overview
 Request traffic estimates based on exsisting campaign data (device, geo targeting setting etc).
 #### Operation
 Explains the operations provided by KeywordEstimatorService.
+
++ [get](#get)
+
+#### Object
+[CampaignTarget](../data/KeywordEstimator/KeywordEstimator)
+
 ## get
+
 ### Request
 Get traffic estimate.
 
-| Field | Restrictions | Data type | Description | 
+| Field | Restrictions | Data type | Description |
 |---|---|---|---|
-| selector | Required | [KeywordEstimatorSelector](../data/KeywordEstimatorSelector.md) | Specify conditions for estimating traffic | 
+| selector | Required | [KeywordEstimatorSelector](../data/KeywordEstimator/KeywordEstimatorSelector.md) | Specify conditions for estimating traffic |
+
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>xxxxxxxx</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:campaignEstimateRequest>
-          <ns1:campaignId>1111</ns1:campaignId>
-          <ns1:adGroupEstimateRequests>
-            <ns1:adGroupId>2222</ns1:adGroupId>
-            <ns1:keywordEstimateRequests>
-              <ns1:keyword>
-                <ns1:text>古着</ns1:text>
-                <ns1:matchType>PHRASE</ns1:matchType>
-              </ns1:keyword>
-              <ns1:isNegative>FALSE</ns1:isNegative>
-              <ns1:maxCpc>5000</ns1:maxCpc>
-            </ns1:keywordEstimateRequests>
-            <ns1:maxCpc>800</ns1:maxCpc>
-          </ns1:adGroupEstimateRequests>
-          <ns1:adGroupEstimateRequests>
-            <ns1:adGroupId>3333333333</ns1:adGroupId>
-            <ns1:keywordEstimateRequests>
-              <ns1:keyword>
-                <ns1:text>花火　夏</ns1:text>
-                <ns1:matchType>EXACT</ns1:matchType>
-              </ns1:keyword>
-              <ns1:isNegative>FALSE</ns1:isNegative>
-              <ns1:maxCpc>9000</ns1:maxCpc>
-            </ns1:keywordEstimateRequests>
-            <ns1:maxCpc>1000</ns1:maxCpc>
-          </ns1:adGroupEstimateRequests>
-          <ns1:provinces>JP-13</ns1:provinces>
-          <ns1:dailyBudget>1000</ns1:dailyBudget>
-        </ns1:campaignEstimateRequest>
-      </ns1:selector>
-    </ns1:get>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-
-```
-##### Request Sample (On-Behalf-Of Account)
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>xxxxxxxx</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>xxxxxxxx</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:campaignEstimateRequest>
-          <ns1:campaignId>1111</ns1:campaignId>
-          <ns1:adGroupEstimateRequests>
-            <ns1:adGroupId>2222</ns1:adGroupId>
-            <ns1:keywordEstimateRequests>
-              <ns1:keyword>
-                <ns1:text>古着</ns1:text>
-                <ns1:matchType>PHRASE</ns1:matchType>
-              </ns1:keyword>
-              <ns1:isNegative>FALSE</ns1:isNegative>
-              <ns1:maxCpc>5000</ns1:maxCpc>
-            </ns1:keywordEstimateRequests>
-            <ns1:maxCpc>800</ns1:maxCpc>
-          </ns1:adGroupEstimateRequests>
-          <ns1:adGroupEstimateRequests>
-            <ns1:adGroupId>3333333333</ns1:adGroupId>
-            <ns1:keywordEstimateRequests>
-              <ns1:keyword>
-                <ns1:text>花火　夏</ns1:text>
-                <ns1:matchType>EXACT</ns1:matchType>
-              </ns1:keyword>
-              <ns1:isNegative>FALSE</ns1:isNegative>
-              <ns1:maxCpc>9000</ns1:maxCpc>
-            </ns1:keywordEstimateRequests>
-            <ns1:maxCpc>1000</ns1:maxCpc>
-          </ns1:adGroupEstimateRequests>
-          <ns1:provinces>JP-13</ns1:provinces>
-          <ns1:dailyBudget>1000</ns1:dailyBudget>
-        </ns1:campaignEstimateRequest>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator">
+      <selector>
+        <accountId>1000000001</accountId>
+        <campaignEstimateRequest>
+          <campaignId>1111</campaignId>
+          <adGroupEstimateRequests>
+            <adGroupId>2222</adGroupId>
+            <keywordEstimateRequests>
+              <keyword>
+                <text>古着</text>
+                <matchType>PHRASE</matchType>
+              </keyword>
+              <isNegative>FALSE</isNegative>
+              <maxCpc>5000</maxCpc>
+            </keywordEstimateRequests>
+            <maxCpc>800</maxCpc>
+          </adGroupEstimateRequests>
+          <adGroupEstimateRequests>
+            <adGroupId>3333333333</adGroupId>
+            <keywordEstimateRequests>
+              <keyword>
+                <text>花火　夏</text>
+                <matchType>EXACT</matchType>
+              </keyword>
+              <isNegative>FALSE</isNegative>
+              <maxCpc>9000</maxCpc>
+            </keywordEstimateRequests>
+            <maxCpc>1000</maxCpc>
+          </adGroupEstimateRequests>
+          <provinces>JP-13</provinces>
+          <dailyBudget>1000</dailyBudget>
+        </campaignEstimateRequest>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [KeywordEstimatorPage](../data/KeywordEstimatorPage.md) | Traffic estimate | 
+| rval | [KeywordEstimatorPage](../data/KeywordEstimator/KeywordEstimatorPage.md) | Traffic estimate |
+
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>KeywordEstimatorService</ns1:service>
-      <ns1:remainingQuota>5</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.1689</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>KeywordEstimator</ns2:service>
+      <ns2:requestTime>1523506336075</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>1</ns1:totalNumEntries>
-        <ns1:Page.Type>KeywordEstimatorPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:data>
-            <ns1:campaignId>1111</ns1:campaignId>
-            <ns1:adGroupId>2222</ns1:adGroupId>
-            <ns1:keyword>古着</ns1:keyword>
-            <ns1:min>
-              <ns1:clicks>29.59</ns1:clicks>
-              <ns1:rank>1</ns1:rank>
-              <ns1:cpc>32.11</ns1:cpc>
-              <ns1:cost>1055.55</ns1:cost>
-              <ns1:impressions>3000</ns1:impressions>
-              <ns1:ctr>0.0012</ns1:ctr> 
-            </ns1:min>
-            <ns1:max>
-              <ns1:clicks>36.16</ns1:clicks>
-              <ns1:rank>1.1</ns1:rank>
-              <ns1:cpc>39.24</ns1:cpc>
-              <ns1:cost>1290.12</ns1:cost>
-              <ns1:impressions>3100</ns1:impressions> 
-              <ns1:ctr>0.0022</ns1:ctr> 
-            </ns1:max>
-          </ns1:data>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:data>
-            <ns1:campaignId>1111</ns1:campaignId>
-            <ns1:adGroupId>3333333333</ns1:adGroupId>
-            <ns1:keyword>花火　夏</ns1:keyword>
-            <ns1:min>
-              <ns1:clicks>11.59</ns1:clicks>
-              <ns1:rank>1</ns1:rank>
-              <ns1:cpc>32.01</ns1:cpc>
-              <ns1:cost>2055.55</ns1:cost>
-              <ns1:impressions>3000</ns1:impressions>
-              <ns1:ctr>0.0012</ns1:ctr>
-            </ns1:min>
-            <ns1:max>
-              <ns1:clicks>9999.16</ns1:clicks>
-              <ns1:rank>1.1</ns1:rank>
-              <ns1:cpc>39.24</ns1:cpc>
-              <ns1:cost>3290.12</ns1:cost>
-              <ns1:impressions>3100</ns1:impressions>
-              <ns1:ctr>0.0022</ns1:ctr>
-            </ns1:max>
-          </ns1:data>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/KeywordEstimator">
+      <ns2:rval>
+        <totalNumEntries>2</totalNumEntries>
+        <Page.Type>KeywordEstimatorPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:data>
+            <ns2:campaignId>1111</ns2:campaignId>
+            <ns2:adGroupId>2222</ns2:adGroupId>
+            <ns2:keyword>古着</ns2:keyword>
+            <ns2:min>
+              <ns2:clicks>29.59</ns2:clicks>
+              <ns2:rank>1.0</ns2:rank>
+              <ns2:cpc>32.11</ns2:cpc>
+              <ns2:cost>1055.55</ns2:cost>
+              <ns2:impressions>3000.0</ns2:impressions>
+              <ns2:ctr>0.0012</ns2:ctr>
+            </ns2:min>
+            <ns2:max>
+              <ns2:clicks>36.16</ns2:clicks>
+              <ns2:rank>1.1</ns2:rank>
+              <ns2:cpc>39.24</ns2:cpc>
+              <ns2:cost>1290.12</ns2:cost>
+              <ns2:impressions>3100.0</ns2:impressions>
+              <ns2:ctr>0.0022</ns2:ctr>
+            </ns2:max>
+          </ns2:data>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:data>
+            <ns2:campaignId>1111</ns2:campaignId>
+            <ns2:adGroupId>3333333333</ns2:adGroupId>
+            <ns2:keyword>花火　夏</ns2:keyword>
+            <ns2:min>
+              <ns2:clicks>11.59</ns2:clicks>
+              <ns2:rank>1.0</ns2:rank>
+              <ns2:cpc>32.01</ns2:cpc>
+              <ns2:cost>2055.55</ns2:cost>
+              <ns2:impressions>3000.0</ns2:impressions>
+              <ns2:ctr>0.0012</ns2:ctr>
+            </ns2:min>
+            <ns2:max>
+              <ns2:clicks>9999.16</ns2:clicks>
+              <ns2:rank>1.1</ns2:rank>
+              <ns2:cpc>39.24</ns2:cpc>
+              <ns2:cost>3290.12</ns2:cost>
+              <ns2:impressions>3100.0</ns2:impressions>
+              <ns2:ctr>0.0022</ns2:ctr>
+            </ns2:max>
+          </ns2:data>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

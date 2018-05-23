@@ -4,11 +4,11 @@ RetargetingListServiceでは、ターゲットリストに関する情報の取�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl |
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201805/RetargetingListService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/RetargetingListService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/RetargetingList
 
 #### サービス概要
 ターゲットリストに関する情報の取得および追加・更新を行います。
@@ -16,42 +16,47 @@ http://ss.yahooapis.jp/V6
 #### 操作
 RetargetingListServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
+
+#### オブジェクト
+[RetargetingList](../data/RetargetingList)
+
 ## get
 ターゲットリストに関する情報を取得します。
 
 #### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [RetargetingListSelector](../data/RetargetingListSelector.md) | 操作の対象とするターゲットリストです。 | 
+| selector | ○ | [RetargetingListSelector](../data/RetargetingList/RetargetingListSelector.md) | 操作の対象とするターゲットリストです。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:targetListIds>100000002</ns1:targetListIds>
-        <ns1:targetListIds>100000003</ns1:targetListIds>
-        <ns1:targetListIds>100000004</ns1:targetListIds>
-        <ns1:targetListTypes>DEFAULT</ns1:targetListTypes>
-        <ns1:targetListTypes>RULE</ns1:targetListTypes>
-        <ns1:targetListTypes>LOGICAL</ns1:targetListTypes>
-        <ns1:owner>SHARED</ns1:owner>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>1111</accountId>
+        <targetListIds>100000001</targetListIds>
+        <targetListIds>100000002</targetListIds>
+        <targetListTypes>LOGICAL</targetListTypes>
+        <targetListTypes>RULE</targetListTypes>
+        <targetListTypes>DEFAULT</targetListTypes>
+        <owner>SHARED</owner>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -59,198 +64,194 @@ RetargetingListServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListPage](../data/RetargetingListPage.md) | 取得されるターゲットリストのエントリーです。 | 
+| rval | [RetargetingListPage](../data/RetargetingList/RetargetingListPage.md) | 取得されるターゲットリストのエントリーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>RetargetingListService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.2315</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>3</ns1:totalNumEntries>
-            <ns1:Page.Type>RetargetingListPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:targetList xsi:type="ns1:DefaultTargetList">
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:owner>SHARED</ns1:owner>
-                  <ns1:retargetingAccountStatus>
-                     <ns1:agreeDate>20150612</ns1:agreeDate>
-                     <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-                  </ns1:retargetingAccountStatus>
-                  <ns1:targetListId>100000002</ns1:targetListId>
-                  <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
-                  <ns1:targetListType>DEFAULT</ns1:targetListType>
-                  <ns1:targetListName>デフォルトリスト</ns1:targetListName>
-                  <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
-                  <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-                  <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-                  <ns1:reach>105000</ns1:reach>
-                  <ns1:tag>
-                     <ns1:snippet><![CDATA[<!-- Yahoo Code for your Target List -->
-                <script type="text/javascript">
-                /* <![CDATA[ */
-                var yahoo_ss_retargeting_id = 1000137350;
-                var yahoo_sstag_custom_params =
-                window.yahoo_sstag_params;
-                var yahoo_ss_retargeting = true;
-                /* ]]]]>><![CDATA[ */
-                </script>
-                <script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js">
-                </script>
-                <noscript>
-                <div style="display:inline;">
-                <img height="1" width="1" style="border-style:none;" alt=""
-                src="//b97.yahoo.co.jp/pagead/conversion/1000137350/?guid=ON&amp;script=0&amp;disvt=false"/>
-                </div>
-                </noscript>]]></ns1:snippet>
-                  </ns1:tag>
-               </ns1:targetList>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:targetList xsi:type="ns1:RuleBaseTargetList">
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:owner>SHARED</ns1:owner>
-                  <ns1:retargetingAccountStatus>
-                     <ns1:agreeDate>20150612</ns1:agreeDate>
-                     <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-                  </ns1:retargetingAccountStatus>
-                  <ns1:targetListId>100000003</ns1:targetListId>
-                  <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
-                  <ns1:targetListType>RULE</ns1:targetListType>
-                  <ns1:targetListName>ルールベースリスト</ns1:targetListName>
-                  <ns1:targetListDescription>ルールベースターゲットリスト</ns1:targetListDescription>
-                  <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-                  <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-                  <ns1:reach>45000</ns1:reach>
-                  <ns1:rules>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>EQUALS</ns1:operator>
-                        <ns1:value>http://yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>NOT_EQUAL</ns1:operator>
-                        <ns1:value>http://not.equal.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>CONTAINS</ns1:operator>
-                        <ns1:value>http://contains.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>NOT_CONTAIN</ns1:operator>
-                        <ns1:value>http://not.contain.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>STARTS_WITH</ns1:operator>
-                        <ns1:value>http://starts.with.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>NOT_START_WITH</ns1:operator>
-                        <ns1:value>http://not.start.with.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>ENDS_WITH</ns1:operator>
-                        <ns1:value>http://ends.with.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>NOT_END_WITH</ns1:operator>
-                        <ns1:value>http://not.end.with.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                  </ns1:rules>
-                  <ns1:rules>
-                     <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                        <ns1:ruleType>URL_RULE</ns1:ruleType>
-                        <ns1:operator>EQUALS</ns1:operator>
-                        <ns1:value>http://equals2.yahoo.co.jp</ns1:value>
-                        <ns1:urlKey>REFFER_URL</ns1:urlKey>
-                     </ns1:ruleItems>
-                  </ns1:rules>
-                  <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
-                  <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
-                  <ns1:startDate>20150701</ns1:startDate>
-                  <ns1:endDate>20151231</ns1:endDate>
-               </ns1:targetList>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:targetList xsi:type="ns1:LogicalTargetList">
-                  <ns1:accountId>100000001</ns1:accountId>
-                  <ns1:owner>SHARED</ns1:owner>
-                  <ns1:retargetingAccountStatus>
-                     <ns1:agreeDate>20150612</ns1:agreeDate>
-                     <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-                  </ns1:retargetingAccountStatus>
-                  <ns1:targetListId>100000004</ns1:targetListId>
-                  <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
-                  <ns1:targetListType>LOGICAL</ns1:targetListType>
-                  <ns1:targetListName>ロジカルリスト</ns1:targetListName>
-                  <ns1:targetListDescription>ロジカルターゲットリスト</ns1:targetListDescription>
-                  <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-                  <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-                  <ns1:reach>40560</ns1:reach>
-                  <ns1:logicalGroup>
-                     <ns1:condition>AND</ns1:condition>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000002</ns1:targetListId>
-                     </ns1:logicalOperand>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000003</ns1:targetListId>
-                     </ns1:logicalOperand>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000005</ns1:targetListId>
-                     </ns1:logicalOperand>
-                  </ns1:logicalGroup>
-                  <ns1:logicalGroup>
-                     <ns1:condition>OR</ns1:condition>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000006</ns1:targetListId>
-                     </ns1:logicalOperand>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000007</ns1:targetListId>
-                     </ns1:logicalOperand>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000008</ns1:targetListId>
-                     </ns1:logicalOperand>
-                  </ns1:logicalGroup>
-                  <ns1:logicalGroup>
-                     <ns1:condition>NOT</ns1:condition>
-                     <ns1:logicalOperand>
-                        <ns1:targetListId>100000009</ns1:targetListId>
-                     </ns1:logicalOperand>
-                  </ns1:logicalGroup>
-               </ns1:targetList>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>RetargetingList</ns2:service>
+      <ns2:requestTime>1523506337062</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <ns2:rval>
+        <totalNumEntries>4</totalNumEntries>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DefaultTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>OWNER</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170529</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>2222</ns2:targetListId>
+            <ns2:targetListTrackId>3333</ns2:targetListTrackId>
+            <ns2:targetListType>DEFAULT</ns2:targetListType>
+            <ns2:targetListName>TargetList Default</ns2:targetListName>
+            <ns2:targetListDescription>TargetList Default</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:tag>
+              <ns2:snippet>&amp;lt;!-- Yahoo Code for your Target List --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+/* &amp;lt;![CDATA[ */
+var yahoo_ss_retargeting_id = 1000136832;
+var yahoo_sstag_custom_params = window.yahoo_sstag_params;
+var yahoo_ss_retargeting = true;
+/* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+&amp;lt;div style="display:inline;"&amp;gt;
+&amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="https://b97.yahoo.co.jp/pagead/conversion/1000136832/?guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=false"/&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/noscript&amp;gt;</ns2:snippet>
+            </ns2:tag>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleBaseTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>12222</ns2:targetListId>
+            <ns2:targetListTrackId>13333</ns2:targetListTrackId>
+            <ns2:targetListType>RULE</ns2:targetListType>
+            <ns2:targetListName>TargetList RULE</ns2:targetListName>
+            <ns2:targetListDescription>TargetList RULE</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>EQUALS</ns2:operator>
+                <ns2:value>http://yahoo.co.jp</ns2:value>
+                <ns2:urlKey>URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_EQUAL</ns2:operator>
+                <ns2:value>http://not.equal.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>CONTAINS</ns2:operator>
+                <ns2:value>http://contains.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_CONTAIN</ns2:operator>
+                <ns2:value>http://not.contain.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>STARTS_WITH</ns2:operator>
+                <ns2:value>http://starts.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_START_WITH</ns2:operator>
+                <ns2:value>http://not.start.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>ENDS_WITH</ns2:operator>
+                <ns2:value>http://ends.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_END_WITH</ns2:operator>
+                <ns2:value>http://not.end.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:isAllVisitor>TRUE</ns2:isAllVisitor>
+            <ns2:isDateSpecific>FALSE</ns2:isDateSpecific>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LogicalTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>912222</ns2:targetListId>
+            <ns2:targetListTrackId>913333</ns2:targetListTrackId>
+            <ns2:targetListType>LOGICAL</ns2:targetListType>
+            <ns2:targetListName>TargetList LOGICAL</ns2:targetListName>
+            <ns2:targetListDescription>TargetList LOGICAL</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:logicalGroup>
+              <ns2:condition>AND</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111112</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111113</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>OR</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111112</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>NOT</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>3111111</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+          </ns2:targetList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -258,103 +259,144 @@ RetargetingListServiceで提供される操作を説明します。
 ターゲットリストを追加します。
 
 #### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md) | 操作の対象となるターゲットリストと処理の内容です。 | 
+| operations | ○ | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | 操作の対象となるターゲットリストと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-        <ns1:owner>OWNER</ns1:owner>
-        <ns1:operand xsi:type="ns1:DefaultTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>DEFAULT</ns1:targetListType>
-          <ns1:targetListName>デフォルトリスト</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:RuleBaseTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListType>RULE</ns1:targetListType>
-          <ns1:targetListName>ルールベースターゲットリスト</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:rules>
-            <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-              <ns1:ruleType>URL_RULE</ns1:ruleType>
-              <ns1:operator>EQUALS</ns1:operator>
-              <ns1:value>http://yahoo.co.jp</ns1:value>
-              <ns1:urlKey>URL</ns1:urlKey>
-            </ns1:ruleItems>
-            <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-              <ns1:ruleType>URL_RULE</ns1:ruleType>
-              <ns1:operator>EQUALS</ns1:operator>
-              <ns1:value>http://yahoo.com</ns1:value>
-              <ns1:urlKey>REFFER_URL</ns1:urlKey>
-            </ns1:ruleItems>
-          </ns1:rules>
-          <ns1:rules>
-            <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-              <ns1:ruleType>URL_RULE</ns1:ruleType>
-              <ns1:operator>NOT_EQUAL</ns1:operator>
-              <ns1:value>http://google.com</ns1:value>
-              <ns1:urlKey>URL</ns1:urlKey>
-            </ns1:ruleItems>
-          </ns1:rules>
-          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
-          <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
-          <ns1:startDate>20150701</ns1:startDate>
-          <ns1:endDate>20151231</ns1:endDate>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:LogicalTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-         <ns1:targetListType>LOGICAL</ns1:targetListType>
-          <ns1:targetListName>ロジカルターゲットリスト</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-          <ns1:logicalGroup>
-            <ns1:condition>AND</ns1:condition>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000002</ns1:targetListId>
-            </ns1:logicalOperand>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000003</ns1:targetListId>
-            </ns1:logicalOperand>
-          </ns1:logicalGroup>
-          <ns1:logicalGroup>
-            <ns1:condition>OR</ns1:condition>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000004</ns1:targetListId>
-            </ns1:logicalOperand>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000005</ns1:targetListId>
-            </ns1:logicalOperand>
-          </ns1:logicalGroup>
-          <ns1:logicalGroup>
-            <ns1:condition>NOT</ns1:condition>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000006</ns1:targetListId>
-            </ns1:logicalOperand>
-          </ns1:logicalGroup>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>0</accountId>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DefaultTargetList">
+          <accountId>1111</accountId>
+          <targetListType>DEFAULT</targetListType>
+          <targetListName>TargetList Default</targetListName>
+          <targetListDescription>TargetList Default</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleBaseTargetList">
+          <accountId>1111</accountId>
+          <targetListType>RULE</targetListType>
+          <targetListName>TargetList RULE</targetListName>
+          <targetListDescription>TargetList RULE</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>EQUALS</operator>
+              <value>http://yahoo.co.jp</value>
+              <urlKey>URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_EQUAL</operator>
+              <value>http://not.equal.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>CONTAINS</operator>
+              <value>http://contains.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_CONTAIN</operator>
+              <value>http://not.contain.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>STARTS_WITH</operator>
+              <value>http://starts.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_START_WITH</operator>
+              <value>http://not.start.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>ENDS_WITH</operator>
+              <value>http://ends.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_END_WITH</operator>
+              <value>http://not.end.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <isAllVisitor>TRUE</isAllVisitor>
+          <isDateSpecific>FALSE</isDateSpecific>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LogicalTargetList">
+          <accountId>1111</accountId>
+          <targetListType>LOGICAL</targetListType>
+          <targetListName>TargetList LOGICAL</targetListName>
+          <targetListDescription>TargetList LOGICAL</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+          <logicalGroup>
+            <condition>AND</condition>
+            <logicalOperand>
+              <targetListId>1111111</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>1111112</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>1111113</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+          <logicalGroup>
+            <condition>OR</condition>
+            <logicalOperand>
+              <targetListId>2111111</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>2111112</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+          <logicalGroup>
+            <condition>NOT</condition>
+            <logicalOperand>
+              <targetListId>3111111</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -362,128 +404,178 @@ RetargetingListServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/RetargetingListReturnValue.md) | 操作結果を含むターゲットリストに関する情報のコンテナです。 | 
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | 操作結果を含むターゲットリストに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>RetargetingListService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>RetargetingList</ns2:service>
+      <ns2:requestTime>1523506337088</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>RetargetingListReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:DefaultTargetList">
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:retargetingAccountStatus />
-            <ns1:targetListId>200000001</ns1:targetListId>
-            <ns1:targetListType>DEFAULT</ns1:targetListType>
-            <ns1:targetListName>デフォルトリスト</ns1:targetListName>
-            <ns1:targetListDescription>デフォルトターゲットリスト</ns1:targetListDescription>
-            <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:owner>OWNER</ns1:owner>
-            <ns1:tag />
-          </ns1:targetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:RuleBaseTargetList">
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:retargetingAccountStatus>
-              <ns1:agreeDate>20150612</ns1:agreeDate>
-              <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-            </ns1:retargetingAccountStatus>
-            <ns1:targetListId>200000002</ns1:targetListId>
-            <ns1:targetListType>RULE</ns1:targetListType>
-            <ns1:targetListName>ルールベースターゲットリスト</ns1:targetListName>
-            <ns1:targetListDescription>sample description</ns1:targetListDescription>
-            <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:owner>OWNER</ns1:owner>
-           <ns1:rules>
-              <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                <ns1:ruleType>URL_RULE</ns1:ruleType>
-                <ns1:operator>EQUALS</ns1:operator>
-                <ns1:value>http://yahoo.co.jp</ns1:value>
-                <ns1:urlKey>URL</ns1:urlKey>
-              </ns1:ruleItems>
-              <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                <ns1:ruleType>URL_RULE</ns1:ruleType>
-                <ns1:operator>EQUALS</ns1:operator>
-                <ns1:value>http://yahoo.com</ns1:value>
-                <ns1:urlKey>REFFER_URL</ns1:urlKey>
-              </ns1:ruleItems>
-            </ns1:rules>
-            <ns1:rules>
-              <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                <ns1:ruleType>URL_RULE</ns1:ruleType>
-                <ns1:operator>NOT_EQUAL</ns1:operator>
-                <ns1:value>http://google.com</ns1:value>
-                <ns1:urlKey>URL</ns1:urlKey>
-              </ns1:ruleItems>
-            </ns1:rules>
-            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
-            <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
-            <ns1:startDate>20150701</ns1:startDate>
-            <ns1:endDate>20151231</ns1:endDate>
-          </ns1:targetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:LogicalTargetList">
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:retargetingAccountStatus>
-              <ns1:agreeDate>20150612</ns1:agreeDate>
-              <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-            </ns1:retargetingAccountStatus>
-            <ns1:targetListId>200000003</ns1:targetListId>
-            <ns1:targetListType>LOGICAL</ns1:targetListType>
-            <ns1:targetListName>ロジカルターゲットリスト</ns1:targetListName>
-            <ns1:targetListDescription>sample description</ns1:targetListDescription>
-            <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>180</ns1:reachStorageSpan>
-            <ns1:owner>OWNER</ns1:owner>
-            <ns1:logicalGroup>
-              <ns1:condition>AND</ns1:condition>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000002</ns1:targetListId>
-              </ns1:logicalOperand>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000003</ns1:targetListId>
-              </ns1:logicalOperand>
-            </ns1:logicalGroup>
-            <ns1:logicalGroup>
-              <ns1:condition>OR</ns1:condition>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000004</ns1:targetListId>
-              </ns1:logicalOperand>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000005</ns1:targetListId>
-              </ns1:logicalOperand>
-            </ns1:logicalGroup>
-            <ns1:logicalGroup>
-              <ns1:condition>NOT</ns1:condition>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000006</ns1:targetListId>
-              </ns1:logicalOperand>
-            </ns1:logicalGroup>
-          </ns1:targetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <ns2:rval>
+        <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DefaultTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>OWNER</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170529</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>2222</ns2:targetListId>
+            <ns2:targetListTrackId>3333</ns2:targetListTrackId>
+            <ns2:targetListType>DEFAULT</ns2:targetListType>
+            <ns2:targetListName>TargetList Default</ns2:targetListName>
+            <ns2:targetListDescription>TargetList Default</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:tag/>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleBaseTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>12222</ns2:targetListId>
+            <ns2:targetListTrackId>13333</ns2:targetListTrackId>
+            <ns2:targetListType>RULE</ns2:targetListType>
+            <ns2:targetListName>TargetList RULE</ns2:targetListName>
+            <ns2:targetListDescription>TargetList RULE</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>EQUALS</ns2:operator>
+                <ns2:value>http://yahoo.co.jp</ns2:value>
+                <ns2:urlKey>URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_EQUAL</ns2:operator>
+                <ns2:value>http://not.equal.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>CONTAINS</ns2:operator>
+                <ns2:value>http://contains.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_CONTAIN</ns2:operator>
+                <ns2:value>http://not.contain.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>STARTS_WITH</ns2:operator>
+                <ns2:value>http://starts.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_START_WITH</ns2:operator>
+                <ns2:value>http://not.start.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>ENDS_WITH</ns2:operator>
+                <ns2:value>http://ends.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_END_WITH</ns2:operator>
+                <ns2:value>http://not.end.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:isAllVisitor>TRUE</ns2:isAllVisitor>
+            <ns2:isDateSpecific>FALSE</ns2:isDateSpecific>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LogicalTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>912222</ns2:targetListId>
+            <ns2:targetListTrackId>913333</ns2:targetListTrackId>
+            <ns2:targetListType>LOGICAL</ns2:targetListType>
+            <ns2:targetListName>TargetList LOGICAL</ns2:targetListName>
+            <ns2:targetListDescription>TargetList LOGICAL</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:logicalGroup>
+              <ns2:condition>AND</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111112</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111113</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>OR</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111112</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>NOT</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>3111111</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+          </ns2:targetList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -493,73 +585,147 @@ RetargetingListServiceで提供される操作を説明します。
 
 #### リクエスト
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md) | 操作の対象となるターゲットリストと処理の内容です。 | 
+| operations | ○ | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | 操作の対象となるターゲットリストと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>SET</ns1:operator>
-        <ns1:accountId>100000001</ns1:accountId>
-       <ns1:owner>OWNER</ns1:owner>
-        <ns1:operand xsi:type="ns1:DefaultTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-         <ns1:targetListId>200000001</ns1:targetListId>
-          <ns1:targetListType>DEFAULT</ns1:targetListType>
-          <ns1:targetListName>デフォルトターゲットリスト</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:RuleBaseTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListId>200000002</ns1:targetListId>
-          <ns1:targetListType>RULE</ns1:targetListType>
-          <ns1:targetListName>ルールベースターゲットリスト(更新)</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-          <ns1:rules>
-            <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-              <ns1:ruleType>URL_RULE</ns1:ruleType>
-              <ns1:operator>CONTAINS</ns1:operator>
-              <ns1:value>http://yahoo.com</ns1:value>
-              <ns1:urlKey>REFFER_URL</ns1:urlKey>
-            </ns1:ruleItems>
-          </ns1:rules>
-          <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
-          <ns1:startDate>20160701</ns1:startDate>
-          <ns1:endDate>20161231</ns1:endDate>
-        </ns1:operand>
-        <ns1:operand xsi:type="ns1:LogicalTargetList">
-          <ns1:accountId>100000001</ns1:accountId>
-          <ns1:targetListId>200000003</ns1:targetListId>
-          <ns1:targetListType>LOGICAL</ns1:targetListType>
-          <ns1:targetListName>ロジカルターゲットリスト(更新)</ns1:targetListName>
-          <ns1:targetListDescription>sample description</ns1:targetListDescription>
-          <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
-          <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-          <ns1:logicalGroup>
-            <ns1:logicalOperand>
-              <ns1:targetListId>100000005</ns1:targetListId>
-            </ns1:logicalOperand>
-          </ns1:logicalGroup>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>0</accountId>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DefaultTargetList">
+          <accountId>1111</accountId>
+          <targetListId>2222</targetListId>
+          <targetListType>DEFAULT</targetListType>
+          <targetListName>TargetList Default</targetListName>
+          <targetListDescription>TargetList Default</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleBaseTargetList">
+          <accountId>1111</accountId>
+          <targetListId>12222</targetListId>
+          <targetListType>RULE</targetListType>
+          <targetListName>TargetList RULE</targetListName>
+          <targetListDescription>TargetList RULE</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>EQUALS</operator>
+              <value>http://yahoo.co.jp</value>
+              <urlKey>URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_EQUAL</operator>
+              <value>http://not.equal.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>CONTAINS</operator>
+              <value>http://contains.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_CONTAIN</operator>
+              <value>http://not.contain.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>STARTS_WITH</operator>
+              <value>http://starts.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_START_WITH</operator>
+              <value>http://not.start.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>ENDS_WITH</operator>
+              <value>http://ends.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <rules>
+            <ruleItems xsi:type="UrlRuleItem">
+              <ruleType>URL_RULE</ruleType>
+              <operator>NOT_END_WITH</operator>
+              <value>http://not.end.with.yahoo.co.jp</value>
+              <urlKey>REFFER_URL</urlKey>
+            </ruleItems>
+          </rules>
+          <isAllVisitor>TRUE</isAllVisitor>
+          <isDateSpecific>FALSE</isDateSpecific>
+        </operand>
+        <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LogicalTargetList">
+          <accountId>1111</accountId>
+          <targetListId>912222</targetListId>
+          <targetListType>LOGICAL</targetListType>
+          <targetListName>TargetList LOGICAL</targetListName>
+          <targetListDescription>TargetList LOGICAL</targetListDescription>
+          <reachStorageStatus>OPEN</reachStorageStatus>
+          <reachStorageSpan>180</reachStorageSpan>
+          <logicalGroup>
+            <condition>AND</condition>
+            <logicalOperand>
+              <targetListId>1111111</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>1111112</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>1111113</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+          <logicalGroup>
+            <condition>OR</condition>
+            <logicalOperand>
+              <targetListId>2111111</targetListId>
+            </logicalOperand>
+            <logicalOperand>
+              <targetListId>2111112</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+          <logicalGroup>
+            <condition>NOT</condition>
+            <logicalOperand>
+              <targetListId>3111111</targetListId>
+            </logicalOperand>
+          </logicalGroup>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -567,104 +733,178 @@ RetargetingListServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/RetargetingListReturnValue.md) | 操作結果を含むターゲットリストに関する情報のコンテナです。 | 
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | 操作結果を含むターゲットリストに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>RetargetingListService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>RetargetingList</ns2:service>
+      <ns2:requestTime>1523506337110</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>RetargetingListReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:DefaultTargetList">
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:owner>OWNER</ns1:owner>
-            <ns1:retargetingAccountStatus>
-              <ns1:agreeDate>20150626</ns1:agreeDate>
-              <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-            </ns1:retargetingAccountStatus>
-            <ns1:targetListId>200000001</ns1:targetListId>
-            <ns1:targetListType>DEFAULT</ns1:targetListType>
-            <ns1:targetListName>デフォルトリスト</ns1:targetListName>
-            <ns1:targetListDescription>sample description</ns1:targetListDescription>
-            <ns1:reachStorageStatus>OPEN</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:reach>0</ns1:reach>
-            <ns1:tag />
-          </ns1:targetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:RuleBaseTargetList">
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:owner>OWNER</ns1:owner>
-            <ns1:retargetingAccountStatus>
-              <ns1:agreeDate>20150612</ns1:agreeDate>
-              <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-            </ns1:retargetingAccountStatus>
-            <ns1:targetListId>200000002</ns1:targetListId>
-            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
-            <ns1:targetListType>RULE</ns1:targetListType>
-            <ns1:targetListName>ルールベースターゲットリスト(更新)</ns1:targetListName>
-            <ns1:targetListDescription>sample description</ns1:targetListDescription>
-            <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:reach>0</ns1:reach>
-            <ns1:rules>
-              <ns1:ruleItems xsi:type="ns1:UrlRuleItem">
-                <ns1:ruleType>URL_RULE</ns1:ruleType>
-                <ns1:operator>CONTAINS</ns1:operator>
-                <ns1:value>http://yahoo.com</ns1:value>
-                <ns1:urlKey>REFFER_URL</ns1:urlKey>
-              </ns1:ruleItems>
-            </ns1:rules>
-            <ns1:isAllVisitor>TRUE</ns1:isAllVisitor>
-            <ns1:isDateSpecific>TRUE</ns1:isDateSpecific>
-            <ns1:startDate>20160701</ns1:startDate>
-            <ns1:endDate>20161231</ns1:endDate>
-          </ns1:targetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:targetList xsi:type="ns1:LogicalTargetList">
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:owner>OWNER</ns1:owner>
-            <ns1:retargetingAccountStatus>
-              <ns1:agreeDate>20150612</ns1:agreeDate>
-              <ns1:reviewStatus>APPROVED</ns1:reviewStatus>
-            </ns1:retargetingAccountStatus>
-            <ns1:targetListId>200000003</ns1:targetListId>
-            <ns1:targetListTrackId>1234567890</ns1:targetListTrackId>
-            <ns1:targetListType>LOGICAL</ns1:targetListType>
-            <ns1:targetListName>ロジカルターゲットリスト(更新)</ns1:targetListName>
-            <ns1:targetListDescription>sample description</ns1:targetListDescription>
-            <ns1:reachStorageStatus>CLOSED</ns1:reachStorageStatus>
-            <ns1:reachStorageSpan>1</ns1:reachStorageSpan>
-            <ns1:reach>3000</ns1:reach>
-            <ns1:logicalGroup>
-              <ns1:condition>OR</ns1:condition>
-              <ns1:logicalOperand>
-                <ns1:targetListId>100000005</ns1:targetListId>
-              </ns1:logicalOperand>
-            </ns1:logicalGroup>
-          </ns1:targetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <ns2:rval>
+        <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DefaultTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>OWNER</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170529</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>2222</ns2:targetListId>
+            <ns2:targetListTrackId>3333</ns2:targetListTrackId>
+            <ns2:targetListType>DEFAULT</ns2:targetListType>
+            <ns2:targetListName>TargetList Default</ns2:targetListName>
+            <ns2:targetListDescription>TargetList Default</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:tag/>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleBaseTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>12222</ns2:targetListId>
+            <ns2:targetListTrackId>13333</ns2:targetListTrackId>
+            <ns2:targetListType>RULE</ns2:targetListType>
+            <ns2:targetListName>TargetList RULE</ns2:targetListName>
+            <ns2:targetListDescription>TargetList RULE</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>EQUALS</ns2:operator>
+                <ns2:value>http://yahoo.co.jp</ns2:value>
+                <ns2:urlKey>URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_EQUAL</ns2:operator>
+                <ns2:value>http://not.equal.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>CONTAINS</ns2:operator>
+                <ns2:value>http://contains.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_CONTAIN</ns2:operator>
+                <ns2:value>http://not.contain.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>STARTS_WITH</ns2:operator>
+                <ns2:value>http://starts.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_START_WITH</ns2:operator>
+                <ns2:value>http://not.start.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>ENDS_WITH</ns2:operator>
+                <ns2:value>http://ends.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:UrlRuleItem">
+                <ns2:ruleType>URL_RULE</ns2:ruleType>
+                <ns2:operator>NOT_END_WITH</ns2:operator>
+                <ns2:value>http://not.end.with.yahoo.co.jp</ns2:value>
+                <ns2:urlKey>REFFER_URL</ns2:urlKey>
+              </ns2:ruleItems>
+            </ns2:rules>
+            <ns2:isAllVisitor>TRUE</ns2:isAllVisitor>
+            <ns2:isDateSpecific>FALSE</ns2:isDateSpecific>
+          </ns2:targetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:LogicalTargetList">
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:owner>SHARED</ns2:owner>
+            <ns2:retargetingAccountStatus>
+              <ns2:agreeDate>20170629</ns2:agreeDate>
+              <ns2:reviewStatus>APPROVED</ns2:reviewStatus>
+            </ns2:retargetingAccountStatus>
+            <ns2:targetListId>912222</ns2:targetListId>
+            <ns2:targetListTrackId>913333</ns2:targetListTrackId>
+            <ns2:targetListType>LOGICAL</ns2:targetListType>
+            <ns2:targetListName>TargetList LOGICAL</ns2:targetListName>
+            <ns2:targetListDescription>TargetList LOGICAL</ns2:targetListDescription>
+            <ns2:reachStorageStatus>OPEN</ns2:reachStorageStatus>
+            <ns2:reachStorageSpan>180</ns2:reachStorageSpan>
+            <ns2:reach>0</ns2:reach>
+            <ns2:logicalGroup>
+              <ns2:condition>AND</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111112</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>1111113</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>OR</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111111</ns2:targetListId>
+              </ns2:logicalOperand>
+              <ns2:logicalOperand>
+                <ns2:targetListId>2111112</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+            <ns2:logicalGroup>
+              <ns2:condition>NOT</ns2:condition>
+              <ns2:logicalOperand>
+                <ns2:targetListId>3111111</ns2:targetListId>
+              </ns2:logicalOperand>
+            </ns2:logicalGroup>
+          </ns2:targetList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

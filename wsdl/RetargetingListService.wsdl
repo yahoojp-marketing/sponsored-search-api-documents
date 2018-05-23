@@ -1,104 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://ss.yahooapis.jp/V6"
-  xmlns:tns="http://ss.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://ss.yahooapis.jp/V201805/RetargetingList"
+        xmlns:tns="http://ss.yahooapis.jp/V201805/RetargetingList"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://ss.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://ss.yahooapis.jp/V6">
-      <annotation>
-        <appinfo>
-          <version>6.5.0</version>
-        </appinfo>
-      </annotation>
+            targetNamespace="http://ss.yahooapis.jp/V201805"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://ss.yahooapis.jp/V201805">
       <complexType name="SoapHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="SoapResponseHeader">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://ss.yahooapis.jp/V201805/RetargetingList"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://ss.yahooapis.jp/V201805"
+            xmlns:tns="http://ss.yahooapis.jp/V201805/RetargetingList">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201805"/>
+      <annotation>
+        <appinfo>
+          <version>201805</version>
+        </appinfo>
+      </annotation>
       <complexType name="TargetingList">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
-          <element maxOccurs="1" minOccurs="0" name="retargetingAccountStatus" type="tns:RetargetingAccountStatus" />
-          <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="targetListTrackId" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="1" name="targetListType" type="tns:TargetListType" />
-          <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="targetListDescription" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="reachStorageStatus" type="tns:ReachStorageStatus" />
-          <element maxOccurs="1" minOccurs="0" name="reachStorageSpan" type="xsd:long" />
-          <element maxOccurs="1" minOccurs="0" name="reach" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner"/>
+          <element maxOccurs="1" minOccurs="0" name="retargetingAccountStatus" type="tns:RetargetingAccountStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="targetListTrackId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="targetListType" type="tns:TargetListType"/>
+          <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="targetListDescription" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="closingReason" type="tns:ClosingReason"/>
+          <element maxOccurs="1" minOccurs="0" name="reachStorageStatus" type="tns:ReachStorageStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="reachStorageSpan" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reach" type="xsd:long"/>
         </sequence>
       </complexType>
       <complexType name="RetargetingAccountStatus">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="agreeDate" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="reviewStatus" type="tns:ReviewStatus" />
-          <element maxOccurs="1" minOccurs="0" name="reviewRequestDate" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="agreeDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="reviewStatus" type="tns:ReviewStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="reviewRequestDate" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="DefaultTargetList">
         <complexContent>
           <extension base="tns:TargetingList">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="tag" type="tns:Tag" />
+              <element maxOccurs="1" minOccurs="0" name="tag" type="tns:Tag"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="Tag">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="snippet" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="0" name="snippet" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="RuleBaseTargetList">
         <complexContent>
           <extension base="tns:TargetingList">
             <sequence>
-              <element maxOccurs="20" minOccurs="0" name="rules" type="tns:RuleGroup" />
-              <element maxOccurs="1" minOccurs="1" name="isAllVisitor" type="tns:IsAllVisitorRule" />
-              <element maxOccurs="1" minOccurs="0" name="isDateSpecific" type="tns:IsDateSpecificRule" />
-              <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string" />
-              <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string" />
+              <element maxOccurs="20" minOccurs="0" name="rules" type="tns:RuleGroup"/>
+              <element maxOccurs="1" minOccurs="1" name="isAllVisitor" type="tns:IsAllVisitorRule"/>
+              <element maxOccurs="1" minOccurs="0" name="isDateSpecific" type="tns:IsDateSpecificRule"/>
+              <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="RuleGroup">
         <sequence>
-          <element maxOccurs="20" minOccurs="1" name="ruleItems" type="tns:RuleItem" />
+          <element maxOccurs="20" minOccurs="1" name="ruleItems" type="tns:RuleItem"/>
         </sequence>
       </complexType>
       <complexType name="RuleItem">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="ruleType" type="tns:RuleType" />
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:RuleOperator" />
-          <element maxOccurs="1" minOccurs="1" name="value" type="xsd:string" />
+          <element maxOccurs="1" minOccurs="1" name="ruleType" type="tns:RuleType"/>
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:RuleOperator"/>
+          <element maxOccurs="1" minOccurs="1" name="value" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="UrlRuleItem">
         <complexContent>
           <extension base="tns:RuleItem">
             <sequence>
-              <element maxOccurs="1" minOccurs="1" name="urlKey" type="tns:UrlRuleKey" />
+              <element maxOccurs="1" minOccurs="1" name="urlKey" type="tns:UrlRuleKey"/>
             </sequence>
           </extension>
         </complexContent>
@@ -107,120 +151,119 @@
         <complexContent>
           <extension base="tns:TargetingList">
             <sequence>
-              <element maxOccurs="20" minOccurs="1" name="logicalGroup" type="tns:LogicalGroup" />
+              <element maxOccurs="20" minOccurs="1" name="logicalGroup" type="tns:LogicalGroup"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="LogicalGroup">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="condition" type="tns:LogicalCondition" />
-          <element maxOccurs="20" minOccurs="1" name="logicalOperand" type="tns:LogicalRuleOperand" />
+          <element maxOccurs="1" minOccurs="0" name="condition" type="tns:LogicalCondition"/>
+          <element maxOccurs="20" minOccurs="1" name="logicalOperand" type="tns:LogicalRuleOperand"/>
         </sequence>
       </complexType>
       <complexType name="LogicalRuleOperand">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="targetListId" type="xsd:long" />
+          <element maxOccurs="1" minOccurs="1" name="targetListId" type="xsd:long"/>
         </sequence>
       </complexType>
       <simpleType name="TargetListType">
         <restriction base="xsd:string">
-          <enumeration value="DEFAULT" />
-          <enumeration value="RULE" />
-          <enumeration value="LOGICAL" />
+          <enumeration value="DEFAULT"/>
+          <enumeration value="RULE"/>
+          <enumeration value="LOGICAL"/>
         </restriction>
       </simpleType>
       <simpleType name="ReviewStatus">
         <restriction base="xsd:string">
-          <enumeration value="APPROVED" />
-          <enumeration value="DISAPPROVED" />
-          <enumeration value="DISAPPROVED_WITH_REVIEW" />
+          <enumeration value="APPROVED"/>
+          <enumeration value="DISAPPROVED"/>
+          <enumeration value="DISAPPROVED_WITH_REVIEW"/>
         </restriction>
       </simpleType>
       <simpleType name="ReachStorageStatus">
         <restriction base="xsd:string">
-          <enumeration value="OPEN" />
-          <enumeration value="CLOSED" />
+          <enumeration value="OPEN"/>
+          <enumeration value="CLOSED"/>
         </restriction>
       </simpleType>
       <simpleType name="IsAllVisitorRule">
         <restriction base="xsd:string">
-          <enumeration value="FALSE" />
-          <enumeration value="TRUE" />
+          <enumeration value="FALSE"/>
+          <enumeration value="TRUE"/>
         </restriction>
       </simpleType>
       <simpleType name="IsDateSpecificRule">
         <restriction base="xsd:string">
-          <enumeration value="FALSE" />
-          <enumeration value="TRUE" />
+          <enumeration value="FALSE"/>
+          <enumeration value="TRUE"/>
         </restriction>
       </simpleType>
       <simpleType name="RuleType">
         <restriction base="xsd:string">
-          <enumeration value="URL_RULE" />
+          <enumeration value="URL_RULE"/>
         </restriction>
       </simpleType>
       <simpleType name="RuleOperator">
         <restriction base="xsd:string">
-          <enumeration value="UNKNOWN" />
-          <enumeration value="EQUALS" />
-          <enumeration value="NOT_EQUAL" />
-          <enumeration value="CONTAINS" />
-          <enumeration value="NOT_CONTAIN" />
-          <enumeration value="STARTS_WITH" />
-          <enumeration value="NOT_START_WITH" />
-          <enumeration value="ENDS_WITH" />
-          <enumeration value="NOT_END_WITH" />
+          <enumeration value="UNKNOWN"/>
+          <enumeration value="EQUALS"/>
+          <enumeration value="NOT_EQUAL"/>
+          <enumeration value="CONTAINS"/>
+          <enumeration value="NOT_CONTAIN"/>
+          <enumeration value="STARTS_WITH"/>
+          <enumeration value="NOT_START_WITH"/>
+          <enumeration value="ENDS_WITH"/>
+          <enumeration value="NOT_END_WITH"/>
         </restriction>
       </simpleType>
       <simpleType name="UrlRuleKey">
         <restriction base="xsd:string">
-          <enumeration value="URL" />
-          <enumeration value="REFFER_URL" />
+          <enumeration value="URL"/>
+          <enumeration value="REFFER_URL"/>
         </restriction>
       </simpleType>
       <simpleType name="LogicalCondition">
         <restriction base="xsd:string">
-          <enumeration value="AND" />
-          <enumeration value="OR" />
-          <enumeration value="NOT" />
+          <enumeration value="AND"/>
+          <enumeration value="OR"/>
+          <enumeration value="NOT"/>
         </restriction>
       </simpleType>
       <simpleType name="TargetListOwner">
         <restriction base="xsd:string">
-          <enumeration value="OWNER" />
-          <enumeration value="SHARED" />
+          <enumeration value="OWNER"/>
+          <enumeration value="SHARED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ClosingReason">
+        <restriction base="xsd:string">
+          <enumeration value="UNUSED_LIST"/>
         </restriction>
       </simpleType>
       <complexType name="RetargetingListSelector">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-          <element maxOccurs="unbounded" minOccurs="0" name="targetListIds" type="xsd:long" />
-          <element maxOccurs="3" minOccurs="0" name="targetListTypes" type="tns:TargetListType" />
-          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging" />
-        </sequence>
-      </complexType>
-      <complexType name="Paging">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int" />
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int" />
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="targetListIds" type="xsd:long"/>
+          <element maxOccurs="3" minOccurs="0" name="targetListTypes" type="tns:TargetListType"/>
+          <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
       <complexType name="RetargetingListPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:RetargetingListValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:RetargetingListValues"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="RetargetingListValues">
         <complexContent>
-          <extension base="tns:ReturnValue">
+          <extension base="adv:ReturnValue">
             <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetList" type="tns:TargetingList" />
+              <element maxOccurs="1" minOccurs="0" name="targetList" type="tns:TargetingList"/>
             </sequence>
           </extension>
         </complexContent>
@@ -229,167 +272,136 @@
         <complexContent>
           <extension base="tns:Operation">
             <sequence>
-              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long" />
-              <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner" />
-              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:TargetingList" />
+              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="owner" type="tns:TargetListOwner"/>
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:TargetingList"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
       <complexType name="RetargetingListReturnValue">
         <complexContent>
-          <extension base="tns:ListReturnValue">
+          <extension base="adv:ListReturnValue">
             <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:RetargetingListValues" />
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:RetargetingListValues"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType abstract="true" name="ReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean" />
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
-        </sequence>
-      </complexType>
-      <complexType name="Error">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string" />
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail" />
-        </sequence>
-      </complexType>
-      <complexType name="ErrorDetail">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string" />
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string" />
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Page">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int" />
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string" />
-        </sequence>
-      </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator" />
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
         </sequence>
       </complexType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
-          <enumeration value="ADD" />
-          <enumeration value="SET" />
+          <enumeration value="ADD"/>
+          <enumeration value="SET"/>
         </restriction>
       </simpleType>
-      <complexType abstract="true" name="ListReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string" />
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string" />
-        </sequence>
-      </complexType>
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:RetargetingListSelector" />
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:RetargetingListSelector"/>
           </sequence>
         </complexType>
       </element>
       <element name="getResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:RetargetingListPage" />
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:RetargetingListPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:RetargetingListOperation" />
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:RetargetingListOperation"/>
           </sequence>
         </complexType>
       </element>
       <element name="mutateResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:RetargetingListReturnValue" />
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error" />
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:RetargetingListReturnValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader" />
-      <element name="ResponseHeader" type="tns:SoapResponseHeader" />
-      <element name="ApiExceptionFault" type="xsd:string" />
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
   <wsdl:message name="RequestHeader">
-    <wsdl:part element="tns:RequestHeader" name="RequestHeader" />
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
   </wsdl:message>
   <wsdl:message name="ResponseHeader">
-    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader" />
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
   </wsdl:message>
   <wsdl:message name="getRequest">
-    <wsdl:part element="tns:get" name="parameters" />
+    <wsdl:part element="tns:get" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getResponse">
-    <wsdl:part element="tns:getResponse" name="parameters" />
+    <wsdl:part element="tns:getResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="mutateRequest">
-    <wsdl:part element="tns:mutate" name="parameters" />
+    <wsdl:part element="tns:mutate" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="mutateResponse">
-    <wsdl:part element="tns:mutateResponse" name="parameters" />
+    <wsdl:part element="tns:mutateResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="ApiException">
-    <wsdl:part element="tns:ApiExceptionFault" name="ApiException" />
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
   <wsdl:portType name="RetargetingListServiceInterface">
     <wsdl:operation name="get">
-      <wsdl:input message="tns:getRequest" name="getRequest" />
-      <wsdl:output message="tns:getResponse" name="getResponse" />
-      <wsdl:fault message="tns:ApiException" name="ApiException" />
+      <wsdl:input message="tns:getRequest" name="getRequest"/>
+      <wsdl:output message="tns:getResponse" name="getResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdl:input message="tns:mutateRequest" name="mutateRequest" />
-      <wsdl:output message="tns:mutateResponse" name="mutateResponse" />
-      <wsdl:fault message="tns:ApiException" name="ApiException" />
+      <wsdl:input message="tns:mutateRequest" name="mutateRequest"/>
+      <wsdl:output message="tns:mutateResponse" name="mutateResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RetargetingListServiceSoapBinding" type="tns:RetargetingListServiceInterface">
-    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="get">
-      <wsdlsoap:operation soapAction="" />
+      <wsdlsoap:operation soapAction=""/>
       <wsdl:input name="getRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal" />
+        <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="mutate">
-      <wsdlsoap:operation soapAction="" />
+      <wsdlsoap:operation soapAction=""/>
       <wsdl:input name="mutateRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="mutateResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal" />
-        <wsdlsoap:body use="literal" />
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal" />
+        <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="RetargetingListService">
     <wsdl:port binding="tns:RetargetingListServiceSoapBinding" name="RetargetingListService">
       <wsdlsoap:address
-        location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/RetargetingListService" />
+              location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201805/RetargetingListService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -3,336 +3,240 @@ Use this service to get or update bid multiplier information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupBidMultiplierService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupBidMultiplierService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/AdGroupBidMultiplierService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupBidMultiplierService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier
 #### Overview
 Use this service to get, update adgroup bid multiplier.
 #### Operation
 Explains the operation which provides at AdGroupBidMultiplierService.
++ [get](#get)
++ [mutate(SET)](#mutate-set)
++ [mutate(REMOVE)](#mutate-remove)
+
+
+#### Object
+[AdGroupBidMultiplier](../data/AdGroupBidMultiplier)
+
 ## get
 #### Request
 Gets bid multiplier of adgroup
 
-| name | Req | Value | Description | 
+| name | Req | Value | Description |
 |---|---|---|---|
-| selector | Req | [AdGroupBidMultiplierSelector](../data/AdGroupBidMultiplierSelector.md) | Filters the adgroup bid multiplier to be returned. | 
+| selector | Req | [AdGroupBidMultiplierSelector](../data/AdGroupBidMultiplier/AdGroupBidMultiplierSelector.md) | Filters the adgroup bid multiplier to be returned. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>100000001</ns1:accountId>
-                <ns1:campaignIds>100000003</ns1:campaignIds>
-                <ns1:campaignIds>100000004</ns1:campaignIds>
-                <ns1:adGroupIds>100000005</ns1:adGroupIds>
-                <ns1:adGroupIds>100000006</ns1:adGroupIds>
-                <ns1:platformTypes>DESKTOP</ns1:platformTypes>
-                <ns1:platformTypes>TABLET</ns1:platformTypes>
-                <ns1:platformTypes>SMART_PHONE</ns1:platformTypes>
-                <ns1:paging>
-                    <ns1:startIndex>1</ns1:startIndex>
-                    <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>1234567890</accountId>
+        <campaignIds>10001</campaignIds>
+        <campaignIds>10002</campaignIds>
+        <campaignIds>10003</campaignIds>
+        <campaignIds>10004</campaignIds>
+        <campaignIds>10005</campaignIds>
+        <adGroupIds>20001</adGroupIds>
+        <adGroupIds>20002</adGroupIds>
+        <adGroupIds>20003</adGroupIds>
+        <adGroupIds>20004</adGroupIds>
+        <adGroupIds>20005</adGroupIds>
+        <platformTypes>DESKTOP</platformTypes>
+        <platformTypes>TABLET</platformTypes>
+        <platformTypes>SMART_PHONE</platformTypes>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>100</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierPage](../data/AdGroupBidMultiplierPage.md) | A page (subset) view of the ad group bit multiplier selected. | 
+| rval | [AdGroupBidMultiplierPage](../data/AdGroupBidMultiplier/AdGroupBidMultiplierPage.md) | A page (subset) view of the ad group bit multiplier selected. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupBidMultiplierService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:rval>
-                <ns1:totalNumEntries>6</ns1:totalNumEntries>
-                <ns1:Page.Type>AdGroupBidMultiplierPage</ns1:Page.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>SMART_PHONE</ns1:platformType>
-                        <ns1:bidMultiplier>0.10</ns1:bidMultiplier>
-                   </ns1:adGroupBidMultiplier>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>TABLET</ns1:platformType>
-                        <ns1:bidMultiplier>0.50</ns1:bidMultiplier>
-                   </ns1:adGroupBidMultiplier>
-                </ns1:values>               
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000006</ns1:adGroupId>
-                        <ns1:platformType>SMART_PHONE</ns1:platformType>
-                        <ns1:bidMultiplier>2</ns1:bidMultiplier>
-                   </ns1:adGroupBidMultiplier>
-                </ns1:values>
-                 <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000006</ns1:adGroupId>
-                        <ns1:platformType>DESKTOP</ns1:platformType>
-                        <ns1:bidMultiplier>1</ns1:bidMultiplier>
-                  </ns1:adGroupBidMultiplier>
-                </ns1:values>              
-            </ns1:rval>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>  
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupBidMultiplier</ns2:service>
+      <ns2:requestTime>1522056580688</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>AdGroupBidMultiplierPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupBidMultiplier>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:platformType>DESKTOP</ns2:platformType>
+            <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
+          </ns2:adGroupBidMultiplier>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 ## mutate (SET)
 Updates adgroup bid multiplier.
 
 ### Request
-| Name | Req | Value | Description | 
+| Name | Req | Value | Description |
 |---|---|---|---|
-| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation details of the ad group to be processed. | 
+| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation details of the ad group to be processed. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-            <ns1:accountId>1000000001</ns1:accountId>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>SET</ns1:operator>
-                <ns1:accountId>100000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>SMART_PHONE</ns1:platformType>
-                    <ns1:bidMultiplier>3.0</ns1:bidMultiplier>
-               </ns1:operand>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>TABLET</ns1:platformType>
-                    <ns1:bidMultiplier>2.0</ns1:bidMultiplier>
-               </ns1:operand>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>DESKTOP</ns1:platformType>
-                    <ns1:bidMultiplier>0</ns1:bidMultiplier>
-               </ns1:operand>              
-           </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <platformType>DESKTOP</platformType>
+          <bidMultiplier>10.0</bidMultiplier>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplierReturnValue.md) | Container of ad group bid multiplier information including return value. | 
+| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container of ad group bid multiplier information including return value. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupBidMultiplierService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>SET</ns1:Operation.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>SMART_PHONE</ns1:platformType>
-                         <ns1:bidMultiplier>3.0</ns1:bidMultiplier>                       
-                    </ns1:adGroupBidMultiplier>
-                </ns1:values>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>TABLET</ns1:platformType>
-                         <ns1:bidMultiplier>2.0</ns1:bidMultiplier>                       
-                    </ns1:adGroupBidMultiplier>
-                </ns1:values>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>DESKTOP</ns1:platformType>
-                         <ns1:bidMultiplier>0</ns1:bidMultiplier>                       
-                    </ns1:adGroupBidMultiplier>
-                </ns1:values>              
-           </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupBidMultiplier</ns2:service>
+      <ns2:requestTime>1522056580707</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupBidMultiplier>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:platformType>DESKTOP</ns2:platformType>
+            <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
+          </ns2:adGroupBidMultiplier>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 ## mutate(REMOVE)
 Remove bid multiplier which already set to ad group.
 
 #### Request
-| Parameter | Req | Valuer | Desecription | 
+| Parameter | Req | Valuer | Desecription |
 |---|---|---|---|
-| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation detail of ad group to be processed. | 
+| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation detail of ad group to be processed. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-            <ns1:accountId>1000000001</ns1:accountId>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>100000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>SMART_PHONE</ns1:platformType>
-              </ns1:operand>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>TABLET</ns1:platformType>
-               </ns1:operand>
-                <ns1:operand>
-                    <ns1:campaignId>1000000003</ns1:campaignId>                  
-                    <ns1:adGroupId>1000000005</ns1:adGroupId>                  
-                    <ns1:platformType>DESKTOP</ns1:platformType>
-               </ns1:operand>              
-           </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <platformType>DESKTOP</platformType>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplierReturnValue.md) | Container for ad group bid multiplier including return value on operation. | 
+| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container for ad group bid multiplier including return value on operation. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupBidMultiplierService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>SMART_PHONE</ns1:platformType>
-                   </ns1:adGroupBidMultiplier>
-                </ns1:values>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>TABLET</ns1:platformType>
-                   </ns1:adGroupBidMultiplier>
-                </ns1:values>
-               <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupBidMultiplier>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:campaignId>1000000003</ns1:campaignId>
-                        <ns1:adGroupId>1000000005</ns1:adGroupId>
-                        <ns1:platformType>DESKTOP</ns1:platformType>
-                    </ns1:adGroupBidMultiplier>
-                </ns1:values>              
-           </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroupBidMultiplier</ns2:service>
+      <ns2:requestTime>1523525483116</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupBidMultiplier>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:platformType>DESKTOP</ns2:platformType>
+          </ns2:adGroupBidMultiplier>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 

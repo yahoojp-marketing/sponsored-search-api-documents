@@ -4,11 +4,11 @@ AdGroupServiceでは、広告グループに関する情報の取得および追
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/AdGroupService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/AdGroup
 
 #### サービス概要
 広告グループに関する情報の取得および追加・更新・削除を行います。
@@ -16,27 +16,35 @@ http://ss.yahooapis.jp/V6
 #### 操作
 AdGroupServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
+
+
+#### オブジェクト
+[AdGroup](../data/AdGroup)
+
 ## get
 広告グループに関する情報を取得します。
 
 #### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [AdGroupSelector](../data/AdGroupSelector.md) | 操作の対象とする広告グループです。 | 
+| selector | ○ | [AdGroupSelector](../data/AdGroup/AdGroupSelector.md) | 操作の対象とする広告グループです。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
-      <license xmlns="">1111-1111-1111-1111</license>
-      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V6">
+    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -52,8 +60,8 @@ AdGroupServiceで提供される操作を説明します。
         <userStatuses>ACTIVE</userStatuses>
         <userStatuses>PAUSED</userStatuses>
         <paging>
-          <startIndex>1</startIndex>
-          <numberResults>1000</numberResults>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
         </paging>
       </selector>
     </get>
@@ -64,67 +72,65 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupPage](../data/AdGroupPage.md) | 取得される広告グループのエントリーです。 | 
+| rval | [AdGroupPage](../data/AdGroup/AdGroupPage.md) | 取得される広告グループのエントリーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
-      <service xmlns="">AdGroup</service>
-      <remainingQuota xmlns="">-1</remainingQuota>
-      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
-      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroup</ns2:service>
+      <ns2:requestTime>1523506327746</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getResponse xmlns="http://ss.yahooapis.jp/V6">
-      <rval>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroup">
+      <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupPage</Page.Type>
-        <values>
+        <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <adGroup>
-            <accountId>1234567890</accountId>
-            <campaignId>10001</campaignId>
-            <campaignTrackId>100000001</campaignTrackId>
-            <campaignName>test campaign.</campaignName>
-            <adGroupId>20001</adGroupId>
-            <adGroupTrackId>0</adGroupTrackId>
-            <adGroupName>test adGroup.</adGroupName>
-            <userStatus>ACTIVE</userStatus>
-            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
-              <criterionType>TARGET_LIST</criterionType>
-              <targetAll>ACTIVE</targetAll>
-            </settings>
-            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
-            <customParameters>
-              <parameters>
-                <key>site</key>
-                <value>yahoo</value>
-              </parameters>
-              <parameters>
-                <key>id1</key>
-                <value>1234</value>
-              </parameters>
-              <parameters>
-                <key>id2</key>
-                <value>a7h59A98yu</value>
-              </parameters>
-            </customParameters>
-            <urlReviewData>
-              <urlApprovalStatus>APPROVED</urlApprovalStatus>
-            </urlReviewData>
-            <adGroupAdRotationMode>
-              <adRotationMode>OPTIMIZE</adRotationMode>
-            </adGroupAdRotationMode>
-          </adGroup>
-        </values>
-      </rval>
-    </getResponse>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignTrackId>100000001</ns2:campaignTrackId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupTrackId>0</ns2:adGroupTrackId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
+              <ns2:criterionType>TARGET_LIST</ns2:criterionType>
+              <ns2:targetAll>ACTIVE</ns2:targetAll>
+            </ns2:settings>
+            <ns2:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:trackingUrl>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:urlReviewData>
+              <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
+            </ns2:urlReviewData>
+            <ns2:adGroupAdRotationMode>
+              <ns2:adRotationMode>OPTIMIZE</ns2:adRotationMode>
+            </ns2:adGroupAdRotationMode>
+          </ns2:adGroup>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -133,23 +139,22 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを追加します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 | 
+| operations | ○ | [AdGroupOperation](../data/AdGroup/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
-      <license xmlns="">1111-1111-1111-1111</license>
-      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V6">
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroup">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -189,67 +194,65 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroup/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
-      <service xmlns="">AdGroup</service>
-      <remainingQuota xmlns="">-1</remainingQuota>
-      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
-      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroup</ns2:service>
+      <ns2:requestTime>1523506327789</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
-      <rval>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroup">
+      <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
-        <values>
+        <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <adGroup>
-            <accountId>1234567890</accountId>
-            <campaignId>10001</campaignId>
-            <campaignTrackId>100000001</campaignTrackId>
-            <campaignName>test campaign.</campaignName>
-            <adGroupId>20001</adGroupId>
-            <adGroupTrackId>0</adGroupTrackId>
-            <adGroupName>test adGroup.</adGroupName>
-            <userStatus>ACTIVE</userStatus>
-            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
-              <criterionType>TARGET_LIST</criterionType>
-              <targetAll>ACTIVE</targetAll>
-            </settings>
-            <urlReviewData>
-              <inReviewUrl>
-                <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
-                <parameters>
-                  <key>site</key>
-                  <value>yahoo</value>
-                </parameters>
-                <parameters>
-                  <key>id1</key>
-                  <value>1234</value>
-                </parameters>
-                <parameters>
-                  <key>id2</key>
-                  <value>a7h59A98yu</value>
-                </parameters>
-              </inReviewUrl>
-              <urlApprovalStatus>REVIEW</urlApprovalStatus>
-            </urlReviewData>
-            <adGroupAdRotationMode>
-              <adRotationMode>ROTATE_FOREVER</adRotationMode>
-            </adGroupAdRotationMode>
-          </adGroup>
-        </values>
-      </rval>
-    </mutateResponse>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignTrackId>100000001</ns2:campaignTrackId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupTrackId>0</ns2:adGroupTrackId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
+              <ns2:criterionType>TARGET_LIST</ns2:criterionType>
+              <ns2:targetAll>ACTIVE</ns2:targetAll>
+            </ns2:settings>
+            <ns2:urlReviewData>
+              <ns2:inReviewUrl>
+                <ns2:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:trackingUrl>
+                <ns2:parameters>
+                  <ns2:key>site</ns2:key>
+                  <ns2:value>yahoo</ns2:value>
+                </ns2:parameters>
+                <ns2:parameters>
+                  <ns2:key>id1</ns2:key>
+                  <ns2:value>1234</ns2:value>
+                </ns2:parameters>
+                <ns2:parameters>
+                  <ns2:key>id2</ns2:key>
+                  <ns2:value>a7h59A98yu</ns2:value>
+                </ns2:parameters>
+              </ns2:inReviewUrl>
+              <ns2:urlApprovalStatus>REVIEW</ns2:urlApprovalStatus>
+            </ns2:urlReviewData>
+            <ns2:adGroupAdRotationMode>
+              <ns2:adRotationMode>ROTATE_FOREVER</ns2:adRotationMode>
+            </ns2:adGroupAdRotationMode>
+          </ns2:adGroup>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -258,23 +261,22 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを更新します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 | 
+| operations | ○ | [AdGroupOperation](../data/AdGroup/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
-      <license xmlns="">1111-1111-1111-1111</license>
-      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V6">
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroup">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -300,67 +302,65 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroup/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
-      <service xmlns="">AdGroup</service>
-      <remainingQuota xmlns="">-1</remainingQuota>
-      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
-      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroup</ns2:service>
+      <ns2:requestTime>1523506327836</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
-      <rval>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroup">
+      <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
-        <values>
+        <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <adGroup>
-            <accountId>1234567890</accountId>
-            <campaignId>10001</campaignId>
-            <campaignTrackId>100000001</campaignTrackId>
-            <campaignName>test campaign.</campaignName>
-            <adGroupId>20001</adGroupId>
-            <adGroupTrackId>0</adGroupTrackId>
-            <adGroupName>test adGroup.</adGroupName>
-            <userStatus>ACTIVE</userStatus>
-            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
-              <criterionType>TARGET_LIST</criterionType>
-              <targetAll>ACTIVE</targetAll>
-            </settings>
-            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
-            <customParameters>
-              <parameters>
-                <key>site</key>
-                <value>yahoo</value>
-              </parameters>
-              <parameters>
-                <key>id1</key>
-                <value>1234</value>
-              </parameters>
-              <parameters>
-                <key>id2</key>
-                <value>a7h59A98yu</value>
-              </parameters>
-            </customParameters>
-            <urlReviewData>
-              <urlApprovalStatus>APPROVED</urlApprovalStatus>
-            </urlReviewData>
-            <adGroupAdRotationMode>
-              <adRotationMode>OPTIMIZE</adRotationMode>
-            </adGroupAdRotationMode>
-          </adGroup>
-        </values>
-      </rval>
-    </mutateResponse>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignTrackId>100000001</ns2:campaignTrackId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupTrackId>0</ns2:adGroupTrackId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
+              <ns2:criterionType>TARGET_LIST</ns2:criterionType>
+              <ns2:targetAll>ACTIVE</ns2:targetAll>
+            </ns2:settings>
+            <ns2:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:trackingUrl>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:urlReviewData>
+              <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
+            </ns2:urlReviewData>
+            <ns2:adGroupAdRotationMode>
+              <ns2:adRotationMode>OPTIMIZE</ns2:adRotationMode>
+            </ns2:adGroupAdRotationMode>
+          </ns2:adGroup>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -369,23 +369,22 @@ AdGroupServiceで提供される操作を説明します。
 広告グループを削除します。
 
 #### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
+| operations | ○ | [AdGroupOperation](../data/AdGroup/AdGroupOperation.md) | 操作の対象となる広告グループと処理の内容です。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V6">
-      <license xmlns="">1111-1111-1111-1111</license>
-      <apiAccountId xmlns="">2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword xmlns="">password</apiAccountPassword>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V6">
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroup">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -402,67 +401,65 @@ AdGroupServiceで提供される操作を説明します。
 #### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupReturnValue](../data/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 | 
+| rval | [AdGroupReturnValue](../data/AdGroup/AdGroupReturnValue.md) | 操作結果を含む広告グループに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V6">
-      <service xmlns="">AdGroup</service>
-      <remainingQuota xmlns="">-1</remainingQuota>
-      <quotaUsedForThisRequest xmlns="">-1</quotaUsedForThisRequest>
-      <timeTakenMillis xmlns="">0.2671</timeTakenMillis>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroup" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>AdGroup</ns2:service>
+      <ns2:requestTime>1523506327884</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://ss.yahooapis.jp/V6">
-      <rval>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroup">
+      <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
-        <values>
+        <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <adGroup>
-            <accountId>1234567890</accountId>
-            <campaignId>10001</campaignId>
-            <campaignTrackId>100000001</campaignTrackId>
-            <campaignName>test campaign.</campaignName>
-            <adGroupId>20001</adGroupId>
-            <adGroupTrackId>0</adGroupTrackId>
-            <adGroupName>test adGroup.</adGroupName>
-            <userStatus>ACTIVE</userStatus>
-            <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
-              <criterionType>TARGET_LIST</criterionType>
-              <targetAll>ACTIVE</targetAll>
-            </settings>
-            <trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</trackingUrl>
-            <customParameters>
-              <parameters>
-                <key>site</key>
-                <value>yahoo</value>
-              </parameters>
-              <parameters>
-                <key>id1</key>
-                <value>1234</value>
-              </parameters>
-              <parameters>
-                <key>id2</key>
-                <value>a7h59A98yu</value>
-              </parameters>
-            </customParameters>
-            <urlReviewData>
-              <urlApprovalStatus>APPROVED</urlApprovalStatus>
-            </urlReviewData>
-            <adGroupAdRotationMode>
-              <adRotationMode>OPTIMIZE</adRotationMode>
-            </adGroupAdRotationMode>
-          </adGroup>
-        </values>
-      </rval>
-    </mutateResponse>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignTrackId>100000001</ns2:campaignTrackId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupTrackId>0</ns2:adGroupTrackId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
+              <ns2:criterionType>TARGET_LIST</ns2:criterionType>
+              <ns2:targetAll>ACTIVE</ns2:targetAll>
+            </ns2:settings>
+            <ns2:trackingUrl>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:trackingUrl>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:urlReviewData>
+              <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
+            </ns2:urlReviewData>
+            <ns2:adGroupAdRotationMode>
+              <ns2:adRotationMode>OPTIMIZE</ns2:adRotationMode>
+            </ns2:adGroupAdRotationMode>
+          </ns2:adGroup>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

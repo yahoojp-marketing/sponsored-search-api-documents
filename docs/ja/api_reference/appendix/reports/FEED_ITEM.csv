@@ -42,6 +42,8 @@
 "AD_TRACKING_ID","広告トラッキングID","Ad Tracking ID","adTrackingID","LONG","false",
 "FEED_ITEM_TRACKING_ID","広告表示オプショントラッキングID","Ad Display Option Tracking ID","adDisplayOptionTrackingID","LONG","true",
 "NETWORK","広告掲載方式の指定","Network","network","ENUM","false",
+"ATTRIBUTE_VALUES","広告表示オプションの詳細","Ad Display Option Detail","attributeValues","STRING","true",
+"ATTRIBUTE_VALUES_JSON","広告表示オプションの詳細(JSON)","Ad Display Option Detail (JSON)","attributeValuesJson","STRING","true",
 "CLICK_TYPE","クリック種別","ClickType","clickType","ENUM","false","[IS_SELF_ACTION]"
 "DEVICE","デバイス","Device","device","ENUM","false",
 "DAY","日","Day","day","STRING","false",

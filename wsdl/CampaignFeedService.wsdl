@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-targetNamespace="http://ss.yahooapis.jp/V6"
-xmlns:tns="http://ss.yahooapis.jp/V6"
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://ss.yahooapis.jp/V201805/CampaignFeed"
+        xmlns:tns="http://ss.yahooapis.jp/V201805/CampaignFeed"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-    targetNamespace="http://ss.yahooapis.jp/V6"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://ss.yahooapis.jp/V6">
-      <annotation>
-        <appinfo>
-          <version>6.5.0</version>
-        </appinfo>
-      </annotation>
+            targetNamespace="http://ss.yahooapis.jp/V201805"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://ss.yahooapis.jp/V201805">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -28,11 +23,59 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <complexType name="SoapResponseHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://ss.yahooapis.jp/V201805/CampaignFeed"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://ss.yahooapis.jp/V201805"
+            xmlns:tns="http://ss.yahooapis.jp/V201805/CampaignFeed">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201805"/>
+      <annotation>
+        <appinfo>
+          <version>201805</version>
+        </appinfo>
+      </annotation>
       <complexType name="CampaignFeed">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
@@ -56,13 +99,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="feedItemIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="placeholderTypes" type="tns:CampaignFeedPlaceholderType"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
-        </sequence>
-      </complexType>
-      <complexType name="Paging">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
       <simpleType name="CampaignFeedPlaceholderType">
@@ -70,6 +107,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <enumeration value="QUICKLINK"/>
           <enumeration value="CALLEXTENSION"/>
           <enumeration value="CALLOUT"/>
+          <enumeration value="STRUCTURED_SNIPPET"/>
         </restriction>
       </simpleType>
       <simpleType name="DevicePlatform">
@@ -81,7 +119,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       </simpleType>
       <complexType name="CampaignFeedPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignFeedValues"/>
             </sequence>
@@ -89,11 +127,11 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         </complexContent>
       </complexType>
       <complexType name="CampaignFeedValues">
-        <complexContent >
-          <extension base="tns:ReturnValue">
-           <sequence>
-               <element maxOccurs="1" minOccurs="0" name="campaignFeedList" type="tns:CampaignFeedList"/>
-           </sequence>
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="campaignFeedList" type="tns:CampaignFeedList"/>
+            </sequence>
           </extension>
         </complexContent>
       </complexType>
@@ -109,37 +147,12 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       </complexType>
       <complexType name="CampaignFeedReturnValue">
         <complexContent>
-          <extension base="tns:ListReturnValue">
+          <extension base="adv:ListReturnValue">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:CampaignFeedValues"/>
             </sequence>
           </extension>
         </complexContent>
-      </complexType>
-      <complexType abstract="true" name="ReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
-        </sequence>
-      </complexType>
-      <complexType name="Error">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
-        </sequence>
-      </complexType>
-      <complexType name="ErrorDetail">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Page">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
-        </sequence>
       </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
@@ -151,12 +164,6 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <enumeration value="SET"/>
         </restriction>
       </simpleType>
-      <complexType abstract="true" name="ListReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
-        </sequence>
-      </complexType>
       <element name="get">
         <complexType>
           <sequence>
@@ -168,7 +175,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignFeedPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
@@ -183,12 +190,12 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignFeedReturnValue"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader"/>
-      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
@@ -258,7 +265,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="CampaignFeedService">
     <wsdl:port binding="tns:CampaignFeedServiceSoapBinding" name="CampaignFeedService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.5/CampaignFeedService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201805/CampaignFeedService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

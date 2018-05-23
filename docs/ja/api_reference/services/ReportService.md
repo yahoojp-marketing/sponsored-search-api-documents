@@ -5,11 +5,11 @@ ReportServiceでは、レポートの取得および作成・削除を行いま�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/ReportService?wsdl |
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/ReportService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201805/ReportService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/ReportService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/Report
 
 #### サービス概要
 以下の操作が実行可能です。
@@ -29,48 +29,65 @@ http://ss.yahooapis.jp/V6
 URLが有効な期間は、ステータスがCOMPLETEDになってから5分間です。
 - レポートダウンロードジョブは、リクエストしてから1週間（7日間）で自動的に削除されます。
 
+
+#### 操作
+ReportServiceで提供される操作を説明します。
+
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(REMOVE)](#mutateremove)
+
+#### オブジェクト
+[Report](../data/Report)
+
 ## get
 レポートに関する情報を取得します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [ReportSelector](../data/ReportSelector.md) | 操作の対象とするレポートです。 | 
+| selector | ○ | [ReportSelector](../data/Report/ReportSelector.md) | 操作の対象とするレポートです。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>100000000</ns1:accountId>
-        <ns1:reportIds>100000003</ns1:reportIds>
-        <ns1:reportIds>100000007</ns1:reportIds>
-        <ns1:reportIds>100000005</ns1:reportIds>
-        <ns1:reportJobIds>100000003</ns1:reportJobIds>
-        <ns1:reportJobIds>100000007</ns1:reportJobIds>
-        <ns1:reportJobIds>100000005</ns1:reportJobIds>
-        <ns1:reportTypes>AD_CUSTOMIZERS</ns1:reportTypes>
-        <ns1:reportTypes>TARGET_LIST</ns1:reportTypes>
-        <ns1:reportTypes>LANDING_PAGE_URL</ns1:reportTypes>
-        <ns1:reportJobStatuses>WAIT</ns1:reportJobStatuses>
-        <ns1:reportJobStatuses>COMPLETED</ns1:reportJobStatuses>
-        <ns1:reportJobStatuses>IN_PROGRESS</ns1:reportJobStatuses>
-        <ns1:reportJobStatuses>FAILED</ns1:reportJobStatuses>
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>10</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
+    <get xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>100000001</accountId>
+        <reportIds>1111</reportIds>
+        <reportIds>1112</reportIds>
+        <reportTypes>ACCOUNT</reportTypes>
+        <reportTypes>CAMPAIGN</reportTypes>
+        <reportTypes>ADGROUP</reportTypes>
+        <reportTypes>AD</reportTypes>
+        <reportTypes>KEYWORDS</reportTypes>
+        <reportTypes>SEARCH_QUERY</reportTypes>
+        <reportTypes>GEO</reportTypes>
+        <reportTypes>FEED_ITEM</reportTypes>
+        <reportTypes>GEO_TARGET</reportTypes>
+        <reportTypes>SCHEDULE_TARGET</reportTypes>
+        <reportTypes>BID_STRATEGY</reportTypes>
+        <reportTypes>AD_CUSTOMIZERS</reportTypes>
+        <reportTypes>TARGET_LIST</reportTypes>
+        <reportTypes>LANDING_PAGE_URL</reportTypes>
+        <reportJobStatuses>WAIT</reportJobStatuses>
+        <reportJobStatuses>COMPLETED</reportJobStatuses>
+        <reportJobStatuses>IN_PROGRESS</reportJobStatuses>
+        <reportJobStatuses>FAILED</reportJobStatuses>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -78,75 +95,70 @@ URLが有効な期間は、ステータスがCOMPLETEDになってから5分間�
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportPage](../data/ReportPage.md) | 取得されるレポートのエントリーです。 | 
+| rval | [ReportPage](../data/Report/ReportPage.md) | 取得されるレポートのエントリーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1523506336415</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>4</ns1:totalNumEntries>
-        <ns1:Page.Type>ReportPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:reportId>2000000001</ns1:reportId>
-            <ns1:reportJobId>3000000001</ns1:reportJobId>
-            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
-            <ns1:reportJobStatus>COMPLETED</ns1:reportJobStatus>
-            <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
-            <ns1:completeTime>2015/11/30 23:22:30</ns1:completeTime>
-            <ns1:reportDownloadURL>https://ss.yahooapis.jp/report/V6.0/download/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B</ns1:reportDownloadURL>
-          </ns1:reportRecord>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:reportId>2000000002</ns1:reportId>
-            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
-            <ns1:reportJobId>3000000002</ns1:reportJobId>
-            <ns1:reportJobStatus>FAILED</ns1:reportJobStatus>
-            <ns1:reportJobErrorDetail>INTERNAL_ERROR</ns1:reportJobErrorDetail>
-            <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
-          </ns1:reportRecord>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:reportId>2000000003</ns1:reportId>
-            <ns1:reportJobId>3000000003</ns1:reportJobId>
-            <ns1:reportJobStatus>IN_PROGRESS</ns1:reportJobStatus>
-            <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
-          </ns1:reportRecord>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:reportId>2000000004</ns1:reportId>
-            <ns1:reportName>XXXXXXXXXX</ns1:reportName>
-            <ns1:reportJobId>3000000004</ns1:reportJobId>
-            <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
-            <ns1:requestTime>2015/11/30 22:22:30</ns1:requestTime>
-          </ns1:reportRecord>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Report">
+      <ns2:rval>
+        <totalNumEntries>4</totalNumEntries>
+        <Page.Type>ReportPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>1111</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report</ns2:reportName>
+            <ns2:reportJobStatus>COMPLETED</ns2:reportJobStatus>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+            <ns2:completeTime>2017/11/27 14:33:20</ns2:completeTime>
+            <ns2:reportDownloadURL>https://ss.yahooapis.jp/report/V201805/download/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B</ns2:reportDownloadURL>
+          </ns2:reportRecord>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>1112</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report2</ns2:reportName>
+            <ns2:reportJobStatus>FAILED</ns2:reportJobStatus>
+            <ns2:reportJobErrorDetail>INTERNAL_ERROR</ns2:reportJobErrorDetail>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+          </ns2:reportRecord>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>1113</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report3</ns2:reportName>
+            <ns2:reportJobStatus>IN_PROGRESS</ns2:reportJobStatus>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+          </ns2:reportRecord>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>1114</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report3</ns2:reportName>
+            <ns2:reportJobStatus>WAIT</ns2:reportJobStatus>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+          </ns2:reportRecord>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -155,35 +167,30 @@ URLが有効な期間は、ステータスがCOMPLETEDになってから5分間�
 レポートを作成します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
+| operations | ○ | [ReportOperation](../data/Report/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>ADD</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:reportId>10000000001</ns1:reportId>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:reportId>10000000002</ns1:reportId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/Report">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <reportId>2222</reportId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -191,40 +198,37 @@ URLが有効な期間は、ステータスがCOMPLETEDになってから5分間�
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | 
+| rval | [ReportReturnValue](../data/Report/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1523506336428</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ReportReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>ADD</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:accountId>10000000001</ns1:accountId>
-            <ns1:reportId>10000000001</ns1:reportId>
-            <ns1:reportJobId>200000001</ns1:reportJobId>
-            <ns1:reportName>XXXXXXXXX</ns1:reportName>
-            <ns1:reportJobStatus>WAIT</ns1:reportJobStatus>
-            <ns1:requestTime>2011/11/30 23:22:30</ns1:requestTime>
-          </ns1:reportRecord>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Report">
+      <ns2:rval>
+        <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>1113</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report3</ns2:reportName>
+            <ns2:reportJobStatus>IN_PROGRESS</ns2:reportJobStatus>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+          </ns2:reportRecord>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -233,35 +237,30 @@ URLが有効な期間は、ステータスがCOMPLETEDになってから5分間�
 レポートを削除します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
+| operations | ○ | [ReportOperation](../data/Report/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>100000001</ns1:accountId>
-    </ns1:RequestHeader>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutate>
-      <ns1:operations>
-        <ns1:operator>REMOVE</ns1:operator>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:operand>
-          <ns1:reportJobId>10000000001</ns1:reportJobId>
-        </ns1:operand>
-        <ns1:operand>
-          <ns1:reportJobId>10000000002</ns1:reportJobId>
-        </ns1:operand>
-      </ns1:operations>
-    </ns1:mutate>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/Report">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <reportId>2222</reportId>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -269,41 +268,38 @@ URLが有効な期間は、ステータスがCOMPLETEDになってから5分間�
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | 
+| rval | [ReportReturnValue](../data/Report/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>ReportService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Report" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1523506336443</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>ReportReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:reportJobId>200000001</ns1:reportJobId>
-          </ns1:reportRecord>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:reportRecord>
-            <ns1:reportJobId>200000002</ns1:reportJobId>
-          </ns1:reportRecord>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Report">
+      <ns2:rval>
+        <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>11111</ns2:accountId>
+            <ns2:reportId>2222</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report</ns2:reportName>
+            <ns2:reportJobStatus>COMPLETED</ns2:reportJobStatus>
+            <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
+            <ns2:completeTime>2017/11/27 14:33:20</ns2:completeTime>
+          </ns2:reportRecord>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

@@ -3,688 +3,666 @@ BiddingStrategyServiceでは、自動入札設定の取得および追加・更�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/Vx.x/BiddingStrategyService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/Vx.x/BiddingStrategyService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201805/BiddingStrategyService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/BiddingStrategyService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V6
+http://ss.yahooapis.jp/V201805/BiddingStrategy
 #### サービス概要
 自動入札設定の取得および追加・更新・削除を行います。
 #### 操作
 BiddingStrategyServiceで提供される操作を説明します。
+
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
+
+#### オブジェクト
+[BiddingStrategy](../data/BiddingStrategy)
+
 ## get
 自動入札設定に関する情報を取得します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [BiddingStrategySelector](../data/BiddingStrategySelector.md) | 自動入札設定を取得します。 | 
-＜リクエストサンプル＞
+| selector | ○ | [BiddingStrategySelector](../data/BiddingStrategy/BiddingStrategySelector.md) | 自動入札設定を取得します。 |
+
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-     <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:biddingStrategyIds>00000002</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>00000003</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>00000004</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>00000005</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyIds>00000006</ns1:biddingStrategyIds>
-            <ns1:biddingStrategyTypes>PAGE_ONE_PROMOTED</ns1:biddingStrategyTypes>
-            <ns1:biddingStrategyTypes>ENHANCED_CPC</ns1:biddingStrategyTypes>
-            <ns1:biddingStrategyTypes>TARGET_CPA</ns1:biddingStrategyTypes>
-            <ns1:biddingStrategyTypes>TARGET_ROAS</ns1:biddingStrategyTypes>
-            <ns1:biddingStrategyTypes>TARGET_SPEND</ns1:biddingStrategyTypes>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>500</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <selector>
+        <accountId>1234567890</accountId>
+        <biddingStrategyIds>20001</biddingStrategyIds>
+        <biddingStrategyIds>20002</biddingStrategyIds>
+        <biddingStrategyIds>20003</biddingStrategyIds>
+        <biddingStrategyIds>20004</biddingStrategyIds>
+        <biddingStrategyIds>20005</biddingStrategyIds>
+        <biddingStrategyTypes>ENHANCED_CPC</biddingStrategyTypes>
+        <biddingStrategyTypes>PAGE_ONE_PROMOTED</biddingStrategyTypes>
+        <biddingStrategyTypes>TARGET_CPA</biddingStrategyTypes>
+        <biddingStrategyTypes>TARGET_SPEND</biddingStrategyTypes>
+        <biddingStrategyTypes>TARGET_ROAS</biddingStrategyTypes>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BiddingStrategyPage](../data/BiddingStrategyPage.md) | 取得される広告グループのエントリーです。 | 
-＜レスポンスサンプル＞
+| rval | [BiddingStrategyPage](../data/BiddingStrategy/BiddingStrategyPage.md) | 取得される広告グループのエントリーです。 |
+
+##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>AdGroupService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:Page.Type>AdGroupPage</ns1:Page.Type>
-            <ns1:totalNumEntries>30</ns1:totalNumEntries>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:adGroup>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:campaignId>00000001</ns1:campaignId>
-                  <ns1:campaignName>campaign name</ns1:campaignName>
-                  <ns1:adGroupId>00000001</ns1:adGroupId>
-                  <ns1:adGroupName>ad group name 1</ns1:adGroupName>
-                  <ns1:userStatus>ACTIVE</ns1:userStatus>
-                  <ns1:biddingStrategyConfiguration>
-                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-                     <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     </ns1:biddingScheme>
-                     <ns1:initialBid>
-                        <ns1:maxCpc>120</ns1:maxCpc>
-                        <ns1:bidSource>ADGROUP</ns1:bidSource>
-                     </ns1:initialBid>
-                     <ns1:parentBiddingStrategyConfigurations>
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                        <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                           <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        </ns1:biddingScheme>
-                     </ns1:parentBiddingStrategyConfigurations>
-                  </ns1:biddingStrategyConfiguration>
-               </ns1:adGroup>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:adGroup>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:campaignId>00000001</ns1:campaignId>
-                  <ns1:campaignName>campaign name</ns1:campaignName>
-                  <ns1:adGroupId>00000002</ns1:adGroupId>
-                  <ns1:adGroupName>ad group name 2</ns1:adGroupName>
-                  <ns1:userStatus>ACTIVE</ns1:userStatus>
-                  <ns1:biddingStrategyConfiguration>
-                     <ns1:biddingStrategyId>00000001</ns1:biddingStrategyId>
-                     <ns1:biddingStrategyName>Sample bidding EnhancedCpcBidding</ns1:biddingStrategyName>
-                     <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                     <ns1:biddingStrategySource>ADGROUP</ns1:biddingStrategySource>
-                     <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                        <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                     </ns1:biddingScheme>
-                     <ns1:initialBid>
-                        <ns1:maxCpc>120</ns1:maxCpc>
-                        <ns1:bidSource>ADGROUP</ns1:bidSource>
-                     </ns1:initialBid>
-                     <ns1:parentBiddingStrategyConfigurations>
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                        <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                           <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                        </ns1:biddingScheme>
-                     </ns1:parentBiddingStrategyConfigurations>
-                  </ns1:biddingStrategyConfiguration>
-               </ns1:adGroup>  
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:adGroup>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:campaignId>00000001</ns1:campaignId>
-                  <ns1:campaignName>campaign name</ns1:campaignName>
-                  <ns1:adGroupId>00000003</ns1:adGroupId>
-                  <ns1:adGroupName>ad group name 3</ns1:adGroupName>
-                  <ns1:userStatus>ACTIVE</ns1:userStatus>
-                  <ns1:biddingStrategyConfiguration>
-                     <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     <ns1:biddingStrategySource>CAMPAIGN</ns1:biddingStrategySource>
-                     <ns1:biddingScheme xsi:type="ns1:ManualCpcBiddingScheme">
-                        <ns1:biddingStrategyType>MANUAL_CPC</ns1:biddingStrategyType>
-                     </ns1:biddingScheme>
-                     <ns1:initialBid>
-                        <ns1:maxCpc>120</ns1:maxCpc>
-                        <ns1:bidSource>ADGROUP</ns1:bidSource>
-                     </ns1:initialBid>
-                  </ns1:biddingStrategyConfiguration>
-               </ns1:adGroup>  
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>BiddingStrategy</ns2:service>
+      <ns2:requestTime>1523506330594</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <ns2:rval>
+        <totalNumEntries>5</totalNumEntries>
+        <Page.Type>BiddingStrategyPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
+              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>PageOnePromotedBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
+              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+              <ns2:targetPositionType>PAGE_ONE</ns2:targetPositionType>
+              <ns2:bidCeiling>1</ns2:bidCeiling>
+              <ns2:bidMultiplier>0.1</ns2:bidMultiplier>
+              <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
+              <ns2:raiseBidWhenBudgetConstrained>ACTIVE</ns2:raiseBidWhenBudgetConstrained>
+              <ns2:raiseBidWhenLowQualityScore>ACTIVE</ns2:raiseBidWhenLowQualityScore>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetCpaBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetCpaBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+              <ns2:targetCpa>99999999</ns2:targetCpa>
+              <ns2:bidCeiling>500</ns2:bidCeiling>
+              <ns2:bidFloor>1</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20004</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetSpendBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+              <ns2:bidCeiling>1</ns2:bidCeiling>
+              <ns2:spendTarget>100</ns2:spendTarget>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20005</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetRoasBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetRoasBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+              <ns2:targetRoas>1000.0</ns2:targetRoas>
+              <ns2:bidCeiling>5000</ns2:bidCeiling>
+              <ns2:bidFloor>10</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## mutate(ADD)
 自動入札設定を追加します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | 自動入札設定を作成します。 | 
-＜リクエストサンプル＞
+| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategy/BiddingStrategyOperation.md) | 自動入札設定を作成します。 |
+
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <!-- EnhancedCpcBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyName>ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                  <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- PageOnePromotedBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyName>PAGE_ONE_PROMOTED_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
-                  <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                  <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                  <ns1:bidCeiling>50000</ns1:bidCeiling>
-                  <ns1:bidMultiplier>10.00</ns1:bidMultiplier>
-                  <ns1:bidChangesForRaisesOnly>ACTIVE</ns1:bidChangesForRaisesOnly>
-                  <ns1:raiseBidWhenBudgetConstrained>DEACTIVE</ns1:raiseBidWhenBudgetConstrained>
-                  <ns1:raiseBidWhenLowQualityScore>DEACTIVE</ns1:raiseBidWhenLowQualityScore>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetCpaBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyName>TARGET_CPA_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                  <ns1:targetCpa>100</ns1:targetCpa>
-                  <ns1:bidCeiling>50000</ns1:bidCeiling>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetSpendBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyName>TARGET_SPEND_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                  <ns1:bidCeiling>50000</ns1:bidCeiling>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetRoasBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyName>TARGET_ROAS_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                  <ns1:targetRoas>0.01</ns1:targetRoas>
-                  <ns1:bidCeiling>50000</ns1:bidCeiling>
-                  <ns1:bidFloor>5000</ns1:bidFloor>
-               </ns1:biddingScheme>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <biddingStrategyName>EnhancedCpcBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="EnhancedCpcBiddingScheme">
+            <biddingStrategyType>ENHANCED_CPC</biddingStrategyType>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyName>PageOnePromotedBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PageOnePromotedBiddingScheme">
+            <biddingStrategyType>PAGE_ONE_PROMOTED</biddingStrategyType>
+            <targetPositionType>PAGE_ONE</targetPositionType>
+            <bidCeiling>1</bidCeiling>
+            <bidMultiplier>0.1</bidMultiplier>
+            <bidChangesForRaisesOnly>ACTIVE</bidChangesForRaisesOnly>
+            <raiseBidWhenBudgetConstrained>ACTIVE</raiseBidWhenBudgetConstrained>
+            <raiseBidWhenLowQualityScore>ACTIVE</raiseBidWhenLowQualityScore>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyName>TargetCpaBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetCpaBiddingScheme">
+            <biddingStrategyType>TARGET_CPA</biddingStrategyType>
+            <targetCpa>99999999</targetCpa>
+            <bidCeiling>500</bidCeiling>
+            <bidFloor>1</bidFloor>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyName>TargetSpendBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetSpendBiddingScheme">
+            <biddingStrategyType>TARGET_SPEND</biddingStrategyType>
+            <bidCeiling>1</bidCeiling>
+            <spendTarget>100</spendTarget>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyName>TargetRoasBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetRoasBiddingScheme">
+            <biddingStrategyType>TARGET_ROAS</biddingStrategyType>
+            <targetRoas>1000.0</targetRoas>
+            <bidCeiling>5000</bidCeiling>
+            <bidFloor>10</bidFloor>
+          </biddingScheme>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 | 
-＜レスポンスサンプル＞
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategy/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 |
+
+##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<soapenv:Envelope 
- xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
- xmlns:ns1="http://ss.yahooapis.jp/V6" 
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>BiddingStrategyService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>BiddingStartegyReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>ADD</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                     <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>PAGE_ONE_PROMOTED_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
-                     <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                     <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                     <ns1:bidCeiling>50000</ns1:bidCeiling>
-                     <ns1:bidMultiplier>10.00</ns1:bidMultiplier>
-                     <ns1:bidChangesForRaisesOnly>ACTIVE</ns1:bidChangesForRaisesOnly>
-                     <ns1:raiseBidWhenBudgetConstrained>DEACTIVE</ns1:raiseBidWhenBudgetConstrained>
-                     <ns1:raiseBidWhenLowQualityScore>DEACTIVE</ns1:raiseBidWhenLowQualityScore>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_CPA_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                     <ns1:targetCpa>100</ns1:targetCpa>
-                     <ns1:bidCeiling>50000</ns1:bidCeiling>
-                     <ns1:bidFloor>0</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_SPEND_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                     <ns1:bidCeiling>50000</ns1:bidCeiling>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_ROAS_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                     <ns1:targetRoas>0.01</ns1:targetRoas>
-                     <ns1:bidCeiling>50000</ns1:bidCeiling>
-                     <ns1:bidFloor>5000</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>BiddingStrategy</ns2:service>
+      <ns2:requestTime>1523506330618</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <ns2:rval>
+        <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
+              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>PageOnePromotedBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
+              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+              <ns2:targetPositionType>PAGE_ONE</ns2:targetPositionType>
+              <ns2:bidCeiling>1</ns2:bidCeiling>
+              <ns2:bidMultiplier>0.1</ns2:bidMultiplier>
+              <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
+              <ns2:raiseBidWhenBudgetConstrained>ACTIVE</ns2:raiseBidWhenBudgetConstrained>
+              <ns2:raiseBidWhenLowQualityScore>ACTIVE</ns2:raiseBidWhenLowQualityScore>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetCpaBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetCpaBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+              <ns2:targetCpa>99999999</ns2:targetCpa>
+              <ns2:bidCeiling>500</ns2:bidCeiling>
+              <ns2:bidFloor>1</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20004</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetSpendBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+              <ns2:bidCeiling>1</ns2:bidCeiling>
+              <ns2:spendTarget>100</ns2:spendTarget>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20005</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetRoasBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetRoasBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+              <ns2:targetRoas>1000.0</ns2:targetRoas>
+              <ns2:bidCeiling>5000</ns2:bidCeiling>
+              <ns2:bidFloor>10</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ## mutate(SET)
 自動入札設定を更新します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | 自動入設定を更新します。 | 
-＜リクエストサンプル＞
+| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategy/BiddingStrategyOperation.md) | 自動入設定を更新します。 |
+
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>SET</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <!-- EnhancedCpcBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
-               <ns1:biddingStrategyName>MODIFY_ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
-               <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                  <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- PageOnePromotedBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
-               <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
-                  <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                  <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                  <ns1:bidCeiling>10000</ns1:bidCeiling>
-                  <ns1:bidMultiplier>50.00</ns1:bidMultiplier>
-                  <ns1:bidChangesForRaisesOnly>DEACTIVE</ns1:bidChangesForRaisesOnly>
-                  <ns1:raiseBidWhenBudgetConstrained>ACTIVE</ns1:raiseBidWhenBudgetConstrained>
-                  <ns1:raiseBidWhenLowQualityScore>ACTIVE</ns1:raiseBidWhenLowQualityScore>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetCpaBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
-               <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                  <ns1:targetCpa>250</ns1:targetCpa>
-                  <ns1:bidCeiling>10000</ns1:bidCeiling>
-                  <ns1:bidFloor>100</ns1:bidFloor>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetSpendBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
-               <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                  <ns1:bidCeiling>3500</ns1:bidCeiling>
-               </ns1:biddingScheme>
-            </ns1:operand>
-            <!-- TargetRoasBidding -->
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
-               <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
-                  <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                  <ns1:targetRoas>0.15</ns1:targetRoas>
-                  <ns1:bidCeiling>1000</ns1:bidCeiling>
-                  <!--設定済みのbidFloorを解除する。-->
-                  <ns1:bidFloor>0</ns1:bidFloor>
-               </ns1:biddingScheme>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <biddingStrategyId>20001</biddingStrategyId>
+          <biddingStrategyName>set EnhancedCpcBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="EnhancedCpcBiddingScheme">
+            <biddingStrategyType>ENHANCED_CPC</biddingStrategyType>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyId>20002</biddingStrategyId>
+          <biddingStrategyName>set PageOnePromotedBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PageOnePromotedBiddingScheme">
+            <biddingStrategyType>PAGE_ONE_PROMOTED</biddingStrategyType>
+            <targetPositionType>PAGE_ONE_PROMOTED</targetPositionType>
+            <bidCeiling>2</bidCeiling>
+            <bidMultiplier>0.2</bidMultiplier>
+            <bidChangesForRaisesOnly>DEACTIVE</bidChangesForRaisesOnly>
+            <raiseBidWhenBudgetConstrained>DEACTIVE</raiseBidWhenBudgetConstrained>
+            <raiseBidWhenLowQualityScore>DEACTIVE</raiseBidWhenLowQualityScore>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyId>20003</biddingStrategyId>
+          <biddingStrategyName>set TargetCpaBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetCpaBiddingScheme">
+            <biddingStrategyType>TARGET_CPA</biddingStrategyType>
+            <targetCpa>11111111</targetCpa>
+            <bidCeiling>100</bidCeiling>
+            <bidFloor>10</bidFloor>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyId>20004</biddingStrategyId>
+          <biddingStrategyName>set TargetSpendBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetSpendBiddingScheme">
+            <biddingStrategyType>TARGET_SPEND</biddingStrategyType>
+            <bidCeiling>2</bidCeiling>
+            <spendTarget>10</spendTarget>
+          </biddingScheme>
+        </operand>
+        <operand>
+          <biddingStrategyId>20005</biddingStrategyId>
+          <biddingStrategyName>set TargetRoasBiddingScheme</biddingStrategyName>
+          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetRoasBiddingScheme">
+            <biddingStrategyType>TARGET_ROAS</biddingStrategyType>
+            <targetRoas>100.0</targetRoas>
+            <bidCeiling>3000</bidCeiling>
+            <bidFloor>1</bidFloor>
+          </biddingScheme>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 | 
-＜レスポンスサンプル＞
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategy/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 |
+
+##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
- <soapenv:Envelope 
-  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-  xmlns:ns1="http://ss.yahooapis.jp/V6" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>BiddingStrategyService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>BiddingStartegyReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>SET</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>MODIFY_ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                     <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>PAGE_ONE_PROMOTED_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                  <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
-                     <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                     <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                     <ns1:bidCeiling>10000</ns1:bidCeiling>
-                     <ns1:bidMultiplier>50.00</ns1:bidMultiplier>
-                     <ns1:bidChangesForRaisesOnly>DEACTIVE</ns1:bidChangesForRaisesOnly>
-                     <ns1:raiseBidWhenBudgetConstrained>ACTIVE</ns1:raiseBidWhenBudgetConstrained>
-                     <ns1:raiseBidWhenLowQualityScore>ACTIVE</ns1:raiseBidWhenLowQualityScore>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_CPA_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                     <ns1:targetCpa>250</ns1:targetCpa>
-                     <ns1:bidCeiling>10000</ns1:bidCeiling>
-                     <ns1:bidFloor>100</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_SPEND_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                     <ns1:bidCeiling>3500</ns1:bidCeiling>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_ROAS_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                     <ns1:targetRoas>0.15</ns1:targetRoas>
-                     <ns1:bidCeiling>1000</ns1:bidCeiling>
-                     <ns1:bidFloor>0</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>BiddingStrategy</ns2:service>
+      <ns2:requestTime>1523506330640</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <ns2:rval>
+        <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>set EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
+              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>set PageOnePromotedBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
+              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+              <ns2:targetPositionType>PAGE_ONE_PROMOTED</ns2:targetPositionType>
+              <ns2:bidCeiling>2</ns2:bidCeiling>
+              <ns2:bidMultiplier>0.2</ns2:bidMultiplier>
+              <ns2:bidChangesForRaisesOnly>DEACTIVE</ns2:bidChangesForRaisesOnly>
+              <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
+              <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>set TargetCpaBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetCpaBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+              <ns2:targetCpa>11111111</ns2:targetCpa>
+              <ns2:bidCeiling>100</ns2:bidCeiling>
+              <ns2:bidFloor>10</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20004</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>set TargetSpendBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+              <ns2:bidCeiling>2</ns2:bidCeiling>
+              <ns2:spendTarget>10</ns2:spendTarget>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20005</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>set TargetRoasBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetRoasBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+              <ns2:targetRoas>100.0</ns2:targetRoas>
+              <ns2:bidCeiling>3000</ns2:bidCeiling>
+              <ns2:bidFloor>1</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ## mutate(REMOVE)
 自動入札設定を削除します。
 
 ### リクエスト
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategyOperation.md) | 自動入札設定を削除します。 | 
-＜リクエストサンプル＞
+| operations | ○ | [BiddingStrategyOperation](../data/BiddingStrategy/BiddingStrategyOperation.md) | 自動入札設定を削除します。 |
+
+##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://ss.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-         <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-         <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>REMOVE</ns1:operator>
-            <ns1:accountId>00000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
-           </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:accountId>00000001</ns1:accountId>
-               <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <biddingStrategyId>20001</biddingStrategyId>
+        </operand>
+        <operand>
+          <biddingStrategyId>20002</biddingStrategyId>
+        </operand>
+        <operand>
+          <biddingStrategyId>20003</biddingStrategyId>
+        </operand>
+        <operand>
+          <biddingStrategyId>20004</biddingStrategyId>
+        </operand>
+        <operand>
+          <biddingStrategyId>20005</biddingStrategyId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
 正常時のレスポンスフィールド
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [BiddingStrategyReturnValue](../data/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 | 
-＜レスポンスサンプル＞
+| rval | [BiddingStrategyReturnValue](../data/BiddingStrategy/BiddingStrategyReturnValue.md) | 操作結果を含む自動入札設定に関する情報のコンテナです。 |
+
+##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<soapenv:Envelope 
- xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://ss.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>BiddingStrategyService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>5</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>BiddingStartegyReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000002</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>MODIFY_ENHANCED_CPC_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:EnhancedCpcBiddingScheme">
-                     <ns1:biddingStrategyType>ENHANCED_CPC</ns1:biddingStrategyType>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000003</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>PAGE_ONE_PROMOTED_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:PageOnePromotedBiddingScheme">
-                     <ns1:biddingStrategyType>PAGE_ONE_PROMOTED</ns1:biddingStrategyType>
-                     <ns1:targetPositionType>PAGE_ONE</ns1:targetPositionType>
-                     <ns1:bidCeiling>10000</ns1:bidCeiling>
-                     <ns1:bidMultiplier>50.00</ns1:bidMultiplier>
-                     <ns1:bidChangesForRaisesOnly>DEACTIVE</ns1:bidChangesForRaisesOnly>
-                     <ns1:raiseBidWhenBudgetConstrained>ACTIVE</ns1:raiseBidWhenBudgetConstrained>
-                     <ns1:raiseBidWhenLowQualityScore>ACTIVE</ns1:raiseBidWhenLowQualityScore>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000004</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_CPA_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetCpaBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_CPA</ns1:biddingStrategyType>
-                     <ns1:targetCpa>250</ns1:targetCpa>
-                     <ns1:bidCeiling>10000</ns1:bidCeiling>
-                     <ns1:bidFloor>100</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000005</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_SPEND_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetSpendBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_SPEND</ns1:biddingStrategyType>
-                     <ns1:bidCeiling>3500</ns1:bidCeiling>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:biddingStrategy>
-                  <ns1:accountId>00000001</ns1:accountId>
-                  <ns1:biddingStrategyId>00000006</ns1:biddingStrategyId>
-                  <ns1:biddingStrategyName>TARGET_ROAS_BiddingStartegy</ns1:biddingStrategyName>
-                  <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                  <ns1:biddingScheme xsi:type="ns1:TargetRoasBiddingScheme">
-                     <ns1:biddingStrategyType>TARGET_ROAS</ns1:biddingStrategyType>
-                     <ns1:targetRoas>0.15</ns1:targetRoas>
-                     <ns1:bidCeiling>1000</ns1:bidCeiling>
-                     <ns1:bidFloor>0</ns1:bidFloor>
-                  </ns1:biddingScheme>
-               </ns1:biddingStrategy>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+      <ns2:service>BiddingStrategy</ns2:service>
+      <ns2:requestTime>1523506330668</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/BiddingStrategy">
+      <ns2:rval>
+        <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
+              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>PageOnePromotedBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
+              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
+              <ns2:targetPositionType>PAGE_ONE_PROMOTED</ns2:targetPositionType>
+              <ns2:bidCeiling>2</ns2:bidCeiling>
+              <ns2:bidMultiplier>0.2</ns2:bidMultiplier>
+              <ns2:bidChangesForRaisesOnly>DEACTIVE</ns2:bidChangesForRaisesOnly>
+              <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
+              <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetCpaBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetCpaBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
+              <ns2:targetCpa>11111111</ns2:targetCpa>
+              <ns2:bidCeiling>100</ns2:bidCeiling>
+              <ns2:bidFloor>10</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20004</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetSpendBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
+              <ns2:bidCeiling>2</ns2:bidCeiling>
+              <ns2:spendTarget>10</ns2:spendTarget>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:biddingStrategy>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:biddingStrategyId>20005</ns2:biddingStrategyId>
+            <ns2:biddingStrategyName>TargetRoasBiddingScheme</ns2:biddingStrategyName>
+            <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetRoasBiddingScheme">
+              <ns2:biddingStrategyType>TARGET_ROAS</ns2:biddingStrategyType>
+              <ns2:targetRoas>100.0</ns2:targetRoas>
+              <ns2:bidCeiling>3000</ns2:bidCeiling>
+              <ns2:bidFloor>1</ns2:bidFloor>
+            </ns2:biddingScheme>
+          </ns2:biddingStrategy>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
