@@ -40,7 +40,7 @@
  <td>2017年11月1日</td>
  <td>2018年6月23日</td>
  <td>2018年7月23日</td>
- <td><a href="../../blob/6.4/docs/ja/ReleaseNotes.md">V6.4リリースノート</a></td>
+ <td>-</td>
 </td>
 </tr>
 </tbody>
@@ -52,8 +52,8 @@
 <tr>
  <th>API version</th>
  <th>Release</th>
- <th>Support close</th>
- <th>System close</th>
+ <th>Deprecation date</th>
+ <th>End of Life date</th>
  <th>Release Note</th>
 </tr>
 <tr>
@@ -76,7 +76,7 @@
  <td>2017/11/1</td>
  <td>2018/6/23</td>
  <td>2018/7/23</td>
- <td><a href="../../blob/6.4/docs/en/ReleaseNotes.md">V6.4 Release Note</a></td>
+ <td>-</td>
 </td>
 </tr>
 </tbody>
