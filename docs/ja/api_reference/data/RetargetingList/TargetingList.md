@@ -112,7 +112,7 @@ TargetingListは、リターゲティング情報（ターゲットリスト）�
  <tr>
   <td>reachStorageSpan</td>
   <td>xsd:long</a></td>
-  <td>Cookieを保持する日数です。<br>※Default：180<br>※1-180日まで設定可能です。</td>
+  <td>Cookieを保持する日数です。<br>※Default：180<br>※1-540日まで設定可能です。</td>
   <td>yes</td>
   <td>‐</td>
   <td>Optional<br>※Logical TargetListの場合、Ignore</td>

@@ -111,7 +111,7 @@ TargetingList is an object that holds retargeting information (target list).
  <tr>
   <td>reachStorageSpan</td>
   <td>xsd:long</a></td>
-  <td>Days to hold Cookie.<br>*Default: 180<br>*Can set from 1-180 days</td>
+  <td>Days to hold Cookie.<br>*Default: 180<br>*Can set from 1-540 days</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional<br>*Ignore for LogicalTargetList</td>
