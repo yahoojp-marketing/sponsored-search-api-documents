@@ -47,8 +47,8 @@ WebConversionオブジェクトは、ウェブページのコンバージョン�
   <td>enum<br><a href="CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
   <td>デバイスまたぎでコンバージョンを計測するかしないかを制御するフラグです。</td>
   <td>yes</td>
-  <td>Optional<br>※default値:FALSE</td>
-  <td>Optional</td>
+  <td>Optional<br>※Default: TRUE<br>※値を指定した場合、必ず「TRUE」が設定されます。</td>
+  <td>Optional<br>※値を指定した場合、必ず「TRUE」が設定されます。</td>
  </tr>
 </table>
 

@@ -47,8 +47,8 @@ WebConversion describes ConversionTracker information such as ConversionTag and 
   <td>enum<br><a href="CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
   <td>The flag to control tracking conversions across different devices.</td>
   <td>yes</td>
-  <td>Optional<br>*default:FALSE</td>
-  <td>Optional</td>
+  <td>Optional<br>*Default: TRUE<br>*If appoint a value, "TRUE" is set by all means.</td>
+  <td>Optional<br>*If appoint a value, "TRUE" is set by all means.</td>
  </tr>
 </table>
 
