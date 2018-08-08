@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201805/RetargetingList"
-        xmlns:tns="http://ss.yahooapis.jp/V201805/RetargetingList"
+        targetNamespace="http://ss.yahooapis.jp/V201808/RetargetingList"
+        xmlns:tns="http://ss.yahooapis.jp/V201808/RetargetingList"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201805"
+            targetNamespace="http://ss.yahooapis.jp/V201808"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201805">
+            xmlns:tns="http://ss.yahooapis.jp/V201808">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201805/RetargetingList"
+            targetNamespace="http://ss.yahooapis.jp/V201808/RetargetingList"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201805"
-            xmlns:tns="http://ss.yahooapis.jp/V201805/RetargetingList">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201805"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201808"
+            xmlns:tns="http://ss.yahooapis.jp/V201808/RetargetingList">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
       <annotation>
         <appinfo>
-          <version>201805</version>
+          <version>201808</version>
         </appinfo>
       </annotation>
       <complexType name="TargetingList">
@@ -401,7 +401,7 @@
   <wsdl:service name="RetargetingListService">
     <wsdl:port binding="tns:RetargetingListServiceSoapBinding" name="RetargetingListService">
       <wsdlsoap:address
-              location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201805/RetargetingListService"/>
+              location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/RetargetingListService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

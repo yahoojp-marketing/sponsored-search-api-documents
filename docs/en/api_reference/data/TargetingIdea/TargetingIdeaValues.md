@@ -19,6 +19,16 @@ Result of the related keyword.
   <th>remove</th>
  </tr>
  <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>Account ID.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>data</td>
   <td><a href="TypeAttributeMapEntry.md">TypeAttributeMapEntry</a></td>
   <td>Result of suggestions.</td>

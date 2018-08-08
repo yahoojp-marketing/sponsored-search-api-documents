@@ -24,7 +24,7 @@ ManualCpcBiddingSchemeオブジェクトは、手動入札の設定情報を表�
  <tr>
   <td>biddingStrategyType</td>
   <td>enum <a href="BiddingStrategyType.md">BiddingStrategyType</a></td>
-  <td>自動入札タイプです。</td>
+  <td>自動入札タイプ</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -33,6 +33,16 @@ ManualCpcBiddingSchemeオブジェクトは、手動入札の設定情報を表�
  </tr>
  <tr>
   <td colspan="8">ManualCpcBiddingScheme</td>
+ </tr>
+ <tr>
+  <td>enhancedCpcEnabled</td>
+  <td>enum <a href="EnhancedCpcEnabled.md">EnhancedCpcEnabled</a></td>
+  <td>コンバージョン数の最大化設定フラグ</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>デフォルト値：TRUE</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

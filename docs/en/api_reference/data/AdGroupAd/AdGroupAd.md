@@ -23,9 +23,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>xsd:long</td>
   <td>Account ID.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
   <td>-</td>
  </tr>
  <tr>
@@ -44,9 +44,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Campaign ID for tracking.<br>* "0" will return in Sandbox.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignName</td>
@@ -54,9 +54,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Campaign name.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupId</td>
@@ -74,9 +74,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Ad group ID for tracking.<br>* "0" will return in Sandbox.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupName</td>
@@ -84,9 +84,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Ad group name.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adId</td>
@@ -94,7 +94,7 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Ad ID.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
@@ -104,9 +104,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Ad ID for tracking.<br>* "0" will return in Sandbox.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adName</td>
@@ -116,7 +116,7 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>userStatus</td>
@@ -126,7 +126,7 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>approvalStatus</td>
@@ -134,9 +134,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Editorial review status.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>disapprovalReasonCodes</td>
@@ -144,19 +144,19 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Code of Disapproval reason.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>ad</td>
-  <td><a href="Ad.md">Ad</a><br>inherited <a href="TextAd2.md">TextAd2</a><br> inherited <a href="AppAd.md">AppAd</a><br> inherited <a href="ExtendedTextAd.md">ExtendedTextAd</a></td>
+  <td><a href="Ad.md">Ad</a><br>inherited <a href="TextAd2.md">TextAd2</a><br> inherited <a href="AppAd.md">AppAd</a><br> inherited <a href="ExtendedTextAd.md">ExtendedTextAd</a><br> inherited <a href="DynamicSearchLinkedAd.md">DynamicSearchLinkedAd</a></td>
   <td>Details of creative ad.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>feedFolderId</td>
@@ -164,9 +164,9 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Feed folder ID.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

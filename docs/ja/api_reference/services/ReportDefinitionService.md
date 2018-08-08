@@ -6,11 +6,11 @@ ReportDefinitionServiceでは、レポート定義の取得および追加・削
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/ReportDefinitionService?wsdl |
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/ReportDefinitionService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201808/ReportDefinitionService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/ReportDefinitionService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/ReportDefinition
+http://ss.yahooapis.jp/V201808/ReportDefinition
 
 #### サービス概要
 以下の操作が実行可能です。
@@ -52,14 +52,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>100000001</accountId>
         <reportIds>1111</reportIds>
@@ -85,14 +85,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>ReportDefinition</ns2:service>
       <ns2:requestTime>1523506336743</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <Page.Type>ReportDefinitionPage</Page.Type>
@@ -191,14 +191,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getReportFields xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <getReportFields xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <reportType>LANDING_PAGE_URL</reportType>
     </getReportFields>
   </SOAP-ENV:Body>
@@ -216,14 +216,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>ReportDefinition</ns2:service>
       <ns2:requestTime>1523506336787</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getReportFieldsResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <ns2:getReportFieldsResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <ns2:rval>
         <ns2:fields>
           <ns2:fieldName>CAMPAIGN_ID</ns2:fieldName>
@@ -607,14 +607,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <operations>
         <operator>ADD</operator>
         <accountId>11111</accountId>
@@ -685,14 +685,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>ReportDefinition</ns2:service>
       <ns2:requestTime>1523506336772</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <ns2:rval>
         <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -769,14 +769,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <operations>
         <operator>REMOVE</operator>
         <accountId>11111</accountId>
@@ -800,14 +800,14 @@ ReportDefinitionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ReportDefinition" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>ReportDefinition</ns2:service>
       <ns2:requestTime>1523506336805</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/ReportDefinition">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ReportDefinition">
       <ns2:rval>
         <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

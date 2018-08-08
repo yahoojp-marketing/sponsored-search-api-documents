@@ -3,10 +3,10 @@ DictionaryService is to get EditorialReason and location information list.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/DictionaryService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/DictionaryService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/DictionaryService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/DictionaryService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/Dictionary
+http://ss.yahooapis.jp/V201808/Dictionary
 #### Overview
 Get EditorialReason list
 #### Operation
@@ -31,14 +31,14 @@ Get EditorialReason and recommended resolution list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDisapprovalReason xmlns="http://ss.yahooapis.jp/V201805/Dictionary">
+    <getDisapprovalReason xmlns="http://ss.yahooapis.jp/V201808/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -56,14 +56,14 @@ Get EditorialReason and recommended resolution list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Dictionary</ns2:service>
       <ns2:requestTime>1523506333356</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDisapprovalReasonResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Dictionary">
+    <ns2:getDisapprovalReasonResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Dictionary">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:values>
@@ -112,14 +112,14 @@ Get the information list of geo targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getGeographicLocation xmlns="http://ss.yahooapis.jp/V201805/Dictionary">
+    <getGeographicLocation xmlns="http://ss.yahooapis.jp/V201808/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -137,14 +137,14 @@ Get the information list of geo targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Dictionary</ns2:service>
       <ns2:requestTime>1523506333370</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getGeographicLocationResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Dictionary">
+    <ns2:getGeographicLocationResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Dictionary">
       <ns2:rval>
         <totalNumEntries>47</totalNumEntries>
         <ns2:values>

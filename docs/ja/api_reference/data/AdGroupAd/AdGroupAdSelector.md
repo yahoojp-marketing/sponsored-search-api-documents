@@ -59,7 +59,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
   <td>-</td>
  </tr>
  <tr>
-  <td>adTypes[0...3]</td>
+  <td>adTypes[0...4]</td>
   <td>enum <a href="AdType.md">AdType</a></td>
   <td>検索条件：広告の種類です。</td>
   <td>-</td>

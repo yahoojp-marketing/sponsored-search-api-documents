@@ -18,6 +18,16 @@ TargetingIdeaValuesオブジェクトは、関連キーワードの結果を表�
   <th>set</th>
   <th>remove</th>
  </tr>
+  <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>検索条件：アカウントIDです。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
  <tr>
   <td>data</td>
   <td><a href="TypeAttributeMapEntry.md">TypeAttributeMapEntry</a></td>

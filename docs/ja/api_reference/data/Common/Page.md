@@ -3,7 +3,7 @@ Pageオブジェクトは、取得される項目の内容を表します。
 ### Service
 get操作共通
 ### Namespace
-http://ss.yahooapis.jp/V201805
+http://ss.yahooapis.jp/V201808
 
 | フィールド | データ型 | 説明 |
 |---|---|---|

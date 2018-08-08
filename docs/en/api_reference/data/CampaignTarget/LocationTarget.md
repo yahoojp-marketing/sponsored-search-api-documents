@@ -5,6 +5,7 @@ LocationTarget object is a location target setting.
 
 ### Namespace
 [CampaignTargetService#Namespace](../../services/CampaignTargetService.md#namespace)
+
 | Field | Type | Description | ADD | SET | REMOVE | 
 |---|---|---|---|---|---|
 | Target (inherited)||||||

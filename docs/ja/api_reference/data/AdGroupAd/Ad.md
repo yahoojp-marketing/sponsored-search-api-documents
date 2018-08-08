@@ -34,7 +34,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Requirement。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -44,7 +44,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URLです。<br>2件目以降の最終リンク先URLを設定します。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -54,7 +54,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URL（スマート フォン）です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -64,7 +64,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URL（スマート フォン）です。<br>2件目以降の最終リンク先URL（スマート フォン）<br>を設定します。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -74,7 +74,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>トラッキングURLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -84,7 +84,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Optional。<br>※URLを移行しない（advanced=FALSE）場合、Ignore。</td>
+  <td>Optional</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -92,12 +92,12 @@ Adオブジェクトは、広告に関する情報を表します。
 <tr>
   <td>url</td>
   <td>xsd:string</td>
-  <td>移行前のリンク先 URLです。</td>
+  <td>移行前のリンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※URLを移行する（advanced=TRUE）場合、Ignore。<br>※URLを移行しない（advanced=FALSE）場合、Requirement。</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>displayUrl</td>
@@ -105,9 +105,9 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>表示URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement<br>※広告の種類が アプリ広告と拡大テキスト広告の場合、Ignore。</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>headline</td>
@@ -115,9 +115,9 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>タイトル文です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>description</td>
@@ -126,8 +126,8 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>devicePreference</td>
@@ -135,9 +135,9 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>優先デバイスです。<br>※スマートフォンに優先的に配信します。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※広告の種類が拡大テキスト広告の場合、Ignore。</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>※DOUBLE_TEXT_ADの場合、Ignore。</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

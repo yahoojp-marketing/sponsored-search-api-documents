@@ -18,6 +18,16 @@ TargetingIdeaSelectorオブジェクトは、関連キーワードの提案条�
   <th>remove</th>
  </tr>
  <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>検索条件：アカウントIDです。</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>searchParameter[1...2]</td>
   <td><a href="SearchParameter.md">SearchParameter</a><br>inherited <a href="RelatedToKeywordSearchParameter.md">RelatedToKeywordSearchParameter</a><br>inherited <a href="RelatedToUrlSearchParameter.md">RelatedToUrlSearchParameter</a></td>
   <td>検索条件：処理の対象になる提案条件が含まれます。</td>

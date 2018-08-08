@@ -3,10 +3,10 @@ Use this service to get or update bid multiplier information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AdGroupBidMultiplierService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupBidMultiplierService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AdGroupBidMultiplierService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupBidMultiplierService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier
+http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier
 #### Overview
 Use this service to get, update adgroup bid multiplier.
 #### Operation
@@ -31,14 +31,14 @@ Gets bid multiplier of adgroup
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -75,14 +75,14 @@ Gets bid multiplier of adgroup
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1522056580688</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupBidMultiplierPage</Page.Type>
@@ -113,14 +113,14 @@ Updates adgroup bid multiplier.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -145,14 +145,14 @@ Updates adgroup bid multiplier.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1522056580707</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -183,14 +183,14 @@ Remove bid multiplier which already set to ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -214,14 +214,14 @@ Remove bid multiplier which already set to ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1523525483116</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupBidMultiplier">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupBidMultiplier">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

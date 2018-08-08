@@ -4,11 +4,11 @@ AccountService provides functions for creating and managing accounts.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AccountService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AccountService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AccountService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AccountService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/Account
+http://ss.yahooapis.jp/V201808/Account
 
 #### Overview
 AccountService provides operations for creating managing accounts.
@@ -34,14 +34,14 @@ Returns the account information. Enable to set the filter condition, such as the
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Account" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Account" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/Account" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/Account" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountIds>1111</accountIds>
         <accountIds>2222</accountIds>
@@ -72,14 +72,14 @@ Returns the account information. Enable to set the filter condition, such as the
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Account" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Account" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Account</ns2:service>
       <ns2:requestTime>1523506342855</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Account">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Account">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -116,14 +116,14 @@ Updates the information related to the account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Account" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Account" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/Account">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/Account">
       <operations>
         <operator>SET</operator>
         <operand>
@@ -146,14 +146,14 @@ Updates the information related to the account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Account" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Account" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Account</ns2:service>
       <ns2:requestTime>1523506342871</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Account">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Account">
       <ns2:rval>
         <ListReturnValue.Type>AccountReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

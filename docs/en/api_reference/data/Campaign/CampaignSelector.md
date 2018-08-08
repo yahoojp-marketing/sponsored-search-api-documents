@@ -50,8 +50,8 @@ CampaignSelector object displays which campaigns to return.
  </tr>
  <tr>
  <td>userStatuses[0...2]</td>
-  <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>Status of the ads.<br>All statuses will return, if no status is not selected.</td>
+  <td>xsd:long</td>
+  <td>Search condition: Label ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

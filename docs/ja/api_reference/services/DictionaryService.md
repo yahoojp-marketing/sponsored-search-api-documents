@@ -3,10 +3,10 @@ DictionaryServiceは、審査否認理由と地域情報の一覧を提供しま
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/DictionaryService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/DictionaryService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/DictionaryService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/DictionaryService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/Dictionary
+http://ss.yahooapis.jp/V201808/Dictionary
 #### サービス概要
 EditorialReasonの一覧を提供します。
 #### 操作
@@ -31,14 +31,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDisapprovalReason xmlns="http://ss.yahooapis.jp/V201805/Dictionary">
+    <getDisapprovalReason xmlns="http://ss.yahooapis.jp/V201808/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -56,14 +56,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Dictionary</ns2:service>
       <ns2:requestTime>1523506333331</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDisapprovalReasonResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Dictionary">
+    <ns2:getDisapprovalReasonResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Dictionary">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:values>
@@ -112,14 +112,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getGeographicLocation xmlns="http://ss.yahooapis.jp/V201805/Dictionary">
+    <getGeographicLocation xmlns="http://ss.yahooapis.jp/V201808/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -137,14 +137,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Dictionary" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Dictionary</ns2:service>
       <ns2:requestTime>1523506333340</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getGeographicLocationResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Dictionary">
+    <ns2:getGeographicLocationResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Dictionary">
       <ns2:rval>
         <totalNumEntries>47</totalNumEntries>
         <ns2:values>

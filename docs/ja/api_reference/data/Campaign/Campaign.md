@@ -144,11 +144,12 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>Ignore</td>
  </tr>
   <tr>
-  <td>settings[0..2]</td>
+  <td>settings[0..3]</td>
   <td>
   <a href="CampaignSettings.md">CampaignSettings</a><br>
   inherited <a href="GeoTargetTypeSetting.md">GeoTargetTypeSetting</a><br>
-  inherited <a href="TargetingSetting.md">TargetingSetting</a>
+  inherited <a href="TargetingSetting.md">TargetingSetting</a><br>
+  inherited <a href="DynamicAdsForSearchSetting.md">DynamicAdsForSearchSetting</a>
   </td>
   <td>ターゲティング、およびマッチング設定です。</td>
   <td>yes</td>

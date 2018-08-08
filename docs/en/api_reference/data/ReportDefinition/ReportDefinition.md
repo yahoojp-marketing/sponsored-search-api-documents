@@ -181,7 +181,7 @@ ReportDefinition object displays the report definition.
   <tr>
   <td>includeZeroImpressions</td>
   <td>enum <br><a href="ReportIncludeZeroImpressions.md">ReportIncludeZeroImpressions</a></td>
-  <td>Select if include "0 impression" line in the report or not.<br>*DefaultEFALSE(not include)</td>
+  <td>Select if include "0 impression" line in the report or not.<br>*Defaultãƒ»FALSE(not include)</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -193,15 +193,15 @@ ReportDefinition object displays the report definition.
   <td>enum <br><a href="ReportIncludeDeleted.md">ReportIncludeDeleted</a></td>
   <td>Select if include deleted items in report output.<br>
   When select FALSE, deleted and paused items are out of output target.<br>
-  *DefaultETRUE (to be output on the report)
+  *Defaultãƒ»TRUE (to be output on the report)
   </td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*But for the following report types only:<br>ECAMPAIGN<br>EADGROUP<br>EAD<br>EKEYWORDS<br>EFEED_ITEM<br>EAD_CUSTOMIZERS<br>*For other report types: Ignore
+  <td>Optional<br>*But for the following report types only:<br>ãƒ»CAMPAIGN<br>ãƒ»ADGROUP<br>ãƒ»AD<br>ãƒ»KEYWORDS<br>ãƒ»FEED_ITEM<br>ãƒ»AD_CUSTOMIZERS<br>*For other report types: Ignore
 </td>
   <td>-</td>
   <td>-</td>
  </tr>
 </table>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="ƒNƒŠƒGƒCƒeƒBƒuEƒRƒ‚ƒ“ƒYEƒ‰ƒCƒZƒ“ƒX" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />‚±‚Ì ì•i ‚Í <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">ƒNƒŠƒGƒCƒeƒBƒuEƒRƒ‚ƒ“ƒY •\Ž¦ - ‰ü•Ï‹ÖŽ~ 2.1 “ú–{ ƒ‰ƒCƒZƒ“ƒX‚Ì‰º‚É’ñ‹Ÿ‚³‚ê‚Ä‚¢‚Ü‚·B</a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="ã‚¯ãƒªã‚¨ã‚¤ãƒ†ã‚£ãƒ–ãƒ»ã‚³ãƒ¢ãƒ³ã‚ºãƒ»ãƒ©ã‚¤ã‚»ãƒ³ã‚¹" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />ã“ã® ä½œå“ ã¯ <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">ã‚¯ãƒªã‚¨ã‚¤ãƒ†ã‚£ãƒ–ãƒ»ã‚³ãƒ¢ãƒ³ã‚º è¡¨ç¤º - æ”¹å¤‰ç¦æ­¢ 2.1 æ—¥æœ¬ ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã®ä¸‹ã«æä¾›ã•ã‚Œã¦ã„ã¾ã™ã€‚</a>

@@ -4,11 +4,11 @@ CampaignService is to get, add, update, or remove campaigns.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/CampaignService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/CampaignService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/CampaignService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/CampaignService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/Campaign
+http://ss.yahooapis.jp/V201808/Campaign
 
 #### Service Overview
 Get, add, update, or remove campaigns.
@@ -36,14 +36,14 @@ Gets information related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -79,16 +79,16 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1523506331392</ns2:requestTime>
+      <ns2:requestTime>1532514147169</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Campaign">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Campaign">
       <ns2:rval>
-        <totalNumEntries>3</totalNumEntries>
+        <totalNumEntries>4</totalNumEntries>
         <Page.Type>CampaignPage</Page.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -257,6 +257,40 @@ Response Fields in normal cases.
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10004</ns2:campaignId>
+            <ns2:campaignTrackId>100000004</ns2:campaignTrackId>
+            <ns2:campaignName>DynamicAdsForSearchSetting Campaign.</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:budget>
+              <ns2:period>DAILY</ns2:period>
+              <ns2:amount>10000</ns2:amount>
+              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:biddingStrategyConfiguration>
+              <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+              <ns2:biddingStrategyName>ManualCpcBiddingScheme.</ns2:biddingStrategyName>
+              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
+              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCpcBiddingScheme">
+                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              </ns2:biddingScheme>
+            </ns2:biddingStrategyConfiguration>
+            <ns2:conversionOptimizerEligibility>ENABLE</ns2:conversionOptimizerEligibility>
+            <ns2:adServingOptimizationStatus>OPTIMIZE</ns2:adServingOptimizationStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAdsForSearchSetting">
+              <ns2:type>DYNAMIC_ADS_FOR_SEARCH_SETTING</ns2:type>
+              <ns2:feedFolderIds>11111</ns2:feedFolderIds>
+            </ns2:settings>
+            <ns2:campaignType>DYNAMIC_ADS_FOR_SEARCH</ns2:campaignType>
+          </ns2:campaign>
+        </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
   </SOAP-ENV:Body>
@@ -275,14 +309,14 @@ Add campaign information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/Campaign">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -395,6 +429,25 @@ Add campaign information.
             </parameters>
           </customParameters>
         </operand>
+        <operand>
+          <campaignName>DynamicAdsForSearchSetting Campaign.</campaignName>
+          <userStatus>ACTIVE</userStatus>
+          <startDate>20170101</startDate>
+          <endDate>20371231</endDate>
+          <budget>
+            <period>DAILY</period>
+            <amount>10000</amount>
+            <deliveryMethod>STANDARD</deliveryMethod>
+          </budget>
+          <biddingStrategyConfiguration>
+            <biddingStrategyType>MANUAL_CPC</biddingStrategyType>
+          </biddingStrategyConfiguration>
+          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DynamicAdsForSearchSetting">
+            <type>DYNAMIC_ADS_FOR_SEARCH_SETTING</type>
+            <feedFolderIds>11111</feedFolderIds>
+          </settings>
+          <campaignType>DYNAMIC_ADS_FOR_SEARCH</campaignType>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -412,14 +465,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1523506331437</ns2:requestTime>
+      <ns2:requestTime>1532514147780</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -590,6 +643,40 @@ Response Fields in normal cases.
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10004</ns2:campaignId>
+            <ns2:campaignTrackId>100000004</ns2:campaignTrackId>
+            <ns2:campaignName>DynamicAdsForSearchSetting Campaign.</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:budget>
+              <ns2:period>DAILY</ns2:period>
+              <ns2:amount>10000</ns2:amount>
+              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:biddingStrategyConfiguration>
+              <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+              <ns2:biddingStrategyName>ManualCpcBiddingScheme.</ns2:biddingStrategyName>
+              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
+              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCpcBiddingScheme">
+                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              </ns2:biddingScheme>
+            </ns2:biddingStrategyConfiguration>
+            <ns2:conversionOptimizerEligibility>ENABLE</ns2:conversionOptimizerEligibility>
+            <ns2:adServingOptimizationStatus>OPTIMIZE</ns2:adServingOptimizationStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAdsForSearchSetting">
+              <ns2:type>DYNAMIC_ADS_FOR_SEARCH_SETTING</ns2:type>
+              <ns2:feedFolderIds>11111</ns2:feedFolderIds>
+            </ns2:settings>
+            <ns2:campaignType>DYNAMIC_ADS_FOR_SEARCH</ns2:campaignType>
+          </ns2:campaign>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -608,14 +695,14 @@ Updates the information related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/Campaign">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -676,6 +763,20 @@ Updates the information related to campaigns.
             <targetAll>DEACTIVE</targetAll>
           </settings>
         </operand>
+        <operand>
+          <campaignId>10004</campaignId>
+          <campaignName>set DynamicAdsForSearchSetting Campaign.</campaignName>
+          <userStatus>ACTIVE</userStatus>
+          <endDate>20301231</endDate>
+          <budget>
+            <amount>20000</amount>
+          </budget>
+          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DynamicAdsForSearchSetting">
+            <type>DYNAMIC_ADS_FOR_SEARCH_SETTING</type>
+            <feedFolderIds>11111</feedFolderIds>
+          </settings>
+          <campaignType>DYNAMIC_ADS_FOR_SEARCH</campaignType>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -693,14 +794,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1523506331483</ns2:requestTime>
+      <ns2:requestTime>1532514147928</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -871,6 +972,40 @@ Response Fields in normal cases.
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10004</ns2:campaignId>
+            <ns2:campaignTrackId>100000004</ns2:campaignTrackId>
+            <ns2:campaignName>set MobileApp(IOS) Campaign with ManualCpcBiddingScheme.</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20301231</ns2:endDate>
+            <ns2:budget>
+              <ns2:period>DAILY</ns2:period>
+              <ns2:amount>20000</ns2:amount>
+              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:biddingStrategyConfiguration>
+              <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+              <ns2:biddingStrategyName>ManualCpcBiddingScheme.</ns2:biddingStrategyName>
+              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
+              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCpcBiddingScheme">
+                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              </ns2:biddingScheme>
+            </ns2:biddingStrategyConfiguration>
+            <ns2:conversionOptimizerEligibility>ENABLE</ns2:conversionOptimizerEligibility>
+            <ns2:adServingOptimizationStatus>OPTIMIZE</ns2:adServingOptimizationStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAdsForSearchSetting">
+              <ns2:type>DYNAMIC_ADS_FOR_SEARCH_SETTING</ns2:type>
+              <ns2:feedFolderIds>11111</ns2:feedFolderIds>
+            </ns2:settings>
+            <ns2:campaignType>DYNAMIC_ADS_FOR_SEARCH</ns2:campaignType>
+          </ns2:campaign>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -889,14 +1024,14 @@ Removes the inforamtion related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/Campaign">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -908,6 +1043,9 @@ Removes the inforamtion related to campaigns.
         </operand>
         <operand>
           <campaignId>10003</campaignId>
+        </operand>
+        <operand>
+          <campaignId>10004</campaignId>
         </operand>
       </operations>
     </mutate>
@@ -926,14 +1064,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1523506331526</ns2:requestTime>
+      <ns2:requestTime>1532514148055</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1102,6 +1240,40 @@ Response Fields in normal cases.
             <ns2:urlReviewData>
               <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
             </ns2:urlReviewData>
+          </ns2:campaign>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10004</ns2:campaignId>
+            <ns2:campaignTrackId>100000004</ns2:campaignTrackId>
+            <ns2:campaignName>DynamicAdsForSearchSetting Campaign.</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:budget>
+              <ns2:period>DAILY</ns2:period>
+              <ns2:amount>10000</ns2:amount>
+              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:biddingStrategyConfiguration>
+              <ns2:biddingStrategyId>20003</ns2:biddingStrategyId>
+              <ns2:biddingStrategyName>ManualCpcBiddingScheme.</ns2:biddingStrategyName>
+              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
+              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCpcBiddingScheme">
+                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
+              </ns2:biddingScheme>
+            </ns2:biddingStrategyConfiguration>
+            <ns2:conversionOptimizerEligibility>ENABLE</ns2:conversionOptimizerEligibility>
+            <ns2:adServingOptimizationStatus>OPTIMIZE</ns2:adServingOptimizationStatus>
+            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAdsForSearchSetting">
+              <ns2:type>DYNAMIC_ADS_FOR_SEARCH_SETTING</ns2:type>
+              <ns2:feedFolderIds>11111</ns2:feedFolderIds>
+            </ns2:settings>
+            <ns2:campaignType>DYNAMIC_ADS_FOR_SEARCH</ns2:campaignType>
           </ns2:campaign>
         </ns2:values>
       </ns2:rval>

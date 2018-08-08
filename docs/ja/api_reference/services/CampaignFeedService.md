@@ -3,10 +3,10 @@ CampaignFeedServiceでは、キャンペーンのFeedItem情報の取得およ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/CampaignFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/CampaignFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/CampaignFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/CampaignFeedService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/CampaignFeed
+http://ss.yahooapis.jp/V201808/CampaignFeed
 #### サービス概要
 キャンペーンのFeedItem情報の取得およびFeedItem情報の追加・更新・削除を行います。
 #### 操作
@@ -29,14 +29,14 @@ CampaignFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -72,14 +72,14 @@ CampaignFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>CampaignFeed</ns2:service>
       <ns2:requestTime>1523506332070</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignFeed">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignFeed">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>CampaignFeedPage</Page.Type>
@@ -120,14 +120,14 @@ CampaignFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -155,14 +155,14 @@ CampaignFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>CampaignFeed</ns2:service>
       <ns2:requestTime>1523506332086</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/CampaignFeed">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignFeed">
       <ns2:rval>
         <ListReturnValue.Type>CampaignFeedReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

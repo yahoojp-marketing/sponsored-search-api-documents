@@ -144,11 +144,12 @@ Campaign object describes Campaign information.
   <td>Ignore</td>
  </tr>
   <tr>
-  <td>settings[0..2]</td>
+  <td>settings[0..3]</td>
   <td>
   <a href="CampaignSettings.md">CampaignSettings</a><br>
   inherited <a href="GeoTargetTypeSetting.md">GeoTargetTypeSetting</a><br>
-  inherited <a href="TargetingSetting.md">TargetingSetting</a>
+  inherited <a href="TargetingSetting.md">TargetingSetting</a><br>
+  inherited <a href="DynamicAdsForSearchSetting.md">DynamicAdsForSearchSetting</a>
   </td>
   <td>Setting of target and matching.</td>
   <td>yes</td>

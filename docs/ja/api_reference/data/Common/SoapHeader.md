@@ -3,7 +3,7 @@ SoapHeaderオブジェクトは、SOAPリクエスト時のヘッダー情報を
 ### Service
 全サービス共通
 ### Namespace
-http://ss.yahooapis.jp/V201805
+http://ss.yahooapis.jp/V201808
 
 | フィールド | データ型 | 説明 |
 |---|---|---|

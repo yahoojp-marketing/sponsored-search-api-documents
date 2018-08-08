@@ -3,10 +3,10 @@ LocationServiceでは、アカウントのロケーション情報を取得し�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/LocationService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/LocationService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/LocationService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/LocationService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/Location
+http://ss.yahooapis.jp/V201808/Location
 #### サービス概要
 アカウントのコロケーションの取得を行います。<br>
 ※LocationService自体は、LocationServiceのWSDLに記載されたメインURLを使用します。
@@ -42,7 +42,7 @@ LocationServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://ss.yahooapis.jp/V201805/Location">
+  xmlns:ns1="http://ss.yahooapis.jp/V201808/Location">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -62,14 +62,14 @@ LocationServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/Location" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Location" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/Location">
+    <get xmlns="http://ss.yahooapis.jp/V201808/Location">
       <accountId>1234567890</accountId>
     </get>
   </SOAP-ENV:Body>
@@ -85,14 +85,14 @@ LocationServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/Location" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Location" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>Location</ns2:service>
       <ns2:requestTime>1522028288536</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/Location">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Location">
       <ns2:rval>
         <operationSucceeded>true</operationSucceeded>
         <ns2:value>https://ss.yahooapis.jp/xxx</ns2:value>

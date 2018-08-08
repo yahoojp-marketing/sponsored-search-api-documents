@@ -4,11 +4,11 @@ AdGroupRetargetingListServiceでは、広告グループレベルでのターゲ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AdGroupRetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupRetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AdGroupRetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupRetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/AdGroupRetargetingList
+http://ss.yahooapis.jp/V201808/AdGroupRetargetingList
 
 #### サービス概要
 広告グループレベルでのターゲットリスト設定に関する情報の取得および追加・更新・削除を行います。
@@ -37,14 +37,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1111</accountId>
         <campaignIds>1</campaignIds>
@@ -75,14 +75,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupRetargetingList</ns2:service>
       <ns2:requestTime>1523506329991</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:values>
@@ -120,14 +120,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <operations>
         <operator>ADD</operator>
         <accountId>1111111</accountId>
@@ -165,14 +165,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupRetargetingList</ns2:service>
       <ns2:requestTime>1523506330007</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -228,14 +228,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <operations>
         <operator>SET</operator>
         <accountId>1111111</accountId>
@@ -273,14 +273,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupRetargetingList</ns2:service>
       <ns2:requestTime>1523506330025</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -336,14 +336,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111111</accountId>
@@ -380,14 +380,14 @@ AdGroupRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupRetargetingList</ns2:service>
       <ns2:requestTime>1523506330044</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

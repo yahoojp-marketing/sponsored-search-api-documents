@@ -16,4 +16,5 @@
 * [データ自動挿入レポート](./reports/AD_CUSTOMIZERS.csv)
 * [ターゲットリスト設定レポート](./reports/TARGET_LIST.csv)
 * [最終リンク先URLレポート](./reports/LANDING_PAGE_URL.csv)
-
+* [検索クエリーレポート（動的検索連動型広告）](./reports/KEYWORDLESS_QUERY.csv)
+* [ページフィードターゲティングレポート](./reports/WEBPAGE_CRITERION.csv)

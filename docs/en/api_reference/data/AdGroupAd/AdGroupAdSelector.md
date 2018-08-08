@@ -59,7 +59,7 @@ Target ad and filter conditions which AdGroupAd to return.
   <td>-</td>
  </tr>
  <tr>
-  <td>adTypes[0...3]</td>
+  <td>adTypes[0...4]</td>
   <td>enum <a href="AdType.md">AdType</a></td>
   <td>Search condition: Type of ad.</td>
   <td>-</td>

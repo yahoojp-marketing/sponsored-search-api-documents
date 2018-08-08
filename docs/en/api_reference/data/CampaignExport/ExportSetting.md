@@ -200,4 +200,4 @@ ExportSetting object describes the condition for exports.
  </tr>
 </table>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="ƒNƒŠƒGƒCƒeƒBƒuEƒRƒ‚ƒ“ƒYEƒ‰ƒCƒZƒ“ƒX" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />‚±‚Ì ì•i ‚Í <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">ƒNƒŠƒGƒCƒeƒBƒuEƒRƒ‚ƒ“ƒY •\Ž¦ - ‰ü•Ï‹ÖŽ~ 2.1 “ú–{ ƒ‰ƒCƒZƒ“ƒX‚Ì‰º‚É’ñ‹Ÿ‚³‚ê‚Ä‚¢‚Ü‚·B</a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="ã‚¯ãƒªã‚¨ã‚¤ãƒ†ã‚£ãƒ–ãƒ»ã‚³ãƒ¢ãƒ³ã‚ºãƒ»ãƒ©ã‚¤ã‚»ãƒ³ã‚¹" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />ã“ã® ä½œå“ ã¯ <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">ã‚¯ãƒªã‚¨ã‚¤ãƒ†ã‚£ãƒ–ãƒ»ã‚³ãƒ¢ãƒ³ã‚º è¡¨ç¤º - æ”¹å¤‰ç¦æ­¢ 2.1 æ—¥æœ¬ ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã®ä¸‹ã«æä¾›ã•ã‚Œã¦ã„ã¾ã™ã€‚</a>

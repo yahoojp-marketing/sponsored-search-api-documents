@@ -26,7 +26,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyName</td>
@@ -34,9 +34,9 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
   <td>自動入札名です。<br>※50文字以内になります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyType</td>
@@ -46,7 +46,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategySource</td>
@@ -54,9 +54,9 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
   <td>入札ソースです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingScheme</td>
@@ -64,9 +64,9 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
   <td>自動入札設定の詳細です。<br>※BudgetOptimizerBiddingSchemeは現在設定できません。同項目を設定していたキャンペーンには、2017年4月12日にTargetSpendBiddingSchemeが設定されました。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

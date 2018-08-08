@@ -1,5 +1,5 @@
 # AuditLogOperation
-AuditLogJobOperation object retains the job information to be added.
+AuditLogOperation object retains the job information to be added.
 
 ### Service
 + [AuditLogService](../../services/AuditLogService.md)

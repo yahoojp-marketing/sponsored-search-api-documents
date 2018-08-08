@@ -13,3 +13,5 @@ SOAPエラーコードです。
 トラッキングパラメータの説明です。
 #### [バージョン体系とwsdl構成の変更について](/docs/ja/api_reference/appendix/numbering_new_versions.md)
 V201805より変更したバージョン体系とwsdl構成についての説明です。
+#### [エラーコードの再編について](/docs/ja/api_reference/appendix/error_codes_structure.md)
+V201806で実施したエラーコードの再編についての説明です。

@@ -23,5 +23,8 @@ ReportType displays a type of available report.
 | AD_CUSTOMIZERS| xsd:string |Data Auto Insertion Report.<br>Performance data for selected Data Auto Insertion. |
 | TARGET_LIST| xsd:string |Target List Report.<br>Performance data for selected target list. |
 | LANDING_PAGE_URL| xsd:string |Landing Page Report.<br>Performance data for the final URL. |
+| KEYWORDLESS_QUERY| xsd:string|Search Query Report(DAS). |
+| WEBPAGE_CRITERION| xsd:string|Page Feed Targeting Report. |
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

@@ -26,7 +26,7 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyName</td>
@@ -34,9 +34,9 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
   <td>Auto Bidding name.<br>*Up to 50 characters.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategyType</td>
@@ -46,7 +46,7 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingStrategySource</td>
@@ -54,9 +54,9 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
   <td>Bidding source.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingScheme</td>
@@ -65,9 +65,9 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
   *BudgetOptimizerBiddingScheme is currently unavailable. On April 12, 2017, TargetSpendBiddingScheme has been set to campaigns which had been set this item instead.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

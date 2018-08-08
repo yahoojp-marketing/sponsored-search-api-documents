@@ -4,11 +4,11 @@ Use this service to get, add, update, or remove information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/AdGroupAd
+http://ss.yahooapis.jp/V201808/AdGroupAd
 
 #### Overview
 Use this service to create, update and remove ads.
@@ -36,14 +36,14 @@ Returns ad information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>20001</campaignIds>
@@ -64,6 +64,7 @@ Returns ad information.
         <adTypes>TEXT_AD2</adTypes>
         <adTypes>APP_AD</adTypes>
         <adTypes>EXTENDED_TEXT_AD</adTypes>
+        <adTypes>DYNAMIC_SEARCH_LINKED_AD</adTypes>
         <userStatuses>ACTIVE</userStatuses>
         <userStatuses>PAUSED</userStatuses>
         <approvalStatuses>APPROVED</approvalStatuses>
@@ -92,16 +93,16 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1523506328552</ns2:requestTime>
+      <ns2:requestTime>1532511244612</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <ns2:rval>
-        <totalNumEntries>4</totalNumEntries>
+        <totalNumEntries>5</totalNumEntries>
         <Page.Type>AdGroupAdPage</Page.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -233,6 +234,27 @@ Response Fields
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20005</ns2:campaignId>
+            <ns2:campaignTrackId>200000005</ns2:campaignTrackId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>30005</ns2:adGroupId>
+            <ns2:adGroupTrackId>300000005</ns2:adGroupTrackId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:adId>40005</ns2:adId>
+            <ns2:adTrackId>400000005</ns2:adTrackId>
+            <ns2:adName>sample dynamic search linked ad.</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
+              <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
+              <ns2:description>sample ad description.</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
   </SOAP-ENV:Body>
@@ -252,14 +274,14 @@ Add informations of ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -349,6 +371,16 @@ Add informations of ad.
             <path2>path2</path2>
           </ad>
         </operand>
+        <operand>
+          <campaignId>20005</campaignId>
+          <adGroupId>30005</adGroupId>
+          <adName>sample dynamic search linked ad.</adName>
+          <userStatus>ACTIVE</userStatus>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ExtendedTextAd">
+            <type>DYNAMIC_SEARCH_LINKED_AD</type>
+            <description>sample ad description.</description>
+          </ad>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -366,14 +398,14 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1523506328609</ns2:requestTime>
+      <ns2:requestTime>1532511245130</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -507,6 +539,27 @@ Response Fields
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20005</ns2:campaignId>
+            <ns2:campaignTrackId>200000005</ns2:campaignTrackId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>30005</ns2:adGroupId>
+            <ns2:adGroupTrackId>300000005</ns2:adGroupTrackId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:adId>40005</ns2:adId>
+            <ns2:adTrackId>400000005</ns2:adTrackId>
+            <ns2:adName>sample dynamic search linked ad.</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
+              <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
+              <ns2:description>sample ad description.</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -526,14 +579,14 @@ Updates ad information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -565,6 +618,13 @@ Updates ad information.
           <adName>sample extended text ad.</adName>
           <userStatus>ACTIVE</userStatus>
         </operand>
+        <operand>
+          <campaignId>20005</campaignId>
+          <adGroupId>30005</adGroupId>
+          <adId>40005</adId>
+          <adName>sample dynamic search linked ad.</adName>
+          <userStatus>ACTIVE</userStatus>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -582,14 +642,14 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1523506328649</ns2:requestTime>
+      <ns2:requestTime>1532511245305</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -723,6 +783,27 @@ Response Fields
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20005</ns2:campaignId>
+            <ns2:campaignTrackId>200000005</ns2:campaignTrackId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>30005</ns2:adGroupId>
+            <ns2:adGroupTrackId>300000005</ns2:adGroupTrackId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:adId>40005</ns2:adId>
+            <ns2:adTrackId>400000005</ns2:adTrackId>
+            <ns2:adName>sample dynamic search linked ad.</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
+              <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
+              <ns2:description>sample ad description.</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -742,14 +823,14 @@ Remove ad information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -773,6 +854,11 @@ Remove ad information.
           <adGroupId>30004</adGroupId>
           <adId>40004</adId>
         </operand>
+        <operand>
+          <campaignId>20005</campaignId>
+          <adGroupId>30005</adGroupId>
+          <adId>40005</adId>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -790,14 +876,14 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1523506328686</ns2:requestTime>
+      <ns2:requestTime>1532511245422</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -928,6 +1014,27 @@ Response Fields
               <ns2:headline2>sample ad title2.</ns2:headline2>
               <ns2:path1>path1</ns2:path1>
               <ns2:path2>path2</ns2:path2>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20005</ns2:campaignId>
+            <ns2:campaignTrackId>200000005</ns2:campaignTrackId>
+            <ns2:campaignName>sample campaign.</ns2:campaignName>
+            <ns2:adGroupId>30005</ns2:adGroupId>
+            <ns2:adGroupTrackId>300000005</ns2:adGroupTrackId>
+            <ns2:adGroupName>sample adGroup.</ns2:adGroupName>
+            <ns2:adId>40005</ns2:adId>
+            <ns2:adTrackId>400000005</ns2:adTrackId>
+            <ns2:adName>sample dynamic search linked ad.</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
+              <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
+              <ns2:description>sample ad description.</ns2:description>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>

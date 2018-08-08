@@ -3,10 +3,10 @@ KeywordEstimatorServiceは、既存のキャンペーンの登録内容（デバ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/KeywordEstimatorService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/KeywordEstimatorService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/KeywordEstimatorService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/KeywordEstimatorService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201805/KeywordEstimator
+http://ss.yahooapis.jp/V201808/KeywordEstimator
 #### サービス概要
 既存のキャンペーンの登録内容（デバイス、地域ターゲティングの設定状況、など）に基づき、獲得できるトラフィックの見積もり機能を提供します。
 #### 操作
@@ -15,7 +15,7 @@ KeywordEstimatorServiceで提供される操作を説明します。
 + [get](#get)
 
 #### オブジェクト
-[CampaignTarget](../data/KeywordEstimator/KeywordEstimator)
+[KeywordEstimator](../data/KeywordEstimator)
 
 ## get
 
@@ -30,14 +30,14 @@ KeywordEstimatorServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator">
+    <get xmlns="http://ss.yahooapis.jp/V201808/KeywordEstimator">
       <selector>
         <accountId>1000000001</accountId>
         <campaignEstimateRequest>
@@ -84,14 +84,14 @@ KeywordEstimatorServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/KeywordEstimator" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>KeywordEstimator</ns2:service>
       <ns2:requestTime>1523506336055</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/KeywordEstimator">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/KeywordEstimator">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <Page.Type>KeywordEstimatorPage</Page.Type>

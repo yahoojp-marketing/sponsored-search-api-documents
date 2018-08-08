@@ -4,11 +4,11 @@ AdGroupCriterionServiceでは、広告グループに関するターゲット条
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AdGroupCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AdGroupCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AdGroupCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupCriterionService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/AdGroupCriterion
+http://ss.yahooapis.jp/V201808/AdGroupCriterion
 
 #### サービス概要
 広告グループに関するターゲット条件（クライテリア）の取得および追加・更新・削除を行います。
@@ -36,14 +36,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -83,14 +83,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupCriterion</ns2:service>
       <ns2:requestTime>1523506329242</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupCriterionPage</Page.Type>
@@ -186,14 +186,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -277,14 +277,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupCriterion</ns2:service>
       <ns2:requestTime>1523506329298</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -400,14 +400,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -476,14 +476,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupCriterion</ns2:service>
       <ns2:requestTime>1523506329348</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -598,14 +598,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -644,14 +644,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AdGroupCriterion</ns2:service>
       <ns2:requestTime>1523506329407</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

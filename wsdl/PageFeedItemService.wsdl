@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        targetNamespace="http://ss.yahooapis.jp/V201808/PageFeedItem"
+        xmlns:tns="http://ss.yahooapis.jp/V201808/PageFeedItem"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://ss.yahooapis.jp/V201808"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://ss.yahooapis.jp/V201808">
+      <complexType name="SoapHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SoapResponseHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://ss.yahooapis.jp/V201808/PageFeedItem"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://ss.yahooapis.jp/V201808"
+            xmlns:tns="http://ss.yahooapis.jp/V201808/PageFeedItem">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
+      <annotation>
+        <appinfo>
+          <version>0.0.1</version>
+        </appinfo>
+      </annotation>
+      <simpleType name="BulkLang">
+        <restriction base="xsd:string">
+          <enumeration value="JA"/>
+          <enumeration value="EN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="BulkOutput">
+        <restriction base="xsd:string">
+          <enumeration value="CSV"/>
+          <enumeration value="TSV"/>
+          <enumeration value="ZIPPED_CSV"/>
+          <enumeration value="ZIPPED_TSV"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="BulkEncoding">
+        <restriction base="xsd:string">
+          <enumeration value="SJIS"/>
+          <enumeration value="UTF-8"/>
+          <enumeration value="UTF-16LE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="PageFeedItemUploadType">
+        <restriction base="xsd:string">
+          <enumeration value="NEW_OR_REPLACE"/>
+          <enumeration value="MODIFY"/>
+        </restriction>
+      </simpleType>
+      <complexType name="PageFeedItemUploadUrl">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="uploadType" type="tns:PageFeedItemUploadType"/>
+          <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="url" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemUploadUrlOperation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="operand" type="tns:PageFeedItemUploadUrl"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemUploadUrlPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:PageFeedItemUploadUrlValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemUploadUrlValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="uploadUrl" type="tns:PageFeedItemUploadUrl"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemJobStatusSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="jobIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="jobType" type="tns:PageFeedItemJobType"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+        </sequence>
+      </complexType>
+      <simpleType name="PageFeedItemJobType">
+        <restriction base="xsd:string">
+          <enumeration value="UPLOAD"/>
+          <enumeration value="DOWNLOAD"/>
+        </restriction>
+      </simpleType>
+      <complexType name="PageFeedItemJobStatusPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:PageFeedItemJobValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemJobValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="job" type="tns:PageFeedItemJob"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemDownloadJobReturnValue">
+        <complexContent>
+          <extension base="adv:ListReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:PageFeedItemDownloadJobValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemDownloadJobValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="job" type="tns:PageFeedItemDownloadJob"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType abstract="true" name="PageFeedItemJob">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="jobId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="feedFolderIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="progress" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemUploadJob">
+        <complexContent>
+          <extension base="tns:PageFeedItemJob">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="uploadJobStatus" type="tns:PageFeedItemUploadJobStatus"/>
+              <element maxOccurs="1" minOccurs="0" name="errorCount" type="xsd:int"/>
+              <element maxOccurs="1" minOccurs="0" name="errorFileUrl" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemDownloadJobOperation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="operand" type="tns:PageFeedItemDownloadJob"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemDownloadJob">
+        <complexContent>
+          <extension base="tns:PageFeedItemJob">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="lang" type="tns:BulkLang"/>
+              <element maxOccurs="1" minOccurs="0" name="output" type="tns:BulkOutput"/>
+              <element maxOccurs="1" minOccurs="0" name="encoding" type="tns:BulkEncoding"/>
+              <element maxOccurs="1" minOccurs="0" name="downloadJobStatus" type="tns:PageFeedItemDownloadJobStatus"/>
+              <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <simpleType name="PageFeedItemUploadJobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="COMPLETED_WITH_VALIDATION_ERROR"/>
+          <enumeration value="FILE_FORMAT_ERROR"/>
+          <enumeration value="FILE_ENCODING_ERROR"/>
+          <enumeration value="COLUMN_HEADER_ERROR"/>
+          <enumeration value="EXCEED_ROW_LINES"/>
+          <enumeration value="EXCEED_FILE_COUNTS"/>
+          <enumeration value="INVALID_FEED_FOLDER_ID"/>
+          <enumeration value="TIMEOUT"/>
+          <enumeration value="SYSTEM_ERROR"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="PageFeedItemDownloadJobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="FIELDS_ERROR"/>
+          <enumeration value="TIMEOUT"/>
+          <enumeration value="SYSTEM_ERROR"/>
+        </restriction>
+      </simpleType>
+      <complexType name="PageFeedItemReviewSummarySelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="feedFolderIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemReviewSummaryPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:PageFeedItemReviewSummaryValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemReviewSummaryValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="reviewSummary" type="tns:PageFeedItemReviewSummary"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemReviewSummary">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="entityCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="approvedCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="approvedWithReviewCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reviewCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="preDisapprovedCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="postDisapprovedCount" type="xsd:long"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedItemSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="1" name="feedFolderIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:PageFeedItemApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="pageFeedUrl" type="tns:PageFeedUrl"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="pageFeedCustomLabel" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+        </sequence>
+      </complexType>
+      <complexType name="PageFeedUrl">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="text" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="matchType" type="tns:PageFeedUrlMatchType"/>
+        </sequence>
+      </complexType>
+      <simpleType name="PageFeedUrlMatchType">
+        <restriction base="xsd:string">
+          <enumeration value="EXACT"/>
+          <enumeration value="BROAD"/>
+        </restriction>
+      </simpleType>
+      <complexType name="PageFeedItemPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:PageFeedItemReturnValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItemReturnValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="pageFeedItem" type="tns:PageFeedItem"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PageFeedItem">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="pageFeedItemId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="approvalStatus" type="tns:PageFeedItemApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="disapprovalReasonComment" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="pageFeedUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="pageFeedCustomLabel" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="PageFeedItemApprovalStatus">
+        <restriction base="xsd:string">
+          <enumeration value="APPROVED"/>
+          <enumeration value="APPROVED_WITH_REVIEW"/>
+          <enumeration value="REVIEW"/>
+          <enumeration value="PRE_DISAPPROVED"/>
+          <enumeration value="POST_DISAPPROVED"/>
+        </restriction>
+      </simpleType>
+      <element name="addDownloadJob">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:PageFeedItemDownloadJobOperation"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addDownloadJobResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:PageFeedItemDownloadJobReturnValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="operations" type="tns:PageFeedItemUploadUrlOperation"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:PageFeedItemUploadUrlPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getJobStatus">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:PageFeedItemJobStatusSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getJobStatusResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:PageFeedItemJobStatusPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getReviewSummary">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:PageFeedItemReviewSummarySelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getReviewSummaryResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:PageFeedItemReviewSummaryPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="get">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:PageFeedItemSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:PageFeedItemPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="RequestHeader">
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ResponseHeader">
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+  </wsdl:message>
+  <wsdl:message name="addDownloadJobRequest">
+    <wsdl:part element="tns:addDownloadJob" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addDownloadJobResponse">
+    <wsdl:part element="tns:addDownloadJobResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getJobStatusRequest">
+    <wsdl:part element="tns:getJobStatus" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getJobStatusResponse">
+    <wsdl:part element="tns:getJobStatusResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlRequest">
+    <wsdl:part element="tns:getUploadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlResponse">
+    <wsdl:part element="tns:getUploadUrlResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getReviewSummaryRequest">
+    <wsdl:part element="tns:getReviewSummary" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getReviewSummaryResponse">
+    <wsdl:part element="tns:getReviewSummaryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getRequest">
+    <wsdl:part element="tns:get" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getResponse">
+    <wsdl:part element="tns:getResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApiException">
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+  </wsdl:message>
+  <wsdl:portType name="PageFeedItemServiceInterface">
+    <wsdl:operation name="addDownloadJob">
+      <wsdl:input message="tns:addDownloadJobRequest" name="addDownloadJobRequest"/>
+      <wsdl:output message="tns:addDownloadJobResponse" name="addDownloadJobResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getJobStatus">
+      <wsdl:input message="tns:getJobStatusRequest" name="getJobStatusRequest"/>
+      <wsdl:output message="tns:getJobStatusResponse" name="getJobStatusResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdl:input message="tns:getUploadUrlRequest" name="getUploadUrlRequest"/>
+      <wsdl:output message="tns:getUploadUrlResponse" name="getUploadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getReviewSummary">
+      <wsdl:input message="tns:getReviewSummaryRequest" name="getReviewSummaryRequest"/>
+      <wsdl:output message="tns:getReviewSummaryResponse" name="getReviewSummaryResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="get">
+      <wsdl:input message="tns:getRequest" name="getRequest"/>
+      <wsdl:output message="tns:getResponse" name="getResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PageFeedItemServiceSoapBinding" type="tns:PageFeedItemServiceInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addDownloadJob">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addDownloadJobRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addDownloadJobResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getJobStatus">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getJobStatusRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getJobStatusResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUploadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUploadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getReviewSummary">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getReviewSummaryRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getReviewSummaryResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="get">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PageFeedItemServiceService">
+    <wsdl:port binding="tns:PageFeedItemServiceSoapBinding" name="PageFeedItemService">
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/PageFeedItemService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

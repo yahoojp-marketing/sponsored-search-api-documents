@@ -5,11 +5,11 @@ AccountSharedServiceは、アカウント内で共有できる対象外キーワ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201805/AccountSharedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201805/AccountSharedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201808/AccountSharedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AccountSharedService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201805/AccountShared
+http://ss.yahooapis.jp/V201808/AccountShared
 
 #### サービス概要
 対象外キーワードリストの照会、追加、変更、削除を行ないます。
@@ -40,14 +40,14 @@ AccountSharedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <get xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <selector>
         <accountId>111111</accountId>
         <sharedListIds>22</sharedListIds>
@@ -72,14 +72,14 @@ AccountSharedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AccountShared</ns2:service>
       <ns2:requestTime>1523506326966</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountShared">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -110,14 +110,14 @@ AccountSharedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -141,14 +141,14 @@ mutateメソッドの実行結果（全エンティティのリスト）を保�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AccountShared</ns2:service>
       <ns2:requestTime>1523506327013</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -179,14 +179,14 @@ mutateメソッドの実行結果（全エンティティのリスト）を保�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
       <operations>
         <operator>SET</operator>
         <accountId>1111</accountId>
@@ -211,14 +211,14 @@ mutateメソッドの実行結果（全エンティティのリスト）を保�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AccountShared</ns2:service>
       <ns2:requestTime>1523506327037</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -250,14 +250,14 @@ mutateメソッドの実行結果（全エンティティのリスト）を保�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201805/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111</accountId>
@@ -281,14 +281,14 @@ mutateメソッドの実行結果（全エンティティのリスト）を保�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201805/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201805">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
       <ns2:service>AccountShared</ns2:service>
       <ns2:requestTime>1523506327056</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201805" xmlns:ns2="http://ss.yahooapis.jp/V201805/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

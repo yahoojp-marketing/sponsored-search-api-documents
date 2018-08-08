@@ -46,7 +46,7 @@ Target ROAS                                  | 0.01 to 1,000.00 (1% to 100,000%)
 Symbol  | Convert           | Example 
 ------- | ----------------- | ------------------
 Double-byte space | Single-byte space | 「　」→「 」
-Single-byte Japanese character | Double-byte Japanese character | ｱｲｳｴｵ → アイウエオ
+Single-byte Japanese character | Double-byte Japanese character | アイウエオ → アイウエオ
 Double-byte number | Single-byte number | １２３５ →　1235
 Double-byte alpha character | Single-byte alpha character | ＡＢＣＤ → ABCD
 Multi space | 1 single-byte space | 「あい　　うえお」→「あい うえお」

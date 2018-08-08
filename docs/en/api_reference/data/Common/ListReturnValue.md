@@ -4,7 +4,7 @@ Basic list of return value type.
 Common mutate operations
 
 ### Namespace
-http://ss.yahooapis.jp/V201805
+http://ss.yahooapis.jp/V201808
 
 | Field | Data Type | Description | 
 |---|---|---|

@@ -16,3 +16,5 @@ Click a report type to check details of reporting field to be specified.
 * [Data Auto Insertion Report](./reports/AD_CUSTOMIZERS.csv)
 * [Target List Setting Report](./reports/TARGET_LIST.csv)
 * [Landing Page URL Report](./reports/LANDING_PAGE_URL.csv)
+* [Search Query Report (Dynamic Ads for Search)](./reports/KEYWORDLESS_QUERY.csv)
+* [Page Feed Targeting Report](./reports/WEBPAGE_CRITERION.csv)

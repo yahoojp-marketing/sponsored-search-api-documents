@@ -1,5 +1,5 @@
 # DevicePreference (enum)
-DevicePreferenceは、広告を優先的に配信するデバイスを選択します。
+DevicePreference then select a device delivering an advertisement with precedence.
 
 ### Service
 + [AdGroupAdService](../../services/AdGroupAdService.md)
