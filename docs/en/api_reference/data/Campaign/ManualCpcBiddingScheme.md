@@ -40,7 +40,7 @@ ManualCpcBiddingScheme object displays a setting of Manual Bid.
   <td>Flag of Maximize Conversions.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>Default：TRUE</td>
+  <td>Optional<br>Default：FALSE</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>

@@ -40,7 +40,7 @@ ManualCpcBiddingSchemeオブジェクトは、手動入札の設定情報を表�
   <td>コンバージョン数の最大化設定フラグ</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>デフォルト値：TRUE</td>
+  <td>Optional<br>デフォルト値：FALSE</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
