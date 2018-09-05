@@ -56,3 +56,5 @@
 "DESC","説明文","Description","description","STRING","true",
 "DIRECTORY1","ディレクトリ1","Directory1","directory1","STRING","true",
 "DIRECTORY2","ディレクトリ2","Directory2","directory2","STRING","true",
+"LABELS","ラベル","Labels","Labels","STRING","true",
+"LABELS_JSON","ラベル(JSON)","Labels(JSON)","LabelsJson","STRING","true",
