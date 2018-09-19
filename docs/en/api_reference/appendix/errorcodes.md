@@ -120,6 +120,7 @@ LT001 | Over limit. | The upper limit value that can be registered is exceeded.
 210309| Set campaign to Manual CPC.  | Since the campaign is not "Manual CPC", bidding settings can not be used.
 210310| Select the correct bid type.  | It does not match the correct bid type.
 210311| Campaign has been started.  | The start date of a campaign that has already started can not change.
+210314| Cannot set Enhanced CPC for Mobile app download. | "Enhanced CPC" can not be set for Mobile app download.
 210400| Double setting in Auto bidding.| BiddingStrategyType and biddingStrategyId are both specified.
 210405| Budget has exceeded.  | The budget amount is exceeded.
 210409| Bid setting limit has exceed.  | The bid amount or Auto bidding number set for the ad / ad group under the campaign exceeds the maximum limit. <br> * 1 The maximum bid amount and Auto bidding setting that can be set for the campaign is 1000 in total for the ad group below.

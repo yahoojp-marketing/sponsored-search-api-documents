@@ -119,6 +119,7 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 210309| Set campaign to Manual CPC.  | キャンペーンが「MANUAL_CPC」でないため、入札設定が利用できません。
 210310| Select the correct bid type.  | 入札最適化タイプと一致しません。
 210311| Campaign has been started.  | すでに開始しているキャンペーンの開始日は変更できません。
+210314| Cannot set Enhanced CPC for Mobile app download. | アプリダウンロードキャンペーンに「拡張クリック単価」を設定しようとしています。
 210400| Double setting in Auto bidding.| 入札タイプと自動入札IDの両方を指定しています。
 210405| Budget has exceeded.  | 予算額を超過しています。
 210409| Bid setting limit has exceed.  | キャンペーン配下の広告広告グループに設定した入札金額または自動入札設定数が上限を超えています。<br>※1キャンペーンに設定できる入札金額および自動入札設定は、配下の広告グループ合計で1000件までです。
