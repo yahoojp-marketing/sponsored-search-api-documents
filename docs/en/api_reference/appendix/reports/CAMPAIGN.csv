@@ -51,3 +51,7 @@
 "CAMPAIGN_TYPE","キャンペーンタイプ","Campaign type","campaignType","ENUM","true",
 "LABELS","ラベル","Labels","Labels","STRING","true",
 "LABELS_JSON","ラベル(JSON)","Labels(JSON)","LabelsJson","STRING","true",
+"BID_STRATEGY_ID","自動入札ID","Auto Bidding ID","autoBiddingID","LONG","true",
+"BID_STRATEGY_NAME","自動入札名","Auto Bidding Name","autoBiddingName","STRING","true",
+"BID_STRATEGY_TYPE","入札方法","Bidding","bidding","ENUM","true",
+"ENHANCED_CPC_ENABLED","拡張クリック単価設定","Enhanced CPC","enhancedCpcEnabled","ENUM","true",
