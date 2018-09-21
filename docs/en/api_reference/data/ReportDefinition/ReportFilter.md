@@ -41,7 +41,7 @@ Filter condition can set up to 6.
  </tr>
   <td>value[0...200]</td>
   <td>xsd:string</td>
-  <td>Condition values to filter the field. <br>Use comma(,) to filter multiple fields.</td>
+  <td>Condition values to filter the field. </td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
