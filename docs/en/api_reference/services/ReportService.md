@@ -18,7 +18,7 @@ The following operations are provided:
 - Delete reports
 
 [Maximum number of report download job]
-- Up to 50 report download job that is saved as one-time report (Add Template: NO) can be added for regular and proxy authentications combined.<br>
+- Up to 60 report download job that is saved as one-time report (Add Template: NO) can be added for each regular or proxy authentications (ReportJobStatus: excluding COMPLETED or FAILED).<br>
 - There is no upper limits to the number of report download jobs that is saved as scheduled report (Add Template: YES).
 Example：<br>
 If you have already saved 40 report download jobs for regular authentication, you can add a maximum of 10 jobs for proxy authentication.<br>
