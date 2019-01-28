@@ -21,7 +21,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
  <tr>
   <td>biddingStrategyId</td>
   <td>xsd:long</td>
-  <td> 自動入札IDです。</td>
+  <td> 自動入札ID</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -31,7 +31,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
  <tr>
   <td>biddingStrategyName</td>
   <td>xsd:string</td>
-  <td>自動入札名です。<br>※50文字以内になります。</td>
+  <td>自動入札名<br>※50文字以内になります。</td>
   <td>yes</td>
   <td>-</td>
   <td>Ignore</td>
@@ -41,7 +41,7 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
  <tr>
   <td>biddingStrategyType</td>
   <td>enum <a href="BiddingStrategyType.md">BiddingStrategyType</a></td>
-  <td>自動入札タイプです。</td>
+  <td>自動入札タイプ</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -51,17 +51,17 @@ CampaignBiddingStrategyオブジェクトは、自動入札設定方法を表し
  <tr>
   <td>biddingStrategySource</td>
   <td>enum <a href="BiddingStrategySource.md">BiddingStrategySource</a></td>
-  <td>入札ソースです。</td>
+  <td>入札ソース</td>
   <td>yes</td>
   <td>-</td>
   <td>Ignore</td>
-  <td>Ignore</td
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>biddingScheme</td>
-  <td><a href="BiddingScheme.md">BiddingScheme</a><br> inherited <a href="ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="BudgetOptimizerBiddingScheme.md">BudgetOptimizerBiddingScheme </a><br> inherited <a href="EnhancedCpcBiddingScheme.md">EnhancedCpcBiddingScheme</a><br> inherited <a href="PageOnePromotedBiddingScheme.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="TargetCpaBiddingScheme.md">TargetCpaBiddingScheme</a><br> inherited <a href="TargetSpendBiddingScheme.md">TargetSpendBiddingScheme</a><br> inherited <a href="TargetRoasBiddingScheme.md">TargetRoasBiddingScheme</a></td>
-  <td>自動入札設定の詳細です。<br>※BudgetOptimizerBiddingSchemeは現在設定できません。同項目を設定していたキャンペーンには、2017年4月12日にTargetSpendBiddingSchemeが設定されました。</td>
+  <td><a href="BiddingScheme.md">BiddingScheme</a><br> inherited <a href="ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="PageOnePromotedBiddingScheme.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="TargetCpaBiddingScheme.md">TargetCpaBiddingScheme</a><br> inherited <a href="TargetSpendBiddingScheme.md">TargetSpendBiddingScheme</a><br> inherited <a href="TargetRoasBiddingScheme.md">TargetRoasBiddingScheme</a></td>
+  <td>自動入札設定の詳細です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>

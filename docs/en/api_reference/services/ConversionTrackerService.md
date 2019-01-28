@@ -6,10 +6,10 @@ Conversion tag will be shared both in Campaign Management Tool and API.<br>
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/ConversionTrackerService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/ConversionTrackerService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/ConversionTrackerService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/ConversionTrackerService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/ConversionTracker
+http://ss.yahooapis.jp/V201901/ConversionTracker
 #### Service Overview
 Get, add, update ConversionTracker informations.
 #### Notes
@@ -45,14 +45,14 @@ Describes the operation which provide at ConversionTrackerService
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -81,8 +81,6 @@ Describes the operation which provide at ConversionTrackerService
         <countingTypes>MANY_PER_CLICK</countingTypes>
         <excludeFromBiddings>TRUE</excludeFromBiddings>
         <excludeFromBiddings>FALSE</excludeFromBiddings>
-        <crossDeviceConversionFlags>TRUE</crossDeviceConversionFlags>
-        <crossDeviceConversionFlags>FALSE</crossDeviceConversionFlags>
         <dateRange>
           <startDate>19700101</startDate>
           <endDate>20371231</endDate>
@@ -108,14 +106,14 @@ Response Fields for normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333181</ns2:requestTime>
+      <ns2:requestTime>1547792970989</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
@@ -221,7 +219,6 @@ Response Fields for normal cases.
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>
@@ -242,14 +239,14 @@ Add ConversionTracker informations.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <operations>
         <operator>ADD</operator>
         <accountId>0</accountId>
@@ -260,7 +257,6 @@ Add ConversionTracker informations.
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <markupLanguage>HTML</markupLanguage>
           <trackingCodeType>WEBPAGE</trackingCodeType>
-          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
           <conversionTrackerName>AppConversion</conversionTrackerName>
@@ -288,14 +284,14 @@ Response Fields for normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333210</ns2:requestTime>
+      <ns2:requestTime>1547792971026</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -398,7 +394,6 @@ Response Fields for normal cases.
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>
@@ -419,14 +414,14 @@ Update ConversionTracker informations.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <operations>
         <operator>SET</operator>
         <accountId>0</accountId>
@@ -438,7 +433,6 @@ Update ConversionTracker informations.
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <markupLanguage>XHTML</markupLanguage>
           <trackingCodeType>CLICK_TO_CALL</trackingCodeType>
-          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
           <conversionTrackerId>1193193</conversionTrackerId>
@@ -467,14 +461,14 @@ Response Fields for normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333239</ns2:requestTime>
+      <ns2:requestTime>1547792971069</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -577,7 +571,6 @@ Response Fields for normal cases.
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>

@@ -3,7 +3,7 @@ Returned entity by get operations.
 ### Service
 Common get
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | Field | Data Type | Description | 
 |---|---|---|

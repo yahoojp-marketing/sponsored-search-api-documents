@@ -3,7 +3,7 @@ ListReturnValueオブジェクトは、mutate(ADD,SET,REMOVE)操作において�
 ### Service
 mutate操作共通
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | フィールド | データ型 | 説明 |
 |---|---|---|

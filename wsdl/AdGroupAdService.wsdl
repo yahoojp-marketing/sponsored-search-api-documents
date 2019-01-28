@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201808/AdGroupAd"
-        xmlns:tns="http://ss.yahooapis.jp/V201808/AdGroupAd"
+        targetNamespace="http://ss.yahooapis.jp/V201901/AdGroupAd"
+        xmlns:tns="http://ss.yahooapis.jp/V201901/AdGroupAd"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808"
+            targetNamespace="http://ss.yahooapis.jp/V201901"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201808">
+            xmlns:tns="http://ss.yahooapis.jp/V201901">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808/AdGroupAd"
+            targetNamespace="http://ss.yahooapis.jp/V201901/AdGroupAd"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201808"
-            xmlns:tns="http://ss.yahooapis.jp/V201808/AdGroupAd">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201901"
+            xmlns:tns="http://ss.yahooapis.jp/V201901/AdGroupAd">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201901"/>
       <annotation>
         <appinfo>
-          <version>201808</version>
+          <version>201901</version>
         </appinfo>
       </annotation>
       <complexType name="AdGroupAdSelector">
@@ -85,9 +85,17 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adTypes" type="tns:AdType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labelIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="containsLabelId" type="tns:ContainsLabelId"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
+      <simpleType name="ContainsLabelId">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
       <complexType name="AdGroupAdPage">
         <complexContent>
           <extension base="adv:Page">
@@ -119,10 +127,13 @@
           <element maxOccurs="1" minOccurs="0" name="adTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="trademarkStatus" type="tns:TrademarkStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="invalidedTrademarks" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="approvalStatus" type="tns:ApprovalStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="ad" type="tns:Ad"/>
           <element maxOccurs="1" minOccurs="0" name="feedFolderId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
         </sequence>
       </complexType>
       <complexType name="Ad">
@@ -230,6 +241,15 @@
           <enumeration value="POST_DISAPPROVED"/>
         </restriction>
       </simpleType>
+      <simpleType name="TrademarkStatus">
+        <restriction base="xsd:string">
+          <enumeration value="NO_RESTRICTION"/>
+          <enumeration value="CONFLICT_WITH_TRADEMARK"/>
+          <enumeration value="CLAIM_IN_PROGRESS"/>
+          <enumeration value="DISAPPROVED_CLAIM"/>
+          <enumeration value="DISAPPROVED_REVIEWER"/>
+        </restriction>
+      </simpleType>
       <simpleType name="DevicePreference">
         <restriction base="xsd:string">
           <enumeration value="SMART_PHONE"/>
@@ -241,6 +261,14 @@
           <enumeration value="ANDROID"/>
         </restriction>
       </simpleType>
+      <complexType name="Label">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="labelId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="labelName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="color" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
@@ -373,7 +401,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201901/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

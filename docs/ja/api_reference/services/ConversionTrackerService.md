@@ -6,10 +6,10 @@ ConversionTrackerServiceでは、コンバージョントラッカー情報の�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/ConversionTrackerService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/ConversionTrackerService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/ConversionTrackerService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/ConversionTrackerService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/ConversionTracker
+http://ss.yahooapis.jp/V201901/ConversionTracker
 #### サービス概要
 コンバージョントラッカー情報の取得、追加、更新を行います。
 #### 注意事項
@@ -46,14 +46,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -82,8 +82,6 @@ ConversionTrackerServiceで提供される操作を説明します。
         <countingTypes>MANY_PER_CLICK</countingTypes>
         <excludeFromBiddings>TRUE</excludeFromBiddings>
         <excludeFromBiddings>FALSE</excludeFromBiddings>
-        <crossDeviceConversionFlags>TRUE</crossDeviceConversionFlags>
-        <crossDeviceConversionFlags>FALSE</crossDeviceConversionFlags>
         <dateRange>
           <startDate>19700101</startDate>
           <endDate>20371231</endDate>
@@ -109,14 +107,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333098</ns2:requestTime>
+      <ns2:requestTime>1547792970869</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
@@ -222,7 +220,6 @@ ConversionTrackerServiceで提供される操作を説明します。
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>
@@ -243,14 +240,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <operations>
         <operator>ADD</operator>
         <accountId>0</accountId>
@@ -261,7 +258,6 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <markupLanguage>HTML</markupLanguage>
           <trackingCodeType>WEBPAGE</trackingCodeType>
-          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
           <conversionTrackerName>AppConversion</conversionTrackerName>
@@ -289,14 +285,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333125</ns2:requestTime>
+      <ns2:requestTime>1547792970903</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -399,7 +395,6 @@ ConversionTrackerServiceで提供される操作を説明します。
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>
@@ -420,14 +415,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <operations>
         <operator>SET</operator>
         <accountId>0</accountId>
@@ -439,7 +434,6 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <markupLanguage>XHTML</markupLanguage>
           <trackingCodeType>CLICK_TO_CALL</trackingCodeType>
-          <crossDeviceConversionFlag>TRUE</crossDeviceConversionFlag>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
           <conversionTrackerId>1193193</conversionTrackerId>
@@ -468,14 +462,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1523506333154</ns2:requestTime>
+      <ns2:requestTime>1547792970948</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -578,7 +572,6 @@ ConversionTrackerServiceで提供される操作を説明します。
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
-            <ns2:crossDeviceConversionFlag>TRUE</ns2:crossDeviceConversionFlag>
           </ns2:conversionTracker>
         </ns2:values>
       </ns2:rval>

@@ -68,12 +68,6 @@ ConversionTrackerSelector object specifies ConversionTracker and operation.
   <td>Optional</td>
  </tr>
  <tr>
-  <td>crossDeviceConversionFlags[0..2]</td>
-  <td>enum <a href="CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
-  <td>The flag to control tracking conversions across different devices.</td>
-  <td>Optional</td>
- </tr>
- <tr>
   <td>dateRange</td>
   <td><a href="ConversionDateRange.md">ConversionDateRange</a></td>
   <td>Counting period of actual conversions. <br>If not specified, it counts conversions of entire period total.</td>

@@ -54,14 +54,14 @@ Leading and trailing space | Removed | 「　あいうえお　」→「あい�
 
 ### Limitation of number of ID
 
-ID | Scheduled report (Add Template: YES)| ONETIME report (Add Template: NO)           
+ID | Scheduled report (isTemplate: TRUE)| ONETIME report (isTemplate: FALSE)           
 ----------- | ----------- |----------- 
 Report ID　　　　| 30            　　　　| No limits.       
 Report Job ID   | No limits.             | 60
 
 *Once you hit the upper limit, you are no longer able to create a new ID.<br>
 &nbsp;Please delete IDs by mutate Remove, if necessary.<br>
-*Scheduled report IDs (AddTemplate YES) can be repeatedly used. <br>
+*Scheduled report IDs (isTemplate: TRUE) can be repeatedly used. <br>
 &nbsp;ONETIME report IDs and Report Job IDs are deleted automatically in a week.<br>
 *Maximum number of IDs set via API is each number created by "on-behalf of" or "standard" authentication access.
 
@@ -87,6 +87,31 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td rowspan="4">AccountSharedService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>20</td>
+  <td>Yes</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr> 
  <tr>
   <td rowspan="2">AccountTrackingUrlService</td>
   <td>get</td>
@@ -126,15 +151,21 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="2">AdGroupBidMultiplierService</td>
+  <td rowspan="3">AdGroupBidMultiplierService</td>
   <td>get</td>
   <td>-</td>
-  <td>500</td>
+  <td>10000</td>
   <td>Yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
-  <td>200</td>
+  <td>10000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>10000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -235,7 +266,7 @@ Report Job ID   | No limits.             | 60
  </tr>
  <tr>
   <td>addJob</td>
-  <td>1</td>
+  <td>200</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -298,15 +329,21 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="2">CampaignExportService</td>
+  <td rowspan="3">CampaignExportService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
   <td>Yes</td>
  </tr>
+  <tr>
+  <td>getExportFields</td>
+  <td>-</td>
+  <td>all</td>
+  <td>-</td>
+ </tr>
  <tr>
   <td>addJob</td>
-  <td>500</td>
+  <td>1</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -345,6 +382,50 @@ Report Job ID   | No limits.             | 60
  <tr>
   <td>mutate(REMOVE)</td>
   <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">CampaignRetargetingListService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>Yes</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td rowspan="3">CampaignSharedSetService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>Yes</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -470,25 +551,6 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="3">NegativeCampaignRetargetingListService</td>
-  <td>get</td>
-  <td>-</td>
-  <td>1000</td>
-  <td>Yes</td>
- </tr>
- <tr>
-  <td>mutate(ADD)</td>
-  <td>1000</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>mutate(REMOVE)</td>
-  <td>1000</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
   <td rowspan="4">ReportDefinitionService</td>
   <td>get</td>
   <td>-</td>
@@ -533,11 +595,17 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="3">RetargetingListService</td>
+  <td rowspan="4">RetargetingListService</td>
   <td>get</td>
   <td>-</td>
   <td>1000</td>
   <td>Yes</td>
+ </tr>
+ <tr>
+  <td>getCustomKey</td>
+  <td>-</td>
+  <td>all</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -552,18 +620,30 @@ Report Job ID   | No limits.             | 60
   <td>-</td>
  </tr>
  <tr>
+  <td rowspan="3">SharedCriterionService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>Yes</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>TargetingIdeaService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
   <td>Yes</td>
- </tr>
- <tr>
-  <td>TrafficEstimatorService</td>
-  <td>get</td>
-  <td>-</td>
-  <td>100</td>
-  <td>-</td>
  </tr>
 </table>
 

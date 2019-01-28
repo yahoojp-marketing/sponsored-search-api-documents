@@ -5,11 +5,11 @@ And it provides the operation to download URL of the reports.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/ReportService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/ReportService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/ReportService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/ReportService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/Report
+http://ss.yahooapis.jp/V201901/Report
 
 #### Service Overview
 The following operations are provided:
@@ -50,14 +50,14 @@ Gets the list of report that meets the selector criteria.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <reportIds>1111</reportIds>
@@ -101,14 +101,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>Report</ns2:service>
-      <ns2:requestTime>1523506336544</ns2:requestTime>
+      <ns2:requestTime>1547793122307</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Report">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Report">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <Page.Type>ReportPage</Page.Type>
@@ -121,7 +121,7 @@ Response Fields in normal cases.
             <ns2:reportJobStatus>COMPLETED</ns2:reportJobStatus>
             <ns2:requestTime>2017/11/27 14:32:48</ns2:requestTime>
             <ns2:completeTime>2017/11/27 14:33:20</ns2:completeTime>
-            <ns2:reportDownloadURL>https://ss.yahooapis.jp/report/V201808/download/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B</ns2:reportDownloadURL>
+            <ns2:reportDownloadURL>https://ss.yahooapis.jp/report/V201901/download/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B</ns2:reportDownloadURL>
           </ns2:reportRecord>
         </ns2:values>
         <ns2:values>
@@ -173,14 +173,14 @@ Adds report.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/Report">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/Report">
       <operations>
         <operator>ADD</operator>
         <accountId>11111</accountId>
@@ -204,14 +204,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>Report</ns2:service>
-      <ns2:requestTime>1523506336555</ns2:requestTime>
+      <ns2:requestTime>1547793122325</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Report">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Report">
       <ns2:rval>
         <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -243,14 +243,14 @@ Deletes reports.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/Report">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/Report">
       <operations>
         <operator>REMOVE</operator>
         <accountId>11111</accountId>
@@ -274,14 +274,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Report" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>Report</ns2:service>
-      <ns2:requestTime>1523506336569</ns2:requestTime>
+      <ns2:requestTime>1547793122339</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Report">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Report">
       <ns2:rval>
         <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>

@@ -79,6 +79,26 @@ FeedItem object contains the information of Feed Item.
   <td>-</td>
  </tr>
  <tr>
+  <td>trademarkStatus</td>
+  <td>enum <a href="TrademarkStatus.md">TrademarkStatus</a></td>
+  <td>Trademark status.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>invalidedTrademarks[0...n]</td>
+  <td>string[]</td>
+  <td>Invalided trademarks.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
   <td>feedItemAttribute[0...20]</td>
   <td><a href="FeedItemAttribute.md">FeedItemAttribute</a><br>
   inherited<br>
@@ -214,4 +234,4 @@ FeedItem object contains the information of Feed Item.
  </tr>
 </table>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="�N���G�C�e�B�u�E�R�����Y�E���C�Z���X" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />���� ��i �� <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">�N���G�C�e�B�u�E�R�����Y �\�� - ���ϋ֎~ 2.1 ���{ ���C�Z���X�̉��ɒ񋟂���Ă��܂��B</a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

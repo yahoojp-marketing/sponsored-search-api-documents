@@ -4,11 +4,11 @@ CampaignRetargetingListServiceでは、キャンペーン階層におけるタ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/CampaignRetargetingListService?wsdl |
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/CampaignRetargetingListService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201901/CampaignRetargetingListService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignRetargetingListService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/CampaignRetargetingList
+http://ss.yahooapis.jp/V201901/CampaignRetargetingList
 
 #### サービス概要
 キャンペーン階層におけるターゲットリストの設定（設定情報の取得、追加、更新、削除）を行います。
@@ -36,14 +36,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1111</accountId>
         <campaignIds>1</campaignIds>
@@ -72,14 +72,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignRetargetingList</ns2:service>
-      <ns2:requestTime>1523506332261</ns2:requestTime>
+      <ns2:requestTime>1547793561624</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:values>
@@ -115,14 +115,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <operations>
         <operator>ADD</operator>
         <accountId>1111111</accountId>
@@ -158,14 +158,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignRetargetingList</ns2:service>
-      <ns2:requestTime>1523506332276</ns2:requestTime>
+      <ns2:requestTime>1547793561639</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>CampaignRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -217,14 +217,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <operations>
         <operator>SET</operator>
         <accountId>1111111</accountId>
@@ -260,14 +260,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignRetargetingList</ns2:service>
-      <ns2:requestTime>1523506332289</ns2:requestTime>
+      <ns2:requestTime>1547793561712</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>CampaignRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -319,14 +319,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111111</accountId>
@@ -361,14 +361,14 @@ CampaignRetargetingListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignRetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignRetargetingList</ns2:service>
-      <ns2:requestTime>1523506332306</ns2:requestTime>
+      <ns2:requestTime>1547793561731</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignRetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignRetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>CampaignRetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

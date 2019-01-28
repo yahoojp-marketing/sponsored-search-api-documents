@@ -4,11 +4,11 @@ CampaignSharedSetService setup Negative keyword list to campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/AdGroupAd
+http://ss.yahooapis.jp/V201901/AdGroupAd
 
 #### Overview
 Use this service to setup Negative keyword list to campaign.
@@ -35,14 +35,14 @@ Returns the setup information between campaign and negative keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>111111</accountId>
         <campaignIds>44</campaignIds>
@@ -68,14 +68,14 @@ Returns the setup information between campaign and negative keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignSharedSet</ns2:service>
-      <ns2:requestTime>1523506332508</ns2:requestTime>
+      <ns2:requestTime>1547793435143</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignSharedSet">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -106,14 +106,14 @@ Setup negative keyword list for campaign.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -136,14 +136,14 @@ Setup negative keyword list for campaign.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignSharedSet</ns2:service>
-      <ns2:requestTime>1523506332525</ns2:requestTime>
+      <ns2:requestTime>1547793435182</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignSharedSet">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
       <ns2:rval>
         <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -175,14 +175,14 @@ Remove the setup settings between campaign and negative keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111</accountId>
@@ -207,14 +207,14 @@ Response field
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignSharedSet</ns2:service>
-      <ns2:requestTime>1523506332539</ns2:requestTime>
+      <ns2:requestTime>1547793435212</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignSharedSet">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
       <ns2:rval>
         <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

@@ -40,9 +40,9 @@ TargetCpaBiddingScheme object displays Auto Bidding setting for Target CPA.
   <td>Target CPA (JPY) <br>* Range limit: 0 - 99999999</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidCeiling</td>
@@ -50,9 +50,9 @@ TargetCpaBiddingScheme object displays Auto Bidding setting for Target CPA.
   <td>Limit of bid (CPC).<br>* Range limit: 0 - 50000<br>* There will be no setting limit, if set as "0".</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidFloor</td>
@@ -60,9 +60,9 @@ TargetCpaBiddingScheme object displays Auto Bidding setting for Target CPA.
   <td>Minimum CPC.<br>*Set "0" to deactivate.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

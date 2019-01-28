@@ -38,22 +38,22 @@ TargetSpendBiddingSchemeオブジェクトは、クリック数の最大化の�
   <tr>
   <td>bidCeiling</td>
   <td>xsd:long</td>
-  <td>入札価格の上限です。<br>※制限値：0 ～ 50000<br>※「0」が設定された 場合、上限設定は ありません。</td>
+  <td>入札価格の上限<br>※制限値：0 ～ 50000<br>※「0」が設定された 場合、上限設定は ありません。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>spendTarget</td>
   <td>xsd:long</td>
-  <td>目標予算の上限です。</td>
+  <td>目標予算の上限</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

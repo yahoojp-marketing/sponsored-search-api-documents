@@ -3,27 +3,28 @@ LocationServiceでは、アカウントのロケーション情報を取得し�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/LocationService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/LocationService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/LocationService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/LocationService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/Location
+http://ss.yahooapis.jp/V201901/Location
 #### サービス概要
-アカウントのコロケーションの取得を行います。<br>
-※LocationService自体は、LocationServiceのWSDLに記載されたメインURLを使用します。
-
-##### LocationServiceの場合
-メインURLを使用してLocationServiceに対してリクエストを送信します。<br>
-メインURLはLocationServiceのWSDLに含まれています。
-
-##### その他のWebサービスの場合
-ローカルURLを使用してリクエストを送信します。ローカルURLを作成するには、<br> LocationServiceを使用して、アカウントに割り当てられたコロケーションのURL接頭部を入手します。<br>
-次に、URL接頭部を現行バージョンおよび特定のサービス名と組み合わせて、ローカルURLを作成します。<br>
-<br>
-また、ロケーション情報の有効な期間は決まっていませんが、頻繁に変更されるものではありませんので、<br>
-各処理の度に取得する必要はなく、無効になった時点で取得しなおすようにしてください。
+アカウントのロケーション情報を取得します。<br>
+ほかのServiceとは、リクエストするURL（エンドポイント）が異なります。
 
 #### 操作
-LocationServiceで提供される操作を説明します。
+
+##### LocationServiceの場合
+メインURLを使用してリクエストを送信します。<br>
+メインURLはLocationServiceのWSDLに含まれています。
+
+##### ほかのServiceの場合
+ローカルURLを使用してリクエストを送信します。<br>
+ローカルURLの作成方法：<br>
+　1. LocationServiceを使用して、割り当てられたコロケーションのURL接頭部を取得します。<br>
+　2. URL接頭部を利用可能なバージョンと対象Service名と組み合わせます。<br>
+<br>
+※ロケーション情報の有効期間は決まっておりません。<br>
+　頻繁に変更されるものではありませんので、無効になった時点で取得しなおしてください。
 
 + [get](#get)
 
@@ -37,39 +38,39 @@ LocationServiceで提供される操作を説明します。
 | パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
 | accountId | ○ | xsd:long | アカウントIDです。 |
-＜リクエストサンプル＞（標準認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://ss.yahooapis.jp/V201808/Location">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:accountId>1000000001</ns1:accountId>
-        </ns1:get>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
 
-＜リクエストサンプル＞（代行認証）
+##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/Location" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Location" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/Location">
+    <get xmlns="http://ss.yahooapis.jp/V201901/Location">
+      <accountId>1234567890</accountId>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+##### ＜リクエストサンプル＞（代行認証）
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Location" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+      <ns2:onBehalfOfAccountId>3333-3333-3333-3333</ns2:onBehalfOfAccountId>
+      <ns2:onBehalfOfPassword>password2</ns2:onBehalfOfPassword>          
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://ss.yahooapis.jp/V201901/Location">
       <accountId>1234567890</accountId>
     </get>
   </SOAP-ENV:Body>
@@ -81,18 +82,18 @@ LocationServiceで提供される操作を説明します。
 |---|---|---|
 | rval | [LocationReturnValue](../data/Location/LocationReturnValue.md) | 操作結果を含むロケーション情報のコンテナです。 |
 
-＜レスポンスサンプル＞
+##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/Location" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Location" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>Location</ns2:service>
-      <ns2:requestTime>1522028288536</ns2:requestTime>
+      <ns2:requestTime>1547793059499</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/Location">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Location">
       <ns2:rval>
         <operationSucceeded>true</operationSucceeded>
         <ns2:value>https://ss.yahooapis.jp/xxx</ns2:value>

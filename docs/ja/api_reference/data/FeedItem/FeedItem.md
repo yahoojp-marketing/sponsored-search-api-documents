@@ -24,9 +24,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>アカウントIDです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>feedFolderId</td>
@@ -34,9 +34,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>フィードフォルダIDです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※アドカスタマイザーの場合、Requirement</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Requirement</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>feedItemId</td>
@@ -44,7 +44,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>フィードアイテムIDです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement</td>
   <td>Requirement</td>
  </tr>
@@ -54,9 +54,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>トラッキング用フィードアイテムIDです。<br>※Sandbox環境では常に0が返ります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>approvalStatus</td>
@@ -64,9 +64,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>審査ステータスです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>disapprovalReasonCodes[0...n]</td>
@@ -74,9 +74,29 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>審査否認理由です。</td>
   <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>trademarkStatus</td>
+  <td>enum <a href="TrademarkStatus.md">TrademarkStatus</a></td>
+  <td>商標保護ステータス</td>
+  <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>invalidedTrademarks[0...n]</td>
+  <td>string[]</td>
+  <td>制限された商標</td>
+  <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>feedItemAttribute[0...20]</td>
@@ -90,7 +110,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>placeholderType</td>
@@ -110,7 +130,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>Optional<br>※電話番号オプションの場合、Optional<br>※Default: SMART_PHONE</td>
   <td>Optional<br>※電話番号オプションの場合、Ignore</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>startDate</td>
@@ -120,7 +140,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>endDate</td>
@@ -130,7 +150,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>scheduling</td>
@@ -140,7 +160,7 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>targetingCampaign</td>
@@ -148,9 +168,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>アドカスタマイザーで使用するキャンペーンです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>targetingAdGroup</td>
@@ -158,9 +178,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>アドカスタマイザーで使用する広告グループです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>targetingKeyword</td>
@@ -168,9 +188,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>アドカスタマイザーで使用するキーワードです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>customParameters</td>
@@ -178,9 +198,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>カスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※クイックリンクオプションの場合、Optional</td>
-  <td>-<br>※クイックリンクオプションの場合、Optional</td>
-  <td>-</td>
+  <td>Ignore<br>※クイックリンクオプションの場合、Optional</td>
+  <td>Ignore<br>※クイックリンクオプションの場合、Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>reviewCustomParameters</td>
@@ -188,9 +208,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>配信審査中のカスタムパラメータです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>geoTargeting</td>
@@ -198,9 +218,9 @@ FeedItemオブジェクトは、フィードアイテム情報を格納します
   <td>地域設定情報です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-<br>※アドカスタマイザーの場合、Optional</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore<br>※アドカスタマイザーの場合、Optional</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

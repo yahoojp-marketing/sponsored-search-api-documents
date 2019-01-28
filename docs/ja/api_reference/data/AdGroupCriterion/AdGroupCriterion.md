@@ -21,7 +21,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -31,7 +31,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
+  <td>キャンペーンID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -41,7 +41,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>campaignTrackId</td>
   <td>xsd:long</td>
-  <td>トラッキング用キャンペーンIDです。</td>
+  <td>トラッキング用キャンペーンID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -51,7 +51,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>キャンペーン名です。</td>
+  <td>キャンペーン名</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -61,7 +61,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
-  <td>広告グループIDです。</td>
+  <td>広告グループID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -71,7 +71,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>adGroupTrackId</td>
   <td>xsd:long</td>
-  <td>トラッキング用広告グループIDです。</td>
+  <td>トラッキング用広告グループID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -81,7 +81,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>adGroupName</td>
   <td>xsd:string</td>
-  <td>広告グループ名です。</td>
+  <td>広告グループ名</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -91,7 +91,7 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>criterionUse</td>
   <td>enum <a href="AdGroupCriterionUse.md">AdGroupCriterionUse</a></td>
-  <td>キーワードの種類です。入札キーワードか、検索対象外キーワードかを選択します。</td>
+  <td>キーワードの種類<br>※入札キーワードか、検索対象外キーワードかを選択します。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -101,12 +101,22 @@ AdGroupCriterionオブジェクトは、広告グループのクライテリア�
  <tr>
   <td>criterion</td>
   <td><a href="Criterion.md">Criterion</a><br>inherited <a href="Keyword.md">Keyword</a></td>
-  <td>広告グループのクライテリアです。</td>
+  <td>広告グループのクライテリア</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
   <td>Requirement<br><i>NotUpdatable</i></td>
+ </tr>
+ <tr>
+  <td>labels[0...50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>ラベル</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

@@ -24,9 +24,9 @@ BiddingScheme object displays the details of Auto Bidding setting.
   <td>Type of Auto bidding.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

@@ -3,10 +3,10 @@ FeedFolderServiceでは、自動データ挿入のリスト情報の取得およ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/FeedFolderService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/FeedFolderService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/FeedFolderService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/FeedFolderService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/FeedFolder
+http://ss.yahooapis.jp/V201901/FeedFolder
 #### サービス概要
 自動データ挿入のリスト情報の取得および追加・更新・削除を行います。
 #### 操作
@@ -32,14 +32,14 @@ FeedFoldersServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1234567890</accountId>
         <feedFolderIds>10001</feedFolderIds>
@@ -70,14 +70,14 @@ FeedFoldersServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedFolder</ns2:service>
-      <ns2:requestTime>1532509132062</ns2:requestTime>
+      <ns2:requestTime>1547793097039</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedFolder">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <Page.Type>FeedFolderPage</Page.Type>
@@ -138,14 +138,14 @@ FeedItem情報を追加します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedFolder">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -192,14 +192,14 @@ FeedItem情報を追加します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedFolder</ns2:service>
-      <ns2:requestTime>1532509132506</ns2:requestTime>
+      <ns2:requestTime>1547793097059</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedFolder">
       <ns2:rval>
         <ListReturnValue.Type>FeedFolderReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -260,14 +260,14 @@ FeedItem情報を更新します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedFolder">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -308,14 +308,14 @@ FeedItem情報を更新します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedFolder</ns2:service>
-      <ns2:requestTime>1532509132626</ns2:requestTime>
+      <ns2:requestTime>1547793097079</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedFolder">
       <ns2:rval>
         <ListReturnValue.Type>FeedFolderReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -386,17 +386,14 @@ FeedItem情報を削除します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
-      <ns2:accountId>1234567890</ns2:accountId>
-      <ns2:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns2:onBehalfOfAccountId>
-      <ns2:onBehalfOfPassword>password2</ns2:onBehalfOfPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedFolder">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -425,14 +422,14 @@ FeedItem情報を削除します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedFolder" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedFolder</ns2:service>
-      <ns2:requestTime>1532509132694</ns2:requestTime>
+      <ns2:requestTime>1547793097092</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedFolder">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedFolder">
       <ns2:rval>
         <ListReturnValue.Type>FeedFolderReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

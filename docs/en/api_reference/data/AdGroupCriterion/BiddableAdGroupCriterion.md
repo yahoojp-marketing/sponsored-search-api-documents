@@ -106,7 +106,7 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
  </tr>
  <tr>
   <td>criterion</td>
-  <td><a href="Criterion_AdGroupCriterion.md">Criterion</a><br>inherited <a href="Keyword_AdGroupCriterion.md">Keyword</a></td>
+  <td><a href="Criterion.md">Criterion</a><br>inherited <a href="Keyword.md">Keyword</a></td>
   <td>Criteria of Ad group.</td>
   <td>yes</td>
   <td>-</td>
@@ -168,34 +168,14 @@ BiddableAdGroupCriterion object displays biddable criterion in ad group.
   <td>-</td>
  </tr>
  <tr>
-  <td>biddingStrategyConfiguration</td>
-  <td><a href="AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
-  <td>Bid setting.<br>* Currently available bid setting will be responded.<br>* Apply the bid setting that is available on parent entity.</td>
+  <td>bid</td>
+  <td><a href="Bid.md">Bid</a></td>
+  <td>Bid values.</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>biddingStrategyFailedReason</td>
-  <td>enum <a href="BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-  <td>Reason that Auto bidding has failed.<br>* It will respond only when failed.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
-  <td>Auto bidding that failed to register.<br>* It will respond only when failed.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <td>advancedUrl</td>
   <td>xsd:string</td>

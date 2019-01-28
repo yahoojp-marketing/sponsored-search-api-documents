@@ -3,10 +3,10 @@ AdGroupFeedServiceでは、広告グループに関するFeedItem情報の取得
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AdGroupFeedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupFeedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/AdGroupFeedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupFeedService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/AdGroupFeed
+http://ss.yahooapis.jp/V201901/AdGroupFeed
 #### サービス概要
 広告グループのFeedItem情報の取得およびFeedItem情報の追加・更新・削除を行います。
 #### 操作
@@ -31,14 +31,14 @@ AdGroupFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -78,14 +78,14 @@ AdGroupFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupFeed</ns2:service>
-      <ns2:requestTime>1523506329727</ns2:requestTime>
+      <ns2:requestTime>1547793541887</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupFeed">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupFeed">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupFeedPage</Page.Type>
@@ -129,14 +129,14 @@ AdGroupFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -165,14 +165,14 @@ AdGroupFeedServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupFeed" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupFeed</ns2:service>
-      <ns2:requestTime>1523506329744</ns2:requestTime>
+      <ns2:requestTime>1547793541905</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupFeed">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupFeed">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupFeedReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

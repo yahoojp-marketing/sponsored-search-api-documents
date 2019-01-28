@@ -90,33 +90,15 @@ AdGroup オブジェクトは、広告グループを表します。
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>biddingStrategyConfiguration</td>
-  <td><a href="AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
- <td>現在有効な入札設定です。<br>※2017年11月15日以降は設定、変更できません。</td>
+  <td>bid</td>
+  <td><a href="Bid.md">Bid</a></td>
+  <td>入札価格</td>
   <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
+  <td>Optional</td>
+  <td>Optional<br><i>Updatable</i></td>
   <td>Ignore</td>
  </tr>
-<tr>
-<td>biddingStrategyFailedReason</td>
-<td>enum <a href="BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-<td>自動入札の設定に失敗した理由です。<br>※失敗時のみレスポンス時に表示されます。</td>
-<td>yes</td>
-<td>Ignore</td>
-<td>Ignore</td>
-<td>Ignore</td>
-</tr>
-<tr>
-<td>failedBiddingStrategyConfiguration</td>
-<td><a href="AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-<td>登録に失敗した自動入札設定内容です。<br>※失敗時のみレスポンス時に表示されます。</td>
-<td>yes</td>
-<td>Ignore</td>
-<td>Ignore</td>
-<td>Ignore</td>
-</tr>
-<tr>
+ <tr>
   <td>settings[0...1]</td>
   <td><a href="AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="TargetingSetting.md">TargetingSetting</a></td>
   <td>ターゲット設定です。</td>
@@ -162,6 +144,15 @@ AdGroup オブジェクトは、広告グループを表します。
   <td>yes</td>
   <td>Optional</td>
   <td>Optional</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>labels[0...50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>ラベル</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

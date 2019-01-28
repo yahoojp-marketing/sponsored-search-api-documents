@@ -20,7 +20,7 @@ RuleGroup is an object that holds grouped URL/LABEL rules.
  </tr>
  <tr>
   <td>ruleItems[1...20]</td>
-  <td><a href="RuleItem.md">RuleItem</a><br> inherited <a href="UrlRuleItem.md">UrlRuleItem</a></td>
+  <td><a href="RuleItem.md">RuleItem</a><br> inherited <a href="UrlRuleItem.md">UrlRuleItem</a><br> inherited <a href="CustomKeyRuleItem.md">CustomKeyRuleItem</a></td>
   <td>List of evaluation condition. </td>
   <td>yes</td>
   <td>-</td>

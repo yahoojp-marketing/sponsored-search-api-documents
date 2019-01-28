@@ -126,7 +126,7 @@ RuleBaseTargetList is an object that holds Rule based target list information.
  </tr>
   <tr>
   <td>rules[1...20]</td>
-  <td>xsd:string</a></td>
+  <td><a href="./RuleGroup.md">RuleGroup</a></td>
   <td>Setting of rules.</td>
   <td>yes</td>
   <td>-</td>

@@ -54,14 +54,14 @@
 
 ### 各IDの登録可能数
 
-ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add Template指定：NO）                
+ID | 定期レポート（isTemplate指定：TRUE）| ONETIMEレポート（isTemplate指定：FALSE）                
 ----------- | ----------- |----------- 
 レポートID  　　　　| 30            　　　　| 上限無し        
 レポートジョブID    | 上限無し              | 60
 
 ※各IDの登録数が上限値に達した場合、新規にIDを作成する事が出来なくなります。<br>
 　必要に応じて、mutate Removeをご利用頂きIDの削除をお願いします。<br>
-※定期レポートのレポートID（AddTemplate指定、YES）のレポート定義は保存され使いまわしが可能です。<br>
+※定期レポートのレポートID（isTemplate指定、TRUE）のレポート定義は保存され使いまわしが可能です。<br>
 　その他、ONETIMEレポートのレポートID、レポートジョブIDは、作成後1週間程度で自動削除されます。<br>
 ※APIで登録された各IDの登録可能数は、代行アクセスで作成したID数と通常アクセスで作成したID数それぞれの登録可能数になります。<br>
 
@@ -81,9 +81,34 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>200</td>
   <td>◯</td>
  </tr>
- <tr>
+  <tr>
   <td>mutate(SET)</td>
   <td>200</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td rowspan="4">AccountSharedService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>20</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>mutate(SET)</td>
+  <td>20</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>mutate(REMOVE)</td>
+  <td>20</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -126,15 +151,21 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="2">AdGroupBidMultiplierService</td>
+  <td rowspan="3">AdGroupBidMultiplierService</td>
   <td>get</td>
   <td>-</td>
-  <td>500</td>
+  <td>10000</td>
   <td>◯</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
-  <td>200</td>
+  <td>10000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>mutate(REMOVE)</td>
+  <td>10000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -235,7 +266,7 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
  </tr>
  <tr>
   <td>addJob</td>
-  <td>1</td>
+  <td>200</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -298,15 +329,20 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="2">CampaignExportService</td>
+  <td rowspan="3">CampaignExportService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
   <td>◯</td>
  </tr>
+   <td>getExportFields</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
  <tr>
   <td>addJob</td>
-  <td>500</td>
+  <td>1</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -345,6 +381,50 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
  <tr>
   <td>mutate(REMOVE)</td>
   <td>2000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td rowspan="4">CampaignRetargetingListService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+   <tr>
+  <td rowspan="3">CampaignSharedSetService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>1000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -470,25 +550,6 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="3">NegativeCampaignRetargetingListService</td>
-  <td>get</td>
-  <td>-</td>
-  <td>1000</td>
-  <td>◯</td>
- </tr>
- <tr>
-  <td>mutate(ADD)</td>
-  <td>1000</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>mutate(REMOVE)</td>
-  <td>1000</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
   <td rowspan="4">ReportDefinitionService</td>
   <td>get</td>
   <td>-</td>
@@ -533,11 +594,17 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="3">RetargetingListService</td>
+  <td rowspan="4">RetargetingListService</td>
   <td>get</td>
   <td>-</td>
   <td>1000</td>
   <td>◯</td>
+ </tr>
+ <tr>
+  <td>getCustomKey</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -551,18 +618,30 @@ ID | 定期レポート（Add Template指定：YES）| ONETIMEレポート（Add
   <td>-</td>
   <td>-</td>
  </tr>
+  <tr>
+  <td rowspan="3">SharedCriterionService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>1000</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>1000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
  <tr>
   <td>TargetingIdeaService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
   <td>◯</td>
- </tr>
- <tr>
-  <td>TrafficEstimatorService</td>
-  <td>get</td>
-  <td>-</td>
-  <td>100</td>
-  <td>-</td>
  </tr>
 </table>

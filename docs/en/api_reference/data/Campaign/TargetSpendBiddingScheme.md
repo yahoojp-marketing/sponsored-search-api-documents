@@ -40,19 +40,19 @@ TargetSpendBiddingScheme object describes auto bidding setting for Maximize Clic
   <td>Bid amount limit.<br>*Limit range: 0 - 50000 <br>*If "0" is set, no bid limit.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>spendTarget</td>
   <td>xsd:long</td>
-  <td>Limit of Target Budget</td>
+  <td>Limit of Target Budget.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

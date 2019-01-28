@@ -165,9 +165,9 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
  </tr>
  <tr>
-  <td>biddingStrategyConfiguration</td>
-  <td><a href="AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
-  <td>入札設定です。<br>※現在有効な入札設定がレスポンスされます。<br>※親エンティティの有効な入札設定が 適用されます。</td>
+  <td>bid</td>
+  <td><a href="Bid.md">Bid</a></td>
+  <td>入札価格</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
@@ -175,26 +175,7 @@ BiddableAdGroupCriterionオブジェクトは、広告グループの単価設�
   <td>-</td>
  </tr>
  <tr>
-  <td>biddingStrategyFailedReason</td>
-  <td>enum<br><a href="BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-  <td>自動入札設定に失敗した理由です。<br>※失敗時のみレスポンスとして表示されます。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>failedBiddingStrategyConfiguration</td>
-  <td><a href="AdGroupCriterionBiddingStrategy.md">AdGroupCriterionBiddingStrategy</a></td>
-  <td>登録に失敗した自動入札設定です。<br>※失敗時のみレスポンスとして表示されます。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <td>advancedUrl</td>
+  <td>advancedUrl</td>
   <td>xsd:string</td>
   <td>移行後のカスタムURLです。<br>※空で設定すると、既存の移行後の カスタムURLは削除されます。</td>
   <td>yes</td>

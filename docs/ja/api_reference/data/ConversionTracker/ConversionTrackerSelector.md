@@ -68,12 +68,6 @@ ConversionTrackerSelectorオブジェクトは、操作の対象となるコン�
   <td>Optional</td>
  </tr>
  <tr>
-  <td>crossDeviceConversionFlags[0..2]</td>
-  <td>enum <a href="CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
-  <td>デバイスまたぎでコンバージョンを計測するか、しないかを制御するフラグです。</td>
-  <td>Optional</td>
- </tr>
- <tr>
   <td>dateRange</td>
   <td><a href="ConversionDateRange.md">ConversionDateRange</a></td>
   <td>コンバージョン実績の集計期間です。<br>指定がない場合は、全期間が対象となります。</td>

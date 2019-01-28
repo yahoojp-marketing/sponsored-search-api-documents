@@ -1,89 +1,114 @@
 # Release Notes
-Sponsored Search API V201808
+Sponsored Search API V201901
 ## Release version
-V201808 (WSDL Version: V201808)
+V201901 (WSDL Version: V201901)
 
 ## Main contents of this release
 *For Target Data object and Enumuration, please confirm from data directory under API reference directory. 
 
-### 1. Dynamic Ads for Search
-With Dynamic Ads for Search, you can automatically generate and show your ad title to a keyword highly relevant to the website content you specified. 
-The following enhancements have been made on Sponsored Search API:
-
-1. Creating ads of Dynamic Ads for Search and Page Feed feature have been added.
-2. Report types below for Dynamic Ads for Search have been added.<br>
-‐Search Query report (Dynamic Ads for Search)<br>
-‐Page Feed Targeting Report<br>
-*[List of Sponsored Search API report fields](/docs/en/api_reference/appendix/reportfields.md) are also available.
+### 1. Labels feature
+The new 'Labels' feature enables to easily group and filter components such as campaigns and ads by setting up optional names to label them.
+This has been released on the Campaign Management Tool in September 2018.<br>
+Learn about details of this feature on the following help page.<br>
+[What is Labels](https://support-marketing.yahoo.co.jp/promotionalads/ss/articledetail?lan=en&aid=17253)<br>
+<br>
+The following enhancements have been made on Sponsored Search API V201901:
+1. Create/revise/remove labels
+2. Set a label to campaign and other ad components
 
 ##### Target Web Service
  * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
- * [FeedFolderService](/docs/en/api_reference/services/FeedFolderService.md)
- * [PageFeedItemService](/docs/en/api_reference/services/PageFeedItemService.md)
- * [CampaignWebpageService](/docs/en/api_reference/services/CampaignWebpageService.md)
- * [AdGroupWebpageService](/docs/en/api_reference/services/AdGroupWebpageService.md)
- * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
- * [ReportService](/docs/en/api_reference/services/ReportService.md)
+ * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
+ * [LabelService](/docs/en/api_reference/services/LabelService.md)
+ * [CampaignLabelService](/docs/en/api_reference/services/CampaignLabelService.md)
+ * [AdGroupLabelService](/docs/en/api_reference/services/AdGroupLabelService.md)
+ * [AdGroupAdLabelService](/docs/en/api_reference/services/AdGroupAdLabelService.md)
+ * [AdGroupCriterionLabelService](/docs/en/api_reference/services/AdGroupCriterionLabelService.md)  
 
-### 2. Change on values of Conversion tracking across different devices
-There was a change on the option CrossDeviceConversionFlag (a flag to control conversion tracking across different device on/off) in ConversionTrackerService.<br>
+### 2. Added Standard bidding and removed 'Maximize Conversions' option
+Following two bidding settings are available after the new Auto Bidding feature 'Standard Bidding' has been released on December 2018.
+* Standard bidding : The new bidding setting, which can be set on campaign level.
+* Portfolio bidding : Existing bidding setting, which is created on account level and then set to multiple campaigns under the account. 
 With this change, only "TRUE" is available as a value on CrossDeviceConversionFlag on creating/editing a conversion tracking.
 
-* Create new (ADD)
-  * If no value has been set on CrossDeviceConversionFlag<br>
-  The default “TRUE” is set as its value and it responds the "TRUE".
-  * If any value has been set on CrossDeviceConversionFlag<br>
-  The set value is processed as Ignore and it responds the value "TRUE".
-* Update (SET)
-  * If any value has been set on CrossDeviceConversionFlag<br>
-  The set value is processed as Ignore and it responds the value "TRUE" regardless of the value set on.
-
-**These changes have been applied to the lower versions (Ver.6.5.0/V201805) similarily.
+Please check the following announcement to learn about change details.<br>
+[New feature in Sponsored Search auto bidding released](https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/616715/)<br>
+<br>
+Sponsored Search API V201901 mainly supports followings.
+1. CampaignService supports setting of following auto bidding types as standard bidding<br>
+‐ Maximize Clicks (TARGET_SPEND) <br>
+‐ Target CPA (TARGET_CPA) <br>
+‐ Target ROAS (TARGET_ROAS)
+2. Removed 'Maximize Conversions' (ENHANCED_CPC) option as auto bidding type
 
 ##### Target Web Service
- * [ConversionTrackerService](/docs/en/api_reference/services/ConversionTrackerService.md)
+ * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
+ * [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
 
-### 3. New Auto Bidding type which replaces 'Maximize Conversions'
-For ENHANCED_CPC (maximize conversions) on Auto Bidding feature, following changes are planned.
-
-* ENHANCED_CPC sunset
-* Release of new Auto Bidding type switched from ENHANCED_CPC
-
-According to this change, a new interface to provide a new Auto Bidding type will be provided on V201808.
-Learn more details on 'Impact on each Version from the change of Service' 
+### 3. Added Custom Key of Site Retargeting
+The Custom Key setting became available on Site Retargeting tag.<br>
+Creating Target list using the custom key will enable Site Retargeting by accurate conditions.<br>
+*The naming of this new feature has been revised from "Custom Parameter" to "Custom key".<br>
+<br>
+Sponsored Search API V201901 mainly supports followings.
+1. The Custom Key setting became available on Site Retargeting tag.
+2. Get Custom key setting information became available.
 
 ##### Remarks
-* It's just providing a new interface.  Creating a new setting with Auto Bidding type is not available yet as of V201808 release date.
-* We will inform the closing of ENHANCED_CPC and details of new Auto Bidding type when it's fixed.
-* ENHANCED_CPC will be continuously available after V201808 release.
+The following behavior changes are planned on V201808 and before after V201901 release, on get/update conditions of Target List with one ore more condition(s) of 'Custom key' (Custom Parameter):
+* Get all conditions set to Target List is unavailable.
+* All of conditions previously set to the Target List are released and only new conditions are enabled.
+
+Therefore you may have unexpected operation results when using 'Custom key' (Custom Parameter) on V201808 or before version.<br>
+Please make sure and use the latest API version after V201901 release.
   
 ##### Target Web Service
- * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
 
-### 4. Maximum length of duration of Reach Status of Site Retargeting enhanced
-Maximum length of available duration for Target List (Duration of Reach Status for pages using Site Retargeting tag）has been revised as follows.<br>
-(Before) 180days -> (After) 540days
+### 4. Ad quality improvement
+Sponsored Search will have activities for ad quality improvement by trademark restriction to protect brand value.<br>
+<br>
+The change on Sponsored Search API V201901 is following:
+* Add a flag (TrademarkStatus) for trademark restriction and error codes.
 
-**No change on the default duration 180 days.<br>
-**These changes have been applied to the lower versions (Ver.6.5.0/V201805) similarily.
+*Validation error on ad creation including a restricted trademark (on all available versions).<br>
+*We will announce additional information of this activity when available.
 
 ##### Target Web Service
- * [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
+ * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
+ * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
 
-### 5. Maintenance Release
-Some of Web Services will have maintenance release. 
-
-* Some error codes have been reexamined its configuration and reorganized.<br>
-Details are available on '[Error codes reorganization](/docs/en/api_reference/appendix/error_codes_structure.md)'
-* Improved the accuracy of Keyword Suggestion feature.<br>
-With this update, a new search criteria 'accountId' has been added as a required item for TargetingIdeaService.<br>
+### 5. Auto-tagging feature is available
+Auto-tagging feature supports conversion tracking tags available on secured browsers.<br>
 <br>
-* See also the part of 'Impacts on each Version from the change of Services'.
+Sponsored Search API V201901 mainly supports followings.
+* Get/update setting informations of auto-tagging is available.
+
+*This feature will be available for limited users.
 
 ##### Target Web Service 
- * All services (error codes changes)
- * [TargetingIdeaService](/docs/en/api_reference/services/TargetingIdeaService.md)
+ * [AccountService](/docs/ja/api_reference/services/AccountService.md)
+
+### 6. Maintenance Release
+ * Removed some unnecessary items and reviewed some WSDL as system maintenance release.
+ * As previously announced on the [announcement](https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/) on September 2018, revised responces of Auto Bidding setting on ad group level on Sponsored Search API. (on all available versions)
+
+*See also the part of 'Impacts on each Version from the change of Services'. 
+
+##### Target Web Service 
+ * [AccountService](/docs/ja/api_reference/services/AccountService.md)
+ * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
+ * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
+ * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
+ * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
+ * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
+ * [BidLandscapeService](/docs/ja/api_reference/services/BidLandscapeService.md)
+ * [AccountTrackingUrlService](/docs/ja/api_reference/services/AccountTrackingUrlService.md)
+ * [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md)
+ * [AdGroupWebpageService](/docs/ja/api_reference/services/AdGroupWebpageService.md)
+ * [PageFeedItemService](/docs/ja/api_reference/services/PageFeedItemService.md)
 
 ## Impacts on each Version from the change of Services
 <table class="standard">
@@ -93,141 +118,202 @@ With this update, a new search criteria 'accountId' has been added as a required
 Service
 </th>
 <th>
-V201805 or before
-</th>
-<th>
-V201808
-</th>
+V201808 and before</th>
+<th>V201901</th>
 </tr>
 <tr>
  <td valign="top">CampaignService</td>
- <td valign="top">No change in API IF.<br>
-  **DYNAMIC_ADS_FOR_SEARCH (Dynamic Ads for Search) provides deleting operation only.<br>
-  **There is no change on Bidding setting.
+ <td valign="top">
+ ・No change in API IF.<br>
+ ・Following Auto Bidding types are referable<br>
+ ‐ 'Maximize Clicks'(TARGET_SPEND)<br>
+ ‐ 'Target CPA'(TARGET_CPA)<br>
+ ‐ 'Target ROAS'(TARGET_ROAS)<br>
  </td>
  <td valign="top">
-  ・Following operations are now available on DYNAMIC_ADS_FOR_SEARCH (Dynamic Ads for Search).<br>
-  　‐get<br>
-  　‐add<br>
-  　‐update<br>
-  　‐remove<br>
-  ・There are following changes on Bidding setting.<br>
-  　‐To set a new Auto Bidding type which replaces 'Maximize Conversions' (will be available after the new auto bidding type release)<br>
-    Set 'MANUAL_CPC' for biddingStrategyType (bidding type) AND set 'TRUE' for enhancedCpcEnabled.<br>
-  　‐To set Manual Bidding<br>
-  　Set 'MANUAL_CPC' for biddingStrategyType (bidding type) AND set nothing or set 'FALSE' for enhancedCpcEnabled.<br><br>
-  **When requesting with no setting on biddingScheme option, enhancedCpcEnabled will respond 'FALSE'.<br>
-  **Currently available ENHANCED_CPC (Maximize Conversions) will be supported for a while after the new type released.
-</td>
-</tr>
-<tr>
+ ・Getting Label ID is available<br>
+ ・Set/remove/get of following Auto Bidding types as Standard bidding are available<br>
+ ‐ 'Maximize Clicks'(TARGET_SPEND)<br>
+ ‐ 'Target CPA'(TARGET_CPA)<br>
+ ‐ 'Target ROAS'(TARGET_ROAS)<br>
+ ・Removed the related items of Auto Bidding type 'Maximize Conversions'(ENHANCED_CPC)<br>
+ ・Removed Ad Rotation flag<br>
+ ・Removed the related items of previous Auto Bidding (sunset on July, 2014)
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">BiddingStrategyService</td>
+ <td valign="top">
+ No change in API IF.
+ </td>
+ <td valign="top">
+ Removed the related items of Auto Bidding type 'Maximize Conversions' (ENHANCED_CPC)
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">FeedItemService</td>
+ <td valign="top">
+ ・No change in API IF.<br>
+ ・Validation error on ad creation including a restricted trademark
+ </td>
+ <td valign="top">
+ ・Validation error on ad creation including a restricted trademark<br>
+ ・The value on flag is referable for confirming trademark restrictions
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AdGroupService</td>
+ <td valign="top">
+ ・No change in API IF.<br>
+ ・Revised response on Auto Bidding setting on ad group<br>
+ *Learn about details on <a href="https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/">announcement</a> on September 2018.
+ </td>
+ <td valign="top">
+ ・Getting Label ID is available<br>
+ ・Removed unnecessary items of Auto Bidding<br>
+ ・Revised the response on Auto Bidding setting on ad group<br>
+ *Learn about details on <a href="https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/">announcement</a> on September 2018.
+ </td>
+ </tr>
+ <tr>
  <td valign="top">AdGroupAdService</td>
- <td valign="top">No change in API IF.<br>
-  **DYNAMIC_ADS_FOR_SEARCH (Dynamic Ads for Search) provides deleting operation only.
+ <td valign="top">
+ ・No change in API IF. <br>
+ ・Validation error on ad creation including a restricted trademark
  </td>
  <td valign="top">
-  ・DYNAMIC_SEARCH_LINKED_AD (Dynamic Ads for Search) has been added as a new AdType (ad type).<br>
-  ・Following operations are now available on DYNAMIC_ADS_FOR_SEARCH (Dynamic Ads for Search).<br>
-  　‐get<br>
-  　‐add<br>
-  　‐update<br>
-  　‐remove<br>
-  ・Information of Dynamic Ads for Search has been added to creative information.
+ ・Getting Label ID is available<br>
+ ・Validation error on ad creation including a restricted trademark<br>
+ ・The value on flag is referable for confirming trademark restrictions
  </td>
-</tr>
-<tr>
- <td valign="top">FeedFolderService</td>
- <td valign="top">No change in API IF.<br>
-  **DYNAMIC_ADS_FOR_SEARCH (Dynamic Ads for Search) provides deleting operation only.
+ </tr>
+ <tr>
+ <td valign="top">AdGroupCriterionService</td>
  <td valign="top">
-  ・DYNAMIC_SEARCH_LINKED_AD (Dynamic Ads for Search) has been added as a new AdType (ad type).<br>
-  ・Information of Dynamic Ads for Search has been added to creative information.
-</td>
-</tr>
-<tr>
- <td valign="top">PageFeedItemService</td>
- <td valign="top">Not supported.</td>
+ ・No change in API IF.
+ </td>
  <td valign="top">
-  Following operations are now available for Page Feed item.<br>
-  　-upload<br>
-  　-download<br>
-  　-get summary information<br>
-</td>
-</tr>
-<tr>
- <td valign="top">CampaignWebpageService</td>
- <td valign="top">Not supported.</td>
+ ・Getting Label ID is available<br>
+ ・Removed unnecessary items of Auto Bidding
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">LabelService</td>
+ <td valign="top">-</td>
  <td valign="top">
-  Following operations are now available for Page Feed Exclude settings on a campaign level.<br>
-  　-get<br>
-  　-add<br>
-  　-remove
-</td>
-</tr>
-<tr>
- <td valign="top">AdGroupWebpageService</td>
- <td valign="top">Not supported.</td>
+ ・Create, edit, remove, get labels is available
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">CampaignLabelService</td>
+ <td valign="top">-</td>
  <td valign="top">
-  Following operations are now available for Page Feed Allow/Exclude settings on an ad group level.<br>
-  　-get<br>
-  　-add<br>
-  　-update<br>
-  　-remove
-</td>
-</tr>
-<tr>
- <td valign="top">ConversionTrackerService</td>
- <td valign="top">No change in API IF.<br>
+ ・Set, release of campaign labels is available
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AdGroupLabelService</td>
+ <td valign="top">-</td>
  <td valign="top">
-  There were some changes on behavior of setting CrossDeviceConversionFlag (Control flag of Cross Device Conversion tracking).<br>
-  　‐Creating new (ADD)<br>
-  　Responds the value 'TRUE', regardless of the setting status.<br>
-  　‐Editing (SET)<br>
-  　When any value has been set, responds the value 'TRUE' (ignores any setting value).
-</td>
-</tr>
-<tr>
- <td valign="top">ReportDefinitionService</td>
- <td valign="top">No change in API IF.<br>
-  **Add/Update/Remove of reporting types related to Dynamic Ads for Search are not available.
+ ・Set, release of ad group labels is available
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AdGroupAdLabelService</td>
+ <td valign="top">-</td>
  <td valign="top">
-  Following reporting types have been added.<br>
-  　‐KEYWORDLESS_QUERY (Search Query Report (Dynamic Ads for Search)）<br>
-  　‐WEBPAGE_CRITERION (Page Feed Targeting Report)
-</td>
-</tr>
-<tr>
- <td valign="top">ReportService</td>
- <td valign="top">No change in API IF.<br>
-  **Add/Update/Remove of reporting types related to Dynamic Ads for Search are not available.
+ ・Set, release of ad labels is available
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AdGroupCriterionLabelService</td>
+ <td valign="top">-</td>
  <td valign="top">
-  Following reporting types have been added.<br>
-  　‐KEYWORDLESS_QUERY (Search Query Report (Dynamic Ads for Search)）<br>
-  　‐WEBPAGE_CRITERION (Page Feed Targeting Report)
-</td>
-</tr>
-<tr>
- <td valign="top">TargetingIdeaService</td>
- <td valign="top">No change in API IF.</td>
- <td valign="top">Added accountId as a required option for search condition.</td>
-</tr>
-<tr>
+ ・Set, release of keyword labels is available
+ </td>
+ </tr>
+ <tr>
  <td valign="top">RetargetingListService</td>
- <td valign="top">No change in API IF.<br>
- **Enhanced the maximum length of reachStorageSpan from 180 days to 540 days.<br>
-  **Default value is 180 days.</td>
- <td valign="top">No change in API IF.<br>
- **Enhanced the maximum length of reachStorageSpan from 180 days to 540 days.<br>
-  **Default value is 180 days.</td>
-</tr>
-<tr>
- <td valign="top">All services</td>
- <td valign="top">No change in API IF.</td>
- <td valign="top">Some error codes have been reexamined its confifuration and reorganized</td>
-</tr>
+ <td valign="top">
+ No change in API IF. <br>
+ ・On V201808 and before, changed the behavior on get/update conditions of Target List which with one ore more custome key (custom parameter) conditions as follows:<br>
+ - Get all conditions set to the Target List is unavailable<br>
+ - All of conditions previously set to the Target List are released and only new conditions are enabled
+ </td>
+ <td valign="top">
+ ・Custom key is available as a condition of Target List<br>
+ ・Get Custom key in the tag for Site Retargeting set to Advertiser's website is available
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">BidLandscapeService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Added paging items to the selector of BidLandscapeService.wsdl
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AccountTrackingUrlService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Removed the operator enum value 'ADD' of AccountTrackingUrlService.wsdl (Because it's unprovided)
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">ConversionTrackerService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Removed the flag to control Conversions across devices
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AccountService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Set/get Auto-tagging is available<br>
+ *This feature will be available for limited users
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">CampaignTargetService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+・Revised the response order of Page.Type and totalNumEntries of CampaignTargetService.wsdl like other services
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">AdGroupWebpageService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Revised service name on AdGroupWebpageService.wsdl
+ </td>
+ </tr>
+ <tr>
+ <td valign="top">PageFeedItemService</td>
+ <td valign="top">
+ ・No change in API IF.
+ </td>
+ <td valign="top">
+ ・Revised service name on AdGroupWebpageService.wsdl<br>
+ ・Revised the value on maxOccurs of operations from "unbounded" to "1" on AdGroupWebpageService.wsdl
+ </td>
+ </tr>
+ </tbody>
 </table>
 
-## Sunset schedule of Sponsored Search API Ver.6.5
-Sponsored Search API Ver.6.5 is scheduled to sunset as follows.  
-* Deprecation Date (Support closing on) : September 10, 2018.<br>
-* End of Life Date (System closing on)  : December 10, 2018.<br>
+## Sunset schedule of Sponsored Search API V201805
+Sponsored Search API V201805 is scheduled to sunset as follows.  
+* Deprecation Date (Support closing on) : February 28, 2019.<br>
+* End of Life Date (System closing on)  : May 29, 2019.<br>

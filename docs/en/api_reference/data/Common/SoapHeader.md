@@ -4,7 +4,7 @@ Header information of SOAP request.
 Common all web services
 
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | Field | Data Type | Description | 
 |---|---|---|

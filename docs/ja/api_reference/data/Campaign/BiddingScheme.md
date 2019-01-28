@@ -22,12 +22,12 @@ BiddingSchemeオブジェクトは、自動入札設定の詳細情報を表し�
  <tr>
   <td>biddingStrategyType</td>
   <td>enum <a href="BiddingStrategyType.md">BiddingStrategyType</a></td>
-  <td>自動入札タイプです。</td>
+  <td>入札タイプ</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

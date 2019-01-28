@@ -65,7 +65,7 @@ Campaign object describes Campaign information.
  <tr>
   <td>servingStatus</td>
   <td>enum <a href="CampaignServingStatus.md">CampaignServingStatus</a></td>
-  <td>Display status in Campaign level.<br>Return the campgin status regardless of display status set from user (userStatuses).</td>
+  <td>Display status in Campaign level.<br>Return the campaign status regardless of display status set from user (userStatuses).</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -85,7 +85,7 @@ Campaign object describes Campaign information.
   <td>xsd:string</td>
   <td>End date of Campaign.<br>*Cannot set the past date and date before the start date.</td>
   <td>yes</td>
-  <td>Optional<br>※Default: 20371231</td>
+  <td>Optional<br>*Default: 20371231</td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
@@ -101,7 +101,7 @@ Campaign object describes Campaign information.
  <tr>
   <td>biddingStrategyConfiguration</td>
   <td><a href="CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
-  <td>Bid setting.<br>*BudgetOptimizer is not available.<br>*If iOS is selected for App Campaign, cannot set "TARGET_CPA" or "TARGET_ROAS".</td>
+  <td>Auto bidding setting.<br>*BudgetOptimizer is not available.<br>*If iOS is selected for App Campaign, cannot set "TARGET_CPA" or "TARGET_ROAS".</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional</td>
@@ -110,7 +110,7 @@ Campaign object describes Campaign information.
   <tr>
   <td>biddingStrategyFailedReason</td>
   <td>enum <a href="BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-  <td>Reason of Auto Bidding set has failed.<br>*This field shows when setting has actually failed.</td>
+  <td>Reason for failure of auto bidding setting.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -119,7 +119,7 @@ Campaign object describes Campaign information.
  <tr>
   <td>failedBiddingStrategyConfiguration</td>
   <td><a href="CampaignBiddingStrategy.md">CampaignBiddingStrategy</a></td>
-  <td>Reason of Auto Bidding creation has failed.<br>*This field shows when setting has actually failed.</td>
+  <td>Auto bidding setting that failed entry.<br>*This field shows when setting has actually failed.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -132,15 +132,6 @@ Campaign object describes Campaign information.
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>adServingOptimizationStatus</td>
-  <td>enum <a href="AdServingOptimizationStatus.md">AdServingOptimizationStatus</a></td>
-  <td>Setting of Ad rotation for optimizing ad display.<br>*This item of 'Ad rotation' on campaign level has been changed to read-only.</td>
-  <td>yes</td>
-  <td>Ignore<br>*Default: OPTIMIZE is set.<br>It's not editable with other value.</td>
-  <td>Ignore<br>*The value which has been already set for this item is responded.<br>It's not editable with other value.</td>
   <td>Ignore</td>
  </tr>
   <tr>
@@ -165,13 +156,13 @@ Campaign object describes Campaign information.
   <td>enum <a href="CampaignType.md">CampaignType</a></td>
   <td>Campaign type.</td>
   <td>yes</td>
-  <td>Optional<br>※Default: STANDARD</td>
+  <td>Optional<br>*Default: STANDARD</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>appStore</td>
-  <td>enum <a href="AppStore_Campaign.md">AppStore</a></td>
+  <td>enum <a href="AppStore.md">AppStore</a></td>
   <td>Selection of App store.</td>
   <td>yes</td>
   <td>If campaignType is 'STANDARD':ignore<br>
@@ -215,6 +206,15 @@ Campaign object describes Campaign information.
   <td>urlReviewData</td>
   <td><a href="UrlReviewData.md">UrlReviewData</a></td>
   <td>Review status of URL.</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>labels[0...50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>Label.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>

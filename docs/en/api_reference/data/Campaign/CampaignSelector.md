@@ -1,5 +1,5 @@
 # CampaignSelector
-CampaignSelector object displays which campaigns to return.
+CampaignSelector object displays information and filter criteria of campaign to be operated.
 
 ### Service
 + [CampaignService](../../services/CampaignService.md)
@@ -21,7 +21,7 @@ CampaignSelector object displays which campaigns to return.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID.</td>
+  <td>Search condition: Account ID</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
@@ -31,7 +31,7 @@ CampaignSelector object displays which campaigns to return.
  <tr>
   <td>campaignIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>Campaign ID.<br>All campaign will return, if no campaign are not specified.</td>
+  <td>Search condition: Campaign ID<br>*All campaign will return, if no campaign are not specified.</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -41,7 +41,7 @@ CampaignSelector object displays which campaigns to return.
  <tr>
   <td>biddingStrategyIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>Auto Bidding ID.</td>
+  <td>Search condition: Auto Bidding ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -51,7 +51,27 @@ CampaignSelector object displays which campaigns to return.
  <tr>
  <td>userStatuses[0...2]</td>
   <td>xsd:long</td>
+  <td>Search condition: Delivery status of setting by users<br>*If not specified, the filter criteria includes all posting status. </td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>labelIds[0...1000]</td>
+  <td>xsd:long</td>
   <td>Search condition: Label ID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>Search condition: Acquisition flag of label data</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -61,7 +81,7 @@ CampaignSelector object displays which campaigns to return.
  <tr>
   <td>paging</td>
   <td><a href="../Common/Paging.md">Paging</a></td>
-  <td>Page of returned elements.</td>
+  <td>Search condition: Page of returned elements</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

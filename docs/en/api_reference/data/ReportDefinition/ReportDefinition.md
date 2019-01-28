@@ -70,7 +70,7 @@ ReportDefinition object displays the report definition.
  </tr>
  <tr>
   <td>dateRange</td>
-  <td><a href="DateRange.md">DateRange</a></td>
+  <td><a href="ReportDateRange.md">DateRange</a></td>
   <td>Date range of retrieving report, set by user.</td>
   <td>yes</td>
   <td>-</td>

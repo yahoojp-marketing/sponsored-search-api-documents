@@ -21,7 +21,7 @@ CampaignSelectorオブジェクトは、操作の対象とするキャンペー�
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>検索条件：アカウントID</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
@@ -31,7 +31,7 @@ CampaignSelectorオブジェクトは、操作の対象とするキャンペー�
  <tr>
   <td>campaignIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。<br>指定しない場合は、フィルタ条件に すべてのキャンペーンが含まれます。</td>
+  <td>検索条件：キャンペーンID<br>※指定しない場合は、フィルタ条件に すべてのキャンペーンが含まれます。</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -41,7 +41,7 @@ CampaignSelectorオブジェクトは、操作の対象とするキャンペー�
  <tr>
   <td>biddingStrategyIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>自動入札IDです。</td>
+  <td>検索条件：自動入札ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -51,7 +51,27 @@ CampaignSelectorオブジェクトは、操作の対象とするキャンペー�
  <tr>
  <td>userStatuses[0...2]</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>ユーザーにより設定される広告の 掲載状況です。<br>指定しない場合は、フィルタ条件に すべての掲載状況が含まれます。</td>
+  <td>検索条件：ユーザー設定の配信ステータス<br>※指定しない場合は、フィルタ条件に すべての掲載状況が含まれます。</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>labelIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>検索条件：ラベルID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>検索条件：ラベル情報取得フラグ</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -61,7 +81,7 @@ CampaignSelectorオブジェクトは、操作の対象とするキャンペー�
  <tr>
   <td>paging</td>
   <td><a href="../Common/Paging.md">Paging</a></td>
-  <td>レスポンスとして戻されるページです。</td>
+  <td>検索条件：取得範囲</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

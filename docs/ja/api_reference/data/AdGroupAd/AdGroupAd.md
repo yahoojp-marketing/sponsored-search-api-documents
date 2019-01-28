@@ -21,17 +21,17 @@ AdGroupAdオブジェクトは、広告に関する操作を行うための情�
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントID</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
+  <td>キャンペーンID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -41,27 +41,27 @@ AdGroupAdオブジェクトは、広告に関する操作を行うための情�
  <tr>
   <td>campaignTrackId</td>
   <td>xsd:long</td>
-  <td>トラッキング用キャンペーンIDです。<br>※Sandbox環境では常に0が返ります。</td>
+  <td>トラッキング用キャンペーンID<br>※Sandbox環境では常に0が返ります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>キャンペーン名です。</td>
+  <td>キャンペーン名</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
-  <td>広告グループIDです。</td>
+  <td>広告グループID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -71,102 +71,132 @@ AdGroupAdオブジェクトは、広告に関する操作を行うための情�
  <tr>
   <td>adGroupTrackId</td>
   <td>xsd:long</td>
-  <td>トラッキング用広告グループIDです。<br>※Sandbox環境では常に0が返ります。</td>
+  <td>トラッキング用広告グループID<br>※Sandbox環境では常に0が返ります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupName</td>
   <td>xsd:string</td>
-  <td>広告グループ名です。</td>
+  <td>広告グループ名</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adId</td>
   <td>xsd:long</td>
-  <td>広告IDです。</td>
+  <td>広告ID</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
   <td>Requirement<br><i>NotUpdatable</i></td>
  </tr>
  <tr>
   <td>adTrackId</td>
   <td>xsd:long</td>
-  <td>トラッキング用広告IDです。<br>※Sandbox環境では常に0が返ります。</td>
+  <td>トラッキング用広告ID<br>※Sandbox環境では常に0が返ります。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adName</td>
   <td>xsd:string</td>
-  <td>広告名です。</td>
+  <td>広告名</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>userStatus</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>ユーザーにより設定される 掲載状況です。</td>
+  <td>ユーザーにより設定される掲載状況</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>approvalStatus</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>審査のステータスです。</td>
+  <td>審査のステータス</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>disapprovalReasonCodes</td>
   <td>xsd:string</td>
-  <td>審査否認理由のコードです。</td>
+  <td>審査否認の理由コード</td>
   <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>trademarkStatus</td>
+  <td>enum <a href="TrademarkStatus.md">TrademarkStatus</a></td>
+  <td>商標保護ステータス</td>
+  <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>invalidedTrademarks[0...n]</td>
+  <td>string[]</td>
+  <td>制限された商標</td>
+  <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>ad</td>
   <td><a href="Ad.md">Ad</a><br>inherited <a href="TextAd2.md">TextAd2</a><br> inherited <a href="AppAd.md">AppAd</a><br> inherited <a href="ExtendedTextAd.md">ExtendedTextAd</a><br> inherited <a href="DynamicSearchLinkedAd.md">DynamicSearchLinkedAd</a></td>
-  <td>クリエイティブ広告の情報です。</td>
+  <td>クリエイティブ広告の情報</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>feedFolderId</td>
   <td>xsd:long</td>
-  <td>フィードフォルダIDです。</td>
+  <td>フィードフォルダID</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>labels[0..50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>ラベル</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

@@ -20,7 +20,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID.</td>
+  <td>Account ID</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -29,7 +29,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>Campaign ID.</td>
+  <td>Campaign ID</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -38,7 +38,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>campaignTrackId</td>
   <td>xsd:long</td>
-  <td>Campaign ID for tracking.<br>* "0" will return in Sandbox.</td>
+  <td>Campaign ID for tracking<br>* "0" will return in Sandbox</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -47,7 +47,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>Campaign name.</td>
+  <td>Campaign name</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -56,7 +56,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
-  <td>Ad Group ID.</td>
+  <td>Ad Group ID</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Requirement<br><i>NotUpdatable</i></td>
@@ -65,7 +65,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>adGroupTrackId</td>
   <td>xsd:long</td>
-  <td>Ad Group ID for tracking.<br>* "0" will return in Sandbox.</td>
+  <td>Ad Group ID for tracking<br>* "0" will return in Sandbox</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -74,7 +74,7 @@ AdGroup object describes ad group information.
  <tr>
   <td>adGroupName</td>
   <td>xsd:string</td>
-  <td>Ad Group name.</td>
+  <td>Ad Group name</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
@@ -83,43 +83,25 @@ AdGroup object describes ad group information.
  <tr>
   <td>userStatus</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>Ad display status from user's settings.</td>
+  <td>Ad display status from user's settings</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional<br><i>Updatable</i></td>
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>biddingStrategyConfiguration</td>
-  <td><a href="AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
- <td>Bidding setting which is currently available.<br>*After November 15, 2017 JST, creating/editing bidding setting is not available.</td>
+  <td>bid</td>
+  <td><a href="Bid.md">Bid</a></td>
+ <td>Bid values</td>
   <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
+  <td>Optional</td>
+  <td>Optional<br><i>Updatable</i></td>
   <td>Ignore</td>
  </tr>
 <tr>
-<td>biddingStrategyFailedReason</td>
-<td>enum <a href="BiddingStrategyFailedReason.md">BiddingStrategyFailedReason</a></td>
-<td>Reason of failed Auto Bidding setting.<br>*This field shows when setting has actually failed.</td>
-<td>yes</td>
-<td>Ignore</td>
-<td>Ignore</td>
-<td>Ignore</td>
-</tr>
-<tr>
-<td>failedBiddingStrategyConfiguration</td>
-<td><a href="AdGroupBiddingStrategy.md">AdGroupBiddingStrategy</a></td>
-<td>Settings in detail on the failed Auto Bidding creation.<br>*This field shows when setting has actually failed.</td>
-<td>yes</td>
-<td>Ignore</td>
-<td>Ignore</td>
-<td>Ignore</td>
-</tr>
-<tr>
   <td>settings[0...1]</td>
   <td><a href="AdGroupSettings.md">AdGroupSettings</a><br>inherited <a href="TargetingSetting.md">TargetingSetting</a></td>
-  <td>Targeting setting.</td>
+  <td>Targeting setting</td>
   <td>yes</td>
   <td>Optional<br>
   *Default value for the case of no setting 'TargetingSetting'<br>
@@ -131,25 +113,25 @@ AdGroup object describes ad group information.
  <tr>
   <td>trackingUrl</td>
   <td>xsd:string</td>
-  <td>Tracking URL.<br>* Cannot set for a Mobile App campaign for Android OS.</td>
+  <td>Tracking URL<br>* Cannot set for a Mobile App campaign for Android OS</td>
   <td>yes</td>
   <td>Optional</td>
-  <td>Optional<br>* Cannot update when this is in editorial review.<br>*Not to be reviewed if there is no change.</td>
+  <td>Optional<br>* Cannot update when this is in editorial review<br>*Not to be reviewed if there is no change</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>customParameters</td>
   <td><a href="CustomParameters.md">CustomParameters</a></td>
-  <td>Custom parameter.<br>* Cannot set for a Mobile App campaign for Android OS.</td>
+  <td>Custom parameter<br>* Cannot set for a Mobile App campaign for Android OS</td>
   <td>yes</td>
   <td>Optional</td>
-  <td>Optional<br>* Cannot update this when Tracking URL is in editorial review.<br>*Not to be reviewed if there is no change.</td>
+  <td>Optional<br>* Cannot update this when Tracking URL is in editorial review<br>*Not to be reviewed if there is no change</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>urlReviewData</td>
   <td><a href="UrlReviewData.md">UrlReviewData</a></td>
-  <td>Editorial review status of URL.</td>
+  <td>Editorial review status of URL</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -158,10 +140,19 @@ AdGroup object describes ad group information.
  <tr>
   <td>adGroupAdRotationMode</td>
   <td><a href="AdGroupAdRotationMode.md">AdGroupAdRotationMode</a></td>
-  <td>Ad rotation setting for optimizing.</td>
+  <td>Ad rotation setting for optimizing</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional</td>
+  <td>Ignore</td>
+ </tr>
+   <tr>
+  <td>labels[0...50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>Label</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

@@ -3,7 +3,7 @@ ReturnValueオブジェクトは、処理の結果を表します。
 ### Service
 全サービス共通
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | フィールド | データ型 | 説明 |
 |---|---|---|

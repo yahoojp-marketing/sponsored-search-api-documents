@@ -4,11 +4,11 @@ RetargetingListService is to get, add, or update information of target list.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/RetargetingListService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/RetargetingListService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/RetargetingList
+http://ss.yahooapis.jp/V201901/RetargetingList
 
 #### Overview
 RetargetingListService provides operation of target list.
@@ -17,6 +17,7 @@ RetargetingListService provides operation of target list.
 Describe the operation which provides at RetargetingListService.
 
 + [get](#get)
++ [getCustomKey](#getcustomkey)
 + [mutate(ADD)](#mutateadd)
 + [mutate(SET)](#mutateset)
 
@@ -35,14 +36,14 @@ Retrieves the target list information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1111</accountId>
         <targetListIds>100000001</targetListIds>
@@ -72,14 +73,14 @@ Response fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1523506337133</ns2:requestTime>
+      <ns2:requestTime>1547793060416</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/RetargetingList">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/RetargetingList">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:values>
@@ -255,6 +256,66 @@ var yahoo_ss_retargeting = true;
 </SOAP-ENV:Envelope>
 ```
 
+## getCustomKey
+Get custom key information.
+
+#### Request
+| Parameter | Restrictions | Data type | Description |
+|---|---|---|---|
+| selector | Req | [GetCustomKeySelector](../data/RetargetingList/GetCustomKeySelector.md) | 	Get custom key informations of target list. |
+
+##### Request Sample
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getCustomKey xmlns="http://ss.yahooapis.jp/V201901/RetargetingList">
+      <selector>
+        <accountId>1111</accountId>
+        <owner>OWNER</owner>
+      </selector>
+    </getCustomKey>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### Response
+Response fields in normal cases.
+
+| Field | Data type | Description |
+|---|---|---|
+| rval | [RetargetingListCustomKeyPage](../data/RetargetingList/RetargetingListCustomKeyPage.md) | Container holding custom key informations of target list entries.|
+
+##### Response Sample
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+      <ns2:service>RetargetingList</ns2:service>
+      <ns2:requestTime>1547793060452</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getCustomKeyResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/RetargetingList">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <ns2:customKeys>
+          <ns2:textKey>textKey1</ns2:textKey>
+          <ns2:textKey>textKey2</ns2:textKey>
+        </ns2:customKeys>
+      </ns2:rval>
+    </ns2:getCustomKeyResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 ## mutate(ADD)
 Adds target list.
 
@@ -267,14 +328,14 @@ Adds target list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/RetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/RetargetingList">
       <operations>
         <operator>ADD</operator>
         <accountId>0</accountId>
@@ -357,6 +418,14 @@ Adds target list.
               <urlKey>REFFER_URL</urlKey>
             </ruleItems>
           </rules>
+          <rules>
+            <ruleItems xsi:type="CustomKeyRuleItem">
+              <ruleType>CUSTOM_KEY_RULE</ruleType>
+              <operator>NOT_END_WITH</operator>
+              <value>textValue</value>
+              <textKey>textKey</textKey>
+            </ruleItems>
+          </rules>
           <isAllVisitor>TRUE</isAllVisitor>
           <isDateSpecific>FALSE</isDateSpecific>
         </operand>
@@ -412,14 +481,14 @@ Response fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1523506337160</ns2:requestTime>
+      <ns2:requestTime>1547793060478</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/RetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/RetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -524,6 +593,14 @@ Response fields in normal cases.
                 <ns2:urlKey>REFFER_URL</ns2:urlKey>
               </ns2:ruleItems>
             </ns2:rules>
+            <ns2:rules>
+              <ns2:ruleItems xsi:type="ns2:CustomKeyRuleItem">
+                <ns2:ruleType>CUSTOM_KEY_RULE</ns2:ruleType>
+                <ns2:operator>NOT_END_WITH</ns2:operator>
+                <ns2:value>textValue</ns2:value>
+                <ns2:textKey>textKey</ns2:textKey>
+              </ns2:ruleItems>
+            </ns2:rules>
             <ns2:isAllVisitor>TRUE</ns2:isAllVisitor>
             <ns2:isDateSpecific>FALSE</ns2:isDateSpecific>
           </ns2:targetList>
@@ -592,16 +669,16 @@ Updates the target list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/RetargetingList">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/RetargetingList">
       <operations>
-        <operator>ADD</operator>
+        <operator>SET</operator>
         <accountId>0</accountId>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DefaultTargetList">
           <accountId>1111</accountId>
@@ -740,14 +817,14 @@ Response fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/RetargetingList" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1523506337191</ns2:requestTime>
+      <ns2:requestTime>1547793060563</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/RetargetingList">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/RetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

@@ -41,9 +41,9 @@ TargetCpaBiddingSchemeオブジェクトは、コンバージョン単価の目�
   <td>コンバージョン単価の目標値です。<br>※制限値：0 ～ 99999999<br>※日本円のみの設定です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidCeiling</td>
@@ -51,9 +51,9 @@ TargetCpaBiddingSchemeオブジェクトは、コンバージョン単価の目�
   <td>入札価格の上限です。<br>※制限値：0 ～ 50000<br>※「0」が設定された場合、上限設定はありません。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidFloor</td>
@@ -61,9 +61,9 @@ TargetCpaBiddingSchemeオブジェクトは、コンバージョン単価の目�
   <td>入札価格の下限です。<br>※ 設定を解除する場合は「0」を指定します。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

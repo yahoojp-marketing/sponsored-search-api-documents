@@ -4,10 +4,10 @@ Use this service to get, add, update, or delete auto bidding information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/BiddingStrategyService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/BiddingStrategyService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/BiddingStrategyService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/BiddingStrategyService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201808/BiddingStrategy
+http://ss.yahooapis.jp/V201901/BiddingStrategy
 #### Overview
 Use this service to create, update and remove auto bidding information.
 #### Operation
@@ -33,14 +33,14 @@ Returns auto bidding information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1234567890</accountId>
         <biddingStrategyIds>20001</biddingStrategyIds>
@@ -48,7 +48,6 @@ Returns auto bidding information.
         <biddingStrategyIds>20003</biddingStrategyIds>
         <biddingStrategyIds>20004</biddingStrategyIds>
         <biddingStrategyIds>20005</biddingStrategyIds>
-        <biddingStrategyTypes>ENHANCED_CPC</biddingStrategyTypes>
         <biddingStrategyTypes>PAGE_ONE_PROMOTED</biddingStrategyTypes>
         <biddingStrategyTypes>TARGET_CPA</biddingStrategyTypes>
         <biddingStrategyTypes>TARGET_SPEND</biddingStrategyTypes>
@@ -74,29 +73,17 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>BiddingStrategy</ns2:service>
-      <ns2:requestTime>1523506330695</ns2:requestTime>
+      <ns2:requestTime>1547792998941</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <ns2:rval>
         <totalNumEntries>5</totalNumEntries>
         <Page.Type>BiddingStrategyPage</Page.Type>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:biddingStrategy>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
-            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
-            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
-              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            </ns2:biddingScheme>
-          </ns2:biddingStrategy>
-        </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:biddingStrategy>
@@ -177,23 +164,17 @@ Creates the Auto bidding.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
-        <operand>
-          <biddingStrategyName>EnhancedCpcBiddingScheme</biddingStrategyName>
-          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="EnhancedCpcBiddingScheme">
-            <biddingStrategyType>ENHANCED_CPC</biddingStrategyType>
-          </biddingScheme>
-        </operand>
         <operand>
           <biddingStrategyName>PageOnePromotedBiddingScheme</biddingStrategyName>
           <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PageOnePromotedBiddingScheme">
@@ -249,29 +230,17 @@ Response Field
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>BiddingStrategy</ns2:service>
-      <ns2:requestTime>1523506330744</ns2:requestTime>
+      <ns2:requestTime>1547792999053</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <ns2:rval>
         <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:biddingStrategy>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
-            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
-            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
-              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            </ns2:biddingScheme>
-          </ns2:biddingStrategy>
-        </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:biddingStrategy>
@@ -352,24 +321,17 @@ Updates an auto bidding.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
-        <operand>
-          <biddingStrategyId>20001</biddingStrategyId>
-          <biddingStrategyName>set EnhancedCpcBiddingScheme</biddingStrategyName>
-          <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="EnhancedCpcBiddingScheme">
-            <biddingStrategyType>ENHANCED_CPC</biddingStrategyType>
-          </biddingScheme>
-        </operand>
         <operand>
           <biddingStrategyId>20002</biddingStrategyId>
           <biddingStrategyName>set PageOnePromotedBiddingScheme</biddingStrategyName>
@@ -429,29 +391,17 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>BiddingStrategy</ns2:service>
-      <ns2:requestTime>1523506330771</ns2:requestTime>
+      <ns2:requestTime>1547792999092</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <ns2:rval>
         <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:biddingStrategy>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
-            <ns2:biddingStrategyName>set EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
-            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
-              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            </ns2:biddingScheme>
-          </ns2:biddingStrategy>
-        </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:biddingStrategy>
@@ -532,14 +482,14 @@ Remove the auto bidding setting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -575,29 +525,17 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/BiddingStrategy" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>BiddingStrategy</ns2:service>
-      <ns2:requestTime>1523506330792</ns2:requestTime>
+      <ns2:requestTime>1547792999128</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/BiddingStrategy">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/BiddingStrategy">
       <ns2:rval>
         <ListReturnValue.Type>BiddingStrategyReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:biddingStrategy>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
-            <ns2:biddingStrategyName>EnhancedCpcBiddingScheme</ns2:biddingStrategyName>
-            <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:EnhancedCpcBiddingScheme">
-              <ns2:biddingStrategyType>ENHANCED_CPC</ns2:biddingStrategyType>
-            </ns2:biddingScheme>
-          </ns2:biddingStrategy>
-        </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:biddingStrategy>

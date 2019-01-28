@@ -21,7 +21,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>検索条件：アカウントIDです。</td>
+  <td>検索条件：アカウントID</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
@@ -31,7 +31,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>campaignIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>検索条件：キャンペーンIDです。</td>
+  <td>検索条件：キャンペーンID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -41,7 +41,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>adGroupIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>検索条件：広告グループIDです。</td>
+  <td>検索条件：広告グループID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -51,7 +51,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>adIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>検索条件：広告IDです。</td>
+  <td>検索条件：広告ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -61,7 +61,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>adTypes[0...4]</td>
   <td>enum <a href="AdType.md">AdType</a></td>
-  <td>検索条件：広告の種類です。</td>
+  <td>検索条件：広告の種類</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -71,7 +71,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>userStatuses[0...2]</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>検索条件：ユーザーにより設定される広告の掲載状況です。<br>※指定しない 場合は、フィルタ条件にすべての掲載状況が含まれます。</td>
+  <td>検索条件：ユーザーにより設定される広告の掲載状況<br>※指定しない 場合は、フィルタ条件にすべての掲載状況が含まれます。</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -81,7 +81,27 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>approvalStatuses[0...5]</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>検索条件：審査状況です。</td>
+  <td>検索条件：審査状況</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>labelIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>検索条件：ラベルID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>検索条件：ラベル情報取得フラグ</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -91,7 +111,7 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
  <tr>
   <td>paging</td>
   <td><a href="../Common/Paging.md">Paging</a></td>
-  <td>検索条件：取得範囲です。</td>
+  <td>検索条件：取得範囲</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

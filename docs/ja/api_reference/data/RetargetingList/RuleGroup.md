@@ -20,7 +20,7 @@ RuleGroupは、URL/LABELのルールをグループ化した情報を保持す�
  </tr>
  <tr>
   <td>ruleItems[1...20]</td>
-  <td><a href="RuleItem.md">RuleItem</a><br> inherited <a href="UrlRuleItem.md">UrlRuleItem</a><br> inherited <a href="CustomParameterRuleItem.md">CustomParameterRuleItem</a></td>
+  <td><a href="RuleItem.md">RuleItem</a><br> inherited <a href="UrlRuleItem.md">UrlRuleItem</a><br> inherited <a href="CustomKeyRuleItem.md">CustomKeyRuleItem</a></td>
   <td>評価条件のリストです。 </td>
   <td>yes</td>
   <td>-</td>

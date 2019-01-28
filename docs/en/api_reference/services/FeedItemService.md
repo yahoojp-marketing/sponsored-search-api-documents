@@ -4,11 +4,11 @@ FeedItemService is to get, add, update, or remove Feed Item information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/FeedItemService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/FeedItemService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/FeedItemService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/FeedItemService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/FeedItem
+http://ss.yahooapis.jp/V201901/FeedItem
 
 #### Overview
 Get, add, update, or remove Feed Item information
@@ -36,14 +36,14 @@ Get Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <feedItemIds>200000001</feedItemIds>
@@ -80,14 +80,14 @@ Get Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991532</ns2:requestTime>
+      <ns2:requestTime>1547792994475</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedItemPage</Page.Type>
@@ -98,6 +98,8 @@ Get Feed Item information.
             <ns2:feedItemId>200000001</ns2:feedItemId>
             <ns2:feedItemTrackId>300000001</ns2:feedItemTrackId>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 1</ns2:invalidedTrademarks>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
               <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
@@ -115,8 +117,8 @@ Get Feed Item information.
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -193,8 +195,8 @@ Get Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -236,8 +238,8 @@ Get Feed Item information.
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -264,8 +266,8 @@ Get Feed Item information.
               <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -309,8 +311,8 @@ Get Feed Item information.
               <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -362,8 +364,8 @@ Get Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -393,14 +395,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -422,8 +424,8 @@ Add Feed Item information.
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -457,14 +459,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -474,8 +476,8 @@ Add Feed Item information.
             <placeholderField>CALL_PHONE_NUMBER</placeholderField>
             <feedAttributeValue>0120-111-222</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -495,14 +497,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -525,8 +527,8 @@ Add Feed Item information.
             <feedAttributeId>4</feedAttributeId>
             <feedAttributeValue>9,999,999.99</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -561,14 +563,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -578,8 +580,8 @@ Add Feed Item information.
             <placeholderField>CALLOUT_TEXT</placeholderField>
             <feedAttributeValue>callout text.</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -599,14 +601,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -628,8 +630,8 @@ Add Feed Item information.
               <feedAttributeValue>PUMA</feedAttributeValue>
             </feedAttributeValues>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -649,14 +651,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -702,8 +704,8 @@ Add Feed Item information.
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -743,14 +745,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991570</ns2:requestTime>
+      <ns2:requestTime>1547792994528</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -778,8 +780,8 @@ Add Feed Item information.
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -817,14 +819,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991610</ns2:requestTime>
+      <ns2:requestTime>1547792994583</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -841,8 +843,8 @@ Add Feed Item information.
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -866,14 +868,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991660</ns2:requestTime>
+      <ns2:requestTime>1547792994626</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -906,8 +908,8 @@ Add Feed Item information.
               <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -944,14 +946,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991707</ns2:requestTime>
+      <ns2:requestTime>1547792994819</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -967,8 +969,8 @@ Add Feed Item information.
               <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -992,14 +994,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991750</ns2:requestTime>
+      <ns2:requestTime>1547792994897</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -1027,8 +1029,8 @@ Add Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -1049,14 +1051,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991790</ns2:requestTime>
+      <ns2:requestTime>1547792994944</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -1108,8 +1110,8 @@ Add Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -1155,14 +1157,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1185,8 +1187,8 @@ Add Feed Item information.
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180515</startDate>
-          <endDate>20180615</endDate>
+          <startDate>20190119</startDate>
+          <endDate>20190219</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1220,14 +1222,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1238,8 +1240,8 @@ Add Feed Item information.
             <placeholderField>CALL_PHONE_NUMBER</placeholderField>
             <feedAttributeValue>0120-888-999</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180515</startDate>
-          <endDate>20180615</endDate>
+          <startDate>20190119</startDate>
+          <endDate>20190219</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1259,14 +1261,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1289,8 +1291,8 @@ Add Feed Item information.
             <feedAttributeId>4</feedAttributeId>
             <feedAttributeValue>8,888,888.88</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180515</startDate>
-          <endDate>20180615</endDate>
+          <startDate>20190119</startDate>
+          <endDate>20190219</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1325,14 +1327,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1343,8 +1345,8 @@ Add Feed Item information.
             <placeholderField>CALLOUT_TEXT</placeholderField>
             <feedAttributeValue>set callout text.</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180515</startDate>
-          <endDate>20180615</endDate>
+          <startDate>20190119</startDate>
+          <endDate>20190219</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1364,14 +1366,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1394,8 +1396,8 @@ Add Feed Item information.
               <feedAttributeValue>CHAMPION</feedAttributeValue>
             </feedAttributeValues>
           </feedItemAttribute>
-          <startDate>20180514</startDate>
-          <endDate>20180614</endDate>
+          <startDate>20190118</startDate>
+          <endDate>20190218</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1415,14 +1417,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1469,8 +1471,8 @@ Add Feed Item information.
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20180515</startDate>
-          <endDate>20180615</endDate>
+          <startDate>20190119</startDate>
+          <endDate>20190219</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1510,14 +1512,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991831</ns2:requestTime>
+      <ns2:requestTime>1547792994986</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1549,8 +1551,8 @@ Add Feed Item information.
               <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1602,14 +1604,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991877</ns2:requestTime>
+      <ns2:requestTime>1547792995029</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1627,8 +1629,8 @@ Add Feed Item information.
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1652,14 +1654,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991924</ns2:requestTime>
+      <ns2:requestTime>1547792995077</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1692,8 +1694,8 @@ Add Feed Item information.
               <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1724,14 +1726,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274991970</ns2:requestTime>
+      <ns2:requestTime>1547792995115</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1748,8 +1750,8 @@ Add Feed Item information.
               <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1773,14 +1775,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992015</ns2:requestTime>
+      <ns2:requestTime>1547792995152</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1812,8 +1814,8 @@ Add Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1834,14 +1836,14 @@ Add Feed Item information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992071</ns2:requestTime>
+      <ns2:requestTime>1547792995195</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1903,8 +1905,8 @@ Add Feed Item information.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1965,14 +1967,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -1989,14 +1991,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2013,14 +2015,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2037,14 +2039,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2061,14 +2063,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -2085,14 +2087,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2115,14 +2117,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992138</ns2:requestTime>
+      <ns2:requestTime>1547792995235</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2154,8 +2156,8 @@ Remove the Feed Item details.
               <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2207,14 +2209,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992185</ns2:requestTime>
+      <ns2:requestTime>1547792995318</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2232,8 +2234,8 @@ Remove the Feed Item details.
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2257,14 +2259,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992244</ns2:requestTime>
+      <ns2:requestTime>1547792995380</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2297,8 +2299,8 @@ Remove the Feed Item details.
               <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2329,14 +2331,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992279</ns2:requestTime>
+      <ns2:requestTime>1547792995437</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -2353,8 +2355,8 @@ Remove the Feed Item details.
               <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2378,14 +2380,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992313</ns2:requestTime>
+      <ns2:requestTime>1547792995488</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2417,8 +2419,8 @@ Remove the Feed Item details.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20180514</ns2:startDate>
-            <ns2:endDate>20180614</ns2:endDate>
+            <ns2:startDate>20190118</ns2:startDate>
+            <ns2:endDate>20190218</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2439,14 +2441,14 @@ Remove the Feed Item details.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1526274992372</ns2:requestTime>
+      <ns2:requestTime>1547792995540</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2508,8 +2510,8 @@ Remove the Feed Item details.
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20180515</ns2:startDate>
-            <ns2:endDate>20180615</ns2:endDate>
+            <ns2:startDate>20190119</ns2:startDate>
+            <ns2:endDate>20190219</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>

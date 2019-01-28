@@ -4,11 +4,11 @@ AdGroupCriterionServiceでは、広告グループに関するターゲット条
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AdGroupCriterionService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupCriterionService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/AdGroupCriterionService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupCriterionService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/AdGroupCriterion
+http://ss.yahooapis.jp/V201901/AdGroupCriterion
 
 #### サービス概要
 広告グループに関するターゲット条件（クライテリア）の取得および追加・更新・削除を行います。
@@ -36,14 +36,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -62,6 +62,12 @@ AdGroupCriterionServiceで提供される操作を説明します。
         <criterionIds>30004</criterionIds>
         <criterionIds>30005</criterionIds>
         <criterionUse>BIDDABLE</criterionUse>
+        <labelIds>40001</labelIds>
+        <labelIds>40002</labelIds>
+        <labelIds>40003</labelIds>
+        <labelIds>40004</labelIds>
+        <labelIds>40005</labelIds>
+        <containsLabelId>TRUE</containsLabelId>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>100</ns2:numberResults>
@@ -83,14 +89,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupCriterion</ns2:service>
-      <ns2:requestTime>1523506329242</ns2:requestTime>
+      <ns2:requestTime>1547793434258</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupCriterionPage</Page.Type>
@@ -112,21 +118,44 @@ AdGroupCriterionServiceで提供される操作を説明します。
               <ns2:text>test keyword2.</ns2:text>
               <ns2:matchType>PHRASE</ns2:matchType>
             </ns2:criterion>
+            <ns2:labels>
+              <ns2:labelId>40001</ns2:labelId>
+              <ns2:labelName>sample label 1</ns2:labelName>
+              <ns2:description>sample description 1</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>40002</ns2:labelId>
+              <ns2:labelName>sample label 2</ns2:labelName>
+              <ns2:description>sample description 2</ns2:description>
+              <ns2:color>#000000</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>40003</ns2:labelId>
+              <ns2:labelName>sample label 3</ns2:labelName>
+              <ns2:description>sample description 3</ns2:description>
+              <ns2:color>#FF0000</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>40004</ns2:labelId>
+              <ns2:labelName>sample label 4</ns2:labelName>
+              <ns2:description>sample description 4</ns2:description>
+              <ns2:color>#00FF00</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>40005</ns2:labelId>
+              <ns2:labelName>sample label 5</ns2:labelName>
+              <ns2:description>sample description 5</ns2:description>
+              <ns2:color>#0000FF</ns2:color>
+            </ns2:labels>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xsi:type="ns2:ManualCpcBiddingScheme">
-                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              </ns2:biddingScheme>
-              <ns2:bid>
-                <ns2:maxCpc>100</ns2:maxCpc>
-                <ns2:bidSource>CRITERION</ns2:bidSource>
-                <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
-                <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
-              </ns2:bid>
-            </ns2:biddingStrategyConfiguration>
+            <ns2:bid>
+              <ns2:maxCpc>100</ns2:maxCpc>
+              <ns2:bidSource>CRITERION</ns2:bidSource>
+              <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
+              <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
+            </ns2:bid>
             <ns2:advancedUrl>http://yahoo.co.jp</ns2:advancedUrl>
             <ns2:additionalAdvancedUrls>
               <ns2:additionalAdvancedUrl>
@@ -186,14 +215,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -217,11 +246,9 @@ AdGroupCriterionServiceで提供される操作を説明します。
             <matchType>PHRASE</matchType>
           </criterion>
           <userStatus>ACTIVE</userStatus>
-          <biddingStrategyConfiguration>
-            <bid>
-              <maxCpc>100</maxCpc>
-            </bid>
-          </biddingStrategyConfiguration>
+          <bid>
+            <maxCpc>100</maxCpc>
+          </bid>
           <advancedUrl>http://yahoo.co.jp</advancedUrl>
           <additionalAdvancedUrls>
             <additionalAdvancedUrl>
@@ -277,14 +304,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupCriterion</ns2:service>
-      <ns2:requestTime>1523506329298</ns2:requestTime>
+      <ns2:requestTime>1547793434297</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -328,19 +355,12 @@ AdGroupCriterionServiceで提供される操作を説明します。
             </ns2:criterion>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xsi:type="ns2:ManualCpcBiddingScheme">
-                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              </ns2:biddingScheme>
-              <ns2:bid>
-                <ns2:maxCpc>100</ns2:maxCpc>
-                <ns2:bidSource>CRITERION</ns2:bidSource>
-                <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
-                <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
-              </ns2:bid>
-            </ns2:biddingStrategyConfiguration>
+            <ns2:bid>
+              <ns2:maxCpc>100</ns2:maxCpc>
+              <ns2:bidSource>CRITERION</ns2:bidSource>
+              <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
+              <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
+            </ns2:bid>
             <ns2:reviewAdvancedUrl>http://yahoo.co.jp</ns2:reviewAdvancedUrl>
             <ns2:additionalAdvancedUrls>
               <ns2:additionalAdvancedUrl>
@@ -400,14 +420,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -420,11 +440,9 @@ AdGroupCriterionServiceで提供される操作を説明します。
             <type>KEYWORD</type>
           </criterion>
           <userStatus>ACTIVE</userStatus>
-          <biddingStrategyConfiguration>
-            <bid>
-              <maxCpc>200</maxCpc>
-            </bid>
-          </biddingStrategyConfiguration>
+          <bid>
+            <maxCpc>200</maxCpc>
+          </bid>
           <advancedUrl>http://www.yahoo.co.jp</advancedUrl>
           <additionalAdvancedUrls>
             <additionalAdvancedUrl>
@@ -476,14 +494,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupCriterion</ns2:service>
-      <ns2:requestTime>1523506329348</ns2:requestTime>
+      <ns2:requestTime>1547793434339</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -507,19 +525,12 @@ AdGroupCriterionServiceで提供される操作を説明します。
             </ns2:criterion>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xsi:type="ns2:ManualCpcBiddingScheme">
-                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              </ns2:biddingScheme>
-              <ns2:bid>
-                <ns2:maxCpc>50</ns2:maxCpc>
-                <ns2:bidSource>CRITERION</ns2:bidSource>
-                <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
-                <ns2:keywordMaxCpc>50</ns2:keywordMaxCpc>
-              </ns2:bid>
-            </ns2:biddingStrategyConfiguration>
+            <ns2:bid>
+              <ns2:maxCpc>50</ns2:maxCpc>
+              <ns2:bidSource>CRITERION</ns2:bidSource>
+              <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
+              <ns2:keywordMaxCpc>50</ns2:keywordMaxCpc>
+            </ns2:bid>
             <ns2:advancedUrl>http://yahoo.co.jp</ns2:advancedUrl>
             <ns2:reviewAdvancedUrl>http://www.yahoo.co.jp</ns2:reviewAdvancedUrl>
             <ns2:additionalAdvancedUrls>
@@ -598,14 +609,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -644,14 +655,14 @@ AdGroupCriterionServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupCriterion" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupCriterion</ns2:service>
-      <ns2:requestTime>1523506329407</ns2:requestTime>
+      <ns2:requestTime>1547793434396</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupCriterion">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupCriterion">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupCriterionReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -695,19 +706,12 @@ AdGroupCriterionServiceで提供される操作を説明します。
             </ns2:criterion>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xsi:type="ns2:ManualCpcBiddingScheme">
-                <ns2:biddingStrategyType>MANUAL_CPC</ns2:biddingStrategyType>
-              </ns2:biddingScheme>
-              <ns2:bid>
-                <ns2:maxCpc>100</ns2:maxCpc>
-                <ns2:bidSource>CRITERION</ns2:bidSource>
-                <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
-                <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
-              </ns2:bid>
-            </ns2:biddingStrategyConfiguration>
+            <ns2:bid>
+              <ns2:maxCpc>100</ns2:maxCpc>
+              <ns2:bidSource>CRITERION</ns2:bidSource>
+              <ns2:adGroupMaxCpc>1</ns2:adGroupMaxCpc>
+              <ns2:keywordMaxCpc>100</ns2:keywordMaxCpc>
+            </ns2:bid>
             <ns2:advancedUrl>http://yahoo.co.jp</ns2:advancedUrl>
             <ns2:additionalAdvancedUrls>
               <ns2:additionalAdvancedUrl>

@@ -21,6 +21,13 @@
  <th>リリースノート</th>
 </tr>
 <tr>
+ <td>V201901</td>
+ <td>2019年1月29日</td>
+ <td></td>
+ <td></td>
+ <td><a href="../../blob/201901/docs/ja/ReleaseNotes.md">V201901リリースノート</a></td>
+</tr>
+<tr>
  <td>V201808</td>
  <td>2018年8月8日</td>
  <td></td>
@@ -30,17 +37,9 @@
 <tr>
  <td>V201805</td>
  <td>2018年5月23日</td>
- <td></td>
- <td></td>
+ <td>2019年2月28日</td>
+ <td>2019年5月29日</td>
  <td><a href="../../blob/201805/docs/ja/ReleaseNotes.md">V201805リリースノート</a></td>
-</tr>
-<tr>
- <td>V6.5</td>
- <td>2018年1月24日</td>
- <td>2018年9月10日</td>
- <td>2018年12月10日</td>
- <td><a href="../../blob/6.5/docs/ja/ReleaseNotes.md">V6.5リリースノート</a></td>
-</td>
 </tr>
 </tbody>
 </table>
@@ -56,6 +55,13 @@
  <th>Release Note</th>
 </tr>
 <tr>
+ <td>V201901</td>
+ <td>2019/1/29</td>
+ <td></td>
+ <td></td>
+ <td><a href="../../blob/201901/docs/en/ReleaseNotes.md">V201901 Release Note</a></td>
+</tr>
+<tr>
  <td>V201808</td>
  <td>2018/8/8</td>
  <td></td>
@@ -65,17 +71,10 @@
 <tr>
  <td>V201805</td>
  <td>2018/5/23</td>
- <td></td>
- <td></td>
+ <td>2019/2/28</td>
+ <td>2019/5/29</td>
  <td><a href="../../blob/201805/docs/en/ReleaseNotes.md">V201805 Release Note</a></td>
 </tr>
-<tr>
- <td>V6.5</td>
- <td>2018/1/24</td>
- <td>2018/9/10</td>
- <td>2018/12/10</td>
- <td><a href="../../blob/6.5/docs/en/ReleaseNotes.md">V6.5 Release Note</a></td>
-</td>
 </tr>
 </tr>
 </tbody>

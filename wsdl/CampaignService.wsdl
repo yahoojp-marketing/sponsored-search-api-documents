@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201808/Campaign"
-        xmlns:tns="http://ss.yahooapis.jp/V201808/Campaign"
+        targetNamespace="http://ss.yahooapis.jp/V201901/Campaign"
+        xmlns:tns="http://ss.yahooapis.jp/V201901/Campaign"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808"
+            targetNamespace="http://ss.yahooapis.jp/V201901"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201808">
+            xmlns:tns="http://ss.yahooapis.jp/V201901">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808/Campaign"
+            targetNamespace="http://ss.yahooapis.jp/V201901/Campaign"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201808"
-            xmlns:tns="http://ss.yahooapis.jp/V201808/Campaign">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201901"
+            xmlns:tns="http://ss.yahooapis.jp/V201901/Campaign">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201901"/>
       <annotation>
         <appinfo>
-          <version>201808</version>
+          <version>201901</version>
         </appinfo>
       </annotation>
       <complexType name="CampaignSelector">
@@ -82,6 +82,8 @@
           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="biddingStrategyIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labelIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="containsLabelId" type="tns:ContainsLabelId"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
@@ -89,6 +91,12 @@
         <restriction base="xsd:string">
           <enumeration value="ACTIVE"/>
           <enumeration value="PAUSED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ContainsLabelId">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
         </restriction>
       </simpleType>
       <complexType name="Campaign">
@@ -106,7 +114,6 @@
           <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason"/>
           <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:CampaignBiddingStrategy"/>
           <element maxOccurs="1" minOccurs="0" name="conversionOptimizerEligibility" type="tns:ConversionOptimizerEligibility"/>
-          <element maxOccurs="1" minOccurs="0" name="adServingOptimizationStatus" type="tns:AdServingOptimizationStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="settings" type="tns:CampaignSettings"/>
           <element maxOccurs="1" minOccurs="0" name="campaignType" type="tns:CampaignType"/>
           <element maxOccurs="1" minOccurs="0" name="appStore" type="tns:AppStore"/>
@@ -114,6 +121,7 @@
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
           <element maxOccurs="1" minOccurs="0" name="urlReviewData" type="tns:UrlReviewData"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
         </sequence>
       </complexType>
       <simpleType name="CampaignServingStatus">
@@ -217,12 +225,11 @@
       <simpleType name="BiddingStrategyType">
         <restriction base="xsd:string">
           <enumeration value="MANUAL_CPC"/>
-          <enumeration value="BUDGET_OPTIMIZER"/>
           <enumeration value="PAGE_ONE_PROMOTED"/>
           <enumeration value="TARGET_ROAS"/>
           <enumeration value="TARGET_SPEND"/>
-          <enumeration value="ENHANCED_CPC"/>
           <enumeration value="TARGET_CPA"/>
+          <enumeration value="MAXIMIZE_CONVERSIONS"/>
         </restriction>
       </simpleType>
       <simpleType name="BiddingStrategySource">
@@ -242,20 +249,6 @@
               <element maxOccurs="1" minOccurs="0" name="enhancedCpcEnabled" type="tns:EnhancedCpcEnabled"/>
             </sequence>
           </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="BudgetOptimizerBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="EnhancedCpcBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme"/>
         </complexContent>
       </complexType>
       <complexType name="PageOnePromotedBiddingScheme">
@@ -328,6 +321,11 @@
           </extension>
         </complexContent>
       </complexType>
+      <complexType name="MaximizeConversionsBiddingScheme">
+        <complexContent>
+          <extension base="tns:BiddingScheme"/>
+        </complexContent>
+      </complexType>
       <simpleType name="ConversionOptimizerEligibility">
         <restriction base="xsd:string">
           <enumeration value="ENABLE"/>
@@ -336,14 +334,6 @@
           <enumeration value="NOT_CPC_CAMPAIGN"/>
           <enumeration value="CONVERSION_TRACKING_NOT_ENABLED"/>
           <enumeration value="NOT_ENOUGH_CONVERSIONS"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="AdServingOptimizationStatus">
-        <restriction base="xsd:string">
-          <enumeration value="OPTIMIZE"/>
-          <enumeration value="ROTATE"/>
-          <enumeration value="ROTATE_INDEFINITELY"/>
-          <enumeration value="CONVERSION_OPTIMIZE"/>
         </restriction>
       </simpleType>
       <simpleType name="CampaignType">
@@ -406,6 +396,14 @@
           <enumeration value="TRUE"/>
         </restriction>
       </simpleType>
+      <complexType name="Label">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="labelId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="labelName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="color" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <complexType name="CampaignPage">
         <complexContent>
           <extension base="adv:Page">
@@ -556,7 +554,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignService">
     <wsdl:port binding="tns:CampaignServiceSoapBinding" name="CampaignService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/CampaignService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201901/CampaignService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -1,5 +1,5 @@
 # AdGroupSelector
-AdGroupSelector object displays which ad groups to return.
+AdGroupSelector object displays the specified ad group.
 
 ### Service
 + [AdGroupService](../../services/AdGroupService.md)
@@ -21,7 +21,7 @@ AdGroupSelector object displays which ad groups to return.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Search condition: Account ID.</td>
+  <td>Search condition: Account ID</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
@@ -31,7 +31,7 @@ AdGroupSelector object displays which ad groups to return.
  <tr>
   <td>campaignIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>Search condition: Target List ID.</td>
+  <td>Search condition: Campaign ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -41,7 +41,7 @@ AdGroupSelector object displays which ad groups to return.
  <tr>
   <td>adGroupIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>Search condition: Ad Group ID.</td>
+  <td>Search condition: Ad Group ID</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -51,7 +51,7 @@ AdGroupSelector object displays which ad groups to return.
   <tr>
   <td>userStatuses[0...2]</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>Search condition: Display status of Ad group from users.</td>
+  <td>Search condition: Display status of Ad group from users</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -61,7 +61,27 @@ AdGroupSelector object displays which ad groups to return.
  <tr>
   <td>biddingStrategyIds[0...1000]</td>
   <td>xsd:long</td>
-  <td>Search condition: Auto Bidding ID.</td>
+  <td>Search condition: Auto Bidding ID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+   <tr>
+  <td>labelIds[0..1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Label ID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>Search condition: Acquisition flag of label data</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

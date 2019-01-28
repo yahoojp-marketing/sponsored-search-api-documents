@@ -4,7 +4,7 @@ Operation result from all operation.
 Common all web services.
 
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | Field | Type | Description | 
 |---|---|---|

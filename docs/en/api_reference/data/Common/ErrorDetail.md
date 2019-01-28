@@ -3,7 +3,7 @@ Detailed information of error.
 ### Service
 Common all operations
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | Field | Data Type | Description | 
 |---|---|---|

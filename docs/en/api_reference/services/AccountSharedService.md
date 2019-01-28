@@ -5,11 +5,11 @@ Use this service to get, add, update or remove ad information of negative keywor
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AccountSharedService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AccountSharedService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/AccountSharedService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AccountSharedService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/AccountShared
+http://ss.yahooapis.jp/V201901/AccountShared
 
 #### Overview
 Use this service to get, add, update and remove negative keyword list.
@@ -39,14 +39,14 @@ Get negative keyword list information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>111111</accountId>
         <sharedListIds>22</sharedListIds>
@@ -70,14 +70,14 @@ Get negative keyword list information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AccountShared</ns2:service>
-      <ns2:requestTime>1523506327096</ns2:requestTime>
+      <ns2:requestTime>1547793323301</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AccountShared">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -85,7 +85,7 @@ Get negative keyword list information.
           <ns2:accountShared>
             <ns2:accountId>111111</ns2:accountId>
             <ns2:sharedListId>22</ns2:sharedListId>
-            <ns2:name>SampleSharedAccount_UpdatedOn_20180412</ns2:name>
+            <ns2:name>SampleSharedAccount_UpdatedOn_20190118</ns2:name>
             <ns2:memberCount>1</ns2:memberCount>
             <ns2:referenceCount>1</ns2:referenceCount>
           </ns2:accountShared>
@@ -108,14 +108,14 @@ Add negative keyword list to account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AccountShared">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -137,14 +137,14 @@ Add negative keyword list to account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AccountShared</ns2:service>
-      <ns2:requestTime>1523506327124</ns2:requestTime>
+      <ns2:requestTime>1547793323315</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -153,7 +153,7 @@ Add negative keyword list to account.
           <ns2:accountShared>
             <ns2:accountId>111111</ns2:accountId>
             <ns2:sharedListId>22</ns2:sharedListId>
-            <ns2:name>SampleSharedAccount_CreatedOn_20180412</ns2:name>
+            <ns2:name>SampleSharedAccount_CreatedOn_20190118</ns2:name>
             <ns2:referenceCount>0</ns2:referenceCount>
           </ns2:accountShared>
         </ns2:values>
@@ -175,20 +175,20 @@ Update negative keyword list information of account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AccountShared">
       <operations>
         <operator>SET</operator>
         <accountId>1111</accountId>
         <operand>
           <sharedListId>2222</sharedListId>
-          <name>SampleSharedAccount_UpdatedOn_20180412</name>
+          <name>SampleSharedAccount_UpdatedOn_20190118</name>
         </operand>
       </operations>
     </mutate>
@@ -205,14 +205,14 @@ Update negative keyword list information of account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AccountShared</ns2:service>
-      <ns2:requestTime>1523506327156</ns2:requestTime>
+      <ns2:requestTime>1547793323325</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -221,7 +221,7 @@ Update negative keyword list information of account.
           <ns2:accountShared>
             <ns2:accountId>11111</ns2:accountId>
             <ns2:sharedListId>2222</ns2:sharedListId>
-            <ns2:name>SampleSharedAccount_UpdatedOn_20180412</ns2:name>
+            <ns2:name>SampleSharedAccount_UpdatedOn_20190118</ns2:name>
             <ns2:memberCount>1</ns2:memberCount>
             <ns2:referenceCount>1</ns2:referenceCount>
           </ns2:accountShared>
@@ -244,14 +244,14 @@ Remove negative keyword list from account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AccountShared">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AccountShared">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111</accountId>
@@ -273,14 +273,14 @@ Remove negative keyword list from account.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AccountShared" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AccountShared</ns2:service>
-      <ns2:requestTime>1523506327178</ns2:requestTime>
+      <ns2:requestTime>1547793323335</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AccountShared">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AccountShared">
       <ns2:rval>
         <ListReturnValue.Type>AccountSharedReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -289,7 +289,7 @@ Remove negative keyword list from account.
           <ns2:accountShared>
             <ns2:accountId>11111</ns2:accountId>
             <ns2:sharedListId>2222</ns2:sharedListId>
-            <ns2:name>SampleSharedAccount_UpdatedOn_20180412</ns2:name>
+            <ns2:name>SampleSharedAccount_UpdatedOn_20190118</ns2:name>
             <ns2:memberCount>1</ns2:memberCount>
             <ns2:referenceCount>1</ns2:referenceCount>
           </ns2:accountShared>

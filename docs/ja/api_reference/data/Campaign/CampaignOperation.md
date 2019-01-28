@@ -1,4 +1,4 @@
-# CampaignOperation
+￥# CampaignOperation
 CampaignOperationオブジェクトは、操作の対象となるキャンペーンの情報と処理の内容を表します。
 
 ### Service

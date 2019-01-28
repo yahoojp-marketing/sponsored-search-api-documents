@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201808/AccountShared"
-        xmlns:tns="http://ss.yahooapis.jp/V201808/AccountShared"
+        targetNamespace="http://ss.yahooapis.jp/V201901/AccountShared"
+        xmlns:tns="http://ss.yahooapis.jp/V201901/AccountShared"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808"
+            targetNamespace="http://ss.yahooapis.jp/V201901"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201808">
+            xmlns:tns="http://ss.yahooapis.jp/V201901">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808/AccountShared"
+            targetNamespace="http://ss.yahooapis.jp/V201901/AccountShared"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201808"
-            xmlns:tns="http://ss.yahooapis.jp/V201808/AccountShared">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201901"
+            xmlns:tns="http://ss.yahooapis.jp/V201901/AccountShared">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201901"/>
       <annotation>
         <appinfo>
-          <version>201808</version>
+          <version>201901</version>
         </appinfo>
       </annotation>
       <complexType name="AccountShared">
@@ -144,7 +144,7 @@
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="selector" type="tns:AccountSharedSelector"/>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:AccountSharedSelector"/>
           </sequence>
         </complexType>
       </element>
@@ -242,7 +242,7 @@
   </wsdl:binding>
   <wsdl:service name="AccountSharedService">
     <wsdl:port name="AccountSharedService" binding="tns:AccountSharedServiceSoapBinding">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/AccountSharedService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201901/AccountSharedService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

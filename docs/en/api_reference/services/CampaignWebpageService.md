@@ -4,11 +4,11 @@ CampaignWebpageService provides excluded settings of PageFeedItem for campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/CampaignWebpageService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/CampaignWebpageService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/CampaignWebpageService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignWebpageService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/CampaignWebpage
+http://ss.yahooapis.jp/V201901/CampaignWebpage
 
 #### Overview
 Use this service to set excluded settings of PageFeedItem for campaign. <br>
@@ -26,7 +26,6 @@ Describes the operation which provides by CampaignWebpageService.
 #### Object
 [CampaignWebpage](../data/CampaignWebpage)
 
-
 ## get
 Get PageFeedItem setting in campaign.
 
@@ -39,14 +38,14 @@ Get PageFeedItem setting in campaign.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <campaignIds>1111</campaignIds>
@@ -71,18 +70,17 @@ Get PageFeedItem setting in campaign.
 | rval | [CampaignWebpagePage](../data/CampaignWebpage/CampaignWebpagePage.md) | Entries corresponding to conditions. |
 
 ##### Response Sample
-
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignWebpage</ns2:service>
-      <ns2:requestTime>1532512374056</ns2:requestTime>
+      <ns2:requestTime>1547793769698</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignWebpage">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignWebpage">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>CampaignWebpagePage</Page.Type>
@@ -128,14 +126,14 @@ Set excluded settings of PageFeedItem for campaign.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -170,18 +168,17 @@ Set excluded settings of PageFeedItem for campaign.
 | rval | [CampaignWebpageReturnValue](../data/CampaignWebpage/CampaignWebpageReturnValue.md) | Result of setting. |
 
 ##### Response Sample
-
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignWebpage</ns2:service>
-      <ns2:requestTime>1532512374479</ns2:requestTime>
+      <ns2:requestTime>1547793769717</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignWebpage">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignWebpage">
       <ns2:rval>
         <ListReturnValue.Type>CampaignWebpageReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -215,7 +212,6 @@ Set excluded settings of PageFeedItem for campaign.
 </SOAP-ENV:Envelope>
 ```
 
-
 ## mutate(REMOVE)
 Remove PageFeedItem associated with campaign.
 
@@ -228,14 +224,14 @@ Remove PageFeedItem associated with campaign.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -257,18 +253,17 @@ Remove PageFeedItem associated with campaign.
 | rval | [CampaignWebpageReturnValue](../data/CampaignWebpage/CampaignWebpageReturnValue.md) | Result of removing. |
 
 ##### Response Sample
-
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>CampaignWebpage</ns2:service>
-      <ns2:requestTime>1532512374517</ns2:requestTime>
+      <ns2:requestTime>1547793769737</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/CampaignWebpage">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignWebpage">
       <ns2:rval>
         <ListReturnValue.Type>CampaignWebpageReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -301,3 +296,5 @@ Remove PageFeedItem associated with campaign.
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

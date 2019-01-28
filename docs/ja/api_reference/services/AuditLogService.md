@@ -4,14 +4,18 @@ AuditLogServiceは、操作履歴のダウンロード機能を提供します�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AuditLogService?wsdl |
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AuditLogService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201901/AuditLogService?wsdl |
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AuditLogService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/AuditLog
+http://ss.yahooapis.jp/V201901/AuditLog
 
 #### サービス概要
 操作履歴のダウンロード機能を提供します。
+
+【注意事項】<br>
+・操作履歴のダウンロードは、getで返されるURLから取得できます。<br>
+URLの有効期限は15分です。
 
 #### 操作
 AuditLogServiceで提供される操作を説明します。
@@ -36,14 +40,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <jobIds>1111</jobIds>
@@ -71,14 +75,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AuditLog</ns2:service>
-      <ns2:requestTime>1523506330233</ns2:requestTime>
+      <ns2:requestTime>1547793089947</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AuditLog">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AuditLog">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <Page.Type>AuditLogPage</Page.Type>
@@ -112,7 +116,7 @@ AuditLogServiceで提供される操作を説明します。
             <ns2:jobId>222222</ns2:jobId>
             <ns2:jobName>Sample Audit Log2</ns2:jobName>
             <ns2:jobStatus>COMPLETED</ns2:jobStatus>
-            <ns2:downloadUrl>https ://colo01.ss.yahooapis.jp/audit/V201808/download/XtuXVU2EbFtOg4qiJCos2FRMXLWTmulJXr4D9Ed1HVLBFrf2Wp3qHwgrVcswR65IHc7bJYsluuJqfGLdDsChrAh_mFtx.2OJlcFkpJ8vgEgygk3dnz6IFW376asnE9kK_z8zhFiL0hx7Tf7UhwtvPw0bYD_vt9Zy2vLBLkNRTeEjU0OrR4ydUg3PvPpg0nDXzbwH2B3xD37Qx.PN6_2tCKpvz5m8kWZOtudS2oeGJAYh95gcBF2Ng0Mi4ZlJoGmRcDNsq79eTW7lsSFj8q7ZT1benaYFE.KsJigCSNPJI0SyLc_neR6PR0t3cov3kNURju6CQY_FLXos45900v6jpAhqZg--</ns2:downloadUrl>
+            <ns2:downloadUrl>https ://colo01.ss.yahooapis.jp/audit/V201901/download/XtuXVU2EbFtOg4qiJCos2FRMXLWTmulJXr4D9Ed1HVLBFrf2Wp3qHwgrVcswR65IHc7bJYsluuJqfGLdDsChrAh_mFtx.2OJlcFkpJ8vgEgygk3dnz6IFW376asnE9kK_z8zhFiL0hx7Tf7UhwtvPw0bYD_vt9Zy2vLBLkNRTeEjU0OrR4ydUg3PvPpg0nDXzbwH2B3xD37Qx.PN6_2tCKpvz5m8kWZOtudS2oeGJAYh95gcBF2Ng0Mi4ZlJoGmRcDNsq79eTW7lsSFj8q7ZT1benaYFE.KsJigCSNPJI0SyLc_neR6PR0t3cov3kNURju6CQY_FLXos45900v6jpAhqZg--</ns2:downloadUrl>
             <ns2:eventSelector>
               <ns2:entityType>ALL</ns2:entityType>
               <ns2:eventTypes>ADD</ns2:eventTypes>
@@ -148,14 +152,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <addJob xmlns="http://ss.yahooapis.jp/V201808/AuditLog">
+    <addJob xmlns="http://ss.yahooapis.jp/V201901/AuditLog">
       <operations>
         <accountId>111111</accountId>
         <operand>
@@ -190,14 +194,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AuditLog" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AuditLog</ns2:service>
-      <ns2:requestTime>1523506330256</ns2:requestTime>
+      <ns2:requestTime>1547793089969</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:addJobResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AuditLog">
+    <ns2:addJobResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AuditLog">
       <ns2:rval>
         <ListReturnValue.Type>AuditLogReturnValue</ListReturnValue.Type>
         <ns2:values>

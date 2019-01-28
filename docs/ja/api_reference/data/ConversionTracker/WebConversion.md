@@ -42,14 +42,6 @@ WebConversionオブジェクトは、ウェブページのコンバージョン�
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
  </tr>
- <tr>
-  <td>crossDeviceConversionFlag</td>
-  <td>enum<br><a href="CrossDeviceConversionFlag.md">CrossDeviceConversionFlag</a></td>
-  <td>デバイスまたぎでコンバージョンを計測するかしないかを制御するフラグです。</td>
-  <td>yes</td>
-  <td>Optional<br>※Default: TRUE<br>※値を指定した場合、必ず「TRUE」が設定されます。</td>
-  <td>Optional<br>※値を指定した場合、必ず「TRUE」が設定されます。</td>
- </tr>
 </table>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

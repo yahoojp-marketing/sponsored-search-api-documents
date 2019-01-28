@@ -5,18 +5,32 @@ List of SOAP error code and message when the error or problem occurs.
 If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response. <br> If an error occurs during the processing of your SOAP request, Sponsored Search API will return an error code and message. <br>See [Error](/docs/en/api_reference/data/Common/Error.md), [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md) for the entity details
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:error>
-                <ns1:code>0011</ns1:code>
-                <ns1:message>not login for apiAccountId</ns1:message>
-                     <ns1:detail>
-                         <ns1:requestKey>apiAccountId</ns1:requestKey>
-                         <ns1:requestValue>xxxxxxxxxxxxxxxxx</ns1:requestValue>
-                     </ns1:detail>
-            </ns1:error>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ns1:ResponseHeader>
+      <ns2:service>Account</ns2:service>
+      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
+      <ns2:requestTime>1234567890</ns2:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Account">
+      <ns3:rval>
+        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns3:values>
+          <ns2:operationSucceeded>false</ns2:operationSucceeded>
+          <ns2:error>
+            <ns2:code>F0001</ns2:code>
+            <ns2:message>Invalid format.</ns2:message>
+            <ns2:detail>
+              <ns2:requestKey>accountName</ns2:requestKey>
+              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+            </ns2:detail>
+          </ns2:error>
+        </ns3:values>
+      </ns3:rval>
+    </ns3:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -136,7 +150,7 @@ LT001 | Over limit. | The upper limit value that can be registered is exceeded.
 211001| Cannot set AdvancedMobileURL. | In the app download campaign, AdvancedMobileURL can not be set.
 211003| Domain does not match with DisplayURL.  | Domain of DisplayURL and AdvancedUrl do not match.
 211004| Cannot set under AndroidCampaign.  | In the Android app campaign, the following settings can not be made：<br>・Set TrackingUrl and CustomParameter for campaigns, ad groups, ads, keywords<br>・Set the AdvancedUrl and AdvancedMobileUrl for the keywords
-211005 | SharedList is used. | Negative keyword to be removed has been made setup to campaign.<br>(Negative keyword list setup to campaign cannot be removed.)
+211005| SharedList is used. | Negative keyword to be removed has been made setup to campaign.<br>(Negative keyword list setup to campaign cannot be removed.)
 211006| Cannot bid modify criterion campaign opted out. | The bid adjustment rate for this device in an ad group because the device bid adjustment rate in the campaign have already been set to 0 (not delivered to that device) can not changed.
 211007| Representative URL Does Not Match. | It is different from the domain set by FeedFolder.
 211008| Cannot change Dynamic Ads for Search Campaign. | It can not be changed to the campaign of Dynamic Ads for Search.
@@ -147,6 +161,8 @@ LT001 | Over limit. | The upper limit value that can be registered is exceeded.
 211014| Cannot remove FeedFolder related with campaign. | FeedFolder that is set for the campaign of Dynamic Ads for Search can not be deleted.
 211015| Same feedFolderId UploadJob is in progress. | Since upload job of same feedFolderId is running, uploading is not possible.
 211017| Cannot add Dynamic Search Ads Feed by Adult Account. | For the Adult Accounts, Feeds for Dynamic Ads for Search can not be registered.
+211018| Cannot Add Label to Negative Criterion. | Labels cannot be associated with negative keywords.
+211019| Request failed because of trademark conflicts. | Request failed because of trademark conflicts.
 225301| Cannot attach criteria at campaign and adgroup. | Target lists can not be associated with both ad groups and campaigns.
 225302| Cannot add closed target list. | A closed target list can not be associated.
 225305| invalid structured snippet header. | Structured snippet header is invalid.

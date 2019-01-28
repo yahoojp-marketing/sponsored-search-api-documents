@@ -4,11 +4,11 @@ AdGroupAdServiceでは、広告に関する情報の取得および追加・更�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201808/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/AdGroupAd
+http://ss.yahooapis.jp/V201901/AdGroupAd
 
 #### サービス概要
 広告に関する情報の取得および追加・更新・削除を行います。　
@@ -37,14 +37,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>20001</campaignIds>
@@ -73,6 +73,12 @@ AdGroupAdServiceで提供される操作を説明します。
         <approvalStatuses>REVIEW</approvalStatuses>
         <approvalStatuses>PRE_DISAPPROVED</approvalStatuses>
         <approvalStatuses>POST_DISAPPROVED</approvalStatuses>
+        <labelIds>50001</labelIds>
+        <labelIds>50002</labelIds>
+        <labelIds>50003</labelIds>
+        <labelIds>50004</labelIds>
+        <labelIds>50005</labelIds>
+        <containsLabelId>TRUE</containsLabelId>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>1000</ns2:numberResults>
@@ -94,14 +100,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1532511244612</ns2:requestTime>
+      <ns2:requestTime>1547793104602</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <ns2:rval>
         <totalNumEntries>5</totalNumEntries>
         <Page.Type>AdGroupAdPage</Page.Type>
@@ -119,6 +125,8 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000001</ns2:adTrackId>
             <ns2:adName>sample text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 1</ns2:invalidedTrademarks>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd2">
               <ns2:type>TEXT_AD2</ns2:type>
@@ -151,6 +159,12 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
               <ns2:description2>{=COUNTDOWN("2016/01/01 00:00:00","ja")}</ns2:description2>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>50001</ns2:labelId>
+              <ns2:labelName>sample label 1</ns2:labelName>
+              <ns2:description>sample description 1</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -167,6 +181,8 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000002</ns2:adTrackId>
             <ns2:adName>sample app ad for ios.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 2</ns2:invalidedTrademarks>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -178,6 +194,12 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:appStore>IOS</ns2:appStore>
               <ns2:appId>appid1234567890</ns2:appId>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>50002</ns2:labelId>
+              <ns2:labelName>sample label 2</ns2:labelName>
+              <ns2:description>sample description 2</ns2:description>
+              <ns2:color>#000000</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -194,6 +216,8 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000003</ns2:adTrackId>
             <ns2:adName>sample app ad for android.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 3</ns2:invalidedTrademarks>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -205,6 +229,12 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:appStore>ANDROID</ns2:appStore>
               <ns2:appId>appid1234567890</ns2:appId>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>50003</ns2:labelId>
+              <ns2:labelName>sample label 3</ns2:labelName>
+              <ns2:description>sample description 3</ns2:description>
+              <ns2:color>#FF0000</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -221,6 +251,8 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000004</ns2:adTrackId>
             <ns2:adName>sample extended text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 4</ns2:invalidedTrademarks>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ExtendedTextAd">
               <ns2:type>EXTENDED_TEXT_AD</ns2:type>
@@ -233,6 +265,12 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:path1>path1</ns2:path1>
               <ns2:path2>path2</ns2:path2>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>50004</ns2:labelId>
+              <ns2:labelName>sample label 4</ns2:labelName>
+              <ns2:description>sample description 4</ns2:description>
+              <ns2:color>#00FF00</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -249,11 +287,19 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000005</ns2:adTrackId>
             <ns2:adName>sample dynamic search linked ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
+            <ns2:invalidedTrademarks>sample text trademark 5</ns2:invalidedTrademarks>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
               <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
               <ns2:description>sample ad description.</ns2:description>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>50005</ns2:labelId>
+              <ns2:labelName>sample label 5</ns2:labelName>
+              <ns2:description>sample description 5</ns2:description>
+              <ns2:color>#0000FF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
       </ns2:rval>
@@ -274,14 +320,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -396,14 +442,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1532511245130</ns2:requestTime>
+      <ns2:requestTime>1547793104642</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -421,6 +467,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000001</ns2:adTrackId>
             <ns2:adName>sample text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd2">
               <ns2:type>TEXT_AD2</ns2:type>
@@ -469,6 +516,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000002</ns2:adTrackId>
             <ns2:adName>sample app ad for ios.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -496,6 +544,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000003</ns2:adTrackId>
             <ns2:adName>sample app ad for android.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -523,6 +572,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000004</ns2:adTrackId>
             <ns2:adName>sample extended text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ExtendedTextAd">
               <ns2:type>EXTENDED_TEXT_AD</ns2:type>
@@ -551,6 +601,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000005</ns2:adTrackId>
             <ns2:adName>sample dynamic search linked ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
               <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
@@ -576,14 +627,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -639,14 +690,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1532511245305</ns2:requestTime>
+      <ns2:requestTime>1547793104682</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -664,6 +715,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000001</ns2:adTrackId>
             <ns2:adName>sample text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd2">
               <ns2:type>TEXT_AD2</ns2:type>
@@ -712,6 +764,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000002</ns2:adTrackId>
             <ns2:adName>sample app ad for ios.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -739,6 +792,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000003</ns2:adTrackId>
             <ns2:adName>sample app ad for android.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -766,6 +820,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000004</ns2:adTrackId>
             <ns2:adName>sample extended text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ExtendedTextAd">
               <ns2:type>EXTENDED_TEXT_AD</ns2:type>
@@ -794,6 +849,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000005</ns2:adTrackId>
             <ns2:adName>sample dynamic search linked ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
               <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>
@@ -819,14 +875,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -872,14 +928,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupAd" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1532511245422</ns2:requestTime>
+      <ns2:requestTime>1547793104727</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -897,6 +953,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000001</ns2:adTrackId>
             <ns2:adName>sample text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd2">
               <ns2:type>TEXT_AD2</ns2:type>
@@ -945,6 +1002,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000002</ns2:adTrackId>
             <ns2:adName>sample app ad for ios.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -972,6 +1030,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000003</ns2:adTrackId>
             <ns2:adName>sample app ad for android.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppAd">
               <ns2:type>APP_AD</ns2:type>
@@ -999,6 +1058,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000004</ns2:adTrackId>
             <ns2:adName>sample extended text ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ExtendedTextAd">
               <ns2:type>EXTENDED_TEXT_AD</ns2:type>
@@ -1027,6 +1087,7 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns2:adTrackId>400000005</ns2:adTrackId>
             <ns2:adName>sample dynamic search linked ad.</ns2:adName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicSearchLinkedAd">
               <ns2:type>DYNAMIC_SEARCH_LINKED_AD</ns2:type>

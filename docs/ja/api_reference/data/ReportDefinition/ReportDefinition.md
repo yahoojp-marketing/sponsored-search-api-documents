@@ -69,7 +69,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  </tr>
  <tr>
   <td>dateRange</td>
-  <td><a href="DateRange.md">DateRange</a></td>
+  <td><a href="ReportDateRange.md">DateRange</a></td>
   <td>ユーザーにより設定されるレポート集計の範囲期間です。</td>
   <td>yes</td>
   <td>-</td>

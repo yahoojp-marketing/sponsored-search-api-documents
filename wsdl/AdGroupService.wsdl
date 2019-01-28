@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201808/AdGroup"
-        xmlns:tns="http://ss.yahooapis.jp/V201808/AdGroup"
+        targetNamespace="http://ss.yahooapis.jp/V201901/AdGroup"
+        xmlns:tns="http://ss.yahooapis.jp/V201901/AdGroup"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808"
+            targetNamespace="http://ss.yahooapis.jp/V201901"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201808">
+            xmlns:tns="http://ss.yahooapis.jp/V201901">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201808/AdGroup"
+            targetNamespace="http://ss.yahooapis.jp/V201901/AdGroup"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201808"
-            xmlns:tns="http://ss.yahooapis.jp/V201808/AdGroup">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201808"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201901"
+            xmlns:tns="http://ss.yahooapis.jp/V201901/AdGroup">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201901"/>
       <annotation>
         <appinfo>
-          <version>201808</version>
+          <version>201901</version>
         </appinfo>
       </annotation>
       <complexType name="AdGroupSelector">
@@ -83,6 +83,8 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="biddingStrategyIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labelIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="containsLabelId" type="tns:ContainsLabelId"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
@@ -90,6 +92,12 @@
         <restriction base="xsd:string">
           <enumeration value="ACTIVE"/>
           <enumeration value="PAUSED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ContainsLabelId">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
         </restriction>
       </simpleType>
       <complexType name="AdGroupPage">
@@ -120,148 +128,14 @@
           <element maxOccurs="1" minOccurs="0" name="adGroupTrackId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyConfiguration" type="tns:AdGroupBiddingStrategy"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyFailedReason" type="tns:BiddingStrategyFailedReason"/>
-          <element maxOccurs="1" minOccurs="0" name="failedBiddingStrategyConfiguration" type="tns:AdGroupBiddingStrategy"/>
+          <element maxOccurs="1" minOccurs="0" name="bid" type="tns:Bid"/>
           <element maxOccurs="1" minOccurs="0" name="settings" type="tns:AdGroupSettings"/>
           <element maxOccurs="1" minOccurs="0" name="trackingUrl" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="customParameters" type="tns:CustomParameters"/>
           <element maxOccurs="1" minOccurs="0" name="urlReviewData" type="tns:UrlReviewData"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupAdRotationMode" type="tns:AdGroupAdRotationMode" />
+          <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
         </sequence>
-      </complexType>
-      <simpleType name="BiddingStrategyFailedReason">
-        <restriction base="xsd:string">
-          <enumeration value="FAILURE"/>
-          <enumeration value="CONVERSION_TRACKING_NOT_ENABLED"/>
-          <enumeration value="NOT_ENOUGH_CONVERSIONS"/>
-          <enumeration value="CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER"/>
-          <enumeration value="BIDDING_STRATEGY_CANNOT_BE_OVERRIDDEN"/>
-          <enumeration value="NOT_CPC_CAMPAIGN"/>
-        </restriction>
-      </simpleType>
-      <complexType name="AdGroupBiddingStrategy">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategySource" type="tns:BiddingStrategySource"/>
-          <element maxOccurs="1" minOccurs="0" name="biddingScheme" type="tns:BiddingScheme"/>
-          <element maxOccurs="1" minOccurs="0" name="initialBid" type="tns:Bid"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="parentBiddingStrategyConfigurations" type="tns:AdGroupBiddingStrategy"/>
-        </sequence>
-      </complexType>
-      <simpleType name="BiddingStrategyType">
-        <restriction base="xsd:string">
-          <enumeration value="MANUAL_CPC"/>
-          <enumeration value="BUDGET_OPTIMIZER"/>
-          <enumeration value="PAGE_ONE_PROMOTED"/>
-          <enumeration value="TARGET_ROAS"/>
-          <enumeration value="TARGET_SPEND"/>
-          <enumeration value="ENHANCED_CPC"/>
-          <enumeration value="TARGET_CPA"/>
-          <enumeration value="NONE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="BiddingStrategySource">
-        <restriction base="xsd:string">
-          <enumeration value="CAMPAIGN"/>
-          <enumeration value="ADGROUP"/>
-        </restriction>
-      </simpleType>
-      <complexType abstract="true" name="BiddingScheme">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="biddingStrategyType" type="tns:BiddingStrategyType"/>
-        </sequence>
-      </complexType>
-      <complexType name="ManualCpcBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme"/>
-        </complexContent>
-      </complexType>
-      <complexType name="BudgetOptimizerBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="EnhancedCpcBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme"/>
-        </complexContent>
-      </complexType>
-      <complexType name="PageOnePromotedBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetPositionType" type="tns:TargetPositionType"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidMultiplier" type="xsd:double"/>
-              <element maxOccurs="1" minOccurs="0" name="bidChangesForRaisesOnly" type="tns:BidChangesForRaisesOnly"/>
-              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenBudgetConstrained" type="tns:RaiseBidWhenBudgetConstrained"/>
-              <element maxOccurs="1" minOccurs="0" name="raiseBidWhenLowQualityScore" type="tns:RaiseBidWhenLowQualityScore"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <simpleType name="TargetPositionType">
-        <restriction base="xsd:string">
-          <enumeration value="PAGE_ONE"/>
-          <enumeration value="PAGE_ONE_PROMOTED"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="BidChangesForRaisesOnly">
-        <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="RaiseBidWhenBudgetConstrained">
-        <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="RaiseBidWhenLowQualityScore">
-        <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="DEACTIVE"/>
-        </restriction>
-      </simpleType>
-      <complexType name="TargetCpaBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetCpa" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="TargetSpendBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="spendTarget" type="xsd:long"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="TargetRoasBiddingScheme">
-        <complexContent>
-          <extension base="tns:BiddingScheme">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="targetRoas" type="xsd:double"/>
-              <element maxOccurs="1" minOccurs="0" name="bidCeiling" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="bidFloor" type="xsd:long"/>
-            </sequence>
-          </extension>
-        </complexContent>
       </complexType>
       <complexType name="Bid">
         <sequence>
@@ -361,6 +235,14 @@
           <enumeration value="ROTATE_FOREVER" />
         </restriction>
       </simpleType>
+      <complexType name="Label">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="labelId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="labelName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="color" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <complexType name="AdGroupReturnValue">
         <complexContent>
           <extension base="adv:ListReturnValue">
@@ -483,7 +365,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201808/AdGroupService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201901/AdGroupService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

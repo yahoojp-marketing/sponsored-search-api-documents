@@ -3,7 +3,7 @@ Pagingオブジェクトは、取得される結果(ページ)についてのイ
 ### Service
 get操作共通
 ### Namespace
-http://ss.yahooapis.jp/V201808
+http://ss.yahooapis.jp/V201901
 
 | Field | Type | Description |
 |---|---|---|

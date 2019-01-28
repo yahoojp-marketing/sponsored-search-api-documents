@@ -5,18 +5,32 @@ SOAPレスポンス時のエラーコードとメッセージの詳細リスト�
 SOAPリクエストが成功した場合、スポンサードサーチ APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、スポンサードサーチAPIはエラーコードが含まれるメッセージを返します。<br>詳しくは[Error](/docs/ja/api_reference/data/Common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/Common/ErrorDetail.md)を確認してください。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:error>
-                <ns1:code>0011</ns1:code>
-                <ns1:message>not login for apiAccountId</ns1:message>
-                     <ns1:detail>
-                         <ns1:requestKey>apiAccountId</ns1:requestKey>
-                         <ns1:requestValue>xxxxxxxxxxxxxxxxx</ns1:requestValue>
-                     </ns1:detail>
-            </ns1:error>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ns1:ResponseHeader>
+      <ns2:service>Account</ns2:service>
+      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
+      <ns2:requestTime>1234567890</ns2:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Account">
+      <ns3:rval>
+        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns3:values>
+          <ns2:operationSucceeded>false</ns2:operationSucceeded>
+          <ns2:error>
+            <ns2:code>F0001</ns2:code>
+            <ns2:message>Invalid format.</ns2:message>
+            <ns2:detail>
+              <ns2:requestKey>accountName</ns2:requestKey>
+              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+            </ns2:detail>
+          </ns2:error>
+        </ns3:values>
+      </ns3:rval>
+    </ns3:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -146,6 +160,8 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 211014| Cannot remove FeedFolder related with campaign. | DASキャンペーンに設定されているFeedFolderは削除できません。
 211015| Same feedFolderId UploadJob is in progress. | 同じfeedFolderIdのアップロードジョブが実行中のため、アップロードできません。
 211017| Cannot add Dynamic Search Ads Feed by Adult Account. | アダルトアカウントの場合、Dynamic Ads for Searchのフィード登録はできません。
+211018| Cannot Add Label to Negative Criterion. | 除外キーワードに対して、ラベルの紐付けはできません。
+211019| Request failed because of trademark conflicts. | 商標に抵触している為、登録できません。
 225301| Cannot attach criteria at campaign and adgroup. | 広告グループとキャンペーンの両方にターゲットリストの関連付けはできません。
 225302| Cannot add closed target list. | 停止中のターゲットリストは関連付けできません。
 225305| invalid structured snippet header. | カテゴリ補足オプション（ヘッダ）が不正です。

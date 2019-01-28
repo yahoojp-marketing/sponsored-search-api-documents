@@ -1,5 +1,5 @@
 # AdGroupAd
-AdGroupAd objects are the data to operate Ad under Ad Group.
+AdGroupAd object describes information for operations on ads.
 
 ### Service
 + [AdGroupAdService](../../services/AdGroupAdService.md)
@@ -149,6 +149,26 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Ignore</td>
  </tr>
  <tr>
+  <td>trademarkStatus</td>
+  <td>enum <a href="TrademarkStatus.md">TrademarkStatus</a></td>
+  <td>Trademark status.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>invalidedTrademarks[0...n]</td>
+  <td>string[]</td>
+  <td>Invalided trademarks.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
   <td>ad</td>
   <td><a href="Ad.md">Ad</a><br>inherited <a href="TextAd2.md">TextAd2</a><br> inherited <a href="AppAd.md">AppAd</a><br> inherited <a href="ExtendedTextAd.md">ExtendedTextAd</a><br> inherited <a href="DynamicSearchLinkedAd.md">DynamicSearchLinkedAd</a></td>
   <td>Details of creative ad.</td>
@@ -164,6 +184,15 @@ AdGroupAd objects are the data to operate Ad under Ad Group.
   <td>Feed folder ID.</td>
   <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>labels[0...50]</td>
+  <td><a href="Label.md">Label</a></td>
+  <td>Label</td>
+  <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
   <td>Ignore</td>

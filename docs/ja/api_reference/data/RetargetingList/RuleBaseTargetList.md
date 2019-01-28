@@ -126,7 +126,7 @@ RuleBaseTargetListは、ベースターゲットリストの情報を保持す�
  </tr>
   <tr>
   <td>rules[1...20]</td>
-  <td>xsd:string</a></td>
+  <td><a href="./RuleGroup.md">RuleGroup</a></td>
   <td>ルール設定です。</td>
   <td>yes</td>
   <td>-</td>

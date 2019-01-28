@@ -1,5 +1,5 @@
 # AdGroupAdSelector
-Target ad and filter conditions which AdGroupAd to return.
+AdGroupAdSelector object describes the information and filter criteria of the Ads to be operated on.
 
 ### Service
 + [AdGroupAdService](../../services/AdGroupAdService.md)
@@ -71,7 +71,7 @@ Target ad and filter conditions which AdGroupAd to return.
  <tr>
   <td>userStatuses[0...2]</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>Search condition: Status of ad that been set.<br>* If there is no designation, all ads in all condition will return.</td>
+  <td>Search condition: Status of ad that been set by user.<br>* If there is no designation, all ads in all condition will return.</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>
@@ -82,6 +82,26 @@ Target ad and filter conditions which AdGroupAd to return.
   <td>approvalStatuses[0...5]</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
   <td>Search condition: Editorial review status.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>labelIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Label ID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>Search condition: Acquisition flag of label data</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

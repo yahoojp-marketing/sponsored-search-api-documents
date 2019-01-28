@@ -1,5 +1,5 @@
 # AdGroupCriterionSelector
-AdGroupCriterionSelector object displays which ad groups criteria to return.
+AdGroupCriterionSelector object displays criteria of ad group to be operated.
 
 ### Service
 + [AdGroupCriterionService](../../services/AdGroupCriterionService.md)
@@ -92,6 +92,26 @@ AdGroupCriterionSelector object displays which ad groups criteria to return.
   <td>approvalStatuses[0...5]</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
   <td>Search condition: Editorial review status.</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>labelIds[0...1000]</td>
+  <td>xsd:long</td>
+  <td>Search condition: Label ID</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>containsLabelId</td>
+  <td>enum <a href="ContainsLabelId.md">ContainsLabelId</a></td>
+  <td>Search condition: Acquisition flag of label data</td>
   <td>-</td>
   <td>Optional</td>
   <td>-</td>

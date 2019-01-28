@@ -41,9 +41,9 @@ TargetRoasBiddingSchemeオブジェクトは、広告費用対効果の目標値
   <td>広告費用対効果の目標値です。<br>0.01 ～ 1000.00（1% ～ 100000%）の範囲内のみ 許容します。<br>※ROAS: Return On Advertising Spend</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidCeiling</td>
@@ -51,9 +51,9 @@ TargetRoasBiddingSchemeオブジェクトは、広告費用対効果の目標値
   <td>入札価格の上限です。<br>※制限値：0 ～ 50000<br>※「0」が設定された場合、上限設定はありません。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidFloor</td>
@@ -61,9 +61,9 @@ TargetRoasBiddingSchemeオブジェクトは、広告費用対効果の目標値
   <td>入札価格の下限です。<br>※ 設定を解除する場合は「0」を指定します。</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

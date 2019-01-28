@@ -40,9 +40,9 @@ TargetRoasBiddingScheme object displays Auto Bidding setting for Target ROAS.
   <td>Target ROAS (Return On Advertising Spend)<br>* Limit range: 0.01 - 1000.00 (1% - 100000%)</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidCeiling</td>
@@ -50,9 +50,9 @@ TargetRoasBiddingScheme object displays Auto Bidding setting for Target ROAS.
   <td>Limit of bid (CPC).<br>* Limit range: 0 - 50000<br>* There will be no setting limit, if set as "0".</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bidFloor</td>
@@ -60,9 +60,9 @@ TargetRoasBiddingScheme object displays Auto Bidding setting for Target ROAS.
   <td>Minimum CPC.<br>*Set "0" to deactivate.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Optional<br>Default : 0</td>
+  <td>Optional</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

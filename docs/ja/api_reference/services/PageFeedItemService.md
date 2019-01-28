@@ -4,11 +4,11 @@ PageFeedItemServiceでは、ページフィードアイテムの取得、アッ�
 #### WSDL
 | environment | url                                                                       |
 |-------------|---------------------------------------------------------------------------|
-| production  | https://ss.yahooapis.jp/services/V201808/PageFeedItemService?wsdl         |
-| sandbox     | https://sandbox.ss.yahooapis.jp/services/V201808/PageFeedItemService?wsdl |
+| production  | https://ss.yahooapis.jp/services/V201901/PageFeedItemService?wsdl         |
+| sandbox     | https://sandbox.ss.yahooapis.jp/services/V201901/PageFeedItemService?wsdl |
 
 #### Namespace
-http://ss.yahooapis.jp/V201808/PageFeedItem
+http://ss.yahooapis.jp/V201901/PageFeedItem
 
 #### サービス概要
 ページフィードアイテムの取得、アップロード、一括取得を行います。
@@ -39,14 +39,14 @@ PageFeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <get xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <feedFolderIds>1111</feedFolderIds>
@@ -89,14 +89,14 @@ PageFeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>PageFeedItem</ns2:service>
-      <ns2:requestTime>1532511979524</ns2:requestTime>
+      <ns2:requestTime>1547793434738</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <Page.Type>PageFeedItem</Page.Type>
@@ -151,14 +151,14 @@ PageFeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadUrl xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <getUploadUrl xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <operations>
         <accountId>100000001</accountId>
         <operand>
@@ -184,14 +184,14 @@ PageFeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>PageFeedItem</ns2:service>
-      <ns2:requestTime>1530861287731</ns2:requestTime>
+      <ns2:requestTime>1547793434753</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getUploadUrlResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <ns2:getUploadUrlResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <Page.Type>PageFeedItemUploadUrlPage</Page.Type>
@@ -220,8 +220,10 @@ PageFeedItemServiceで提供される操作を説明します。
 ## upload
 getUploadUrlで取得したURLに対して、ページフィードアイテムのアップロード処理を実施します。
 
+
+
+
 ### レスポンス
-##### ＜レスポンスサンプル＞
 実行結果をJSON形式で返却します。
 
  ```
@@ -264,14 +266,14 @@ getUploadUrlで取得したURLに対して、ページフィードアイテム�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <addDownloadJob xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <addDownloadJob xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <operations>
         <accountId>100000001</accountId>
         <operand>
@@ -295,14 +297,14 @@ getUploadUrlで取得したURLに対して、ページフィードアイテム�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>PageFeedItem</ns2:service>
-      <ns2:requestTime>1530861287810</ns2:requestTime>
+      <ns2:requestTime>1547793434799</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:addDownloadJobResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <ns2:addDownloadJobResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <ns2:rval>
         <ListReturnValue.Type>PageFeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -338,14 +340,14 @@ getUploadUrlで取得したURLに対して、ページフィードアイテム�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getReviewSummary xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <getReviewSummary xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <feedFolderIds>1111</feedFolderIds>
@@ -372,14 +374,14 @@ getUploadUrlで取得したURLに対して、ページフィードアイテム�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>PageFeedItem</ns2:service>
-      <ns2:requestTime>1530861287779</ns2:requestTime>
+      <ns2:requestTime>1547793434777</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getReviewSummaryResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <ns2:getReviewSummaryResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>PageFeedItemReviewSummaryPage</Page.Type>
@@ -414,14 +416,14 @@ upload、downloadの処理状況を取得します。downloadJobStatusがCOMPLET
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getJobStatus xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <getJobStatus xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <selector>
         <accountId>100000001</accountId>
         <jobIds>1111</jobIds>
@@ -449,14 +451,14 @@ upload、downloadの処理状況を取得します。downloadJobStatusがCOMPLET
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201808/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201808">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/PageFeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
       <ns2:service>PageFeedItem</ns2:service>
-      <ns2:requestTime>1530861287752</ns2:requestTime>
+      <ns2:requestTime>1547793434763</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getJobStatusResponse xmlns="http://ss.yahooapis.jp/V201808" xmlns:ns2="http://ss.yahooapis.jp/V201808/PageFeedItem">
+    <ns2:getJobStatusResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/PageFeedItem">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <Page.Type>PageFeedItemJobStatusPage</Page.Type>
