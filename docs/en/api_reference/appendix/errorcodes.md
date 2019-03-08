@@ -1,30 +1,109 @@
-# SOAP faults
-List of SOAP error code and message when the error or problem occurs.
+# SOAP Error Codes
+### Error Process Outline
+When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
+For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md).<br>
 
-### Overview
-If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response. <br> If an error occurs during the processing of your SOAP request, Sponsored Search API will return an error code and message. <br>See [Error](/docs/en/api_reference/data/Common/Error.md), [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md) for the entity details
+### Sample Error Response
+
+There are 3 types of SOAP error response, SAPFault, Full error and Part error. See the following description about each response.
+
+#### SOAPFault
+
+SOAPFault response returns for WSDL violation, SOAP syntax violation, system error and authentication error.<br>
+The returned SOAPFault is in the any of following forms depending on the service.
+
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>110006</faultcode>
+      <faultstring>Can not login.</faultstring>
+      <faultactor/>
+      <detail>
+        <requestKey>apiAccountId</requestKey>
+        <requestValue>xxxx-xxxx-xxxx-xxxx</requestValue>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>SOAP-ENV:Client</faultcode>
+      <faultstring xml:lang="en">110006:Can not login.</faultstring>
+      <detail>
+        <ApiExceptionFault xmlns="http://im.yahooapis.jp/V201812/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId","value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### Full Error
+
+Full Error is returned for the fail of entire request caused by request constraints, etc. It is different from SOAPFault.<br>
+Part Error is returned for the request fail caused by constraints in each ‘<operand>’ of SOAP request.
+
+The following response is an example of Full Error in the case of invalid ‘numberResults’ value of `Paging` in [AccountService](/docs/ja/api_reference/services/AccountService.md).
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
     <ns1:ResponseHeader>
       <ns2:service>Account</ns2:service>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getResponse xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns1="http://im.yahooapis.jp/V201812">
+      <error>
+        <ns1:code>F0001</ns1:code>
+        <ns1:message>Invalid format.</ns1:message>
+        <ns1:detail>
+          <ns1:requestKey>selector/paging/numberResults</ns1:requestKey>
+          <ns1:requestValue>1000000</ns1:requestValue>
+        </ns1:detail>
+      </error>
+    </getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### Part Error
+
+Part Error is returned in the error case caused by constraints of each element in ‘<operand>’.<br>
+Part Error is returned for each ‘<operand>’, whether an error occurred or not.<br>
+The error response may contain both of ‘true’ and ‘false’ on ‘<values>’ of ‘<operationSucceeded>’ when you send a single SOAP request which includes multiple operation requests with multiple ‘<operand>’.
+
+The following response is an example of Part Error in the case of specifying a ‘reportId’ which does not exist in [ReportService](/docs/ja/api_reference/services/ReportService.md).
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ns1:ResponseHeader>
+      <ns2:service>Report</ns2:service>
       <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
       <ns2:requestTime>1234567890</ns2:requestTime>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Account">
+    <ns3:mutateResponse xmlns:ns2="http://im.yahooapis.jp/V201812" xmlns:ns3="http://im.yahooapis.jp/V201812/Report">
       <ns3:rval>
-        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
-        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns2:ListReturnValue.Type>ReportReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>ADD</ns2:Operation.Type>
         <ns3:values>
           <ns2:operationSucceeded>false</ns2:operationSucceeded>
           <ns2:error>
-            <ns2:code>F0001</ns2:code>
-            <ns2:message>Invalid format.</ns2:message>
+            <ns2:code>I0001</ns2:code>
+            <ns2:message>Deactivated Id.</ns2:message>
             <ns2:detail>
-              <ns2:requestKey>accountName</ns2:requestKey>
-              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+              <ns2:requestKey>reportId</ns2:requestKey>
+              <ns2:requestValue>1234567890</ns2:requestValue>
             </ns2:detail>
           </ns2:error>
         </ns3:values>
