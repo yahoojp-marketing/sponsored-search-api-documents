@@ -3,28 +3,109 @@ SOAPレスポンス時のエラーコードとメッセージの詳細リスト�
 
 ### エラー処理概要
 SOAPリクエストが成功した場合、スポンサードサーチ APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、スポンサードサーチAPIはエラーコードが含まれるメッセージを返します。<br>詳しくは[Error](/docs/ja/api_reference/data/Common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/Common/ErrorDetail.md)を確認してください。
+
+### エラーレスポンスサンプル
+
+SOAPのエラーレスポンスには、SOAPFault、全体エラー、部分エラーがあります。以下で各レスポンスについて説明します。
+
+#### SOAPFault
+
+WSDL や SOAP 構文違反、システムエラー、認証エラーなどは、SOAPFaultが返却されます。<br>
+SOAPFaultはサービスによって、以下のいずれかの形式のレスポンスになります。
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>0011</faultcode>
+      <faultstring>Can not login.</faultstring>
+      <faultactor/>
+      <detail>
+        <requestKey>apiAccountId</requestKey>
+        <requestValue>xxxx-xxxx-xxxx-xxxx</requestValue>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>SOAP-ENV:Client</faultcode>
+      <faultstring xml:lang="en">0011:Can not login.</faultstring>
+      <detail>
+        <ApiExceptionFault xmlns="http://ss.yahooapis.jp/V201901/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId",
+        "value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### 全体エラー
+
+SOAPFaultには含まれないが、リクエストの制約等によりリクエスト全体が失敗した場合は、全体エラーが返却されます。<br>
+SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失敗した場合は、部分エラーが返却されます。
+
+以下は[AccountService](/docs/ja/api_reference/services/AccountService.md)で、 `Paging` の `numberResults` の値が不正な場合のエラーレスポンス例です。
+
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
     <ns1:ResponseHeader>
       <ns2:service>Account</ns2:service>
-      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
-      <ns2:requestTime>1234567890</ns2:requestTime>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Account">
+    <getResponse xmlns="http://ss.yahooapis.jp/V201901/Account" xmlns:ns1="http://ss.yahooapis.jp/V201901">
+      <error>
+        <ns1:code>F0001</ns1:code>
+        <ns1:message>Invalid format.</ns1:message>
+        <ns1:detail>
+          <ns1:requestKey>selector/paging/numberResults</ns1:requestKey>
+          <ns1:requestValue>1000000</ns1:requestValue>
+        </ns1:detail>
+      </error>
+    </getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### 部分エラー
+
+`<operand>` 内の各要素の制約等によりエラーが発生した場合は、部分エラーが返却されます。<br>
+部分エラーは、各 `<operand>` ごとにエラーが発生したかについて返却します。<br>
+なお、一回のSOAPリクエストで複数の `<operand>` を送るなど、複数の操作を要求するリクエストを送った場合、`<operationSucceeded>` の値が `true` や `false` である `<values>` が混在するエラーレスポンスになる場合もあります。
+
+以下は[ReportService](/docs/ja/api_reference/services/ReportService.md)で存在しない `reportId` を指定した場合のエラーレスポンス例です。
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ns1:ResponseHeader>
+      <ns2:service>Report</ns2:service>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Report">
       <ns3:rval>
-        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
-        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns2:ListReturnValue.Type>ReportReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>ADD</ns2:Operation.Type>
         <ns3:values>
           <ns2:operationSucceeded>false</ns2:operationSucceeded>
           <ns2:error>
-            <ns2:code>F0001</ns2:code>
-            <ns2:message>Invalid format.</ns2:message>
+            <ns2:code>V0001</ns2:code>
+            <ns2:message>Invalid value.</ns2:message>
             <ns2:detail>
-              <ns2:requestKey>accountName</ns2:requestKey>
-              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+              <ns2:requestKey>reportId</ns2:requestKey>
+              <ns2:requestValue>1234567890</ns2:requestValue>
             </ns2:detail>
           </ns2:error>
         </ns3:values>
