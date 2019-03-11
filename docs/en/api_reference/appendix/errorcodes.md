@@ -1,7 +1,7 @@
 # SOAP Error Codes
 ### Error Process Outline
 When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
-For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md).<br>
+For details, please refer to [Error](/docs/en/api_reference/data/Common/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md).<br>
 
 ### Sample Error Response
 
