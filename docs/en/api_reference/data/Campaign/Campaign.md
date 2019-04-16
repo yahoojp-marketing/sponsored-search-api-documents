@@ -154,6 +154,9 @@ Campaign object describes Campaign information.
   <td>Setting of target and matching.</td>
   <td>yes</td>
   <td>Optional<br>
+  <br>
+  If campaignType is 'DYNAMIC_ADS_FOR_SEARCH_SETTING':Requirement<br>
+  <br>
   *Default value for the case of no setting 'TargetingSetting'<br>
   SettingType:TARGET_LIST_SETTING<br>
   TargetAll:ACTIVE</td>

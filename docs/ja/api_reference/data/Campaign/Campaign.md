@@ -154,6 +154,9 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <td>ターゲティング、およびマッチング設定です。</td>
   <td>yes</td>
   <td>Optional<br>
+  <br>
+  campaignTypeがDYNAMIC_ADS_FOR_SEARCH_SETTINGの場合:Requirement<br>
+  <br>
   ※TargetingSettingが未設定の場合のDefault値<br>
   SettingType:TARGET_LIST_SETTING<br>
   TargetAll:ACTIVE</td>
