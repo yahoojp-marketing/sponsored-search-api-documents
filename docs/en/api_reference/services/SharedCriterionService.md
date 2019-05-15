@@ -30,7 +30,7 @@ Get negative keyword list information.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [SharedCriterionSelector](../data/RetargetingList/SharedCriterionSelector.md) | Object to hold search criteria (exec parameter) of get method. |
+| selector | Req | [SharedCriterionSelector](../data/SharedCriterion/SharedCriterionSelector.md) | Object to hold search criteria (exec parameter) of get method. |
 
 ##### Request Sample
 ```xml
