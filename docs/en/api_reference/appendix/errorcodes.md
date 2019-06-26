@@ -1,7 +1,8 @@
-# SOAP Error Codes
-### Error Process Outline
-When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
-For details, please refer to [Error](/docs/en/api_reference/data/Common/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md).<br>
+# SOAP Error code
+List of SOAP error code and message when the error or problem occurs.
+
+### Overview
+If your SOAP request is successful, the Sponsored Search API will return an HTTP 200 OK response code and the SOAP response. <br> If an error occurs during the processing of your SOAP request, Sponsored Search API will return an error code and message. <br>See [Error](/docs/en/api_reference/data/Common/Error.md), [ErrorDetail](/docs/en/api_reference/data/Common/ErrorDetail.md) for the entity details
 
 ### Sample Error Response
 
@@ -16,7 +17,7 @@ The returned SOAPFault is in the any of following forms depending on the service
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Body>
     <SOAP-ENV:Fault>
-      <faultcode>110006</faultcode>
+      <faultcode>0011</faultcode>
       <faultstring>Can not login.</faultstring>
       <faultactor/>
       <detail>
@@ -34,9 +35,10 @@ The returned SOAPFault is in the any of following forms depending on the service
   <SOAP-ENV:Body>
     <SOAP-ENV:Fault>
       <faultcode>SOAP-ENV:Client</faultcode>
-      <faultstring xml:lang="en">110006:Can not login.</faultstring>
+      <faultstring xml:lang="en">0011:Can not login.</faultstring>
       <detail>
-        <ApiExceptionFault xmlns="http://im.yahooapis.jp/V201812/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId","value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
+        <ApiExceptionFault xmlns="http://ss.yahooapis.jp/V201901/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId",
+        "value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
       </detail>
     </SOAP-ENV:Fault>
   </SOAP-ENV:Body>
@@ -52,7 +54,7 @@ The following response is an example of Full Error in the case of invalid ‘num
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
     <ns1:ResponseHeader>
       <ns2:service>Account</ns2:service>
       <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
@@ -60,7 +62,7 @@ The following response is an example of Full Error in the case of invalid ‘num
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getResponse xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns1="http://im.yahooapis.jp/V201812">
+    <getResponse xmlns="http://ss.yahooapis.jp/V201901/Account" xmlns:ns1="http://ss.yahooapis.jp/V201901">
       <error>
         <ns1:code>F0001</ns1:code>
         <ns1:message>Invalid format.</ns1:message>
@@ -78,29 +80,29 @@ The following response is an example of Full Error in the case of invalid ‘num
 
 Part Error is returned in the error case caused by constraints of each element in ‘<operand>’.<br>
 Part Error is returned for each ‘<operand>’, whether an error occurred or not.<br>
-The error response may contain both of ‘true’ and ‘false’ on ‘<values>’ of ‘<operationSucceeded>’ when you send a single SOAP request which includes multiple operation requests with multiple ‘<operand>’.
+The error response may contain both of ‘true’ and ‘false’ as value of ‘<operationSucceeded>’, since '<value>' returns for each '<operand>' when you send a single SOAP request which includes multiple ‘<operand>’.
 
 The following response is an example of Part Error in the case of specifying a ‘reportId’ which does not exist in [ReportService](/docs/ja/api_reference/services/ReportService.md).
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
     <ns1:ResponseHeader>
       <ns2:service>Report</ns2:service>
-      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
-      <ns2:requestTime>1234567890</ns2:requestTime>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns3:mutateResponse xmlns:ns2="http://im.yahooapis.jp/V201812" xmlns:ns3="http://im.yahooapis.jp/V201812/Report">
+    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Report">
       <ns3:rval>
         <ns2:ListReturnValue.Type>ReportReturnValue</ns2:ListReturnValue.Type>
         <ns2:Operation.Type>ADD</ns2:Operation.Type>
         <ns3:values>
           <ns2:operationSucceeded>false</ns2:operationSucceeded>
           <ns2:error>
-            <ns2:code>I0001</ns2:code>
-            <ns2:message>Deactivated Id.</ns2:message>
+            <ns2:code>V0001</ns2:code>
+            <ns2:message>Invalid value.</ns2:message>
             <ns2:detail>
               <ns2:requestKey>reportId</ns2:requestKey>
               <ns2:requestValue>1234567890</ns2:requestValue>
