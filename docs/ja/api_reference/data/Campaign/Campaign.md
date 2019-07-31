@@ -150,7 +150,8 @@ Campaignオブジェクトは、キャンペーンの情報を表します。
   <br>
   ※TargetingSettingが未設定の場合のDefault値<br>
   SettingType:TARGET_LIST_SETTING<br>
-  TargetAll:ACTIVE</td>
+  TargetAll:ACTIVE
+  </td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>

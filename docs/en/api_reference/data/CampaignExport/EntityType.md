@@ -11,93 +11,43 @@ EntityType object describes target entities.<br>
 
 <table>
  <tr>
-  <th>Enumeration </th>
+  <th>Enumeration</th>
   <th>Type</th>
   <th>Description</th>
  <tr>
-  <td>ACCOUNT</td>
-  <td>xsd:string</td>
-  <td>Account.</td>
- </tr>
- <tr>
   <td>CAMPAIGN</td>
   <td>xsd:string</td>
-  <td>Campaign.</td>
+  <td>Campaign</td>
  </tr>
  <tr>
   <td>NEGATIVE_CAMPAIGN_CRITERION</td>
   <td>xsd:string</td>
-  <td>Negative keyword. (campaign)</td>
- </tr>
- <tr>
-  <td>CAMPAIGN_TARGET</td>
-  <td>xsd:string</td>
-  <td>Targeting setting of campaign.</td>
+  <td>Negative keyword (campaign level)</td>
  </tr>
  <tr>
   <td>AD_GROUP</td>
   <td>xsd:string</td>
-  <td>Ad group.</td>
+  <td>Ad group</td>
  </tr>
  <tr>
   <td>BIDDABLE_AD_GROUP_CRITERION</td>
   <td>xsd:string</td>
-  <td>Biddable keyword (ad group)</td>
+  <td>Biddable keyword</td>
  </tr>
  <tr>
   <td>NEGATIVE_AD_GROUP_CRITERION</td>
   <td>xsd:string</td>
-  <td>Negative keyword. (ad group)</td>
+  <td>Negative keyword (ad group level)</td>
  </tr>
  <tr>
   <td>AD</td>
   <td>xsd:string</td>
-  <td>Ad.</td>
+  <td>Ad</td>
  </tr>
  <tr>
   <td>ALL</td>
   <td>xsd:string</td>
-  <td>All entities.</td>
- </tr>
- <tr>
-  <td>FEED_ITEM</td>
-  <td>xsd:string</td>
-  <td>FeedItem type.</td>
- </tr>
- <tr>
-  <td>CAMPAIGN_FEED</td>
-  <td>xsd:string</td>
-  <td>Campaign information of FeedItem.</td>
- </tr>
- <tr>
-  <td>AD_GROUP_FEED</td>
-  <td>xsd:string</td>
-  <td>Ad group information of FeedItem.</td>
- </tr>
- <tr>
-  <td>BIDDING_STRATEGY</td>
-  <td>xsd:string</td>
-  <td>Auto bidding setting.</td>
- </tr>
- <tr>
-  <td>FEED_FOLDER</td>
-  <td>xsd:string</td>
-  <td>Feed folder.</td>
- </tr>
- <tr>
-  <td>NEGATIVE_CAMPAIGN_TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>Campaign users list for excluding.</td>
- </tr>
- <tr>
-  <td>AD_GROUP_TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>Ad group users list.</td>
- </tr>
- <tr>
-  <td>TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>Target list.</td>
+  <td>All entities</td>
  </tr>
 </table>
 

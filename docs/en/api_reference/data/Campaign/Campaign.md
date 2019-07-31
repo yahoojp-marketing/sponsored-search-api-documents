@@ -150,7 +150,8 @@ Campaign object describes Campaign information.
   <br>
   *Default value for the case of no setting 'TargetingSetting'<br>
   SettingType:TARGET_LIST_SETTING<br>
-  TargetAll:ACTIVE</td>
+  TargetAll:ACTIVE
+  </td>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>

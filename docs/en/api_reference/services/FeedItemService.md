@@ -349,7 +349,7 @@ Get Feed Item information.
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
@@ -616,7 +616,7 @@ Add Feed Item information.
         <operand>
           <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
             <placeholderField>STRUCTURED_SNIPPET_HEADER</placeholderField>
-            <feedAttributeValue>ブランド</feedAttributeValue>
+            <feedAttributeValue>Brands</feedAttributeValue>
           </feedItemAttribute>
           <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
             <placeholderField>STRUCTURED_SNIPPET_VALUES</placeholderField>
@@ -1014,7 +1014,7 @@ Add Feed Item information.
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
@@ -1795,7 +1795,7 @@ Add Feed Item information.
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>ブランド</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
@@ -2400,7 +2400,7 @@ Remove the Feed Item details.
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>ブランド</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">

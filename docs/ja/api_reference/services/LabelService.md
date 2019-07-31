@@ -67,7 +67,7 @@ LabelServiceで提供される操作を説明します。
 
 | フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [LabelReturnValue](../data/Label/LabelReturnValue.md) | 操作結果を含むラベルに関する情報のコンテナです。 |
+| rval | [LabelPage](../data/Label/LabelPage.md) | 操作結果を含むラベルに関する情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
