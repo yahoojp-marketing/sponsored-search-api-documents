@@ -60,7 +60,7 @@ CampaignBiddingStrategy object describes Auto Bidding setting.
  </tr>
  <tr>
   <td>biddingScheme</td>
-  <td><a href="BiddingScheme.md">BiddingScheme</a><br> inherited <a href="ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="PageOnePromotedBiddingScheme.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="TargetCpaBiddingScheme.md">TargetCpaBiddingScheme</a><br> inherited <a href="TargetSpendBiddingScheme.md">TargetSpendBiddingScheme</a><br> inherited <a href="TargetRoasBiddingScheme.md">TargetRoasBiddingScheme</a></td>
+  <td><a href="BiddingScheme.md">BiddingScheme</a><br> inherited <a href="ManualCpcBiddingScheme.md">ManualCpcBiddingScheme</a><br> inherited <a href="PageOnePromotedBiddingScheme.md">PageOnePromotedBiddingScheme </a><br> inherited <a href="TargetCpaBiddingScheme.md">TargetCpaBiddingScheme</a><br> inherited <a href="TargetSpendBiddingScheme.md">TargetSpendBiddingScheme</a><br> inherited <a href="TargetRoasBiddingScheme.md">TargetRoasBiddingScheme</a> <br> inherited <a href="MaximizeConversionsBiddingScheme.md">MaximizeConversionsBiddingScheme</a></td>
   <td>Details of Auto Bidding setting.</td>
   <td>yes</td>
   <td>-</td>

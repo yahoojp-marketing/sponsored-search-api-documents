@@ -67,7 +67,7 @@ Response Fields
 
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [LabelReturnValue](../data/Label/LabelReturnValue.md) | Entry of acquired label. |
+| rval | [LabelPage](../data/Label/LabelPage.md) | Entry of acquired label. |
 
 ##### Response Sample
 ```xml

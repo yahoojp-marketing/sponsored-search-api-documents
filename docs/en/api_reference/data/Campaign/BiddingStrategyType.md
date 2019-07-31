@@ -43,6 +43,11 @@ BiddingStrategyType displays the Auto Bidding type.
   <td>Target conversion spend (CPA).<br>*Available on updating campaign process. Currently not available for ad group.</td>
  </tr>
  <tr>
+  <td>MAXIMIZE_CONVERSIONS</td>
+  <td>xsd:string</td>
+  <td>Maximize Conversions.<br>*Available on updating campaign process. Currently not available for ad group.</td>
+ </tr>
+ <tr>
   <td>NONE</td>
   <td>xsd:string</td>
   <td>Specify this item to cancel the Auto bidding, and follow the strategy of upper level entity.<br>*Available when removing bid setting on ad group and/or keyword level.</td>

@@ -11,93 +11,43 @@ EntityTypeは、対象となるエンティティを表します。<br>
 
 <table>
  <tr>
-  <th>Enumeration </th>
+  <th>Enumeration</th>
   <th>Type</th>
   <th>Description</th>
  <tr>
-  <td>ACCOUNT</td>
-  <td>xsd:string</td>
-  <td>アカウントです。</td>
- </tr>
- <tr>
   <td>CAMPAIGN</td>
   <td>xsd:string</td>
-  <td>キャンペーンです。</td>
+  <td>キャンペーン</td>
  </tr>
  <tr>
   <td>NEGATIVE_CAMPAIGN_CRITERION</td>
   <td>xsd:string</td>
-  <td>対象外キーワードです。（キャンペーン）</td>
- </tr>
- <tr>
-  <td>CAMPAIGN_TARGET</td>
-  <td>xsd:string</td>
-  <td>キャンペーンのターゲティング設定です。</td>
+  <td>対象外キーワード（キャンペーンレベル）</td>
  </tr>
  <tr>
   <td>AD_GROUP</td>
   <td>xsd:string</td>
-  <td>広告グループです。</td>
+  <td>広告グループ</td>
  </tr>
  <tr>
   <td>BIDDABLE_AD_GROUP_CRITERION</td>
   <td>xsd:string</td>
-  <td>入札キーワードです。</td>
+  <td>入札キーワード</td>
  </tr>
  <tr>
   <td>NEGATIVE_AD_GROUP_CRITERION</td>
   <td>xsd:string</td>
-  <td>対象外キーワードです。（広告グループ）</td>
+  <td>対象外キーワード（広告グループレベル）</td>
  </tr>
  <tr>
   <td>AD</td>
   <td>xsd:string</td>
-  <td>広告です。</td>
+  <td>広告</td>
  </tr>
  <tr>
   <td>ALL</td>
   <td>xsd:string</td>
-  <td>すべてです。</td>
- </tr>
- <tr>
-  <td>FEED_ITEM</td>
-  <td>xsd:string</td>
-  <td>FeedItemの種類です。</td>
- </tr>
- <tr>
-  <td>CAMPAIGN_FEED</td>
-  <td>xsd:string</td>
-  <td>FeedItemのキャンペーン情報です。</td>
- </tr>
- <tr>
-  <td>AD_GROUP_FEED</td>
-  <td>xsd:string</td>
-  <td>FeedItemの広告グループ情報です。</td>
- </tr>
- <tr>
-  <td>BIDDING_STRATEGY</td>
-  <td>xsd:string</td>
-  <td>自動入札設定です。</td>
- </tr>
- <tr>
-  <td>FEED_FOLDER</td>
-  <td>xsd:string</td>
-  <td>Feedフォルダーです。</td>
- </tr>
- <tr>
-  <td>NEGATIVE_CAMPAIGN_TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>除外キャンペーンユーザリストです。</td>
- </tr>
- <tr>
-  <td>AD_GROUP_TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>広告グループユーザリストです。</td>
- </tr>
- <tr>
-  <td>TARGET_LIST</td>
-  <td>xsd:string</td>
-  <td>ターゲットリストです。</td>
+  <td>すべての広告エンティティ</td>
  </tr>
 </table>
 
