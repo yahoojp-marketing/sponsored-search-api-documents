@@ -8,7 +8,7 @@ Use this service to add or remove negative keyword to negative keyword list.
 | sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/SharedCriterionService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/RetargetingList
+http://ss.yahooapis.jp/V201901/SharedCriterion
 
 #### Overview
 Use this service to add or remove negative keywords to negative keyword list.
@@ -30,7 +30,7 @@ Get negative keyword list information.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| selector | Req | [SharedCriterionSelector](../data/RetargetingList/SharedCriterionSelector.md) | Object to hold search criteria (exec parameter) of get method. |
+| selector | Req | [SharedCriterionSelector](../data/SharedCriterion/SharedCriterionSelector.md) | Object to hold search criteria (exec parameter) of get method. |
 
 ##### Request Sample
 ```xml
@@ -69,7 +69,7 @@ Get negative keyword list information.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [SharedCriterionPage](../data/RetargetingList/SharedCriterionPage.md) | Object to hold exec result (all entities list) of get method. |
+| rval | [SharedCriterionPage](../data/SharedCriterion/SharedCriterionPage.md) | Object to hold exec result (all entities list) of get method. |
 
 ##### Response Sample
 ```xml
@@ -109,7 +109,7 @@ Add negative keywords to negative keyword list.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [SharedCriterionOperation](../data/RetargetingList/SharedCriterionOperation.md) | Object to hold negative keyword list for operation of mutate method.|
+| operations | Req | [SharedCriterionOperation](../data/SharedCriterion/SharedCriterionOperation.md) | Object to hold negative keyword list for operation of mutate method.|
 
 ##### Request Sample
 ```xml
@@ -140,7 +140,7 @@ Add negative keywords to negative keyword list.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [SharedCriterionReturnValue](../data/RetargetingList/SharedCriterionReturnValue.md) | Object to hold exec result (all entities list) of mutate method. |
+| rval | [SharedCriterionReturnValue](../data/SharedCriterion/SharedCriterionReturnValue.md) | Object to hold exec result (all entities list) of mutate method. |
 
 ##### Response Sample
 ```xml
@@ -180,7 +180,7 @@ Removes negative keywords from negative keyword list.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [SharedCriterionOperation](../data/RetargetingList/SharedCriterionOperation.md) | Object to hold negative keyword list for operation of mutate method.|
+| operations | Req | [SharedCriterionOperation](../data/SharedCriterion/SharedCriterionOperation.md) | Object to hold negative keyword list for operation of mutate method.|
 
 ##### Request Sample
 ```xml
@@ -210,7 +210,7 @@ Removes negative keywords from negative keyword list.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [SharedCriterionReturnValue](../data/RetargetingList/SharedCriterionReturnValue.md) | Object to hold exec result (all entities list) of mutate method. |
+| rval | [SharedCriterionReturnValue](../data/SharedCriterion/SharedCriterionReturnValue.md) | Object to hold exec result (all entities list) of mutate method. |
 
 ##### Response Sample
 ```xml
