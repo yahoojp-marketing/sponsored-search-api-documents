@@ -1,5 +1,5 @@
 # AccountTrackingUrlService
-AccountTrackingUrlService is to get or update accoutn tracking information.
+AccountTrackingUrlService is to get or update account tracking information.
 
 #### WSDL
 | environment | url |
