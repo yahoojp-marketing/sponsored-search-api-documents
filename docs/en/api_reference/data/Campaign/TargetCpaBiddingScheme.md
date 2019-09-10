@@ -37,7 +37,7 @@ TargetCpaBiddingScheme object displays Auto Bidding setting for Target CPA.
  <tr>
   <td>targetCpa</td>
   <td>xsd:long</td>
-  <td>Target CPA (JPY) <br>* Range limit: 0 - 99999999</td>
+  <td>Target CPA (JPY) <br>* Range limit: 0 - 1000000</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
