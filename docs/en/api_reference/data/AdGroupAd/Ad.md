@@ -34,7 +34,7 @@ Ad object describes ad information.
   <td>Landing Page URL.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>*If AdType is 'DYNAMIC_ADS_FOR_SEARCH_SETTING':ignore.</td>
+  <td>Requirement<br>*If AdType is 'DYNAMIC_ADS_FOR_SEARCH_SETTING':ignore.</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
