@@ -34,7 +34,7 @@ Adオブジェクトは、広告に関する情報を表します。
   <td>最終リンク先URLです。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
+  <td>Requirement<br>※adTypeがDYNAMIC_SEARCH_LINKED_ADの場合:Ignore。</td>
   <td>-</td>
   <td>-</td>
  </tr>
