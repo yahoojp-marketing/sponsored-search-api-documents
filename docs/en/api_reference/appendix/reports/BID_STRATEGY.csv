@@ -4,7 +4,6 @@
 "CLICKS","クリック数","Clicks","clicks","LONG","true",,"Metric"
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true",,"Metric"
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true",,"Metric"
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true",,"Metric"
 "BID_STRATEGY_ID","自動入札ID","Auto Bidding ID","autoBiddingID","LONG","true",,"Attribute"
 "BID_STRATEGY_NAME","自動入札名","Auto Bidding Name","autoBiddingName","STRING","true",,"Attribute"
 "BID_STRATEGY_TYPE","自動入札タイプ","Auto Bidding Type","autoBiddingType","ENUM","true",,"Attribute"
