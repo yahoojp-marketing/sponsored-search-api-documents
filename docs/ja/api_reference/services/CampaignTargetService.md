@@ -3,11 +3,11 @@ CampaignTargetServiceでは、キャンペーンのターゲティング設定�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/CampaignTargetService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignTargetService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/CampaignTargetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/CampaignTargetService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/CampaignTarget
+http://ss.yahooapis.jp/V201909/CampaignTarget
 
 #### サービス概要
 キャンペーンのターゲティング設定に関する情報の取得および更新を行います。<br>
@@ -46,14 +46,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -88,14 +88,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignTarget</ns2:service>
       <ns2:requestTime>1547792971626</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <ns2:rval>
         <totalNumEntries>6</totalNumEntries>
         <Page.Type>CampaignTargetPage</Page.Type>
@@ -209,14 +209,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -265,14 +265,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignTarget</ns2:service>
       <ns2:requestTime>1547792971662</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <ns2:rval>
         <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -346,14 +346,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -390,14 +390,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignTarget</ns2:service>
       <ns2:requestTime>1547792971726</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <ns2:rval>
         <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -456,14 +456,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -505,14 +505,14 @@ CampaignTargetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignTarget" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignTarget</ns2:service>
       <ns2:requestTime>1547792971761</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignTarget">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignTarget">
       <ns2:rval>
         <ListReturnValue.Type>CampaignTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

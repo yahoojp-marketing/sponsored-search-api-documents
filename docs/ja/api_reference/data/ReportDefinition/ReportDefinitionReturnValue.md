@@ -1,51 +1,23 @@
+
+
 # ReportDefinitionReturnValue
-ReportDefinitionReturnValueオブジェクトは、操作結果を含むレポート定義のコンテナです。
+
+ReportDefinitionReturnValueオブジェクトは、操作結果を含むレポートのコンテナです。
 
 ### Service
+
 + [ReportDefinitionService](../../services/ReportDefinitionService.md)
 
 ### Namespace
+
 [ReportDefinitionService#Namespace](../../services/ReportDefinitionService.md#namespace)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
-  <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
- </tr>
- <tr>
-  <td colspan="8"><a href="../Common/ListReturnValue.md">ListReturnValue</a>(inherited)</td>
- </tr>
- <tr>
-  <td>ListReturnValue.Type</td>
-  <td>xsd:string</td>
-  <td>このインスタンスの ListReturnValue のサブタイプを示します。</td>
-  <td colspan="5"></td>
- </tr>
- <tr>
-  <td>Operation.Type</td>
-  <td>xsd:string</td>
-  <td>mutate処理の内容です。 </td>
-  <td colspan="5"></td>
- </tr>
- <tr>
-  <td colspan="8">ReportDefinitionReturnValue</td>
- </tr>
- <tr>
-  <td>values[1...30]</td>
-  <td><a href="ReportDefinitionValues.md">ReportDefinitionValues</a></td>
-  <td>レポート定義詳細の配列です。各配列にはレポート定義とmutate処理の実行結果が含まれます。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
-</table>
+### Inheritance
+
++ [ListReturnValue](../Common/ListReturnValue.md)
+
+| Field | Type | Description | response | getReportFields | get | add | remove |
+| ----- | ---- | ----------- | -------- | --------- | --------- | --------- | --------- |
+| values[0...30] | [ReportDefinitionValues](./ReportDefinitionValues.md) | レポートに関するmutateメソッドの実行結果です。<br/>配列には、レポートの情報が含まれます。 | yes | - | - | - | - | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

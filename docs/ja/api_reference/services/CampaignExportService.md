@@ -4,11 +4,11 @@ CampaignExportServiceでは、キャンペーン、広告グループ、キー�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/CampaignExportService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignExportService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/CampaignExportService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/CampaignExportService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/CampaignExport
+http://ss.yahooapis.jp/V201909/CampaignExport
 
 #### サービス概要
 キャンペーン、広告グループ、キーワード、広告に関する情報の取得を一括で行います。
@@ -39,14 +39,14 @@ CampaignExportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <addJob xmlns="http://ss.yahooapis.jp/V201901/CampaignExport">
+    <addJob xmlns="http://ss.yahooapis.jp/V201909/CampaignExport">
       <setting>
         <accountId>111111</accountId>
         <campaignIds>2222222</campaignIds>
@@ -98,14 +98,14 @@ CampaignExportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignExport</ns2:service>
       <ns2:requestTime>1547793058847</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:addJobResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignExport">
+    <ns2:addJobResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignExport">
       <ns2:rval>
         <ListReturnValue.Type>CampaignExportReturnValue</ListReturnValue.Type>
         <ns2:values>
@@ -140,14 +140,14 @@ CampaignExportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>100000001</accountId>
         <jobIds>1111</jobIds>
@@ -177,14 +177,14 @@ CampaignExportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignExport</ns2:service>
       <ns2:requestTime>1547793058762</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignExport">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignExport">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <Page.Type>CampaignExportPage</Page.Type>
@@ -198,7 +198,7 @@ CampaignExportServiceで提供される操作を説明します。
             <ns2:endDate>2017-11-28T10:31:25+09:00</ns2:endDate>
             <ns2:status>COMPLETED</ns2:status>
             <ns2:progress>100</ns2:progress>
-            <ns2:downloadUrl>https://ss.yahooapis.jp/export/V201901/download/Cwb66zoaz1qr0HD6DlPq3Xca8LRUODnBWLcEeT64WuhhLrCf507Jo3v5FmZ6fGvm3k0YqbjOu9XBqkkZVCBWrhb0wtuAuxVbg35S_HPGxfCg9gxq5qabtwPblcRmp7LzlvEedZzaczG.g7wrgliey93KdGob8adSnhGNol0PZfJ8UBeAaBJ7zjjS010XmqJe8u0XMYpS7DqKlFe4REWkLAX293y8E1hUhRckDiul3awJBlqAQdnR9s2BRmMsznRPMxp85v2OXQm_onO79tN6lY7CXWNOzd3enyxllUXPmAwL4Ey8ciV01Ku3cBYh08RiIqBwV5TDJf4-</ns2:downloadUrl>
+            <ns2:downloadUrl>https://ss.yahooapis.jp/export/V201909/download/Cwb66zoaz1qr0HD6DlPq3Xca8LRUODnBWLcEeT64WuhhLrCf507Jo3v5FmZ6fGvm3k0YqbjOu9XBqkkZVCBWrhb0wtuAuxVbg35S_HPGxfCg9gxq5qabtwPblcRmp7LzlvEedZzaczG.g7wrgliey93KdGob8adSnhGNol0PZfJ8UBeAaBJ7zjjS010XmqJe8u0XMYpS7DqKlFe4REWkLAX293y8E1hUhRckDiul3awJBlqAQdnR9s2BRmMsznRPMxp85v2OXQm_onO79tN6lY7CXWNOzd3enyxllUXPmAwL4Ey8ciV01Ku3cBYh08RiIqBwV5TDJf4-</ns2:downloadUrl>
             <ns2:exportFields>CAMPAIGN_NAME</ns2:exportFields>
             <ns2:exportFields>AD_GROUP_NAME</ns2:exportFields>
             <ns2:exportFields>AD_NAME</ns2:exportFields>
@@ -233,14 +233,14 @@ CampaignExportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getExportFields xmlns="http://ss.yahooapis.jp/V201901/CampaignExport"/>
+    <getExportFields xmlns="http://ss.yahooapis.jp/V201909/CampaignExport"/>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -256,14 +256,14 @@ getExportFieldsメソッドの実行結果(エクスポート可能なフィー�
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignExport" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignExport</ns2:service>
       <ns2:requestTime>1547793058828</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getExportFieldsResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignExport">
+    <ns2:getExportFieldsResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignExport">
       <ns2:rval>
         <ns2:fields>
           <ns2:fieldName>CAMPAIGN_NAME</ns2:fieldName>

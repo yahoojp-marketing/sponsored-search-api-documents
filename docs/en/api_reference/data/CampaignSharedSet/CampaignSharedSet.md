@@ -51,7 +51,7 @@ CampaignSharedSet is object to hold setup information between negative keyword l
   <tr>
   <td>sharedListName</td>
   <td>xsd:string</td>
-  <td>Negative keyword list ID of the account.</td>
+  <td>Negative keyword list name of the account.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

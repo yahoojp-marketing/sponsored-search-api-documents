@@ -1,14 +1,19 @@
-# FeedItemGeoRestriction(enum)
+
+
+# FeedItemGeoRestriction (enum)
+
 FeedItemGeoRestrictionオブジェクトは、地域設定の配信を制御します。
 
-### Service
+#### Service
+
 + [FeedItemService](../../services/FeedItemService.md)
 
-### Namespace
+#### Namespace
+
 [FeedItemService#Namespace](../../services/FeedItemService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | NONE | xsd:string | 検索キーワードとユーザーの所在地の関係にかかわらず、配信されます。 |
 | LOCATION_OF_PRESENCE | xsd:string | 検索キーワードがユーザーの所在地と無関係の場合は配信されません。 |
 

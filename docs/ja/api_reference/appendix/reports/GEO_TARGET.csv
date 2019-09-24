@@ -6,7 +6,6 @@
 "CLICKS","クリック数","Clicks","clicks","LONG","true",,"Metric"
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true",,"Metric"
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true",,"Metric"
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","true",,"Metric"
 "BID_MULTIPLIER","入札価格調整率(％)","Bid Adjustment(%)","bidAdjustment","LONG","true",,"Attribute"
 "TARGET_LOCATION_ID","地域ID","Target Location ID","targetLocationID","STRING","true",,"Attribute"
 "TARGET_LOCATION_NAME","地域","Target Location Name","targetLocationName","STRING","true",,"Attribute"

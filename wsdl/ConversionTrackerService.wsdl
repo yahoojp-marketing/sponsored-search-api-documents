@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://ss.yahooapis.jp/V201901/ConversionTracker"
-        xmlns:tns="http://ss.yahooapis.jp/V201901/ConversionTracker"
+        targetNamespace="http://ss.yahooapis.jp/V201909/ConversionTracker"
+        xmlns:tns="http://ss.yahooapis.jp/V201909/ConversionTracker"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201901"
+            targetNamespace="http://ss.yahooapis.jp/V201909"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://ss.yahooapis.jp/V201901">
+            xmlns:tns="http://ss.yahooapis.jp/V201909">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://ss.yahooapis.jp/V201901/ConversionTracker"
+            targetNamespace="http://ss.yahooapis.jp/V201909/ConversionTracker"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://ss.yahooapis.jp/V201901"
-            xmlns:tns="http://ss.yahooapis.jp/V201901/ConversionTracker">
-      <xsd:import namespace="http://ss.yahooapis.jp/V201901"/>
+            xmlns:adv="http://ss.yahooapis.jp/V201909"
+            xmlns:tns="http://ss.yahooapis.jp/V201909/ConversionTracker">
+      <xsd:import namespace="http://ss.yahooapis.jp/V201909"/>
       <annotation>
         <appinfo>
-          <version>201901</version>
+          <version>201909</version>
         </appinfo>
       </annotation>
       <complexType name="ConversionTrackerSelector">
@@ -121,6 +121,7 @@
           <extension base="tns:ConversionTracker">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="snippet" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="advancedSnippet" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="markupLanguage" type="tns:MarkupLanguage"/>
               <element maxOccurs="1" minOccurs="0" name="trackingCodeType" type="tns:TrackingCodeType"/>
             </sequence>
@@ -365,7 +366,7 @@
   </wsdl:binding>
   <wsdl:service name="ConversionTrackerService">
     <wsdl:port binding="tns:ConversionTrackerServiceSoapBinding" name="ConversionTrackerService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201901/ConversionTrackerService"/>
+      <wsdlsoap:address location="https://ss.yahooapis.jp/services/V201909/ConversionTrackerService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

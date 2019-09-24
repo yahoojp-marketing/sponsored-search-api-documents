@@ -1,9 +1,8 @@
 # SOAPエラーコード
-SOAPレスポンス時のエラーコードとメッセージの詳細リストです。
-
 ### エラー処理概要
-SOAPリクエストが成功した場合、スポンサードサーチ APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、スポンサードサーチAPIはエラーコードが含まれるメッセージを返します。<br>詳しくは[Error](/docs/ja/api_reference/data/Common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/Common/ErrorDetail.md)を確認してください。
-
+SOAPリクエストが成功した場合、Sponsored Search APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、Sponsored Search API はエラーコードが含まれるメッセージを返します。<br>
+詳しくは[Error](/docs/ja/api_reference/data/Common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/Common/ErrorDetail.md)を確認してください。  
+   
 ### エラーレスポンスサンプル
 
 SOAPのエラーレスポンスには、SOAPFault、全体エラー、部分エラーがあります。以下で各レスポンスについて説明します。
@@ -17,7 +16,7 @@ SOAPFaultはサービスによって、以下のいずれかの形式のレス�
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Body>
     <SOAP-ENV:Fault>
-      <faultcode>0011</faultcode>
+      <faultcode>110006</faultcode>
       <faultstring>Can not login.</faultstring>
       <faultactor/>
       <detail>
@@ -35,10 +34,9 @@ SOAPFaultはサービスによって、以下のいずれかの形式のレス�
   <SOAP-ENV:Body>
     <SOAP-ENV:Fault>
       <faultcode>SOAP-ENV:Client</faultcode>
-      <faultstring xml:lang="en">0011:Can not login.</faultstring>
+      <faultstring xml:lang="en">110006:Can not login.</faultstring>
       <detail>
-        <ApiExceptionFault xmlns="http://ss.yahooapis.jp/V201901/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId",
-        "value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
+        <ApiExceptionFault xmlns="http://ss.yahooapis.jp/V201812/Account">{"details":[{"key":"license","value":["xxxx-xxxx-xxxx-xxxx"]},{"key":"apiAccountId","value":["xxxx-xxxx-xxxx-xxxx"]}]}</ApiExceptionFault>
       </detail>
     </SOAP-ENV:Fault>
   </SOAP-ENV:Body>
@@ -54,7 +52,7 @@ SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Account" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201812/Account" xmlns:ns2="http://ss.yahooapis.jp/V201812">
     <ns1:ResponseHeader>
       <ns2:service>Account</ns2:service>
       <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
@@ -62,7 +60,7 @@ SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getResponse xmlns="http://ss.yahooapis.jp/V201901/Account" xmlns:ns1="http://ss.yahooapis.jp/V201901">
+    <getResponse xmlns="http://ss.yahooapis.jp/V201812/Account" xmlns:ns1="http://ss.yahooapis.jp/V201812">
       <error>
         <ns1:code>F0001</ns1:code>
         <ns1:message>Invalid format.</ns1:message>
@@ -86,23 +84,23 @@ SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201901/Report" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+  <SOAP-ENV:Header xmlns:ns1="http://ss.yahooapis.jp/V201812/Report" xmlns:ns2="http://ss.yahooapis.jp/V201812">
     <ns1:ResponseHeader>
       <ns2:service>Report</ns2:service>
-      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
-      <ns1:requestTime>1234567890</ns1:requestTime>
+      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
+      <ns2:requestTime>1234567890</ns2:requestTime>
     </ns1:ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201901" xmlns:ns3="http://ss.yahooapis.jp/V201901/Report">
+    <ns3:mutateResponse xmlns:ns2="http://ss.yahooapis.jp/V201812" xmlns:ns3="http://ss.yahooapis.jp/V201812/Report">
       <ns3:rval>
         <ns2:ListReturnValue.Type>ReportReturnValue</ns2:ListReturnValue.Type>
         <ns2:Operation.Type>ADD</ns2:Operation.Type>
         <ns3:values>
           <ns2:operationSucceeded>false</ns2:operationSucceeded>
           <ns2:error>
-            <ns2:code>V0001</ns2:code>
-            <ns2:message>Invalid value.</ns2:message>
+            <ns2:code>I0001</ns2:code>
+            <ns2:message>Deactivated Id.</ns2:message>
             <ns2:detail>
               <ns2:requestKey>reportId</ns2:requestKey>
               <ns2:requestValue>1234567890</ns2:requestValue>

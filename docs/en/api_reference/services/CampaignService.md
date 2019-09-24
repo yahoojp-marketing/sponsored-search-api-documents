@@ -4,11 +4,11 @@ CampaignService is to get, add, update, or remove campaigns.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/CampaignService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/CampaignService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/CampaignService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/Campaign
+http://ss.yahooapis.jp/V201909/Campaign
 
 #### Service Overview
 Get, add, update, or remove campaigns.
@@ -36,14 +36,14 @@ Gets information related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -85,16 +85,16 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1547793698709</ns2:requestTime>
+      <ns2:requestTime>1567167401581</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Campaign">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/Campaign">
       <ns2:rval>
-        <totalNumEntries>4</totalNumEntries>
+        <totalNumEntries>3</totalNumEntries>
         <Page.Type>CampaignPage</Page.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -120,7 +120,6 @@ Response Fields in normal cases.
               <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
                 <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
                 <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:spendTarget>0</ns2:spendTarget>
               </ns2:biddingScheme>
             </ns2:biddingStrategyConfiguration>
             <ns2:conversionOptimizerEligibility>NOT_ENOUGH_CONVERSIONS</ns2:conversionOptimizerEligibility>
@@ -175,60 +174,6 @@ Response Fields in normal cases.
               <ns2:labelName>sample label 4</ns2:labelName>
               <ns2:description>sample description 4</ns2:description>
               <ns2:color>#00FF00</ns2:color>
-            </ns2:labels>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10002</ns2:campaignId>
-            <ns2:campaignTrackId>100000002</ns2:campaignTrackId>
-            <ns2:campaignName>MobileApp(ANDROID) Campaign with PageOnePromotedBiddingScheme.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
-            <ns2:budget>
-              <ns2:period>DAILY</ns2:period>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
-              <ns2:biddingStrategyName>PageOnePromotedBiddingScheme.</ns2:biddingStrategyName>
-              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
-                <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-                <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
-                <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
-                <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
-                <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
-              </ns2:biddingScheme>
-            </ns2:biddingStrategyConfiguration>
-            <ns2:conversionOptimizerEligibility>NOT_ENOUGH_CONVERSIONS</ns2:conversionOptimizerEligibility>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTargetTypeSetting">
-              <ns2:type>GEO_TARGET_TYPE_SETTING</ns2:type>
-              <ns2:positiveGeoTargetType>AREA_OF_INTENT</ns2:positiveGeoTargetType>
-              <ns2:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns2:negativeGeoTargetType>
-            </ns2:settings>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
-              <ns2:type>TARGET_LIST_SETTING</ns2:type>
-              <ns2:targetAll>ACTIVE</ns2:targetAll>
-            </ns2:settings>
-            <ns2:campaignType>MOBILE_APP</ns2:campaignType>
-            <ns2:appStore>ANDROID</ns2:appStore>
-            <ns2:appId>201607221800792</ns2:appId>
-            <ns2:urlReviewData>
-              <ns2:urlApprovalStatus>NONE</ns2:urlApprovalStatus>
-            </ns2:urlReviewData>
-            <ns2:labels>
-              <ns2:labelId>30005</ns2:labelId>
-              <ns2:labelName>sample label 5</ns2:labelName>
-              <ns2:description>sample description 5</ns2:description>
-              <ns2:color>#0000FF</ns2:color>
             </ns2:labels>
           </ns2:campaign>
         </ns2:values>
@@ -341,14 +286,14 @@ Add campaign information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/Campaign">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -477,39 +422,6 @@ Add campaign information.
           </settings>
           <campaignType>DYNAMIC_ADS_FOR_SEARCH</campaignType>
         </operand>
-        <operand>
-          <campaignName>Standard Campaign with TargetCpaBiddingScheme.</campaignName>
-          <userStatus>ACTIVE</userStatus>
-          <startDate>20170101</startDate>
-          <endDate>20371231</endDate>
-          <budget>
-            <period>DAILY</period>
-            <amount>10000</amount>
-            <deliveryMethod>STANDARD</deliveryMethod>
-          </budget>
-          <biddingStrategyConfiguration>
-            <biddingStrategyId>20001</biddingStrategyId>
-            <biddingStrategyName>TargetCpaBiddingScheme.</biddingStrategyName>
-            <biddingStrategyType>TARGET_CPA</biddingStrategyType>
-            <biddingStrategySource>CAMPAIGN</biddingStrategySource>
-            <biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetCpaBiddingScheme">
-              <biddingStrategyType>TARGET_CPA</biddingStrategyType>
-              <targetCpa>0</targetCpa>
-              <bidCeiling>50000</bidCeiling>
-              <bidFloor>0</bidFloor>
-            </biddingScheme>
-          </biddingStrategyConfiguration>
-          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTargetTypeSetting">
-            <type>GEO_TARGET_TYPE_SETTING</type>
-            <positiveGeoTargetType>AREA_OF_INTENT</positiveGeoTargetType>
-            <negativeGeoTargetType>LOCATION_OF_PRESENCE</negativeGeoTargetType>
-          </settings>
-          <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TargetingSetting">
-            <type>TARGET_LIST_SETTING</type>
-            <targetAll>ACTIVE</targetAll>
-          </settings>
-          <campaignType>STANDARD</campaignType>
-        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -527,14 +439,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1547793698776</ns2:requestTime>
+      <ns2:requestTime>1567167401601</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -562,7 +474,6 @@ Response Fields in normal cases.
               <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
                 <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
                 <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:spendTarget>0</ns2:spendTarget>
               </ns2:biddingScheme>
             </ns2:biddingStrategyConfiguration>
             <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
@@ -593,54 +504,6 @@ Response Fields in normal cases.
                 </ns2:parameters>
               </ns2:inReviewUrl>
               <ns2:urlApprovalStatus>REVIEW</ns2:urlApprovalStatus>
-            </ns2:urlReviewData>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10002</ns2:campaignId>
-            <ns2:campaignTrackId>0</ns2:campaignTrackId>
-            <ns2:campaignName>MobileApp(ANDROID) Campaign with PageOnePromotedBiddingScheme.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
-            <ns2:budget>
-              <ns2:period>DAILY</ns2:period>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
-              <ns2:biddingStrategyName>PageOnePromotedBiddingScheme.</ns2:biddingStrategyName>
-              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
-                <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-                <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
-                <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
-                <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
-                <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
-              </ns2:biddingScheme>
-            </ns2:biddingStrategyConfiguration>
-            <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTargetTypeSetting">
-              <ns2:type>GEO_TARGET_TYPE_SETTING</ns2:type>
-              <ns2:positiveGeoTargetType>AREA_OF_INTENT</ns2:positiveGeoTargetType>
-              <ns2:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns2:negativeGeoTargetType>
-            </ns2:settings>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
-              <ns2:type>TARGET_LIST_SETTING</ns2:type>
-              <ns2:targetAll>ACTIVE</ns2:targetAll>
-            </ns2:settings>
-            <ns2:campaignType>MOBILE_APP</ns2:campaignType>
-            <ns2:appStore>ANDROID</ns2:appStore>
-            <ns2:appId>201607221800792</ns2:appId>
-            <ns2:urlReviewData>
-              <ns2:urlApprovalStatus>NONE</ns2:urlApprovalStatus>
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>
@@ -735,47 +598,6 @@ Response Fields in normal cases.
             <ns2:campaignType>DYNAMIC_ADS_FOR_SEARCH</ns2:campaignType>
           </ns2:campaign>
         </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10005</ns2:campaignId>
-            <ns2:campaignTrackId>100000005</ns2:campaignTrackId>
-            <ns2:campaignName>Standard Campaign with TargetCpaBiddingScheme.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
-            <ns2:budget>
-              <ns2:period>DAILY</ns2:period>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyId>20001</ns2:biddingStrategyId>
-              <ns2:biddingStrategyName>TargetCpaBiddingScheme.</ns2:biddingStrategyName>
-              <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetCpaBiddingScheme">
-                <ns2:biddingStrategyType>TARGET_CPA</ns2:biddingStrategyType>
-                <ns2:targetCpa>0</ns2:targetCpa>
-                <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:bidFloor>0</ns2:bidFloor>
-              </ns2:biddingScheme>
-            </ns2:biddingStrategyConfiguration>
-            <ns2:conversionOptimizerEligibility>ENABLE</ns2:conversionOptimizerEligibility>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTargetTypeSetting">
-              <ns2:type>GEO_TARGET_TYPE_SETTING</ns2:type>
-              <ns2:positiveGeoTargetType>AREA_OF_INTENT</ns2:positiveGeoTargetType>
-              <ns2:negativeGeoTargetType>LOCATION_OF_PRESENCE</ns2:negativeGeoTargetType>
-            </ns2:settings>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
-              <ns2:type>TARGET_LIST_SETTING</ns2:type>
-              <ns2:targetAll>ACTIVE</ns2:targetAll>
-            </ns2:settings>
-            <ns2:campaignType>STANDARD</ns2:campaignType>
-          </ns2:campaign>
-        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -794,14 +616,14 @@ Updates the information related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/Campaign">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -890,14 +712,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1547793698829</ns2:requestTime>
+      <ns2:requestTime>1567167401622</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -925,7 +747,6 @@ Response Fields in normal cases.
               <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
                 <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
                 <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:spendTarget>0</ns2:spendTarget>
               </ns2:biddingScheme>
             </ns2:biddingStrategyConfiguration>
             <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
@@ -956,54 +777,6 @@ Response Fields in normal cases.
             </ns2:customParameters>
             <ns2:urlReviewData>
               <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
-            </ns2:urlReviewData>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10002</ns2:campaignId>
-            <ns2:campaignTrackId>100000002</ns2:campaignTrackId>
-            <ns2:campaignName>set MobileApp(ANDROID) Campaign with PageOnePromotedBiddingScheme.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20301231</ns2:endDate>
-            <ns2:budget>
-              <ns2:period>DAILY</ns2:period>
-              <ns2:amount>20000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
-              <ns2:biddingStrategyName>PageOnePromotedBiddingScheme.</ns2:biddingStrategyName>
-              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
-                <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-                <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
-                <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
-                <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
-                <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
-              </ns2:biddingScheme>
-            </ns2:biddingStrategyConfiguration>
-            <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTargetTypeSetting">
-              <ns2:type>GEO_TARGET_TYPE_SETTING</ns2:type>
-              <ns2:positiveGeoTargetType>DONT_CARE</ns2:positiveGeoTargetType>
-              <ns2:negativeGeoTargetType>DONT_CARE</ns2:negativeGeoTargetType>
-            </ns2:settings>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
-              <ns2:type>TARGET_LIST_SETTING</ns2:type>
-              <ns2:targetAll>DEACTIVE</ns2:targetAll>
-            </ns2:settings>
-            <ns2:campaignType>MOBILE_APP</ns2:campaignType>
-            <ns2:appStore>ANDROID</ns2:appStore>
-            <ns2:appId>201607221800792</ns2:appId>
-            <ns2:urlReviewData>
-              <ns2:urlApprovalStatus>NONE</ns2:urlApprovalStatus>
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>
@@ -1116,14 +889,14 @@ Removes the inforamtion related to campaigns.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/Campaign">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/Campaign">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1156,14 +929,14 @@ Response Fields in normal cases.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/Campaign" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1547793698876</ns2:requestTime>
+      <ns2:requestTime>1567167401641</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Campaign">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1191,7 +964,6 @@ Response Fields in normal cases.
               <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetSpendBiddingScheme">
                 <ns2:biddingStrategyType>TARGET_SPEND</ns2:biddingStrategyType>
                 <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:spendTarget>0</ns2:spendTarget>
               </ns2:biddingScheme>
             </ns2:biddingStrategyConfiguration>
             <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
@@ -1222,54 +994,6 @@ Response Fields in normal cases.
             </ns2:customParameters>
             <ns2:urlReviewData>
               <ns2:urlApprovalStatus>APPROVED</ns2:urlApprovalStatus>
-            </ns2:urlReviewData>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10002</ns2:campaignId>
-            <ns2:campaignTrackId>100000002</ns2:campaignTrackId>
-            <ns2:campaignName>set MobileApp(ANDROID) Campaign with PageOnePromotedBiddingScheme.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20301231</ns2:endDate>
-            <ns2:budget>
-              <ns2:period>DAILY</ns2:period>
-              <ns2:amount>20000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategyConfiguration>
-              <ns2:biddingStrategyId>20002</ns2:biddingStrategyId>
-              <ns2:biddingStrategyName>PageOnePromotedBiddingScheme.</ns2:biddingStrategyName>
-              <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-              <ns2:biddingStrategySource>CAMPAIGN</ns2:biddingStrategySource>
-              <ns2:biddingScheme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PageOnePromotedBiddingScheme">
-                <ns2:biddingStrategyType>PAGE_ONE_PROMOTED</ns2:biddingStrategyType>
-                <ns2:bidCeiling>50000</ns2:bidCeiling>
-                <ns2:bidMultiplier>10.0</ns2:bidMultiplier>
-                <ns2:bidChangesForRaisesOnly>ACTIVE</ns2:bidChangesForRaisesOnly>
-                <ns2:raiseBidWhenBudgetConstrained>DEACTIVE</ns2:raiseBidWhenBudgetConstrained>
-                <ns2:raiseBidWhenLowQualityScore>DEACTIVE</ns2:raiseBidWhenLowQualityScore>
-              </ns2:biddingScheme>
-            </ns2:biddingStrategyConfiguration>
-            <ns2:conversionOptimizerEligibility>DISABLE</ns2:conversionOptimizerEligibility>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTargetTypeSetting">
-              <ns2:type>GEO_TARGET_TYPE_SETTING</ns2:type>
-              <ns2:positiveGeoTargetType>DONT_CARE</ns2:positiveGeoTargetType>
-              <ns2:negativeGeoTargetType>DONT_CARE</ns2:negativeGeoTargetType>
-            </ns2:settings>
-            <ns2:settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TargetingSetting">
-              <ns2:type>TARGET_LIST_SETTING</ns2:type>
-              <ns2:targetAll>DEACTIVE</ns2:targetAll>
-            </ns2:settings>
-            <ns2:campaignType>MOBILE_APP</ns2:campaignType>
-            <ns2:appStore>ANDROID</ns2:appStore>
-            <ns2:appId>201607221800792</ns2:appId>
-            <ns2:urlReviewData>
-              <ns2:urlApprovalStatus>NONE</ns2:urlApprovalStatus>
             </ns2:urlReviewData>
           </ns2:campaign>
         </ns2:values>

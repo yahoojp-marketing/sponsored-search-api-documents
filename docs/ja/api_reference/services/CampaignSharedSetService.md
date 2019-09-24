@@ -4,11 +4,11 @@ CampaignSharedSetServiceでは、対象外キーワードリストのキャン�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/CampaignSharedSetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/CampaignSharedSetService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/CampaignSharedSet
+http://ss.yahooapis.jp/V201909/CampaignSharedSet
 
 #### サービス概要
 対象外キーワードリストのキャンペーンへの関連付け設定などを行います。
@@ -35,14 +35,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>111111</accountId>
         <campaignIds>44</campaignIds>
@@ -68,14 +68,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignSharedSet</ns2:service>
       <ns2:requestTime>1547793435051</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignSharedSet">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -106,14 +106,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -136,14 +136,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignSharedSet</ns2:service>
       <ns2:requestTime>1547793435084</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignSharedSet">
       <ns2:rval>
         <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -175,14 +175,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111</accountId>
@@ -207,14 +207,14 @@ CampaignSharedSetServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/CampaignSharedSet" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>CampaignSharedSet</ns2:service>
       <ns2:requestTime>1547793435115</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/CampaignSharedSet">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/CampaignSharedSet">
       <ns2:rval>
         <ListReturnValue.Type>CampaignSharedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

@@ -3,10 +3,10 @@ BidLandscapeServiceは、入札単価を変更したときのインプレッシ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/BidLandscapeService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/BidLandscapeService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/BidLandscapeService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/BidLandscapeService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201901/BidLandscape
+http://ss.yahooapis.jp/V201909/BidLandscape
 #### サービス概要
 入札単価を変更したときのインプレッションやクリックの変化を予測します。
 #### 操作
@@ -31,14 +31,14 @@ BidLandscapeServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>1</accountId>
         <campaignId>1000000001</campaignId>
@@ -65,14 +65,14 @@ BidLandscapeServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/BidLandscape" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>BidLandscape</ns2:service>
       <ns2:requestTime>1547793146390</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/BidLandscape">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/BidLandscape">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>BidLandscapePage</Page.Type>

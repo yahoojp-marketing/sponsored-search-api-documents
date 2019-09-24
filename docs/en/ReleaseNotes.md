@@ -1,319 +1,187 @@
 # Release Notes
-Sponsored Search API V201901
+Sponsored Search API V201909
+
 ## Release version
-V201901 (WSDL Version: V201901)
+V201909 (WSDL Version: V201909)
 
 ## Main contents of this release
-*For Target Data object and Enumuration, please confirm from data directory under API reference directory. 
+*For Target Data object and Enumuration, please confirm from data directory under API reference directory.
 
-### 1. Labels feature
-The new 'Labels' feature enables to easily group and filter components such as campaigns and ads by setting up optional names to label them.
-This has been released on the Campaign Management Tool in September 2018.<br>
-Learn about details of this feature on the following help page.<br>
-[What is Labels](https://support-marketing.yahoo.co.jp/promotionalads/ss/articledetail?lan=en&aid=17253)<br>
-<br>
-The following enhancements have been made on Sponsored Search API V201901:
-1. Create/revise/remove labels
-2. Set a label to campaign and other ad components
+### 1. Trademark restriction of ad text by trademark owner
+Checking whether the trademark restriction has been removed for ads and QuickLinks, became available. It is able to be checked in bulk. <br>
+When the trademark restriction has been removed, a value that describes “removed” will return on “AdGroupAdService” and on “FeedItemService.” <br>
+This was released in May 2019 on the Campaign Management Tool. See the following announcement for the details. <br>
+[Trademark restriction started](https://promotionalads.yahoo.co.jp/support/release/674122.html#article_en)<br>
+
+##### Target Web Service
+ * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+
+### 2. Removing “Target position in search results”
+“PageOnePromotedBiddingScheme” (for Target position in search results) has been removed. <br>
+It has closed in April 2019 on the Campaign Management Tool. See the following announcement for the details. <br>
+[“Target position in search results” closed](https://promotionalads.yahoo.co.jp/support/release/659760.html#article_en)
 
 ##### Target Web Service
  * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
- * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
- * [AdGroupCriterionService](/docs/en/api_reference/services/AdGroupCriterionService.md)
- * [LabelService](/docs/en/api_reference/services/LabelService.md)
- * [CampaignLabelService](/docs/en/api_reference/services/CampaignLabelService.md)
- * [AdGroupLabelService](/docs/en/api_reference/services/AdGroupLabelService.md)
- * [AdGroupAdLabelService](/docs/en/api_reference/services/AdGroupAdLabelService.md)
- * [AdGroupCriterionLabelService](/docs/en/api_reference/services/AdGroupCriterionLabelService.md)  
+ * [BiddingStrategyService](/docs/en/api_reference/services/BiddingStrategyService.md)
 
-### 2. Added Standard bidding and removed 'Maximize Conversions' option
-Following two bidding settings are available after the new Auto Bidding feature 'Standard Bidding' has been released on December 2018.
-* Standard bidding : The new bidding setting, which can be set on campaign level.
-* Portfolio bidding : Existing bidding setting, which is created on account level and then set to multiple campaigns under the account. 
-With this change, only "TRUE" is available as a value on CrossDeviceConversionFlag on creating/editing a conversion tracking.
-
-Please check the following announcement to learn about change details.<br>
-[New feature in Sponsored Search auto bidding released](https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/616715/)<br>
-<br>
-Sponsored Search API V201901 mainly supports followings.
-1. CampaignService supports setting of following auto bidding types as standard bidding<br>
-‐ Maximize Clicks (TARGET_SPEND) <br>
-‐ Target CPA (TARGET_CPA) <br>
-‐ Target ROAS (TARGET_ROAS)
-2. Removed 'Maximize Conversions' (ENHANCED_CPC) option as auto bidding type
+### 3. Removing the report index “Avg. Position”
+The reporting field “AVG_DELIVER_RANK” (for Average position) has been removed. The value will be acquired and appear as "--" (double hyphen) after the closing date. <br>
+When adding and editing Tracking URL and etc., {adposition} is not available. Tracking adposition on existing parameters becomes unavailable, and empty string will return.  There is no effect on ad delivery. <br>
+See the following reference for {adposition} of Tracking URL in detail. <br>
+[Tracking Parameter](https://git.corp.yahoo.co.jp/anemos-eapi/sponsored-search-api-documents/blob/201901/docs/en/api_reference/appendix/tracking.md)<br>
+See the following announcement for the details. <br>
+[Closing index in performance data](https://promotionalads.yahoo.co.jp/support/release/713854.html#article_en)
 
 ##### Target Web Service
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
 
-### 3. Added Custom Key of Site Retargeting
-The Custom Key setting became available on Site Retargeting tag.<br>
-Creating Target list using the custom key will enable Site Retargeting by accurate conditions.<br>
-*The naming of this new feature has been revised from "Custom Parameter" to "Custom key".<br>
-<br>
-Sponsored Search API V201901 mainly supports followings.
-1. The Custom Key setting became available on Site Retargeting tag.
-2. Get Custom key setting information became available.
-
-##### Remarks
-The following behavior changes are planned on V201808 and before after V201901 release, on get/update conditions of Target List with one ore more condition(s) of 'Custom key' (Custom Parameter):
-* Get all conditions set to Target List is unavailable.
-* All of conditions previously set to the Target List are released and only new conditions are enabled.
-
-Therefore you may have unexpected operation results when using 'Custom key' (Custom Parameter) on V201808 or before version.<br>
-Please make sure and use the latest API version after V201901 release.
-  
-##### Target Web Service
- * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
-
-### 4. Ad quality improvement
-Sponsored Search will have activities for ad quality improvement by trademark restriction to protect brand value.<br>
-<br>
-The change on Sponsored Search API V201901 is following:
-* Add a flag (TrademarkStatus) for trademark restriction and error codes.
-
-*Validation error on ad creation including a restricted trademark (on all available versions).<br>
-*We will announce additional information of this activity when available.
+### 4. Removing a setting item of Auto Bidding Type
+The item “spendTarget” of “TARGET_SPEND” (for Auto bidding type : Maximize Clicks) that is available for Auto bidding Type “Portfolio bidding” has been  removed.
+Note that if you set “spendTarget” on the lower version (V201808, V201901), validation error occurs.
+It has closed on July 25, 2019 on the Campaign Management Tool. See the following announcement for the details. <br>
+[Closing some items of Auto bidding setting](https://promotionalads.yahoo.co.jp/support/release/683185.html#article_en)
 
 ##### Target Web Service
- * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
+ * [CampaignService](/docs/en/api_reference/services/CampaignService.md)
+ * [BiddingStrategyService](/docs/en/api_reference/services/BiddingStrategyService.md)
 
-### 5. Auto-tagging feature is available
-Auto-tagging feature supports conversion tracking tags available on secured browsers.<br>
-<br>
-Sponsored Search API V201901 mainly supports followings.
-* Get/update setting informations of auto-tagging is available.
+### 5. Integrating “ReportService” with “ReportDefinitionService”
+“ReportService” has been integrated with “ReportDefinitionService”. Periodic reports became unavailable with this integration. <br>
+On December 19, 2019, “intervalType” on periodic reports of earlier versions (V201808, V201901) will be changed to “ONETIME”. After this change, all periodic reports will not run. <br>
+Learn about details on the following document. <br>
+ * [Reference](https://github.com/yahoojp-marketing/sponsored-search-api-documents/blob/201909_reportdefinition/docs/en/api_reference/services/ReportDefinitionService.md)<br>
+ * [Best Practice](https://github.com/yahoojp-marketing/sponsored-search-api-documents/tree/201909_reportdefinition/docs/en/bestpractice)<br>
 
-*This feature will be available for limited users.
+##### Target Web Service
+ * [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
+
+### 6. Ad Display Option enhancement
+ * Expanded QuickLinks release<br>
+ Adding description texts to QuickLinks becomes available (Expanded QuickLinks). 
+ Following items are added to “FeedItemPlaceholderField”. <br>
+ ・ LINK_DESCRIPTION_1 : QuickLink description 1<br>
+ ・ LINK_DESCRIPTION_2 : QuickLink description 2<br>
+Both “LINK_DESCRIPTION_1” and “LINK_DESCRIPTION_2” are required when using QuickLink description feature. 
+If setting either of these descriptions, it will be an error. <br>
+ * Target Devices unavailable<br>
+ The setting item "Target Devices" for Ad display option setup will be closed. As a result, “DevicePlatform” on “CampaignFeed” and “AdGroupFeed” will become unavailable after October 2, 2019.
+　　 Around early December 2019, “DevicePlatform” will close. <br>
+The release on the Campaign Management Tool is scheduled on October 2, 2019. See the following announcement for the details. <br>
+ [Sponsored Search QuickLinks additional feature](https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/752120/)
+
+##### Target Web Service
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
+
+### 7. Maintenance Release
+ * Updated WSDL “AuditLogService”.
+ * Closed “LocationService”.
+ * Added “feedFolderId” to “FeedItem” as search criteria.
+ * Acquiring operation history including actions on the Campaign Management Tool became available on API.
+※ Please confirm the details at the part of 'Impact on each Version from the change of Services' below. 
 
 ##### Target Web Service 
- * [AccountService](/docs/ja/api_reference/services/AccountService.md)
+ * [AuditLogService](/docs/en/api_reference/services/AuditLogService.md)
+ * [FeedItemService](/docs/en/api_reference/services/FeedItemService.md)
 
-### 6. Maintenance Release
- * Removed some unnecessary items and reviewed some WSDL as system maintenance release.
- * As previously announced on the [announcement](https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/) on September 2018, revised responces of Auto Bidding setting on ad group level on Sponsored Search API. (on all available versions)
-
-*See also the part of 'Impacts on each Version from the change of Services'. 
-
-##### Target Web Service 
- * [AccountService](/docs/ja/api_reference/services/AccountService.md)
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [BidLandscapeService](/docs/ja/api_reference/services/BidLandscapeService.md)
- * [AccountTrackingUrlService](/docs/ja/api_reference/services/AccountTrackingUrlService.md)
- * [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md)
- * [AdGroupWebpageService](/docs/ja/api_reference/services/AdGroupWebpageService.md)
- * [PageFeedItemService](/docs/ja/api_reference/services/PageFeedItemService.md)
-
-## Impacts on each Version from the change of Services
+## Impact on each Version from the change of Services
 <table class="standard">
  <tbody>
-<tr>
-<th>
-Service
-</th>
-<th>
-V201808 and before</th>
-<th>V201901</th>
-</tr>
-<tr>
+ <tr>
+ <th>Service</th>
+ <th>Before V201901</th>
+ <th>V201909</th>
+ </tr>
+ <tr>
  <td valign="top">CampaignService</td>
  <td valign="top">
- ・No change in API IF.<br>
- ・Following Auto Bidding types are referable<br>
- ‐ 'Maximize Clicks'(TARGET_SPEND)<br>
- ‐ 'Target CPA'(TARGET_CPA)<br>
- ‐ 'Target ROAS'(TARGET_ROAS)<br>
+ ・When setting “Target Position in search results” (PageOnePromotedBiddingScheme) on bidding setting, validation error occurs.<br>
+ ・When setting "Target Daily Budget” (spendTarget), validation error occurs.<br>
  </td>
  <td valign="top">
- ・Getting Label ID is available<br>
- ・Set/remove/get of following Auto Bidding types as Standard bidding are available<br>
- ‐ 'Maximize Clicks'(TARGET_SPEND)<br>
- ‐ 'Target CPA'(TARGET_CPA)<br>
- ‐ 'Target ROAS'(TARGET_ROAS)<br>
- ・Removed the related items of Auto Bidding type 'Maximize Conversions'(ENHANCED_CPC)<br>
- ・Removed Ad Rotation flag<br>
- ・Removed the related items of previous Auto Bidding (sunset on July, 2014)
+ ・Removed “PageOnePromotedBiddingScheme” (for Target position in search results).<br>
+ ・The item “Target Daily Budget” (spendTarget) will be removed.
  </td>
  </tr>
  <tr>
  <td valign="top">BiddingStrategyService</td>
  <td valign="top">
- No change in API IF.
+ ・When setting “Target Position in search results” (PageOnePromotedBiddingScheme) on bidding setting, validation error occurs<br>
+ ・When setting "Target Daily Budget” (spendTarget), validation error occurs.
  </td>
  <td valign="top">
- Removed the related items of Auto Bidding type 'Maximize Conversions' (ENHANCED_CPC)
- </td>
- </tr>
- <tr>
- <td valign="top">FeedItemService</td>
- <td valign="top">
- ・No change in API IF.<br>
- ・Validation error on ad creation including a restricted trademark
- </td>
- <td valign="top">
- ・Validation error on ad creation including a restricted trademark<br>
- ・The value on flag is referable for confirming trademark restrictions
- </td>
- </tr>
- <tr>
- <td valign="top">AdGroupService</td>
- <td valign="top">
- ・No change in API IF.<br>
- ・Revised response on Auto Bidding setting on ad group<br>
- *Learn about details on <a href="https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/">announcement</a> on September 2018.
- </td>
- <td valign="top">
- ・Getting Label ID is available<br>
- ・Removed unnecessary items of Auto Bidding<br>
- ・Revised the response on Auto Bidding setting on ad group<br>
- *Learn about details on <a href="https://biz.marketing.yahoo.co.jp/developercenter-en/announcement/574472/">announcement</a> on September 2018.
+ ・Removed “Target Position in search results” (PageOnePromotedBiddingScheme) on bidding setting.<br>
+ ・Removed the item “Target Daily Budget” (spendTarget).
  </td>
  </tr>
  <tr>
  <td valign="top">AdGroupAdService</td>
  <td valign="top">
- ・No change in API IF. <br>
- ・Validation error on ad creation including a restricted trademark
+ ・Checking whether the restriction has been removed in bulk is unavailable.<br>
  </td>
  <td valign="top">
- ・Getting Label ID is available<br>
- ・Validation error on ad creation including a restricted trademark<br>
- ・The value on flag is referable for confirming trademark restrictions
+ ・Checking whether the restriction has been removed in bulk is available.<br>
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupCriterionService</td>
+ <td valign="top">FeedItemService</td>
  <td valign="top">
- ・No change in API IF.
+ ・Checking whether the restriction has been removed in bulk is unavailable.<br>
+ ・Specifying feedFolderId as search criteria is unavailable.
  </td>
  <td valign="top">
- ・Getting Label ID is available<br>
- ・Removed unnecessary items of Auto Bidding
- </td>
- </tr>
- <tr>
- <td valign="top">LabelService</td>
- <td valign="top">-</td>
- <td valign="top">
- ・Create, edit, remove, get labels is available
+ ・Checking whether the restriction has been removed in bulk is available.<br>
+ ・Specifying feedFolderId as search criteria is available.
  </td>
  </tr>
  <tr>
- <td valign="top">CampaignLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">AuditLogService</td>
  <td valign="top">
- ・Set, release of campaign labels is available
+ ・When setting with minimum value, validation error occurs.<br>
+ ・Acquiring operation history on the Campaign Management Tool is unavailable.
+ </td>
+ <td valign="top">
+ ・When setting with minimum value, validation error occurs. (There is no effect since only the validation part is different) .<br>
+ ・Acquiring operation history on the Campaign Management Tool is available.
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">ReportDefinitionService</td>
  <td valign="top">
- ・Set, release of ad group labels is available
+ ・Create a report by using ReportDefinitionService/ReportService.<br>
+ ・Creating periodic reports is available.<br>
+ ・Selecting Avg. Position is available.
+ </td>
+ <td valign="top">
+ ・Create a report using ReportDefinitionService only.<br>
+ ・Creating periodic reports is unavailable.<br>
+ ・Selecting Avg. Position is available, however its value appears as "--" (double hyphen).
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupAdLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">ReportService</td>
  <td valign="top">
- ・Set, release of ad labels is available
+ ・Create a report by using ReportDefinitionService/ReportService.<br>
+ ・The value of Avg. Position appears as “--” (double hyphen).
+ </td>
+ <td valign="top">
+ ・Integrating ReportService with ReportDefinitionService.
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupCriterionLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">LocationService</td>
  <td valign="top">
- ・Set, release of keyword labels is available
+ ・Using LocationService is optional.
+ </td>
+ <td valign="top">
+ ・Closed LocationService.
  </td>
  </tr>
- <tr>
- <td valign="top">RetargetingListService</td>
- <td valign="top">
- No change in API IF. <br>
- ・On V201808 and before, changed the behavior on get/update conditions of Target List which with one ore more custome key (custom parameter) conditions as follows:<br>
- - Get all conditions set to the Target List is unavailable<br>
- - All of conditions previously set to the Target List are released and only new conditions are enabled
- </td>
- <td valign="top">
- ・Custom key is available as a condition of Target List<br>
- ・Get Custom key in the tag for Site Retargeting set to Advertiser's website is available
- </td>
- </tr>
- <tr>
- <td valign="top">BidLandscapeService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Added paging items to the selector of BidLandscapeService.wsdl
- </td>
- </tr>
- <tr>
- <td valign="top">AccountTrackingUrlService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Removed the operator enum value 'ADD' of AccountTrackingUrlService.wsdl (Because it's unprovided)
- </td>
- </tr>
- <tr>
- <td valign="top">ConversionTrackerService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Removed the flag to control Conversions across devices
- </td>
- </tr>
- <tr>
- <td valign="top">AccountService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Set/get Auto-tagging is available<br>
- *This feature will be available for limited users
- </td>
- </tr>
- <tr>
- <td valign="top">CampaignTargetService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
-・Revised the response order of Page.Type and totalNumEntries of CampaignTargetService.wsdl like other services
- </td>
- </tr>
- <tr>
- <td valign="top">AdGroupWebpageService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Revised service name on AdGroupWebpageService.wsdl
- </td>
- </tr>
- <tr>
- <td valign="top">PageFeedItemService</td>
- <td valign="top">
- ・No change in API IF.
- </td>
- <td valign="top">
- ・Revised service name on AdGroupWebpageService.wsdl<br>
- ・Revised the value on maxOccurs of operations from "unbounded" to "1" on AdGroupWebpageService.wsdl
- </td>
- </tr>
- </tbody>
+</tbody>
 </table>
 
-## Sunset schedule of Sponsored Search API V201805
-Sponsored Search API V201805 is scheduled to sunset as follows.  
-* Deprecation Date (Support closing on) : February 28, 2019.<br>
-* End of Life Date (System closing on)  : May 29, 2019.<br>
+## Sunset schedule of Sponsored Search API V201808
+Sponsored Search API V201808 is scheduled to sunset as follows.
+* Deprecation Date (Support closing on) : October 17, 2019<br>
+* End of Life Date (System closing on) : December 19, 2019<br>
