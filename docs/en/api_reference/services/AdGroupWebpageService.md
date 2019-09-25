@@ -4,11 +4,11 @@ AdGroupWebpageService provides allowed or excluded settings of PageFeedItem for 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/AdGroupWebpageService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupWebpageService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/AdGroupWebpageService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/AdGroupWebpageService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/AdGroupWebpage
+http://ss.yahooapis.jp/V201909/AdGroupWebpage
 
 #### Overview
 Use this service to set allowed or excluded settings of PageFeedItem for ad group.
@@ -40,14 +40,14 @@ Get allowed or excluded settings of PageFeedItem setting in ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>100000001</accountId>
         <campaignIds>1111</campaignIds>
@@ -78,14 +78,14 @@ Get allowed or excluded settings of PageFeedItem setting in ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupWebpage</ns2:service>
       <ns2:requestTime>1547793539793</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupWebpagePage</Page.Type>
@@ -139,14 +139,14 @@ Set allowed or excluded settings of PageFeedItem for ad group.<br>
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -190,14 +190,14 @@ Set allowed or excluded settings of PageFeedItem for ad group.<br>
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupWebpage</ns2:service>
       <ns2:requestTime>1547793539848</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupWebpageReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -251,14 +251,14 @@ Set allowed or excluded settings of PageFeedItem for ad group.<br>
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -303,14 +303,14 @@ Set allowed or excluded settings of PageFeedItem for ad group.<br>
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupWebpage</ns2:service>
       <ns2:requestTime>1547793539877</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupWebpageReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -362,14 +362,14 @@ Remove PageFeedItem associated with ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -395,14 +395,14 @@ Remove PageFeedItem associated with ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupWebpage" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupWebpage</ns2:service>
       <ns2:requestTime>1547793539898</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupWebpage">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupWebpage">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupWebpageReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

@@ -3,10 +3,10 @@ BalanceServiceでは、選択したアカウントのアカウント残高の情
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/BalanceService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/BalanceService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/BalanceService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/BalanceService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201901/Balance
+http://ss.yahooapis.jp/V201909/Balance
 #### サービス概要
 アカウントの残高の情報を取得するWebサービスです。取得したアカウント残高の情報は入札戦略などに活用できます。
 #### 操作
@@ -30,14 +30,14 @@ BalanceServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountIds>1111</accountIds>
         <paging>
@@ -59,14 +59,14 @@ BalanceServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/Balance" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>Balance</ns2:service>
       <ns2:requestTime>1547792971147</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/Balance">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/Balance">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>

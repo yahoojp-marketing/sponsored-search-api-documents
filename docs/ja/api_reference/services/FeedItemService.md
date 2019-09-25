@@ -1,49 +1,54 @@
 # FeedItemService
+
 FeedItemServiceでは、フィードアイテム情報の取得および追加・更新・削除を行います。
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/FeedItemService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/FeedItemService?wsdl|
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://ss.yahooapis.jp/services/V201909/FeedItemService?wsdl |
+| sandbox     | https://sandbox.ss.yahooapis.jp/services/V201909/FeedItemService?wsdl  |
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/FeedItem
 
-#### サービス概要
+http://ss.yahooapis.jp/V201909/FeedItem
+
+#### Service Overview
+
 フィードアイテム情報の取得および追加・更新・削除を行います。
 
-#### 操作
+#### Operation
+
 FeedItemServiceで提供される操作を説明します。
 
 + [get](#get)
 + [mutate(ADD)](#mutateadd)
 + [mutate(SET)](#mutateset)
 + [mutate(REMOVE)](#mutateremove)
-
-#### オブジェクト
-[FeedItem](../data/FeedItem)
++ [setTrademarkStatus](#settrademarkstatus)
 
 ## get
-フィードアイテム情報を取得します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| selector | ○ | [FeedItemSelector](../data/FeedItem/FeedItemSelector.md) | フィードアイテムの情報を指定します。 |
+
+フィードアイテム情報を取得します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| selector | Yes | [FeedItemSelector](../data/FeedItem/FeedItemSelector.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>100000001</accountId>
         <feedItemIds>200000001</feedItemIds>
@@ -51,6 +56,11 @@ FeedItemServiceで提供される操作を説明します。
         <feedItemIds>200000003</feedItemIds>
         <feedItemIds>200000004</feedItemIds>
         <feedItemIds>200000005</feedItemIds>
+        <feedFolderIds>300000001</feedFolderIds>
+        <feedFolderIds>300000002</feedFolderIds>
+        <feedFolderIds>300000003</feedFolderIds>
+        <feedFolderIds>300000004</feedFolderIds>
+        <feedFolderIds>300000005</feedFolderIds>
         <placeholderTypes>QUICKLINK</placeholderTypes>
         <placeholderTypes>CALLEXTENSION</placeholderTypes>
         <placeholderTypes>AD_CUSTOMIZER</placeholderTypes>
@@ -72,22 +82,25 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 |
-|---|---|---|
-| rval | [FeedItemPage](../data/FeedItem/FeedItemPage.md) | フィードアイテムの情報を格納します。 |
+
+フィードアイテム情報を取得します。
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemPage](../data/FeedItem/FeedItemPage.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993508</ns2:requestTime>
+      <ns2:requestTime>1567167421993</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedItemPage</Page.Type>
@@ -99,7 +112,6 @@ FeedItemServiceで提供される操作を説明します。
             <ns2:feedItemTrackId>300000001</ns2:feedItemTrackId>
             <ns2:approvalStatus>APPROVED</ns2:approvalStatus>
             <ns2:trademarkStatus>NO_RESTRICTION</ns2:trademarkStatus>
-            <ns2:invalidedTrademarks>sample text trademark 1</ns2:invalidedTrademarks>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
               <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
@@ -116,9 +128,17 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -194,9 +214,17 @@ FeedItemServiceで提供される操作を説明します。
                 <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -238,8 +266,8 @@ FeedItemServiceで提供される操作を説明します。
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -266,8 +294,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -311,8 +339,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -349,7 +377,7 @@ FeedItemServiceで提供される操作を説明します。
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
@@ -364,8 +392,8 @@ FeedItemServiceで提供される操作を説明します。
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -384,25 +412,27 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ## mutate(ADD)
-フィードアイテム情報を追加します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
+
+フィードアイテム情報を追加します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) |
 
 ##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -424,8 +454,16 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 1.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 2.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -459,14 +497,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -476,8 +514,8 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>CALL_PHONE_NUMBER</placeholderField>
             <feedAttributeValue>0120-111-222</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -497,14 +535,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -527,8 +565,8 @@ FeedItemServiceで提供される操作を説明します。
             <feedAttributeId>4</feedAttributeId>
             <feedAttributeValue>9,999,999.99</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -563,14 +601,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -580,8 +618,8 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>CALLOUT_TEXT</placeholderField>
             <feedAttributeValue>callout text.</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -601,14 +639,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -616,7 +654,7 @@ FeedItemServiceで提供される操作を説明します。
         <operand>
           <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
             <placeholderField>STRUCTURED_SNIPPET_HEADER</placeholderField>
-            <feedAttributeValue>Brands</feedAttributeValue>
+            <feedAttributeValue>ブランド</feedAttributeValue>
           </feedItemAttribute>
           <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MultipleFeedItemAttribute">
             <placeholderField>STRUCTURED_SNIPPET_VALUES</placeholderField>
@@ -630,8 +668,8 @@ FeedItemServiceで提供される操作を説明します。
               <feedAttributeValue>PUMA</feedAttributeValue>
             </feedAttributeValues>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -651,14 +689,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>ADD</operator>
         <accountId>100000001</accountId>
@@ -704,8 +742,16 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 1.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 2.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>MONDAY</dayOfWeek>
@@ -737,22 +783,25 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
+
+フィードアイテム情報を追加します。
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993560</ns2:requestTime>
+      <ns2:requestTime>1567167422652</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -779,9 +828,17 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -819,14 +876,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993607</ns2:requestTime>
+      <ns2:requestTime>1567167422689</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -843,8 +900,8 @@ FeedItemServiceで提供される操作を説明します。
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -868,14 +925,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993701</ns2:requestTime>
+      <ns2:requestTime>1567167422721</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -908,8 +965,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>9,999,999.99</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -946,14 +1003,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993767</ns2:requestTime>
+      <ns2:requestTime>1567167422752</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -969,8 +1026,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>callout text.</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -994,14 +1051,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993816</ns2:requestTime>
+      <ns2:requestTime>1567167422784</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -1014,7 +1071,7 @@ FeedItemServiceで提供される操作を説明します。
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_VALUES</ns2:placeholderField>
@@ -1029,8 +1086,8 @@ FeedItemServiceで提供される操作を説明します。
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -1051,14 +1108,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993875</ns2:requestTime>
+      <ns2:requestTime>1567167422814</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -1109,9 +1166,17 @@ FeedItemServiceで提供される操作を説明します。
                 <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp/lp3/</ns2:feedAttributeValue>
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
@@ -1149,22 +1214,25 @@ FeedItemServiceで提供される操作を説明します。
 ## mutate(SET)
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
+
+フィードアイテム情報を変更します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) |
 
 ##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1187,8 +1255,16 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190119</startDate>
-          <endDate>20190219</endDate>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 1.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 2.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20190831</startDate>
+          <endDate>20191001</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1222,14 +1298,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1240,8 +1316,8 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>CALL_PHONE_NUMBER</placeholderField>
             <feedAttributeValue>0120-888-999</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190119</startDate>
-          <endDate>20190219</endDate>
+          <startDate>20190831</startDate>
+          <endDate>20191001</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1261,14 +1337,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1291,8 +1367,8 @@ FeedItemServiceで提供される操作を説明します。
             <feedAttributeId>4</feedAttributeId>
             <feedAttributeValue>8,888,888.88</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190119</startDate>
-          <endDate>20190219</endDate>
+          <startDate>20190831</startDate>
+          <endDate>20191001</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1327,14 +1403,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1345,8 +1421,8 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>CALLOUT_TEXT</placeholderField>
             <feedAttributeValue>set callout text.</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190119</startDate>
-          <endDate>20190219</endDate>
+          <startDate>20190831</startDate>
+          <endDate>20191001</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1366,14 +1442,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1396,8 +1472,8 @@ FeedItemServiceで提供される操作を説明します。
               <feedAttributeValue>CHAMPION</feedAttributeValue>
             </feedAttributeValues>
           </feedItemAttribute>
-          <startDate>20190118</startDate>
-          <endDate>20190218</endDate>
+          <startDate>20190830</startDate>
+          <endDate>20190930</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1417,14 +1493,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -1471,8 +1547,16 @@ FeedItemServiceで提供される操作を説明します。
             <placeholderField>TRACKING_URL</placeholderField>
             <feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</feedAttributeValue>
           </feedItemAttribute>
-          <startDate>20190119</startDate>
-          <endDate>20190219</endDate>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 1.</feedAttributeValue>
+          </feedItemAttribute>
+          <feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimpleFeedItemAttribute">
+            <placeholderField>LINK_DESCRIPTION_1</placeholderField>
+            <feedAttributeValue>link description 2.</feedAttributeValue>
+          </feedItemAttribute>
+          <startDate>20190831</startDate>
+          <endDate>20191001</endDate>
           <scheduling>
             <schedules>
               <dayOfWeek>FRIDAY</dayOfWeek>
@@ -1504,22 +1588,25 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
+
+フィードアイテム情報を変更します。
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993933</ns2:requestTime>
+      <ns2:requestTime>1567167422841</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1550,9 +1637,17 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1604,14 +1699,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792993990</ns2:requestTime>
+      <ns2:requestTime>1567167422873</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1629,8 +1724,8 @@ FeedItemServiceで提供される操作を説明します。
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1654,14 +1749,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994039</ns2:requestTime>
+      <ns2:requestTime>1567167422900</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1694,8 +1789,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1726,14 +1821,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994094</ns2:requestTime>
+      <ns2:requestTime>1567167422927</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1750,8 +1845,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1775,14 +1870,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994141</ns2:requestTime>
+      <ns2:requestTime>1567167422951</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1795,7 +1890,7 @@ FeedItemServiceで提供される操作を説明します。
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>ブランド</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
@@ -1814,8 +1909,8 @@ FeedItemServiceで提供される操作を説明します。
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1836,14 +1931,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994180</ns2:requestTime>
+      <ns2:requestTime>1567167422974</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1904,9 +1999,17 @@ FeedItemServiceで提供される操作を説明します。
                 <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -1956,25 +2059,27 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ## mutate(REMOVE)
-フィードアイテム情報を削除します。
 
 ### リクエスト
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| operations | ○ | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) | 操作の対象とするフィードアイテム情報と処理の内容です。 |
+
+フィードアイテム情報を削除します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [FeedItemOperation](../data/FeedItem/FeedItemOperation.md) |
 
 ##### ＜リクエストサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -1991,14 +2096,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2015,14 +2120,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2039,14 +2144,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2063,14 +2168,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>SET</operator>
         <accountId>100000001</accountId>
@@ -2087,14 +2192,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/FeedItem">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
       <operations>
         <operator>REMOVE</operator>
         <accountId>100000001</accountId>
@@ -2109,22 +2214,25 @@ FeedItemServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) | 操作結果を含むフィードアイテム情報のコンテナです。 |
+
+フィードアイテム情報を削除します。
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞(クイックリンクオプション)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994218</ns2:requestTime>
+      <ns2:requestTime>1567167422998</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2155,9 +2263,17 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2209,14 +2325,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994266</ns2:requestTime>
+      <ns2:requestTime>1567167423020</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2234,8 +2350,8 @@ FeedItemServiceで提供される操作を説明します。
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLEXTENSION</ns2:placeholderType>
             <ns2:devicePreference>SMART_PHONE</ns2:devicePreference>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2259,14 +2375,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994304</ns2:requestTime>
+      <ns2:requestTime>1567167423038</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2299,8 +2415,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:reviewFeedAttributeValue>8,888,888.88</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>AD_CUSTOMIZER</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2331,14 +2447,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994337</ns2:requestTime>
+      <ns2:requestTime>1567167423060</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -2355,8 +2471,8 @@ FeedItemServiceで提供される操作を説明します。
               <ns2:reviewFeedAttributeValue>set callout text.</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>CALLOUT</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2380,14 +2496,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994376</ns2:requestTime>
+      <ns2:requestTime>1567167423080</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2400,7 +2516,7 @@ FeedItemServiceで提供される操作を説明します。
             <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
               <ns2:placeholderField>STRUCTURED_SNIPPET_HEADER</ns2:placeholderField>
-              <ns2:feedAttributeValue>Brands</ns2:feedAttributeValue>
+              <ns2:feedAttributeValue>ブランド</ns2:feedAttributeValue>
               <ns2:reviewFeedAttributeValue>ブランド</ns2:reviewFeedAttributeValue>
             </ns2:feedItemAttribute>
             <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:MultipleFeedItemAttribute">
@@ -2419,8 +2535,8 @@ FeedItemServiceで提供される操作を説明します。
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
             <ns2:placeholderType>STRUCTURED_SNIPPET</ns2:placeholderType>
-            <ns2:startDate>20190118</ns2:startDate>
-            <ns2:endDate>20190218</ns2:endDate>
+            <ns2:startDate>20190830</ns2:startDate>
+            <ns2:endDate>20190930</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2441,14 +2557,14 @@ FeedItemServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>FeedItem</ns2:service>
-      <ns2:requestTime>1547792994412</ns2:requestTime>
+      <ns2:requestTime>1567167423099</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/FeedItem">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
       <ns2:rval>
         <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -2509,9 +2625,17 @@ FeedItemServiceで提供される操作を説明します。
                 <ns2:reviewFeedAttributeValue>http://mobile.yahoo.co.jp/lp3/</ns2:reviewFeedAttributeValue>
               </ns2:feedAttributeValues>
             </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
             <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
-            <ns2:startDate>20190119</ns2:startDate>
-            <ns2:endDate>20190219</ns2:endDate>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
             <ns2:scheduling>
               <ns2:schedules>
                 <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
@@ -2556,6 +2680,148 @@ FeedItemServiceで提供される操作を説明します。
         </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## setTrademarkStatus
+
+### リクエスト
+
+商標の使用制限解除を確認します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [FeedItemSetTrademarkStatusOperation](../data/FeedItem/FeedItemSetTrademarkStatusOperation.md) |
+
+##### ＜リクエストサンプル＞(クイックリンクオプション)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <setTrademarkStatus xmlns="http://ss.yahooapis.jp/V201909/FeedItem">
+      <operations>
+        <accountId>100000001</accountId>
+        <placeholderType>QUICKLINK</placeholderType>
+        <operand>
+          <feedItemId>200000001</feedItemId>
+        </operand>
+      </operations>
+    </setTrademarkStatus>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+
+商標の使用制限解除を確認します。
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemReturnValue](../data/FeedItem/FeedItemReturnValue.md) |
+
+##### ＜レスポンスサンプル＞(クイックリンクオプション)
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/FeedItem" xmlns:ns2="http://ss.yahooapis.jp/V201909">
+      <ns2:service>FeedItem</ns2:service>
+      <ns2:requestTime>1567167423115</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:setTrademarkStatusResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/FeedItem">
+      <ns2:rval>
+        <ListReturnValue.Type>FeedItemReturnValue</ListReturnValue.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:feedItem>
+            <ns2:accountId>100000001</ns2:accountId>
+            <ns2:feedItemId>200000001</ns2:feedItemId>
+            <ns2:feedItemTrackId>0</ns2:feedItemTrackId>
+            <ns2:approvalStatus>APPROVED_WITH_REVIEW</ns2:approvalStatus>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_TEXT</ns2:placeholderField>
+              <ns2:feedAttributeValue>quicklink feedItem.</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>update quicklink feedItem.</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://www.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://www2.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>ADVANCED_MOBILE_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://portal.mobile.yahoo.co.jp</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://mobile.mobile.yahoo.co.jp</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>TRACKING_URL</ns2:placeholderField>
+              <ns2:feedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site}&amp;pid={_id1}&amp;vid={_id2}</ns2:feedAttributeValue>
+              <ns2:reviewFeedAttributeValue>http://yahoo.co.jp?url={lpurl}&amp;c={campaignid}&amp;g={adgroupid}&amp;a={creative}&amp;type={_site2}&amp;pid={_id3}&amp;vid={_id4}</ns2:reviewFeedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 1.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:feedItemAttribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimpleFeedItemAttribute">
+              <ns2:placeholderField>LINK_DESCRIPTION_1</ns2:placeholderField>
+              <ns2:feedAttributeValue>link description 2.</ns2:feedAttributeValue>
+            </ns2:feedItemAttribute>
+            <ns2:placeholderType>QUICKLINK</ns2:placeholderType>
+            <ns2:startDate>20190831</ns2:startDate>
+            <ns2:endDate>20191001</ns2:endDate>
+            <ns2:scheduling>
+              <ns2:schedules>
+                <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
+                <ns2:startHour>14</ns2:startHour>
+                <ns2:startMinute>ZERO</ns2:startMinute>
+                <ns2:endHour>15</ns2:endHour>
+                <ns2:endMinute>FIFTEEN</ns2:endMinute>
+              </ns2:schedules>
+            </ns2:scheduling>
+            <ns2:customParameters>
+              <ns2:parameters>
+                <ns2:key>site</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id1</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id2</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:customParameters>
+            <ns2:reviewCustomParameters>
+              <ns2:parameters>
+                <ns2:key>site2</ns2:key>
+                <ns2:value>yahoo</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id3</ns2:key>
+                <ns2:value>1234</ns2:value>
+              </ns2:parameters>
+              <ns2:parameters>
+                <ns2:key>id4</ns2:key>
+                <ns2:value>a7h59A98yu</ns2:value>
+              </ns2:parameters>
+            </ns2:reviewCustomParameters>
+            <ns2:geoTargeting>
+              <ns2:geoTargetingRestriction>NONE</ns2:geoTargetingRestriction>
+            </ns2:geoTargeting>
+          </ns2:feedItem>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:setTrademarkStatusResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

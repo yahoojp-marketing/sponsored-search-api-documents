@@ -1,318 +1,187 @@
 # リリースノート
-スポンサードサーチAPI V201901
+スポンサードサーチAPI V201909
 
 ## リリースバージョン
-V201901（WSDLバージョン V201901）
+V201909（WSDLバージョン V201909）
 
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-### 1. ラベル機能に対応
-ラベル機能とは、キャンペーンや広告などの入稿物に目印となる語句を設定し、分類やフィルタリングができる機能です。広告管理ツールでは2018年9月にリリースしました。<br>
-機能の詳細は以下のヘルプをご覧ください。<br>
-[ラベル機能とは](https://support-marketing.yahoo.co.jp/promotionalads/ss/articledetail?lan=ja&aid=23927)<br>
-<br>
-スポンサードサーチAPI V201901では主に以下を対応しました。
-
-1. ラベルの新規作成、更新、削除が可能
-1. キャンペーンなどへのラベルの設定が可能
+### 1. 広告文への商標の使用制限に対応
+広告とクイックリンクオプションについて、商標の使用制限が解除されているかを一括で確認できるようになりました。<br>
+商標の使用制限が解除されている場合は、「AdGroupAdService」および「FeedItemService」に制限が解除された旨の値が返却されます。<br>
+広告管理ツールでは2019年5月に提供を開始しました。詳細は以下のお知らせをご覧ください。<br>
+[広告文への商標の使用制限 正式提供開始のお知らせ](https://promotionalads.yahoo.co.jp/support/release/674122.html)<br>
 
 ##### 対象ウェブサービス
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
  * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
- * [LabelService](/docs/ja/api_reference/services/LabelService.md)
- * [CampaignLabelService](/docs/ja/api_reference/services/CampaignLabelService.md)
- * [AdGroupLabelService](/docs/ja/api_reference/services/AdGroupLabelService.md)
- * [AdGroupAdLabelService](/docs/ja/api_reference/services/AdGroupAdLabelService.md)
- * [AdGroupCriterionLabelService](/docs/ja/api_reference/services/AdGroupCriterionLabelService.md)
+ * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
 
-### 2. 標準入札設定の追加と「コンバージョン数の最大化」項目の削除
-2018年12月に、スポンサードサーチの自動入札の機能として新たに標準入札設定を追加し、入札設定は以下の二通りとなりました。
-* 標準入札設定：新たに追加した入札設定です。キャンペーン単位で入札方法を設定します。
-* ポートフォリオ入札設定：従来より提供している入札設定です。アカウント単位で入札方法を作成し、複数のキャンペーンに設定可能です。 
-
-変更内容の詳細は以下のお知らせをご覧ください。<br>
-[自動入札の機能追加と自動入札タイプの一部提供終了および一部項目の削除について](https://promotionalads.yahoo.co.jp/support/release/594230.html)<br>
-<br>
-スポンサードサーチAPI V201901では主に以下を対応しました。
-1. CampaignServiceにて、以下の自動入札タイプを標準入札設定として設定可能<br>
-‐ クリック数の最大化（TARGET_SPEND）<br>
-‐ コンバージョン単価の目標値（TARGET_CPA）<br>
-‐ 広告費用対効果の目標値（TARGET_ROAS）
-1. 自動入札タイプのコンバージョン数の最大化（ENHANCED_CPC）を削除
+### 2. 「検索結果ページの目標掲載位置」の削除
+検索結果ページの目標掲載位置 (PageOnePromotedBiddingScheme) を削除しました。<br>
+広告管理ツールでは2019年4月に提供を終了しました。詳細は以下のお知らせをご覧ください。<br>
+[「検索結果ページの目標掲載位置」の提供終了およびデータの自動移行のお知らせ](https://promotionalads.yahoo.co.jp/support/release/659760.html)
 
 ##### 対象ウェブサービス
  * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
  * [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
 
-### 3. サイトリターゲティングにカスタムキーの設定機能を追加
-サイトリターゲティング用タグに、カスタムキーが設定可能になりました。<br>
-設定したカスタムキーを利用したターゲットリストを作成することで、より精緻な条件を指定したサイトリターゲティングが行えます。<br>
-※2018年12月10日のお知らせでは本機能の名称を「カスタムパラメータ」とお伝えしておりましたが、「カスタムキー」に名称が変更となりました。<br>
-<br>
-スポンサードサーチAPI V201901では主に以下を対応しました。
-1. ターゲットリストの条件にカスタムキーを設定可能
-1. カスタムキー設定情報の取得が可能
+### 3. レポート指標「平均掲載順位」の削除
+レポートフィールドの「AVG_DELIVER_RANK」（平均掲載順位）を削除しました。削除後の値は、一律「--」（ハイフン2つ）として取得、表示されます。<br>
+また、トラッキングURLなどの新規入稿および編集時に{adposition}が利用できなくなります。入稿済みのパラメータについては{adposition}のトラッキングが不可となり、空の文字列が返ります。なお、広告配信には影響はありません。<br>
+トラッキングURLの{adposition}については以下を参照してください。<br>
+[トラッキングパラメータ](https://git.corp.yahoo.co.jp/anemos-eapi/sponsored-search-api-documents/blob/201901/docs/ja/api_reference/appendix/tracking.md)<br>
+詳細については以下のお知らせをご覧ください。<br>
+[パフォーマンスデータ一部指標提供終了のお知らせ](https://promotionalads.yahoo.co.jp/support/release/713854.html)
 
-##### ご注意
-V201901のリリース以降、V201808以前のバージョンで、ターゲットリストにカスタムキーの条件を1件以上設定している場合、ターゲットリストの条件取得、更新時の挙動が以下のとおり制限されます。
-* ターゲットリストに設定されているすべての条件の取得ができません。
-* ターゲットリストの条件更新時、更新前に設定済みの条件はすべて削除され、セットした条件のみが設定されます。
-
-このため、V201808以前のバージョンでカスタムキー（カスタムパラメータ）を利用すると、ユーザーの意図と異なる操作結果となる可能性があります。<br>
-V201901のリリース以降は、最新のバージョンをご利用くださいますようお願いいたします。
-  
 ##### 対象ウェブサービス
- * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+ * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 
-### 4. 広告の品質向上に向けた取り組みへの対応
-スポンサードサーチでは、商標権者により商標の使用を制限することでブランドを保護し、広告の品質を高める取り組みを予定しています。<br>
-<br>
-スポンサードサーチAPI V201901では主に以下を対応しました。
-* 商標の使用制限の有無を判別するためのフラグ（TrademarkStatus）と、エラーコードを追加
+### 4. 自動入札タイプの一部設定項目の削除
+自動入札の「ポートフォリオ入札設定」で設定可能な「自動入札タイプ：クリック数の最大化」（TARGET_SPEND）のうち、「spendTarget」を削除しました。
+なお、下位バージョン（V201808, V201901）で「spendTarget」を設定すると、バリデーションエラーとなります。
+広告管理ツールでは2019年7月25日に提供を終了しました。詳細は以下のお知らせをご覧ください。<br>
+[自動入札タイプの一部設定項目終了のお知らせ](https://promotionalads.yahoo.co.jp/support/release/683185.html)
 
-※商標の使用制限がかけられている場合、入稿時にバリデーションエラーとなります（公開中のすべてのバージョン）。<br>
-※本施策の詳細は、後日あらためてお知らせいたします。
+##### 対象ウェブサービス
+ * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
+ * [BiddingStrategyService](/docs/ja/api_reference/services/BiddingStrategyService.md)
+
+### 5. 「ReportService」を「ReportDefinitionService」に統合
+「ReportService」を「ReportDefinitionService」に統合しました。統合に伴い、定期レポートが作成できなくなります。<br>
+また、2019年12月19日（木）に、下位バージョン（V201808, V201901）における定期レポートのintervalTypeをONETIMEに変更します。これにより、定期レポートの実行はすべて停止されます。<br>
+詳細は以下の仕様ドキュメントをご覧ください。<br>
+ * [リファレンス](https://github.com/yahoojp-marketing/sponsored-search-api-documents/blob/201909_reportdefinition/docs/ja/api_reference/services/ReportDefinitionService.md)<br>
+ * [ベストプラクティス](https://github.com/yahoojp-marketing/sponsored-search-api-documents/tree/201909_reportdefinition/docs/ja/bestpractice)<br>
+
+##### 対象ウェブサービス
+ * [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+
+### 6. 広告表示オプションの機能改善
+ * 拡張クイックリンクの提供開始<br>
+ クイックリンクオプションに説明文を表示できるようになります（拡張クイックリンク）。それに伴い、「FeedItemPlaceholderField」に
+以下の項目を追加します。<br>
+ ・ LINK_DESCRIPTION_1：クイックリンク説明文1<br>
+ ・ LINK_DESCRIPTION_2：クイックリンク説明文2<br>
+なお、クイックリンク説明文を設定する場合は、「LINK_DESCRIPTION_1」「LINK_DESCRIPTION_2」の両方に入力する必要があります。どちらか
+一方だけ入力した場合はエラーとなります。<br>
+ * 配信先デバイスの廃止<br>
+ 広告表示オプションを関連付ける際に設定する「配信先デバイス」の提供を終了します。これにより、2019年10月2日以降は、「CampaignFeed」「AdGroupFeed」
+　　の「DevicePlatform」は設定できなくなります。なお、2019年12月頃に「DevicePlatform」は利用不可になる予定です。<br>
+広告管理ツールでは2019年10月2日（水）のリリースを予定しております。詳細は以下のお知らせをご覧ください。<br>
+ [スポンサードサーチ クイックリンクオプションの機能追加について](https://biz.marketing.yahoo.co.jp/developercenter/news/751946/)
 
 ##### 対象ウェブサービス
  * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
 
-### 5. 自動タグ設定に対応
-自動タグ設定とは、セキュリティを強化したブラウザーでもコンバージョン測定が可能なタグの機能です。<br>
-<br>
-スポンサードサーチAPI V201901では主に以下を対応しました。
-* 自動タグの設定情報の参照、更新が可能になります。
-
-※本機能は一部のお客様のみご利用可能です。
-
-##### 対象ウェブサービス
- * [AccountService](/docs/ja/api_reference/services/AccountService.md)
-
-### 6. システムの保守、改善
- * システムの保守、改善として、主に不要な項目の削除、一部WSDLの見直しを実施しました。
- * 2018年9月に[お知らせ](https://biz.marketing.yahoo.co.jp/developercenter/news/574376/)していたとおり、スポンサードサーチAPIの広告グループにおける自動入札設定のレスポンスを修正しました（公開中のすべてのバージョン）。
- * 仕様書のレポートフィールド集に各レポートフィールドの動作を表す「動作区分/Behavior Type」列を追加しました（公開中のすべてのバージョン）。
-
+### 7. システムの保守、改善
+ * WSDL「AuditLogService」を修正しました。
+ * 「LocationService」を廃止しました。
+ * 「FeedItem」の検索条件に「feedFolderId」を追加しました。
+ * 広告管理ツールで操作した履歴を含めた操作履歴をAPIでも取得可能になりました。
 ※「Serviceの変更による各Versionへの影響」の項目もあわせてご確認ください。 
 
 ##### 対象ウェブサービス 
- * [AccountService](/docs/ja/api_reference/services/AccountService.md)
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [AdGroupCriterionService](/docs/ja/api_reference/services/AdGroupCriterionService.md)
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [BidLandscapeService](/docs/ja/api_reference/services/BidLandscapeService.md)
- * [AccountTrackingUrlService](/docs/ja/api_reference/services/AccountTrackingUrlService.md)
- * [CampaignTargetService](/docs/ja/api_reference/services/CampaignTargetService.md)
- * [AdGroupWebpageService](/docs/ja/api_reference/services/AdGroupWebpageService.md)
- * [PageFeedItemService](/docs/ja/api_reference/services/PageFeedItemService.md)
+ * [AuditLogService](/docs/ja/api_reference/services/AuditLogService.md)
+ * [FeedItemService](/docs/ja/api_reference/services/FeedItemService.md)
 
 ## Serviceの変更による各Versionへの影響
 <table class="standard">
  <tbody>
  <tr>
  <th>Service</th>
- <th>V201808以前</th>
- <th>V201901</th>
+ <th>V201901以前</th>
+ <th>V201909</th>
  </tr>
  <tr>
  <td valign="top">CampaignService</td>
  <td valign="top">
- ・インターフェース変更なし<br>
- ・設定された以下の自動入札タイプが参照可能<br>
- ‐ 「クリック数の最大化」(TARGET_SPEND)<br>
- ‐ 「コンバージョン単価の目標値」(TARGET_CPA)<br>
- ‐ 「広告費用対効果の目標値」(TARGET_ROAS)<br>
+ ・入札設定に「検索結果ページの目標掲載位置」（PageOnePromotedBiddingScheme）を設定すると、バリデーションエラーとなる<br>
+ ・「目標予算」（spendTarget）を設定すると、バリデーションエラーとなる<br>
  </td>
  <td valign="top">
- ・ラベルIDの取得が可能<br>
- ・キャンペーン単位の標準入札設定として、以下の自動入札タイプの設定、削除、参照が可能<br>
- ‐ 「クリック数の最大化」(TARGET_SPEND)<br>
- ‐ 「コンバージョン単価の目標値」(TARGET_CPA)<br>
- ‐ 「広告費用対効果の目標値」(TARGET_ROAS)<br>
- ・自動入札タイプ「コンバージョン数の最大化」（ENHANCED_CPC）関連項目の削除<br>
- ・広告表示最適化フラグを削除<br>
- ・旧自動入札機能（2014年7月提供終了）関連項目を削除
+ ・入札設定から「検索結果ページの目標掲載位置」（PageOnePromotedBiddingScheme）の項目削除<br>
+ ・「目標予算」（spendTarget）の項目削除<br>
  </td>
  </tr>
  <tr>
  <td valign="top">BiddingStrategyService</td>
  <td valign="top">
- インターフェース変更なし
+ ・入札設定に「検索結果ページの目標掲載位置」（PageOnePromotedBiddingScheme）を設定すると、バリデーションエラーとなる<br>
+ ・「目標予算」（spendTarget）を設定すると、バリデーションエラーとなる<br>
  </td>
  <td valign="top">
- 自動入札タイプ「コンバージョン数の最大化」（ENHANCED_CPC）関連項目の削除
- </td>
- </tr>
- <tr>
- <td valign="top">FeedItemService</td>
- <td valign="top">
- ・インターフェース変更なし<br>
- ・商標の使用制限がかけられている場合、入稿時にバリデーションエラーとなる
- </td>
- <td valign="top">
- ・商標の使用制限がかけられている場合、入稿時にバリデーションエラーとなる<br>
- ・商標の使用制限の有無を判別するためのフラグの値を参照可能
- </td>
- </tr>
- <tr>
- <td valign="top">AdGroupService</td>
- <td valign="top">
- ・インターフェース変更なし<br>
- ・広告グループにおける自動入札設定のレスポンスを修正<br>
- ※詳細は2018年9月の<a href="https://biz.marketing.yahoo.co.jp/developercenter/news/574376/">お知らせ</a>をご参照ください。
- </td>
- <td valign="top">
- ・ラベルIDの取得が可能<br>
- ・自動入札に関する不要な項目削除<br>
- ・広告グループにおける自動入札設定のレスポンスを修正<br>
- ※詳細は2018年9月の<a href="https://biz.marketing.yahoo.co.jp/developercenter/news/574376/">お知らせ</a>をご参照ください。
+ ・入札設定から「検索結果ページの目標掲載位置」（PageOnePromotedBiddingScheme）を削除<br>
+ ・「目標予算」（spendTarget）の項目削除<br>
  </td>
  </tr>
  <tr>
  <td valign="top">AdGroupAdService</td>
  <td valign="top">
- ・インターフェース変更なし <br>
- ・商標の使用制限がかけられている場合、入稿時にバリデーションエラーとなる
+ ・使用制限が解除されているか一括で確認できない<br>
  </td>
  <td valign="top">
- ・ラベルIDの取得が可能<br>
- ・商標の使用制限がかけられている場合、入稿時にバリデーションエラーとなる<br>
- ・商標の使用制限の有無を判別するためのフラグの値を参照可能
+ ・使用制限が解除されているか一括で確認できる<br>
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupCriterionService</td>
+ <td valign="top">FeedItemService</td>
  <td valign="top">
- ・インターフェース変更なし
+ ・使用制限が解除されているか一括で確認できない<br>
+ ・検索条件にfeedFolderIdを指定できない<br>
  </td>
  <td valign="top">
- ・ラベルIDの取得が可能<br>
- ・自動入札に関する不要な項目削除
- </td>
- </tr>
- <tr>
- <td valign="top">LabelService</td>
- <td valign="top">-</td>
- <td valign="top">
- ・ラベルの新規作成、更新、削除、参照が可能
+ ・使用制限が解除されているか一括で確認できる<br>
+ ・検索条件にfeedFolderIdを指定できる<br>
  </td>
  </tr>
  <tr>
- <td valign="top">CampaignLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">AuditLogService</td>
  <td valign="top">
- ・キャンペーンへのラベルの設定、解除が可能
+ ・最小値を設定するとバリデーションエラーとなる<br>
+ ・広告管理ツールの操作履歴は取得できない<br>
+ </td>
+ <td valign="top">
+ ・最小値を設定するとバリデーションエラーとなる（対象箇所が異なるだけなので、特に影響はありません）<br>
+ ・広告管理ツールの操作履歴が取得可能<br>
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">ReportDefinitionService</td>
  <td valign="top">
- ・広告グループへのラベルの設定、解除が可能
+ ・ReportDefinitionService/ReportServiceを利用してレポートを作成<br>
+ ・定期レポートの作成は可能<br>
+ ・平均掲載順位を選択可能<br>
+ </td>
+ <td valign="top">
+ ・ReportDefinitionServiceのみを利用してレポートを作成<br>
+ ・定期レポートの作成は不可<br>
+ ・平均掲載順位は選択可能だが、「--」と表示される<br>
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupAdLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">ReportService</td>
  <td valign="top">
- ・広告へのラベルの設定、解除が可能
+ ・ReportDefinitionService/ReportServiceを利用してレポートを作成<br>
+ ・平均掲載順位が「--」になる<br>
+ </td>
+ <td valign="top">
+ ・ReportServiceはReportDefinitionServiceに統合
  </td>
  </tr>
  <tr>
- <td valign="top">AdGroupCriterionLabelService</td>
- <td valign="top">-</td>
+ <td valign="top">LocationService</td>
  <td valign="top">
- ・キーワードへのラベルの設定、解除が可能
- </td>
- </tr>
- <tr>
- <td valign="top">RetargetingListService</td>
- <td valign="top">
- ・インターフェース変更なし <br>
- ・V201808以前のバージョンで、カスタムキー（カスタムパラメータ）の条件を1件以上設定しているターゲットリストにおいて、ターゲットリストの条件取得、更新時の挙動が以下のとおり制限される<br>
- - ターゲットリストに設定されているすべての条件の取得が不可<br>
- - ターゲットリストの条件更新時、更新前に設定済みの条件はすべて削除され、セットした条件のみが設定される
+ ・LocationServiceの利用は任意。
  </td>
  <td valign="top">
- ・ターゲットリストの条件にカスタムキーが設定可能<br>
- ・広告対象のウェブサイトに設定されている、サイトリターゲティング用タグ内のカスタムキーの取得が可能
- </td>
- </tr>
- <tr>
- <td valign="top">BidLandscapeService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・BidLandscapeService.wsdlのselectorにpaging項目を追加
- </td>
- </tr>
- <tr>
- <td valign="top">AccountTrackingUrlService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・AccountTrackingUrlService.wsdlのOperatorのenum値「ADD」を削除（未提供のため）
- </td>
- </tr>
- <tr>
- <td valign="top">ConversionTrackerService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・デバイスをまたいでコンバージョン計測をするかしないかを制御するフラグを削除
- </td>
- </tr>
- <tr>
- <td valign="top">AccountService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・自動タグの設定、参照が可能<br>
- ※本機能は一部のお客様のみご利用可能
- </td>
- </tr>
-
- <tr>
- <td valign="top">CampaignTargetService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
-・CampaignTargetService.wsdlにおいて、Page.TypeとtotalNumEntriesのレスポンスの順番を変更
- </td>
- </tr>
- <tr>
- <td valign="top">AdGroupWebpageService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・AdGroupWebpageService.wsdlにおいて、service nameの誤植を修正
- </td>
- </tr>
- <tr>
- <td valign="top">PageFeedItemService</td>
- <td valign="top">
- ・インターフェース変更なし
- </td>
- <td valign="top">
- ・AdGroupWebpageService.wsdlにおいて、service nameの誤植を修正<br>
- ・AdGroupWebpageService.wsdlにおいて、operationsのmaxOccursを"unbounded"から"1"に修正
+ ・LocationServiceは廃止。
  </td>
  </tr>
 </tbody>
 </table>
 
-## スポンサードサーチAPI V201805の提供終了について
-以下の日程でスポンサードサーチAPI V201805のサポート、およびシステムの提供を終了いたします。
-* サポート終了日：2019年2月28日（木）<br>
-* システム終了日：2019年5月29日（水）<br>
+## スポンサードサーチAPI V201808の提供終了について
+以下の日程でスポンサードサーチAPI V201808のサポート、およびシステムの提供を終了いたします。
+* サポート終了日：2019年10月17日（木）<br>
+* システム終了日：2019年12月19日（木）<br>

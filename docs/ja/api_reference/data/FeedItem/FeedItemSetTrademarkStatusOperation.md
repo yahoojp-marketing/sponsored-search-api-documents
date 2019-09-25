@@ -1,0 +1,21 @@
+
+
+# FeedItemSetTrademarkStatusOperation
+
+FeedItemSetTrademarkStatusOperationオブジェクトは、操作対象の商標使用制限の情報を格納します。
+
+### Service
+
++ [FeedItemService](../../services/FeedItemService.md)
+
+### Namespace
+
+[FeedItemService#Namespace](../../services/FeedItemService.md#namespace)
+
+| Field | Type | Description | response | setTrademarkStatus |
+| ----- | ---- | ----------- | -------- | --------- |
+| accountId | xsd:long | アカウントIDです。 | - | Requirement | |
+| placeholderType | enum [FeedItemPlaceholderType](./FeedItemPlaceholderType.md) | フィードアイテムの種類です。 | - | Requirement | |
+| operand[0...2000] | [FeedItemSetTrademarkStatus](./FeedItemSetTrademarkStatus.md) | 処理対象の商標使用制限の配列です。 | - | Requirement | |
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

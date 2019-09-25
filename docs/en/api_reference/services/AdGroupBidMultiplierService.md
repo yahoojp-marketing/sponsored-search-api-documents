@@ -3,10 +3,10 @@ Use this service to get or update bid multiplier information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/AdGroupBidMultiplierService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupBidMultiplierService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201909/AdGroupBidMultiplierService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201909/AdGroupBidMultiplierService?wsdl|
 #### Namespace
-http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier
+http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier
 #### Overview
 Use this service to get, update adgroup bid multiplier.
 #### Operation
@@ -17,7 +17,7 @@ Explains the operation which provides at AdGroupBidMultiplierService.
 
 
 #### Object
-[AdGroupBidMultiplier](../data/AdGroupBidMultiplier)
+[AdGroupBidMultiplier](../data/AdgroupBidMultiplier)
 
 ## get
 
@@ -26,20 +26,20 @@ Gets bid multiplier of adgroup
 
 | name | Req | Value | Description |
 |---|---|---|---|
-| selector | Req | [AdGroupBidMultiplierSelector](../data/AdGroupBidMultiplier/AdGroupBidMultiplierSelector.md) | Filters the adgroup bid multiplier to be returned. |
+| selector | Req | [AdGroupBidMultiplierSelector](../data/AdgroupBidMultiplier/AdGroupBidMultiplierSelector.md) | Filters the adgroup bid multiplier to be returned. |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <get xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -68,20 +68,20 @@ Gets bid multiplier of adgroup
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierPage](../data/AdGroupBidMultiplier/AdGroupBidMultiplierPage.md) | A page (subset) view of the ad group bit multiplier selected. |
+| rval | [AdGroupBidMultiplierPage](../data/AdgroupBidMultiplier/AdGroupBidMultiplierPage.md) | A page (subset) view of the ad group bit multiplier selected. |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1547793791788</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier">
+    <ns2:getResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupBidMultiplierPage</Page.Type>
@@ -107,20 +107,20 @@ Updates adgroup bid multiplier.
 ### Request
 | Name | Req | Value | Description |
 |---|---|---|---|
-| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation details of the ad group to be processed. |
+| operations | Req | [AdGroupBidMultiplierOperation](../data/AdgroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation details of the ad group to be processed. |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -139,20 +139,20 @@ Updates adgroup bid multiplier.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container of ad group bid multiplier information including return value. |
+| rval | [AdGroupBidMultiplierReturnValue](../data/AdgroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container of ad group bid multiplier information including return value. |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1547793791801</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -178,20 +178,20 @@ Remove bid multiplier which already set to ad group.
 #### Request
 | Parameter | Req | Valuer | Desecription |
 |---|---|---|---|
-| operations | Req | [AdGroupBidMultiplierOperation](../data/AdGroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation detail of ad group to be processed. |
+| operations | Req | [AdGroupBidMultiplierOperation](../data/AdgroupBidMultiplier/AdGroupBidMultiplierOperation.md) | Bid multiplier and operation detail of ad group to be processed. |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <RequestHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier">
+    <mutate xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -209,20 +209,20 @@ Remove bid multiplier which already set to ad group.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupBidMultiplierReturnValue](../data/AdGroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container for ad group bid multiplier including return value on operation. |
+| rval | [AdGroupBidMultiplierReturnValue](../data/AdgroupBidMultiplier/AdGroupBidMultiplierReturnValue.md) | Container for ad group bid multiplier including return value on operation. |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201901">
+    <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>AdGroupBidMultiplier</ns2:service>
       <ns2:requestTime>1547793791813</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201901" xmlns:ns2="http://ss.yahooapis.jp/V201901/AdGroupBidMultiplier">
+    <ns2:mutateResponse xmlns="http://ss.yahooapis.jp/V201909" xmlns:ns2="http://ss.yahooapis.jp/V201909/AdGroupBidMultiplier">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupBidMultiplierReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

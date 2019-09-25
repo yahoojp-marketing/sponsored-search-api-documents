@@ -35,7 +35,7 @@ BiddingStrategyTypeは、自動入札タイプを表します。
  <tr>
   <td>TARGET_SPEND</td>
   <td>xsd:string</td>
-  <td>クリック数を最大化します。<br>※キャンペーンに適用可能です。広告グループには現在設定できません。</td>
+      <td>クリック数を最大化します。<br>※キャンペーンに適用可能です。広告グループには現在設定できません。</td>
  </tr>
  <tr>
   <td>TARGET_CPA</td>
