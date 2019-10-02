@@ -109,7 +109,7 @@ ConversionTrackerServiceで提供される操作を説明します。
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1547792970869</ns2:requestTime>
+      <ns2:requestTime>1569491053552</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -203,21 +203,31 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:countingType>MANY_PER_CLICK</ns2:countingType>
             <ns2:excludeFromBidding>FALSE</ns2:excludeFromBidding>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
-            <ns2:snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
+            <ns2:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    /* &amp;lt;![CDATA[ */
+    var yahoo_conversion_id = 1000138650;
+    var yahoo_conversion_label = "ui-dCKzJ840BEPPg_IUD";
+    var yahoo_conversion_value = 50;
+    /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+    &amp;lt;div style="display:inline;"&amp;gt;
+        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="https://b91.yahoo.co.jp/pagead/conversion/1000138650/?value=50&amp;amp;label=ui-dCKzJ840BEPPg_IUD&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/noscript&amp;gt;</ns2:snippet>
+            <ns2:advancedSnippet>&amp;lt;script async&amp;gt;
+ytag({
+  "type": "yss_conversion",
+  "config": {
+    "yahoo_conversion_id": "1000661",
+    "yahoo_conversion_label": "XXXXXXXXXXXXXXXXXX",
+    "yahoo_conversion_value": "100"
+  }
+});
+&amp;lt;/script&amp;gt;</ns2:advancedSnippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
           </ns2:conversionTracker>
@@ -287,7 +297,7 @@ ConversionTrackerServiceで提供される操作を説明します。
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1547792970903</ns2:requestTime>
+      <ns2:requestTime>1569491053595</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -378,21 +388,31 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:countingType>MANY_PER_CLICK</ns2:countingType>
             <ns2:excludeFromBidding>FALSE</ns2:excludeFromBidding>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
-            <ns2:snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
+            <ns2:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    /* &amp;lt;![CDATA[ */
+    var yahoo_conversion_id = 1000138650;
+    var yahoo_conversion_label = "ui-dCKzJ840BEPPg_IUD";
+    var yahoo_conversion_value = 50;
+    /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+    &amp;lt;div style="display:inline;"&amp;gt;
+        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="https://b91.yahoo.co.jp/pagead/conversion/1000138650/?value=50&amp;amp;label=ui-dCKzJ840BEPPg_IUD&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/noscript&amp;gt;</ns2:snippet>
+            <ns2:advancedSnippet>&amp;lt;script async&amp;gt;
+ytag({
+  "type": "yss_conversion",
+  "config": {
+    "yahoo_conversion_id": "1000661",
+    "yahoo_conversion_label": "XXXXXXXXXXXXXXXXXX",
+    "yahoo_conversion_value": "100"
+  }
+});
+&amp;lt;/script&amp;gt;</ns2:advancedSnippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
           </ns2:conversionTracker>
@@ -464,7 +484,7 @@ ConversionTrackerServiceで提供される操作を説明します。
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://ss.yahooapis.jp/V201909/ConversionTracker" xmlns:ns2="http://ss.yahooapis.jp/V201909">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1547792970948</ns2:requestTime>
+      <ns2:requestTime>1569491053623</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -555,21 +575,31 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:countingType>MANY_PER_CLICK</ns2:countingType>
             <ns2:excludeFromBidding>FALSE</ns2:excludeFromBidding>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
-            <ns2:snippet>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
+            <ns2:snippet>&amp;lt;!-- Yahoo Code for your Conversion Page --&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+    /* &amp;lt;![CDATA[ */
     var yahoo_conversion_id = 1000661;
     var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
     var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:snippet>
+    /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+    &amp;lt;div style="display:inline;"&amp;gt;
+        &amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="https://b91.yahoo.co.jp/pagead/conversion/1000138650/?value=50&amp;amp;label=ui-dCKzJ840BEPPg_IUD&amp;amp;guid=ON&amp;amp;script=0&amp;amp;disvt=true"/&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/noscript&amp;gt;</ns2:snippet>
+            <ns2:advancedSnippet>&amp;lt;script async&amp;gt;
+ytag({
+  "type": "yss_conversion",
+  "config": {
+    "yahoo_conversion_id": "1000661",
+    "yahoo_conversion_label": "XXXXXXXXXXXXXXXXXX",
+    "yahoo_conversion_value": "100"
+  }
+});
+&amp;lt;/script&amp;gt;</ns2:advancedSnippet>
             <ns2:markupLanguage>HTML</ns2:markupLanguage>
             <ns2:trackingCodeType>WEBPAGE</ns2:trackingCodeType>
           </ns2:conversionTracker>
