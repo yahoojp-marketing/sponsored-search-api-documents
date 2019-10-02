@@ -4,11 +4,11 @@ CampaignSharedSetService setup Negative keyword list to campaign.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/CampaignSharedSetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignSharedSetService?wsdl|
 
 #### Namespace
-http://ss.yahooapis.jp/V201901/AdGroupAd
+http://ss.yahooapis.jp/V201901/CampaignSharedSet
 
 #### Overview
 Use this service to setup Negative keyword list to campaign.
@@ -29,7 +29,7 @@ Returns the setup information between campaign and negative keyword list.
 ### Request
 | Parameter | Restrictions| Data Type | Description |
 |---|---|---|---|
-| selector | Req | [CampaignSharedSetSelector](../data/AdGroupAd/CampaignSharedSetSelector.md) | This is object which holds the search criteria (exec parameters) on get method. |
+| selector | Req | [CampaignSharedSetSelector](../data/CampaignSharedSet/CampaignSharedSetSelector.md) | This is object which holds the search criteria (exec parameters) on get method. |
 
 ##### Request Sample
 ```xml
@@ -62,7 +62,7 @@ Returns the setup information between campaign and negative keyword list.
 
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetPage](../data/AdGroupAd/CampaignSharedSetPage.md) | This is object which holds the exec result (List of all entities) of get method. |
+| rval | [CampaignSharedSetPage](../data/CampaignSharedSet/CampaignSharedSetPage.md) | This is object which holds the exec result (List of all entities) of get method. |
 
 ##### Response Sample
 ```xml
@@ -100,7 +100,7 @@ Setup negative keyword list for campaign.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignSharedSetOperation](../data/AdGroupAd/CampaignSharedSetOperation.md) | The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
+| operations | Req | [CampaignSharedSetOperation](../data/CampaignSharedSet/CampaignSharedSetOperation.md) | The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
 
 ##### Request Sample
 ```xml
@@ -130,7 +130,7 @@ Setup negative keyword list for campaign.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetReturnValue](../data/AdGroupAd/CampaignSharedSetReturnValue.md) | This is object which holds the exec result (List of all entities) of mutate method. |
+| rval | [CampaignSharedSetReturnValue](../data/CampaignSharedSet/CampaignSharedSetReturnValue.md) | This is object which holds the exec result (List of all entities) of mutate method. |
 
 ##### Response Sample
 ```xml
@@ -169,7 +169,7 @@ Remove the setup settings between campaign and negative keyword list.
 ### Request
 | Parameter | Restrictions | Data Type | Description |
 |---|---|---|---|
-| operations | Req | [CampaignSharedSetOperation](../data/AdGroupAd/CampaignSharedSetOperation.md) |The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
+| operations | Req | [CampaignSharedSetOperation](../data/CampaignSharedSet/CampaignSharedSetOperation.md) |The object which holds setup information of campaign and negative keyword list for the operation by mutate method. |
 
 ##### Request Sample
 ```xml
@@ -201,7 +201,7 @@ Response field
 
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [CampaignSharedSetReturnValue](../data/AdGroupAd/CampaignSharedSetReturnValue.md) |This is object which holds the exec result (List of all entities) of mutate method. |
+| rval | [CampaignSharedSetReturnValue](../data/CampaignSharedSet/CampaignSharedSetReturnValue.md) |This is object which holds the exec result (List of all entities) of mutate method. |
 
 ##### Response Sample
 ```xml

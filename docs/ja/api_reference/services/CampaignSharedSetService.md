@@ -4,8 +4,8 @@ CampaignSharedSetServiceでは、対象外キーワードリストのキャン�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/AdGroupAdService?wsdl|
+| production  | https://ss.yahooapis.jp/services/V201901/CampaignSharedSetService?wsdl|
+| sandbox  | https://sandbox.ss.yahooapis.jp/services/V201901/CampaignSharedSetService?wsdl|
 
 #### Namespace
 http://ss.yahooapis.jp/V201901/CampaignSharedSet
