@@ -30,7 +30,7 @@ V201909（WSDLバージョン V201909）
 レポートフィールドの「AVG_DELIVER_RANK」（平均掲載順位）を削除しました。削除後の値は、一律「--」（ハイフン2つ）として取得、表示されます。<br>
 また、トラッキングURLなどの新規入稿および編集時に{adposition}が利用できなくなります。入稿済みのパラメータについては{adposition}のトラッキングが不可となり、空の文字列が返ります。なお、広告配信には影響はありません。<br>
 トラッキングURLの{adposition}については以下を参照してください。<br>
-[トラッキングパラメータ](https://git.corp.yahoo.co.jp/anemos-eapi/sponsored-search-api-documents/blob/201901/docs/ja/api_reference/appendix/tracking.md)<br>
+[トラッキングパラメータ](https://github.com/yahoojp-marketing/sponsored-search-api-documents/blob/201901/docs/ja/api_reference/appendix/tracking.md)<br>
 詳細については以下のお知らせをご覧ください。<br>
 [パフォーマンスデータ一部指標提供終了のお知らせ](https://promotionalads.yahoo.co.jp/support/release/713854.html)
 
