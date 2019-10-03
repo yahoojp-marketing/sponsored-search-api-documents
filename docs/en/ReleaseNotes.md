@@ -30,7 +30,7 @@ It has closed in April 2019 on the Campaign Management Tool. See the following a
 The reporting field “AVG_DELIVER_RANK” (for Average position) has been removed. The value will be acquired and appear as "--" (double hyphen) after the closing date. <br>
 When adding and editing Tracking URL and etc., {adposition} is not available. Tracking adposition on existing parameters becomes unavailable, and empty string will return.  There is no effect on ad delivery. <br>
 See the following reference for {adposition} of Tracking URL in detail. <br>
-[Tracking Parameter](https://git.corp.yahoo.co.jp/anemos-eapi/sponsored-search-api-documents/blob/201901/docs/en/api_reference/appendix/tracking.md)<br>
+[Tracking Parameter](https://github.com/yahoojp-marketing/sponsored-search-api-documents/blob/201901/docs/en/api_reference/appendix/tracking.md)<br>
 See the following announcement for the details. <br>
 [Closing index in performance data](https://promotionalads.yahoo.co.jp/support/release/713854.html#article_en)
 
