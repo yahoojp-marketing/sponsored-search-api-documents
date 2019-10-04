@@ -10,6 +10,7 @@ AuditLogSourceTypeは、操作履歴における操作者を表します。<br>
 | Enumeration | Type | Description |
 |---|---|---|
 | API | xsd:string | APIアカウントによる操作です。 |
+| CAMPAIGN_MANAGEMENT_TOOL | xsd:string | 広告管理ツールからの履歴です。 |
 | YAHOO_JAPAN | xsd:string | Yahoo!プロモーション広告システムによる操作です。 |
 | ALL | xsd:string | すべての操作者による操作です。 |
 

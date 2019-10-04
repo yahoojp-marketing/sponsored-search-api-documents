@@ -10,6 +10,7 @@ AuditLogSourceType desribes the operator information of operation history data.<
 | Enumeration | Type | Description | 
 |---|---|---|
 | API | xsd:string | Operated by API account. |
+| CAMPAIGN_MANAGEMENT_TOOL | xsd:string | Campaign Management Tool |
 | YAHOO_JAPAN | xsd:string | Operated by the system of Yahoo! Japan Promotional Ad. |
 | ALL | xsd:string | Operated by all of operators. |
 
