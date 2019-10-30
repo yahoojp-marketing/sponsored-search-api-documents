@@ -55,3 +55,5 @@
 "OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[AVG_CPC, CLICKS, CLICK_RATE, COST, IMPS]","Segment"
 "CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[AVG_CPC, CLICKS, CLICK_RATE, COST, IMPS]","Segment"
 "IS_SELF_ACTION","当該の広告表示オプションとその他","Is Self Action","isSelfAction","ENUM","false","[CLICK_TYPE]","Segment"
+"SITELINK_FEED_ITEM_LINE1","クイックリンク説明文1","QuickLink Description 1","sitelinkFeedItemLine1","STRING","true",,"Attribute"
+"SITELINK_FEED_ITEM_LINE2","クイックリンク説明文2","QuickLink Description 2","sitelinkFeedItemLine2","STRING","true",,"Attribute"
