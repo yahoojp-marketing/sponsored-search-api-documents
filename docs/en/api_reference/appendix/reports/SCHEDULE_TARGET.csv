@@ -27,3 +27,5 @@
 "MONTH","毎月","Month","month","STRING","false",,"Segment"
 "MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",,"Segment"
 "WEEK","毎週","Week","week","STRING","false",,"Segment"
+"CONV_VALUE_PER_COST","コンバージョンの価値/コスト","Conv. Value Per Cost","convValuePerCost","DOUBLE","true",,"Metrics"
+"ALL_CONV_VALUE_PER_COST","すべてのコンバージョンの価値/コスト","All Conv. Value Per Cost","allConvValuePerCost","DOUBLE","true",,"Metrics"
