@@ -390,6 +390,11 @@ Contains the results (list of fields which can export) for getExportFields metho
           <ns2:displayFieldNameEN>Campaign Start Date</ns2:displayFieldNameEN>
         </ns2:fields>
         <ns2:fields>
+          <ns2:fieldName>END_YMD</ns2:fieldName>
+          <ns2:displayFieldNameJA>キャンペーン終了日</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Campaign End Date</ns2:displayFieldNameEN>
+        </ns2:fields>
+        <ns2:fields>
           <ns2:fieldName>PLATFORM_BID_MULTIPLIER</ns2:fieldName>
           <ns2:displayFieldNameJA>スマートフォン入札価格調整率（%）</ns2:displayFieldNameJA>
           <ns2:displayFieldNameEN>Smartphone Bid Adjustment (%)</ns2:displayFieldNameEN>
@@ -418,6 +423,11 @@ Contains the results (list of fields which can export) for getExportFields metho
           <ns2:fieldName>AD_ID</ns2:fieldName>
           <ns2:displayFieldNameJA>広告ID</ns2:displayFieldNameJA>
           <ns2:displayFieldNameEN>Ad ID</ns2:displayFieldNameEN>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_TRACK_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>トラッキング用広告ID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Track ID</ns2:displayFieldNameEN>
         </ns2:fields>
       </ns2:rval>
     </ns2:getExportFieldsResponse>
