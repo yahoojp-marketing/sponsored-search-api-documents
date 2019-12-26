@@ -50,7 +50,7 @@ GeoTargetTypeSettings object is a container for GeoTargeting.
   <td>Setting of Negative Location target for Campaign.</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>Default: LOCATION_OF _PRESENCE</td>
+  <td>Optional<br>Default: DONT_CARE</td>
   <td>Optional</td>
   <td>-</td>
  </tr>
