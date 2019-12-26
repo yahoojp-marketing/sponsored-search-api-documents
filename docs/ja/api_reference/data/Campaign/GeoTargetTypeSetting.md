@@ -50,7 +50,7 @@ GeoTargetTypeSettingsオブジェクトは、地域ターゲットの情報を�
   <td>キャンペーンで使用する除外地域の設定です。</td>
   <td>yes</td>
   <td>-</td>
-  <td>Optional<br>Default: LOCATION_OF_PRESENCE</td>
+  <td>Optional<br>Default: DONT_CARE</td>
   <td>Optional</td>
   <td>-</td>
  </tr>
