@@ -1,48 +1,50 @@
-"フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields","動作区分/Behavior Type"
-"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","false",,"Attribute"
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","false",,"Segment"
-"AD_ID","広告ID","Ad ID","adID","LONG","false",,"Segment"
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","false",,"Attribute"
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","false",,"Segment"
-"AD_NAME","広告名","Ad Name","adName","STRING","false",,"Segment"
-"COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric"
-"IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric"
-"CLICKS","クリック数","Clicks","clicks","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric"
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric"
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric"
-"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","true",,"Attribute"
-"FEED_ID","データ自動挿入リストID","Data Assignment List ID","dataAssignmentListId","LONG","true",,"Attribute"
-"FEED_ITEM_ID","データ自動挿入リスト（詳細）","Data Assignment List (details)","dataAssignmentListDetails","LONG","true",,"Attribute"
-"FEED_ITEM_START_DATE","開始日","Start Date","dataAssignmentListDetailsStartDate","STRING","true",,"Attribute"
-"FEED_ITEM_END_DATE","終了日","End Date","dataAssignmentListDetailsEndDate","STRING","true",,"Attribute"
-"FEED_ITEM_ATTRIBUTES","データ自動挿入リスト","Data Assignment List","dataAssignmentList","STRING","true",,"Attribute"
-"TARGET_LOCATION_NAME","ターゲット地域","Target Location","targetLocation","STRING","true",,"Attribute"
-"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE","true",,"Metric"
-"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE","true",,"Metric"
-"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE","true",,"Metric"
-"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE","true",,"Metric"
-"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE","true",,"Metric"
-"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE","true",,"Metric"
-"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","true",,"Metric"
-"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",,"Metric"
-"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true",,"Metric"
-"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",,"Metric"
-"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true",,"Metric"
-"KEYWORD_TARGETING_TEXT","設定先キーワード","Target Keyword","targetKeywordText","STRING","true",,"Attribute"
-"KEYWORD_TARGETING_MATCH_TYPE","設定先キーワードマッチタイプ","Target Keyword Match Type","targetKeywordMatchType","ENUM","true",,"Attribute"
-"TARGETING_CAMPAIGN_ID","設定先キャンペーンID","Target Campaign ID","targetCampaignID","LONG","true",,"Attribute"
-"TARGETING_ADGROUP_ID","設定先広告グループID","Target Ad Group ID","targetAdGroupID","LONG","true",,"Attribute"
-"TARGET_LOCATION_RESTRICTION","ターゲット地域の制限","Target Location Restriction","targetLocationRestriction","ENUM","true",,"Attribute"
-"NETWORK","広告掲載方式の指定","Network","network","ENUM","false",,"Segment"
-"DEVICE","デバイス","Device","device","ENUM","false",,"Segment"
-"DAY","日","Day","day","STRING","false",,"Segment"
-"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM","false",,"Segment"
-"QUARTER","四半期","Quarter","quarter","STRING","false",,"Segment"
-"YEAR","年間","Year","year","STRING","false",,"Segment"
-"MONTH","毎月","Month","month","STRING","false",,"Segment"
-"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",,"Segment"
-"WEEK","毎週","Week","week","STRING","false",,"Segment"
-"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[ALL_CONV_VALUE_PER_COST, AVG_CPC, CLICKS, CLICK_RATE, CONV_VALUE_PER_COST, COST, IMPS]","Segment"
-"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[ALL_CONV_VALUE_PER_COST, AVG_CPC, CLICKS, CLICK_RATE, CONV_VALUE_PER_COST, COST, IMPS]","Segment"
-"CONV_VALUE_PER_COST","コンバージョンの価値/コスト","Conv. Value Per Cost","convValuePerCost","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metrics"
-"ALL_CONV_VALUE_PER_COST","すべてのコンバージョンの価値/コスト","All Conv. Value Per Cost","allConvValuePerCost","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metrics"
+﻿"フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","表示回数0回のレコード取得指定可否/Supports Zero Impressions","組合せ不可フィールド/Not compatible fields","動作区分/Behavior Type","備考/Note"
+"ACCOUNT_ID","アカウントID","Account ID","accountID","STRING","true",,"Attribute",
+"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING","true",,"Attribute",
+"CAMPAIGN_ID","キャンペーンID","CampaignID","campaignID","LONG","false",,"Attribute",
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","false",,"Segment",
+"AD_ID","広告ID","Ad ID","adID","LONG","false",,"Segment",
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","false",,"Attribute",
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","false",,"Segment",
+"AD_NAME","広告名","Ad Name","adName","STRING","false",,"Segment",
+"COST","コスト","Cost","cost","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"IMPS","インプレッション数","Impressions","impressions","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"CLICKS","クリック数","Clicks","clicks","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"EDITORIAL_STATUS","審査状況","Editorial Status","editorialStatus","ENUM","true",,"Attribute",
+"FEED_ID","データ自動挿入リストID","Data Assignment List ID","dataAssignmentListId","LONG","true",,"Attribute",
+"FEED_ITEM_ID","データ自動挿入リスト（詳細）","Data Assignment List (details)","dataAssignmentListDetails","LONG","true",,"Attribute",
+"FEED_ITEM_START_DATE","開始日","Start Date","dataAssignmentListDetailsStartDate","STRING","true",,"Attribute",
+"FEED_ITEM_END_DATE","終了日","End Date","dataAssignmentListDetailsEndDate","STRING","true",,"Attribute",
+"FEED_ITEM_ATTRIBUTES","データ自動挿入リスト","Data Assignment List","dataAssignmentList","STRING","true",,"Attribute",
+"TARGET_LOCATION_NAME","ターゲット地域","Target Location","targetLocation","STRING","true",,"Attribute",
+"CONVERSIONS","コンバージョン数","Conversions","conversions","DOUBLE","true",,"Metric",
+"CONV_RATE","コンバージョン率","Conv. Rate","convRate","DOUBLE","true",,"Metric",
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","DOUBLE","true",,"Metric",
+"COST_PER_CONV","コスト/コンバージョン数","Cost Per Conv.","costPerConv","DOUBLE","true",,"Metric",
+"VALUE_PER_CONV","価値/コンバージョン数","Value Per Conv.","valuePerConv","DOUBLE","true",,"Metric",
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","DOUBLE","true",,"Metric",
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","true",,"Metric",
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","DOUBLE","true",,"Metric",
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","true",,"Metric",
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE","true",,"Metric",
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","DOUBLE","true",,"Metric","データ取得出来ない場合、値に[--]が設定されます"
+"KEYWORD_TARGETING_TEXT","設定先キーワード","Target Keyword","targetKeywordText","STRING","true",,"Attribute",
+"KEYWORD_TARGETING_MATCH_TYPE","設定先キーワードマッチタイプ","Target Keyword Match Type","targetKeywordMatchType","ENUM","true",,"Attribute",
+"TARGETING_CAMPAIGN_ID","設定先キャンペーンID","Target Campaign ID","targetCampaignID","LONG","true",,"Attribute",
+"TARGETING_ADGROUP_ID","設定先広告グループID","Target Ad Group ID","targetAdGroupID","LONG","true",,"Attribute",
+"TARGET_LOCATION_RESTRICTION","ターゲット地域の制限","Target Location Restriction","targetLocationRestriction","ENUM","true",,"Attribute",
+"NETWORK","広告掲載方式の指定","Network","network","ENUM","false",,"Segment",
+"DEVICE","デバイス","Device","device","ENUM","false",,"Segment",
+"DAY","日","Day","day","STRING","false",,"Segment",
+"DAY_OF_WEEK","曜日","Day of week","dayOfWeek","ENUM","false",,"Segment",
+"QUARTER","四半期","Quarter","quarter","STRING","false",,"Segment",
+"YEAR","年間","Year","year","STRING","false",,"Segment",
+"MONTH","毎月","Month","month","STRING","false",,"Segment",
+"MONTH_OF_YEAR","月","Month of Year","monthofYear","ENUM","false",,"Segment",
+"WEEK","毎週","Week","week","STRING","false",,"Segment",
+"OBJECT_OF_CONVERSION_TRACKING","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","ENUM","false","[ALL_CONV_VALUE_PER_COST, AVG_CPC, CLICKS, CLICK_RATE, CONV_VALUE_PER_COST, COST, IMPS]","Segment",
+"CONVERSION_NAME","コンバージョン名","Conversion Name","conversionName","STRING","false","[ALL_CONV_VALUE_PER_COST, AVG_CPC, CLICKS, CLICK_RATE, CONV_VALUE_PER_COST, COST, IMPS]","Segment",
+"CONV_VALUE_PER_COST","コンバージョンの価値/コスト","Conv. Value Per Cost","convValuePerCost","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metrics",
+"ALL_CONV_VALUE_PER_COST","すべてのコンバージョンの価値/コスト","All Conv. Value Per Cost","allConvValuePerCost","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metrics",
