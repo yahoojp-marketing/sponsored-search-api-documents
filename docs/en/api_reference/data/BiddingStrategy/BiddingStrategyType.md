@@ -38,11 +38,6 @@ BiddingStrategyType displays the Auto Bidding type.
   <td>Maximize Clicks.<br>*Applicable for campaign. Currently not available for ad group.</td>
  </tr>
  <tr>
-  <td>ENHANCED_CPC</td>
-  <td>xsd:string</td>
-  <td>Maximize conversions.<br>*Applicable for campaign. Currently not available for ad group.</td>
- </tr>
- <tr>
   <td>TARGET_CPA</td>
   <td>xsd:string</td>
   <td>Target conversion spend (CPA).<br>*Available on updating campaign process. Currently not available for ad group.</td>
