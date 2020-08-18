@@ -7,8 +7,8 @@
 "CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","true",,"Attribute",
 "ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","true",,"Attribute",
 "AD_NAME","広告名","Ad Name","adName","STRING","true",,"Attribute",
-"TITLE","タイトル","Title","title","STRING","true",,"Attribute",
-"DESCRIPTION","説明文1","Description 1","description1","STRING","true",,"Attribute",
+"TITLE","タイトル","Title","title","STRING","true",,"Attribute",次期APIのバージョンリリースまでに終了 TITLE1をご利用下さい
+"DESCRIPTION","説明文1","Description 1","description1","STRING","true",,"Attribute",次期APIのバージョンリリースまでに終了 DESCRIPTION1をご利用下さい
 "DISPLAY_URL","表示URL","Display URL","displayURL","STRING","true",,"Attribute",
 "DESTINATION_URL","リンク先URL","Destination URL","destinationURL","STRING","true",,"Attribute",
 "AD_TYPE","広告タイプ","Ad Type","adType","ENUM","true",,"Attribute",
@@ -19,6 +19,7 @@
 "CLICKS","クリック数","Clicks","clicks","LONG","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","true","[CONVERSION_NAME, OBJECT_OF_CONVERSION_TRACKING]","Metric",
+"DESCRIPTION1","説明文1","Description 1","description1","STRING","true",,"Attribute",
 "DESCRIPTION2","説明文2","Description 2","description2","STRING","true",,"Attribute",
 "DEVICE_PREFERENCE","優先デバイス","Focus Device","focusDevice","ENUM","true",,"Attribute",
 "TRACKING_URL","トラッキングURL","Tracking URL","trackingURL","STRING","true",,"Attribute",
@@ -54,7 +55,8 @@
 "AD_KEYWORD_ID","キーワードID","Keyword ID","adKeywordID","LONG","false",,"Segment",
 "TITLE1","タイトル1","Title1","title1","STRING","true",,"Attribute",
 "TITLE2","タイトル2","Title2","title2","STRING","true",,"Attribute",
-"DESC","説明文","Description","description","STRING","true",,"Attribute",
+"TITLE3","タイトル3","Title3","title3","STRING","true",,"Attribute",
+"DESC","説明文","Description","description","STRING","true",,"Attribute",次期APIのバージョンリリースまでに終了 DESCRIPTION1をご利用下さい
 "DIRECTORY1","ディレクトリ1","Directory1","directory1","STRING","true",,"Attribute",
 "DIRECTORY2","ディレクトリ2","Directory2","directory2","STRING","true",,"Attribute",
 "LABELS","ラベル","Labels","Labels","STRING","true",,"Attribute",
